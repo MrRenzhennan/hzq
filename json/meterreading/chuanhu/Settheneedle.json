@@ -1,0 +1,16 @@
+{"rows":
+[
+  {"UUID":"001","bookID":"3333333333","USER_ID":"1","GAS_USER_ID":"99°","areaid":"88°","bookcode":"2016-11-11 12:12:12","DOORCOUNT":"2016-11-12 12:12:12","COPYMONTH":"未审批","COPYRULEDAY":"立项审批文件.pdf","OLDBOOKNO":"未审批","PROPERTYUNIT":"产权单位","BOOKTYPE":"2016-11-11 12:12:12","BOOSTERCODE":"居民","DAYMEASURE":"本类型"}
+ ,{"UUID":"001","bookID":"3333333333","USER_ID":"1","GAS_USER_ID":"99°","areaid":"88°","bookcode":"2016-11-11 12:12:12","DOORCOUNT":"2016-11-12 12:12:12","COPYMONTH":"未审批","COPYRULEDAY":"立项审批文件.pdf","OLDBOOKNO":"未审批","PROPERTYUNIT":"产权单位","BOOKTYPE":"2016-11-11 12:12:12","BOOSTERCODE":"居民","DAYMEASURE":"本类型"}
+,{"UUID":"001","bookID":"3333333333","USER_ID":"1","GAS_USER_ID":"99°","areaid":"88°","bookcode":"2016-11-11 12:12:12","DOORCOUNT":"2016-11-12 12:12:12","COPYMONTH":"未审批","COPYRULEDAY":"立项审批文件.pdf","OLDBOOKNO":"未审批","PROPERTYUNIT":"产权单位","BOOKTYPE":"2016-11-11 12:12:12","BOOSTERCODE":"居民","DAYMEASURE":"本类型"}
+,{"UUID":"001","bookID":"3333333333","USER_ID":"1","GAS_USER_ID":"99°","areaid":"88°","bookcode":"2016-11-11 12:12:12","DOORCOUNT":"2016-11-12 12:12:12","COPYMONTH":"未审批","COPYRULEDAY":"立项审批文件.pdf","OLDBOOKNO":"未审批","PROPERTYUNIT":"产权单位","BOOKTYPE":"2016-11-11 12:12:12","BOOSTERCODE":"居民","DAYMEASURE":"本类型"}
+,{"UUID":"001","bookID":"3333333333","USER_ID":"1","GAS_USER_ID":"99°","areaid":"88°","bookcode":"2016-11-11 12:12:12","DOORCOUNT":"2016-11-12 12:12:12","COPYMONTH":"未审批","COPYRULEDAY":"立项审批文件.pdf","OLDBOOKNO":"未审批","PROPERTYUNIT":"产权单位","BOOKTYPE":"2016-11-11 12:12:12","BOOSTERCODE":"居民","DAYMEASURE":"本类型"}
+,{"UUID":"001","bookID":"3333333333","USER_ID":"1","GAS_USER_ID":"99°","areaid":"88°","bookcode":"2016-11-11 12:12:12","DOORCOUNT":"2016-11-12 12:12:12","COPYMONTH":"未审批","COPYRULEDAY":"立项审批文件.pdf","OLDBOOKNO":"未审批","PROPERTYUNIT":"产权单位","BOOKTYPE":"2016-11-11 12:12:12","BOOSTERCODE":"居民","DAYMEASURE":"本类型"}
+,{"UUID":"001","bookID":"3333333333","USER_ID":"1","GAS_USER_ID":"99°","areaid":"88°","bookcode":"2016-11-11 12:12:12","DOORCOUNT":"2016-11-12 12:12:12","COPYMONTH":"未审批","COPYRULEDAY":"立项审批文件.pdf","OLDBOOKNO":"未审批","PROPERTYUNIT":"产权单位","BOOKTYPE":"2016-11-11 12:12:12","BOOSTERCODE":"居民","DAYMEASURE":"本类型"}
+
+
+]
+,"total_rows":1
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

@@ -1,0 +1,10 @@
+{"rows":
+[
+  {"cusType":"居民","gasProperty":"普通用户","preNumber":"5","disVolume":"0","oparator":"操作人一","UUID":"01"},
+  {"cusType":"居民","gasProperty":"普通用户","preNumber":"6","disVolume":"55","oparator":"操作人一","UUID":"02"}
+
+]
+,"total_rows":2
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

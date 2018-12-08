@@ -1,0 +1,125 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title" id="myModalLabel">垃圾费收费历史信息</h4>
+</div>
+<div class="modal-body">
+    <div data-always-visible="1" data-rail-visible="1">
+        <table class="watable table table-striped table-hover table-bordered table-condensed">
+            <thead>
+                <tr>
+                    <th>
+                        收费日期
+                    </th>
+                    <th>
+                        营业网点
+                    </th>
+                    <th>
+                        营业员
+                    </th>
+                    <th>
+                        金额
+                    </th>
+                    <th>
+                        收费方式
+                    </th>
+                    <th>
+                        是否已领发票
+                    </th>
+                    <th>
+                        领用发票总额
+                    </th>
+                    <th>
+                        领用发票张数
+                    </th>
+                    <th>
+                    </th>
+                </tr>
+            </thead>
+            <tbody id="_garbageHistoryInfo">
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+</div>
+<script type="text/x-template" id="__dust__garbageHistoryRowInfo">
+    {#data}
+    <tr>
+        <td>
+            {tradeDate}
+        </td>
+        <td>
+            {chargeUnitName}
+        </td>
+        <td>
+            {employeeName}
+        </td>
+        <td>
+            {money}
+        </td>
+        <td>
+            {chargeTypeName}
+        </td>
+        <td>
+            {@select key=isUse} {@eq value="1"} 已领取{/eq} {@default } 未领取{/default} {/select}
+        </td>
+        <td>
+            {useMoney}
+        </td>
+        <td>
+            {useCount}
+        </td>
+        <td>
+            {@select key=isUse} {@eq value="1"} {/eq} {@default } <button onclick="getInvoice('{detailId}','{money}', this)">补领发票</button>{/default} {/select}
+        </td>
+    </tr>
+    {/data}
+</script>
+<script type="text/javascript">
+    function render(param) {
+        dust.loadSource(dust.compile($("#__dust__garbageHistoryRowInfo").html(), "garbagehistoryrowInfo__"));
+        //console.log(param.archiveId+123);
+        $.ajax({
+
+            url: "hzqs/dbc/pbsel.do?fh=SELDBC0000000J00&resp=bd",
+            dataType: "json",
+            contentType: "application/json;charset=utf-8",
+            type: "POST",
+            data: JSON.stringify({
+                // cols: " to_char(a.tradeDate,'yyyy-MM-dd hh24:mi:ss') tradeDate,c.customer_name,c.customer_code,d.employeeName,a.money,e.chargeUnitName,f.charge_type_name",
+                // froms: "gasChgAccount b, gasActWastefeeAtl a,gasCtmArchive c,gas_chg_type f,gasSysUser d,gasBizChargeUnit e",
+                // wheres:"b.chgAccountId =a.chgAccountId and a.chg_type_id = f.chg_type_id and c.ctmArchiveId=b.ctmArchiveId and e.chargeUnitId= d.chargeUnitId and d.userId = a.createdBy and c.ctmArchiveId='"+param.archiveId+"' order by tradeDate desc",
+                cols: "a.detailId, a.money, a.useMoney,a.useCount,a.isUse,a.customerCode,a.customerName,to_char(a.createdTime,'yyyy-MM-dd hh24:mi:ss') tradeDate,c.chargeUnitName,b.employeeName,d.chargeTypeName",
+                froms: "gasChgWasteDetail a left join gasSysUser b on a.createdBy = b.userId left join gasBizChargeUnit c on a.chargeUnitId = c.chargeUnitId left join gasChgType d on a.chgTypeId = d.chgTypeId",
+                wheres: "a.customerCode='" + param.customerCode + "' and a.status='1' order by a.createdTime desc",
+
+                //wheres:"b.chgAccCtmId =a.chgAccCtmId and c.ctmArchiveId=b.ctmArchiveId and c.customerCode='"+collectUtils.getContext("customer").customerCode+"'",
+                //wheres: "b.chgAccCtmId =a.chgAccCtmId and c.ctmArchiveId=b.ctmArchiveId and c.ctmArchiveId='11012017'",
+                page: true,
+                limit: 20,
+            }),
+
+            success: function (data) {
+                //console.log(data);
+                if (data && data.rows) {
+                    dust.render("garbagehistoryrowInfo__", { "data": data.rows }, function (err, res) {
+                        $("#_garbageHistoryInfo").html(res);
+                    });
+                }
+            }
+        });
+    }
+    function getInvoice(detailId, money, obj) {
+        $(obj).hide();
+        $invoiceModal.modal({
+            show: true,
+            backdrop: 'static',
+            keyboard: false
+        })
+        $invoiceModal.modal('show');
+        $invoiceModal.find("#detailid").val(detailId);
+        $invoiceModal.find("#imoney").val(money);
+    }
+
+</script>

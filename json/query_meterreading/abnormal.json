@@ -1,0 +1,12 @@
+{"rows":
+[
+  {"UUID":"001","customerID":"1","userID":"道里一","houseID":"666777","accountID":"3434543","customerName":"小王","address":"道外区工程路工程小区","photo":"139.......","mobilePhone":"小王","customerCategory":"居民","customerStatus":"小李","meterBook":"小张","contract":"2016 8-9","copybooktype":"IC卡采暖","cancellation":"无"},
+  {"UUID":"001","customerID":"1","userID":"道里一","houseID":"666777","accountID":"3434543","customerName":"小王","address":"道外区工程路工程小区","photo":"139.......","mobilePhone":"小王","customerCategory":"居民","customerStatus":"小李","meterBook":"小张","contract":"2016 8-9","copybooktype":"IC卡采暖","cancellation":"无"},
+  {"UUID":"001","customerID":"1","userID":"道里一","houseID":"666777","accountID":"3434543","customerName":"小王","address":"道外区工程路工程小区","photo":"139.......","mobilePhone":"小王","customerCategory":"居民","customerStatus":"小李","meterBook":"小张","contract":"2016 8-9","copybooktype":"IC卡采暖","cancellation":"无"},
+  {"UUID":"001","customerID":"1","userID":"道里一","houseID":"666777","accountID":"3434543","customerName":"小王","address":"道外区工程路工程小区","photo":"139.......","mobilePhone":"小王","customerCategory":"居民","customerStatus":"小李","meterBook":"小张","contract":"2016 8-9","copybooktype":"IC卡采暖","cancellation":"无"},
+  {"UUID":"001","customerID":"1","userID":"道里一","houseID":"666777","accountID":"3434543","customerName":"小王","address":"道外区工程路工程小区","photo":"139.......","mobilePhone":"小王","customerCategory":"居民","customerStatus":"小李","meterBook":"小张","contract":"2016 8-9","copybooktype":"IC卡采暖","cancellation":"无"}
+]
+,"total_rows":8
+,"totalPages":2
+,"skip":0
+,"limit":2147483647}

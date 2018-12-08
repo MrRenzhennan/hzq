@@ -1,0 +1,63 @@
+<div class="btn-group form-group">
+    <button id="gpypz" class="btn blue">
+        <i class="fa fa-search"></i> 拍照&nbsp;
+    </button>
+</div>
+<div class="btn-group form-group">
+    <button id="uploadpic" class="btn blue">
+        <i class="fa fa-search"></i> 上传照片&nbsp;
+    </button>
+</div>
+<div class="row form-group">
+    <div class="col-md-12">
+        <!--<label class="control-label">相关照片</label>-->
+        <div id="grid-gallery" class="grid-gallery">
+            <section class="grid-wrap">
+                <ul id="grid" class="grid">
+                    <li class="grid-sizer"></li>
+                </ul>
+            </section>
+            <section class="slideshow" style="padding-top: 10px">
+                <ul id = "slideId">
+                </ul>
+                <nav>
+                    <span class="icon nav-prev"></span>
+                    <span class="icon nav-next"></span>
+                    <span class="icon nav-close" style="padding-top: 50px;"></span>
+                </nav>
+            </section>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="assets/global/plugins/previewPicture/js/imagesloaded.pkgd.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/previewPicture/js/masonry.pkgd.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/previewPicture/js/classie.js"></script>
+<script type="text/javascript" src="assets/global/plugins/previewPicture/js/cbpGridGallery.js"></script>
+<script>
+
+
+    var base64 = [];
+    var picturepath = [];
+    $("#gpypz").on("click",function(){
+        $.ajax({
+            url:'http://127.0.0.1:9000/?data={"cmdheader":{"cmdtype":"21"}}',
+            type:"get",
+            jsonp: "callfuncname",
+            dataType: "JSONP",
+            async: false,
+            success:function(data){
+                console.log(data);
+                base64.push(data.result.base64)
+                picturepath.push(data.result.filename)
+                $("#grid").append("<li><figure><img src='http://127.0.0.1:9000/getfile?data="+data.result.filename+"' alt=''/></figure></li>");
+                $("#slideId").append("<li><figure><img src='http://127.0.0.1:9000/getfile?data="+data.result.filename+"' alt=''/></figure></li>");
+                new CBPGridGallery(document.getElementById('grid-gallery'));
+                console.log(picturepath)
+            }
+        })
+
+    });
+
+
+
+</script>

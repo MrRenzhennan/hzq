@@ -1,0 +1,10 @@
+{"rows":
+[
+  {"UUID":"001","userID":"100230001","collectTime":"2016-11-11","applyTime":"2016-11-11","tollMethod":"现金","collectmoney":"100","feeType":"燃气费","afterMethod":"POS机","yyyName":"王丽","state":"审批中","yy":"道里一"}
+,{"UUID":"001","userID":"100230001","collectTime":"2016-11-11","applyTime":"2016-11-11","tollMethod":"现金","collectmoney":"50","feeType":"燃气费","afterMethod":"POS机","yyyName":"王丽","state":"审批中","yy":"道里一"}
+, {"UUID":"001","userID":"100230001","collectTime":"2016-11-11","applyTime":"2016-11-11","tollMethod":"现金","collectmoney":"100","feeType":"燃气费","afterMethod":"POS机","yyyName":"王丽","state":"已审批","yy":"道里一"}
+]
+,"total_rows":1
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

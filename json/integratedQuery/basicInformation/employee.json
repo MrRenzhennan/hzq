@@ -1,0 +1,15 @@
+{"rows":
+[
+   {"UUID":"001","department_ID":"单位","employee_ID":"工作人员编号","employee_name":"工作人员姓名","employee_position":"岗位","del_flag":"删除标记","employee_address":"工作人员地址","employee_phone":"工作人员电话","employee_mobile_phone":"工作人员手机","remark":"备注"},
+   {"UUID":"001","department_ID":"单位","employee_ID":"工作人员编号","employee_name":"工作人员姓名","employee_position":"岗位","del_flag":"删除标记","employee_address":"工作人员地址","employee_phone":"工作人员电话","employee_mobile_phone":"工作人员手机","remark":"备注"},
+   {"UUID":"001","department_ID":"单位","employee_ID":"工作人员编号","employee_name":"工作人员姓名","employee_position":"岗位","del_flag":"删除标记","employee_address":"工作人员地址","employee_phone":"工作人员电话","employee_mobile_phone":"工作人员手机","remark":"备注"},
+   {"UUID":"001","department_ID":"单位","employee_ID":"工作人员编号","employee_name":"工作人员姓名","employee_position":"岗位","del_flag":"删除标记","employee_address":"工作人员地址","employee_phone":"工作人员电话","employee_mobile_phone":"工作人员手机","remark":"备注"},
+   {"UUID":"001","department_ID":"单位","employee_ID":"工作人员编号","employee_name":"工作人员姓名","employee_position":"岗位","del_flag":"删除标记","employee_address":"工作人员地址","employee_phone":"工作人员电话","employee_mobile_phone":"工作人员手机","remark":"备注"},
+   {"UUID":"001","department_ID":"单位","employee_ID":"工作人员编号","employee_name":"工作人员姓名","employee_position":"岗位","del_flag":"删除标记","employee_address":"工作人员地址","employee_phone":"工作人员电话","employee_mobile_phone":"工作人员手机","remark":"备注"},
+   {"UUID":"001","department_ID":"单位","employee_ID":"工作人员编号","employee_name":"工作人员姓名","employee_position":"岗位","del_flag":"删除标记","employee_address":"工作人员地址","employee_phone":"工作人员电话","employee_mobile_phone":"工作人员手机","remark":"备注"},
+   {"UUID":"001","department_ID":"单位","employee_ID":"工作人员编号","employee_name":"工作人员姓名","employee_position":"岗位","del_flag":"删除标记","employee_address":"工作人员地址","employee_phone":"工作人员电话","employee_mobile_phone":"工作人员手机","remark":"备注"}
+]
+,"total_rows":8
+,"totalPages":2
+,"skip":0
+,"limit":2147483647}

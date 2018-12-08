@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<!--<![endif]-->
+
+<!-- BEGIN HEAD -->
+<head>
+    <title>用户抄表查询</title>
+    <base href="../../">
+    <script src="pages/scripts/header.js"></script>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8"/>
+
+    <link href='assets/global/plugins/jquery-watable/watable.css' rel='stylesheet'/>
+    <link href='assets/global/plugins/jquery-watable/animate.min.css' rel='stylesheet'/>
+
+
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-select/bootstrap-select.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/select2/select2.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/jquery-multi-select/css/multi-select.css"/>
+    <link href="assets/global/plugins/bootstrap-fileinput/fileinput.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-datepicker/css/datepicker3.css"/>
+
+    <!-- BEGIN THEME STYLES -->
+    <link href="assets/global/css/components.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
+    <style>
+        #exhibition>div{
+            margin-bottom: 10px;
+        }
+         #modify div.col-md-6 {
+             margin-bottom: 10px
+         }
+        .reading-data{
+            padding-left:0px;
+            list-style: none;
+            margin: 0;
+        }
+        .reading-data li{
+            display:inline-block;
+            width: 60px;
+            position: relative;
+            padding: 3px 5px 3px 18px;
+            margin: 5px 5px 3px 5px;
+            border: 1px solid #e5e5e5;
+            background-image: none;
+            background-color: #fff;
+        }
+        .reading-data a{
+            position: absolute;
+            left: 0;
+            margin-left: 5px;
+            margin-top: 1px;
+        }
+        .reading-data li div{
+            display: inline-block;
+        }
+        #modify_copymonth>div{
+            height: 100px;
+            margin-left:10px;
+            border:1px solid #ccc;
+        }
+        .select2-container--open {
+            z-index: 10003;          /* form dialog z-index:10002 (computed)*/
+        }
+    </style>
+
+</head>
+<!-- END HEAD -->
+
+<body class="page-header-fixed page-quick-sidebar-over-content">
+
+<!-- 标题栏开始 -->
+<div class="page-header navbar navbar-fixed-top">
+    <script>$.include("pages/partial/menu.shtml");</script>
+</div>
+<!-- 标题栏结束 -->
+<div class="clearfix"></div>
+<div class="page-container">
+    <!-- 左侧菜单开始 -->
+    <div class="page-sidebar-wrapper">
+        <script>$.include("pages/partial/sidebar.shtml");</script>
+    </div>
+    <!-- 左侧菜单结束 -->
+
+    <!-- 主内容开始 -->
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <!--内容头开始-->
+<<<<<<< Updated upstream
+            <script>$.include("common/navigation_bar.shtml");</script>
+=======
+            <!--<div class="row">
+                <div class="col-md-12">
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa  fa-map-marker"></i>
+                            <a href="index.html">综合查询</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">用户抄表查询</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>-->
+             	<script>$.include("common/navigation_bar.shtml");</script>
+
+>>>>>>> Stashed changes
+            <!-- 内容头结束-->
+            <!-- 内容开始-->
+            <div class="container col-sm-12" style="background-color: #ffffff; ">
+                <div class="row" >
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group input-select2me col-sm-12">
+                            <div class="input-group-addon">供气区域:</div>
+                            <select id="find_areaId" class="form-control input-middle select2me" data-placeholder="供气区域...">
+                                <option value="">全部</option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group input-select2me col-sm-12">
+                            <div class="input-group-addon">核算员:</div>
+                            <select id="find_countperId" class="form-control input-middle select2me" data-placeholder="核算员...">
+                                <option value="">全部</option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group input-select2me col-sm-12">
+                            <div class="input-group-addon">客户服务员</div>
+                            <select  id="find_serviceperId" class="form-control input-middlle select2me" data-placeholder="客户服务员...">
+                                <option value="">全部</option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group input-select2me col-sm-12">
+                            <div class="input-group-addon">历史核算员:</div>
+                            <select id="find_history_countperId" class="form-control input-middle select2me" data-placeholder="核算员...">
+                                <option value="">全部</option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group input-select2me col-sm-12">
+                            <div class="input-group-addon">历史客户服务员</div>
+                            <select  id="find_history_serviceperId" class="form-control input-middlle select2me" data-placeholder="客户服务员...">
+                                <option value="">全部</option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group input-select2me col-sm-12">
+                            <div class="input-group-addon">在职核算员姓名查询:</div>
+                            <select id="find_now_countperId" class="form-control input-middle select2me" data-placeholder="核算员...">
+                                <option value="">全部</option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group input-select2me col-sm-12">
+                            <div class="input-group-addon">在职客户服务员姓名查询</div>
+                            <select  id="find_now_serviceperId" class="form-control input-middlle select2me" data-placeholder="客户服务员...">
+                                <option value="">全部</option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group input-select2me col-sm-12">
+                            <div class="input-group-addon">是否抄表</div>
+                            <select id="is_mrd" class="form-control input-middle select2me" data-placeholder="是否抄表...">
+                                <option value=""></option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group input-select2me col-sm-12">
+                            <div class="input-group-addon">是否计费</div>
+                            <select id="is_bll" class="form-control input-middle select2me" data-placeholder="是否计费...">
+                                <option value=""></option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group input-select2me col-sm-12">
+                            <div class="input-group-addon">抄表类型</div>
+                            <select id="copy_type" class="form-control input-middle select2me" data-placeholder="抄表类型...">
+                                <option value="">全部</option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group input-select2me col-sm-12">
+                            <div class="input-group-addon">数据来源</div>
+                            <select id="data_source" class="form-control input-middle select2me" data-placeholder="数据来源...">
+                                <option value=""></option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group input-select2me col-sm-12">
+                            <div class="input-group-addon">数据状态</div>
+                            <select id="copy_state" class="form-control input-middle select2me" data-placeholder="数据来源...">
+                                <option value="">全部</option>
+                                <option value="0">新生成</option>
+                                <option value="1">已下装</option>
+                                <option value="2">已录入</option>
+                                <option value="3">数据分析中</option>
+                                <option value="4">数据分析：正常(待计费)</option>
+                                <option value="A">数据分析：正常(不计费)</option>
+                                <option value="E">数据分析：异常</option>
+                                <option value="5">计费中</option>
+                                <option value="6">计费完成</option>
+                                <option value="9">删除</option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group input-select2me col-sm-12">
+                            <div class="input-group-addon">是否为计划抄表</div>
+                            <select id="copy_operate" class="form-control input-middle select2me" data-placeholder="是否为计划抄表...">
+                                <option value="">全部</option>
+                                <!--<option value="P">计划抄表</option>
+                                <option value="S">业务抄表</option>
+                                <option value="T">临时抄表</option>-->
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+						<div class="btn-group input-group input-select2me col-sm-12">
+							<div class="input-group-addon">临时抄表类型:</div>
+							<select id="temporary_type" class="form-control input-middle select2me" data-placeholder="临时抄表类型...">
+								<option value=""></option>
+								<!--<option value="01">批量换表前抄表</option>
+								<option value="02">零散换表前抄表</option>
+								<option value="03">复抄</option>
+								<option value="04">顺价抄表</option>
+								<option value="05">抄表复核</option>
+								<option value="10">其它</option>-->
+							</select>
+							<span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+						</div>
+					</div>
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group input-select2me col-sm-12">
+                            <div class="input-group-addon">客户状态</div>
+                            <select id="customer_state" class="form-control input-middle select2me" data-placeholder="客户状态...">
+                                <option value=""></option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group input-select2me col-sm-12">
+                            <div class="input-group-addon">是否IC卡表</div>
+                            <select id="customer_type" class="form-control input-middle select2me" data-placeholder="是否IC卡表...">
+                                <option value=""></option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group input-select2me">
+                            <div class="input-group-addon">客户类型:</div>
+                            <select id="find_gasTypeId" class="form-control input-middle select2me"
+                                    data-placeholder="客户类型...">
+                                <option value=""></option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group input-select2me">
+                            <div class="input-group-addon">用气类型:</div>
+                            <select id="find_gasTypeId1" class="form-control input-middle select2me"
+                                    data-placeholder="请选择">
+                                <option value=""></option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group input-select2me">
+                            <div class="input-group-addon">用气性质:</div>
+                            <select id="find_gasTypeId2" class="form-control input-middle select2me"
+                                    data-placeholder=" ">
+                                <option value=""></option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group input-select2me">
+                            <div class="input-group-addon">是否为人为置为正常:</div>
+                            <select id="find_errortoallow" class="form-control input-middle select2me"
+                                    data-placeholder=" ">
+                                <option value="">全部</option>
+                                <option value="1">是</option>
+                                <option value="2">否</option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group input-select2me">
+                            <div class="input-group-addon">二次表状态:</div>
+                            <select id="find_revisemeterstate" class="form-control input-middle select2me"
+                                    data-placeholder=" ">
+                                <option value="">全部</option>
+                                <option value="01">二次表正常</option>
+                                <option value="06">二次表未校验</option>
+                                <option value="07">二次表损坏</option>
+                                <option value="09">没有二次表</option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group input-select2me">
+                            <div class="input-group-addon">计费表:</div>
+                            <select id="find_charging_meter" class="form-control input-middle select2me"
+                                    data-placeholder=" ">
+                                <option value="">全部</option>
+                                <option value="1">一次表计费</option>
+                                <option value="2">二次表计费</option>
+                               
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group input-select2me">
+                            <div class="input-group-addon">表具异常种类:</div>
+                            <select id="find_appmetererror" class="form-control input-middle select2me"
+                                    data-placeholder=" ">
+                                <option value=""></option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group input-select2me">
+                            <div class="input-group-addon">是否有信息反馈:</div>
+                            <select id="find_feedback" class="form-control input-middle select2me"
+                                    data-placeholder=" ">
+                                <option value="">全部</option>
+                                <option value="1">有</option>
+                                <option value="2">无</option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                        </div>
+                    </div>
+                    <!-- <div class="col-sm-6 form-group">
+                        <div class="btn-group input-group input-select2me">
+                            <div class="input-group-addon">当前抄表月中存在多条抄表计划(不包含临时抄表计划):</div>
+                            <select id="find_manypplan" class="form-control input-middle select2me"
+                                    data-placeholder=" ">
+                                <option value="">全部</option>
+                                <option value="1">存在多条</option>
+                                <option value="2">不存在多条</option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                        </div>
+                    </div>-->
+                    <!--<div class="col-sm-6 form-group">
+                        <div class="btn-group input-group input-select2me">
+                            <div class="input-group-addon">当前抄表月中存在多条抄表计划(含临时抄表计划):</div>
+                            <select id="find_manyptplan" class="form-control input-middle select2me"
+                                    data-placeholder=" ">
+                                <option value="">全部</option>
+                                <option value="1">存在多条</option>
+                                <option value="2">只存在一条</option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                        </div>
+                    </div>-->
+                   <!-- <div class="col-md-8 form-group">
+                        <div class="col-sm-12 input-group">
+                            <div class="input-group-addon">异常类型:</div>
+                            <select  id="exception_type" class="form-control input-middlle select2me"
+                                     data-placeholder="异常类型...">
+                                <option value="ALL">全部</option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                        </div>
+                    </div>-->
+                    <div class="col-sm-6 form-group">
+                        <div class="btn-group input-group input-select2me col-sm-12">
+                            <div class="input-group-addon">计划抄表时间和实际抄表时间间隔（单位：天）</div>
+                            <input id="find_plantimetocopytime" class="inputclear form-control" type="text" placeholder="举个例子：填写5,就是间隔5天">
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group input-select2me col-sm-12">
+                            <div class="input-group-addon">客户名称</div>
+                            <input id="customer_name" class="inputclear form-control" type="text" placeholder="客户名称">
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group input-select2me col-sm-12">
+                            <div class="input-group-addon">客户编号</div>
+                            <input id="customer_code" class="inputclear form-control" type="text" placeholder="客户编号">
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group">
+                            <div class="input-group-addon">客户地址</div>
+                            <input id="customer_address" class="inputclear form-control" type="text" placeholder="客户地址">
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group input-select2me col-sm-12">
+                            <div class="input-group-addon">抄表本编号</div>
+                            <input id="book_code" class="inputclear form-control" type="text" placeholder="抄表本编号">
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 form-group">
+						<div class="btn-group input-group input-select2me col-sm-10"><!--pull-left-->
+                    	<div class="input-group-addon" style="border:0px;">抄表计费气量范围:</div>
+                            <input id="find_charge_meter_reading_min" type="text" class="inputclear form-control" name="from">
+                            <span class="inputclear glyphicon glyphicon-remove-circle hidden" ></span>
+                            <span class="input-group-addon">至</span>
+                            <input id="find_charge_meter_reading_max" type="text" class="inputclear form-control" name="to">
+                            <span class="inputclear glyphicon glyphicon-remove-circle hidden" ></span>
+                		</div>
+					</div>
+                    <div class="col-sm-4 form-group" style="margin:10px 0;">
+                        <div class="btn-group input-group pull-left col-sm-4">
+                            <div class="input-group-addon">计划起始日期:</div>
+                            <div class="input-group input-large date-picker input-daterange" data-date-format="yyyy-mm-dd">
+                                <input id="find_start_date" type="text" class="form-control" name="from">
+                                <span class="inputclear glyphicon glyphicon-remove-circle hidden" ></span>
+                                <span class="input-group-addon">至</span>
+                                <input id="find_end_date" type="text" class="form-control" name="to">
+                                <span class="inputclear glyphicon glyphicon-remove-circle hidden" ></span>
+                            </div>
+                        </div>
+                       <!-- <div class="col-sm-6 data-select">
+                            <div class="btn-group">
+                                <button id="find_today_sign" class="btn">当日</button>
+                            </div>
+                            <div class="btn-group">
+                                <button id="find_this_month_sign" class="btn">近一月</button>
+                            </div>
+                            <div class="btn-group">
+                                <button id="find_this_year_sign" class="btn">近一年</button>
+                            </div>
+                            <div class="btn-group">
+                                <button id="find_anyway_sign" class="btn">不限</button>
+                            </div>
+                        </div>-->
+                    </div>
+                    <!--开栓时间-->
+                    <div class="col-sm-4 form-group" style="margin:10px 0;">
+                        <div class="btn-group input-group pull-left col-sm-4">
+                            <div class="input-group-addon">用户开栓日期:</div>
+                            <div class="input-group input-large date-picker input-daterange" data-date-format="yyyy-mm-dd">
+                                <input id="find_u_start_date" type="text" class="form-control" name="from">
+                                <span class="inputclear glyphicon glyphicon-remove-circle hidden" ></span>
+                                <span class="input-group-addon">至</span>
+                                <input id="find_u_end_date" type="text" class="form-control" name="to">
+                                <span class="inputclear glyphicon glyphicon-remove-circle hidden" ></span>
+                            </div>
+                        </div>
+                       <!-- <div class="col-sm-6 data-select">
+                            <div class="btn-group">
+                                <button id="find_u_today_sign" class="btn">当日</button>
+                            </div>
+                            <div class="btn-group">
+                                <button id="find_u_this_month_sign" class="btn">近一月</button>
+                            </div>
+                            <div class="btn-group">
+                                <button id="find_u_this_year_sign" class="btn">近一年</button>
+                            </div>
+                            <div class="btn-group">
+                                <button id="find_u_anyway_sign" class="btn">不限</button>
+                            </div>
+                        </div>-->
+                    </div>
+                    
+                    <!--计费时间-->
+                    <div class="col-sm-4 form-group" style="margin:10px 0;">
+                        <div class="btn-group input-group pull-left col-sm-4">
+                            <div class="input-group-addon">计费日期:</div>
+                            <div class="input-group input-large date-picker input-daterange" data-date-format="yyyy-mm-dd">
+                                <input id="find_bll_start_date" type="text" class="form-control" name="from">
+                                <span class="inputclear glyphicon glyphicon-remove-circle hidden" ></span>
+                                <span class="input-group-addon">至</span>
+                                <input id="find_bll_end_date" type="text" class="form-control" name="to">
+                                <span class="inputclear glyphicon glyphicon-remove-circle hidden" ></span>
+                            </div>
+                        </div>
+                    </div>
+                   <!-- </div>-->
+                    <!--抄表计划创建时间-->
+                    <div class="col-sm-4 form-group" style="margin:10px 0;">
+                        <div class="btn-group input-group pull-left col-sm-4">
+                            <div class="input-group-addon">计划创建日期:</div>
+                            <div class="input-group input-large date-picker input-daterange" data-date-format="yyyy-mm-dd">
+                                <input id="find_p_start_date" type="text" class="form-control" name="from">
+                                <span class="inputclear glyphicon glyphicon-remove-circle hidden" ></span>
+                                <span class="input-group-addon">至</span>
+                                <input id="find_p_end_date" type="text" class="form-control" name="to">
+                                <span class="inputclear glyphicon glyphicon-remove-circle hidden" ></span>
+                            </div>
+                        </div>
+                        <!--<div class="col-sm-6 data-select">
+                            <div class="btn-group">
+                                <button id="find_p_today_sign" class="btn">当日</button>
+                            </div>
+                            <div class="btn-group">
+                                <button id="find_p_this_week_sign" class="btn">近一周</button>
+                            </div>
+                            <div class="btn-group">
+                                <button id="find_p_this_month_sign" class="btn">近一月</button>
+                            </div>
+                            <div class="btn-group">
+                                <button id="find_p_three_month_sign" class="btn">近三月</button>
+                            </div>
+                            <div class="btn-group">
+                                <button id="find_p_this_year_sign" class="btn">近一年</button>
+                            </div>
+                            <div class="btn-group">
+                                <button id="find_p_anyway_sign" class="btn">不限</button>
+                            </div>
+                        </div>-->
+                    </div>
+                    
+                    <!--抄表记录（计划）修改时间-->
+                    <div class="col-sm-4 form-group" style="margin:10px 0;">
+                        <div class="btn-group input-group pull-left col-sm-4">
+                            <div class="input-group-addon">数据最后一次修改日期:</div>
+                            <div class="input-group input-large date-picker input-daterange" data-date-format="yyyy-mm-dd">
+                                <input id="find_l_start_date" type="text" class="form-control" name="from">
+                                <span class="inputclear glyphicon glyphicon-remove-circle hidden" ></span>
+                                <span class="input-group-addon">至</span>
+                                <input id="find_l_end_date" type="text" class="form-control" name="to">
+                                <span class="inputclear glyphicon glyphicon-remove-circle hidden" ></span>
+                            </div>
+                        </div>
+                        <!--<div class="col-sm-6 data-select">
+                            <div class="btn-group">
+                                <button id="find_l_today_sign" class="btn">当日</button>
+                            </div>
+                            <div class="btn-group">
+                                <button id="find_l_this_week_sign" class="btn">近一周</button>
+                            </div>
+                            <div class="btn-group">
+                                <button id="find_l_this_month_sign" class="btn">近一月</button>
+                            </div>
+                            <div class="btn-group">
+                                <button id="find_l_three_month_sign" class="btn">近三月</button>
+                            </div>
+                            <div class="btn-group">
+                                <button id="find_l_this_year_sign" class="btn">近一年</button>
+                            </div>
+                            <div class="btn-group">
+                                <button id="find_l_anyway_sign" class="btn">不限</button>
+                            </div>
+                        </div>-->
+                    </div>
+
+                    <!--抄表计划月份（抄表月） 查询-->
+                    <div class="col-sm-12 form-group" style="margin:10px 0;">
+                        <div class="btn-group input-group pull-left col-sm-4">
+                            <div class="input-group-addon">抄表月份选择:</div>
+                            <div class="input-group input-large date-picker input-daterange" data-date-format="yyyy-mm-dd">
+                                <input id="find_start_month_date" type="text" class="form-control" name="from">
+                                <span class="inputclear glyphicon glyphicon-remove-circle hidden" ></span>
+                                <span class="input-group-addon">至</span>
+                                <input id="find_end_month_date" type="text" class="form-control" name="to">
+                                <span class="inputclear glyphicon glyphicon-remove-circle hidden" ></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 data-select" id="select_copy_month">
+                            <div class="btn-group">
+                                <button id="copy_january" class="btn badge bg-blue">1</button>
+                            </div>
+                            <div class="btn-group">
+                                <button id="copy_february" class="btn badge bg-blue">2</button>
+                            </div>
+                            <div class="btn-group">
+                                <button id="copy_march" class="btn badge bg-blue">3</button>
+                            </div>
+                            <div class="btn-group">
+                                <button id="copy_april" class="btn badge bg-blue">4</button>
+                            </div>
+                            <div class="btn-group">
+                                <button id="copy_may" class="btn badge bg-blue">5</button>
+                            </div>
+                            <div class="btn-group">
+                                <button id="copy_june" class="btn badge bg-blue">6</button>
+                            </div>
+                            <div class="btn-group">
+                                <button id="copy_july" class="btn badge bg-blue">7</button>
+                            </div>
+                            <div class="btn-group">
+                                <button id="copy_august" class="btn badge bg-blue">8</button>
+                            </div>
+                            <div class="btn-group">
+                                <button id="copy_september" class="btn badge bg-blue">9</button>
+                            </div>
+                            <div class="btn-group">
+                                <button id="copy_october" class="btn badge bg-blue">10</button>
+                            </div>
+                            <div class="btn-group">
+                                <button id="copy_november" class="btn badge bg-blue">11</button>
+                            </div>
+                            <div class="btn-group">
+                                <button id="copy_december" class="btn badge bg-blue">12</button>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-12 form-group" style="margin:20px 0;">
+                        <div class="btn-group input-group pull-left col-sm-4">
+                            <div class="input-group-addon">实际抄表时间查询<span style="font-size:3px;">（业务抄表没有计划抄表时间，使用这里）<span>:</div>
+                            <div class="input-group input-large date-picker input-daterange" data-date-format="yyyy-mm-dd">
+                                <input id="find_copy_start_month_date" type="text" class="form-control" name="from">
+                                <span class="inputclear glyphicon glyphicon-remove-circle hidden" ></span>
+                                <span class="input-group-addon">至</span>
+                                <input id="find_copy_end_month_date" type="text" class="form-control" name="to">
+                                <span class="inputclear glyphicon glyphicon-remove-circle hidden" ></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 data-select" id="select_copy_month_1">
+                            <div class="btn-group">
+                                <button id="copy_january_1" class="btn badge bg-purple">1</button>
+                            </div>
+                            <div class="btn-group">
+                                <button id="copy_february_1" class="btn badge bg-purple">2</button>
+                            </div>
+                            <div class="btn-group">
+                                <button id="copy_march_1" class="btn badge bg-purple">3</button>
+                            </div>
+                            <div class="btn-group">
+                                <button id="copy_april_1" class="btn badge bg-purple">4</button>
+                            </div>
+                            <div class="btn-group">
+                                <button id="copy_may_1" class="btn badge bg-purple">5</button>
+                            </div>
+                            <div class="btn-group">
+                                <button id="copy_june_1" class="btn badge bg-purple">6</button>
+                            </div>
+                            <div class="btn-group">
+                                <button id="copy_july_1" class="btn badge bg-purple">7</button>
+                            </div>
+                            <div class="btn-group">
+                                <button id="copy_august_1" class="btn badge bg-purple">8</button>
+                            </div>
+                            <div class="btn-group">
+                                <button id="copy_september_1" class="btn badge bg-purple">9</button>
+                            </div>
+                            <div class="btn-group">
+                                <button id="copy_october_1" class="btn badge bg-purple">10</button>
+                            </div>
+                            <div class="btn-group">
+                                <button id="copy_november_1" class="btn badge bg-purple">11</button>
+                            </div>
+                            <div class="btn-group">
+                                <button id="copy_december_1" class="btn badge bg-purple">12</button>
+                            </div>
+                        </div>
+
+                    </div>
+                    
+                    
+                    
+                    <div class="col-sm-1">
+                        <button class="btn yellow" id="find_button" style="border:none;">
+                            查询&nbsp; <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="container-fluid">
+                    <div id="divtable" class="table-responsive container-fluid col-md-12" >
+                    </div>
+                </div>
+
+                <!-- 内容结束-->
+            </div>
+            </div>
+        </div>
+        <!-- 主内容结束 -->
+    </div>
+
+    <script type="text/javascript">$.include("pages/partial/xwatable-form.shtml")</script>
+
+    <!-- 底边栏开始 -->
+    <!--<script>$.include("pages/partial/foot.shtml");</script>-->
+    <!-- 底边栏结束 -->
+</body>
+
+<script>$.include("pages/partial/scripts.shtml");</script>
+<script type="text/javascript" src="assets/global/plugins/jquery-watable/jquery.watable.js"></script>
+<script type="text/javascript" src="pages/scripts/rqlbuilder.js"></script>
+<script type="text/javascript" src="pages/scripts/xwatable.js"></script>
+<script type="text/javascript" src="pages/scripts/refhelper.js"></script>
+
+
+<script src="assets/admin/pages/scripts/components-pickers.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+
+
+<script type="text/javascript" src="assets/global/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-multi-select/js/jquery.multi-select.js"></script>
+
+<script type="text/javascript" src="assets/global/plugins/bootstrap-fileinput/fileinput.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-fileinput/zh.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script src="assets/admin/pages/scripts/components-dropdowns.js"></script>
+
+<!-- END PAGE LEVEL SCRIPTS -->
+<script src="mods/timeslot.js"></script>
+<script src="mods/sys.js"></script>
+<script src="mods/bas.js"></script>
+<script src="mods/mrd.js"></script>
+<script src="mods/ctm.js"></script>
+<script src="mods/mtr.js"></script>
+<!--<script src="mods/customer.js"></script>-->
+
+<script src="assets/admin/pages/scripts/components-pickers.js"></script>
+<script src="meterreading/js/mrdshowplandetail.js"></script>
+
+
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        ComponentsPickers.init();
+        MrdShowPlanDetailAction.init()
+    });
+</script><!-- End of User Script-->
+
+</html>

@@ -1,0 +1,53 @@
+<script type="text/x-template" id="__dust__wasteRowInfo">
+    <input type="hidden" id="chgTitle" value="垃圾处理费" />
+    <input type="hidden" id="feeType" value="waste" /> {#data}
+    <tr>
+        <td style="width: 100px">
+            余额:
+        </td>
+        <td style="width: 20%">
+            <span id="balance">0</span>
+        </td>
+       
+        <td style="border-left: 1px solid #dedede !important;width: 50px">收费方式:</td>
+        <td colspan="4">
+            <label class="radio-inline" style="padding-left:40px !important;">
+                <input type="radio" name="chgType" value="1" text="现金"> 现金 
+            </label>
+
+            <label class="radio-inline" style="padding-left:40px !important;">
+                <input type="radio" name="chgType" value="3" text="银行转账"> 银行转账 
+            </label>
+            <label class="radio-inline" style="padding-left:40px !important;">
+                <input type="radio" name="chgType" value="2" text="POS机"> POS机 
+            </label>
+        </td>
+        <!--<td style="border-left: 1px solid #dedede;width: 100px">
+        </td>
+        <td>
+            <button class="btn btn-warning btn-xs" type="button" data-toggle="modal" data-target="#payModal">打印发票</button>
+        </td>-->
+    </tr>
+    <tr>
+        
+    </tr>
+    <tr>
+            <td style="width: 100px">金额:</td>
+            <td style="width: 20%"><input id="cashAmount" class="inputclear form-control" disabled type="text" /></td>
+        <td style="border-left: 1px solid #dedede !important;width: 100px"></td>
+        <td style="width: 25%;"></td>
+        <td></td>
+        <td>
+        
+            <button type="button" id="BtnSub" class="btn btn-success btn-sm" disabled>垃圾处理费收费 <span class="glyphicon glyphicon-leaf" aria-hidden="true"></span></button>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="6"><a href="JavaScript:void(0)" hzq-modal="#hzqModal" hzq-type="remoteModal" hzq-remote="/collectfee/partial/searchgbpayhistory.html"
+                hzq-cb="render" hzq-param='{"customerCode":"{customerCode}"}'>查看收费历史信息</a> &nbsp;&nbsp;&nbsp;
+            <!-- <a href="JavaScript:void(0)" hzq-modal="#hzqModal" hzq-type="remoteModal" hzq-remote="/collectfee/partial/searchtickethistory.html"
+                hzq-cb="render" hzq-param='{"customerCode":"{customerCode}"}'>燃气费发票领用</a> -->
+        </td>
+    </tr>
+    {/data}
+</script>

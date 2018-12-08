@@ -1,0 +1,24 @@
+<script type="text/x-template" id="__dust__ichouseRowInfo">
+    {#data}
+    <tr>
+        <!--<td>{address}</td>-->
+        <td>
+            {?.balance}
+            {@select key=balance}
+                {@gte value=0} <span style="color: green">{balance}</span> {/gte}
+                {@default}<span style="color: red;font-weight:bold;">{balance}</span>{/default}
+            {/select}
+            {:else}
+                <span>-</span>
+            {/.balance}
+        </td>
+        <td><a href="JavaScript:void(0)" hzq-modal="#hzqModal" hzq-type="remoteModal" hzq-remote="/collectfee/partial/searchgbpayhistory.html"
+                hzq-cb="render" hzq-param='{"houseId":"{houseId}"}'>查看历史信息</a></td>
+        <td>
+            <button class="btn btn-success btn-xs" type="button" data-toggle="modal" data-target="#payWasteModal">收费</button>
+            <button class="btn btn-warning btn-xs" type="button" data-toggle="modal" data-target="#payModal">打印发票</button>
+            <div hzq-data="row"></div>
+        </td>
+    </tr>
+    {/data}
+</script>

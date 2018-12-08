@@ -1,0 +1,1465 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" >
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="utf-8"/>
+    <title>非居民档案详情</title>
+    <base href="../">
+    <script src="pages/scripts/header.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-select/bootstrap-select.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/select2/select2.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/jquery-multi-select/css/multi-select.css"/>
+
+    <!-- BEGIN THEME STYLES -->
+    <link href="assets/global/css/components.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
+    <!-- END THEME STYLES -->
+
+    <!--begin previewPicture-->
+    <!--必要样式-->
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/previewPicture/css/component.css" />
+
+    <script type="text/javascript" src="assets/global/plugins/previewPicture/js/modernizr.custom.js"></script>
+
+    <!--end previewPicture-->
+
+    <meta content="" name="description"/>
+    <meta content="" name="author"/>
+</head>
+<!-- END HEAD -->
+<body class="page-header-fixed page-quick-sidebar-over-content ">
+<!-- BEGIN HEADER -->
+<div class="page-header navbar navbar-fixed-top">
+    <script>$.include("pages/partial/menu.shtml");</script>
+</div>
+<!-- END HEADER -->
+<div class="clearfix">
+</div>
+<!-- BEGIN CONTAINER -->
+<div class="page-container">
+    <!-- BEGIN SIDEBAR -->
+    <div class="page-sidebar-wrapper">
+        <script>$.include("pages/partial/sidebar.shtml");</script>
+    </div>
+    <!-- END SIDEBAR -->
+    <!-- BEGIN CONTENT -->
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <!-- BEGIN STYLE CUSTOMIZER -->
+            <!-- END STYLE CUSTOMIZER -->
+            <!-- BEGIN PAGE HEADER-->
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa fa-map-marker"></i>
+                            <a href="javascript:;">客户管理</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="javascript:;">档案管理</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="customer/non_inhabitant_archivemanagement.html">非居民档案管理</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="javascript:;">非居民档案详情</a>
+                        </li>
+                    </ul>
+                    <!-- END PAGE TITLE & BREADCRUMB-->
+                </div>
+            </div>
+            <!-- END PAGE HEADER-->
+            <!-- BEGIN PAGE CONTENT-->
+            <div class="row">
+                <div class="col-md-12">
+                    <!--BEGIN TABS-->
+                    <div class="tabbable tabbable-custom">
+                        <ul class="nav nav-tabs">
+                            <li class="active">
+                                <a href="#tab_1_1" data-toggle="tab">
+                                    客户档案 </a>
+                            </li>
+                            <li>
+                                <a href="#tab_1_2" data-toggle="tab">
+                                    合同档案 </a>
+                            </li>
+                            <li>
+                                <a href="#tab_1_3" data-toggle="tab">
+                                    表具档案 </a>
+                            </li>
+                            <li>
+                                <a href="#tab_1_4" data-toggle="tab">
+                                    燃气设备档案
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tab_1_1">
+                                <div class="scroller" style="height: auto;" data-always-visible="1" data-rail-visible="0">
+                                    <!-- BEGIN FORM-->
+                                    <form class="form-horizontal" role="form">
+                                        <div class="form-body">
+                                            <div class="row form-group">
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">客户编号:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="11020102" disabled>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">客户名称:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="哈尔滨市香坊区人民医院" disabled>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col-md-8">
+                                                    <label class="control-label col-md-2">客户地址:</label>
+                                                    <div class="col-md-10">
+                                                        <input type="text" class="form-control" value="香坊区通天街58号" disabled>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- 客户地址开始 -->
+                                            <div class="row form-group">
+                                                <div class="col-md-4">
+                                                    <label class="control-label col-md-4">区:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="道里一区" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label class="control-label col-md-4">街(路):</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="上海街" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label class="control-label col-md-4">门牌号:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="1号" disabled>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col-md-4">
+                                                    <label class="control-label col-md-4">小区:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label class="control-label col-md-4">楼号:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label class="control-label col-md-4">单元(门市):</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="" disabled>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col-md-4">
+                                                    <label class="control-label col-md-4">层:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label class="control-label col-md-4">室:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label class="control-label col-md-4">分室:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="" disabled>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- 客户地址结束-->
+                                            <hr class="form-group">
+                                            <div class="row form-group">
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">产权人姓名:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="哈尔滨市香坊区人民医院" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">产权证类型:</label>
+                                                    <div class="col-md-8">
+                                                        <select class="form-control select2me input-middle" data-placeholder="产权证件类型" disabled>
+                                                            <option>其他</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">产权证编号:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="201310000602" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">产权人电话:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="13199533112" disabled>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">产权人手机:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">邮编:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="150001" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">电子邮箱:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">产权分界点:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="" disabled>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">联系人:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="赵景山" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">联系人部门:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">联系人电话:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="55109328" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">联系人手机:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="13199533112" disabled>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">联系人邮箱:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="" disabled>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">承租单位:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">承租联系人:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">承租人电话:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">承租人证件编号:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="" disabled>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <hr class="form-group">
+                                            <div class="row form-group">
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">客户类型</label>
+                                                    <div class="col-md-8">
+                                                        <select class="form-control input-middle select2me" data-placeholder="选择客户类型.." disabled>
+                                                            <option>非居民</option>
+                                                        </select>
+                                                        <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">用气性质:</label>
+                                                    <div class="col-md-8">
+                                                        <select class="form-control select2me input-middle" data-placeholder="用气性质" disabled>
+                                                            <option>采暖（非营业）</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">是否门市:</label>
+                                                    <div class="col-md-8">
+                                                        <select class="form-control select2me input-middle" data-placeholder="是否门市" disabled>
+                                                            <option>否</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">调压箱:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="" disabled>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">行业分类:</label>
+                                                    <div class="col-md-8">
+                                                        <select class="form-control select2me input-middle" data-placeholder="行业分类" disabled>
+                                                            <option>其他</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">从事行业:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">主要产品:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">月均用气时间:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="" disabled>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">班制:</label>
+                                                    <div class="col-md-8">
+                                                        <select class="form-control select2me input-middle" data-placeholder="班制" disabled>
+                                                            <option>其他</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">营业面积:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">就餐位数:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">包间数:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="" disabled>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">采暖面积:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">是否IC卡:</label>
+                                                    <div class="col-md-8">
+                                                        <select class="form-control select2me input-middle" data-placeholder="是否IC卡" disabled>
+                                                            <option>否</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <hr class="form-group">
+                                            <div class="row form-group">
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">客户状态:</label>
+                                                    <div class="col-md-8">
+                                                        <select class="form-control input-middle select2me" data-placeholder="客户状态.." disabled>
+                                                            <option>正常用气</option>
+                                                        </select>
+                                                        <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">合同号:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">开栓时间:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control form-control-inline date-picker" value="2015/12/01" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">建档时间:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control form-control-inline date-picker" value="2015/12/01" disabled>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">有无保险:</label>
+                                                    <div class="col-md-8">
+                                                        <select class="form-control input-middle select2me" data-placeholder="有无保险.." disabled>
+                                                            <option>否</option>
+                                                        </select>
+                                                        <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">开户银行:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">银行账户:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">信用等级:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="B" disabled>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <hr class="form-group">
+                                            <div class="row form-group">
+                                                <div class="col-md-12">
+                                                    <label class="control-label">&nbsp;&nbsp;备注</label>
+                                                    <textarea style="margin-left: 5px;margin-right: 5px" class="form-control" cols="12" placeholder="请输入备注信息.." disabled>这是非居民用户...
+                                                    </textarea>
+                                                </div>
+                                            </div>
+                                            <hr class="form-group">
+                                            <div class="row form-group">
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">账单联系人:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="赵光辉" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">发票抬头:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">联系邮编:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="400942" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">联系电话:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control"value="1322882812" disabled>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col-md-6">
+                                                    <label class="control-label col-md-2">联系地址:</label>
+                                                    <div class="col-md-10">
+                                                        <input type="text" class="form-control" value="道里一区上海街1号" disabled>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-actions">
+                                            <div class="btn-set">
+                                                <button id="cancel_btn" type="button" class="btn default">返回</button>
+                                            </div>
+                                            <script>
+                                                $(function () {
+                                                    $('#cancel_btn').click(function () {
+                                                        window.location = "customer/non_inhabitant_archivemanagement.html";
+                                                    });
+                                                })
+                                            </script>
+                                        </div>
+                                    </form>
+                                    <!-- END FORM-->
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tab_1_2">
+                                <div class="scroller" style="height: 690px;" data-always-visible="1" data-rail-visible1="1">
+
+                                    <form action="javascript:;" role="form">
+                                        <div class="form-body">
+                                            <div class="row form-group">
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">合同编号:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" disabled value="12002012">
+                                                        <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">合同类别:</label>
+                                                    <div class="col-md-8">
+                                                        <select class="form-control input-middle select2me"disabled>
+                                                            <option value="">新签 </option>
+                                                        </select>
+                                                        <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">用气性质:</label>
+                                                    <div class="col-md-8">
+                                                        <select class="form-control input-middle select2me" disabled>
+                                                            <option>商服</option>
+                                                        </select>
+                                                        <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">客户编号:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" placeholder="客户编号" disabled>
+                                                        <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">客户名称:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="赵鑫" disabled>
+                                                        <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="control-label col-md-2">客户地址:</label>
+                                                    <div class="col-md-10">
+                                                        <input type="text" class="form-control" value="道里一区上海街1号" disabled>
+                                                        <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">签订日期:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="2010/01/01" disabled>
+                                                        <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">起始日期:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="2010/01/01" disabled>
+                                                        <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">截止日期:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="2013/01/01" disabled>
+                                                        <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">操作员:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="王鹏丽" disabled>
+                                                        <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">代办人:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="张文举" disabled>
+                                                        <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">代办人手机:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="13298301284" disabled>
+                                                        <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">代办人身份证:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="4112828383812832" disabled>
+                                                        <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">文本编号:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="1293818213" disabled>
+                                                        <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">补充协议:</label>
+                                                    <div class="col-md-8">
+                                                        <select class="form-control input-middle select2me" disabled>
+                                                            <option>无补充协议</option>
+                                                        </select>
+                                                        <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col-md-12">
+                                                    <label class="control-label">备注</label>
+                                                    <textarea class="form-control" cols="12" disabled>这是备注消息、、、
+                                </textarea>
+                                                </div>
+                                            </div>
+
+                                            <h4 class="form-section">表具信息</h4>
+                                            <div id="meter1">
+                                                <div class="row form-group">
+                                                    <div class="col-md-3">
+                                                        <label class="control-label col-md-4">表具类型:</label>
+                                                        <div class="col-md-8">
+                                                            <select class="form-control input-middle select2me" disabled>
+                                                                <option>皮膜表1.6</option>
+                                                            </select>
+                                                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label class="control-label col-md-4">表具型号:</label>
+                                                        <div class="col-md-8">
+                                                            <input type="text" class="form-control" value="1.6" disabled>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label class="control-label col-md-4">表厂家:</label>
+                                                        <div class="col-md-8">
+                                                            <select class="form-control input-middle select2me" disabled>
+                                                                <option value="">浙江金卡</option>
+                                                            </select>
+                                                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label class="control-label col-md-4">物品种类:</label>
+                                                        <div class="col-md-8">
+                                                            <input type="text" class="form-control" value="" disabled>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row form-group">
+                                                    <h5>一次表</h5>
+                                                    <div class="col-md-3">
+                                                        <label class="control-label col-md-4">表编号:</label>
+                                                        <div class="col-md-8">
+                                                            <input type="text" class="form-control" value="1020021" disabled>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label class="control-label col-md-4">进气方向:</label>
+                                                        <div class="col-md-8">
+                                                            <select class="form-control input-middle select2me" disabled>
+                                                                <option>左进气</option>
+                                                            </select>
+                                                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label class="control-label col-md-4">表位数:</label>
+                                                        <div class="col-md-8">
+                                                            <input type="text" class="form-control" value="4" disabled>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label class="control-label col-md-4">额定流量:</label>
+                                                        <div class="col-md-8">
+                                                            <input type="text" class="form-control" value="0.5m3" disabled>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row form-group">
+                                                    <div class="col-md-3">
+                                                        <label class="control-label col-md-4">表读数:</label>
+                                                        <div class="col-md-8">
+                                                            <input type="text" class="form-control" value="0" disabled>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label class="control-label col-md-4">出厂日期:</label>
+                                                        <div class="col-md-8">
+                                                            <input type="text" class="form-control" value="2009/01/01" disabled>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row form-group second_meter">
+                                                    <h5>二次表</h5>
+                                                    <div class="col-md-3">
+                                                        <label class="control-label col-md-4">表编号:</label>
+                                                        <div class="col-md-8">
+                                                            <input type="text" class="form-control" value="1020021" disabled>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label class="control-label col-md-4">进气方向:</label>
+                                                        <div class="col-md-8">
+                                                            <select class="form-control input-middle select2me" disabled>
+                                                                <option>左进气</option>
+                                                            </select>
+                                                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label class="control-label col-md-4">表位数:</label>
+                                                        <div class="col-md-8">
+                                                            <input type="text" class="form-control" value="4" disabled>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label class="control-label col-md-4">额定流量:</label>
+                                                        <div class="col-md-8">
+                                                            <input type="text" class="form-control" value="0.5m3" disabled>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row form-group">
+                                                    <div class="col-md-3">
+                                                        <label class="control-label col-md-4">表读数:</label>
+                                                        <div class="col-md-8">
+                                                            <input type="text" class="form-control" value="0" disabled>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label class="control-label col-md-4">出厂日期:</label>
+                                                        <div class="col-md-8">
+                                                            <input type="text" class="form-control" value="2009/01/01" disabled>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col-md-12">
+                                                    <label class="control-label">相关照片</label>
+                                                    <div id="grid-gallery" class="grid-gallery">
+                                                        <section class="grid-wrap">
+                                                            <ul class="grid">
+                                                                <li class="grid-sizer"></li><!-- for Masonry column width -->
+                                                                <li>
+                                                                    <figure>
+                                                                        <img src="assets/global/plugins/previewPicture/img/thumb/1.png" alt="img01"/>
+                                                                    </figure>
+                                                                </li>
+                                                                <li>
+                                                                    <figure>
+                                                                        <img src="assets/global/plugins/previewPicture/img/thumb/2.png" alt="img02"/>
+                                                                    </figure>
+                                                                </li>
+                                                                <li>
+                                                                    <figure>
+                                                                        <img src="assets/global/plugins/previewPicture/img/thumb/3.png" alt="img03"/>
+                                                                    </figure>
+                                                                </li>
+                                                            </ul>
+                                                        </section><!-- // grid-wrap -->
+                                                        <section class="slideshow" style="padding-top: 10px">
+                                                            <ul>
+                                                                <li>
+                                                                    <figure>
+                                                                        <img src="assets/global/plugins/previewPicture/img/large/1.png" alt="img01"/>
+                                                                    </figure>
+                                                                </li>
+                                                                <li>
+                                                                    <figure>
+                                                                        <img src="assets/global/plugins/previewPicture/img/large/2.png" alt="img02"/>
+                                                                    </figure>
+                                                                </li>
+                                                                <li>
+                                                                    <figure>
+                                                                        <img src="assets/global/plugins/previewPicture/img/large/3.png" alt="img03"/>
+                                                                    </figure>
+                                                                </li>
+                                                            </ul>
+                                                            <nav>
+                                                                <span class="icon nav-prev"></span>
+                                                                <span class="icon nav-next"></span>
+                                                                <span class="icon nav-close" style="padding-top: 50px;"></span>
+                                                            </nav>
+                                                        </section><!-- // slideshow -->
+                                                    </div><!-- // grid-gallery -->
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </form>
+
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tab_1_3">
+                                <div class="scroller" style="height: 990px;" data-always-visible="1" data-rail-visible1="1">
+
+                                    <form class="form-horizontal" role="form">
+                                        <div class="form-body">
+                                            <div class="row form-group">
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">表编号:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="11020102" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">表具类型:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="41161218281281828" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">规格型号:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="11020102" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">物品种类:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="11020102" disabled>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">生产厂家:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="41161218281281828" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">出厂日期:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="11020102" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">进气方向:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="左进气" disabled>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">流量范围:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="" disabled>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">表具状态:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="" disabled>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <hr class="form-group">
+
+                                            <div class="row form-group">
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">表位数:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="11020102" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">表读数:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">运行状态:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">口径:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="41161218281281828" disabled>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">检表日期:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">铭牌号:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="41161218281281828" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">铅封号:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="11020102" disabled>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <hr class="form-group">
+
+                                            <div class="row form-group">
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">修正表标记:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="11020102" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">修正表状态:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="41161218281281828" disabled>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <hr class="form-group">
+
+                                            <div class="row form-group">
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">注抽时间:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="11020102" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">电池使用时间:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">匹配状态:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="11020102" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">打封时间:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="" disabled>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">调试时间:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="41161218281281828" disabled>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <hr class="form-group">
+
+                                            <div class="row form-group">
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">进气口表封号:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="11020102" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">出气口表封号:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">所属供气单位:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" value="41161218281281828" disabled>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <hr class="form-group">
+                                            <div class="row form-group">
+                                                <div class="col-md-12">
+                                                    <label class="control-label">&nbsp;&nbsp;备注</label>
+                                                    <textarea class="form-control" cols="12" disabled>...</textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tab_1_4">
+                                <div class="scroller" style="height: 290px;" data-always-visible="1" data-rail-visible1="1">
+                                    <form class="form-horizontal" role="form">
+                                        <div class="form-body">
+                                            <div class="row form-group">
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-5">名称:</label>
+                                                    <div class="col-md-7">
+                                                        <input type="text" class="form-control" value="热水器" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-5">容量:</label>
+                                                    <div class="col-md-7">
+                                                        <input type="text" class="form-control" value="10L" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-5">生产日期:</label>
+                                                    <div class="col-md-7">
+                                                        <input type="text" class="form-control" value="2015-01-23" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-5">保质期:</label>
+                                                    <div class="col-md-7">
+                                                        <input type="text" class="form-control" value="3年" disabled>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-5">名称:</label>
+                                                    <div class="col-md-7">
+                                                        <input type="text" class="form-control" value="煤气灶" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-5">容量:</label>
+                                                    <div class="col-md-7">
+                                                        <input type="text" class="form-control" value="无" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-5">生产日期:</label>
+                                                    <div class="col-md-7">
+                                                        <input type="text" class="form-control" value="2015-01-23" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-5">保质期:</label>
+                                                    <div class="col-md-7">
+                                                        <input type="text" class="form-control" value="2" disabled>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END CONTENT -->
+</div>
+<!-- END CONTAINER -->
+
+<!-- 底边栏开始 -->
+<script>$.include("pages/partial/foot.shtml");</script>
+<!-- 底边栏结束 -->
+
+<!-- Modal -->
+<div class="modal fade" id="importContract" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">录入合同</h4>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <span>上传数据</span>
+                    <input class="file" type="file" multiple data-preview-file-type="any" data-upload-url="#">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="importMeterInfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">录入表具档案</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="btn-group input-group">
+                            <div class="input-group-addon">输入表具编号：</div>
+                            <select class="form-control input-medium select2me" data-placeholder="输入表具编号...">
+                                <option value=""></option>
+                                <option>表具_1</option>
+                                <option>表具_3</option>
+                                <option>表具_3</option>
+                                <option>表具_4</option>
+                                <option>表具_5</option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2">
+                        <button class=" btn-group form-control">
+                            查询
+                        </button>
+                    </div>
+                </div>
+
+                <br>
+                <h4 class="form-actions">信息预览</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="control-label col-md-5">生产厂家:</label>
+                        <div class="col-md-7">
+                            <p class="form-control-static">
+                                重庆前卫
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="control-label col-md-5">生产日期:</label>
+                        <div class="col-md-7">
+                            <p class="form-control-static">
+                                2009-01-01
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="control-label col-md-5">表具类型:</label>
+                        <div class="col-md-7">
+                            <p class="form-control-static">
+                                IC卡表
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="control-label col-md-5">表具型号:</label>
+                        <div class="col-md-7">
+                            <p class="form-control-static">
+                                G2.5
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="import_device" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">录入燃气设备档案</h4>
+            </div>
+            <div class="modal-body">
+                <!-- BEGIN FORM-->
+                <form role="form">
+                    <div class="form-body">
+                        <h4 class="form-actions">模版导入</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="file" class="file">
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4 class="form-actions">手工导入</h4>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>名称</label>
+                                    <input type="text" class="form-control" placeholder="名称">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>容量</label>
+                                    <input type="text" class="form-control" placeholder="容量">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>出厂日期</label>
+                                    <input type="text" class="form-control" placeholder="生产日期">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>保质期</label>
+                                    <input type="text" class="form-control" placeholder="保质期">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <!-- END FORM-->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="update_customer_Info" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">更新档案信息</h4>
+            </div>
+            <div class="modal-body">
+                <!-- BEGIN FORM-->
+                <form role="form">
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>客户姓名</label>
+                                    <input type="text" class="form-control" placeholder="客户姓名">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>性别</label>
+                                    <div class="input-group">
+                                        <select class="bs-select form-control input-medium">
+                                            <option>男</option>
+                                            <option>女</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>身份证号</label>
+                                    <input type="text" class="form-control" placeholder="身份证号">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>客户地址</label>
+                                    <input type="text" class="form-control" placeholder="客户地址">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>小区</label>
+                                    <input type="text" class="form-control" placeholder="小区">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>联系电话</label>
+                                    <input type="text" class="form-control" placeholder="联系电话">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>邮编</label>
+                                    <input type="text" class="form-control" placeholder="邮编">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>邮箱</label>
+                                    <input type="text" class="form-control" placeholder="邮箱">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>家庭人口</label>
+                                    <input type="text" class="form-control" placeholder="家庭人口">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>特殊群体</label>
+                                    <input type="text" class="form-control" placeholder="特殊群体">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>社区</label>
+                                    <input type="text" class="form-control" placeholder="社区">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>街道办</label>
+                                    <input type="text" class="form-control" placeholder="街道办">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>IC卡用户</label>
+                                    <div class="input-group">
+                                        <select class="bs-select form-control input-medium">
+                                            <option>是</option>
+                                            <option>否</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>派出所</label>
+                                    <div class="input-group">
+                                        <select class="bs-select form-control input-medium">
+                                            <option>道里一派出所</option>
+                                            <option>道里二派出所</option>
+                                            <option>南岗派出所</option>
+                                            <option>道外派出所</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <!-- END FORM-->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<!-- END BODY -->
+<script>$.include("pages/partial/scripts.shtml");</script>
+
+
+<!--begin previewPicture-->
+<script type="text/javascript" src="assets/global/plugins/previewPicture/js/imagesloaded.pkgd.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/previewPicture/js/masonry.pkgd.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/previewPicture/js/classie.js"></script>
+<script type="text/javascript" src="assets/global/plugins/previewPicture/js/cbpGridGallery.js"></script>
+<script type="text/javascript">
+    new CBPGridGallery(document.getElementById('grid-gallery'));
+</script>
+<!--end previewPicture-->
+
+<script type="text/javascript" src="assets/global/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-multi-select/js/jquery.multi-select.js"></script>
+
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/clockface/js/clockface.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-daterangepicker/moment.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script src="assets/admin/pages/scripts/components-pickers.js"></script>
+<!-- END PAGE LEVEL SCRIPTS -->
+<script>
+    $(function () {
+
+        ComponentsPickers.init();
+
+        SideBar.init();
+        SideBar.activeCurByPage("non_inhabitant_archivemanagement.html");
+    })
+</script>
+</html>

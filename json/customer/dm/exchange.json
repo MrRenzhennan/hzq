@@ -1,0 +1,16 @@
+{"rows":
+[
+    {"UUID":"1","meter_ID":"001","meter_type":"表具类型_1","meter_model":"型号_1","barcode":"1203213102300","factory":"重庆前卫","manufacture_date":"2010-01-01","last_inspect_date":"2013-01-01","meter_inspect_cycletime":"3年","is_inspect":"已换","meter_book":"抄表本_1"},
+    {"UUID":"2","meter_ID":"002","meter_type":"表具类型_2","meter_model":"型号_2","barcode":"1203212110232","factory":"重庆前卫","manufacture_date":"2010-01-01","last_inspect_date":"2013-01-01","meter_inspect_cycletime":"3年","is_inspect":"已换","meter_book":"抄表本_2"},
+    {"UUID":"3","meter_ID":"003","meter_type":"表具类型_3","meter_model":"型号_3","barcode":"1203213323023","factory":"重庆前卫","manufacture_date":"2010-01-01","last_inspect_date":"2013-01-01","meter_inspect_cycletime":"3年","is_inspect":"已换","meter_book":"抄表本_3"},
+    {"UUID":"4","meter_ID":"004","meter_type":"表具类型_4","meter_model":"型号_4","barcode":"1203213102331","factory":"重庆前卫","manufacture_date":"2010-01-01","last_inspect_date":"2013-01-01","meter_inspect_cycletime":"3年","is_inspect":"已换","meter_book":"抄表本_4"},
+    {"UUID":"5","meter_ID":"005","meter_type":"表具类型_5","meter_model":"型号_5","barcode":"1203213102323","factory":"重庆前卫","manufacture_date":"2010-01-01","last_inspect_date":"2013-01-01","meter_inspect_cycletime":"3年","is_inspect":"已换","meter_book":"抄表本_5"},
+    {"UUID":"6","meter_ID":"006","meter_type":"表具类型_6","meter_model":"型号_6","barcode":"1203213102323","factory":"重庆前卫","manufacture_date":"2010-01-01","last_inspect_date":"2013-01-01","meter_inspect_cycletime":"3年","is_inspect":"已换","meter_book":"抄表本_6"},
+    {"UUID":"7","meter_ID":"007","meter_type":"表具类型_7","meter_model":"型号_7","barcode":"1203213102322","factory":"重庆前卫","manufacture_date":"2010-01-01","last_inspect_date":"2013-01-01","meter_inspect_cycletime":"3年","is_inspect":"已换","meter_book":"抄表本_7"},
+    {"UUID":"8","meter_ID":"008","meter_type":"表具类型_8","meter_model":"型号_8","barcode":"1203213102311","factory":"重庆前卫","manufacture_date":"2010-01-01","last_inspect_date":"2013-01-01","meter_inspect_cycletime":"3年","is_inspect":"已换","meter_book":"抄表本_8"}
+
+]
+,"total_rows":8
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

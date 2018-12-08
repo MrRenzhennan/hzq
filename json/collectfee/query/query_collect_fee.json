@@ -1,0 +1,16 @@
+{"rows":
+[
+  {"UUID":"001","money":"100","userID":"100230001","userName":"张三","collectTime":"2016-11-11 17:12:12","yyyName":"王丽","feetype":"普通收费","gastype":"居民（单纯餐饮）","shyName":"马志","shmethod":"现金","type":"燃气费","accountdate":"20150432","yy":"中国银行"}
+,{"UUID":"002","money":"200","userID":"100245601","userName":"李浩","collectTime":"2016-11-11 13:12:12","yyyName":"王丽","feetype":"普通收费","gastype":"居民（单纯餐饮）","shyName":"马志","shmethod":"现金","type":"燃气费","accountdate":"20150432","yy":"中国银行"}
+,{"UUID":"003","money":"200","userID":"101230501","userName":"刘文博","collectTime":"2016-11-11 10:12:12","yyyName":"王丽","feetype":"普通收费","gastype":"居民（单纯餐饮）","shyName":"马志","shmethod":"POS机","type":"垃圾处理费","accountdate":"20150432","yy":"中国银行"}
+,{"UUID":"004","money":"140","userID":"100230001","userName":"张三","collectTime":"2016-11-11 9:12:12","yyyName":"王丽","feetype":"普通收费","gastype":"居民（单纯餐饮）","shyName":"马志","shmethod":"现金","type":"燃气费","accountdate":"20150432","yy":"中国银行"}
+,{"UUID":"005","money":"150","userID":"156730001","userName":"李丽英","collectTime":"2016-11-11 09:02:12","yyyName":"张雪","feetype":"普通收费","gastype":"居民（单纯餐饮）","shyName":"马志","shmethod":"现金","type":"燃气费","accountdate":"20150432","yy":"中国银行"}
+,{"UUID":"006","money":"50","userID":"100230001","userName":"张一","collectTime":"2016-11-11 12:12:56","yyyName":"王丽","feetype":"普通收费","gastype":"居民（单纯餐饮）","shyName":"马志","shmethod":"现金","type":"垃圾处理费","accountdate":"20150432","yy":"道里一分公司"}
+,{"UUID":"007","money":"200","userID":"104560001","userName":"李三","collectTime":"2016-11-11 9:12:12","yyyName":"王丽","feetype":"普通收费","gastype":"居民（单纯餐饮）","shyName":"马志","shmethod":"银行转账","type":"燃气费","accountdate":"20150432","yy":"中国银行"}
+,{"UUID":"008","money":"150","userID":"107780001","userName":"张三","collectTime":"2016-11-11 12:12:12","yyyName":"张雪","feetype":"普通收费","gastype":"居民（单纯餐饮）","shyName":"马志","shmethod":"现金","type":"燃气费","accountdate":"20150432","yy":"中国银行"}
+,{"UUID":"010","money":"100","userID":"101253001","userName":"张三","collectTime":"2016-11-11 12:12:12","yyyName":"张雪","feetype":"普通收费","gastype":"居民（单纯餐饮）","shyName":"马志","shmethod":"现金","type":"燃气费","accountdate":"20150432","yy":"中国银行"}
+]
+,"total_rows":1
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

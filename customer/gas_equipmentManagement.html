@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+
+<!-- BEGIN HEAD -->
+<head>
+    <title>燃气运行设备档案管理</title>
+    <base href="../">
+    <script src="pages/scripts/header.js"></script>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8"/>
+
+    <link href='assets/global/plugins/jquery-watable/watable.css' rel='stylesheet'/>
+    <link href='assets/global/plugins/jquery-watable/animate.min.css' rel='stylesheet'/>
+
+
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-select/bootstrap-select.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/select2/select2.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/jquery-multi-select/css/multi-select.css"/>
+    <link href="assets/global/plugins/bootstrap-fileinput/fileinput.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-datepicker/css/datepicker3.css"/>
+
+    <!-- BEGIN THEME STYLES -->
+    <link href="assets/global/css/components.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
+
+</head>
+<!-- END HEAD -->
+
+<body class="page-header-fixed page-quick-sidebar-over-content">
+
+<!-- 标题栏开始 -->
+<div class="page-header navbar navbar-fixed-top">
+    <script>$.include("pages/partial/menu.shtml");</script>
+</div>
+<!-- 标题栏结束 -->
+<div class="clearfix"></div>
+<div class="page-container">
+    <!-- 左侧菜单开始 -->
+    <div class="page-sidebar-wrapper">
+        <script>$.include("pages/partial/sidebar.shtml");</script>
+    </div>
+    <!-- 左侧菜单结束 -->
+
+    <!-- 主内容开始 -->
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <!--内容头开始-->
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa fa-map-marker"></i>
+                            <a href="javascript:;">客户管理</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+
+                        <li>
+                            <a href="javascript:;">燃气运行设备档案管理</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 内容头结束-->
+
+            <!-- 内容开始-->
+            <div class="container col-sm-12" style="padding: 30px 20px 0px 20px">
+                <!-- 查询条件控件 -->
+                <div class="row"  >
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group input-select2me">
+                            <div class="input-group-addon">分公司:</div>
+                            <select class="form-control input-middle select2me" data-placeholder="选择分公司...">
+                                <option value=""></option>
+                                <option>道里一分公司</option>
+                                <option>道里二分公司</option>
+                                <option>道里三分公司</option>
+                                <option>道里四分公司</option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group input-select2me">
+                            <div class="input-group-addon">核算员:</div>
+                            <select class="form-control input-middle select2me" data-placeholder="选择核算员...">
+                                <option value=""></option>
+                                <option>张丽</option>
+                                <option>王博</option>
+                                <option>王亚飞</option>
+                                <option>赵嘉怡</option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group input-select2me">
+                            <div class="input-group-addon">客户服务员:</div>
+                            <select class="form-control input-middlle select2me" data-placeholder="选择客户服务员...">
+                                <option value=""></option>
+                                <option>韩雅君</option>
+                                <option>张军</option>
+                                <option>张艺兴</option>
+                                <option>朱嘉怡</option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group input-select2me">
+                            <div class="input-group-addon">抄表本号:</div>
+                            <input class="inputclear form-control" type="text" placeholder="抄表本号">
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group">
+                            <div class="input-group-addon">客户编号:</div>
+                            <input class="inputclear form-control" type="text" placeholder="客户编号">
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-9 form-group">
+                        <div class="btn-group input-group" style="width: 100% !important;">
+                            <div class="input-group-addon">客户地址:</div>
+                            <input class="inputclear form-control" type="text" placeholder="客户地址" >
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 form-group data-select">
+                        <div class="btn-group input-group pull-left col-md-5">
+                            <div class="input-group-addon">起始日期:</div>
+                            <div class="input-group input-large date-picker input-daterange" data-date-format="yyyy/mm/dd">
+                                <input type="text" class="form-control" name="from">
+                                <span class="inputclear glyphicon glyphicon-remove-circle hidden" ></span>
+                                <span class="input-group-addon">至</span>
+                                <input type="text" class="form-control" name="to">
+                                <span class="inputclear glyphicon glyphicon-remove-circle hidden" ></span>
+                            </div>
+                        </div>
+                        <div class="btn-group">
+                            <button id="find_today_bolt" class="btn">当日</button>
+                        </div>
+                        <div class="btn-group">
+                            <button id="find_this_week_bolt" class="btn">近一周</button>
+                        </div>
+                        <div class="btn-group">
+                            <button id="find_this_month_bolt" class="btn">近一月</button>
+                        </div>
+                        <div class="btn-group">
+                            <button id="find_three_month_bolt" class="btn">近三月</button>
+                        </div>
+                        <div class="btn-group">
+                            <button id="find_this_year_bolt" class="btn">近一年</button>
+                        </div>
+                        <div class="btn-group">
+                            <button id="find_anyway_bolt" class="btn">不限</button>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 form-group" style="padding-left: 20px">
+                        <div class="btn-group form-group">
+                            <button id="find_button" class="btn yellow">
+                                查询&nbsp; <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+                        <div class="btn-group form-group">
+                            <button id="input_one" class="btn blue" data-target="#input_one_modal" data-toggle="modal">
+                                创建&nbsp; <i class="fa fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-fluid">
+                <div id="divtable" class="table-responsive container-fluid col-md-12" >
+                </div>
+            </div>
+            <!-- 内容结束-->
+        </div>
+    </div>
+    <!-- 主内容结束 -->
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="input_one_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">创建</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>客户地址</label>
+                                <input type="text" class="form-control" placeholder="客户地址">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 form-group">
+                            <div class="btn-group form-group">
+                                <br>
+                                <button class="btn yellow">
+                                    查询&nbsp; <i class="fa fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form class="form-group">
+                                <table class="watable table table-striped table-hover table-bordered table-condensed">
+                                    <thead>
+                                    <th></th>
+                                    <th>抄表本号</th>
+                                    <th>抄表本地址</th>
+                                    <th>客户编号</th>
+                                    <th>客户地址</th>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td><input type="radio"></td>
+                                        <td>12312312</td>
+                                        <td>香坊区东大街幸福小区二号楼</td>
+                                        <td>123213123</td>
+                                        <td>香坊区东大街幸福小区二号楼3楼东户</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button id="save_btn" type="button" class="btn btn-primary" data-dismiss="modal">创建</button>
+                <script>
+                    $(function () {
+                        $('#save_btn').click(function () {
+                            window.location = "customer/input_gas_equipment.html";
+                        });
+                    })
+                </script>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">$.include("pages/partial/xwatable-form.shtml")</script>
+
+<!-- 底边栏开始 -->
+<script>$.include("pages/partial/foot.shtml");</script>
+<!-- 底边栏结束 -->
+</body>
+
+
+<script>$.include("pages/partial/scripts.shtml");</script>
+<script src="assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-watable/jquery.watable.js"></script>
+<script type="text/javascript" src="pages/scripts/rqlbuilder.js"></script>
+<script type="text/javascript" src="pages/scripts/xwatable.js"></script>
+<script type="text/javascript" src="pages/scripts/refhelper.js"></script>
+
+<script type="text/javascript" src="assets/global/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-multi-select/js/jquery.multi-select.js"></script>
+
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/clockface/js/clockface.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-daterangepicker/moment.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script src="assets/admin/pages/scripts/components-pickers.js"></script>
+
+<script type="text/javascript">
+
+    $(function(){
+            XWATable.init(
+                {
+                    //----------------table的选项-------
+                    pageSize: 20, 			//Initial pagesize
+                    columnPicker: true,         //Show the columnPicker button
+                    sorting: true,
+                    transition: 'fade',  //(bounce, fade, flip, rotate, scroll, slide).
+                    checkboxes: false,           //Make rows checkable. (Note. You need a column with the 'unique' property)
+                    checkAllToggle:true,        //Show the check-all toggle//+RQLBuilder.like("KEYY", "a").rql()
+                    rowClicked: function(data) {
+                        console.log('row clicked');   //data.event holds the original jQuery event.
+                        console.log(data);            //data.row holds the underlying row you supplied.
+                    },
+                    //----------------基本restful地址---
+                    restbase: '../json/archive/gas_equipment.json',
+                    //---------------行定义
+                    coldefs: [
+                        {
+                            col:"customer_ID",
+                            friendly:"客户编号",
+                            sorting:false,
+//                            format:openButton,
+                            index:1
+                        },
+                        {
+                            col:"customer_name",
+                            friendly:"客户姓名",
+                            sorting:false,
+                            index:2
+                        },
+                        {
+                            col:"customer_address",
+                            friendly:"客户地址",
+                            sorting:false,
+                            hidden:true,
+                            index:3
+                        },
+                        {
+                            col:"meterbook_ID",
+                            friendly:"抄表本号",
+                            sorting:false,
+                            index:4
+                        },
+                        {
+                            col:"customer_type",
+                            friendly:"客户类型",
+                            sorting:false,
+                            index:5
+                        },
+                        {
+                            col:"account_type",
+                            friendly:"账户类型",
+                            sorting:false,
+                            index:6
+                        },
+                        {
+                            col:"gas_type",
+                            friendly:"用气性质",
+                            sorting:false,
+                            index:7
+                        },
+                        {
+                            col:"area",
+                            friendly: "供气区域",
+                            sorting:false,
+                            index:8
+                        },
+                        {
+                            col:"branch_office",
+                            friendly: "分公司",
+                            sorting:false,
+                            index:9
+                        },
+                        {
+                            col:"accountant",
+                            friendly:"核算员",
+                            sorting:false,
+                            hidden:true,
+                            index:10
+                        },
+                        {
+                            col:"attendant",
+                            friendly:"客户服务员",
+                            sorting:false,
+                            hidden:true,
+                            index:11
+                        },
+                        {
+                            col:"customer_status",
+                            friendly:"客户状态",
+                            sorting:false,
+                            index:12
+                        },
+                        {
+                            col:"archive_create_date",
+                            friendly:"建档日期",
+                            hidden:true,
+                            index:13
+                        },
+                        {
+                            col:"open_bolt_date",
+                            friendly:"开栓日期",
+                            hidden:true,
+                            index:14
+                        },
+                        {
+                            col:"contract_ID",
+                            friendly:"合同编号",
+                            sorting:false,
+                            hidden:true,
+                            index:15
+                        },
+                        {
+                            col:"customer_phone",
+                            friendly:"电话",
+                            sorting:false,
+                            hidden:true,
+                            index:16
+                        },
+                        {
+                            col:"mark",
+                            friendly:"调压设备编号",
+                            sorting:false,
+                            hidden:true,
+                            index:417
+                        },
+                        {
+                            col:"mark",
+                            friendly:"调压设备类型",
+                            sorting:false,
+                            hidden:true,
+                            index:417
+                        },
+                        {
+                            col:"mark",
+                            friendly:"型号信息",
+                            sorting:false,
+                            hidden:true,
+                            index:417
+                        },
+                        {
+                            col:"mark",
+                            friendly:"日用量",
+                            sorting:false,
+                            hidden:true,
+                            index:417
+                        },
+                        {
+                            col:"account_ID",
+                            friendly:"年用量",
+                            sorting:false,
+                            hidden:true,
+                            index:50
+                        }
+                    ],
+                    //---------------查询时过滤条件
+                    findFilter: function(){//find function
+                        var filter = "keyy="+$('#find_key').val();
+                        return filter;
+                    }//--findFilter
+                }//--init
+            );//--end init
+
+            $('.file-loading').fileinput({
+                language: 'zh',
+            });
+
+            ComponentsPickers.init();
+        }
+    );
+</script><!-- End of User Script-->
+</html>

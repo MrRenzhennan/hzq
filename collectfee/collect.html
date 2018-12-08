@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>收费管理</title>
+	<script src="../pages/scripts/basepath.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-select/bootstrap-select.min.css">
+	<link rel="stylesheet" type="text/css" href="../assets/global/plugins/select2/select2.css">
+	<link href="../../assets/admin/pages/css/search.css" rel="stylesheet" type="text/css"/>
+
+	<script src="../pages/scripts/header.js"></script>
+	<meta http-equiv="content-type" content="text/html" charset="utf-8"/>
+	<link href='../assets/global/plugins/jquery-watable/watable.css' rel='stylesheet'/>
+	<link href='../assets/global/plugins/jquery-watable/animate.min.css' rel='stylesheet'/>
+	<link rel='stylesheet' href='../assets/global/plugins/jquery-watable/watable.css'/>
+	<link rel='stylesheet' href='../assets/global/plugins/jquery-watable/animate.min.css'/>
+</head>
+
+
+<body class="page-header-fixed page-quick-sidebar-over-content">
+
+<!-- 标题栏开始 -->
+<div class="page-header navbar navbar-fixed-top">
+	<script>$.include("pages/partial/menu.shtml");</script>
+</div>
+<!-- 标题栏结束 -->
+<div class="clearfix"></div>
+<div class="page-container">
+	<!-- 左侧菜单开始 -->
+	<div class="page-sidebar-wrapper">
+		<script>$.include("pages/partial/sidebar.shtml");</script>
+	</div>
+	<!-- 左侧菜单结束 -->
+
+	<!-- 主内容开始 -->
+	<div class="page-content-wrapper">
+		<div class="page-content clearfix">
+			<!--内容头开始-->
+			<div class="row">
+				<div class="col-md-12">
+					<ul class="page-breadcrumb breadcrumb">
+						<li>
+							<i class="fa fa-map-marker"></i>
+							<a href="index.html">收费管理子系统</a>
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>
+							<a href="index.html">燃气收费管理</a>
+							<i class="fa fa-angle-right"></i>
+						</li>
+						<li>
+							<a href="javascript:void(0)">联合账户收费</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!-- 内容头结束-->
+
+			<!-- 内容开始-->
+			<!--查询弹框-->
+			<!-- Modal -->
+			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+				 aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"><span
+									aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+							<h4 class="modal-title" id="myModalLabel">查询用户</h4>
+						</div>
+						<div class="modal-body">
+							<div class=" col-md-12" style="padding-bottom:0px">
+								<h5 class="form-section">查询条件设置</h5>
+								<div class="col-md-12" style="padding-bottom:0px">
+									<div class="col-md-5 form-group">
+										<div class="btn-group input-group">
+											<div class="input-group-addon">客户姓名：</div>
+											<input id="userName" class="inputclear form-control" type="text"
+												   placeholder="">
+											<span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+										</div>
+									</div>
+									<div class="col-md-5 form-group">
+										<div class="btn-group input-group">
+											<div class="input-group-addon">客户编号：</div>
+											<input id="userID" class="inputclear form-control" type="text"
+												   placeholder="">
+											<span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+										</div>
+									</div>
+									<div class="col-md-2 form-group">
+										<div class="btn-group form-group">
+											<button id="select_button" class="btn green">
+												查询&nbsp;
+											</button>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-12" style="padding-bottom:0px">
+									<div class="col-md-5 form-group">
+										<div class="btn-group input-group">
+											<div class="input-group-addon active">联系电话：</div>
+											<input id="userAddress" class="inputclear form-control" type="text"
+												   placeholder="">
+											<span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+										</div>
+									</div>
+									<div class="col-md-5 form-group">
+										<div class="btn-group input-group">
+											<div class="input-group-addon">客户地址：</div>
+											<input id="telephone_tan" class="inputclear form-control" type="text"
+												   placeholder="">
+											<span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class=" col-md-12" style="padding-bottom:0px">
+								<h5 class="form-section">查询结果</h5>
+								<table class="watable table table-striped table-hover table-bordered table-condensed">
+									<thead>
+									<tr>
+										<th>
+											客户名称
+										</th>
+										<th>
+											客户编号
+										</th>
+										<th>
+											客户地址
+										</th>
+										<th>
+											客户类型
+										</th>
+									</tr>
+									</thead>
+									<tbody>
+									<tr>
+										<td>
+											张三
+										</td>
+										<td>
+											111003303
+										</td>
+										<td>
+											南岗区嵩山路嵩山小区
+										</td>
+										<td>
+											居民（单纯餐饮）
+										</td>
+									</tr>
+									<tr>
+										<td>
+											张三
+										</td>
+										<td>
+											1114565303
+										</td>
+										<td>
+											道里区井街56号
+										</td>
+										<td>
+											居民（单纯餐饮）
+										</td>
+									</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+							<button type="button" class="btn btn-primary">确定</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--end Modal -->
+			<div class="tabbable tabbable-custom tabbable-custom-profile col-md-12" style="padding-bottom:0px">
+				<ul class="nav nav-tabs">
+					<li class="active">
+						<a href="#tab_1_22" data-toggle="tssab">
+							联合账户信息 </a>
+
+					</li>
+				</ul>
+				<!--/row-->
+				<div class="tab-content">
+					<div class="tab-pane active" id="tab11">
+						<div class="portlet-body">
+
+							<div data-always-visible="1"
+								 data-rail-visible="1">
+								<table class="table  table-hover"  style="border-top: 0px; border-left: 0px; border-right: 0px">
+									<tbody>
+									<tr>
+										<td width="150px;">联合账户名称:</td>
+										<td>张三</td>
+										<td style="border-left: 1px solid #ececec;" width="150px;">联合账户编号:</td>
+										<td>110722059</td>
+									</tr>
+									<tr>
+										<td>联合账户状态 :</td>
+										<td>正常</td>
+										<td style="border-left: 1px solid #ececec;">联合账户联系人:</td>
+										<td>张三</td>
+									</tr>
+									<tr>
+										<td>联合账户燃气费余额:</td>
+										<td>0</td>
+										<td style="border-left: 1px solid #ececec;">联合账户燃气费欠费金额:</td>
+										<td>58</td>
+									</tr>
+									<tr>
+										<td> 身份证号:</td>
+										<td style="border-right: 1px solid #ececec;">230102</td>
+										<td></td>
+										<td></td>
+									</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+			</div>
+			<div class="tabbable tabbable-custom tabbable-custom-profile col-md-12" style="padding-bottom:0px">
+				<ul class="nav nav-tabs">
+					<li class="active">
+						<a href="#tab_s_22" data-toggle="tssab">
+							联合账户收费操作 </a>
+
+					</li>
+				</ul>
+				<!--/row-->
+				<div class="tab-content">
+					<div class="tab-pane active" id="tab_s_22">
+						<div class="portlet-body">
+
+							<div class="row">
+								<div class="col-md-12" style="padding-bottom:0px">
+									<div class="col-md-3 form-group">
+										<div class="btn-group input-group">
+											<div class="input-group-addon">收费金额：</div>
+											<input id="commonfee" class="inputclear form-control" type="text"
+												   placeholder="燃气费">
+											<span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+										</div>
+									</div>
+									<div class="col-md-3 form-group">
+										<div class="btn-group input-group">
+											<div class="input-group-addon">收费方式：</div>
+											<select class="form-control select2me" id="collect_method">
+												<option value="-1">请选择</option>
+												<option value="0">现金</option>
+												<option value="0">银行转账</option>
+												<option value="0">POS机</option>
+												<option value="0">支票</option>
+											</select>
+										</div>
+									</div>
+
+								</div>
+								<div class="col-md-12" style="padding-bottom:0px">
+									<div class="col-md-3 form-group">
+										<div class="btn-group input-group">
+											<div class="input-group-addon">票据编号：</div>
+											<input id="lbill_id1" class="inputclear form-control" type="text"
+												   placeholder="票据编号">
+											<span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+										</div>
+									</div>
+									<div class="col-md-3 form-group">
+										<div class="btn-group input-group">
+											<div class="input-group-addon">联系电话：</div>
+											<input id="ltelephone1" class="inputclear form-control" type="text"
+												   placeholder="联系电话">
+											<span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-12" style="padding-bottom:0px">
+									<div class="col-md-3 form-group">
+										<div class="btn-group form-group">
+											<button id="lcollect_button" class="btn green">
+												收费&nbsp;
+											</button>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+
+			</div>
+			<div>
+				<div class="tabbable tabbable-custom tabbable-custom-profile col-md-12" style="padding-bottom:0px">
+					<ul class="nav nav-tabs">
+						<li class="active">
+							<a href="#tab_1_22" data-toggle="tab" >
+								客户基本信息 </a>
+
+						</li>
+					</ul>
+					<!--/row-->
+					<div class="tab-content">
+						<div class="tab-pane active" id="tab11">
+							<div class="portlet-body">
+
+
+								<div data-always-visible="1"
+									 data-rail-visible="1">
+									<table class="table  table-hover"  style="border-top: 0px; border-left: 0px; border-right: 0px">
+										<tbody>
+										<tr>
+											<td width="150px;">客户名称:</td>
+											<td>张三</td>
+											<td style="border-left: 1px solid #ececec;" width="150px;">客户编号:</td>
+											<td>110722059</td>
+										</tr>
+										<tr>
+											<td>客户类别:</td>
+											<td>居民（单纯餐饮）</td>
+											<td style="border-left: 1px solid #ececec;">客户状态:</td>
+											<td>正常</td>
+										</tr>
+										<tr>
+											<td>特殊用户:</td>
+											<td></td>
+											<td style="border-left: 1px solid #ececec;">联系电话:</td>
+											<td>13804781390</td>
+										</tr>
+										<tr>
+											<td>客户地址:</td>
+											<td>黑龙江省嵩山小区</td>
+											<td style="border-left: 1px solid #ececec;">供气区域:</td>
+											<td>道里一部</td>
+										</tr>
+										<tr>
+											<td>燃气费余额:</td>
+											<td>0</td>
+											<td style="border-left: 1px solid #ececec;">燃气费欠费金额:</td>
+											<td>58</td>
+										</tr>
+										<tr>
+											<td>垃圾处理费余额:</td>
+											<td>0</td>
+											<td style="border-left: 1px solid #ececec;">垃圾处理费欠费金额:</td>
+											<td>36</td>
+										</tr>
+										<tr>
+											<td> 身份证号:</td>
+											<td style="border-right: 1px solid #ececec;">230102</td>
+											<td>是否IC卡</td>
+											<td>否</td>
+										</tr>
+										</tbody>
+									</table>
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<div>
+				<div class="tabbable tabbable-custom tabbable-custom-profile col-md-12" style="padding-bottom:0px">
+					<ul class="nav nav-tabs">
+						<li class="active">
+							<a href="#tab_1_22" data-toggle="tab" >
+								收费操作 </a>
+
+						</li>
+					</ul>
+					<!--/row-->
+					<div class="tab-content">
+						<div class="tab-pane active" id="tab_11">
+							<div class="portlet-body">
+								<div class="row">
+
+									<div class="col-md-12" >
+										<div class="col-md-3 form-group">
+											<label><input name="gas" type="checkbox" value=""/>燃气费收费</label>
+										</div>
+									</div>
+
+								</div>
+								<div class="row">
+
+									<div class="col-md-12" >
+										<div class="col-md-3 form-group">
+											<div class="btn-group input-group">
+												<div class="input-group-addon">收费金额：</div>
+												<input id="commonfee" class="inputclear form-control" type="text" placeholder="燃气费">
+												<span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+											</div>
+										</div>
+										<div class="col-md-3 form-group">
+											<div class="btn-group input-group">
+												<div class="input-group-addon">收费方式：</div>
+												<select class="form-control select2me" id="collect_method">
+													<option value="-1">请选择</option>
+													<option value="0">现金</option>
+													<option value="0">银行转账</option>
+													<option value="0">POS机</option>
+													<option value="0">支票</option>
+												</select>
+											</div>
+										</div>
+										<div class="col-md-3 form-group">
+											<div class="btn-group input-group">
+												<div class="input-group-addon">票据编号：</div>
+												<input id="bill_id1" class="inputclear form-control" type="text" placeholder="票据编号">
+												<span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+											</div>
+										</div>
+										<div class="col-md-3 form-group">
+											<div class="btn-group input-group">
+												<div class="input-group-addon">联系电话：</div>
+												<input id="telephone1" class="inputclear form-control" type="text" placeholder="联系电话">
+												<span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+											</div>
+										</div>
+									</div>
+
+								</div>
+								<div class="row">
+
+									<div class="col-md-12" >
+										<div class="col-md-3 form-group">
+											<label><input name="gas" type="checkbox" value=""/>垃圾处理费收费 </label>
+										</div>
+
+
+									</div>
+
+								</div>
+								<div class="row">
+
+									<div class="col-md-12" >
+										<div class="col-md-3 form-group">
+											<div class="btn-group input-group">
+												<div class="input-group-addon">收费金额：</div>
+												<input id="garbagefee" class="inputclear form-control" type="text" placeholder="垃圾处理费">
+												<span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+											</div>
+										</div>
+										<div class="col-md-3 form-group">
+											<div class="btn-group input-group">
+												<div class="input-group-addon">收费方式：</div>
+												<select class="form-control select2me" id="find_leaf">
+													<option value="-1">请选择</option>
+													<option value="0">现金</option>
+													<option value="0">银行转账</option>
+													<option value="0">POS机</option>
+													<option value="0">支票</option>
+													<option value="0">其他</option>
+												</select>
+											</div>
+										</div>
+										<div class="col-md-3 form-group">
+											<div class="btn-group input-group">
+												<div class="input-group-addon">票据编号：</div>
+												<input id="bill_id" class="inputclear form-control" type="text" placeholder="票据编号">
+												<span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+											</div>
+										</div>
+										<div class="col-md-3 form-group">
+											<div class="btn-group input-group">
+												<div class="input-group-addon">联系电话：</div>
+												<input id="telephone" class="inputclear form-control" type="text" placeholder="联系电话">
+												<span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+											</div>
+										</div>
+									</div>
+
+								</div>
+								<div class="row">
+
+
+								</div>
+								<div class="row">
+									<div class="col-md-12" >
+										<div class="col-md-3 form-group">
+											<div class="btn-group form-group">
+												<button id="collect_button" class="btn green">
+													收费&nbsp;
+												</button>
+											</div>
+										</div>
+										<div class="col-md-3 form-group">
+											<div class="btn-group form-group">
+												<button id="print" class="btn btn-primary">
+													打印税控发票&nbsp;
+												</button>
+											</div>
+										</div>
+										<div class="col-md-3 form-group">
+											<div class="btn-group form-group">
+												<a href='collectfee/reprint.html'>
+													<button id="gasprint_button" class="btn red">
+														燃气费发票补打与作废&nbsp;
+													</button>
+												</a>
+											</div>
+										</div>
+										<div class="col-md-3 form-group">
+											<div class="btn-group form-group">
+												<a href='collectfee/reprint.html'>
+													<button id="print_button" class="btn red">
+														垃圾处理费发票补打与作废&nbsp;
+													</button>
+												</a>
+											</div>
+										</div>
+									</div>
+
+
+								</div>
+
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="container-fluid">
+			</div>
+			<!-- 内容结束-->
+			<div class="tabbable tabbable-custom tabbable-custom-profile">
+				<ul class="nav nav-tabs">
+					<li class="active">
+						<a href="#tab_l_11" data-toggle="tab">
+							历史收费信息 </a>
+					</li>
+					<li>
+						<a href="#tab_l_22" data-toggle="tab">
+							历史抄表信息 </a>
+					</li>
+				</ul>
+				<div class="tab-content">
+					<div class="tab-pane active" id="tab_l_11">
+						<div class="portlet-body">
+							<div class="container-fluid">
+								<div id="divtable" class="table-responsive container-fluid col-md-12">
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--tab-pane-->
+					<div class="tab-pane" id="tab_l_22" clearfix>
+						<div class="portlet-body">
+							<table class="watable table table-striped table-hover table-bordered table-condensed">
+								<thead>
+								<tr>
+									<th>
+										收费日期
+									</th>
+									<th class="hidden-xs">
+										营业网点
+									</th>
+									<th>
+										营业员
+									</th>
+									<th>
+										金额
+									</th>
+								</tr>
+								</thead>
+								<tbody>
+								<tr>
+									<td>
+										2012-11-12 8:55:22
+									</td>
+									<td class="hidden-xs">
+										中国银行
+									</td>
+									<td>
+										银行收费管理员
+									</td>
+									<td>
+										200
+									</td>
+								</tr>
+
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<!--tab-pane-->
+					<div class="tab-pane" id="tab_1_33">
+						<div class="portlet-body">
+							<table class="watable table table-striped table-hover table-bordered table-condensed">
+								<thead>
+								<tr>
+									<th>
+										表户名
+									</th>
+									<th class="hidden-xs">
+										用户地址
+									</th>
+									<th>
+										抄表日期
+									</th>
+									<th>
+										燃气表读数
+									</th>
+									<th>
+										修正表读数
+									</th>
+									<th>
+										客户服务员
+									</th>
+									<th>
+										核算员
+									</th>
+								</tr>
+								</thead>
+								<tbody>
+								<tr>
+									<td>
+										默认表户
+									</td>
+									<td class="hidden-xs">
+										道里区
+									</td>
+									<td>
+										2016-10-6
+									</td>
+									<td>
+										416
+									</td>
+									<td>
+										0
+									</td>
+									<td>
+										刘岩
+									</td>
+									<td>
+										蒋永梅
+									</td>
+
+								</tr>
+
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<!--tab-pane-->
+				</div>
+			</div>
+
+			<div class="tabbable tabbable-custom tabbable-custom-profile">
+				<ul id="cusTab" class="nav nav-tabs">
+					<li class="active">
+						<a href="#tab_c_1" data-toggle="tab" 　>
+							客户基本信息 </a>
+					</li>
+					<li>
+						<a href="#tab_c_2" data-toggle="tab">
+							客户表户信息 </a>
+					</li>
+				</ul>
+				<div class="tab-content">
+					<div class="tab-pane active" id="tab_c_1">
+						<div class="portlet-body">
+							<div data-always-visible="1"
+								 data-rail-visible="1">
+								<table class="table  table-hover"
+									   style="border: 1px solid #ececec; border-left: 0px; border-right: 0px">
+									<tbody>
+									<tr>
+										<td>客户名称:</td>
+										<td>张三</td>
+										<td style="border-left: 1px solid #ececec;">客户编号:</td>
+										<td>110722059</td>
+									</tr>
+									<tr>
+										<td>客户类别:</td>
+										<td>居民（单纯餐饮）</td>
+										<td style="border-left: 1px solid #ececec;">客户状态:</td>
+										<td>正常</td>
+									</tr>
+									<tr>
+										<td>特殊用户:</td>
+										<td></td>
+										<td style="border-left: 1px solid #ececec;">联系电话:</td>
+										<td>13804781390</td>
+									</tr>
+									<tr>
+										<td>客户地址:</td>
+										<td>黑龙江省嵩山小区</td>
+										<td style="border-left: 1px solid #ececec;">供气区域:</td>
+										<td>道里一部</td>
+									</tr>
+									<tr>
+										<td>燃气费余额:</td>
+										<td>0</td>
+										<td style="border-left: 1px solid #ececec;">燃气费欠费金额:</td>
+										<td>58</td>
+									</tr>
+									<tr>
+										<td>垃圾处理费余额:</td>
+										<td>0</td>
+										<td style="border-left: 1px solid #ececec;">垃圾处理费欠费金额:</td>
+										<td>36</td>
+									</tr>
+									<tr>
+										<td>厂家:</td>
+										<td>天信</td>
+										<td style="border-left: 1px solid #ececec;"> 身份证号:</td>
+										<td>230102</td>
+									</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					<!--tab-pane-->
+					<div class="tab-pane" id="tab_c_2">
+						<div class="portlet-body">
+							<div style="padding-bottom:0px">
+								<table class="watable table table-striped table-hover table-bordered table-condensed">
+									<thead>
+									<tr>
+										<th>表户名称</th>
+										<th>表户地址</th>
+										<th>气源</th>
+										<th>用气类型</th>
+										<th>表户状态</th>
+									</tr>
+									</thead>
+									<tr>
+										<td>默认表户</td>
+										<td>哈尔滨市南岗区嵩山路嵩山小区</td>
+										<td>燃气</td>
+										<td>居民（单纯餐饮）</td>
+										<td>正常</td>
+									</tr>
+								</table>
+
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+			<div>
+				<div class="tabbable tabbable-custom tabbable-custom-profile" >
+					<ul id="gTab" class="nav nav-tabs">
+						<li class="active">
+							<a href="#tab_g_1" data-toggle="tab" 　>
+								购气操作 </a>
+						</li>
+
+					</ul>
+					<div class="tab-content clearfix">
+						<div class="tab-pane active" id="tab_g_1">
+							<div class="portlet-body">
+								<div class=" col-md-12">
+									<div class="col-md-12" style="padding-bottom:0px">
+										<div class="col-md-3 form-group">
+											<div class="btn-group input-group">
+												<input name="Fruit" type="checkbox" value=""/>燃气费余额转换
+											</div>
+										</div>
+									</div>
+									<div class="col-md-12" style="padding-bottom:0px">
+										<div class="col-md-3 form-group">
+											<div class="btn-group input-group">
+												<div class="input-group-addon">所购气量：</div>
+												<input id="find_key1" class="inputclear form-control" type="text"
+													   placeholder="">
+												<span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+											</div>
+										</div>
+										<div class="col-md-3 form-group">
+											<div class="btn-group input-group">
+												<div class="input-group-addon">用户卡号：</div>
+												<input id="find_key2" class="inputclear form-control" type="text"
+													   placeholder="">
+												<span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+											</div>
+										</div>
+										<div class="col-md-3 form-group">
+											<div class="btn-group input-group">
+												<div class="input-group-addon">收费方式：</div>
+												<select class="form-control select2me" id="find_leaf">
+													<option value="-1">请选择</option>
+													<option value="0">现金</option>
+													<option value="0">银行转账</option>
+													<option value="0">POS机</option>
+													<option value="0">支票</option>
+												</select>
+											</div>
+										</div>
+										<div class="col-md-3 form-group">
+											<div class="btn-group form-group">
+												<button type="button" class="btn yellow" data-toggle="modal"
+														data-target="#buyModal">
+													购气
+												</button>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-12" style="padding-bottom:0px">
+										<div class="col-md-3 form-group">
+											<div class="btn-group input-group">
+												<div class="input-group-addon">购气单价：</div>
+												<input id="bill_id" class="inputclear form-control" type="text"
+													   placeholder="">
+												<span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+											</div>
+										</div>
+										<div class="col-md-3 form-group">
+											<div class="btn-group input-group">
+												<div class="input-group-addon">所需金额：</div>
+												<input id="needmoney" class="inputclear form-control" type="text"
+													   placeholder="">
+												<span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+											</div>
+										</div>
+										<div class="col-md-3 form-group">
+											<div class="btn-group form-group">
+												<a href='collectfee/reprint.html'>
+													<button id="print" class="btn btn-primary">
+														打印税控发票
+													</button>
+												</a>
+											</div>
+										</div>
+
+										<div class="col-md-3 form-group">
+											<div class="btn-group form-group">
+												<a href='collectfee/reprint.html'>
+													<button id="collect_button" class="btn red">
+														发票补打与作废&nbsp;
+													</button>
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-12">
+									<h8 class="form-section">垃圾处理费收费操作</h8>
+									<div class="col-md-12" style="padding-bottom:0px">
+										<div class="col-md-3 form-group">
+											<div class="btn-group input-group">
+												<div class="input-group-addon">收费金额：</div>
+												<input id="garbage" class="inputclear form-control" type="text">
+												<span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+											</div>
+										</div>
+										<div class="col-md-3 form-group">
+											<div class="btn-group input-group">
+												<div class="input-group-addon">收费方式：</div>
+												<select class="form-control select2me" id="collectmethod">
+													<option value="-1">请选择</option>
+													<option value="0">现金</option>
+													<option value="0">银行转账</option>
+													<option value="0">POS机</option>
+													<option value="0">支票</option>
+												</select>
+											</div>
+										</div>
+										<div class="col-md-3 form-group">
+											<div class="btn-group form-group">
+												<button id="collect1_button" class="btn green">
+													收费&nbsp;
+												</button>
+											</div>
+										</div>
+									</div>
+									<div class="col-md-12" style="padding-bottom:0px">
+										<div class="col-md-3 form-group">
+											<div class="btn-group input-group">
+												<div class="input-group-addon">票据编号：</div>
+												<input id="bill1_id" class="inputclear form-control" type="text">
+												<span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+											</div>
+										</div>
+										<div class="col-md-3 form-group">
+											<div class="btn-group input-group">
+												<div class="input-group-addon">联系电话：</div>
+												<input id="telephone" class="inputclear form-control" type="text">
+												<span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+
+			</div>
+
+			<div class="container-fluid">
+
+			</div>
+			<!-- 内容结束-->
+			<div class="tabbable tabbable-custom tabbable-custom-profile">
+				<ul id="myTab" class="nav nav-tabs">
+
+					<li class="active">
+						<a href="#tab_1_11" data-toggle="tab">
+							IC卡信息 </a>
+					</li>
+					<li>
+						<a href="#tab_1_22" data-toggle="tab">
+							IC卡变更信息 </a>
+					</li>
+					<li>
+						<a href="#tab_1_33" data-toggle="tab">
+							IC卡购气信息 </a>
+					</li>
+					<li>
+						<a href="#tab_1_44" data-toggle="tab">
+							IC卡内部信息 </a>
+					</li>
+				</ul>
+				<div class="tab-content">
+					<div class="tab-pane active" id="tab_1_11">
+						<div class="portlet-body">
+							<table class="watable table table-striped table-hover table-bordered table-condensed">
+								<thead>
+								<tr>
+									<th>
+										客户编号
+									</th>
+									<th class="hidden-xs">
+										IC卡号
+									</th>
+									<th>
+										地区编码
+									</th>
+									<th>
+										表编号
+									</th>
+									<th>
+										气量
+									</th>
+									<th>
+										金额
+									</th>
+									<th>
+										IC卡状态
+									</th>
+									<th>
+										厂家
+									</th>
+								</tr>
+								</thead>
+								<tbody>
+								<tr>
+									<td>
+										<a href="#">
+											110674666</a>
+									</td>
+									<td class="hidden-xs">
+										88990
+									</td>
+									<td>
+										567
+									</td>
+									<td>
+										biaobianhao
+									</td>
+									<td>
+										400M3
+									</td>
+									<td>
+										500
+									</td>
+									<td>
+										正常
+									</td>
+									<td>
+										道里
+									</td>
+								</tr>
+
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<!--tab-pane-->
+					<div class="tab-pane" id="tab_1_22">
+						<div class="portlet-body">
+							<table class="watable table table-striped table-hover table-bordered table-condensed">
+								<thead>
+								<tr>
+									<th>
+										客户编号
+									</th>
+									<th class="hidden-xs">
+										IC卡号
+									</th>
+									<th>
+										表编号
+									</th>
+									<th>
+										IC卡变动类型
+									</th>
+									<th>
+										时间
+									</th>
+								</tr>
+								</thead>
+								<tbody>
+								<tr>
+									<td>
+										<a href="#">
+											110674666</a>
+									</td>
+									<td class="hidden-xs">
+										7535543
+									</td>
+									<td>
+										567
+									</td>
+									<td>
+										丢失
+									</td>
+									<td>
+										2016-11-12
+									</td>
+								</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<!--tab-pane-->
+					<div class="tab-pane" id="tab_1_33">
+						<div class="portlet-body">
+							<table class="watable table table-striped table-hover table-bordered table-condensed">
+								<thead>
+								<tr>
+									<th>
+										客户编号
+									</th>
+									<th>
+										供气区域
+									</th>
+									<th>
+										IC卡号
+									</th>
+									<th>
+										表编号
+									</th>
+									<th>
+										购气时间
+									</th>
+									<th>
+										购气次数
+									</th>
+									<th>
+										气量
+									</th>
+									<th>
+										价格
+									</th>
+									<th>
+										金额
+									</th>
+									<th>
+										IC卡购气类型
+									</th>
+									<th>
+										总气量
+									</th>
+									<th>
+										总金额
+									</th>
+								</tr>
+								</thead>
+								<tbody>
+								<tr>
+									<td>
+										116450074
+									</td>
+									<td>
+										道一
+									</td>
+									<td>
+										150
+									</td>
+									<td>
+										114343
+									</td>
+									<td>
+										2016-9-9
+									</td>
+									<td>
+										120次
+									</td>
+									<td>
+										100M3
+									</td>
+									<td>
+										2.8￥/M3
+									</td>
+
+									<td>
+										520.10￥ <span class="label label-success label-sm">
+																Paid </span>
+									</td>
+									<td>
+										<a class="btn default btn-xs green-stripe" href="#">
+											气量</a>
+									</td>
+									<td>
+										1143M3
+									</td>
+									<td>
+										1535.05￥
+									</td>
+								</tr>
+
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<!--tab-pane-->
+					<div class="tab-pane" id="tab_1_44">
+						<div class="portlet-body">
+							<table class="watable table table-striped table-hover table-bordered table-condensed">
+								<tr>
+									<td>&nbsp;&nbsp;IC卡号<input type="text"></td>
+									<td>区域编码<input type="text"></td>
+									<td>IC卡类型<input type="text"></td>
+								</tr>
+								<tr>
+									<td>&nbsp;卡内气量<input type="text"></td>
+									<td>购气次数<input type="text"></td>
+									<td>表内累计气量<input type="text"></td>
+								</tr>
+								<tr>
+									<td>表内剩余气量<input type="text"></td>
+									<td>补卡次数<input type="text"></td>
+
+								</tr>
+							</table>
+						</div>
+					</div>
+					<!--tab-pane-->
+				</div>
+			</div>
+			<!-- 内容结束-->
+
+		</div>
+
+	</div>
+	<!-- 主内容结束 -->
+</div>
+
+
+<!-- 底边栏开始 -->
+<script>$.include("pages/partial/foot.shtml");</script>
+<!-- 底边栏结束 -->
+</body>
+<script>$.include("pages/partial/scripts.shtml");</script>
+<script src="../assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="../assets/global/plugins/jquery-watable/jquery.watable.js"></script>
+<script type="text/javascript" src="../pages/scripts/rqlbuilder.js"></script>
+<script type="text/javascript" src="../pages/scripts/xwatable.js"></script>
+<script type="text/javascript" src="../pages/scripts/refhelper.js"></script>
+
+<script type="text/javascript"
+		src="../assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/select2/select2.js"></script>
+
+
+<!-- End of User Script-->
+<script type="text/javascript">
+    $(function () {
+        $("#commonfee").blur(function () {
+            if (commonfee.value > 10000) {
+                bootbox.alert("金额过大");
+            }
+        });
+    });
+    $(function () {
+        $("#commonfee1").blur(function () {
+            if (commonfee1.value > 10000) {
+                bootbox.alert("金额过大");
+            }
+        });
+    });
+
+</script>
+</html>

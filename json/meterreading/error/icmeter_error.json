@@ -1,0 +1,13 @@
+{"rows":
+[
+  {"versionID":"2015/5/6","gasCategory":"0543","gasType":"王朝","gasStart":"554","gasStart1":"5","gasEnd1":"443","gasEnd":"443","price":"00123","changeTime":"正在申请中","effectTime":"未作废","changePerson":"抄表员抄错了表","changePerson1":"未审批","unionAccount":"","UUID":"1"}
+, {"versionID":"2015/5/6","gasCategory":"0543","gasType":"王朝","gasStart":"554","gasStart1":"5","gasEnd1":"443","gasEnd":"443","price":"00123","changeTime":"正在申请中","effectTime":"未作废","changePerson":"抄表员抄错了表","changePerson1":"已审批","unionAccount":"","UUID":"1"}
+,{"versionID":"2015/5/6","gasCategory":"0543","gasType":"王朝","gasStart":"554","gasStart1":"5","gasEnd1":"443","gasEnd":"443","price":"00123","changeTime":"正在申请中","effectTime":"未作废","changePerson":"抄表员抄错了表","changePerson1":"未审批","unionAccount":"","UUID":"1"}
+,{"versionID":"2015/5/6","gasCategory":"0543","gasType":"王朝","gasStart":"554","gasStart1":"5","gasEnd1":"443","gasEnd":"443","price":"00123","changeTime":"正在申请中","effectTime":"未作废","changePerson":"抄表员抄错了表","changePerson1":"未审批","unionAccount":"","UUID":"1"}
+,{"versionID":"2015/5/6","gasCategory":"0543","gasType":"王朝","gasStart":"554","gasStart1":"5","gasEnd1":"443","gasEnd":"443","price":"00123","changeTime":"正在申请中","effectTime":"未作废","changePerson":"抄表员抄错了表","changePerson1":"未审批","unionAccount":"","UUID":"1"}
+
+]
+,"total_rows":1
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

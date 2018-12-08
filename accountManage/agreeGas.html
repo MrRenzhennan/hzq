@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+
+<!-- BEGIN HEAD -->
+<head>
+    <title>协议气量申请</title>
+    <base href="../">
+    <script src="pages/scripts/header.js"></script>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8"/>
+
+    <link href='assets/global/plugins/jquery-watable/watable.css' rel='stylesheet'/>
+    <link href='assets/global/plugins/jquery-watable/animate.min.css' rel='stylesheet'/>
+
+    <link href="assets/global/plugins/bootstrap-fileinput/fileinput.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-select/bootstrap-select.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/select2/select2.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/jquery-multi-select/css/multi-select.css"/>
+
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-datepicker/css/datepicker.css"/>
+    <link href='assets/global/plugins/bootstrap-datetimepicker/css/datetimepicker.css' rel='stylesheet'/>
+    <!-- BEGIN THEME STYLES -->
+    <link href="assets/global/css/components.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
+    <!-- END THEME STYLES -->
+
+
+</head>
+<!-- END HEAD -->
+
+<body class="page-header-fixed page-quick-sidebar-over-content">
+
+<!-- 标题栏开始 -->
+<div class="page-header navbar navbar-fixed-top">
+    <script>$.include("pages/partial/menu.shtml");</script>
+</div>
+<!-- 标题栏结束 -->
+<div class="clearfix"></div>
+<div class="page-container">
+    <!-- 左侧菜单开始 -->
+    <div class="page-sidebar-wrapper">
+        <script>$.include("pages/partial/sidebar.shtml");</script>
+    </div>
+    <!-- 左侧菜单结束 -->
+
+    <!-- 主内容开始 -->
+    <div class="page-content-wrapper">
+        <div class="page-content clearfix">
+            <!--内容头开始-->
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa  fa-map-marker"></i>
+                            <a href="index.html">账务管理</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="accountManage/accountagree.html">协议气量管理</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="accountManage/agreeGas.html">协议气量申请</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 内容头结束-->
+
+            <!-- 内容开始-->
+            <script>$.include("serviceManage/partial/select_norsdtuser.shtml");</script>
+            <!--用户信息-->
+            <script>$.include("serviceManage/partial/user_info.shtml");</script>
+            <div class=" col-sm-12" style="padding-bottom:0px">
+                <!-- 查询条件控件 -->
+
+                <div class="tabbable tabbable-custom tabbable-custom-profile col-md-12" style="padding-bottom:0px">
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#tab_1_2" data-toggle="tssab">
+                                协议气量表单 </a>
+
+                        </li>
+                    </ul>
+                    <!--/row-->
+                    <div class="tab-content">
+                        <div class="portlet-body">
+                            <!-- BEGIN FORM-->
+                            <div class="row">
+                                <div class="col-sm-3 form-group">
+                                    <div class="btn-group input-group">
+                                        <div class="input-group-addon">协议气量：</div>
+                                        <input id="agreeGas" class="inputclear form-control" type="text" placeholder="协议气量">
+                                        <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 form-group">
+                                    <div class="btn-group input-group">
+                                        <div class="input-group-addon">协议金额：</div>
+                                        <input id="agreeMon" class="inputclear form-control" type="text" placeholder="协议金额">
+                                        <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 form-group" >
+                                    <div class="btn-group input-group input-select2me">
+                                        <div class="input-group-addon">协议原因:</div>
+                                        <select id="argeeReason"  class="select2-container form-control select2me" data-placeholder="请选择...">
+                                            <option value=""></option>
+                                        </select>
+                                        <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/row-->
+                            <div class="row">
+                                <div class="col-md-3 form-group">
+                                    <div class="btn-group input-group">
+                                        <div class="input-group-addon">开始时间:</div>
+                                        <input name="startTime" id="startTime"
+                                               data-date-format="yyyy-mm-dd" type="text"
+                                               class="form-control form-control-inline date-picker"
+                                               placeholder="开始时间">
+                                    </div>
+                                </div>
+                                <div class="col-md-3 form-group">
+                                    <div class="btn-group input-group">
+                                        <div class="input-group-addon">截止时间:</div>
+                                        <input name="endTime" id="endTime"
+                                               data-date-format="yyyy-mm-dd" type="text"
+                                               class="form-control form-control-inline date-picker"
+                                               placeholder="截止时间">
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 form-group">
+                                    <div class="btn-group input-group">
+                                        <div class="input-group-addon">操作人员：</div>
+                                        <input id="operate" class="inputclear form-control" type="text" placeholder="操作人员" disabled>
+                                        <!--<span class="inputclear glyphicon glyphicon-remove-circle hide"></span>-->
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 form-group">
+                                    <div class="btn-group input-group">
+                                        <div class="input-group-addon">日户均用气量：</div>
+                                        <input id="averageGas" class="inputclear form-control" type="text" placeholder="日户均用气量" disabled    >
+                                        <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 form-group">
+                                    <div class="btn-group input-group" style="width: 100%">
+                                        <div class="input-group-addon">业务说明:</div>
+                                        <textarea id="remark" name ="remark" class="inputclear form-control" type="text" style="height: 80px"></textarea>
+                                        <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                    </div>
+                                </div>
+                                <!--<div class="col-sm-6 form-group">-->
+                                    <!--<div class="btn-group input-group"  style="width: 100%">-->
+                                        <!--<div class="input-group-addon">业务说明:</div>-->
+                                        <!--<input id="remark" name ="remark" class="inputclear form-control" type="text">-->
+                                        <!--<span class="inputclear glyphicon glyphicon-remove-circle hide"></span>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+
+                                <!--/span-->
+                                <script>$.include("common/upload.shtml");</script>
+                            </div>
+                            <!--/row-->
+                            <div class="form-actions fluid">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="col-md-offset-4 col-md-8">
+                                            <button type="button" id="submit_bll" class="btn blue">提交申请</button>
+                                            <button type="button" class="btn default">重置</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END FORM-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 内容结束-->
+        </div>
+    </div>
+    <!-- 主内容结束 -->
+</div>
+
+<script type="text/javascript">$.include("pages/partial/xwatable-form.shtml")</script>
+
+<!-- 底边栏开始 -->
+<script>$.include("pages/partial/foot.shtml");</script>
+<!-- 底边栏结束 -->
+</body>
+
+<script>$.include("pages/partial/scripts.shtml");</script>
+<script src="assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-watable/jquery.watable.js"></script>
+<script type="text/javascript" src="pages/scripts/rqlbuilder.js"></script>
+<script type="text/javascript" src="pages/scripts/xwatable.js"></script>
+<script type="text/javascript" src="pages/scripts/refhelper.js"></script>
+<script type="text/javascript" src="assets/global/plugins/select2/select2.js"></script>
+
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script src="assets/admin/pages/scripts/components-pickers.js"></script>
+<script type="text/javascript"
+        src="assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-daterangepicker/moment.min.js"></script>
+
+
+<script src="pages/scripts/jquery.json.min.js"></script>
+<script type="text/javascript" src="pages/scripts/jquery.serialize-object.min.js"></script>
+<script src="mods/service.js"></script>
+<script src="mods/bil.js"></script>
+<script src="accountManage/js/agreeGas.js"></script>
+<script type="text/javascript" src="assets/global/scripts/jquery.md5.js"></script>
+<script>
+    agreeGasApplyAction.init();
+    ComponentsPickers.init();
+
+</script>
+</html>

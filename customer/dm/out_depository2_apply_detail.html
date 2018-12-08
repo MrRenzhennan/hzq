@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]>
+<html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+
+<!-- BEGIN HEAD -->
+<head>
+    <title>二级库出库详情</title>
+    <base href="../../">
+    <script src="pages/scripts/header.js"></script>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8"/>
+
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-select/bootstrap-select.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/select2/select2.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/jquery-multi-select/css/multi-select.css"/>
+    <link href="assets/global/plugins/bootstrap-fileinput/fileinput.css" rel="stylesheet">
+
+    <!-- BEGIN THEME STYLES -->
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/previewPicture/css/component.css" />
+
+    <script type="text/javascript" src="assets/global/plugins/previewPicture/js/modernizr.custom.js"></script>
+    <link href="assets/global/css/components.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
+    <!-- END THEME STYLES -->
+</head>
+<!-- END HEAD -->
+
+<body class="page-header-fixed page-quick-sidebar-over-content">
+
+<!-- 标题栏开始 -->
+<div class="page-header navbar navbar-fixed-top">
+    <script>$.include("pages/partial/menu.shtml");</script>
+</div>
+<!-- 标题栏结束 -->
+<div class="clearfix"></div>
+<div class="page-container">
+    <!-- 左侧菜单开始 -->
+    <div class="page-sidebar-wrapper">
+        <script>$.include("pages/partial/sidebar.shtml");</script>
+    </div>
+    <!-- 左侧菜单结束 -->
+
+    <!-- 主内容开始 -->
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <!--内容头开始-->
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa fa-map-marker"></i>
+                            <a href="javascript:;">审批流程</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="javascript:;">二级库出库审批</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 内容头结束-->
+
+            <!-- 内容开始-->
+            <div class="container-fluid">
+                <div class="row form-group">
+                    <div class="col-md-3">
+                        <label class="control-label col-md-4">供气区域:</label>
+                        <div class="col-md-8">
+                            <input id="areaId" type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="control-label col-md-4">申请单编号:</label>
+                        <div class="col-md-8">
+                            <input id="applyCode" type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="control-label col-md-4">申请人:</label>
+                        <div class="col-md-8">
+                            <input id="applyPerson" type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="control-label col-md-4">领取截止日期:</label>
+                        <div class="col-md-8">
+                            <input id="lastUseDate" type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-md-3">
+                        <label class="control-label col-md-4">源仓库:</label>
+                        <div class="col-md-8">
+                            <input id="sourceDepositoryId" type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="control-label col-md-4">领表用途:</label>
+                        <div class="col-md-8">
+                            <input id="remark" type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tabbable tabbable-custom tabbable-custom-profile col-md-12" style="padding-bottom:0px">
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#tab_1_22" data-toggle="tab">
+                            申请单明细 </a>
+                    </li>
+                </ul>
+                <!--/row-->
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab11">
+                        <div class="portlet-body">
+                            <table class="watable table table-striped table-hover table-bordered table-condensed">
+                                <thead>
+                                <th></th>
+                                <th>表具/备件名称</th>
+                                <th>生产厂家</th>
+                                <th>规格型号</th>
+                                <th>进气方向</th>
+                                <th>数量</th>
+                                </thead>
+                                <tbody id="outDepositoryDetail">
+                                </tbody>
+                            </table>
+                            <!--/row-->
+                        </div>
+                    </div>
+                    <div id="picture">
+                        <script>$.include("common/picture.shtml");</script>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 内容结束-->
+            <script>$.include("examine/commons/commit_examine_common.shtml");</script>
+        </div>
+    </div>
+    <!-- 主内容结束 -->
+</div>
+<script type="text/javascript">$.include("pages/partial/xwatable-form.shtml")</script>
+</body>
+<script>$.include("pages/partial/scripts.shtml");</script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-multi-select/js/jquery.multi-select.js"></script>
+<script type="text/javascript" src="pages/scripts/rqlbuilder.js"></script>
+<script type="text/javascript" src="pages/scripts/refhelper.js"></script>
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<script src="assets/admin/pages/scripts/components-pickers.js"></script>
+<script src="customer/dm/js/out_depository2_apply_detail.js"></script>
+<script src="pages/scripts/jquery.json.min.js"></script>
+<script src="customer/dm/js/meter_attribute.js"></script>
+<script type="text/javascript" src="pages/scripts/jquery.serialize-object.min.js"></script>
+<!-- END PAGE LEVEL SCRIPTS -->
+<script type="text/javascript">
+    outDepositoryApplyDetailAction.init();
+</script><!-- End of User Script-->
+</html>

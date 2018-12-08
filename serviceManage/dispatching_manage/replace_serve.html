@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]>
+<html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+
+<!-- BEGIN HEAD -->
+<head>
+    <title>客户换表服务单</title>
+    <base href="../../">
+
+    <meta http-equiv="content-type" content="text/html" charset="utf-8"/>
+
+    <link href="assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href='assets/global/plugins/jquery-watable/watable.css' rel='stylesheet'/>
+    <link href='assets/global/plugins/jquery-watable/animate.min.css' rel='stylesheet'/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-datepicker/css/datepicker.css"/>
+    <link href='assets/global/plugins/bootstrap-datetimepicker/css/datetimepicker.css' rel='stylesheet'/>
+
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-select/bootstrap-select.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/select2/select2.css"/>
+    <script src="pages/scripts/header.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/jquery-multi-select/css/multi-select.css"/>
+    <link href="assets/global/plugins/bootstrap-fileinput/fileinput.min.css" rel="stylesheet">
+
+    <style>
+        form{
+            padding-left:60px ;
+        }
+        label.error{
+            color:red;
+        }
+    </style>
+</head>
+<!-- END HEAD -->
+<body class="page-header-fixed page-quick-sidebar-over-content">
+<!-- 标题栏开始 -->
+<div class="page-header navbar navbar-fixed-top">
+    <script>$.include("pages/partial/menu.shtml");</script>
+</div>
+<!-- 标题栏结束 -->
+<div class="clearfix"></div>
+<div class="page-container">
+    <!-- 左侧菜单开始 -->
+    <div class="page-sidebar-wrapper">
+        <script>$.include("pages/partial/sidebar.shtml");</script>
+    </div>
+    <!-- 左侧菜单结束 -->
+
+    <!-- 主内容开始 -->
+    <div class="page-content-wrapper">
+        <div class="page-content clearfix">
+            <!--内容头开始-->
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa fa-map-marker"></i>
+                            <a href="index.html">主页</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">客户换表服务单</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 内容头结束-->
+			<div class="tabbable tabbable-custom tabbable-custom-profile col-md-12" style="padding-bottom:0px;display: none;" id="showReasonId">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab33" style="padding-left: 50px;">
+                        <div class="portlet-body">
+                            <div class="row form-group">
+                                <div class="col-sm-12 form-group">
+                                    <div class="btn-group input-group" style="width: 100% !important;">
+                                        <div class="input-group-addon"><span style="color: red;">驳回原因:</span></div>
+                                        <textarea id="backReason"style="height:50px" class="inputclear form-control" type="text" readonly></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 内容开始-->
+            <!-- 业务信息 -->
+            <div class="tabbable tabbable-custom tabbable-custom-profile col-md-12" style="padding-bottom:0px">
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#tab11" data-toggle="tab">
+                            基本信息 </a>
+
+                    </li>
+                </ul>
+                <!--/row-->
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab11">
+                        <div class="portlet-body" style="padding-left: 50px;">
+                            <div class="row">
+                                
+                                <div class="col-md-3 form-group">
+                                    <div class="btn-group input-group" style="width: 100% !important;">
+                                        <div class="input-group-addon">客户号:</div>
+                                        <input id="customerCode" class="inputclear form-control" type="text" readonly/>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 form-group">
+                                    <div class="btn-group input-group" style="width: 100% !important;">
+                                        <div class="input-group-addon">客户姓名:</div>
+                                        <input id="customerName" class="inputclear form-control" type="text" readonly/>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 form-group">
+                                    <div class="btn-group input-group" style="width: 100% !important;">
+                                        <div class="input-group-addon">客户电话:</div>
+                                        <input id="tel" class="inputclear form-control" type="text" readonly/>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 form-group">
+                                    <div class="btn-group input-group" style="width: 100% !important;">
+                                        <div class="input-group-addon">预约时间:</div>
+                                        <input id="bookingTime" class="inputclear form-control" type="text" readonly="readonly">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 form-group">
+                                    <div class="btn-group input-group" style="width: 100% !important;">
+                                        <div class="input-group-addon">客户地址:</div>
+                                        <input id="customerAddress" class="inputclear form-control" type="text" readonly/>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 form-group">
+                                    <div class="btn-group input-group" style="width: 100% !important;">
+                                        <div class="input-group-addon">联系电话：</div>
+                                        <input id="tel2" class="inputclear form-control" type="text" readonly/>
+                                    </div>
+                                </div>
+								  <div class="col-md-3 form-group">
+                                    <div class="btn-group input-group" style="width: 100% !important;">
+                                        <div class="input-group-addon">申报时间:</div>
+                                        <input id="createdTime" class="inputclear form-control" type="text" readonly/>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3 form-group">
+                                    <div class="btn-group input-group" style="width: 100% !important;">
+                                        <div class="input-group-addon">派工时间:</div>
+                                        <input id="sendDate" class="inputclear form-control" type="text" readonly/>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 form-group">
+	                               	<div class="btn-group input-group input-select2me"  style="width: 100% !important;">
+                                        <div class="input-group-addon">派工人:</div>
+                                        <select id="sendPerson" name = "sendPerson" class="select2-container form-control select2me" data-placeholder="请选择...">
+                                        	<option value=""></option>
+                                        </select>
+                                    </div>
+	                            </div>
+                                <div class="col-md-3 form-group">
+                                    <div class="btn-group input-group" style="width: 100% !important;">
+                                        <div class="input-group-addon">到户时间:</div>
+                                        <input id="arriveTime" data-date-format="yyyy-mm-dd" class="form-control form-control-inline  form_accuracy_datetime" size="16" type="text" >
+                                    </div>
+                                </div>
+                                <div class="col-md-3 form-group">
+                                    <div class="btn-group input-group" style="width: 100% !important;">
+                                        <div class="input-group-addon">维修完成时间:</div>
+                                        <input id="finishTime" DATA-DATE-FORMAT="yyyy-mm-dd" class="form-control form-control-inline  form_accuracy_datetime" size="16" type="text" >
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/row-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tabbable tabbable-custom tabbable-custom-profile col-md-12" style="padding-bottom:0px">
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#tab11" data-toggle="tab">
+                            表具基本信息 </a>
+
+                    </li>
+                </ul>
+                <!--/row-->
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab12">
+                        <div class="portlet-body" style="padding-left: 50px;">
+                            <div class="row">
+                                <!--<div class="col-md-3 form-group">
+	                                <div class="btn-group input-group input-select2me" >
+	                                    <div class="input-group-addon">换表原因：</div>
+                                        <select id="noUnboltReason" name="noUnboltReason" class="select2-container form-control select2me" id="seltwo" data-placeholder="请选择...">
+                                        	<option value=""></option>
+                                        	<option value="2">有窃气现象</option>
+                                        	<option value="5">燃气报警器正常工作</option>
+                                        	<option value="6">存在安全隐患</option>	                                        	
+                                        </select>                                  
+                                    </div>
+                                </div>
+                                <input type="hidden" id="noUnboltReason" name="noUnboltReason"/>
+                                <div style="height: 30px;">
+									<input type="checkbox" id="shuas" class="fors" value="2"> 有窃气现象   &nbsp;&nbsp;&nbsp;
+									<input type="checkbox" id="jingy" class="fors" value="5"> 燃气报警器正常工作   &nbsp;&nbsp;&nbsp;
+									<input type="checkbox" id="fangs" class="fors" value="6"> 存在安全隐患   &nbsp;&nbsp;&nbsp;
+								</div>-->
+                                <div class="col-md-3 form-group">
+	                                <div class="btn-group input-group input-select2me" style="width: 100% !important;">
+	                                    <div class="input-group-addon">更换表:</div>
+                                        <select id="changeMeter" name="noUnboltReason" class="select2-container form-control select2me" id="seltwo" data-placeholder="请选择...">
+                                        	<option value=""></option>
+                                        	<option value="1">一次表</option>
+                                        	<option value="2">二次表</option>
+                                        	<option value="3">一次表+二次表</option>	                                        	
+                                        </select>                                  
+                                    </div>
+                                </div>
+	                                
+	                            <div class="col-md-12 form-group">
+	                               	<div class="btn-group input-group input-select2me" style="width: 100% !important;">
+                                        <div class="input-group-addon">窃气或安全隐患部位:</div>
+                                        <input id="hiddenDangerPosition" name="hiddenDangerPosition" class="inputclear form-control" type="text" value="">
+                                    </div>
+	                            </div>
+                            </div>
+                            <!--/row-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+          
+            <div class="tabbable tabbable-custom tabbable-custom-profile col-md-12" style="padding-bottom:0px">
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#tab22" data-toggle="tab">
+                            下线表基础信息 </a>
+                    </li>
+                </ul>
+                <!--/row-->
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab22">
+                        <div class="portlet-body">
+                            <div class="row form-group">
+                            	<form action="javascript:;" role="form" name="oldMeterForm" id="oldMeterForm">
+                            	<div class="col-md-3 form-group">
+                                    <div class="btn-group input-group" style="width: 100% !important;">
+                                        <div class="input-group-addon">表编号:</div>
+                                        <input class="inputclear form-control" type="text" name="meterNo" maxlength="100" readonly/>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 form-group">
+                                    <div class="btn-group input-group" style="width: 100% !important;">
+                                        <div class="input-group-addon">微机表读数:</div>
+                                        <input class="inputclear form-control" id="vreading" type="text" readonly/>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 form-group">
+                                    <div class="btn-group input-group" style="width: 100% !important;">
+                                        <div class="input-group-addon">下线表读数:</div>
+                                        <input class="inputclear form-control" type="number" name="reading" id="reading"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 form-group">
+                            		<div class="btn-group input-group input-select2me" style="width: 100% !important;">
+				                        <div class="input-group-addon">表具种类:</div>
+				                        <select id="oldMeterKind" name="meterKind" class="select2-container form-control select2me" data-placeholder="请选择..."disabled>
+				                            <option value=""></option>
+				                        </select>
+				                    </div>
+                        	 	</div>
+                    			<div class="col-md-3 form-group">
+                                    <div class="btn-group input-group" style="width: 100% !important;">
+                                        <div class="input-group-addon">表位数:</div>
+                                        <input class="inputclear form-control" type="text"  name="meterDigit" maxlength="22" readonly/>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 form-group">
+                            		<div class="btn-group input-group input-select2me" style="width: 100% !important;">
+				                        <div class="input-group-addon">进气方向:</div>
+				                        <select id="oldDirection" name="direction" class="select2-container form-control select2me" data-placeholder="请选择..." disabled>
+				                            <option value=""></option>
+				                        </select>
+				                    </div>
+                        	 	</div>
+                    			
+                                <div class="col-md-3 form-group">
+                            		<div class="btn-group input-group input-select2me" style="width: 100% !important;">
+				                        <div class="input-group-addon">生产厂家:</div>
+				                        <select id="oldFactoryId" name="factoryId" class="select2-container form-control select2me" data-placeholder="请选择..." disabled>
+				                            <option value=""></option>
+				                        </select>
+				                    </div>
+                        	 	</div>
+                        	 	<div class="col-md-3 form-group">
+                            		<div class="btn-group input-group input-select2me" style="width: 100% !important;">
+				                        <div class="input-group-addon">规格型号:</div>
+				                        <select id="oldMeterModelId" name="meterModelId"  class="select2-container form-control select2me" data-placeholder="请选择..." disabled>
+				                            <option value=""></option>
+				                        </select>
+				                    </div>
+                        	 	</div>
+                        	 	<div class="col-md-3 form-group">
+                                    <div class="btn-group input-group" style="width: 100% !important;">
+                                        <div class="input-group-addon">一次表生产日期:</div>
+                                        <input name="productionDate" id="productionDate" DATA-DATE-FORMAT="yyyy-mm-dd" class="form-control form-control-inline  date-picker" size="16" type="text" readonly>
+                                    </div>
+                                </div>
+								<div class="col-md-3 form-group">
+                                    <div class="btn-group input-group" style="width: 100% !important;">
+                                        <div class="input-group-addon">IC卡表累计用气量:</div>
+                                        <input class="inputclear form-control" type="number" name="fullgas" id="fullgas"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 form-group">
+                                    <div class="btn-group input-group" style="width: 100% !important;">
+                                        <div class="input-group-addon">IC卡表剩余气量:</div>
+                                        <input class="inputclear form-control" type="number" name="surgas" id="surgas"/>
+                                    </div>
+                                </div>
+                                </form>
+                            </div>
+                            <div class="row form-group">
+                                <form action="javascript:;" role="form" name="oldMeterForm2" id="oldMeterForm2">
+                                <div class="col-md-3 form-group">
+                                    <div class="btn-group input-group" style="width: 100% !important;">
+                                        <div class="input-group-addon">修正表编号:</div>
+                                        <input class="inputclear form-control" type="text" name="meterNo" readonly/>
+                                    </div>
+                                </div>
+                                
+                        	 	<div class="col-md-3 form-group">
+                                    <div class="btn-group input-group" style="width: 100% !important;">
+                                        <div class="input-group-addon">修正微机表读数:</div>
+                                        <input class="inputclear form-control" id="vrevisereading" type="text" readonly/>
+                                    </div>
+                                </div>
+                        	 	<div class="col-md-3 form-group">
+                                    <div class="btn-group input-group" style="width: 100% !important;">
+                                        <div class="input-group-addon">修正表读数:</div>
+                                        <input class="inputclear form-control" type="number" name="reading" id="revisereading"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 form-group">
+                            		<div class="btn-group input-group input-select2me" style="width: 100% !important;">
+				                        <div class="input-group-addon">表具种类:</div>
+				                        <select id="oldMeterKind2" name="meterKind" class="select2-container form-control select2me" data-placeholder="请选择..."disabled>
+				                            <option value=""></option>
+				                        </select>
+				                    </div>
+                        	 	</div>
+                                
+                                <div class="col-md-3 form-group">
+                                    <div class="btn-group input-group" style="width: 100% !important;">
+                                        <div class="input-group-addon">修正表位数:</div>
+                                        <input class="inputclear form-control" type="text" name="meterDigit" maxlength="22" readonly/>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 form-group">
+                            		<div class="btn-group input-group input-select2me" style="width: 100% !important;">
+				                        <div class="input-group-addon">修正表进气方向:</div>
+				                        <select id="oldDirection2" name="direction" class="select2-container form-control select2me" data-placeholder="请选择..." disabled>
+				                            <option value=""></option>
+				                        </select>
+				                    </div>
+                        	 	</div>
+                                <div class="col-md-3 form-group">
+                            		<div class="btn-group input-group input-select2me" style="width: 100% !important;">
+				                        <div class="input-group-addon">修正表厂家:</div>
+				                        <select id="oldReviseFactoryId" name="factoryId"  class="select2-container form-control select2me" data-placeholder="请选择..." disabled>
+				                            <option value=""></option>
+				                        </select>
+				                    </div>
+                        	 	</div>
+                        	 	<div class="col-md-3 form-group">
+                            		<div class="btn-group input-group input-select2me" style="width: 100% !important;">
+				                        <div class="input-group-addon">修正表型号:</div>
+				                        <select id="oldReviseMeterModelId" name="meterModelId"  class="select2-container form-control select2me" data-placeholder="请选择..."disabled>
+				                            <option value=""></option>
+				                        </select>
+				                    </div>
+                        	 	</div>
+                                <div class="col-md-3 form-group">
+                                    <div class="btn-group input-group" style="width: 100% !important;">
+                                        <div class="input-group-addon">修正表生产日期:</div>
+                                        <input name="productionDate" id="productionDate1" DATA-DATE-FORMAT="yyyy-mm-dd" class="form-control form-control-inline  date-picker" size="16" type="text" readonly>
+                                    </div>
+                                </div>
+								</form>
+                                </div>
+                            </div>
+                            
+                            <!--/row-->
+                        </div>
+                    </div>
+                </div>    
+                    
+                <div class="tabbable tabbable-custom tabbable-custom-profile col-md-12" style="padding-bottom:0px">
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#tab22" data-toggle="tab">
+                            新燃气表基础信息 </a>
+
+                    </li>
+                </ul>
+                <!--/row-->
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab23">
+                        <div class="portlet-body">
+                            <div class="row form-group">
+                            	<form action="javascript:;" role="form" name="newMeterForm" id="newMeterForm">
+                            	<div class="col-md-3 form-group">
+                                    <div class="btn-group input-group" style="width: 100% !important;">
+                                        <div class="input-group-addon">一次表编号:</div>
+                                        <input class="inputclear form-control" type="text" name="meterNo" id="meterNo" maxlength="18" />
+                                    </div>
+                                </div>
+                                <div class="col-md-3 form-group">
+                            		<div class="btn-group input-group input-select2me" style="width: 100% !important;">
+				                        <div class="input-group-addon">表具种类:</div>
+				                        <select id="newMeterKind" name="meterKind" class="select2-container form-control select2me" data-placeholder="请选择..."disabled>
+				                            <option value=""></option>
+				                        </select>
+				                    </div>
+                        	 	</div>
+                                <div class="col-md-3 form-group">
+                                    <div class="btn-group input-group" style="width: 100% !important;">
+                                        <div class="input-group-addon">一次表读数:</div>
+                                        <input class="inputclear form-control" type="number" name="reading" id="reading1"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 form-group">
+                                    <div class="btn-group input-group" style="width: 100% !important;">
+                                        <div class="input-group-addon">显示方式:</div>
+                                        <select id="displayMode" name="displayType" class="select2-container form-control select2me" data-placeholder="请选择..." disabled>
+                                            <option value=""></option>
+                                            <option value="1">机械</option>
+                                            <option value="2">电子</option>
+                                            <option value="3">电子+机械</option>
+                                        </select>
+                                    </div>
+                                </div>
+                    			<div class="col-md-3 form-group">
+                                    <div class="btn-group input-group" style="width: 100% !important;">
+                                        <div class="input-group-addon">表位数:</div>
+                                        <input class="inputclear form-control" type="text" name="meterDigit" id="meterDigit" maxlength="22" readonly/>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 form-group">
+                            		<div class="btn-group input-group input-select2me" style="width: 100% !important;">
+				                        <div class="input-group-addon">进气方向:</div>
+				                        <select id="newDirection" name="direction" class="select2-container form-control select2me" data-placeholder="请选择..." disabled>
+				                            <option value=""></option>
+				                        </select>
+				                    </div>
+                        	 	</div>
+                    			
+                                <div class="col-md-3 form-group">
+                            		<div class="btn-group input-group input-select2me" style="width: 100% !important;">
+				                        <div class="input-group-addon">生产厂家:</div>
+				                        <select id="newFactoryId" name="factoryId" class="select2-container form-control select2me" data-placeholder="请选择..." disabled>
+				                            <option value=""></option>
+				                        </select>
+				                    </div>
+                        	 	</div>
+                        	 	<div class="col-md-3 form-group">
+                            		<div class="btn-group input-group input-select2me" style="width: 100% !important;">
+				                        <div class="input-group-addon">规格型号:</div>
+				                        <select id="newMeterModelId" name="meterModelId" class="select2-container form-control select2me" data-placeholder="请选择..." disabled>
+				                            <option value=""></option>
+				                        </select>
+				                    </div>
+                        	 	</div>
+                                <div class="col-md-3 form-group">
+                                    <div class="btn-group input-group" style="width: 100% !important;">
+                                        <div class="input-group-addon">表具生产日期:</div>
+                                        <input name="productionDate" DATA-DATE-FORMAT="yyyy-mm-dd" class="form-control form-control-inline  date-picker" size="16" type="text" readonly>
+                                    </div>
+                                </div>
+                                </form>
+                            </div>
+                            <div class="row form-group">
+                                <form action="javascript:;" role="form" name="newMeterForm2" id="newMeterForm2">
+                                <div class="col-md-3 form-group">
+                                    <div class="btn-group input-group" style="width: 100% !important;">
+                                        <div class="input-group-addon">修正表编号:</div>
+                                        <input class="inputclear form-control" type="text" name="meterNo" id="reviseMeterNo" maxlength="18" />
+                                    </div>
+                                </div>
+                                <div class="col-md-3 form-group">
+                            		<div class="btn-group input-group input-select2me" style="width: 100% !important;">
+				                        <div class="input-group-addon">表具种类:</div>
+				                        <select id="newMeterKind2" name="meterKind" class="select2-container form-control select2me" data-placeholder="请选择..."disabled>
+				                            <option value=""></option>
+				                        </select>
+				                    </div>
+                        	 	</div>
+                                <div class="col-md-3 form-group">
+                                    <div class="btn-group input-group" style="width: 100% !important;">
+                                        <div class="input-group-addon">修正表读数:</div>
+                                        <input class="inputclear form-control" type="number" id="reviseReading" name="reading"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 form-group">
+                                    <div class="btn-group input-group" style="width: 100% !important;">
+                                        <div class="input-group-addon">显示方式:</div>
+                                        <select name="displayType" class="select2-container form-control select2me" data-placeholder="请选择..." disabled>
+                                            <option value=""></option>
+                                            <option value="1">机械</option>
+                                            <option value="2">电子</option>
+                                            <option value="3">电子+机械</option>
+                                        </select>
+                                    </div>
+                                </div>
+                    			<div class="col-md-3 form-group">
+                                    <div class="btn-group input-group" style="width: 100% !important;">
+                                        <div class="input-group-addon">表位数:</div>
+                                        <input class="inputclear form-control" type="text" name="meterDigit" id="meterDigit" maxlength="22" readonly/>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 form-group">
+                            		<div class="btn-group input-group input-select2me" style="width: 100% !important;">
+				                        <div class="input-group-addon">进气方向:</div>
+				                        <select id="newDirection2" name="direction" class="select2-container form-control select2me" data-placeholder="请选择..." disabled>
+				                            <option value=""></option>
+				                        </select>
+				                    </div>
+                        	 	</div>
+                    			
+                                <div class="col-md-3 form-group">
+                            		<div class="btn-group input-group input-select2me" style="width: 100% !important;">
+				                        <div class="input-group-addon">生产厂家:</div>
+				                        <select id="newReviseFactoryId" name="factoryId" class="select2-container form-control select2me" data-placeholder="请选择..." disabled>
+				                            <option value=""></option>
+				                        </select>
+				                    </div>
+                        	 	</div>
+                        	 	<div class="col-md-3 form-group">
+                            		<div class="btn-group input-group input-select2me" style="width: 100% !important;">
+				                        <div class="input-group-addon">规格型号:</div>
+				                        <select id="newReviseMeterModelId" name="meterModelId" class="select2-container form-control select2me" data-placeholder="请选择..." disabled>
+				                            <option value=""></option>
+				                        </select>
+				                    </div>
+                        	 	</div>
+                                <div class="col-md-3 form-group">
+                                    <div class="btn-group input-group" style="width: 100% !important;">
+                                        <div class="input-group-addon">表具生产日期:</div>
+                                        <input name="productionDate" DATA-DATE-FORMAT="yyyy-mm-dd" class="form-control form-control-inline  date-picker" size="16" type="text" readonly>
+                                    </div>
+                                </div>
+                                
+	                            </form>
+		                    </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tabbable tabbable-custom tabbable-custom-profile col-md-12" style="padding-bottom:0px">
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#tab33" data-toggle="tab">
+                            结果反馈 </a>
+
+                    </li>
+                </ul>
+                <!--/row-->
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab33">
+                        <div class="portlet-body">
+                        	<form action="javascript:;" role="form" name="resultForm" id="resultForm">
+                            <div class="row">
+                                <div class="btn-group input-group" id="textbox" style="margin-bottom: 20px;height: 90px;">
+                                    <div class="input-group-addon">维修结果:</div>
+                                    <input type="hidden" id="repairResult" name="repairResult"/>
+                                    <div style="height: 30px;">
+										<input type="checkbox" id="shuas" class="fors" value="2"> 刷栓合格   &nbsp;&nbsp;&nbsp;
+										<input type="checkbox" id="jingy" class="fors" value="3"> 经仪器检查室内环境正常   &nbsp;&nbsp;&nbsp;
+										<input type="checkbox" id="fangs" class="fors" value="4"> 已放散   &nbsp;&nbsp;&nbsp;
+										<input type="checkbox" id="luj" class="fors" value="7"> 炉具点火正常   &nbsp;&nbsp;&nbsp;												
+										<input type="checkbox" id="anq" class="fors" value="6"> 该服务单第二联已交客户保存   &nbsp;&nbsp;&nbsp;										
+										<input type="checkbox" class="fors" value="8"> 关栓待处理   &nbsp;&nbsp;&nbsp;
+									</div>
+									<div style="height: 30px;">												
+										<div style="float:left;"><input id="dy" type="checkbox" class="fors" value="1"> 打压 </div>
+										<div id="suppressMmho" name="suppressMmho" style="float:left;width: 30px;height: 15px; border: 1px solid #C0CFDD;margin-left: 5px;margin-right: 5px;"></div> 
+										<div style="float:left;">mmH2O</div>
+										<div id="suppressQualified" name="suppressQualified" style="float:left;width: 30px;height: 15px; border: 1px solid #C0CFDD;margin-left: 5px;margin-right: 5px"></div>
+										 分钟合格   &nbsp;&nbsp;&nbsp;
+									</div>
+									<div style="height: 30px;" >									
+										<div style="float:left;"><input id="zqy" type="checkbox" class="fors" value="5"> 灶前压力 </div>
+										<div id="stovePressureMmho" name="stovePressureMmho" style="float:left;width: 30px;height: 15px; border: 1px solid #C0CFDD;margin-left: 5px;margin-right: 5px;"></div> 
+										<div style="float:left;">mmH2O</div>														
+									</div> 	
+                                </div>
+                                <div class="col-md-3 form-group">
+                                    <div class="btn-group input-group input-select2me"  style="width: 100% !important;">
+                                        <div class="input-group-addon">用户满意情况:</div>
+                                        <select id="customerSatisfactionFlag" name="customerSatisfactionFlag" class="select2-container form-control select2me" data-placeholder="请选择...">
+                                        	<option value=""></option>
+                                        	<option value="1">满意</option>
+                                        	<option value="2">不满意</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 form-group">
+                                    <div class="btn-group input-group input-select2me"  style="width: 100% !important;">
+                                        <div class="input-group-addon">回访用户意见:</div>
+										<select id="revisitCustomerCommentsFlag" name = "revisitCustomerCommentsFlag" class="select2-container form-control select2me" data-placeholder="请选择...">
+                                        	<option value=""></option>
+                                        	<option value="1">满意</option>
+                                        	<option value="2">不满意</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 form-group">
+                                    <div class="btn-group input-group" style="width: 100% !important;">
+                                        <div class="input-group-addon">换表原因:</div>
+                                        <select id="changeMeterReason" name = "changeMeterReason" class="select2-container form-control select2me" data-placeholder="请选择...">
+                                        	<option value=""></option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3 form-group">
+                                    <div class="btn-group input-group" style="width: 100% !important;">
+                                        <div class="input-group-addon">返营业室时间:</div>
+                                        <input name="workBillBackTime" data-date-format="yyyy-mm-dd" class="form-control form-control-inline  form_accuracy_datetime" size="16" type="text"/>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 form-group">
+	                               	<div class="btn-group input-group input-select2me"  style="width: 100% !important;">
+                                        <div class="input-group-addon">维修员:</div>
+                                        <select id="repairer" name = "repairer" class="select2-container form-control select2me" data-placeholder="请选择...">
+                                        	<option value=""></option>
+                                        </select>
+                                    </div>
+	                            </div>
+                                <div class="col-md-3 form-group">
+                                    <div class="btn-group input-group" style="width: 100% !important;">
+                                        <div class="input-group-addon">审核:</div>
+                                        <input name="examiner" class="inputclear form-control" type="text"/>
+										
+                                    </div>
+                                </div>
+                                <div class="col-md-3 form-group">
+                                    <div class="btn-group input-group" style="width: 100% !important;">
+                                        <div class="input-group-addon">回访人:</div>
+                                        <input name="visitor" class="inputclear form-control" type="text"/>
+										
+                                    </div>
+                                </div>
+                                <div class="col-md-3 form-group">
+                                    <div class="btn-group input-group" style="width: 100% !important;">
+                                        <div class="input-group-addon">回访时间:</div>
+                                        <input name="revisitTime" data-date-format="yyyy-mm-dd" class="form-control form-control-inline  form_accuracy_datetime" size="16" type="text"/>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 form-group">
+                                    <div class="btn-group input-group" style="width: 100% !important;">
+                                        <div class="input-group-addon">备注:</div>
+                                        <input name="remark" class="inputclear form-control" type="text"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <div class="btn-group input-group" style="width: 100% !important;">
+                                        <div class="input-group-addon">无法正常更换原因:</div>
+                                        <input name="unchangeMeterReason" class="inputclear form-control" type="text"/>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!--/row-->
+                            </form>
+                        </div>
+                    </div>
+                    <script>$.include("common/gpyupload.shtml")</script>
+                </div>
+                
+            </div>
+            
+            <div class="btn-group form-group">
+		        <input type="button" id="save_btn" class="btn blue off" value="保存">
+		    </div>
+		    <div class="btn-group form-group">
+		        <input type="button" id="cencel_btn" class="btn blue off" value="取消">
+		    </div>
+            <!-- 内容结束-->
+        </div>
+    </div>
+    <!-- 主内容结束 -->
+</div>
+
+<script type="text/javascript">$.include("pages/partial/xwatable-form.shtml")</script>
+
+<!-- 底边栏开始 -->
+<script>$.include("pages/partial/foot.shtml");</script>
+<!-- 底边栏结束 -->
+</body>
+
+
+<script>$.include("pages/partial/scripts.shtml");</script>
+<script src="assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-watable/jquery.watable.js"></script>
+<script type="text/javascript" src="pages/scripts/rqlbuilder.js"></script>
+<script type="text/javascript" src="pages/scripts/xwatable.js"></script>
+<script type="text/javascript" src="pages/scripts/refhelper.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+<script src="pages/scripts/jquery.json.min.js"></script>
+<script type="text/javascript" src="pages/scripts/enumUtil.js"></script>
+<script type="text/javascript" src="pages/scripts/jquery.serialize-object.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script src="assets/admin/pages/scripts/components-pickers.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-multi-select/js/jquery.multi-select.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-daterangepicker/moment.min.js"></script>
+<script src="serviceManage/dispatching_manage/js/replace_serve_new.js"></script>
+<script src="mods/bil.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        ScatteredServe.init();
+        ComponentsPickers.init();
+    });
+</script><!-- End of User Script-->
+</html>

@@ -1,0 +1,22 @@
+<script type="text/x-template" id="__dust__iccustomerInfo">
+    {#data}
+    <tr>
+        <th><span>客户名称:</span></th>
+        <td>{customerName}</td>
+        <th style="border-left: 1px solid #ececec;">地址:</th>
+        <td id="customerid">{customerAddress}</td>
+    </tr>
+    <tr>
+        <th>证件类型:</th>
+        <td>{bookType}</td>
+        <th  style="border-left: 1px solid #ececec;">证件号码:</th>
+        <td>{customerState}</td>
+    </tr>
+    <tr>
+        <th  style="border-left: 1px solid #ececec;">联系电话</th>
+        <td>{tel}</td>
+        <th  style="border-left: 1px solid #ececec;"></th>
+        <td></td>
+    </tr>
+    {/data}
+</script>

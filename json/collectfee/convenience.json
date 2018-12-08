@@ -1,0 +1,10 @@
+{"rows":
+[
+  {"UUID":"001","fpID":"1","userName":"张三","jfTime":"2016-11","wyj":"2","ljfee":"3","yjMoney":"5","jfState":"已交"}
+,{"UUID":"002","fpID":"2","userName":"张三","jfTime":"2016-12","wyj":"0","ljfee":"3","yjMoney":"3","jfState":"未交"}
+,{"UUID":"009","fpID":"3","userName":"张三","jfTime":"2016-13","wyj":"0","ljfee":"3","yjMoney":"3","jfState":"未交"}
+]
+,"total_rows":1
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

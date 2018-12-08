@@ -1,0 +1,14 @@
+{"rows":
+[
+  {"UUID":"0001","customer_ID":"0001","customer_name":"张三","customer_address":"道里一经纬十二道街12号工程小区1号楼3单元4层东户","meterbook_ID":"02002012","customer_type":"非居民","gas_type":"商服","area":"供气一处","branch_office":"道里一分公司","accountant":"张明","attendant":"王霞","customer_status":"正常用气","open_bolt_date":"2010/01/01","contract_ID":"00010001","customer_phone":"0213-03039129"},
+  {"UUID":"0001","customer_ID":"0002","customer_name":"王静霞","customer_address":"道里一经纬十二道街12号工程小区1号楼3单元3层东户","meterbook_ID":"02002012","customer_type":"非居民","gas_type":"商服","area":"供气一处","branch_office":"道里一分公司","accountant":"张明","attendant":"王霞","customer_status":"正常用气","open_bolt_date":"2010/01/01","contract_ID":"00010001","customer_phone":"0213-03039129"},
+  {"UUID":"0001","customer_ID":"0003","customer_name":"高立军","customer_address":"道里一经纬十二道街12号工程小区1号楼3单元1层东户","meterbook_ID":"02002012","customer_type":"非居民","gas_type":"商服","area":"供气一处","branch_office":"道里二分公司","accountant":"张明","attendant":"王霞","customer_status":"正常用气","open_bolt_date":"2010/01/01","contract_ID":"00010001","customer_phone":"0213-03039129"},
+  {"UUID":"0001","customer_ID":"0004","customer_name":"张佳宜","customer_address":"道里一经纬十二道街12号工程小区3号楼3单元4层东户","meterbook_ID":"02002012","customer_type":"非居民","gas_type":"商服","area":"供气一处","branch_office":"道里二分公司","accountant":"张明","attendant":"王霞","customer_status":"正常用气","open_bolt_date":"2010/01/01","contract_ID":"00010001","customer_phone":"0213-03039129"},
+  {"UUID":"0001","customer_ID":"0005","customer_name":"沈孟婷","customer_address":"道里一经纬十二道街12号工程小区4号楼1单元4层东户","meterbook_ID":"02002012","customer_type":"非居民","gas_type":"商服","area":"供气一处","branch_office":"道里三分公司","accountant":"张明","attendant":"王霞","customer_status":"正常用气","open_bolt_date":"2010/01/01","contract_ID":"00010001","customer_phone":"0213-03039129"},
+  {"UUID":"0001","customer_ID":"0006","customer_name":"郭明义","customer_address":"道里一经纬十二道街12号工程小区4号楼2单元4层东户","meterbook_ID":"02002012","customer_type":"非居民","gas_type":"商服","area":"供气一处","branch_office":"道里三分公司","accountant":"张明","attendant":"王霞","customer_status":"正常用气","open_bolt_date":"2010/01/01","contract_ID":"00010001","customer_phone":"0213-03039129"}
+
+]
+,"total_rows":6
+,"totalPages":2
+,"skip":0
+,"limit":2147483647}

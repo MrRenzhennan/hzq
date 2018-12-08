@@ -1,0 +1,16 @@
+{"rows":
+[
+   {"UUID":"001","area":"供气区域","old_customer_ID":"原客户编号","old_gas_type":"原用气性质","old_accountant":"原核算员","old_meter_book_ID":"原抄表本","name":"姓名","address":"地址","meter_number":"表字","customer_ID":"新客户编号","gas_type":"新用气性质","accountant":"新核算员","meter_book_ID":"新抄表本号","operate_time":"受理时间","end_time":"结束时间","operator":"前台操办人","remark":"备注"},
+   {"UUID":"001","area":"供气区域","old_customer_ID":"原客户编号","old_gas_type":"原用气性质","old_accountant":"原核算员","old_meter_book_ID":"原抄表本","name":"姓名","address":"地址","meter_number":"表字","customer_ID":"新客户编号","gas_type":"新用气性质","accountant":"新核算员","meter_book_ID":"新抄表本号","operate_time":"受理时间","end_time":"结束时间","operator":"前台操办人","remark":"备注"},
+   {"UUID":"001","area":"供气区域","old_customer_ID":"原客户编号","old_gas_type":"原用气性质","old_accountant":"原核算员","old_meter_book_ID":"原抄表本","name":"姓名","address":"地址","meter_number":"表字","customer_ID":"新客户编号","gas_type":"新用气性质","accountant":"新核算员","meter_book_ID":"新抄表本号","operate_time":"受理时间","end_time":"结束时间","operator":"前台操办人","remark":"备注"},
+   {"UUID":"001","area":"供气区域","old_customer_ID":"原客户编号","old_gas_type":"原用气性质","old_accountant":"原核算员","old_meter_book_ID":"原抄表本","name":"姓名","address":"地址","meter_number":"表字","customer_ID":"新客户编号","gas_type":"新用气性质","accountant":"新核算员","meter_book_ID":"新抄表本号","operate_time":"受理时间","end_time":"结束时间","operator":"前台操办人","remark":"备注"},
+   {"UUID":"001","area":"供气区域","old_customer_ID":"原客户编号","old_gas_type":"原用气性质","old_accountant":"原核算员","old_meter_book_ID":"原抄表本","name":"姓名","address":"地址","meter_number":"表字","customer_ID":"新客户编号","gas_type":"新用气性质","accountant":"新核算员","meter_book_ID":"新抄表本号","operate_time":"受理时间","end_time":"结束时间","operator":"前台操办人","remark":"备注"},
+   {"UUID":"001","area":"供气区域","old_customer_ID":"原客户编号","old_gas_type":"原用气性质","old_accountant":"原核算员","old_meter_book_ID":"原抄表本","name":"姓名","address":"地址","meter_number":"表字","customer_ID":"新客户编号","gas_type":"新用气性质","accountant":"新核算员","meter_book_ID":"新抄表本号","operate_time":"受理时间","end_time":"结束时间","operator":"前台操办人","remark":"备注"},
+   {"UUID":"001","area":"供气区域","old_customer_ID":"原客户编号","old_gas_type":"原用气性质","old_accountant":"原核算员","old_meter_book_ID":"原抄表本","name":"姓名","address":"地址","meter_number":"表字","customer_ID":"新客户编号","gas_type":"新用气性质","accountant":"新核算员","meter_book_ID":"新抄表本号","operate_time":"受理时间","end_time":"结束时间","operator":"前台操办人","remark":"备注"},
+   {"UUID":"001","area":"供气区域","old_customer_ID":"原客户编号","old_gas_type":"原用气性质","old_accountant":"原核算员","old_meter_book_ID":"原抄表本","name":"姓名","address":"地址","meter_number":"表字","customer_ID":"新客户编号","gas_type":"新用气性质","accountant":"新核算员","meter_book_ID":"新抄表本号","operate_time":"受理时间","end_time":"结束时间","operator":"前台操办人","remark":"备注"}
+
+]
+,"total_rows":8
+,"totalPages":2
+,"skip":0
+,"limit":2147483647}

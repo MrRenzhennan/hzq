@@ -1,0 +1,1495 @@
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]>
+<html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+
+<!-- BEGIN HEAD -->
+
+<head>
+    <title>新增用户统计</title>
+    <script src="../pages/scripts/basepath.js"></script>
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-select/bootstrap-select.min.css">
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/select2/select2.css">
+    <script src="../pages/scripts/header.js"></script>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8" />
+    <link href='../assets/global/plugins/jquery-watable/watable.css' rel='stylesheet' />
+    <link href='../assets/global/plugins/jquery-watable/animate.min.css' rel='stylesheet' />
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.css"
+    />
+    <link href='../assets/global/plugins/bootstrap-datetimepicker/css/datetimepicker.css' rel='stylesheet' />
+
+    <!--datapicker css start-->
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-datepicker/css/datepicker3.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-colorpicker/css/colorpicker.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css"
+    />
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-datetimepicker/css/datetimepicker.css" />
+    <!--datapicker end-->
+
+    <link rel="stylesheet" href="/statement/css/3.3.7/bootstrap.min.css">
+    <link href='../assets/global/css/bootstrap-monthpicker.css' rel='stylesheet'/>
+    <!-- END THEME STYLES -->
+    <style>
+        @media print {
+            .noneprint {
+                display: none;
+            }
+        }
+        .tabPrint td {
+            border-left: #000000 solid 1px;
+            border-top: #000000 solid 1px;
+            height: 21px;
+        }
+
+        table.tabPrint {
+            border-right: #000000 solid 1px;
+            border-bottom: #000000 solid 1px;
+        }
+
+        .nextPage {
+            page-break-after: always;
+        }
+
+        .linetd {
+            border-bottom: solid 1px #000;
+        }
+    </style>
+</head>
+<!-- END HEAD -->
+
+<body class="page-header-fixed page-quick-sidebar-over-content">
+
+    <!-- 标题栏开始 -->
+    <div class="page-header navbar navbar-fixed-top">
+        <script>
+            $.include("pages/partial/menu.shtml");
+        </script>
+    </div>
+    <!-- 标题栏结束 -->
+    <div class="clearfix"></div>
+    <div class="page-container">
+        <!-- 左侧菜单开始 -->
+        <div class="page-sidebar-wrapper">
+            <script>
+                $.include("pages/partial/sidebar.shtml");
+            </script>
+        </div>
+        <!-- 左侧菜单结束 -->
+
+        <!-- 主内容开始 -->
+        <div class="page-content-wrapper">
+            <div class="page-content">
+                <!--内容头开始-->
+                <!--内容头开始-->
+                <div class="row noneprint">
+                    <div class="col-md-12">
+                        <ul class="page-breadcrumb breadcrumb">
+                            <li>
+                                <i class="fa fa-map-marker"></i>
+                                <a href="index.html">报表统计</a>
+                                <i class="fa fa-angle-right"></i>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">新增用户统计</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- 内容头结束-->
+
+                <!-- 内容开始-->
+
+                <div class="container col-sm-12 noneprint" style="padding-bottom:0px">
+                    <div class="row">
+
+                        <div class="col-sm-3 form-group">
+                            <div class="btn-group input-group">
+                                <div class="input-group-addon" style="border:0px;">日期：</div>
+                                <div id="div_date" class="input-group input-daterange" data-date="11/2012" data-date-format="yyyy-mm">
+                                    <input id="find_date" type="text" class="form-control" name="from">
+                                    <span class="inputclear glyphicon glyphicon-remove-circle hidden"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 form-group">
+                        </div>
+                        <div class="col-sm-3 form-group">
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <button id="find_sign" type="button" class="btn yellow">
+                                查询 <i class="fa fa-search"></i>
+                            </button> &nbsp;&nbsp;&nbsp;&nbsp;
+                                <button id="btn_print_page" onclick="window.print()" type="button" class="btn gray disabled">
+                                打印<i class="glyphicon"></i>
+                            </button> &nbsp;&nbsp;&nbsp;&nbsp;
+                                <button id="btn_down_detail" type="button" class="btn gray disabled export-excel">
+                                导出<i class="glyphicon"></i>
+                            </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 内容头结束-->
+
+                <div class="container-fluid">
+                    <div>
+                        <table cellSpacing="0" cellPadding="2" width="98%" align="center" border="0">
+                            <tr>
+                                <td id="title" align="center" title="">新增用户统计</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <br/>
+                    <div>
+                        <table cellSpacing="0" cellPadding="2" width="98%" align="center" border="0">
+                            <tr>
+                                <td id="head_r0_c1" rowspan="1" colspan="1" width="85%" align="left">制表单位：哈尔滨中庆燃气有限责任公司营业部</td>
+                                <td id="head_r0_c2" rowspan="1" colspan="1"></td>
+                                <td id="head_r0_c3" rowspan="1" colspan="1"></td>
+                                <td id="head_r0_c4" rowspan="1" colspan="1"></td>
+                                <td id="head_r0_c5" rowspan="1" colspan="1"></td>
+                                <td id="head_r0_c6" rowspan="1" colspan="1"></td>
+                                <td id="head_r0_c7" rowspan="1" colspan="1"></td>
+                                <td id="head_r0_c8" rowspan="1" colspan="1"></td>
+                                <td id="head_r0_c9" rowspan="1" colspan="1"></td>
+                                <td id="head_r0_c10" rowspan="1" colspan="1"></td>
+                                <td id="head_r0_c11" rowspan="1" colspan="1"></td>
+                                <td id="head_r0_c12" rowspan="1" colspan="1"></td>
+                                <td id="head_r0_c13" rowspan="1" colspan="1"></td>
+                                <td id="head_r0_c14" rowspan="1" colspan="1"></td>
+                                <td id="head_r0_c15" rowspan="1" colspan="1" width="20%" align="right">单位:立方米、元、户</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <table class="tabPrint table-bordered table-hover table-condensed " align="center" width="98%" cellSpacing="0" cellPadding="0"
+                        border="0" ID="Table2">
+                        <thead style="display:table-header-group;font-weight:bold;" mce_style="display:table-header-group;font-weight:bold">
+                            <tr align="center">
+                                <td rowspan="2" colspan="2">单位</td>
+                                <td rowspan="1" colspan="15">综合统计</td>
+                                <td rowspan="1" colspan="5">欠费与预存款</td>
+                                <td rowspan="1" colspan="9">用户统计</td>
+                            </tr>
+                            <tr align="center">
+                                <td id="thead_r3_c1" rowspan="1" colspan="1">本月销售量</td>
+                                <td id="thead_r3_c2" rowspan="1" colspan="1">累计销售量</td>
+                                <td id="thead_r3_c3" rowspan="1" colspan="1">本月销售额</td>
+                                <td id="thead_r3_c4" rowspan="1" colspan="1">累计销售额</td>
+                                <td id="thead_r3_c5" rowspan="1" colspan="1">本月实收量</td>
+                                <td id="thead_r3_c6" rowspan="1" colspan="1">累计实收量</td>
+                                <td id="thead_r3_c7" rowspan="1" colspan="1">本月实收额</td>
+                                <td id="thead_r3_c8" rowspan="1" colspan="1">累计实收额</td>
+                                <td id="thead_r3_c9" rowspan="1" colspan="1">本月新增欠气费</td>
+                                <td id="thead_r3_c10" rowspan="1" colspan="1">累计欠费</td>
+                                <td id="thead_r3_c11" rowspan="1" colspan="1">本月清燃气费</td>
+                                <td id="thead_r3_c12" rowspan="1" colspan="1">本月追补额</td>
+                                <td id="thead_r3_c13" rowspan="1" colspan="1">本月追补量</td>
+                                <td id="thead_r3_c14" rowspan="1" colspan="1">回款率</td>
+                                <td id="thead_r3_c15" rowspan="1" colspan="1">账户余额</td>
+                                <td id="thead_r3_c16" rowspan="1" colspan="1">欠费户</td>
+                                <td id="thead_r3_c17" rowspan="1" colspan="1">户均欠费</td>
+                                <td id="thead_r3_c18" rowspan="1" colspan="1">欠费户数比例</td>
+                                <td id="thead_r3_c19" rowspan="1" colspan="1">清本年</td>
+                                <td id="thead_r3_c23" rowspan="1" colspan="1">户均存款</td>
+                                <td id="thead_r3_c24" rowspan="1" colspan="1">应抄表户数</td>
+                                <td id="thead_r3_c29" rowspan="1" colspan="1">实抄表户数</td>
+                                <td id="thead_r3_c30" rowspan="1" colspan="1">抄表到户率</td>
+
+                                <td id="thead_r3_c25" rowspan="1" colspan="1">已开栓户数</td>
+                                <td id="thead_r3_c26" rowspan="1" colspan="1">长期不用户数</td>
+                                <td id="thead_r3_c27" rowspan="1" colspan="1">应收费户数</td>
+                                <td id="thead_r3_c28" rowspan="1" colspan="1">拆除户数</td>
+                                <td id="thead_r3_c31" rowspan="1" colspan="1">实收费户数</td>
+                                <td id="thead_r3_c32" rowspan="1" colspan="1">本月抄表实收户数</td>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody">
+                        </tbody>
+                    </table>
+                    <br/>
+                    <div>
+                        <table cellSpacing="0" cellPadding="2" width="95%" align="center" border="0">
+                            <tr>
+                                <td id="foot_r0_c1" rowspan="1" colspan="1">负责人：</td>
+                                <td id="foot_r0_c2" rowspan="1" colspan="1" width="35%"></td>
+                                <td id="foot_r0_c3" rowspan="1" colspan="1"></td>
+                                <td id="foot_r0_c4" rowspan="1" colspan="1"></td>
+                                <td id="foot_r0_c5" rowspan="1" colspan="1"></td>
+                                <td id="foot_r0_c6" rowspan="1" colspan="1"></td>
+                                <td id="foot_r0_c7" rowspan="1" colspan="1">制表人：</td>
+                                <td id="foot_r0_c8" rowspan="1" colspan="1" width="15%"></td>
+                                <td id="foot_r0_c9" rowspan="1" colspan="1"></td>
+                                <td id="foot_r0_c10" rowspan="1" colspan="1"></td>
+                                <td id="foot_r0_c11" rowspan="1" colspan="1"></td>
+                                <td id="foot_r0_c12" rowspan="1" colspan="1"></td>
+                                <td id="foot_r0_c13" rowspan="1" colspan="1" width="20%"></td>
+                                <td id="foot_r0_c14" rowspan="1" colspan="1">填报日期：</td>
+                                <td id="foot_r0_c15" rowspan="1" colspan="1"></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <br/><br/>
+                    <br/><br/></div>
+                <!-- 内容结束-->
+            </div>
+        </div>
+        <!-- 主内容结束 -->
+    </div>
+
+    <!-- 底边栏开始 -->
+    <script>
+                $.include("pages/partial/foot.shtml");
+    </script>
+    <!-- 底边栏结束 -->
+</body>
+
+
+<script>
+        $.include("pages/partial/scripts.shtml");
+
+</script>
+<!--跳到原稿-->
+<script src="../assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="../assets/global/plugins/jquery-watable/jquery.watable.js"></script>
+<script type="text/javascript" src="../pages/scripts/rqlbuilder.js"></script>
+<script type="text/javascript" src="../pages/scripts/xwatable.js"></script>
+<script type="text/javascript" src="../pages/scripts/refhelper.js"></script>
+
+<!--datapicker start-->
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/clockface/js/clockface.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-daterangepicker/moment.min.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script src="../assets/admin/pages/scripts/components-pickers.js"></script>
+
+<script type="text/javascript" src="../assets/global/plugins/select2/select2.js"></script>
+<script type="text/javascript" src="../assets/global/scripts/bootstrap-monthpicker.js"></script>
+
+
+<script src="/statement/js/libs/js-xlsx/xlsx.core.min.js" type="text/javascript"></script>
+<script src="/statement/js/libs/html2canvas/html2canvas.min.js" type="text/javascript"></script>
+<script src="/statement/js/tableExport.js" type="text/javascript"></script>
+<script src="/statement/js/datehelper.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+    $(".export-excel").attr("data-table", ".tabPrint");
+    //    $(".export-excel").attr("data-filename","");
+    $(".export-excel").on("click", function (e) {
+        e.preventDefault();
+        var exportTable = $(this).data("table");
+        var filename = $("#title").html();//$(this).data("filename");
+        var ignoreColumn = "";//$(this).data("ignorecolumn");
+        $(exportTable).tableExport({
+            fileName: filename,
+            type: 'excel',
+            escape: 'false',
+            excelstyles: ['border-bottom', 'border-top', 'border-left', 'border-right'],
+            ignoreColumn: '[' + ignoreColumn + ']'
+        });
+    });
+
+    jQuery(document).ready(function () {
+        ComponentsPickers.init();
+        $('#find_date').bootstrapMonthpicker();
+    });
+
+    document.onkeydown = function () { keydown(); };
+    function keydown() {
+        //P 空格 会车 event.keyCode==80 || event.keyCode==32 || event.keyCode==13
+        if (event.keyCode == 13) {
+            window.print();
+        }
+    }
+
+    function getQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return decodeURIComponent(r[2]);
+        return null;
+    }
+
+    function toAmount(amount) {
+        var numArray = amount.toString().split(".");
+
+        if (numArray.length > 1) {
+            console.log("##amount=" + amount + "##" + amount.toString().split(".").length + "##" + numArray[1].length);
+            if (numArray[1].length < 2) {
+                amount = amount + "0";
+            } else if (numArray[1].length > 2) {
+                amount = numArray[0] + "." + numArray[1].substring(0, 2);
+            }
+        } else {
+            amount = amount + ".00";
+        }
+        //return (amount * 1);//字符串变数字
+        return amount;
+    }
+
+    function date_format(date, fmt) {
+        var dataJson = {
+            "M+": date.getMonth() + 1, //月份
+            "d+": date.getDate(), //日
+            "h+": date.getHours(), //小时
+            "m+": date.getMinutes(), //分
+            "s+": date.getSeconds(), //秒
+            "q+": Math.floor((date.getMonth() + 3) / 3), //季度
+            "S": date.getMilliseconds() //毫秒
+        };
+        if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (date.getFullYear() + "").substr(4 - RegExp.$1.length));
+        for (var k in dataJson)
+            if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (dataJson[k]) : (("00" + dataJson[k]).substr(("" + dataJson[k]).length)));
+        return fmt;
+    }
+
+    function edit(id) {
+        var v = $("#" + id).html();
+        $("#" + id).html("<input type='number' id='" + id + "_text' oldid='" + id + "' oldvalue='" + v + "' value='" + v + "' onblur='outEdit(this.id)'/>");
+        $("#" + id + "_text").focus();
+    }
+    function outEdit(id) {
+        var ov = $("#" + id).attr("oldvalue");
+        var oid = $("#" + id).attr("oldid");
+        $("#" + oid).html($("#" + id).val());
+    }
+
+    function operationData(operationDataJson) {
+        for (var i = 0; i < operationDataJson.length; i++) {
+            var inputCols = operationDataJson[i].ic;
+            var operator = operationDataJson[i].op;
+            var out = $("#tbody_" + inputCols[0]).html() * 1;
+            for (var j = 1; j < inputCols.length; j++) {
+                var value = $("#tbody_" + inputCols[j]).html() * 1;
+                if (operator == "+") {
+                    out = out + value;
+                }
+            }
+            var outputColType = operationDataJson[i].ty;
+            var outputCol = operationDataJson[i].oc;
+            if (outputColType && outputColType == "f") {
+                $("#tbody_" + outputCol).html(toAmount(out + ""));
+            } else {
+                $("#tbody_" + outputCol).html(out);
+            }
+
+        }
+    }
+    function toZero(num){
+        return num;
+        if(!num)return "<font style='color:#eee'>0</font>";
+        else if(num=="0.00" || num=="0.0000"){
+            return "<font style='color:#eee'>"+num+"</font>"
+        }else{
+            return num;
+        } 
+    }
+    //核算
+    function getNum(data,areaid,gastypeid){
+        var num=0;
+        if(data){
+            data.forEach(function(o){
+                if(o.gasTypeId && o.areaId){    
+                    if(o.gasTypeId.length>2){
+                        if(o.gasTypeId.substring(0,3)==gastypeid && o.areaId==areaid){ 
+                            if(o.ctmNum)num+=o.ctmNum;
+                        }
+                    }
+                }
+            });
+        }
+        
+        return num;
+    }
+    function getGasAndBalance(data,areaid,gastypeid){
+        var gas=0,balance=0.00;
+        if(data){
+            data.forEach(function(o){
+                if(o.gasTypeId && o.areaId){    
+                    if(o.gasTypeId.length>2){
+                        if(o.gasTypeId.substring(0,3)==gastypeid && o.areaId==areaid){ 
+                            if(o.gas){
+                                gas+=o.gas;
+                                balance+=o.balance;
+                            }
+                        }
+                    }
+                }
+            });
+        }        
+        return {gas:gas,balance:balance};
+    }
+    //获取统计总数
+    function getArchiveNum(data,areaid,gastypeid){
+        //建档数,拆除数,未开栓数,暂停数,拆除数,长期不用数
+        var nouseNum=0,normalNum=0,stopNum=0,dismantleNum=0,longnouseNum=0;
+        //00=未开栓,01=正常 ,02=暂停,03=拆除,04=长期不用,99=逻辑删除
+        var nouse="00",normal="01",stop="02",dismantle="03",longnouse="04";
+        if(data){
+            data.forEach(function(o){
+                if(o.customerState){
+                    if(o.gasTypeId && o.areaId){    
+                        if(o.gasTypeId.length>2){
+                            //建档案数
+                            if(o.gasTypeId.substring(0,3)==gastypeid && o.areaId==areaid){ 
+                                if(o.ctmNum){
+                                    if(o.customerState==nouse){
+                                        nouseNum+=o.ctmNum;
+                                    }
+                                    if(o.customerState==normal){
+                                        normalNum+=o.ctmNum;
+                                    }
+                                    if(o.customerState==stop){
+                                        stopNum+=o.ctmNum;
+                                    }
+                                    if(o.customerState==dismantle){
+                                        dismantleNum+=o.ctmNum;
+                                    }
+                                    if(o.customerState==longnouse){
+                                        longnouseNum+=o.ctmNum;
+                                    }
+                                }
+                            }
+                        }
+                    }  
+                }
+            });
+        }
+        
+        return {nouseNum:nouseNum,normalNum:normalNum,stopNum:stopNum,dismantleNum:dismantleNum,longnouseNum:longnouseNum};                           
+    }
+    //报表合计
+    function getReportArchiveNum(data,areaid,gastypeid){
+        //建档数,拆除数,未开栓数,暂停数,拆除数,长期不用数
+        var noUseNum=0,normalNum=0,stopNum=0,dismantleNum=0,longUseNum=0;
+        //00=未开栓,01=正常 ,02=暂停,03=拆除,04=长期不用,99=逻辑删除
+        var nouse="00",normal="01",stop="02",dismantle="03",longuse="04";
+        if(data){
+            data.forEach(function(o){
+                if(o.gasTypeId && o.areaId){    
+                    if(o.gasTypeId.length>2){
+                        //建档案数
+                        if(o.gasTypeId.substring(0,3)==gastypeid && o.areaId==areaid){ 
+                            noUseNum+=o.noUseNum;
+                            normalNum+=o.normalNum;
+                            stopNum+=o.stopNum;
+                            dismantleNum+=o.dismantleNum;
+                            longUseNum+=o.longUseNum;
+                        }
+                    }
+                } 
+            });
+        }
+        
+        return {noUseNum:noUseNum,normalNum:normalNum,stopNum:stopNum,dismantleNum:dismantleNum,longUseNum:longUseNum};                           
+    }
+    $(function () {
+        $("#find_date").val(date_format(new Date(), "yyyy-MM"));
+        $("#title").html($("#find_date").val() + "&nbsp;&nbsp;新增用户统计");
+
+        var areas = new Array();
+        var area_id = JSON.parse(localStorage.getItem("user_info")).area_id;
+        areas.push(area_id);
+        //查询areaId下级areaId
+        var queryCondion = RQLBuilder.and([
+            RQLBuilder.equal("status", "1"),
+            RQLBuilder.equal("parentAreaId", area_id)
+        ]).rql()
+        $.ajax({
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            type: 'get',
+            async: false,
+            url: hzq_rest + "gasbizarea?query=" + queryCondion,
+            success: function (data) {
+                for (var i = 0; i < data.length; i++) {
+                    areas.push(data[i].areaId);
+                }
+            }
+        });
+        var AreaHelper1 = RefHelper.create({
+            ref_url: 'gasbizarea?query={"areaId":{"$in":' + JSON.stringify(areas) + '}}',
+            ref_col: "areaId",
+            ref_display: "areaName",
+            "sort": "posCode"
+        });
+        var gs = AreaHelper1.getRawData();
+        $.ajax({
+            url: "hzqs/dbc/pbsel.do?fh=SELDBC0000000J00&resp=bd",
+            type: "POST",
+            contentType: "application/json;charset=utf-8",
+            data: JSON.stringify({
+                cols: "gasTypeId,gasTypeName",
+                froms: "gasBizGasType",
+                wheres: " posCode = 0 and length(gasTypeCode)=3 order by gasTypeCode",
+                page: "false"
+            }),
+            dataType: "json",
+            success: function (data) {
+                var cy=data.rows;
+                cy.push({gasTypeName:"小计",gasTypeId:-1});
+                var tbody = "";
+                for (var i = 0; i < gs.length; i++) {
+                    for (var j = 0; j < cy.length; j++) {
+         
+                        var color=""
+                        if(cy[j].gasTypeId==-1)color="background-color:#eee";
+                        if (j == 0) {
+                            tbody = tbody + '<tr align="center" data-areaId="'+gs[i].areaId+'" data-gasTypeId="'+cy[j].gasTypeId+'">' +
+                                '<td id="tbody_r' + gs[i].areaId + '_c' + cy[j].gasTypeId + '" rowspan="' + cy.length + '" colspan="1">' + gs[i].areaName + '</td>' +
+                                '<td id="tbody_r' + gs[i].areaId + '_c' + cy[j].gasTypeId + '_d0" rowspan="1" colspan="1">' + cy[j].gasTypeName + '</td>' +
+                                '<td id="tbody_r' + gs[i].areaId + '_c' + cy[j].gasTypeId + '_d1" rowspan="1" colspan="1">0</td>' +
+                                '<td id="tbody_r' + gs[i].areaId + '_c' + cy[j].gasTypeId + '_d2" rowspan="1" colspan="1">0</td>' +
+                                '<td id="tbody_r' + gs[i].areaId + '_c' + cy[j].gasTypeId + '_d3" rowspan="1" colspan="1">0</td>' +
+                                '<td id="tbody_r' + gs[i].areaId + '_c' + cy[j].gasTypeId + '_d4" rowspan="1" colspan="1">0</td>' +
+                                '<td id="tbody_r' + gs[i].areaId + '_c' + cy[j].gasTypeId + '_d5" rowspan="1" colspan="1">0</td>' +
+                                '<td id="tbody_r' + gs[i].areaId + '_c' + cy[j].gasTypeId + '_d6" rowspan="1" colspan="1">0</td>' +
+                                '<td id="tbody_r' + gs[i].areaId + '_c' + cy[j].gasTypeId + '_d7" rowspan="1" colspan="1">0</td>' +
+                                '<td id="tbody_r' + gs[i].areaId + '_c' + cy[j].gasTypeId + '_d8" rowspan="1" colspan="1">0</td>' +
+                                '<td id="tbody_r' + gs[i].areaId + '_c' + cy[j].gasTypeId + '_d9" rowspan="1" colspan="1">0</td>' +
+                                '<td id="tbody_r' + gs[i].areaId + '_c' + cy[j].gasTypeId + '_d10" rowspan="1" colspan="1">0</td>' +
+                                '<td id="tbody_r' + gs[i].areaId + '_c' + cy[j].gasTypeId + '_d11" rowspan="1" colspan="1">0</td>' +
+                                '<td id="tbody_r' + gs[i].areaId + '_c' + cy[j].gasTypeId + '_d12" rowspan="1" colspan="1">0</td>' +
+                                '<td id="tbody_r' + gs[i].areaId + '_c' + cy[j].gasTypeId + '_d13" rowspan="1" colspan="1">0</td>' +
+                                '<td id="tbody_r' + gs[i].areaId + '_c' + cy[j].gasTypeId + '_d14" rowspan="1" colspan="1">0</td>' +
+                                '<td id="tbody_r' + gs[i].areaId + '_c' + cy[j].gasTypeId + '_d15" rowspan="1" colspan="1">0</td>' +
+                                '<td id="tbody_r' + gs[i].areaId + '_c' + cy[j].gasTypeId + '_d16" rowspan="1" colspan="1">0</td>' +
+                                '<td id="tbody_r' + gs[i].areaId + '_c' + cy[j].gasTypeId + '_d17" rowspan="1" colspan="1">0</td>' +
+                                '<td id="tbody_r' + gs[i].areaId + '_c' + cy[j].gasTypeId + '_d18" rowspan="1" colspan="1">0</td>' +
+                                '<td id="tbody_r' + gs[i].areaId + '_c' + cy[j].gasTypeId + '_d19" rowspan="1" colspan="1">0</td>' +
+                                '<td id="tbody_r' + gs[i].areaId + '_c' + cy[j].gasTypeId + '_d23" rowspan="1" colspan="1">0</td>' +
+                                '<td id="tbody_r' + gs[i].areaId + '_c' + cy[j].gasTypeId + '_d24" rowspan="1" colspan="1">0</td>' +
+                                '<td id="tbody_r' + gs[i].areaId + '_c' + cy[j].gasTypeId + '_d29" rowspan="1" colspan="1">0</td>' +
+                                '<td id="tbody_r' + gs[i].areaId + '_c' + cy[j].gasTypeId + '_d30" rowspan="1" colspan="1">0</td>' +
+                                '<td id="tbody_r' + gs[i].areaId + '_c' + cy[j].gasTypeId + '_d25" rowspan="1" colspan="1">0</td>' +
+                                '<td id="tbody_r' + gs[i].areaId + '_c' + cy[j].gasTypeId + '_d26" rowspan="1" colspan="1">0</td>' +
+                                '<td id="tbody_r' + gs[i].areaId + '_c' + cy[j].gasTypeId + '_d27" rowspan="1" colspan="1">0</td>' +
+                                '<td id="tbody_r' + gs[i].areaId + '_c' + cy[j].gasTypeId + '_d28" rowspan="1" colspan="1">0</td>' +
+                                '<td id="tbody_r' + gs[i].areaId + '_c' + cy[j].gasTypeId + '_d31" rowspan="1" colspan="1">0</td>' +
+                                '<td id="tbody_r' + gs[i].areaId + '_c' + cy[j].gasTypeId + '_d32" rowspan="1" colspan="1">0</td>' +
+                                '</tr>';
+                        } else {
+                            tbody = tbody + '<tr align="center" data-areaId="'+gs[i].areaId+'" data-gasTypeId="'+cy[j].gasTypeId+'" style="'+color+'">' +
+                                '<td id="tbody_r' + gs[i].areaId + '_c' + cy[j].gasTypeId + '_d0" rowspan="1" colspan="1">' + cy[j].gasTypeName + '</td>' +
+                                '<td id="tbody_r' + gs[i].areaId + '_c' + cy[j].gasTypeId + '_d1" rowspan="1" colspan="1">0</td>' +
+                                '<td id="tbody_r' + gs[i].areaId + '_c' + cy[j].gasTypeId + '_d2" rowspan="1" colspan="1">0</td>' +
+                                '<td id="tbody_r' + gs[i].areaId + '_c' + cy[j].gasTypeId + '_d3" rowspan="1" colspan="1">0</td>' +
+                                '<td id="tbody_r' + gs[i].areaId + '_c' + cy[j].gasTypeId + '_d4" rowspan="1" colspan="1">0</td>' +
+                                '<td id="tbody_r' + gs[i].areaId + '_c' + cy[j].gasTypeId + '_d5" rowspan="1" colspan="1">0</td>' +
+                                '<td id="tbody_r' + gs[i].areaId + '_c' + cy[j].gasTypeId + '_d6" rowspan="1" colspan="1">0</td>' +
+                                '<td id="tbody_r' + gs[i].areaId + '_c' + cy[j].gasTypeId + '_d7" rowspan="1" colspan="1">0</td>' +
+                                '<td id="tbody_r' + gs[i].areaId + '_c' + cy[j].gasTypeId + '_d8" rowspan="1" colspan="1">0</td>' +
+                                '<td id="tbody_r' + gs[i].areaId + '_c' + cy[j].gasTypeId + '_d9" rowspan="1" colspan="1">0</td>' +
+                                '<td id="tbody_r' + gs[i].areaId + '_c' + cy[j].gasTypeId + '_d10" rowspan="1" colspan="1">0</td>' +
+                                '<td id="tbody_r' + gs[i].areaId + '_c' + cy[j].gasTypeId + '_d11" rowspan="1" colspan="1">0</td>' +
+                                '<td id="tbody_r' + gs[i].areaId + '_c' + cy[j].gasTypeId + '_d12" rowspan="1" colspan="1">0</td>' +
+                                '<td id="tbody_r' + gs[i].areaId + '_c' + cy[j].gasTypeId + '_d13" rowspan="1" colspan="1">0</td>' +
+                                '<td id="tbody_r' + gs[i].areaId + '_c' + cy[j].gasTypeId + '_d14" rowspan="1" colspan="1">0</td>' +
+                                '<td id="tbody_r' + gs[i].areaId + '_c' + cy[j].gasTypeId + '_d15" rowspan="1" colspan="1">0</td>' +
+                                '<td id="tbody_r' + gs[i].areaId + '_c' + cy[j].gasTypeId + '_d16" rowspan="1" colspan="1">0</td>' +
+                                '<td id="tbody_r' + gs[i].areaId + '_c' + cy[j].gasTypeId + '_d17" rowspan="1" colspan="1">0</td>' +
+                                '<td id="tbody_r' + gs[i].areaId + '_c' + cy[j].gasTypeId + '_d18" rowspan="1" colspan="1">0</td>' +
+                                '<td id="tbody_r' + gs[i].areaId + '_c' + cy[j].gasTypeId + '_d19" rowspan="1" colspan="1">0</td>' +
+                                '<td id="tbody_r' + gs[i].areaId + '_c' + cy[j].gasTypeId + '_d23" rowspan="1" colspan="1">0</td>' +
+                                '<td id="tbody_r' + gs[i].areaId + '_c' + cy[j].gasTypeId + '_d24" rowspan="1" colspan="1">0</td>' +
+                                '<td id="tbody_r' + gs[i].areaId + '_c' + cy[j].gasTypeId + '_d29" rowspan="1" colspan="1">0</td>' +
+                                '<td id="tbody_r' + gs[i].areaId + '_c' + cy[j].gasTypeId + '_d30" rowspan="1" colspan="1">0</td>' +
+                                '<td id="tbody_r' + gs[i].areaId + '_c' + cy[j].gasTypeId + '_d25" rowspan="1" colspan="1">0</td>' +
+                                '<td id="tbody_r' + gs[i].areaId + '_c' + cy[j].gasTypeId + '_d26" rowspan="1" colspan="1">0</td>' +
+                                '<td id="tbody_r' + gs[i].areaId + '_c' + cy[j].gasTypeId + '_d27" rowspan="1" colspan="1">0</td>' +
+                                '<td id="tbody_r' + gs[i].areaId + '_c' + cy[j].gasTypeId + '_d28" rowspan="1" colspan="1">0</td>' +
+                                '<td id="tbody_r' + gs[i].areaId + '_c' + cy[j].gasTypeId + '_d31" rowspan="1" colspan="1">0</td>' +
+                                '<td id="tbody_r' + gs[i].areaId + '_c' + cy[j].gasTypeId + '_d32" rowspan="1" colspan="1">0</td>' +
+                                '</tr>';
+                        }
+                    }                    
+                }
+                $("#tbody").html(tbody);
+            }
+        });
+
+        //查询按钮时间 新增用户是大于去年12月26日
+        $("#find_sign").click(function () {
+            var areaid="1";//哈中庆区域ID
+            if ($("#find_date").val() == "") {
+                bootbox.alert("请您选择要查询的月份！");
+                return;
+            }
+            $("#find_sign").attr("disabled", "disabled");
+            $("#title").html($("#find_date").val() + "&nbsp;&nbsp;新增用户统计");
+
+            var userInfo = JSON.parse(localStorage.getItem("user_info"));
+            if (userInfo.employee_name) {
+                $("#foot_r0_c8").html(userInfo.employee_name);
+            } else {
+                $("#foot_r0_c8").html("管理员");
+            }
+            $("#foot_r0_c15").html(date_format(new Date(), "yyyy-MM-dd"));
+
+            $("#btn_down_detail").removeClass("disabled");
+            $("#btn_down_detail").removeClass("gray");
+            $("#btn_down_detail").addClass("green");
+
+            $("#btn_print_page").removeClass("disabled");
+            $("#btn_print_page").removeClass("gray");
+            $("#btn_print_page").addClass("green");
+
+            //报表时间是上月26日到当月26日
+            var curMonth=$("#find_date").val().replace('年','-').replace('月','');   
+            //月末         
+            var end = dateHelper.getMonthEnd(curMonth);
+            //月初
+            var start = dateHelper.getMonthStart(curMonth);
+            //获取当年年初
+            var startYear=dateHelper.getCurYearMonthStart(curMonth);
+            //当年
+            var year=dateHelper.getCurYear(curMonth);
+            
+            //当月
+            var month=parseInt(dateHelper.getCurMonth(curMonth));
+            //上年上月 {prevmonth:"",prevyear:""};考虑跨年
+            var prev=dateHelper.getPrevMonth(curMonth);
+            //上年
+            var prevyear=dateHelper.getPrevYear(curMonth);
+
+            var $tbody = $("#tbody");
+
+            var whereClause2 = "";
+            var whereClause3 = "";
+            var whereClause5 = "";
+            var whereClause6 = "";
+            var whereClause7 = "";
+
+            
+            whereClause2 += " money <> 0 and ";
+            whereClause2 += " dt between to_date('" + start + "','yyyy-MM-dd') and to_date('" + end + "','yyyy-MM-dd') ";
+
+            whereClause3 += " a.createdTime < to_date('" + end + "','yyyy-MM-dd') ";
+            whereClause7 += " a.tradeDate < to_date('" + start + "','yyyy-MM-dd')";
+
+            
+            whereClause6 += " money <> 0 and ";
+            whereClause6 += " dt between to_date('" + startYear + "','yyyy-MM-dd') and to_date('" + end + "','yyyy-MM-dd') ";
+
+            //获取已开栓户/长期不用户数/拆除数/正常数(应收费户) 不分IC卡和普表 小于当前月末的 已改为静态
+            var whereClause25 = " reportYear="+year+" and reportMonth="+parseInt(month);
+            $.ajax({
+                url: "hzqs/dbc/pbsel.do?fh=SELDBC0000000J00&resp=bd",
+                type: "POST",
+                contentType: "application/json;charset=utf-8",
+                data: JSON.stringify({
+                    cols: "sum(normalNum) normalNum,sum(noUseNum) noUseNum,sum(dismantleNum) dismantleNum,\
+                            sum(stopNum) stopNum,sum(longUseNum) longUseNum,a.areaId,a.gasTypeId",
+                    froms: "gasReportArchiveNew a",
+                    wheres: whereClause25+" group by a.areaId,a.gasTypeId",
+                    page: "false"
+                }),
+                dataType: "json",
+                success: function (data) {                    
+                    if(data){
+                        if(data.rows){
+                            var longUseNumTotal=0,yikaishuanNumTotal=0,normalNumTotal=0,dismantleNumTotal=0,yingshouNumTotal=0;                    
+                            $("#tbody").find("tr").each(function(){
+                                var areaId=$(this).data("areaid");
+                                var gasTypeId=$(this).data("gastypeid"); 
+                                var result=getReportArchiveNum(data.rows,areaId,gasTypeId) ;
+    
+                                //小计
+                                if(gasTypeId=="-1"){                            
+                                    $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d25").html(toZero(yikaishuanNumTotal));      
+                                    $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d26").html(toZero(longUseNumTotal));    
+                                    $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d27").html(toZero(yingshouNumTotal));
+                                    $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d28").html(toZero(dismantleNumTotal));
+                                    longUseNumTotal=0,yikaishuanNumTotal=0,normalNumTotal=0,dismantleNumTotal=0,yingshouNumTotal=0;
+                                }else{
+    
+                                    //已开栓=正常数+暂停数
+                                    var yikaishuanNum=result.normalNum+result.stopNum;   
+                                    //应收费户数=正常+长期不用
+                                    var yingshouNum   =result.normalNum+result.longUseNum;                     
+                                    yikaishuanNumTotal+=yikaishuanNum;  
+                                    longUseNumTotal+=result.longUseNum ;    
+                                    normalNumTotal+=result.normalNum ; 
+                                    dismantleNumTotal+=result.dismantleNum; 
+                                    yingshouNumTotal+=yingshouNum; 
+                                    $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d25").html(toZero(yikaishuanNum));      
+                                    $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d26").html(toZero(result.longUseNum));   
+                                    $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d27").html(toZero(yingshouNum)); 
+                                    $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d28").html(toZero(result.dismantleNum));
+                                }
+                            })
+                            //小计
+                            $("#tbody").find("[data-areaid='"+areaid+"']").each(function(){
+                                var areaId=$(this).data("areaid");
+                                var gasTypeId=$(this).data("gastypeid"); 
+                                var longUseNumTotal=0,yikaishuanNumTotal=0,yingshouNumTotal=0,dismantleNumTotal=0;
+                                $("#tbody").find("td[id$='"+gasTypeId+"_d25']").each(function(i){                                
+                                    if(i>0)yikaishuanNumTotal+=parseInt($(this).text());
+                                });
+                                $("#tbody").find("td[id$='"+gasTypeId+"_d26']").each(function(i){                                
+                                    if(i>0)longUseNumTotal+=parseInt($(this).text());
+                                });
+                                $("#tbody").find("td[id$='"+gasTypeId+"_d27']").each(function(i){                                
+                                    if(i>0)yingshouNumTotal+=parseInt($(this).text());
+                                });
+                                $("#tbody").find("td[id$='"+gasTypeId+"_d28']").each(function(i){                                
+                                    if(i>0)dismantleNumTotal+=parseInt($(this).text());
+                                });
+                                $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d26").html(toZero(longUseNumTotal)); 
+                                $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d25").html(toZero(yikaishuanNumTotal)); 
+                                $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d27").html(toZero(yingshouNumTotal)); 
+                                $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d28").html(toZero(dismantleNumTotal)); 
+                            })
+                        }                       
+                    }                    
+                }
+            });
+
+            //应抄表户数 计划抄表 小于当前月末的
+            var whereClause24="";
+            whereClause24+=" createdTime < to_date('" + end + "','yyyy-MM-dd') ";
+            whereClause24+=" and planCopyTime between to_date('" + start + "','yyyy-MM-dd') and to_date('" + end + "','yyyy-MM-dd') "; 
+                
+            //抄表出账户数  实抄表户数 实际已抄 小于当前月末的
+            var whereClause29="";            
+            whereClause29+=" createdTime < to_date('" + end + "','yyyy-MM-dd') ";
+            whereClause29+=" and copyTime between to_date('" + start + "','yyyy-MM-dd') and to_date('" + end + "','yyyy-MM-dd') ";               
+            $.when(
+                $.ajax({
+                    url: "hzqs/dbc/pbsel.do?fh=SELDBC0000000J00&resp=bd",
+                    type: "POST",
+                    contentType: "application/json;charset=utf-8",
+                    data: JSON.stringify({
+                        cols: "a.areaId,a.gasTypeId,count(1) ctmNum",
+                        froms: "(select distinct ctmArchiveId,areaId,gasTypeId from vmReportMeterRecording where "+whereClause24+") a",
+                        wheres: "1=1 group by a.areaId,a.gasTypeId",
+                        page: "false"
+                    }),
+                    dataType: "json",
+                    success: function (data) {
+                        if(data){
+                            var numTotal=0;
+                            $("#tbody").find("tr").each(function(){
+                                var areaId=$(this).data("areaid");
+                                var gasTypeId=$(this).data("gastypeid"); 
+                                //小计
+                                if(gasTypeId=="-1"){ 
+                                    $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d24").html(toZero(numTotal));
+                                    numTotal=0;
+                                }else{
+                                    var num=getNum(data.rows,areaId,gasTypeId) ;
+                                    numTotal+=num;
+                                    $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d24").html(toZero(num));
+                                } 
+
+                            })
+                            $("#tbody").find("[data-areaid='"+areaid+"']").each(function(){
+                                var areaId=$(this).data("areaid");
+                                var gasTypeId=$(this).data("gastypeid"); 
+                                var numTotal=0;
+                                $("#tbody").find("td[id$='"+gasTypeId+"_d24']").each(function(i){                                
+                                    if(i>0)numTotal+=parseInt($(this).text());
+                                }); 
+                                $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d24").html(toZero(numTotal));  
+                            })
+                        }                    
+                    }
+                }),
+                $.ajax({
+                    url: "hzqs/dbc/pbsel.do?fh=SELDBC0000000J00&resp=bd",
+                    type: "POST",
+                    contentType: "application/json;charset=utf-8",
+                    data: JSON.stringify({
+                        cols: "a.areaId,a.gasTypeId,count(1) ctmNum",
+                        froms: "(select distinct ctmArchiveId,areaId,gasTypeId from vmReportMeterRecording where "+whereClause29+") a",
+                        wheres: "1=1 group by a.areaId,a.gasTypeId",
+                        page: "false"
+                    }),
+                    dataType: "json",
+                    success: function (data) {
+                        var numTotal=0;
+                        if(data){
+                            $("#tbody").find("tr").each(function(){
+                                var areaId=$(this).data("areaid");
+                                var gasTypeId=$(this).data("gastypeid"); 
+                                //小计
+                                if(gasTypeId=="-1"){ 
+                                    $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d29").html(toZero(numTotal));
+                                    numTotal=0;
+                                }else{
+                                    var num=getNum(data.rows,areaId,gasTypeId) ;
+                                    numTotal+=num;
+                                    $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d29").html(toZero(num));
+                                } 
+
+                            })
+                            $("#tbody").find("[data-areaid='"+areaid+"']").each(function(){
+                                var areaId=$(this).data("areaid");
+                                var gasTypeId=$(this).data("gastypeid"); 
+                                var numTotal=0;
+                                $("#tbody").find("td[id$='"+gasTypeId+"_d29']").each(function(i){                                
+                                    if(i>0)numTotal+=parseInt($(this).text());
+                                }); 
+                                $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d29").html(toZero(numTotal));  
+                            })
+                        }                    
+                    }
+                })
+            ).then(function(){
+                $("#tbody").find("tr").each(function(i){
+                    var areaId=$(this).data("areaid");
+                    var gasTypeId=$(this).data("gastypeid"); 
+                    var yingchaoNum=parseInt($(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d24").text());
+                    var shichaoNum=parseInt($(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d29").text());
+                    var num=(parseFloat(shichaoNum/yingchaoNum)*100).toFixed(2)+"%";
+                    if(yingchaoNum==0)num="-"
+                    $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d30").html(num);
+                })
+            })
+
+
+            //本月销量和本月销售额 上月26日到本月26日 而且开栓日期大于上年12月26日并且小于本年12月26日 已改为静态
+            var whereClause1_3 = "";
+            whereClause1_3 += " gas <> 0 ";
+            whereClause1_3 += " and tradeDate between to_date('" + start + "','yyyy-MM-dd') and to_date('" + end + "','yyyy-MM-dd')";
+            whereClause1_3 += " and unboltTime between to_date('"+startYear+"','yyyy-MM-dd') and to_date('"+end+"','yyyy-MM-dd')";
+            
+            //本月实收量和本月实收额 上月26日到本月26日 而且开栓日期大于上年12月26日并且小于本年12月26日 已改为静态 
+            var whereClause5_7="";
+            whereClause5_7 += " money <> 0 ";
+            whereClause5_7 += " and tradeDate between to_date('" + start + "','yyyy-MM-dd') and to_date('" + end + "','yyyy-MM-dd')";
+            whereClause5_7 += " and unboltTime between to_date('"+startYear+"','yyyy-MM-dd') and to_date('"+end+"','yyyy-MM-dd')";                       
+            //回款率
+            $.when(
+                $.ajax({
+                    url: "hzqs/dbc/pbsel.do?fh=SELDBC0000000J00&resp=bd",
+                    type: "POST",
+                    contentType: "application/json;charset=utf-8",
+                    data: JSON.stringify({
+                        cols: "sum(a.gas) gas,sum(a.sse) balance,a.areaId,a.gasTypeId",
+                        froms: "gasReportYsl a  ",
+                        wheres: whereClause1_3 + " group by a.areaId,a.gasTypeId",
+                    }),
+                    dataType: "json",
+                    success: function (data) {
+
+                        console.log("本月销量和本月销售额",data);
+                        if(data){
+                            var numTotal=0,balanceTotal=0.00;
+                            $("#tbody").find("tr").each(function(){
+                                var areaId=$(this).data("areaid");
+                                var gasTypeId=$(this).data("gastypeid"); 
+                                //小计
+                                if(gasTypeId=="-1"){ 
+                                    $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d1").html(toZero(numTotal));
+                                    $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d3").html(toZero(balanceTotal.toFixed(2)));
+                                    numTotal=0,balanceTotal=0.00;
+                                }else{
+                                    var result=getGasAndBalance(data.rows,areaId,gasTypeId) ;
+                                    numTotal+=result.gas;
+                                    balanceTotal+=result.balance;
+                                    $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d1").html(toZero(result.gas));
+                                    $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d3").html(toZero(result.balance.toFixed(2)));
+                                } 
+                            })
+                            $("#tbody").find("[data-areaid='"+areaid+"']").each(function(){
+                                var areaId=$(this).data("areaid");
+                                var gasTypeId=$(this).data("gastypeid"); 
+                                var numTotal=0,balanceTotal=0.00;
+                                $("#tbody").find("td[id$='"+gasTypeId+"_d1']").each(function(i){                                
+                                    if(i>0)numTotal+=parseInt($(this).text());
+                                }); 
+                                $("#tbody").find("td[id$='"+gasTypeId+"_d3']").each(function(i){                                
+                                    if(i>0)balanceTotal+=parseFloat($(this).text());
+                                }); 
+                                $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d1").html(toZero(numTotal));  
+                                $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d3").html(toZero(balanceTotal.toFixed(2))); 
+                            })
+                        }       
+                    }
+                }),
+                $.ajax({
+                    url: "hzqs/dbc/pbsel.do?fh=SELDBC0000000J00&resp=bd",
+                    type: "POST",
+                    contentType: "application/json;charset=utf-8",
+                    data: JSON.stringify({
+                        cols: "sum(a.ysl) gas,sum(a.money) balance,a.areaId,a.gasTypeId",
+                        froms: "gasReportSse a  ",
+                        wheres: whereClause5_7 + " group by a.areaId,a.gasTypeId",
+                        page: "false"
+                    }),
+                    dataType: "json",
+                    success: function (data) {
+                        console.log("本月实收量和本月实收额",data)
+                        if(data){
+                            var numTotal=0,balanceTotal=0.00;
+                            $("#tbody").find("tr").each(function(){
+                                var areaId=$(this).data("areaid");
+                                var gasTypeId=$(this).data("gastypeid"); 
+                                //小计
+                                if(gasTypeId=="-1"){ 
+                                    $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d5").html(toZero(numTotal.toFixed(0)));
+                                    $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d7").html(toZero(balanceTotal.toFixed(2)));
+                                    numTotal=0,balanceTotal=0.00;
+                                }else{
+                                    var result=getGasAndBalance(data.rows,areaId,gasTypeId) ;
+                                    numTotal+=result.gas;
+                                    balanceTotal+=result.balance;
+                                    $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d5").html(toZero(result.gas.toFixed(0)));
+                                    $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d7").html(toZero(result.balance.toFixed(2)));
+                                } 
+                            })
+                            $("#tbody").find("[data-areaid='"+areaid+"']").each(function(){
+                                var areaId=$(this).data("areaid");
+                                var gasTypeId=$(this).data("gastypeid"); 
+                                var numTotal=0,balanceTotal=0.00;
+                                $("#tbody").find("td[id$='"+gasTypeId+"_d5']").each(function(i){                                
+                                    if(i>0)numTotal+=parseInt($(this).text());
+                                }); 
+                                $("#tbody").find("td[id$='"+gasTypeId+"_d7']").each(function(i){                                
+                                    if(i>0)balanceTotal+=parseFloat($(this).text());
+                                }); 
+                                $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d5").html(toZero(numTotal.toFixed(0)));  
+                                $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d7").html(toZero(balanceTotal.toFixed(2))); 
+                            })
+                        } 
+                    }
+                })
+            ).then(function(){
+                $("#tbody").find("tr").each(function(){
+                    var areaId=$(this).data("areaid");
+                    var gasTypeId=$(this).data("gastypeid");
+                    var yse=$(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d3").text();
+                    var sse=$(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d7").text();
+                    //回款率 =实收额/应收额
+                    if(yse!=0){
+                        var rate=((sse/yse)*100).toFixed(2)+"%"
+                        $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d14").html(rate); 
+                    }else{
+                        $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d14").html("-"); 
+                    }
+                })
+            })
+
+            //累计销售量和累积销售额 交易时间和开双日期都是 上年12月26日到本年12月26日 已改为静态
+            var whereClause2_4="";
+            whereClause2_4 += " gas <> 0 ";
+            whereClause2_4 += " and tradeDate between to_date('" + startYear + "','yyyy-MM-dd') and to_date('" + end + "','yyyy-MM-dd')";
+            whereClause2_4 += " and unboltTime between to_date('"+ startYear +"','yyyy-MM-dd') and to_date('"+ end +"','yyyy-MM-dd')";         
+            $.ajax({
+                url: "hzqs/dbc/pbsel.do?fh=SELDBC0000000J00&resp=bd",
+                type: "POST",
+                contentType: "application/json;charset=utf-8",
+                data: JSON.stringify({
+                    cols: "sum(a.gas) gas,sum(a.sse) balance,a.areaId,a.gasTypeId",
+                    froms: "gasReportYsl a  ",
+                    wheres: whereClause2_4 + " group by a.areaId,a.gasTypeId",
+                    page: "false"
+                }),
+                dataType: "json",
+                success: function (data) {
+                    console.log("累计销售量和累积销售额",data);
+                    if(data){
+                        var numTotal=0,balanceTotal=0.00;
+                        $("#tbody").find("tr").each(function(){
+                            var areaId=$(this).data("areaid");
+                            var gasTypeId=$(this).data("gastypeid"); 
+                            //小计
+                            if(gasTypeId=="-1"){ 
+                                $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d2").html(toZero(numTotal));
+                                $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d4").html(toZero(balanceTotal.toFixed(2)));
+                                numTotal=0,balanceTotal=0.00;
+                            }else{
+                                var result=getGasAndBalance(data.rows,areaId,gasTypeId) ;
+                                numTotal+=result.gas;
+                                balanceTotal+=result.balance;
+                                $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d2").html(toZero(result.gas));
+                                $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d4").html(toZero(result.balance.toFixed(2)));
+                            } 
+                        })
+                        $("#tbody").find("[data-areaid='"+areaid+"']").each(function(){
+                            var areaId=$(this).data("areaid");
+                            var gasTypeId=$(this).data("gastypeid"); 
+                            var numTotal=0,balanceTotal=0.00;
+                            $("#tbody").find("td[id$='"+gasTypeId+"_d2']").each(function(i){                                
+                                if(i>0)numTotal+=parseInt($(this).text());
+                            }); 
+                            $("#tbody").find("td[id$='"+gasTypeId+"_d4']").each(function(i){                                
+                                if(i>0)balanceTotal+=parseFloat($(this).text());
+                            }); 
+                            $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d2").html(toZero(numTotal));  
+                            $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d4").html(toZero(balanceTotal.toFixed(2))); 
+                        })
+                    }  
+                }
+            });
+            //累计实收量和累积实收额 交易时间和开双日期都是 上年12月26日到本年12月26日 已改为静态
+            var whereClause6_8="";
+            whereClause6_8 += " money <> 0 ";
+            whereClause6_8 += " and reportYear="+year+" and reportMonth="+month;
+            whereClause6_8 += " and unboltTime between to_date('"+startYear+"','yyyy-MM-dd') and to_date('"+end+"','yyyy-MM-dd')";                   
+            $.ajax({
+                url: "hzqs/dbc/pbsel.do?fh=SELDBC0000000J00&resp=bd",
+                type: "POST",
+                contentType: "application/json;charset=utf-8",
+                data: JSON.stringify({
+                    cols: "sum(a.money) balance,sum(a.ysl) gas,a.areaId,a.gasTypeId",
+                    froms: "gasReportSse a  ",
+                    wheres: whereClause6_8 + " group by a.areaId,a.gasTypeId",
+                    page: "false"
+                }),
+                dataType: "json",
+                success: function (data) {
+                    console.log("累计实收量和累积实收额",data);
+                    if(data.rows){
+                        data.rows.forEach(function(m){
+                            
+                        })
+                    }
+                    if(data){
+                        var numTotal=0,balanceTotal=0.00;
+                        $("#tbody").find("tr").each(function(){
+                            var areaId=$(this).data("areaid");
+                            var gasTypeId=$(this).data("gastypeid"); 
+                            //小计
+                            if(gasTypeId=="-1"){ 
+                                $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d6").html(toZero(numTotal.toFixed(0)));
+                                $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d8").html(toZero(balanceTotal.toFixed(2)));
+                                numTotal=0,balanceTotal=0.00;
+                            }else{
+                                var result=getGasAndBalance(data.rows,areaId,gasTypeId) ;
+                                numTotal+=result.gas;
+                                balanceTotal+=result.balance;
+                                $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d6").html(toZero(result.gas.toFixed(0)));
+                                $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d8").html(toZero(result.balance.toFixed(2)));
+                            } 
+                        })
+                        $("#tbody").find("[data-areaid='"+areaid+"']").each(function(){
+                            var areaId=$(this).data("areaid");
+                            var gasTypeId=$(this).data("gastypeid"); 
+                            var numTotal=0,balanceTotal=0.00;
+                            $("#tbody").find("td[id$='"+gasTypeId+"_d6']").each(function(i){                                
+                                if(i>0)numTotal+=parseInt($(this).text());
+                            }); 
+                            $("#tbody").find("td[id$='"+gasTypeId+"_d8']").each(function(i){                                
+                                if(i>0)balanceTotal+=parseFloat($(this).text());
+                            }); 
+                            $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d6").html(toZero(numTotal.toFixed(0)));  
+                            $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d8").html(toZero(balanceTotal.toFixed(2))); 
+                        })
+                    } 
+                }
+            });
+
+            //本月实收户数 已改为静态
+            var whereClause31="";
+            whereClause31 += "tradeDate between to_date('" + start + "','yyyy-MM-dd') and to_date('" + end + "','yyyy-MM-dd')";
+            whereClause31 += " and unboltTime between to_date('"+startYear+"','yyyy-MM-dd') and to_date('"+end+"','yyyy-MM-dd')";                   
+            $.ajax({
+                url: "hzqs/dbc/pbsel.do?fh=SELDBC0000000J00&resp=bd",
+                type: "POST",
+                contentType: "application/json;charset=utf-8",
+                data: JSON.stringify({
+                    cols: "count(1) ctmNum,a.areaId,a.gasTypeId",
+                    froms: "gasReportSse a  ",
+                    wheres: whereClause31+ " group by a.areaId,a.gasTypeId",
+                    page: "false"
+                }),
+                dataType: "json",
+                success: function (data) {
+                    console.log("本月实收户数",data)
+                    if(data){
+                        var numTotal=0;
+                        $("#tbody").find("tr").each(function(){
+                            var areaId=$(this).data("areaid");
+                            var gasTypeId=$(this).data("gastypeid"); 
+                            //小计
+                            if(gasTypeId=="-1"){ 
+                                $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d31").html(toZero(numTotal));
+                                numTotal=0;
+                            }else{
+                                var num=getNum(data.rows,areaId,gasTypeId) ;
+                                numTotal+=num;
+                                $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d31").html(toZero(num));
+                            } 
+                        })
+                        $("#tbody").find("[data-areaid='"+areaid+"']").each(function(){
+                            var areaId=$(this).data("areaid");
+                            var gasTypeId=$(this).data("gastypeid"); 
+                            var numTotal=0;
+                            $("#tbody").find("td[id$='"+gasTypeId+"_d31']").each(function(i){                                
+                                if(i>0)numTotal+=parseInt($(this).text());
+                            }); 
+                            $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d31").html(toZero(numTotal));  
+                        })
+                    } 
+                }
+            });
+            
+            //本月追补量 已改为静态
+            var whereClause13 = "";
+            whereClause13 += " recoverGas <> 0 ";
+            whereClause13 += " and tradeDate between to_date('" + start + "','yyyy-MM-dd') and to_date('" + end + "','yyyy-MM-dd')";
+            whereClause13 += " and unboltTime between to_date('"+startYear+"','yyyy-MM-dd') and to_date('"+end+"','yyyy-MM-dd')";
+            $.ajax({
+                url: "hzqs/dbc/pbsel.do?fh=SELDBC0000000J00&resp=bd",
+                type: "POST",
+                contentType: "application/json;charset=utf-8",
+                data: JSON.stringify({
+                    cols: "sum(a.recoverGas) ctmNum,a.areaId,a.gasTypeId",
+                    froms: "gasReportYsl a  ",
+                    wheres: whereClause13 + " group by a.areaId,a.gasTypeId",
+                }),
+                dataType: "json",
+                success: function (data) {
+                    console.log("本月追补量",data)
+                    if(data){
+                        var numTotal=0;
+                        if(data.rows){
+                            $("#tbody").find("tr").each(function(){
+                                var areaId=$(this).data("areaid");
+                                var gasTypeId=$(this).data("gastypeid"); 
+                                //小计
+                                if(gasTypeId=="-1"){ 
+                                    $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d13").html(toZero(numTotal));
+                                    numTotal=0;
+                                }else{
+                                    var result=getNum(data.rows,areaId,gasTypeId) ;
+                                    numTotal+=result.num;
+                                    $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d13").html(toZero(result.num));
+                                } 
+                            })
+                            $("#tbody").find("[data-areaid='"+areaid+"']").each(function(){
+                                var areaId=$(this).data("areaid");
+                                var gasTypeId=$(this).data("gastypeid"); 
+                                var numTotal=0;
+                                $("#tbody").find("td[id$='"+gasTypeId+"_d13']").each(function(i){                                
+                                    if(i>0)numTotal+=parseInt($(this).text());
+                                }); 
+                                $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d13").html(toZero(numTotal)); 
+                            })
+                        }                        
+                    }       
+                }
+            });
+            //本月追补额 已改为静态
+            var whereClause12="";
+            whereClause12 += " recoverMoney <> 0 ";
+            whereClause12 += " and tradeDate between to_date('" + start + "','yyyy-MM-dd') and to_date('" + end + "','yyyy-MM-dd')";
+            whereClause12 += " and unboltTime between to_date('"+startYear+"','yyyy-MM-dd') and to_date('"+end+"','yyyy-MM-dd')";                   
+            $.ajax({
+                url: "hzqs/dbc/pbsel.do?fh=SELDBC0000000J00&resp=bd",
+                type: "POST",
+                contentType: "application/json;charset=utf-8",
+                data: JSON.stringify({
+                    cols: "sum(a.recoverMoney) ctmNum,a.areaId,a.gasTypeId",
+                    froms: "gasReportSse a  ",
+                    wheres: whereClause12 + " group by a.areaId,a.gasTypeId",
+                    page: "false"
+                }),
+                dataType: "json",
+                success: function (data) {
+                    console.log("本月追补额",data)
+                    if(data){
+                        if(data.rows){
+                            var numTotal=0.00;
+                            $("#tbody").find("tr").each(function(){
+                                var areaId=$(this).data("areaid");
+                                var gasTypeId=$(this).data("gastypeid"); 
+                                //小计
+                                if(gasTypeId=="-1"){ 
+                                    $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d12").html(toZero(numTotal.toFixed(2)));
+                                    numTotal=0;
+                                }else{
+                                    var result=getNum(data.rows,areaId,gasTypeId) ;
+                                    numTotal+=result.num;
+                                    $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d12").html(toZero(result.num.toFixed(2)));
+                                } 
+                            })
+                            $("#tbody").find("[data-areaid='"+areaid+"']").each(function(){
+                                var areaId=$(this).data("areaid");
+                                var gasTypeId=$(this).data("gastypeid"); 
+                                var numTotal=0.00;
+                                $("#tbody").find("td[id$='"+gasTypeId+"_d12']").each(function(i){                                
+                                    if(i>0)numTotal+=parseInt($(this).text());
+                                }); 
+                                $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d12").html(toZero(numTotal.toFixed(2)));  
+                            })
+                        }                        
+                    } 
+                }
+            });
+
+            //本月抄表实收户 本月抄表用户实际有收入的
+            var whereClause32 = " unboltTime between to_date('"+startYear+"','yyyy-MM-dd') and to_date('"+end+"','yyyy-MM-dd')"; 
+            var whereClause32_1= " and copyTime between to_date('" + start + "','yyyy-MM-dd') and to_date('" + end + "','yyyy-MM-dd')" ;                
+            $.ajax({
+                url: "hzqs/dbc/pbsel.do?fh=SELDBC0000000J00&resp=bd",
+                type: "POST",
+                contentType: "application/json;charset=utf-8",
+                data: JSON.stringify({
+                    cols: "count(1) ctmNum,a.areaId,a.gasTypeId",
+                    froms: "gasReportSse a",
+                    wheres: whereClause32+" and exists (\
+                        select distinct customer_code from vmReportMeterRecording b \
+                        where b.customer_code=a.customer_code "+whereClause32_1+") \
+                        group by a.areaId,a.gasTypeId",
+                    page: "false"
+                }),
+                dataType: "json",
+                success: function (data) {
+                    console.log("本月抄表实收户",data)
+                    if(data){
+                        var numTotal=0;
+                        $("#tbody").find("tr").each(function(){
+                            var areaId=$(this).data("areaid");
+                            var gasTypeId=$(this).data("gastypeid"); 
+                            //小计
+                            if(gasTypeId=="-1"){ 
+                                $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d32").html(toZero(numTotal));
+                                numTotal=0;
+                            }else{
+                                var num=getNum(data.rows,areaId,gasTypeId) ;
+                                numTotal+=num;
+                                $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d32").html(toZero(num));
+                            } 
+                        })
+                        $("#tbody").find("[data-areaid='"+areaid+"']").each(function(){
+                            var areaId=$(this).data("areaid");
+                            var gasTypeId=$(this).data("gastypeid"); 
+                            var numTotal=0;
+                            $("#tbody").find("td[id$='"+gasTypeId+"_d32']").each(function(i){                                
+                                if(i>0)numTotal+=parseInt($(this).text());
+                            }); 
+                            $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d32").html(toZero(numTotal));  
+                        })
+                    } 
+                }
+            });
+
+            //账户余额 本年开栓用户的余额
+            var whereClause15= " balance>0 and reportYear="+year+" and reportMonth="+month ;
+            whereClause15+= " and unboltTime between to_date('"+startYear+"','yyyy-MM-dd') and to_date('"+end+"','yyyy-MM-dd') and a.gasTypeId is not null";
+            $.ajax({
+                url: "hzqs/dbc/pbsel.do?fh=SELDBC0000000J00&resp=bd",
+                type: "POST",
+                contentType: "application/json;charset=utf-8",
+                data: JSON.stringify({
+                    cols: "sum(a.balance) ctmNum,a.areaId,a.gasTypeId",
+                    froms: "gasReportLjye a",
+                    wheres: whereClause15 + " group by a.areaId,a.gasTypeId",
+                }),
+                dataType: "json",
+                success: function (data) {
+                    console.log("账户余额",data);
+                    if(data){
+                        var numTotal=0.00;
+                        if(data.rows){
+                            $("#tbody").find("tr").each(function(){
+                                var areaId=$(this).data("areaid");
+                                var gasTypeId=$(this).data("gastypeid"); 
+                                //小计
+                                if(gasTypeId=="-1"){ 
+                                    $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d15").html(toZero(numTotal.toFixed(2)));
+                                    numTotal=0;
+                                }else{
+                                    var num=getNum(data.rows,areaId,gasTypeId) ;
+                                    numTotal+=num;
+                                    $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d15").html(toZero(num.toFixed(2)));
+                                } 
+                            })
+                            $("#tbody").find("[data-areaid='"+areaid+"']").each(function(){
+                                var areaId=$(this).data("areaid");
+                                var gasTypeId=$(this).data("gastypeid"); 
+                                var numTotal=0.00;
+                                $("#tbody").find("td[id$='"+gasTypeId+"_d15']").each(function(i){                                
+                                    if(i>0)numTotal+=parseInt($(this).text());
+                                }); 
+                                $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d15").html(toZero(numTotal.toFixed(2))); 
+                            })
+                        }                        
+                    }       
+                }
+            });
+
+            //本月欠费
+
+            //欠费户
+            var whereClause15= " balance<0 and reportYear="+year+" and reportMonth="+month ;
+            whereClause15+= " and unboltTime between to_date('"+startYear+"','yyyy-MM-dd') and to_date('"+end+"','yyyy-MM-dd') and a.gasTypeId is not null";
+            var whereClause15_1= " reportYear="+year+" and reportMonth="+month ;
+            whereClause15_1+= " and unboltTime between to_date('"+startYear+"','yyyy-MM-dd') and to_date('"+end+"','yyyy-MM-dd') and a.gasTypeId is not null";
+            
+            //累积欠费
+            var whereClause10= " balance<0 and reportYear="+year+" and reportMonth="+month ;
+            whereClause10+=" and unboltTime between to_date('"+startYear+"','yyyy-MM-dd') and to_date('"+end+"','yyyy-MM-dd') and gasTypeId is not null";
+            
+            $.when(
+                //欠费户数
+                $.ajax({
+                    url: "hzqs/dbc/pbsel.do?fh=SELDBC0000000J00&resp=bd",
+                    type: "POST",
+                    contentType: "application/json;charset=utf-8",
+                    data: JSON.stringify({
+                        cols: "count(1) ctmNum,a.areaId,a.gasTypeId",
+                        froms: "gasReportLjye a",
+                        wheres: whereClause15 + " group by a.areaId,a.gasTypeId",
+                    }),
+                    dataType: "json",
+                    success: function (data) {
+                        console.log("欠费户",data);
+                        if(data){
+                            var numTotal=0.00;
+                            if(data.rows){
+                                $("#tbody").find("tr").each(function(){
+                                    var areaId=$(this).data("areaid");
+                                    var gasTypeId=$(this).data("gastypeid"); 
+                                    //小计
+                                    if(gasTypeId=="-1"){ 
+                                        $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d16").html(toZero(numTotal));
+                                        numTotal=0;
+                                    }else{
+                                        var num=getNum(data.rows,areaId,gasTypeId) ;
+                                        numTotal+=num;
+                                        $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d16").html(toZero(num));
+                                    } 
+                                })
+                                $("#tbody").find("[data-areaid='"+areaid+"']").each(function(){
+                                    var areaId=$(this).data("areaid");
+                                    var gasTypeId=$(this).data("gastypeid"); 
+                                    var numTotal=0.00;
+                                    $("#tbody").find("td[id$='"+gasTypeId+"_d16']").each(function(i){                                
+                                        if(i>0)numTotal+=parseInt($(this).text());
+                                    }); 
+                                    $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d16").html(toZero(numTotal)); 
+                                })
+                            }                        
+                        }       
+                    }
+                }),
+                //应收费户数
+                $.ajax({
+                    url: "hzqs/dbc/pbsel.do?fh=SELDBC0000000J00&resp=bd",
+                    type: "POST",
+                    contentType: "application/json;charset=utf-8",
+                    data: JSON.stringify({
+                        cols: "count(1) ctmNum,a.areaId,a.gasTypeId",
+                        froms: "gasReportYsl a",
+                        wheres: whereClause15_1 + " group by a.areaId,a.gasTypeId",
+                    }),
+                    dataType: "json",
+                    success: function (data) {
+                        console.log("应收费户数",data);
+                        if(data){
+                            var numTotal=0;
+                            if(data.rows){
+                                $("#tbody").find("tr").each(function(){
+                                    var areaId=$(this).data("areaid");
+                                    var gasTypeId=$(this).data("gastypeid"); 
+                                    //小计
+                                    if(gasTypeId=="-1"){ 
+                                        $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d16").attr("data-ysl",numTotal);
+                                        numTotal=0;
+                                    }else{
+                                        var num=getNum(data.rows,areaId,gasTypeId) ;
+                                        numTotal+=num;
+                                        $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d16").attr("data-ysl",num);
+                                    } 
+                                })
+                                $("#tbody").find("[data-areaid='"+areaid+"']").each(function(){
+                                    var areaId=$(this).data("areaid");
+                                    var gasTypeId=$(this).data("gastypeid"); 
+                                    var numTotal=0;
+                                    $("#tbody").find("td[id$='"+gasTypeId+"_d16']").each(function(i){                                
+                                        if(i>0)numTotal+=parseInt($(this).text());
+                                    }); 
+                                    $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d16").attr("data-ysl",numTotal); 
+                                })
+                            }                        
+                        }       
+                    }
+                }),
+                //累积欠费
+                $.ajax({
+                    url: "hzqs/dbc/pbsel.do?fh=SELDBC0000000J00&resp=bd",
+                    type: "POST",
+                    contentType: "application/json;charset=utf-8",
+                    data: JSON.stringify({
+                        cols: "sum(balance) ctmNum,areaId,gasTypeId",
+                        froms: "gasReportLjye",
+                        wheres: whereClause10 + " group by areaId,gasTypeId",
+                        page: "false",
+                    }),
+                    dataType: "json",
+                    success: function (data) {
+                        console.log("累积欠费",data);
+                        if(data){
+                            var numTotal=0.00;
+                            if(data.rows){
+                                $("#tbody").find("tr").each(function(){
+                                    var areaId=$(this).data("areaid");
+                                    var gasTypeId=$(this).data("gastypeid"); 
+                                    //小计
+                                    if(gasTypeId=="-1"){ 
+                                        $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d10").html(toZero(numTotal));
+                                        numTotal=0.00;
+                                    }else{
+                                        var num=getNum(data.rows,areaId,gasTypeId) ;
+                                        numTotal+=num;
+                                        $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d10").html(toZero(num.toFixed(2)));
+                                    } 
+                                })
+                                $("#tbody").find("[data-areaid='"+areaid+"']").each(function(){
+                                    var areaId=$(this).data("areaid");
+                                    var gasTypeId=$(this).data("gastypeid"); 
+                                    var numTotal=0;
+                                    $("#tbody").find("td[id$='"+gasTypeId+"_d10']").each(function(i){                                
+                                        if(i>0)numTotal+=parseInt($(this).text());
+                                    }); 
+                                    $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d10").html(toZero(numTotal)); 
+                                })
+                            }                        
+                        }    
+                    }
+                })
+
+            ).then(function(){
+                $("#tbody").find("tr").each(function(){
+                    var areaId=$(this).data("areaid");
+                    var gasTypeId=$(this).data("gastypeid");
+
+                    var d10=$(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d10").text();
+                    var d16=$(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d16").text();
+                    var ysl=$(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d16").data("ysl");
+                    //欠费户数比例 =欠费户数/应收户数
+                    if(ysl!=0){
+                        var rate=((d16/ysl)*100).toFixed(2)+"%"
+                        $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d18").html(rate); 
+                    }else{
+                        $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d18").html("-");
+                    }
+                    //户均欠费 =欠费总额/欠费户数
+                    if(d16!=0){                        
+                        $(this).find("#tbody_r"+areaId+"_c"+gasTypeId+"_d17").html((d10/d16).toFixed(2));
+                    }
+                })
+            })
+            //本月新增欠气费 本月清燃气费 清本年 算不出来
+            $("#find_sign").removeAttr("disabled", "disabled");
+        });
+    });
+
+</script>
+<!-- End of User Script-->
+
+</html>

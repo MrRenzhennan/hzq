@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]>
+<html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+
+<!-- BEGIN HEAD -->
+<head>
+    <title>出入库申请</title>
+    <base href="../../">
+    <link href="assets/global/plugins/bootstrap-fileinput/fileinput.css" rel="stylesheet">
+    <script src="pages/scripts/header.js"></script>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-select/bootstrap-select.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/select2/select2.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/jquery-multi-select/css/multi-select.css"/>
+    <!-- BEGIN THEME STYLES -->
+    <link href="assets/global/css/components.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
+    <!-- END THEME STYLES -->
+</head>
+<!-- END HEAD -->
+<body class="page-header-fixed page-quick-sidebar-over-content">
+<!-- 标题栏开始 -->
+<div class="page-header navbar navbar-fixed-top">
+    <script>$.include("pages/partial/menu.shtml");</script>
+</div>
+<!-- 标题栏结束 -->
+<div class="clearfix"></div>
+<div class="page-container">
+    <!-- 左侧菜单开始 -->
+    <div class="page-sidebar-wrapper">
+        <script>$.include("pages/partial/sidebar.shtml");</script>
+    </div>
+    <!-- 左侧菜单结束 -->
+
+    <!-- 主内容开始 -->
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <!--内容头开始-->
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa fa-map-marker"></i>
+                            <a href="javascript:;">客户管理</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="javascript:;">表具管理</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="customer/dm/level2_depository.html">二级库管理</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="javascript:;">出入库申请</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 内容头结束-->
+            <!-- 内容开始-->
+            <div class="container-fluid">
+                <div class="add-form">
+                    <!-- begin form-->
+                    <form role="form" onsubmit="return false" id="form">
+                        <div class="form-body">
+                            <div class="row form-group">
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">申请编号:</label>
+                                    <div class="col-md-8">
+                                        <input name="applyCode" type="text" class="form-control"
+                                               pattern="申请编号">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">申请人:</label>
+                                    <div class="col-md-8">
+                                        <input name="applyUserName" type="text" class="form-control"
+                                               pattern="申请人">
+                                    </div>
+                                </div>
+                                <div class="col-md-3" id="dg_unbolttime">
+                                    <label class="control-label col-md-4">领取截止日期:</label>
+                                    <div class="col-md-8" id="di_unbolttime">
+                                        <input name="lastUseDate" id="lastUseDate" data-date-format="yyyy-mm-dd"
+                                               type="text" class="form-control form-control-inline date-picker"
+                                               placeholder="领取截止日期">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">领表用途:</label>
+                                    <div class="col-md-8">
+                                        <input name="remark" type="text" class="form-control"
+                                               pattern="领表用途">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">源仓库:</label>
+                                    <div class="col-md-8">
+                                        <select id="sourceDepositoryId" name="sourceDepositoryId"
+                                                class="form-control input-middle select2me" data-placeholder="源仓库..">
+                                            <option value="">全部</option>
+                                        </select>
+                                        <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-3" id="targetDepository">
+                                    <label class="control-label col-md-4">目标仓库:</label>
+                                    <div class="col-md-8">
+                                        <select id="targetDepositoryId" name="targetDepositoryId"
+                                                class="form-control input-middle select2me" data-placeholder="目标仓库..">
+                                            <option value="">全部</option>
+                                        </select>
+                                        <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--<div class="row form-group">-->
+                                <!--<form id="fileupload"  onsubmit="return false" enctype="multipart/form-data">-->
+                                    <!--<div class="col-sm-12 form-group">-->
+                                        <!--<div class="btn-group input-group" style="width: 100%">-->
+                                            <!--<div class="input-group-addon">上传数据:</div>-->
+                                            <!--<input class="file-loading form-control" type="file" name="files[]"  multiple>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<table role="presentation" class="table table-striped"><tbody class="files"></tbody></table>-->
+                                <!--</form>-->
+                            <!--</div>-->
+                            <script>$.include("common/gpyupload.shtml");</script>
+                            <input name="useState" hidden="hidden" type="text" value="1">
+                        </div>
+                    </form>
+
+                    <!--end form-->
+                </div>
+            </div>
+            <div class="tabbable tabbable-custom tabbable-custom-profile col-md-12" style="padding-bottom:0px">
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#tab_1_22" data-toggle="tab">
+                            单据明细 </a>
+                    </li>
+                </ul>
+                <!--/row-->
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab11">
+                        <div class="portlet-body">
+                            <table class="watable table table-striped table-hover table-bordered table-condensed">
+                                <thead>
+                                <th></th>
+                                <th>表具/备件名称</th>
+                                <th>生产厂家</th>
+                                <th>规格型号</th>
+                                <th>进气方向</th>
+                                <th>数量</th>
+                                <th>库存数量</th>
+                                </thead>
+                                <tbody id="tbody">
+                                <tr>
+                                    <td width="15px"></td>
+                                    <td style="width: 20%"><select id="meterTypeId" name="meterTypeId"
+                                                                   class="form-control input-middle select2me"
+                                                                   data-placeholder="表具/备件名称..">
+                                        <option value=""></option>
+                                    </select>
+                                        <span class="inputclear glyphicon glyphicon-remove-circle hide"></span></td>
+                                    <td style="width: 20%">
+                                        <select id="factoryId" name="factoryId"
+                                                class="form-control input-middle select2me" data-placeholder="生产厂家..">
+                                            <option value=""></option>
+                                        </select>
+                                        <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                    </td>
+                                    <td style="width: 20%"><select id="meterModelId" name="meterModelId"
+                                                                   class="form-control input-middle select2me"
+                                                                   data-placeholder="规格型号..">
+                                        <option value=""></option>
+                                    </select>
+                                        <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                    </td>
+                                    <td style="width: 20%"><select id="direction" name="direction"
+                                                                   class="form-control input-middle select2me"
+                                                                   data-placeholder="进气方向..">
+                                        <option value=""></option>
+                                        <option value="L">左</option>
+                                        <option value="R">右</option>
+                                    </select>
+                                        <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                    </td>
+                                    <td><input id="meterCount" type="text" name="meterCount" class="form-control"
+                                               placeholder="数量"></td>
+                                    <td style="width: 10%"><input type="text" disabled id="stockMeterCount"
+                                                                  name="stockMeterCount" class="form-control"
+                                                                  placeholder="库存数量"></td>
+                                </tr>
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                    <td colspan="6"><img id="add_btn" class="img-responsive center-block"
+                                                         src="assets/global/img/add.png"
+                                                         style="width: 32px;height: 32px"></td>
+                                </tr>
+                                </tfoot>
+                            </table>
+                            <!--/row-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-actions fluid">
+                <div class="btn-set">
+                    <button id="cancel"  type="button" class="btn default" style="margin-left: 20%">
+                        取消
+                    </button>
+                    <button id="save_btn" type="button" class="btn blue">保存</button>
+                </div>
+            </div>
+            <!-- 内容结束-->
+        </div>
+    </div>
+    <!-- 主内容结束 -->
+</div>
+<script type="text/javascript">$.include("pages/partial/xwatable-form.shtml")</script>
+</body>
+<script>$.include("pages/partial/scripts.shtml");</script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-fileinput/fileinput.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-fileinput/zh.js"></script>
+<script type="text/javascript" src="pages/scripts/refhelper.js"></script>
+<script type="text/javascript" src="pages/scripts/rqlbuilder.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-multi-select/js/jquery.multi-select.js"></script>
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-daterangepicker/moment.min.js"></script>
+<script type="text/javascript"
+        src="assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script src="pages/scripts/jquery.json.min.js"></script>
+<script type="text/javascript" src="pages/scripts/jquery.serialize-object.min.js"></script>
+<script src="assets/admin/pages/scripts/components-pickers.js"></script>
+<script src="customer/dm/js/out_in_apply.js"></script>
+<script src="mods/sys.js"></script>
+<script type="text/javascript">
+
+</script>
+</html>

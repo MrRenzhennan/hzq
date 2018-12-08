@@ -1,0 +1,27 @@
+<button id="btn_down_detail" data-toggle="dropdown" class="btn gray disabled export-excel">
+    导出
+</button>
+
+<script src="statement/js/libs/js-xlsx/xlsx.core.min.js" type="text/javascript"></script>
+<script src="statement/js/libs/html2canvas/html2canvas.min.js" type="text/javascript"></script>
+<script src="statement/js/tableExport.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+
+    $(".export-excel").attr("data-table","#table2");
+    $(".export-excel").attr("data-filename","测试导出文件");
+
+    $(".export-excel").on("click", function (e) {
+        e.preventDefault();
+        var exportTable = $(this).data("table");
+        var filename = $(this).data("filename");
+        var ignoreColumn = "";//$(this).data("ignorecolumn");
+        $(exportTable).tableExport({
+            fileName: filename,
+            type: 'excel',
+            escape: 'false',
+            excelstyles: ['border-bottom', 'border-top', 'border-left', 'border-right'],
+            ignoreColumn: '[' + ignoreColumn + ']'
+        });
+    });
+</script>

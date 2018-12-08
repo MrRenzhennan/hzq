@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" >
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="utf-8"/>
+    <title>居民档案详情</title>
+    <base href="../">
+    <script src="pages/scripts/header.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-select/bootstrap-select.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/select2/select2.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/jquery-multi-select/css/multi-select.css"/>
+    <!-- BEGIN THEME STYLES -->
+    <link href="assets/global/css/components.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
+    <!-- END THEME STYLES -->
+
+    <!--begin previewPicture-->
+    <!--必要样式-->
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/previewPicture/css/component.css" />
+
+    <script type="text/javascript" src="assets/global/plugins/previewPicture/js/modernizr.custom.js"></script>
+
+    <!--end previewPicture-->
+
+    <meta content="" name="description"/>
+    <meta content="" name="author"/>
+
+</head>
+<!-- END HEAD -->
+<body class="page-header-fixed page-quick-sidebar-over-content ">
+<!-- BEGIN HEADER -->
+<div class="page-header navbar navbar-fixed-top">
+    <script>$.include("pages/partial/menu.shtml");</script>
+</div>
+<!-- END HEADER -->
+<div class="clearfix">
+</div>
+<!-- BEGIN CONTAINER -->
+<div class="page-container">
+    <!-- BEGIN SIDEBAR -->
+    <div class="page-sidebar-wrapper">
+        <script>$.include("pages/partial/sidebar.shtml");</script>
+    </div>
+    <!-- END SIDEBAR -->
+    <!-- BEGIN CONTENT -->
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <!-- BEGIN STYLE CUSTOMIZER -->
+            <!-- END STYLE CUSTOMIZER -->
+            <!-- BEGIN PAGE HEADER-->
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+                    <ul class="page-breadcrumb breadcrumb">
+                        <!-- <li>
+                            <i class="fa fa-map-marker"></i>
+                            <a href="javascript:;">客户管理</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="javascript:;">档案管理</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="javascript:;">居民档案管理</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="javascript:;">居民档案详情</a>
+                        </li> -->
+                    </ul>
+                    <!-- END PAGE TITLE & BREADCRUMB-->
+                </div>
+            </div>
+            <!-- END PAGE HEADER-->
+            <!-- BEGIN PAGE CONTENT-->
+            <div class="row">
+                <div class="col-md-12">
+                    <!--BEGIN TABS-->
+                    <div class="tabbable tabbable-custom">
+                        <ul class="nav nav-tabs" id="navtab">
+                            <li class="active">
+                                <a href="#tab_1_1" data-toggle="tab">客户档案 </a>
+                            </li>
+                            <li>
+                                <a href="#tab_1_2" data-toggle="tab">合同档案 </a>
+                            </li>
+                            <li>
+                                <a href="#tab_1_3" data-toggle="tab">表具档案 </a>
+                            </li>
+                            <!--<li>
+                                <a href="#tab_1_4" data-toggle="tab">燃气设备档案</a>
+                            </li>-->
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tab_1_1">
+                                <div class="scroller" style="height: auto;" data-always-visible="0" data-rail-visible="0">
+                                    <!-- BEGIN FORM-->
+
+                                    <table class="table">
+                                        <tbody>
+                                        <tr>
+                                            <td class="td"><label class="label-td">客户编号:</label><span name="customerCode"></span></td>
+                                            <td class="td"><label class="label-td">客户名称:</label><span name="customerName"></span></td>
+                                            <td class="lastCol" colspan="2"><label class="label-td-special">客户地址:</label><span class="span-special" name="customerAddress"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="td"><label class="label-td">区:</label><span name="borough"></span></td>
+                                            <td class="td"><label class="label-td">街(路):</label><span name="street"></span></td>
+                                            <td class="lastCol"><label class="label-td">门牌号:</label><span name="doorplateNum"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="td"><label class="label-td">小区:</label><span name="district"></span></td>
+                                            <td class="td"><label class="label-td">楼号:</label><span name="floorNum"></span></td>
+                                            <td class="lastCol"><label class="label-td">单元:</label><span name="cell"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="td"><label class="label-td">层:</label><span name="storey"></span></td>
+                                            <td class="td"><label class="label-td">室:</label><span name="roomNum"></span></td>
+                                            <td class="lastCol"><label class="label-td">分室:</label><span name="subRoomNum"></span></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="td"><label class="label-td">客户类型:</label><span name="customerKind"></span></td>
+                                            <td class="td"><label class="label-td">用气性质:</label><span name="gasTypeId"></span></td>
+                                            <td class="lastCol"><label class="label-td">客户状态:</label><span name="customerState"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="td"><label class="label-td">手机号:</label><span name="mobile"></span></td>
+                                            <td class="td"><label class="label-td">电话:</label><span name="tel"></span></td>
+                                            <td class="lastCol"><label class="label-td">应急电话:</label><span name="exigenceTel"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="td"><label class="label-td">微信:</label><span name="wechat"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class=""><label class="label-td"> </label></td>
+                                            <td class=""> </td>
+                                            <td class=""></td>
+                                        </tr>
+                                        <tr>
+
+                                            <!--<td class="td"><label class="label-td">调压箱编号:</label><span name="boosterCode"></span></td>-->
+                                            <td class="td"><label class="label-td">供气区域:</label><span name="areaId"></span></td>
+                                            <td class="td"><label class="label-td">核算员:</label><span name="countperId"></span></td>
+                                            <td class="lastCol"><label class="label-td">抄表员:</label><span name="serviceperId"></span></td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="td"><label class="label-td">抄表本:</label><span name="bookCode"></span></td>
+                                            <td class="td"><label class="label-td">建档日期:</label><span name="createdTime"></span></td>
+                                            <td class="lastCol"><label class="label-td">开栓日期:</label><span name="unboltTime"></span></td>
+                                        </tr>
+                                        <tr>
+
+                                            <td class="td"><label class="label-td">是否有宠物:</label><span name="hasPet"></span></td>
+                                            <td class="td"><label class="label-td">家庭人口数:</label><span name="population"></span></td>
+                                            <td class="lastCol"><label class="label-td">是否门市房:</label><span name="issalesRoom"></span></td>
+                                        </tr>
+                                        <tr>
+
+                                            <!--<td class="lastCol"><label class="label-td">特殊群体:</label><span name="bodyImpediment"></span></td>-->
+                                            <td class="td"><label class="label-td">是否IC卡用户:</label><span name="customerType"></span></td>
+                                            <td class="lastCol"><label class="label-td">疑似窃气:</label><span name="stealGas"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class=""><label class="label-td"> </label></td>
+                                            <td class=""> </td>
+                                            <td class=""></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="td"><label class="label-td">联系人:</label><span name="linkMan"></span></td>
+                                            <td class="td"><label class="label-td">联系人电话:</label><span name="linkManworktel"></span></td>
+                                            <td class="lastCol"><label class="label-td">联系人手机:</label><span name="linkMantel"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="td"><label class="label-td">联系人电子邮箱:</label><span name="linkManemail"></span></td>
+                                            <td class=""></td>
+                                            <td class=""></td>
+                                        </tr>
+                                        <tr>
+                                            <td class=""><label class="label-td"> </label></td>
+                                            <td class=""> </td>
+                                            <td class=""></td>
+                                        </tr>
+                                        <tr>
+
+                                            <td class="td"><label class="label-td">证件类型:</label><span name="idcardType"></span></td>
+                                            <td class="td"><label class="label-td">证件编号:</label><span name="idcard"></span></td>
+                                            <td class="lastCol"><label class="label-td">工作单位:</label><span name="workUnit"></span></td>
+                                        </tr>
+
+                                       <!-- <tr>
+
+                                            <td class="td"><label class="label-td">手机号:</label><span name="mobile"></span></td>
+                                            <td class="td"><label class="label-td">应急电话:</label><span name="exigenceTel"></span></td>
+                                            <td class="lastCol"><label class="label-td">微信:</label><span name="wechat"></span></td>
+
+                                        </tr>-->
+                                        <tr>
+                                            <td class="td"><label class="label-td">所属派出所:</label><span name="stationHouse"></span></td>
+                                            <td class="td"><label class="label-td">所属街道办事处:</label><span name="office"></span></td>
+                                            <td class="lastCol"><label class="label-td">所属社区:</label><span name="denizenCommittee"></span></td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="td"><label class="label-td">物业公司:</label><span name="propertyCompany"></span></td>
+                                            <td class="td"><label class="label-td">欠费催缴方式:</label><span name="reminderWay"></span></td>
+                                            <td class="lastCol"><label class="label-td">账单联系人:</label><span name="bllContactName"></span></td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="td"><label class="label-td">账单联系人电话:</label><span name="bllContactPhone"></span></td>
+                                            <td class="td"><label class="label-td">账单联系人手机:</label><span name="bllContactMobile"></span></td>
+                                            <td class="td"><label class="label-td">账单邮寄地址:</label><span name="bllContactAddress"></span></td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="td"><label class="label-td">电子邮箱:</label><span name="email"></span></td>
+                                            <td class="td"><label class="label-td">发票类型:</label><span name="invoiceType"></span></td>
+                                            <td class="lastCol"><label class="label-td">发票抬头:</label><span name="invoiceTitle"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="td"><label class="label-td">纳税人识别号:</label><span name="taxpayerId"></span></td>
+                                            <td class=""> </td>
+                                            <td class=""></td>
+                                        </tr>
+                                        <tr>
+                                            <td class=""><label class="label-td"> </label></td>
+                                            <td class=""> </td>
+                                            <td class=""></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="td"><label class="label-td">是否租房:</label><span name="rentRoom"></span></td>
+                                            <td class="td"><label class="label-td">承租人姓名:</label><span name="lessee"></span></td>
+                                            <td class="lastCol"><label class="label-td">承租人证件类型:</label><span name="lesseeCerType"></span></td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="td"><label class="label-td">承租人证件编号:</label><span name="lesseeCerNum"></span></td>
+                                            <td class="td"><label class="label-td">承租人到期日:</label><span name="lesseeExpire"></span></td>
+                                            <td class="lastCol"><label class="label-td">承租人电话:</label><span name="lesseeTel"></span></td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="td"><label class="label-td">客户信用等级:</label><span name="creditRating"></span></td>
+                                            <td class="lastCol" colspan="2"><label class="label-td">档案置灰:</label><span name="validOrInvalid"></span></td>
+                                            <!--<td class="td"><label class="label-td">特殊群体(电话):</label><span name="linkManTel"></span></td>-->
+                                            <!--<td class="lastCol"><label class="label-td">特殊群体(姓名):</label><span name=""></span></td>-->
+                                        </tr>
+                                       <!-- <tr>
+                                            <td class="td"><label class="label-td">客户信用:</label><span name=""></span></td>
+                                            <td class="td"><label class="label-td">诚信等级:</label><span name=""></span></td>
+                                            <td class="lastCol"><label class="label-td">非诚信等级:</label><span name=""></span></td>
+                                        </tr>-->
+                                        <!--<tr>-->
+<!---->
+                                        <!--</tr>-->
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tab_1_2">
+                                <div class="scroller" style="height: 800px;" data-always-visible="1" data-rail-visible1="1">
+                                    <table class="table">
+                                        <tbody>
+                                        <tr>
+                                            <td class="td"><label class="label-td">合同编号:</label><span name="contractNo"></span></td>
+                                            <!--<td class="td"><label class="label-td">表型(IC/普表):</label><span name="customertype"></span></td>-->
+                                            <td class="lastCol"><label class="label-td">签订日期:</label><span name="signupTime"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="lastCol" colspan="3"><label class="label-td-special1">备注:</label><span name="remark" class="span-special1"></span></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                   <!-- <form class="form-horizontal" role="form">
+                                        <div class="form-body">
+                                            <div class="row form-group">
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">合同编号:</label>
+                                                    <div class="col-md-8">
+                                                        <input name="contractNo" type="text" class="form-control" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">客户编号:</label>
+                                                    <div class="col-md-8">
+                                                        <input name="customerno" type="text" class="form-control" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">客户名称:</label>
+                                                    <div class="col-md-8">
+                                                        <input name="usegasperson" type="text" class="form-control" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">签订日期:</label>
+                                                    <div class="col-md-8">
+                                                        <input name="signuptime" type="text" class="form-control" disabled>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">代办人:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">代办人手机:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">代办人身份证:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">操作员:</label>
+                                                    <div class="col-md-8">
+                                                        <input name="creator" type="text" class="form-control" disabled>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row form-group">
+                                                <div class="col-md-12">
+                                                    <label class="control-label">备注</label>
+                                                    <textarea class="form-control" cols="12" disabled></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col-md-12">
+                                                    <label class="control-label">相关照片</label>
+                                                    <div id="grid-gallery" class="grid-gallery">
+                                                        <section class="grid-wrap">
+                                                            <ul class="grid">
+                                                                <li class="grid-sizer"></li>&lt;!&ndash; for Masonry column width &ndash;&gt;
+                                                                <li>
+                                                                    <figure>
+                                                                        <img src="assets/global/plugins/previewPicture/img/thumb/1.png" alt="img01"/>
+                                                                    </figure>
+                                                                </li>
+                                                                <li>
+                                                                    <figure>
+                                                                        <img src="assets/global/plugins/previewPicture/img/thumb/2.png" alt="img02"/>
+                                                                    </figure>
+                                                                </li>
+                                                                <li>
+                                                                    <figure>
+                                                                        <img src="assets/global/plugins/previewPicture/img/thumb/3.png" alt="img03"/>
+                                                                    </figure>
+                                                                </li>
+                                                            </ul>
+                                                        </section>&lt;!&ndash; // grid-wrap &ndash;&gt;
+                                                        <section class="slideshow" style="padding-top: 10px">
+                                                            <ul>
+                                                                <li>
+                                                                    <figure>
+                                                                        <img src="assets/global/plugins/previewPicture/img/large/1.png" alt="img01"/>
+                                                                    </figure>
+                                                                </li>
+                                                                <li>
+                                                                    <figure>
+                                                                        <img src="assets/global/plugins/previewPicture/img/large/2.png" alt="img02"/>
+                                                                    </figure>
+                                                                </li>
+                                                                <li>
+                                                                    <figure>
+                                                                        <img src="assets/global/plugins/previewPicture/img/large/3.png" alt="img03"/>
+                                                                    </figure>
+                                                                </li>
+                                                            </ul>
+                                                            <nav>
+                                                                <span class="icon nav-prev"></span>
+                                                                <span class="icon nav-next"></span>
+                                                                <span class="icon nav-close" style="padding-top: 50px;"></span>
+                                                            </nav>
+                                                        </section>&lt;!&ndash; // slideshow &ndash;&gt;
+                                                    </div>&lt;!&ndash; // grid-gallery &ndash;&gt;
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>-->
+                                   <!-- <div class="row form-group">
+                                        <div class="col-md-3">
+                                            <div class="btn-group form-group">
+                                                <button id="addcontract" class="btn green" data-target="#add_contract_modal" data-toggle="modal">
+                                                    关联合同&nbsp; <i class="fa fa-plus"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>-->
+                                </div>
+                            </div>
+
+                            <div class="modal fade" id="add_contract_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                            <h4 class="modal-title">关联合同</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form id="contract_form">
+                                                <div class="row form-group">
+                                                    <input class="hide" calss="ctmArchiveId" name="ctmArchiveId">
+                                                    <div class="col-sm-12">
+                                                        <label class="control-label col-md-2">客户姓名:</label>
+                                                        <div class="col-md-8">
+                                                            <select id="contract_name" name="contractId" class="form-control input-middle select2me" width="100%"
+                                                                    data-placeholder="客户姓名">
+                                                                <option value=""></option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                   <!-- <div class="col-sm-12">
+                                                        <label class="control-label col-md-2">合同编号:</label>
+                                                        <div class="col-md-8">
+                                                            <select id="contract_select" name="contractId" class="form-control input-middle select2me" width="100%"
+                                                                    data-placeholder="合同编号">
+                                                                <option value=""></option>
+                                                            </select>
+                                                        </div>
+                                                    </div>-->
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                            <button id="add_contract" type="button" class="btn btn-primary" data-dismiss="modal">确定</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane" id="tab_1_3">
+                                <div class="scroller" style="height: 990px;" data-always-visible="1" data-rail-visible1="1">
+                                    <table class="table">
+                                        <tbody>
+                                        <tr>
+                                            <td class="td"><label class="label-td">表编号:</label><span name="meterNo"></span></td>
+                                            <td class="td"><label class="label-td">表具类型:</label><span name="meterTypeId"></span></td>
+                                            <td class="lastCol"><label class="label-td">生产厂家:</label><span name="factoryId"></span></td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="td"><label class="label-td">规格型号:</label><span name="meterModelId"></span></td>
+                                            <td class="td"><label class="label-td">流量范围:</label><span name="flowRange"></span></td>
+                                            <td class="lastCol"><label class="label-td">额定流量:</label><span name="flow"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="td"><label class="label-td">表具状态:</label><span name="meterStatus"></span></td>
+                                            <td class="td"><label class="label-td">进气方向:</label><span name="direction"></span></td>
+                                            <td class="lastCol"><label class="label-td">表体材质:</label><span name="meterMaterial"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="td"><label class="label-td">基表供应商:</label><span name="baseMeterVender"></span></td>
+                                            <td class="td"><label class="label-td">显示方式:</label><span name="displayType"></span></td>
+                                            <td class="lastCol"><label class="label-td">信控模式:</label><span name="controlType"></span></td>
+
+                                        </tr>
+                                        <tr>
+
+                                            <td class="td"><label class="label-td">芯片类型:</label><span name="chipType"></span></td>
+                                            <td class="td"><label class="label-td">阀门情况:</label><span name="valveInfo"></span></td>
+                                            <td class="lastCol"><label class="label-td">供电方式:</label><span name="powerType"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="td"><label class="label-td">物品种类:</label><span name="reskindId"></span></td>
+                                            <td class="td"><label class="label-td">表位数:</label><span name="meterDigit"></span></td>
+                                            <td class="lastCol"><label class="label-td">表读数:</label><span name="reading"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="td"><label class="label-td">计数器类型:</label><span id="counterType" name="counterType"></span></td>
+                                            <td class="td"><label class="label-td">生产年月:</label><span name="productionDate"></span></td>
+                                            <td class="lastCol"><label class="label-td">上线时间:</label><span name="onlineDate"></span></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <!--<form class="form-horizontal" role="form">
+                                        <div class="form-body">
+                                            <div class="row form-group">
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">表编号:</label>
+                                                    <div class="col-md-8">
+                                                        <input name="meterId" type="text" class="form-control" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">表具类型:</label>
+                                                    <div class="col-md-8">
+                                                        <input name="metertypeId" type="text" class="form-control" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">规格型号:</label>
+                                                    <div class="col-md-8">
+                                                        <input name="meterspecId" type="text" class="form-control" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">物品种类:</label>
+                                                    <div class="col-md-8">
+                                                        <input name="reskindId" type="text" class="form-control" disabled>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">生产厂家:</label>
+                                                    <div class="col-md-8">
+                                                        <input name="factory" type="text" class="form-control" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">出厂日期:</label>
+                                                    <div class="col-md-8">
+                                                        <input name="leavefactorydate" type="text" class="form-control" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">进气方向:</label>
+                                                    <div class="col-md-8">
+                                                        <input name="floworder" type="text" class="form-control" disabled>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">流量范围:</label>
+                                                    <div class="col-md-8">
+                                                        <input name="capacity" type="text" class="form-control" disabled>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">表具状态:</label>
+                                                    <div class="col-md-8">
+                                                        <input name="meterstate" type="text" class="form-control" disabled>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <hr class="form-group">
+
+                                            <div class="row form-group">
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">表位数:</label>
+                                                    <div class="col-md-8">
+                                                        <input name="meterdigit" type="text" class="form-control" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">表读数:</label>
+                                                    <div class="col-md-8">
+                                                        <input name="meterreading" type="text" class="form-control" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">运行状态:</label>
+                                                    <div class="col-md-8">
+                                                        <input name="runstate" type="text" class="form-control" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">口径:</label>
+                                                    <div class="col-md-8">
+                                                        <input name="calibre" type="text" class="form-control" disabled>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">检表日期:</label>
+                                                    <div class="col-md-8">
+                                                        <input name="checkdate" type="text" class="form-control" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">铭牌号:</label>
+                                                    <div class="col-md-8">
+                                                        <input name="nameplatecode" type="text" class="form-control" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">铅封号:</label>
+                                                    <div class="col-md-8">
+                                                        <input name="plumbumenvelopno" type="text" class="form-control" disabled>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <hr class="form-group">
+
+                                            <div class="row form-group">
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">修正表标记:</label>
+                                                    <div class="col-md-8">
+                                                        <input name="reviseflag" type="text" class="form-control" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">修正表状态:</label>
+                                                    <div class="col-md-8">
+                                                        <input name="revisemeterstate" type="text" class="form-control" disabled>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <hr class="form-group">
+
+                                            <div class="row form-group">
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">注抽时间:</label>
+                                                    <div class="col-md-8">
+                                                        <input name="oilingtime" type="text" class="form-control" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">电池使用时间:</label>
+                                                    <div class="col-md-8">
+                                                        <input name="batteriesusingtime" type="text" class="form-control" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">匹配状态:</label>
+                                                    <div class="col-md-8">
+                                                        <input name="matchingstate" type="text" class="form-control" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">打封时间:</label>
+                                                    <div class="col-md-8">
+                                                        <input name="encapsulationtime" type="text" class="form-control" disabled>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">调试时间:</label>
+                                                    <div class="col-md-8">
+                                                        <input name="debugtime" type="text" class="form-control" disabled>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <hr class="form-group">
+
+                                            <div class="row form-group">
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">进气口表封号:</label>
+                                                    <div class="col-md-8">
+                                                        <input name="" type="text" class="form-control" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">出气口表封号:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label col-md-4">所属供气单位:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" disabled>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <hr class="form-group">
+                                            <div class="row form-group">
+                                                <div class="col-md-12">
+                                                    <label class="control-label">&nbsp;&nbsp;备注</label>
+                                                    <textarea name="remark" class="form-control" cols="12" disabled></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>-->
+
+                                    <!--<div class="row form-group">
+                                        <div class="col-md-3">
+                                            <div class="btn-group form-group">
+                                                <button id="addmeter" class="btn green" data-target="#add_meter_modal" data-toggle="modal">
+                                                    关联表具&nbsp; <i class="fa fa-plus"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>-->
+                                </div>
+                            </div>
+
+                            <div class="modal fade" id="add_meter_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                            <h4 class="modal-title">关联表具</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form id="meter_form">
+                                                <div class="row form-group">
+                                                    <input class="hide" class="ctmArchiveId" name="ctmArchiveId">
+                                                    <div class="col-sm-12">
+                                                        <label class="control-label col-md-2">表编号:</label>
+                                                        <div class="col-md-8">
+                                                            <select id="meter_select" name="meterCode" class="form-control input-middle select2me" width="100%"
+                                                                    data-placeholder="表编号">
+                                                                <option value=""></option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                            <button id="add_meter" type="button" class="btn btn-primary" data-dismiss="modal">确定</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                          <!--  <div class="tab-pane" id="tab_1_4">
+                                <div class="scroller" style="height: 290px;" data-always-visible="1" data-rail-visible1="1">
+                                    <table class="table">
+                                        <tbody>
+                                        <tr>
+                                            <td class="td"><label class="label-td">灶具:</label><span>单眼</span></td>
+                                            <td class="td"><label class="label-td">胶管:</label><span>是</span></td>
+                                            <td class="lastCol"><label class="label-td">壁挂炉:</label><span>是</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="td"><label class="label-td">热水器容量:</label><span>6升</span></td>
+                                            <td class="td"><label class="label-td">热水器排气方式:</label><span>强排</span></td>
+                                            <td class="lastCol"><label class="label-td">热水器安装位置:</label><span>浴室</span></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END PAGE CONTENT-->
+        </div>
+    </div>
+    <!-- END CONTENT -->
+</div>
+<!-- END CONTAINER -->
+
+<!-- 底边栏开始 -->
+<script>$.include("pages/partial/foot.shtml");</script>
+<!-- 底边栏结束 -->
+
+</body>
+<!-- END BODY -->
+<script>$.include("pages/partial/scripts.shtml");</script>
+<script type="text/javascript" src="pages/scripts/refhelper.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-multi-select/js/jquery.multi-select.js"></script>
+
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/clockface/js/clockface.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-daterangepicker/moment.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script src="assets/admin/pages/scripts/components-pickers.js"></script>
+<script src="pages/scripts/rqlbuilder.js"></script>
+<script src="pages/scripts/jquery.json.min.js"></script>
+<script type="text/javascript" src="pages/scripts/jquery.serialize-object.min.js"></script>
+
+<script type="text/javascript" src="customer/js/inhabitant_archiveInfo.js"></script>
+
+<!-- END PAGE LEVEL PLUGINS -->
+<!--begin previewPicture-->
+<script type="text/javascript" src="assets/global/plugins/previewPicture/js/imagesloaded.pkgd.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/previewPicture/js/masonry.pkgd.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/previewPicture/js/classie.js"></script>
+<script type="text/javascript" src="assets/global/plugins/previewPicture/js/cbpGridGallery.js"></script>
+<script type="text/javascript">
+   // new CBPGridGallery(document.getElementById('grid-gallery'));
+   SideBar.init();
+   SideBar.activeCurByPage("customer_information.html");
+//   SideBar.activeCurByPage("inhabitant_archivemanagement.html");
+
+
+</script>
+<!--end previewPicture-->
+
+</html>

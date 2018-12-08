@@ -1,0 +1,11 @@
+{"rows":
+[
+  {"versionID":"9129","gasCategory":"麻辣烫","gasType":"3000","gasStart":"716","gasEnd":"3354","gasEnd1":"王林","price":"892","changeTime":"麻辣烫","effectTime":"5","effectTime1":"道里区买卖街12号","effectTime2":"2016/3/8","effectTime3":"001","effectTime4":"112","effectTime5":"正常","effectTime6":"超大气量","effectTime16":"异常","effectTime15":"2016/7/9","effectTime7":"已提交","changePerson":""}
+  ,{"versionID":"7769","gasCategory":"理发店","gasType":"0","gasStart":"2716","gasEnd":"0","price":"2700","changeTime":"理发店","effectTime":"5","effectTime1":"道里区买卖街34号","effectTime2":"2016/5/7","effectTime3":"002","effectTime4":"113","effectTime5":"正常","effectTime6":"零气量","effectTime7":"未提交","effectTime16":"异常","effectTime15":"2016/7/9","changePerson":""}
+,{"versionID":"7645","gasCategory":"超市","gasType":"1564","gasStart":"6716","gasEnd":"1421","price":"6700","changeTime":"超市","effectTime":"5","effectTime1":"道里区安静街16号","effectTime2":"2016/4/7","effectTime3":"003","effectTime4":"114","effectTime5":"正常","effectTime6":"本期气量骤减","effectTime7":"已审核","effectTime16":"异常","effectTime15":"2016/7/9","changePerson":""}
+,{"versionID":"6533","gasCategory":"书店","gasType":"112","gasStart":"916","gasEnd":"98","price":"952","changeTime":"书店","effectTime":"5","effectTime1":"道里区中央大街12号","effectTime2":"2016/6/7","effectTime3":"004","effectTime4":"115","effectTime5":"正常","effectTime6":"同期气量骤减","effectTime7":"未审核","effectTime16":"异常","effectTime15":"2016/7/9","changePerson":""}
+]
+,"total_rows":1
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

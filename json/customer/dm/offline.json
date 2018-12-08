@@ -1,0 +1,18 @@
+
+
+{"rows":
+[
+  {"UUID":"1","meter_ID":"101001","meter_num":"100","meter_type":"皮膜表","meter_spec":"0.6","offline_date":"2010/01/01","offline_reason":"到期下线","supply_office":"工程队","office":"一级库","input_date":"2010/01/01","input_user":"张文洪","picture":""},
+  {"UUID":"2","meter_ID":"101002","meter_num":"100","meter_type":"皮膜表","meter_spec":"0.6","offline_date":"2010/01/01","offline_reason":"到期下线","supply_office":"工程队","office":"一级库","input_date":"2010/01/01","input_user":"张文洪","picture":""},
+  {"UUID":"3","meter_ID":"101003","meter_num":"100","meter_type":"皮膜表","meter_spec":"0.6","offline_date":"2010/01/01","offline_reason":"到期下线","supply_office":"道里一二级仓库","office":"一级库","input_date":"2010/01/01","input_user":"张文洪","picture":""},
+  {"UUID":"4","meter_ID":"101004","meter_num":"100","meter_type":"皮膜表","meter_spec":"0.6","offline_date":"2010/01/01","offline_reason":"到期下线","supply_office":"道里一二级仓库","office":"一级库","input_date":"2010/01/01","input_user":"张文洪","picture":""},
+  {"UUID":"5","meter_ID":"101005","meter_num":"100","meter_type":"皮膜表","meter_spec":"0.6","offline_date":"2010/01/01","offline_reason":"到期下线","supply_office":"工程队","office":"一级库","input_date":"2010/01/01","input_user":"张文洪","picture":""},
+  {"UUID":"6","meter_ID":"101006","meter_num":"100","meter_type":"皮膜表","meter_spec":"0.6","offline_date":"2010/01/01","offline_reason":"到期下线","supply_office":"工程队","office":"一级库","input_date":"2010/01/01","input_user":"张文洪","picture":""},
+  {"UUID":"7","meter_ID":"101007","meter_num":"100","meter_type":"皮膜表","meter_spec":"0.6","offline_date":"2010/01/01","offline_reason":"到期下线","supply_office":"工程队","office":"一级库","input_date":"2010/01/01","input_user":"张文洪","picture":""},
+  {"UUID":"8","meter_ID":"101008","meter_num":"100","meter_type":"皮膜表","meter_spec":"0.6","offline_date":"2010/01/01","offline_reason":"到期下线","supply_office":"工程队","office":"一级库","input_date":"2010/01/01","input_user":"张文洪","picture":""},
+  {"UUID":"9","meter_ID":"101009","meter_num":"100","meter_type":"皮膜表","meter_spec":"0.6","offline_date":"2010/01/01","offline_reason":"到期下线","supply_office":"工程队","office":"一级库","input_date":"2010/01/01","input_user":"张文洪","picture":""}
+]
+,"total_rows":8
+,"totalPages":2
+,"skip":0
+,"limit":2147483647}

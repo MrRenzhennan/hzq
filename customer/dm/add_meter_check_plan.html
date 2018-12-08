@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+
+<!-- BEGIN HEAD -->
+<head>
+    <title>添加表具检测计划</title>
+    <base href="../../">
+    <script src="pages/scripts/header.js"></script>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8"/>
+
+    <link href='assets/global/plugins/jquery-watable/watable.css' rel='stylesheet'/>
+    <link href='assets/global/plugins/jquery-watable/animate.min.css' rel='stylesheet'/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-datepicker/css/datepicker3.css"/>
+
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-select/bootstrap-select.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/select2/select2.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/jquery-multi-select/css/multi-select.css"/>
+
+
+    <!-- BEGIN THEME STYLES -->
+    <link href="assets/global/css/components.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
+    <!-- END THEME STYLES -->
+</head>
+<!-- END HEAD -->
+
+<body class="page-header-fixed page-quick-sidebar-over-content">
+
+<!-- 标题栏开始 -->
+<div class="page-header navbar navbar-fixed-top">
+    <script>$.include("pages/partial/menu.shtml");</script>
+</div>
+<!-- 标题栏结束 -->
+<div class="clearfix"></div>
+<div class="page-container">
+    <!-- 左侧菜单开始 -->
+    <div class="page-sidebar-wrapper">
+        <script>$.include("pages/partial/sidebar.shtml");</script>
+    </div>
+    <!-- 左侧菜单结束 -->
+
+    <!-- 主内容开始 -->
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <!--内容头开始-->
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa fa-home"></i>
+                            <a href="index.html">主页</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="customer/dm/meter_check_plan_Management.html">表具检测管理</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="customer/dm/add_meter_check_plan.html">添加表具检测计划</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 内容头结束-->
+
+            <!-- 内容开始-->
+            <div class="note note-success container col-sm-12" style="padding-bottom:0px">
+                <!-- 查询条件控件 -->
+                <div class="row">
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group">
+                            <div class="input-group-addon">检表年限：</div>
+                            <select class="form-control input-small select2me" data-placeholder="检表年限...">
+                                <option value=""></option>
+                                <option>2009</option>
+                                <option>2010</option>
+                                <option>2011</option>
+                                <option>2012</option>
+                                <option>2013</option>
+                                <option>2014</option>
+                                <option>2015</option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group">
+                            <div class="input-group-addon">分公司：</div>
+                            <select class="form-control input-small select2me" data-placeholder="分公司...">
+                                <option value=""></option>
+                                <option>道里一</option>
+                                <option>道里二</option>
+                                <option>道里三</option>
+                                <option>道里四</option>
+                                <option>道里五</option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group">
+                            <div class="input-group-addon">客户类型：</div>
+                            <select class="form-control input-small select2me" data-placeholder="客户类型...">
+                                <option value=""></option>
+                                <option>居民用户</option>
+                                <option>非居民用户</option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group form-group">
+                            <button id="find_button" class="btn yellow">
+                                查询&nbsp; <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+                        <div class="btn-group form-group">
+                            <a href="customer/dm/meter_check_plan_Management.html" class="btn green" type="submit">提交 <i class="glyphicon glyphicon-ok"></i> </a>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 form-group">
+                        <div class="btn-group input-group pull-left col-md-5">
+                            <div class="input-group-addon">年用气量：</div>
+                            <div class="input-group input-large ">
+                                <input type="text" class="form-control" name="from">
+                                <span class="input-group-addon bootstrap-touchspin-postfix">m3&nbsp;&nbsp;至</span>
+                                <input type="text" class="form-control" name="to">
+                                <span class="input-group-addon bootstrap-touchspin-postfix">m3</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="note note-success container col-sm-12" style="padding-bottom:0px">
+                <h4 class="form-sections">该分公司检表数据</h4>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="control-label col-md-6">应检数量:</label>
+                        <div class="col-md-6">
+                            <p class="form-control-static">
+                                2000
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-fluid">
+                <div id="divtable" class="table-responsive container-fluid col-md-12" >
+                </div>
+            </div>
+            <!-- 内容结束-->
+        </div>
+    </div>
+    <!-- 主内容结束 -->
+</div>
+
+<script type="text/javascript">$.include("pages/partial/xwatable-form.shtml")</script>
+
+<!-- 底边栏开始 -->
+<script>$.include("pages/partial/foot.shtml");</script>
+<!-- 底边栏结束 -->
+</body>
+
+
+<script>$.include("pages/partial/scripts.shtml");</script>
+<script type="text/javascript" src="assets/global/plugins/jquery-watable/jquery.watable.js"></script>
+<script type="text/javascript" src="pages/scripts/rqlbuilder.js"></script>
+<script type="text/javascript" src="pages/scripts/xwatable.js"></script>
+<script type="text/javascript" src="pages/scripts/refhelper.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+
+<script type="text/javascript" src="assets/global/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-multi-select/js/jquery.multi-select.js"></script>
+
+<script type="text/javascript" src="assets/global/plugins/bootstrap-fileinput/fileinput.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-fileinput/zh.js"></script>
+
+<script src="assets/admin/pages/scripts/components-dropdowns.js"></script>
+
+<script src="assets/admin/pages/scripts/components-pickers.js"></script>
+
+<script type="text/javascript">
+    $(function(){
+            XWATable.init(
+                {
+                    //----------------table的选项-------
+                    pageSize: 20, 			//Initial pagesize
+                    columnPicker: true,         //Show the columnPicker button
+                    sorting: true,
+                    transition: 'fade',  //(bounce, fade, flip, rotate, scroll, slide).
+                    checkboxes: false,           //Make rows checkable. (Note. You need a column with the 'unique' property)
+                    checkAllToggle:false,        //Show the check-all toggle//+RQLBuilder.like("KEYY", "a").rql()
+                    rowClicked: function(data) {
+                        console.log('row clicked');   //data.event holds the original jQuery event.
+                        console.log(data);            //data.row holds the underlying row you supplied.
+                    },
+                    //----------------基本restful地址---
+                    restbase: 'json/customer/dm/meter_check_plan_detail.json',
+                    //---------------行定义
+                    coldefs: [
+                        {
+                            col:"meter_ID",
+                            friendly: "表具编号",
+                            unique:true,
+                            sorting:false,
+                            readonly:"readonly",
+                            index:1
+                        },
+                        {
+                            col:"customer_type",
+                            friendly:"客户类型",
+                            sorting:false,
+                            nonedit:"nosend",
+                            index:2
+                        },
+                        {
+                            col:"gas_use_year",
+                            friendly:"年用气量",
+                            sorting:false,
+                            index:3
+                        },
+                        {
+                            col:"meter_book",
+                            friendly:"抄表本",
+                            sorting:false,
+                            index:4
+                        },
+                        {
+                            col:"area",
+                            friendly:"区域",
+                            sorting:false,
+                            index:5
+                        },
+                        {
+                            col:"meter_type",
+                            friendly: "表具类型",
+                            sorting:false,
+                            readonly: "readonly",
+                            index:6
+                        },
+                        {
+                            col:"meter_model",
+                            friendly: "表具型号",
+                            sorting:false,
+                            readonly: "readonly",
+                            index:7
+                        },
+                        {
+                            col:"factory",
+                            friendly:"厂家",
+                            hidden:true,
+                            sorting:false,
+                            index:8
+                        },
+                        {
+                            col:"manufacture_date",
+                            friendly:"出厂日期",
+                            index:9
+                        },
+                        {
+                            col:"last_inspect_date",
+                            friendly:"上次检表日期",
+                            index:10
+                        },
+                        {
+                            col:"meter_inspect_cycletime",
+                            friendly: "检表周期",
+                            sorting:false,
+                            index:11
+                        }
+                    ],
+                    //---------------查询时过滤条件
+                    findFilter: function(){//find function
+                        var filter = "keyy="+$('#find_key').val();
+                        return filter;
+                    }//--findFilter
+                }//--init
+            );//--end init
+        }
+    );
+    jQuery(document).ready(function() {
+        ComponentsPickers.init();
+    });
+</script><!-- End of User Script-->
+</html>

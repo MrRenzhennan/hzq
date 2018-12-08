@@ -1,0 +1,100 @@
+<script type="text/x-template" id="__dust__gasRowInfo">
+    <input type="hidden" id="chgTitle" value="燃气费" />
+    <input type="hidden" id="feeType" value="gas" />
+    {#data}
+    {@eq key=isUnion value="1"}
+        <tr>
+            <td style="width: 100px">
+                余额:
+            </td>
+            <td style="width: 20%">
+                <span id="balance">—</span> 
+            </td>
+            <td style="border-left: 1px solid #dedede !important;width: 100px">
+                联合账户余额:
+            </td>
+            <td style="width: 25%;">
+                <span id="unionBalance">—</span>
+            </td>
+            <td style="border-left: 1px solid #dedede !important;width: 100px">
+
+            </td>
+            <td style="border-top: 1px solid #dedede !important;">
+
+            </td>
+        </tr>
+    {/eq}
+    {@eq key=isUnion value="0"}
+        <tr>
+            <td style="width: 100px">
+                余额:
+            </td>
+            <td style="width: 20%">
+                <span id="balance">—</span> 
+            </td>
+            <td style="border-left: 1px solid #dedede !important;width: 100px">
+                
+            </td>
+            <td style="width: 25%;">
+                
+            </td>
+            <td style="border-left: 1px solid #dedede !important;width: 100px">
+
+            </td>
+            <td style="border-top: 1px solid #dedede !important;">
+
+            </td>
+        </tr>
+    {/eq}
+    <tr>
+        <td>
+            供气区域:
+        </td>
+        <td style="width: 25%;">
+            {areaName}
+        </td>
+        <td style="border-left: 1px solid #dedede;width: 100px">
+            用气性质:
+        </td>
+        <td>
+            {gasTypeName}
+        </td>
+    </tr>
+
+    <tr>
+        <td style="width: 100px">收费方式:</td>
+        <td colspan="5">
+            <label class="radio-inline" style="padding-left:40px !important;">
+                <input type="radio" name="chgType" value="1" text="现金"> 现金 
+            </label>
+            <label class="radio-inline" style="padding-left:40px !important;">
+                <input type="radio" name="chgType" value="4" text="支票"> 支票 
+            </label>
+            <label class="radio-inline" style="padding-left:40px !important;">
+                <input type="radio" name="chgType" value="3" text="银行转账"> 银行转账 
+            </label>
+            <label class="radio-inline" style="padding-left:40px !important;">
+                <input type="radio" name="chgType" value="2" text="POS机"> POS机 
+            </label>
+        </td>
+    </tr>
+    <tr>
+        <td style="width: 100px">顺价收费金额:</td>
+        <td style="width: 20%">
+            <input id="cashAmount" class="inputclear form-control" disabled type="number" />
+        </td>
+        <td style="border-left: 1px solid #dedede !important;width: 100px">
+            支票号:
+        </td>
+        <td style="width: 25%;">
+            <input id="input_checkno" class="inputclear form-control" disabled type="text" />
+        </td>
+        <td style="border-left: 1px solid #dedede;width: 100px">
+        </td>
+        <td>
+            <button type="button" id="BtnSub" class="btn btn-success btn-sm" disabled> 顺价收费 <span class="glyphicon glyphicon-fire" aria-hidden="true"></span></button>
+        </td>
+    </tr>
+    
+    {/data}
+</script>

@@ -1,0 +1,12 @@
+{"rows":
+[
+  {"versionID":"道理一处","gasCategory":"001324","gasType":"江洪宾馆","gasStart":"江洪宾馆","gasEnd":"2015/5/9","price":"已执行","price1":"18120","price2":"00123","changeTime":"18120","effectTime":"0","changePerson":"张龙","changePerson1":"申请时产生10个量，申请定针188120","unionAccount":"","UUID":"1"}
+,  {"versionID":"道理一处","gasCategory":"001324","gasType":"沿江大药房","gasStart":"沿江大药房","gasEnd":"2015/5/9","price":"已执行","price1":"11345","price2":"00123","changeTime":"13133","effectTime":"0","changePerson":"张龙","changePerson1":"申请时产生7个量，申请定针12000","unionAccount":"","UUID":"1"}
+, {"versionID":"道理一处","gasCategory":"001324","gasType":"永辉超市","gasStart":"永辉超市","gasEnd":"2015/5/9","price":"已执行","price1":"21000","price2":"00123","changeTime":"14000","effectTime":"0","changePerson":"张龙","changePerson1":"申请时产生11个量，申请定针14312","unionAccount":"","UUID":"1"}
+,  {"versionID":"道理一处","gasCategory":"001324","gasType":"龙威集团","gasStart":"龙威集团","gasEnd":"2015/5/9","price":"已执行","price1":"13000","price2":"00123","changeTime":"13000","effectTime":"0","changePerson":"张龙","changePerson1":"申请时产生19个量，申请定针13000","unionAccount":"","UUID":"1"}
+
+]
+,"total_rows":1
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

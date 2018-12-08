@@ -1,0 +1,26 @@
+<script type="text/x-template" id="__dust__ICCardChangeRowInfo">
+    {#data}
+    <tr>
+
+        <td>
+            {customerCode}
+        </td>
+        <td>
+            {cardCode}
+        </td>
+        <td>
+            {meterNo}
+        </td>
+
+        <td>
+            {measure}
+        </td>
+        <td>
+            {money}
+        </td>
+        <td>
+            {iccardState}
+        </td>
+    </tr>
+    {/data}
+</script>

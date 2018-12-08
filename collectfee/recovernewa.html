@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>收费管理</title>
+    <style>
+        #search {
+            width: 100%;
+            margin: 0 auto;
+            text-align: center;
+        }
+    </style>
+    <base href="../">
+    <meta charset="UTF-8">
+    <script src="pages/scripts/basepath.js"></script>
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-select/bootstrap-select.min.css">
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/select2/select2.css">
+    <script src="pages/scripts/header.js"></script>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8" />
+    <link href="assets/global/css/plugins.css" rel="stylesheet" type="text/css" />
+    <link href='assets/global/plugins/jquery-watable/watable.css' rel='stylesheet' />
+    <link href="assets/global/plugins/bootstrap-fileinput/fileinput.min.css" rel="stylesheet">
+    <style>
+        #divtable {
+            display: none;
+        }
+
+        .table td {
+            vertical-align: middle !important;
+        }
+    </style>
+</head>
+
+<body class="page-header-fixed page-quick-sidebar-over-content">
+    <script>
+        $.include("collectfee/partial/customerinfo.shtml");
+
+        $.include("collectfee/partial/recover.shtml");
+        $.include("collectfee/partial/ctmaccountinfo.shtml");
+    </script>
+    <div class="page-header navbar navbar-fixed-top">
+        <script>
+            $.include("pages/partial/menu.shtml");
+        </script>
+    </div>
+
+    <div class="clearfix"></div>
+    <div class="page-container">
+        <!-- 左侧菜单开始 -->
+        <div class="page-sidebar-wrapper">
+            <script>
+                $.include("pages/partial/sidebar.shtml");
+            </script>
+        </div>
+        <!-- 左侧菜单结束 -->
+        <div id="gfdata"></div>
+        <!-- 主内容开始 -->
+        <div class="page-content-wrapper">
+            <div class="page-content">
+                <!--内容头开始-->
+                <script>$.include("common/navigation_bar.shtml");</script>
+
+                <script>
+                    $.include("serviceManage/partial/select_user.shtml");
+                </script>
+                <!--用户信息-->
+                <script>
+                    $.include("serviceManage/partial/user_info.shtml");
+                </script>
+
+                <div class="tabbable tabbable-custom tabbable-custom-profile col-md-12" style="padding-bottom:0px">
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#tab22" data-toggle="tab" style="font-size: 14px;color: blue;">
+                            追补操作</a>
+
+                        </li>
+                    </ul>
+                    <!--/row-->
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tab22">
+                            <div class="portlet-body">
+                                <!-- begin form-->
+                                <div class="form-body">
+                                    <div class="row form-group">
+                                        <div class="col-sm-3 form-group">
+                                            <div class="btn-group input-group">
+                                                <div class="input-group-addon">追补气费:</div>
+                                                <input id="recovermoney" name="linkMan" placeholder="￥金额" class="inputclear form-control" type="number">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 form-group">
+                                            <div class="btn-group input-group">
+                                                <div class="input-group-addon">追补气量:</div>
+                                                <input id="recovergas" name="linktel" class="inputclear form-control" placeholder="气量 m³" type="number">
+
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-3 form-group">
+                                            <div class="btn-group input-group" style="width: 100%">
+                                                <div class="input-group-addon">追补原因类型:</div>
+                                                <select id="recovertype" class="form-control input-middle select2me" data-placeholder="追补原因类型">
+                                                <option value="">请选择</option>
+                                                <option value="1">死表</option>
+                                                <option value="2">下线表用量未收费</option>
+                                                <option value="4">顺价</option>
+                                                <option value="3">其他</option>
+                                            </select>
+                                                <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row form-group">
+
+                                        <div class="col-sm-6 form-group">
+                                            <div class="btn-group input-group" style="width: 100%">
+                                                <div class="input-group-addon">追补原因说明:</div>
+                                                <textarea id="recover_reason_detail" class="inputclear form-control"></textarea>
+                                                <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    <div class="btn-group form-group">
+                                        <button id="recover_btn" class="btn blue">
+                                        追补
+                                    </button>
+                                    </div>
+                                </div>
+
+                                <!--end form-->
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div id="divChgContainer" class="tabbable tabbable-custom tabbable-custom-profile col-md-12" style="padding-bottom:0px;">
+                    <ul class="nav nav-tabs">
+                        <li role="presentation" id="gas" class="active">
+                            <a id="tabGas" href="#gasFee" aria-controls="gasFee" role="tab" data-toggle="tab">追补气量</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="recoverInfo">
+                            <div data-always-visible="1" data-rail-visible="1">
+                                <table class="watable table table-striped table-hover table-bordered table-condensed">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                追补气量
+                                            </th>
+                                            <th>
+                                                追补气费
+                                            </th>
+                                            <th>
+                                                追补原因
+                                            </th>
+                                            <th>
+                                                追补类型原因
+                                            </th>
+                                            <th>
+                                                追补时间
+                                            </th>
+                                            <th>
+                                                操作员
+                                            </th>
+                                            <th>
+                                                营业网点
+                                            </th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody id="_recoverInfo">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div id="tab_ctm" class="tab-pane" role="tabpanel">
+    </div>
+    <div id="tab_customer" class="tab-pane" role="tabpanel">
+    </div>
+
+    <!--收费历史modal-->
+    <div class="modal fade" id="payHistoryModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog">
+            <div id="mcontentc" class="modal-content">
+
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="mtdHistoryModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog">
+            <div id="mcontent" class="modal-content">
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="hzqModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog">
+            <div id="mcontent" class="modal-content">
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 底边栏开始 -->
+    <script>
+                    $.include("pages/partial/foot.shtml");
+    </script>
+    <script type="text/javascript">
+        $.include("pages/partial/xwatable-form.shtml")
+    </script>
+</body>
+
+<script>
+        $.include("pages/partial/scripts.shtml");
+
+</script>
+
+<script src="assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-watable/jquery.watable.js"></script>
+<script type="text/javascript" src="pages/scripts/rqlbuilder.js"></script>
+<script type="text/javascript" src="pages/scripts/xwatable.js"></script>
+<script type="text/javascript" src="pages/scripts/refhelper.js"></script>
+
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script src="assets/admin/pages/scripts/components-pickers.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+<script src="pages/scripts/jquery.json.min.js"></script>
+<script type="text/javascript" src="pages/scripts/jquery.serialize-object.min.js"></script>
+<script type="text/javascript" src="collectfee/js/charge.js"></script>
+<script type="text/javascript" src="collectfee/js/localservice.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-fileinput/fileinput.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-fileinput/zh.js"></script>
+<!-- 底边栏结束 -->
+<script type="text/javascript">
+    $(function () {
+        $(".tab-content").delegate("a[hzq-type=remoteModal]", "click", function (obj) {
+            var $targetModal = $($(obj.target).attr("hzq-modal"));
+            var targetPath = $(obj.target).attr("hzq-remote");
+            var fnstring = $(obj.target).attr("hzq-cb");
+            var param = $(obj.target).attr("hzq-param");
+            $targetModal.modal({
+                show: true
+            })
+            $targetModal.unbind("show.bs.modal").on("show.bs.modal", function (e) {
+                $(e.currentTarget).find("#mcontent").empty();
+            });
+            $targetModal.unbind("shown.bs.modal").on("shown.bs.modal", function (e) {
+                // 加载数据模板
+                //console.log($(e.currentTarget));
+                $(e.currentTarget).find("#mcontent").load(targetPath, function () {
+                    if (fnstring) {
+                        var fn = window[fnstring];
+                        //console.log(param);
+                        if (typeof fn === "function") fn.call(null, JSON.parse(param));
+                        window[fnstring] = undefined;
+
+                        //if (typeof fn === "function") fn.call(null, param );
+                    }
+                });
+            });
+            $targetModal.on("hidden.bs.modal", function () {
+                $(this).removeData("bs.modal");
+            });
+        });
+    });
+    $(document).ready(function () {
+
+    });
+    $("#recover_btn").on('click', function () {
+        if ($("#recovermoney").val() == "" || $("#recovergas").val() == "" || $("#recovertype").val() == "") {
+            bootbox.alert("追补信息未填全！");
+            return false;
+        }
+        var rmoney =$('#recovermoney').val(); 
+        if(rmoney && Number(rmoney) <0){
+        	bootbox.alert("追补金额为负。");
+        	return false;
+        }
+        var rmeasure = $('#recovergas').val();
+        if(rmeasure && Number(rmeasure) < 0){
+        	bootbox.alert("追补气量为负。");
+        	return false;
+        }
+        
+        $("#recover_btn").attr("disabled", "disabled");
+        var currentArchive = chargeHelper.getContext("_current_archive");
+        //if (currentArchive.customerKind == "1") {
+        bootbox.confirm("是否确认追补", function (result) {
+            if (result) {
+                $.ajax({
+                    url: "hzqs/chg/pbgrc.do?fh=GRCCHG0000000J00&resp=bd",
+                    dataType: "json",
+                    contentType: "application/json;charset=utf-8",
+                    type: "POST",
+                    data: JSON.stringify({
+                        "customerCode": currentArchive.customerCode,
+                        "money": $("#recovermoney").val(),
+                        "gas": $("#recovergas").val(),
+                        "reason": $("#recover_reason_detail").val(),
+                        "reasonType": $("#recovertype").val(),
+                        "status": "0"
+                    }),
+                    success: function (data) {
+                        if (data.errCode == "1") {
+                            bootbox.alert({
+                                buttons: {
+                                    ok: {
+                                        label: '知道了~',
+                                        className: 'btn-myStyle'
+                                    }
+                                },
+                                message: '追补成功',
+                                callback: function () {
+                                    //window.location.href="collectfee/recovernew.html";
+                                    $("#_recoverInfo").html("");
+                                    chargeHelper.getRecoverInfo(currentArchive.customerCode, function (data) {
+                                        dust.loadSource(dust.compile($("#__dust__recoverRowInfo").html(), "recoverInfo__"));
+                                        dust.render("recoverInfo__", { "data": data }, function (err, res) {
+                                            $("#_recoverInfo").html(res);
+                                        });
+                                    });
+
+
+                                }
+                            });
+                        } else {
+                            $("#recover_btn").removeAttr("disabled");
+                        }
+                    },
+                    error: function () {
+                        $("#recover_btn").removeAttr("disabled");
+                    }
+                });
+
+            }
+        });
+        // } else {
+        //     var flow_def_id = "RECOVERAPPLY";
+        //     var wfName = currentArchive.customerName + "(" + currentArchive.customerCode + ")";
+        //     if (!$("#recovergas").val()) {
+        //         bootbox.alert("<center><h4>请填写追补气量</h4></center>");
+        //         return;
+        //     }
+        //     if (!$("#recover_reason").val()) {
+        //         bootbox.alert("<center><h4>请选择追补量原因</h4></center>");
+        //         return;
+        //     }
+        //     apply = {
+        //         "recoverId": $.md5(JSON.stringify(currentArchive.ctmArchiveId) + new Date().getTime()),
+        //         "ctmArchiveId": currentArchive.ctmArchiveId,
+        //         "chargeUnitId": "",
+        //         "areaId": new Date().getTime(),
+        //         "customerCode": currentArchive.customerCode,
+        //         "recoverGas": $("#recovergas").val(),
+        //         "recoverMoney": $("#recovermoney").val(),
+        //         "reason": $("#reason").val(),
+        //         "reasonType": $("#recover_reason_detail").val(),
+        //         "status": "1"
+        //     };
+
+        //     var flowjson = {
+        //         "flow_def_id": flow_def_id,
+        //         "ref_no": apply.recoverId, // 唯一标识
+        //         "operator": userInfo.userId, // 流程提交人
+        //         "be_orgs": userInfo.area_id, // 所属角色
+        //         "flow_inst_id": apply.recoverId, // 流程实例id
+        //         "propstr2048": JSON.stringify({
+        //             "recoverId": apply.recoverId,
+        //             "customerCode": apply.customerCode
+        //         }), // 业务参数
+        //         "prop1str64": moment().format("YYYY-MM-DD HH:mm:ss"),
+        //         "prop2str64": wfName, // 代办名称
+        //         "propstr128": userInfo.employee_name == "" || userInfo.employee_name == undefined ? userInfo.userId : userInfo.employee_name,  // loginName
+        //         "propstr256": "", //
+        //         "override_exists": false
+        //     }
+        // }
+    });
+    function onCustomerSelected(customerCode) {
+        // 1. 根据客户编号，读取客户信息
+        chargeHelper.getArchiveInfo(customerCode, function () {
+            if (chargeHelper.getContext("_current_archive")) {
+                var currentArchive = chargeHelper.getContext("_current_archive");
+                $("#recovermoney").val("");
+                $("#recovergas").val("");
+                //$("#recovertype").val("");
+                var $example = $("#recovertype").select2();
+                $example.val("").trigger("change");
+                $("#recover_reason_detail").val("");
+                $("#recover_btn").removeAttr("disabled");
+
+                // 2. 如果是联合账户，加载联合账户tab
+                chargeHelper.getCTMAccountInfo(currentArchive.ctmArchiveId, function (data) {
+                    chargeHelper.setContext("_current_ctmaccount", data);
+                    addTab("tab_ctm", "联合账户信息");
+                    dust.loadSource(dust.compile($("#__dust__ctmAccountInfo").html(), "ctmAccountInfo__"));
+                    dust.render("ctmAccountInfo__", { "data": data }, function (err, res) {
+                        $("#tab_ctm").html(res);
+                    });
+                });
+
+                // 3. 加载业主信息
+                chargeHelper.getCustomerInfo(currentArchive.customerId, function () {
+                    addTab("tab_customer", "业主信息");
+                    dust.loadSource(dust.compile($("#__dust__customerInfo").html(), "customerInfo__"));
+                    dust.render("customerInfo__", { "data": currentArchive }, function (err, res) {
+                        $("#tab_customer").html(res);
+                    });
+                });
+                //加载追补信息
+                chargeHelper.getRecoverInfo(currentArchive.customerCode, function (data) {
+                    $("#_recoverInfo").html("");
+                    if (data != undefined) {
+                        dust.loadSource(dust.compile($("#__dust__recoverRowInfo").html(), "recoverInfo__"));
+                        dust.render("recoverInfo__", { "data": data }, function (err, res) {
+                            $("#_recoverInfo").html(res);
+                        });
+                    }
+                });
+            }
+        });
+    }
+    function addTab(id, name) {
+        var title = $('<li>', {
+            'role': 'presentation',
+            'id': "li_" + id
+        }).append($('<a>', {
+            'href': '#' + id,
+            'aria-controls': id,
+            'role': 'tab',
+            'data-toggle': 'tab'
+        }).html(name));
+        var $content = $("#" + id);
+        if ($("#divUserInfoContainer").find("ul").find("#li_" + id).length) {
+            $("#divUserInfoContainer").find(".tab-content").remove("#" + id);
+            $content.insertBefore($("#divUserInfoContainer").find(".tab-content").children(".tab-pane:first-child"));
+        } else {
+            $("#divUserInfoContainer").find("ul").append(title);
+            $content.insertBefore($("#divUserInfoContainer").find(".tab-content").children(".tab-pane:first-child"));
+        }
+    }
+
+</script>
+<script type="text/javascript" src="../assets/global/plugins/select2/select2.js"></script>
+
+</html>

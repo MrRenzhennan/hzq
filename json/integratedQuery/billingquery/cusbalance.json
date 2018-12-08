@@ -1,0 +1,10 @@
+{"rows":
+[
+  {"serialNumber":"01","gasArea":"供气区域一","accountingClerk":"核算员一","CusSerOfficer":"客户服务员一","bookNumber":"本号一","cusNumber":"客户号一","cusName":"客户名一","cusAddress":"客户地址一","gasCostBalance":"22.33","tableType":"普通表","gasType":"居民"}
+,{"serialNumber":"02","gasArea":"供气区域二","accountingClerk":"核算员二","CusSerOfficer":"客户服务员二","bookNumber":"本号二","cusNumber":"客户号二","cusName":"客户名二","cusAddress":"客户地址二","gasCostBalance":"29.89","tableType":"IC卡表","gasType":"居民(餐饮)"}
+
+]
+,"total_rows":2
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

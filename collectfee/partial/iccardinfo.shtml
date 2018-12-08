@@ -1,0 +1,87 @@
+<script type="text/x-template" id="__dust__iccardInfo">
+    <div data-always-visible="1" data-rail-visible1="1">
+        <!-- BEGIN FORM-->
+        <table class="table">
+            <tbody>
+                {#data}
+                <tr>
+                    <td><span>卡号:</span></td>
+                    <td>{kh}</td>
+                    <td style="border-left: 1px solid #ececec;">地区编码:</td>
+                    <td id="customerid">{dqdm}</td>
+                    <td style="border-left: 1px solid #ececec;">燃气表表条码:</td>
+                    <td>
+                        {?.btm}
+                        {@select key=btm}
+                        {@none}<span>-</span>{/none}
+                        {@default} <span>{btm}</span>{/default}
+                        {/select}
+                        {/.btm}
+
+                        {@select key=btm}
+                        {@none}test-disabled {/none}
+                        {/select}
+                    </td>
+                </tr>
+                <tr>
+                    <td >卡厂家:</td>
+                    <td>{factoryName}</td>
+                    <td style="border-left: 1px solid #ececec;">卡类型:</td>
+                    <td>
+                        {?.klx}
+                        {@select key=klx}
+                        {@eq value="2"}<span>工业表卡</span>{/eq}
+                        {@eq value="1"} <span>民用表卡</span>{/eq}
+                        {/select}
+                        {/.klx}
+                    </td>
+                    <td style="border-left: 1px solid #ececec;">卡芯片类型:</td>
+                    <td>
+                        {?.kxplx}
+                        {@select key=kxplx}
+                        {@eq value="4"}<span>4442卡金额卡</span>{/eq}
+                        {@eq value="3"}<span>4442卡气量卡</span>{/eq}
+                        {@eq value="2"}<span>102卡金额卡</span>{/eq}
+                        {@eq value="1"} <span>102气量卡</span>{/eq}
+                        {/select}
+                        {/.kxplx}
+                    </td>
+                </tr>
+                <tr>
+                    <td>总气量:</td>
+                    <td>{measure}</td>
+                    <td style="border-left: 1px solid #ececec;">总金额:</td>
+                    <td>{money}</td>
+                    <td style="border-left: 1px solid #ececec;">卡状态:</td>
+                    <td>
+                        {?.kzt}
+                        {@select key=kzt}
+                        {@eq value="0"}<span>开户卡</span>{/eq}
+                        {@eq value="1"} <span>用户卡</span>{/eq}
+                        {/select}
+                        {/.kzt}
+                    </td>
+                    
+                </tr>
+                <tr>
+                    <td>卡内气量:</td>
+                    <td>{ql}</td>
+                    <td style="border-left: 1px solid #ececec;">卡内金额:</td>
+                    <td>{je}</td>
+                    <td style="border-left: 1px solid #ececec;">表内剩余气量:</td>
+                    <td>{syql}</td>
+                </tr>
+                <tr>
+                    <td>购气次数:</td>
+                    <td>{cs}</td>
+                    <td style="border-left: 1px solid #ececec;">补卡次数:</td>
+                    <td>{bkcs}</td>
+                    <td style="border-left: 1px solid #ececec;">累积用气量:</td>
+                    <td>{ljql}</td>
+                </tr>
+                {/data}
+            </tbody>
+        </table>
+        <!-- END FORM-->
+    </div>
+</script>

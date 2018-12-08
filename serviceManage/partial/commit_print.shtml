@@ -1,0 +1,17 @@
+<div class="col-sm-6 form-group" style="margin-left: 35%">
+    <div class="btn-group form-group">
+        <button id="save_btn" class="btn blue off">
+            保存
+        </button>
+    </div>
+    <div class="btn-group form-group">
+        <button id="print_btn" class="btn blue off disabled">
+            打印
+        </button>
+    </div>
+    <div class="btn-group form-group">
+        <button id="submit_btn" class="btn blue off disabled" >
+            提交
+        </button>
+    </div>
+</div>

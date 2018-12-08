@@ -1,0 +1,15 @@
+{"rows":
+[
+  {"UUID":"001","contractID":"contractID_1","customerID":"customerID_1","customerName":"张三","signTime":"2016-11-11 12:12:12","operator":"王丽","contractPhoto":"photo_1.png,photo_2.png","remark":"通过"},
+  {"UUID":"002","contractID":"contractID_2","customerID":"customerID_2","customerName":"张三","signTime":"2016-11-11 12:12:12","operator":"王丽","contractPhoto":"photo_1.png,photo_2.png","remark":"通过"},
+  {"UUID":"003","contractID":"contractID_3","customerID":"customerID_3","customerName":"张三","signTime":"2016-11-11 12:12:12","operator":"王丽","contractPhoto":"photo_1.png,photo_2.png","remark":"通过"},
+  {"UUID":"004","contractID":"contractID_4","customerID":"customerID_4","customerName":"张三","signTime":"2016-11-11 12:12:12","operator":"王丽","contractPhoto":"photo_1.png,photo_2.png","remark":"通过"},
+  {"UUID":"005","contractID":"contractID_5","customerID":"customerID_5","customerName":"张三","signTime":"2016-11-11 12:12:12","operator":"王丽","contractPhoto":"photo_1.png,photo_2.png","remark":"通过"},
+  {"UUID":"006","contractID":"contractID_6","customerID":"customerID_6","customerName":"张三","signTime":"2016-11-11 12:12:12","operator":"王丽","contractPhoto":"photo_1.png,photo_2.png","remark":"通过"},
+  {"UUID":"007","contractID":"contractID_7","customerID":"customerID_7","customerName":"张三","signTime":"2016-11-11 12:12:12","operator":"王丽","contractPhoto":"photo_1.png,photo_2.png","remark":"通过"},
+  {"UUID":"008","contractID":"contractID_8","customerID":"customerID_8","customerName":"张三","signTime":"2016-11-11 12:12:12","operator":"王丽","contractPhoto":"photo_1.png,photo_2.png","remark":"通过"}
+]
+,"total_rows":1
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

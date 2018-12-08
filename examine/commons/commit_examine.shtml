@@ -1,0 +1,86 @@
+<div class="col-sm-6 form-group" style="margin-left: 35%">
+    <div class="btn-group form-group">
+        <a class='pull-right btn btn-sm btn-circle green' data-toggle='modal' href='#tongyi'>
+            继续
+        </a>
+    </div>
+    <div class="btn-group form-group">
+        <a class='pull-right btn btn-sm btn-circle red' data-toggle='modal' href='#jujue'>
+            拒绝
+        </a>
+    </div>
+    <div class="btn-group form-group">
+        <a class='pull-right btn btn-sm btn-circle blue' id='back_btn'>
+            返回
+        </a>
+    </div>
+</div>
+
+<div id="tongyi" class="modal fade" tabindex="-1" data-width="400">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">审批建议</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <label class="checkbox-inline">
+                                <div class="radio"> 
+                                        <input type="radio" name="spjy" checked=""  value="审批通过">              
+                                </div>
+                                审批同意
+                            </label>
+                            <label class="checkbox-inline">
+                                <div class="radio" >
+                                    
+                                        <input type="radio" name="spjy" value="保留意见">                          
+                                </div> 保留意见
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <p>
+                            <input id="agreereason" type="text" maxlength="64" size="64" class="col-md-12 form-control">
+                        </p>
+                    </div>
+                </div>
+ 
+            </div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" class="btn">关闭</button>
+                <button type="button" id='agree_btn' data-dismiss="modal" value="同意" class="btn blue">提交</button>
+            </div>
+        </div>
+    </div>
+    
+</div>
+<div id="jujue" class="modal fade" tabindex="-1" data-width="400">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">拒绝理由</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p>
+                            <input id="unagreereason" type="text" value="不同意" maxlength="64" size="64" class="col-md-12 form-control">
+                        </p>
+                    </div>
+                </div>
+ 
+            </div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" class="btn">关闭</button>
+                <button type="button" id='unagree_btn' data-dismiss="modal" class="btn blue">提交</button>
+            </div>
+        </div>
+    </div>
+    
+</div>

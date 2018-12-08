@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]>
+<html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+
+<!-- BEGIN HEAD -->
+<head>
+    <title>零散开栓受理</title>
+    <base href="../">
+    <script src="pages/scripts/header.js"></script>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8"/>
+
+    <link href='assets/global/plugins/jquery-watable/watable.css' rel='stylesheet'/>
+    <link href='assets/global/plugins/jquery-watable/animate.min.css' rel='stylesheet'/>
+    <link href="assets/global/plugins/bootstrap-fileinput/fileinput.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-select/bootstrap-select.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/select2/select2.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/jquery-multi-select/css/multi-select.css"/>
+    <link href='assets/global/plugins/bootstrap-datetimepicker/css/datetimepicker.css' rel='stylesheet'/>
+
+    <!-- BEGIN THEME STYLES -->
+    <link href="assets/global/css/components.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
+    <!-- END THEME STYLES -->
+    <style>
+        #divtable {
+            display: none;
+        }
+
+        #customerInfo {
+            display: none;
+        }
+    </style>
+
+</head>
+<!-- END HEAD -->
+
+<body class="page-header-fixed page-quick-sidebar-over-content">
+
+<!-- 标题栏开始 -->
+<div class="page-header navbar navbar-fixed-top">
+    <script>$.include("pages/partial/menu.shtml");</script>
+</div>
+<!-- 标题栏结束 -->
+<div class="clearfix"></div>
+<div class="page-container">
+    <!-- 左侧菜单开始 -->
+    <div class="page-sidebar-wrapper">
+        <script>$.include("pages/partial/sidebar.shtml");</script>
+    </div>
+    <!-- 左侧菜单结束 -->
+
+    <!-- 主内容开始 -->
+    <div class="page-content-wrapper">
+        <div class="page-content clearfix">
+            <!--内容头开始-->
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa  fa-map-marker"></i>
+                            <a href="javascript:void(0)">服务管理</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="serviceManage/business_process.html">综合业务办理</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">零散开栓受理</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 内容头结束-->
+            <!-- 查询条件-->
+            <!-- 查询条件控件 -->
+
+
+            <!-- 客户信息-->
+            <div id="customerList" class="tabbable tabbable-custom tabbable-custom-profile col-md-12"
+                 style="padding-bottom:0px">
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#tab01" data-toggle="tab" style="font-size: 14px;color: blue;">
+                            客户列表 </a>
+
+                    </li>
+                </ul>
+                <!--/row-->
+                <div class="tab-content">
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group" style="width: 100%">
+                            <div class="input-group-addon">客户姓名：</div>
+                            <input id="customerName1" class="inputclear form-control" type="text" placeholder="客户姓名">
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group" style="width: 100%">
+                            <div class="input-group-addon">客户编号：</div>
+                            <input id="customerCode1" class="inputclear form-control" type="text" placeholder="客户编号">
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group" style="width: 100%">
+                            <div class="input-group-addon">客户电话：</div>
+                            <input id="tel1" class="inputclear form-control" type="text" placeholder="客户电话">
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group" style="width: 100%">
+                            <div class="input-group-addon">客户地址：</div>
+                            <input id="customerAddress1" class="inputclear form-control" type="text"
+                                   placeholder="请输入客户地址">
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                        </div>
+                    </div>
+                    <!--<div class="col-sm-5 form-group">-->
+                    <!--</div>-->
+                    <div class="btn-group form-group">
+                        <button id="find_button" class="btn yellow off">
+                            <i class="fa fa-search"></i> 查询信息
+                        </button>
+                    </div>
+                    <div class="btn-group form-group">
+                        <button id="add_btn" class="btn blue off">
+                            <i class="fa fa-plus"></i> 新增档案&nbsp;
+                        </button>
+                    </div>
+                    <div class="tab-pane active" id="tab01">
+                        <div class="portlet-body">
+                            <div id='row' class="row">
+                                <div id="divtable" class="table-responsive container-fluid col-md-12">
+                                </div>
+                            </div>
+                            <!--/row-->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div id="customerInfo" class="tabbable tabbable-custom tabbable-custom-profile col-md-12"
+                 style="padding-bottom:0px">
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#tab11" data-toggle="tab" style="font-size: 14px;color: blue;">
+                            客户基础信息 </a>
+
+                    </li>
+                </ul>
+                <!--/row-->
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab11">
+                        <div class="portlet-body">
+                            <div class="add-form">
+                                <!--<script>$.include("common/idcardread.shtml")</script>-->
+                                <form action="javascript:;" role="form" id="houseForm">
+                                    <div class="form-body">
+                                        <div class="btn-group form-group">
+                                            <button id="idcardread" class="btn blue">
+                                                <i class="fa fa-credit-card"></i> 识别身份证&nbsp;
+                                            </button>
+                                        </div>
+                                        <div class="row form-group">
+                                            <div id="customerCodeNo" class="col-sm-3 form-group">
+                                                <div class="btn-group input-group" style="width: 100%">
+                                                    <div class="input-group-addon">客户编号：</div>
+                                                    <input id="customerCode" name="customerCode"
+                                                           class="inputclear form-control" type="text" readonly>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3 form-group">
+                                                <div class="btn-group input-group" style="width: 100%">
+                                                    <div class="input-group-addon">客户名称：</div>
+                                                    <input id="customerName" name="customerName"
+                                                           class="inputclear form-control customerNames" type="text">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3 form-group">
+                                                <div class="btn-group input-group input-select2me" style="width: 100%">
+                                                    <div class="input-group-addon">证件类型:</div>
+                                                    <select id="idcardType"
+                                                            class="select2-container form-control select2me"
+                                                            data-placeholder="请选择...">
+                                                        <option value=""></option>
+                                                    </select>
+                                                    <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3 form-group">
+                                                <div class="btn-group input-group" style="width: 100%">
+                                                    <div class="input-group-addon">证件号：</div>
+                                                    <input id="idcard" name="idcard" class="inputclear form-control idcards" type="text">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row form-group">
+
+                                            <div class="col-sm-6 form-group" id="addressInfo">
+                                                <div class="btn-group input-group" style="width: 100%">
+                                                    <div class="input-group-addon">客户地址：</div>
+                                                    <input id="customerAddress" name="customerAddress"
+                                                           class="inputclear form-control" type="text">
+                                                </div>
+                                            </div>
+                                            <div id="houseInfo">
+                                                <div class="col-sm-3 form-group">
+                                                    <div class="btn-group input-group" style="width: 100%">
+                                                        <div class="input-group-addon">区：</div>
+                                                        <input id="borough" name="borough"
+                                                               class="inputclear form-control" type="text">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3 form-group">
+                                                    <div class="btn-group input-group" style="width: 100%">
+                                                        <div class="input-group-addon">街：</div>
+                                                        <input id="street" name="street" class="inputclear form-control"
+                                                               type="text">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3 form-group">
+                                                    <div class="btn-group input-group" style="width: 100%">
+                                                        <div class="input-group-addon">小区：</div>
+                                                        <input id="district" name="district"
+                                                               class="inputclear form-control" type="text">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3 form-group">
+                                                    <div class="btn-group input-group" style="width: 100%">
+                                                        <div class="input-group-addon">门牌号：</div>
+                                                        <input id="doorplateNum" name="doorplateNum"
+                                                               class="inputclear form-control" type="text">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3 form-group">
+                                                    <div class="btn-group input-group" style="width: 100%">
+                                                        <div class="input-group-addon">楼号：</div>
+                                                        <input id="floorNum" name="floorNum"
+                                                               class="inputclear form-control" type="text">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3 form-group">
+                                                    <div class="btn-group input-group" style="width: 100%">
+                                                        <div class="input-group-addon">单元：</div>
+                                                        <input id="cell" name="cell" class="inputclear form-control"
+                                                               type="text">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3 form-group">
+                                                    <div class="btn-group input-group" style="width: 100%">
+                                                        <div class="input-group-addon">层：</div>
+                                                        <input id="storey" name="storey" class="inputclear form-control"
+                                                               type="text">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-3 form-group">
+                                                    <div class="btn-group input-group" style="width: 100%">
+                                                        <div class="input-group-addon">室：</div>
+                                                        <input id="roomNum" name="roomNum"
+                                                               class="inputclear form-control" type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="employee" class="row form-group">
+                                            <div id="bookNo" class="col-sm-3 form-group">
+                                                <div class="btn-group input-group" style="width: 100%">
+                                                    <div class="input-group-addon">抄表本编号：</div>
+                                                    <input id="bookCode" name="bookCode" class="inputclear form-control"
+                                                           type="text">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3 form-group">
+                                                <div class="btn-group input-group" style="width: 100%">
+                                                    <div class="input-group-addon">抄表员：</div>
+                                                    <input id="serviceper" class="inputclear form-control" type="text">
+                                                    <input id="serviceperId" name="serviceperId"
+                                                           class="inputclear form-control" type="hidden">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3 form-group">
+                                                <div class="btn-group input-group" style="width: 100%">
+                                                    <div class="input-group-addon">核算员：</div>
+                                                    <input id="countper" class="inputclear form-control" type="text">
+                                                    <input id="countperId" name="countperId"
+                                                           class="inputclear form-control" type="hidden">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row form-group">
+                                            <div class="col-sm-3 form-group">
+                                                <div class="btn-group input-group" style="width: 100%">
+                                                    <div class="input-group-addon">客户电话：</div>
+                                                    <input id="tel" name="tel" class="inputclear form-control"
+                                                           type="text">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3 form-group">
+                                                <div class="btn-group input-group input-select2me" style="width:100%">
+                                                    <div class="input-group-addon">客户类型:</div>
+                                                    <select id="customerKind" name="customerKind"
+                                                            class="select2-container form-control select2me"
+                                                            data-placeholder="请选择...">
+                                                        <option value=""></option>
+                                                        <option value="1">居民</option>
+                                                        <option value="9">非居民</option>
+                                                    </select>
+                                                    <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                                </div>
+                                            </div>
+                                            <div id='ksl_status' class="col-md-6 form-group">
+                                                <div class="btn-group input-group">
+                                                    <div class="input-group-addon">请选择:</div>
+                                                    <div>
+
+                                                        <div class="radio-list">
+                                                            <label class="radio-inline" id="inline1">
+                                                                <input type="radio" name="ksl" id="inlineCheckbox1"
+                                                                       value="1" checked> 有开栓令有档 </label>
+                                                            <label class="radio-inline">
+                                                                <input type="radio" name="ksl" id="inlineCheckbox2"
+                                                                       value="2"> 有开栓令无档 </label>
+                                                            <label class="radio-inline">
+                                                                <input type="radio" name="ksl" id="inlineCheckbox3"
+                                                                       value="3"> 无开栓令无档 </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </form>
+                            </div>
+                            <!--/row-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tabbable tabbable-custom tabbable-custom-profile col-md-12" style="padding-bottom:0px">
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#tab22" data-toggle="tab" style="font-size: 14px;color: blue;">
+                            登记信息 </a>
+
+                    </li>
+                </ul>
+                <!--/row-->
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab22">
+                        <div class="portlet-body">
+                            <!-- begin form-->
+                            <div class="form-body">
+                            	<div class="row">
+	                        		<div class="col-sm-4 form-group">
+	                                    <div class="btn-group input-group">
+	                                        <div class="input-group-addon">已工程改造:</div>
+	                                        <input id="reformed" type="checkbox"/>
+	                                    </div>
+	                                </div>
+	                        	</div>
+                                <div class="row">
+                                    <div class="col-sm-3 form-group">
+                                        <div class="btn-group input-group" style="width: 100%">
+                                            <div class="input-group-addon">联系人:</div>
+                                            <input id="linkMan" name="linkMan" class="inputclear form-control"
+                                                   type="text">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3 form-group">
+                                        <div class="btn-group input-group" style="width: 100%">
+                                            <div class="input-group-addon">联系电话:</div>
+                                            <input id="linktel" name="linktel" class="inputclear form-control"
+                                                   type="text">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3 form-group" id="unboltNo">
+                                        <div class="btn-group input-group" style="width: 100%">
+                                            <div class="input-group-addon">开栓令编号:</div>
+                                            <input id="unboltcode" class="inputclear form-control" type="text">
+                                            <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 form-group">
+                                        <div class="btn-group input-group" style="width: 100%">
+                                            <div class="input-group-addon">预约时间:</div>
+                                            <input name="bookingtime" id="bookingtime"
+                                                   data-date-format="yyyy-mm-dd" type="text"
+                                                   class="form-control form-control-inline  form_accuracy_datetime"
+                                                   placeholder="预约时间">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 form-group" id="project">
+                                    <div class="btn-group input-group" style="width: 100%">
+                                        <div class="input-group-addon">工程地址:</div>
+                                        <input id="projectAddress" class="inputclear form-control" type="text">
+                                        <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                    </div>
+                                </div>
+                                <!--<script>$.include("common/upload.shtml");</script>-->
+                                <div class="col-sm-12 form-group">
+                                    <div class="btn-group input-group" style="width: 100%">
+                                        <div class="input-group-addon">业务说明:</div>
+                                        <textarea id="remark" class="inputclear form-control" style="width:100%;height: 100px;"></textarea>
+                                        <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--end form-->
+                        </div>
+                    </div>
+                    <script>$.include("common/gpyupload.shtml")</script>
+                </div>
+
+            </div>
+            <script>$.include("serviceManage/partial/commit_print.shtml");</script>
+
+            <!-- 内容结束-->
+            <!-- 内容开始-->
+        </div>
+    </div>
+    <!-- 主内容结束 -->
+</div>
+
+<script type="text/javascript">$.include("pages/partial/xwatable-form.shtml")</script>
+
+</body>
+
+<script>$.include("pages/partial/scripts.shtml");</script>
+<script src="pages/scripts/jquery.json.min.js"></script>
+<script type="text/javascript" src="pages/scripts/jquery.serialize-object.min.js"></script>
+<script src="assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-watable/jquery.watable.js"></script>
+<script type="text/javascript" src="pages/scripts/rqlbuilder.js"></script>
+<script type="text/javascript" src="pages/scripts/xwatable.js"></script>
+<script type="text/javascript" src="pages/scripts/refhelper.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript"
+        src="assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script type="text/javascript"
+        src="assets/global/plugins/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-multi-select/js/jquery.multi-select.js"></script>
+<script src="assets/admin/pages/scripts/components-pickers.js"></script>
+<script type="text/javascript" src="assets/global/plugins/clockface/js/clockface.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+<script src="serviceManage/js/open_switch.js"></script>
+<script>
+    jQuery(document).ready(function () {
+
+        ComponentsPickers.init();
+    });
+
+</script>
+
+<!-- END PAGE LEVEL SCRIPTS -->
+
+
+<!-- End of User Script-->
+</html>

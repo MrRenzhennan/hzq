@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+
+<!-- BEGIN HEAD -->
+<head>
+    <title>专用账户对账</title>
+    <base href="../../">
+    <script src="../pages/scripts/header.js"></script>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8"/>
+    <link rel='stylesheet' href='../assets/global/plugins/jquery-watable/watable.css'/>
+    <link rel='stylesheet' href='../assets/global/plugins/jquery-watable/animate.min.css'/>
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-select/bootstrap-select.min.css">
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-datepicker/css/datepicker.css"/>
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/select2/select2.css">
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/jstree/dist/themes/default/style.min.css"/>
+
+
+
+    <link href="assets/global/plugins/jquery-file-upload/css/jquery.fileupload.css" rel="stylesheet"/>
+<link href="assets/global/plugins/jquery-file-upload/css/jquery.fileupload-ui.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/jstree/dist/themes/default/style.min.css"/>
+    <link href="assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
+    <!-- END THEME STYLES -->
+</head>
+<!-- END HEAD -->
+<body class="page-header-fixed page-quick-sidebar-over-content">
+<!-- 标题栏开始 -->
+<div class="page-header navbar navbar-fixed-top">
+    <script>$.include("pages/partial/menu.shtml");</script>
+</div>
+<!-- 标题栏结束 -->
+<div class="clearfix"></div>
+<div class="page-container">
+    <!-- 左侧菜单开始 -->
+    <div class="page-sidebar-wrapper">
+        <script>$.include("pages/partial/sidebar.shtml");</script>
+    </div>
+    <!-- 左侧菜单结束 -->
+    <!-- 主内容开始 -->
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <!--内容头开始-->
+            <script>$.include("common/navigation_bar.shtml");</script>
+            <div class="container col-sm-12" style="padding-bottom:0px">
+                <div class="row">
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group  input-select2me">
+                            <div class="input-group-addon">供气区域:</div>
+                            <select id="find_areaId" class="form-control input-middle select2me"
+                                    data-placeholder="供气区域..." >
+                                <option value="">全部</option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group">
+                            <div class="input-group-addon">银行专户名称:</div>
+                            <input id="find_bankQueName" class="inputclear form-control" type="text" placeholder="银行专户名称">
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group">
+                            <div class="input-group-addon">客户编号:</div>
+                            <input id="find_checkCode" class="inputclear form-control" type="text" placeholder="客户编号">
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                        </div>
+                    </div>                
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group">
+                            <div class="input-group-addon">批次号:</div>
+                            <input id="find_batchNum" class="inputclear form-control" type="text" placeholder="批次号">
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                        </div>
+                    </div>                
+                </div>       
+                <div class="row">
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group  input-select2me">
+                            <div class="input-group-addon">状态:</div>
+                            <select id="find_status" class="form-control input-middle select2me"
+                                    data-placeholder="状态..." >
+                                <option value="">全部</option>
+                                <option value="0">已导入</option>
+                                <option value="1">已匹配</option>
+                                <option value="2">已登记</option>
+                                <!-- <option value="3">全部</option> -->
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                        </div>
+                    </div>
+                </div>         
+                <div class="row">
+                    <div class="col-md-12 form-group" style="margin:10px 0;">
+
+                        <div class="btn-group input-group pull-left col-md-2">                          
+                            <div class="input-group-addon">入账时间起始:</div>
+                            <div class="input-group input-large date-picker input-daterange" data-date-format="yyyy-mm-dd">
+                                <input id="createtimefrom" type="text" class="form-control" name="from">
+                                <span class="inputclear glyphicon glyphicon-remove-circle hidden" ></span>
+                                <span class="input-group-addon">至</span>
+                                <input id="createtimeto" type="text" class="form-control" name="to">
+                                <span class="inputclear glyphicon glyphicon-remove-circle hidden" ></span>
+                            </div>
+                        </div>
+                        <div id="chosedate" class="col-md-5 data-select">                        
+                            <div class="btn-group">
+                                <button id="find_today_sign" class="btn">当日</button>
+                            </div>
+                            <div class="btn-group">
+                                <button id="find_this_week_sign" class="btn">近一周</button>
+                            </div>
+                            <div class="btn-group">
+                                <button id="find_this_month_sign" class="btn">近一月</button>
+                            </div>
+                            <div class="btn-group">
+                                <button id="find_three_month_sign" class="btn">近三月</button>
+                            </div>
+                            <div class="btn-group">
+                                <button id="find_this_year_sign" class="btn">近一年</button>
+                            </div>
+                            <div class="btn-group">
+                                <button id="find_anyway_sign" class="btn">不限</button>
+                            </div>
+                        </div>
+                    </div>                        
+                </div>
+                <div class="row">
+                     <div class="btn-group form-group">
+                        <button id="find_button" class="btn yellow">
+                            <i class="fa fa-search"></i> 查询&nbsp;
+                        </button>
+                    </div>
+                    <div class="btn-group form-group quanxians">
+                        <button id="add_button_1" class="btn green" data-target="#stack1" data-toggle="modal">
+                            <i class="fa fa-plus"></i> 添加&nbsp;
+                        </button>
+                    </div>
+                    <div class="btn-group form-group quanxians">
+                        <button id="del_button_1" class="btn red">
+                            <i class="fa fa-trash-o"></i> 批量删除&nbsp;
+                        </button>
+                    </div>
+
+                     <div class="btn-group form-group quanxians">
+                        <button id="bank_date_check" class="btn blue" data-target="#stack1" data-toggle="modal">
+                                <i class="fa fa-user"></i> 放权&nbsp;
+                        </button>
+                     </div>
+                     <div class="btn-group form-group quanxians">
+                        <button id="batch_import" class="btn green" data-target="#input_many_modal" data-toggle="modal">
+                                <i class="fa fa-cloud-upload"></i> 批量导入&nbsp;
+                        </button>
+                     </div>
+                     <div class="btn-group form-group quanxians">
+                        <button type="button" id="downloadtmpl" class="btn purple">
+                            <i class="fa fa-download"></i> 模版下载 
+                        </button>
+                     </div>
+                     
+                </div>
+
+            </div>
+            <div class="container-fluid">
+                <div id="divtable" class="table-responsive dataTable container-fluid col-md-12" >
+                </div>
+            </div>
+            <!-- 内容结束-->
+            
+        </div>
+    </div>
+</div>
+    <!-- 主内容结束 -->
+</div>
+<div class="modal fade" id="input_many_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" backdrop=false>
+    <div class="modal-dialog">
+        <div class="modal-content" style="width:800px">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">批量导入</h4>
+            </div>
+            <div class="modal-body">
+                <p style="color:red;">请先选择银行</p>
+                <div class="row" style="margin-bottom:10px;">
+                    <div class="col-md-6">
+                        <label class="control-label col-md-4">银行:</label>
+                        <div class="col-md-8">
+                            <select id="selectbanks"
+                                    class="form-control input-middle select2me" data-placeholder="">
+                                <option value="">请选择</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 form-group">
+                        <div class="btn-group input-group">
+                            <div class="input-group-addon">批次号:</div>
+                            <input id="counts" class="inputclear form-control" type="text" placeholder="" readonly>
+                        </div>
+                    </div> 
+                </div>
+                    
+                <form id="fileupload" class="form-horizontal" method="post" enctype="multipart/form-data">
+                    
+                    <!--<input type="file" id="fileId" name="fileName">-->
+                    <div class="col-lg-12">
+                                <!-- The fileinput-button span is used to style the file input field as button -->
+                        <span class="btn green fileinput-button" id="addbtn" disabled>
+                        <i class="fa fa-plus"></i>
+                        <span>
+                        添加文件... </span>
+                        <input type="file" id="fileId" name="files[]" multiple>
+                        </span>
+                        <button type="button" id="startupload" class="btn blue start" disabled>
+                        <i class="fa fa-upload"></i>
+                        <span>
+                        开始上传 </span>
+                        </button>
+                        <button type="button" id="confirm" style="display: none" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> 正在入库" class="btn blue start">
+                            <i class="fa fa-upload"></i>
+                            <span>
+                            确认入库    </span>
+                        </button>
+                        <button type="reset" class="btn warning cancel" data-dismiss="modal">
+                        <i class="fa fa-ban-circle"></i>
+                        <span>
+                        取消上传 </span>
+                        </button>
+                        <button type="button" id="clear" class="btn red delete">
+                        <i class="fa fa-trash"></i>
+                        <span>
+                        清空 </span>
+                        </button>
+                        <!-- The global file processing state -->
+                        <span class="preview">
+
+                        </span>
+                    </div>
+                    <!-- The global progress information -->
+                    <table role="presentation" class="table table-striped clearfix">
+                        <tbody class="files">
+                        </tbody>
+                        </table>
+                    
+                </form>
+                 <div id="divtabledata_prev" style="overflow-x: scroll;" class="table-responsive dataTable container-fluid col-md-12">
+
+                </div>
+
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">$.include("pages/partial/xwatable-form.shtml")</script>
+</body>
+<script>$.include("pages/partial/scripts.shtml");</script>
+<script type="text/javascript" src="assets/global/plugins/jquery-watable/jquery.watable.js"></script>
+<script type="text/javascript" src="pages/scripts/rqlbuilder.js"></script>
+<script type="text/javascript" src="pages/scripts/xwatable.js"></script>
+<script type="text/javascript" src="pages/scripts/refhelper.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-multi-select/js/jquery.multi-select.js"></script>
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script src="assets/admin/pages/scripts/components-pickers.js"></script>
+
+<script type="text/javascript" src="assets/global/plugins/bootstrap-daterangepicker/moment.min.js"></script>
+<script src="mods/basismanage.js"></script>
+<script src="mods/sys.js"></script>
+<script src="mods/bas.js"></script>
+<script src="bill/js/bankchecks.js"></script>
+<script src="pages/scripts/userinfo.js"></script>
+
+<!-- END PAGE LEVEL SCRIPTS -->
+<script type="text/javascript">
+    
+    ComponentsPickers.init();
+    reloadAmount.init();
+</script><!-- End of User Script-->
+</html>

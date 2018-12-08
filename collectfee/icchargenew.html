@@ -1,0 +1,2079 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>收费管理</title>
+    <style>
+        #search {
+            width: 100%;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .text-muted {
+
+            font-weight: blod;
+        }
+    </style>
+    <base href="../">
+    <meta charset="UTF-8">
+    <script src="pages/scripts/basepath.js"></script>
+    <script src="pages/scripts/header.js"></script>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8" />
+    <link href="assets/global/css/plugins.css" rel="stylesheet" type="text/css" />
+    <link href='assets/global/plugins/jquery-watable/watable.css' rel='stylesheet' />
+    <link href="assets/global/plugins/bootstrap-fileinput/fileinput.min.css" rel="stylesheet">
+
+    <style>
+        #divtable {
+            display: none;
+        }
+
+        .table td {
+            vertical-align: middle !important;
+        }
+    </style>
+</head>
+
+<body class="page-header-fixed page-quick-sidebar-over-content">
+    <script>
+        $.include("collectfee/partial/customerinfo.shtml");
+        $.include("collectfee/partial/icgasrowinfo.shtml");
+        $.include("collectfee/partial/wasterowinfo.shtml");
+        $.include("collectfee/partial/ctmaccountinfo.shtml");
+        $.include("collectfee/partial/iccardinfo.shtml");
+    </script>
+    <div class="page-header navbar navbar-fixed-top">
+        <script>
+            $.include("pages/partial/menu.shtml");
+        </script>
+    </div>
+
+    <div class="clearfix"></div>
+    <div class="page-container">
+        <!-- 左侧菜单开始 -->
+        <div class="page-sidebar-wrapper">
+            <script>
+                $.include("pages/partial/sidebar.shtml");
+            </script>
+        </div>
+        <!-- 左侧菜单结束 -->
+        <div id="gfdata"></div>
+        <!-- 主内容开始 -->
+        <div class="page-content-wrapper">
+            <div class="page-content">
+                <!--内容头开始-->
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul class="page-breadcrumb breadcrumb">
+                            <li>
+                                <i class="fa  fa-map-marker"></i>
+                                <a href="javascript:void(0)">收费管理</a>
+                                <i class="fa fa-angle-right"></i>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">燃气收费</a>
+                                <i class="fa fa-angle-right"></i>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">IC卡收费</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <script>
+                    $.include("serviceManage/partial/select_user.shtml");
+                </script>
+                <!--用户信息-->
+                <script>
+                    $.include("serviceManage/partial/user_info.shtml");
+                </script>
+                <div id="divChgContainer" class="tabbable tabbable-custom tabbable-custom-profile col-md-12" style="padding-bottom:0px; display: none">
+                    <ul class="nav nav-tabs">
+                        <li id="gas" role="presentation" class="active"><a id="tabGas" href="#gasFee" aria-controls="gasFee" role="tab" data-toggle="tab">燃气费</a></li>
+                        <li id="liWaste" role="presentation"><a id="tabWaste" href="#wasteFee" aria-controls="wasteFee" role="tab" data-toggle="tab">垃圾处理费</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="gasFee">
+                            <div data-always-visible="1" data-rail-visible="1">
+                                <table class="table">
+                                    <tbody id="_gasInfo">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="wasteFee">
+                            <div data-always-visible="1" data-rail-visible="1">
+                                <table class="table">
+                                    <tbody id="_wasteInfo">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="tab_iccard" class="tab-pane" role="tabpanel">
+    </div>
+    <div id="tab_ctm" class="tab-pane" role="tabpanel">
+    </div>
+    <div id="tab_customer" class="tab-pane" role="tabpanel">
+    </div>
+    <div id="write_iccard" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body">
+                    <p id="mcontent"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="cancelWriteCard" class="btn btn-default">不写卡</button>
+                    <button type="button" id="reWriteCard" class="btn btn-primary">重新写卡</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--收费历史modal-->
+    <div class="modal fade bs-example-modal-lg" id="payHistoryModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div id="mcontent" class="modal-content">
+
+            </div>
+        </div>
+    </div>
+    <div class="modal fade bs-example-modal-lg" id="mtdHistoryModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div id="mcontent" class="modal-content">
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade bs-example-modal-lg" id="hzqModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div id="mcontent" class="modal-content">
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="invoiceModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">发票领用</h4>
+                </div>
+                <div id="mcontent" class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <input id="detailid" type="hidden" name="detailid">
+                    <input id="imoney" type="hidden" name="imoney">
+                    <input type="hidden" id="amount">
+                    <button id="cancel" type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button id="receive" type="button" class="btn btn-primary">确定领用</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 底边栏开始 -->
+    <script>
+                    $.include("pages/partial/foot.shtml");
+    </script>
+    <script type="text/javascript">
+        $.include("pages/partial/xwatable-form.shtml")
+    </script>
+</body>
+
+<script>
+        $.include("pages/partial/scripts.shtml");
+
+</script>
+
+<script src="assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-watable/jquery.watable.js"></script>
+<script type="text/javascript" src="pages/scripts/rqlbuilder.js"></script>
+<script type="text/javascript" src="pages/scripts/xwatable.js"></script>
+<script type="text/javascript" src="pages/scripts/refhelper.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script src="assets/admin/pages/scripts/components-pickers.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+<script src="pages/scripts/jquery.json.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-fileinput/fileinput.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-fileinput/zh.js"></script>
+<script type="text/javascript" src="pages/scripts/jquery.serialize-object.min.js"></script>
+<script type="text/javascript" src="collectfee/js/charge.js"></script>
+<script type="text/javascript" src="collectfee/js/localservice.js"></script>
+
+<!-- 底边栏结束 -->
+<script type="text/javascript">
+    var isBlackList = '0';//0否
+    var $activeTab;
+    var $invoiceModal;
+    /*$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+        e.target // newly activated tab
+        e.relatedTarget // previous active tab
+    });*/
+    $(function () {
+        $invoiceModal = $("#invoiceModal");
+        $invoiceModal.on("hidden.bs.modal", function () {
+            $(this).removeData("bs.modal");
+        });
+        $invoiceModal.unbind("show.bs.modal").on("show.bs.modal", function (e) {
+            $(e.currentTarget).find("#mcontent").empty();
+        });
+        $invoiceModal.unbind("shown.bs.modal").on("shown.bs.modal", function (e) {
+            // 加载数据模板
+            $(e.currentTarget).find("#mcontent").load("collectfee/partial/wasteinvoice.shtml", function () {
+            });
+        });
+        //发票
+        $("#invoiceModal").delegate("button[btncount]", "click", function () {
+            var $btn = $(this),
+                $container = $btn.closest("div[je]"),
+                $invoiceCount = $container.find("#count"),
+                $invoiceValue = $("#summoney")
+            $invoiceTotalCount = $("#sumcount");
+
+            var selectInvoiceValue = 0;
+            selectInvoiceValue = $invoiceValue.html() * 1 + $btn.attr("btnvalue") * 1;
+
+            var selectInvoiceCount = 0;
+            selectInvoiceCount = $invoiceCount.text() * 1 + $btn.attr("btncount") * 1;
+
+            if (selectInvoiceValue > $("#imoney").val()) {
+                bootbox.alert("发票总金额不能大于实际收费金额");
+                return
+            }
+            else if (selectInvoiceCount < 0) {
+                bootbox.alert("发票数量不能小于0");
+                return
+            }
+            else {
+                $invoiceCount.html(selectInvoiceCount);
+                $invoiceTotalCount.html($invoiceTotalCount.text() * 1 + $btn.attr("btncount") * 1);
+                $invoiceValue.html(selectInvoiceValue);
+            }
+        });
+
+        $("#receive").click(function () {
+            var $container = $("#invoiceModal"),
+                $invoiceCounts = $container.find("label[type=count]"),
+                $invoiceValues = $container.find("label[value]");
+            var invoice = "";
+
+            for (var i = 0; i < $invoiceCounts.length; i++) {
+                var count = parseInt($($invoiceCounts[i]).text());
+                if (count > 0) {
+                    for (var j = 0; j < count; j++) {
+                        invoice += $($invoiceValues[i]).attr("value") + "|";
+                    }
+                }
+            }
+            chargeHelper.invoiceWaste($("#detailid").val(), invoice, function (success, data) {
+                if (success) {
+                    if (data.errCode == '1') {
+                        bootbox.alert("发票领用成功");
+                        $invoiceModal.modal('hide');
+                        var customerArchive = chargeHelper.getContext("_current_archive");
+                        onCustomerSelected(customerArchive.customerCode);
+                    } else {
+                        bootbox.alert("发票领用失败：" + data.errCode, function () {
+                            $invoiceModal.modal('hide');
+                            var customerArchive = chargeHelper.getContext("_current_archive");
+                            onCustomerSelected(customerArchive.customerCode);
+                        });
+                    }
+                } else {
+                    bootbox.alert("发票领用异常");
+                }
+            });
+        });
+        $("#cancel").click(function () {
+            var customerArchive = chargeHelper.getContext("_current_archive");
+            onCustomerSelected(customerArchive.customerCode);
+        });
+        $(".tab-content").delegate("a[hzq-type=remoteModal]", "click", function (obj) {
+            var $targetModalhzq = $($(obj.target).attr("hzq-modal"));
+            var targetPath = $(obj.target).attr("hzq-remote");
+            var fnstring = $(obj.target).attr("hzq-cb");
+            var param = $(obj.target).attr("hzq-param");
+            $targetModalhzq.modal({
+                show: true
+            })
+            $targetModalhzq.unbind("show.bs.modal").on("show.bs.modal", function (e) {
+                $(e.currentTarget).find("#mcontent").empty();
+            });
+            $targetModalhzq.unbind("shown.bs.modal").on("shown.bs.modal", function (e) {
+                // 加载数据模板
+                $(e.currentTarget).find("#mcontent").load(targetPath, function () {
+                    if (fnstring) {
+                        var fn = window[fnstring];
+                        if (typeof fn === "function") fn.call(null, JSON.parse(param));
+                        window[fnstring] = undefined;
+
+                        //if (typeof fn === "function") fn.call(null, param );
+                    }
+                });
+            });
+            $targetModalhzq.on("hidden.bs.modal", function () {
+                $(this).removeData("bs.modal");
+            });
+        });
+    });
+    var $targetModal;
+    $(document).ready(function () {
+        $('#divChgContainer').delegate("a[data-toggle=tab]", 'shown.bs.tab', function (e) {
+            $activeTab = $(e.target);
+        });
+
+        $targetModal = $("#write_iccard");
+        $targetModal.modal({
+            show: false,
+            backdrop: 'static',
+            keyboard: false
+        })
+        $targetModal.unbind("shown.bs.modal").on("shown.bs.modal", function (e) {
+            var content = "";
+            $(e.currentTarget).find("#mcontent").append(content);
+        });
+        $targetModal.on("hidden.bs.modal", function () {
+            $(this).removeData("bs.modal");
+        });
+        /*$("#find_key").val("116042061");*/
+
+        $("#find_user_btn").closest(".row").append("<div class=\"btn-group form-group col-sm-1\"><button id=\"read_card\" type=\"button\" class=\"btn blue\">读卡&nbsp;<i id=\"ib\" class=\"icon-credit-card\"></i></button></div>");
+        $("#find_user_btn").closest(".row").append("<select id=\"read_factory_card\" class=\"form-control input-small select2me\"><option value=\"\">自动选择</option><option value=\"01\">浙江金卡</option><option value=\"02\">浙江松川</option><option value=\"03\">浙江蓝宝石</option><option value=\"04\">浙江正泰</option><option value=\"05\">上海真兰</option><option value=\"06\">浙江天信</option></select>");
+        // 选择收费方式
+        $("#divChgContainer").delegate("input[name=chgType]", "change", function (e) {
+            var $obj = $(e.currentTarget),
+                $table = $obj.closest("table");
+
+            $table.find("#cashAmount").removeAttr("disabled");
+
+            if ($obj.val() == "4") {
+                $table.find("#input_checkno").removeAttr("disabled");
+            } else {
+                $table.find("#input_checkno").attr("disabled", "disabled");
+                $table.find("#input_checkno").val("");
+            }
+            if ($obj.val() == "4") {
+                if (parseFloat($table.find("#cashAmount").val()) >= 0) {
+                    $table.find("#BtnSub").removeAttr("disabled");
+                    $table.find("#BtnChg").removeAttr("disabled");
+
+                } else if (parseFloat($table.find("#cashAmount").val()) == 0 && parseFloat($table.find("#transMeasure").val()) > 0) {
+                    $table.find("#BtnSub").removeAttr("disabled");
+                    $table.find("#BtnChg").removeAttr("disabled");
+                } else {
+                    $table.find("#BtnSub").attr("disabled", "disabled");
+                    $table.find("#BtnChg").attr("disabled", "disabled");
+                }
+            } else {
+                if (parseFloat($table.find("#cashAmount").val()) >= 0) {
+                    $table.find("#BtnSub").removeAttr("disabled");
+                    $table.find("#BtnChg").removeAttr("disabled");
+                } else {
+                    $table.find("#BtnSub").attr("disabled", "disabled");
+                    $table.find("#BtnChg").attr("disabled", "disabled");
+                }
+            }
+        });
+        $("#divChgContainer").delegate("input[id=cashAmount]", "blur", function (e) {
+            var $obj = $(e.currentTarget),
+                $table = $obj.closest("table"),
+                $chgType = $table.find("input[name=chgType]"),
+                money = parseFloat($obj.val());
+            if (parseFloat($obj.val()) > 1000) {
+                // alert("金额过大");
+                bootbox.confirm({
+                    buttons: {
+                        confirm: {
+                            label: '确定金额输入正确',
+                            className: 'btn-danger'
+                        },
+                        cancel: {
+                            label: '更正',
+                            className: 'btn-success'
+                        }
+                    },
+                    message: '输入的购气金额 <b style="color:red">¥' + $obj.val() + '</b> 过大，请确认是否输入正确',
+                    callback: function (result) {
+                        if (result) {
+
+                        } else {
+                            $obj.val("");
+                        }
+                    }
+                });
+            } else if (parseFloat($obj.val()) < 0) {
+                //alert("金额不能为负值");
+                bootbox.alert({
+                    buttons: {
+                        ok: {
+                            label: '知道了~',
+                            className: 'btn-myStyle'
+                        }
+                    },
+                    message: '输入的金额为负值，请重新输入',
+                    callback: function () {
+                        $obj.val("");
+
+                    }
+                });
+
+                /*
+                                bootbox.alert("输入的金额为负值，请重新输入", function () {
+                                    $obj.val("");
+                                });*/
+            }
+
+            if ($chgType.val() == "4") {
+                if (money >= 0 && checkNo != "") {
+                    $table.find("#BtnSub").removeAttr("disabled");
+                    $table.find("#BtnChg").removeAttr("disabled");
+                } else {
+                    $table.find("#BtnSub").attr("disabled", "disabled");
+                    $table.find("#BtnChg").attr("disabled", "disabled");
+                }
+            } else {
+                if (money >= 0) {
+                    $table.find("#BtnSub").removeAttr("disabled");
+                    $table.find("#BtnChg").removeAttr("disabled");
+                } else {
+                    $table.find("#BtnSub").attr("disabled", "disabled");
+                    $table.find("#BtnChg").attr("disabled", "disabled");
+                }
+            }
+        });
+        // 不写卡
+        $("#write_iccard").delegate("#cancelWriteCard", "click", function (e) {
+            $("#cancelWriteCard").attr("disabled", "disabled");
+            var currentArchive = chargeHelper.getContext("_current_archive");
+            var writecarddata = chargeHelper.getContext("writecarddata");
+            chargeHelper.corIc(currentArchive.customerCode, writecarddata.bizId, function () {
+                $targetModal.modal('hide');
+                $("#cancelWriteCard").removeAttr("disabled");
+                onCustomerSelected(currentArchive.customerCode);
+            });
+        });
+        // 重新写卡
+        $("#write_iccard").delegate("#reWriteCard", "click", function (e) {
+            doWriteCard(chargeHelper.getContext("writecarddata"), function (cardData, isSuccess) {
+                if (isSuccess) {
+                    var chgResult = chargeHelper.getContext("writecarddata");
+                    //if (confirm("燃气交费成功，交费金额[" + chgResult.money + "]，交费气量[" + chgResult.gas + "]，账户余额为[" + chgResult.balance + "]，是否打印发票")) {
+                    $targetModal.find(".modal-title").html("打印发票");
+                    $targetModal.find("#mcontent").html("打印中，请稍后...");
+                    $targetModal.find("#reWriteCard").hide();
+                    $targetModal.find("#cancelWriteCard").hide();
+                    if (chgResult && chgResult.invoiceId) {
+                        chargeHelper.printInvoice(chgResult.invoiceId, function (pData) {
+                            if (pData == null || pData == undefined) {
+                                bootbox.alert("打印失败", function () {
+                                    onCustomerSelected(chargeHelper.getContext("_current_archive").customerCode);
+                                });
+                            } else {
+                                localService.callPrint({ "ptid": pData.printId }, function (retData, isSuccess) {
+                                    $targetModal.modal('hide');
+                                    if (isSuccess) {
+                                        bootbox.confirm("是否打印成功？", function (result) {
+                                            if (result) {
+                                                chargeHelper.printInvoiceResponse(chgResult.invoiceId);
+                                            } else {
+
+                                            }
+                                            onCustomerSelected(chargeHelper.getContext("_current_archive").customerCode);
+                                        });
+                                    } else {
+                                        bootbox.alert("打印失败", function () {
+                                            onCustomerSelected(chargeHelper.getContext("_current_archive").customerCode);
+                                        });
+                                    }
+                                });
+                            }
+                        });
+                    } else {
+                        bootbox.alert("打印失败", function () {
+                            onCustomerSelected(chargeHelper.getContext("_current_archive").customerCode);
+                        });
+                    }
+                } else {
+                    bootbox.alert("写卡失败，请尝试重新写卡");
+                }
+            });
+        });
+
+        // 写卡方法
+        var doWriteCard = function (chgResult, cb) {
+            if (chgResult.kzt == "0") {
+                localService.callOpenCard(chgResult.kxplx, chgResult.cardFactory, {
+                    "com": chargeHelper.com,
+                    "baud": chgResult.baud,
+                    "kh": chgResult.kh,
+                    "btm": chgResult.btm,
+                    "dqdm": chgResult.dqdm,
+                    "ql": chgResult.ql,
+                    "je": chgResult.je,
+                    "xdj": chgResult.xdj,
+                    "djlx": chgResult.djlx,
+                    "jgtm": chgResult.jgtm,
+                    "cs": chgResult.cs,//购气次数
+                    "klx": chgResult.klx,
+                    "kzt": chgResult.kzt,
+                    "bkcs": chgResult.bkcs,
+                    "bjql": chgResult.bjql,
+                    "txxe": chgResult.txxe,
+                    "czxe": chgResult.czxe,
+                    "dllx": "0",
+                    "kxplx": chgResult.kxplx
+                    // data.kxplx
+                }, cb);
+            } else {
+                localService.callWriteCard(chgResult.kxplx, chgResult.cardFactory, {
+                    "com": chargeHelper.com,
+                    "baud": "9600",
+                    "kh": chgResult.kh,
+                    "btm": chgResult.btm,
+                    "dqdm": chgResult.dqdm,
+                    "ql": chgResult.ql,
+                    "je": chgResult.je,
+                    "xdj": chgResult.xdj,
+                    "djlx": chgResult.djlx,
+                    "jgtm": chgResult.jgtm,
+                    "cs": chgResult.cs,
+                    "klx": chgResult.klx,
+                    "kzt": chgResult.kzt,
+                    "bkcs": chgResult.bkcs,
+                    "bjql": chgResult.bjql,
+                    "txxe": chgResult.txxe,
+                    "czxe": chgResult.czxe,
+                    "dllx": chgResult.dllx,
+                    "kxplx": chgResult.kxplx
+                }, cb);
+            }
+        };
+        // 联合账户收费
+        $("#divChgContainer").delegate("#BtnChg", "click", function (e) {
+            var $obj = $(e.currentTarget),
+                $table = $obj.closest("table");
+            var title = $table.find("#chgTitle").val();
+            //var chgTypeName = $table.find("#chgType").attr("text");
+
+            var chgTypeName = $table.find("input[name=chgType]:checked").attr("text");
+            var chgTypeId = $table.find("input[name=chgType]:checked").val();
+            var money = $table.find("#cashAmount").val();
+            var checkNo = $table.find("#input_checkno").val();
+            var feeType = $table.find("#feeType").val();
+            var customerArchive = chargeHelper.getContext("_current_archive");
+            var message = "";
+            message += "<p style='font-size: large;' class=\"text-muted\">客户号：" + customerArchive.customerCode + "</p>";
+            message += "<p style='font-size: large;' class=\"text-muted\">客户姓名：" + customerArchive.customerName + "</p>";
+            message += "<p style='font-size: large;' class=\"text-muted\">收费方式：<span style='color:green; font-weight:bold;'>" + chgTypeName + "</span></p>";
+            message += "<p style='font-size: large;' class=\"text-muted\">收费金额：<span style='color:green; font-weight:bold;'>" + chargeHelper.formatMoney(money) + "</span></p>";
+            var title = "";
+            if (feeType == "gas") {
+                title = "收取燃气费";
+            } else {
+                title = "收取垃圾处理费";
+            }
+            bootbox.confirm({
+                title: title,
+                buttons: {
+                    confirm: {
+                        label: '收费信息正确，确认收费',
+                        className: 'btn-danger'
+                    },
+                    cancel: {
+                        label: '取消',
+                        className: 'btn-default'
+                    }
+                },
+                message: message,
+                callback: function (result) {
+                    if (result) {
+                        if (feeType == "gas") {
+                            chargeHelper.chgGasFee(customerArchive.customerCode, chgTypeId, money, checkNo, isBlackList, function (chgResult) {
+                                if (chgResult.errCode == "1") {
+                                    if (money == "0") {
+                                        $targetModal.modal('hide');
+                                        onCustomerSelected(customerArchive.customerCode);
+                                    } else if (chgResult.invoiceType == "2") {
+                                        bootbox.confirm("该客户的发票类型为专用发票，是否打印普通发票？", function (confirmResult) {
+                                            if (confirmResult) {
+                                                chargeHelper.printInvoice(chgResult.invoiceId, function (pData) {
+                                                    if (pData == null || pData == undefined) {
+                                                        bootbox.alert("打印失败", function () {
+                                                            //window.location.reload();
+                                                            onCustomerSelected(customerArchive.customerCode);
+                                                        });
+                                                    } else {
+                                                        localService.callPrint({ "ptid": pData.printId }, function (retData, isSuccess) {
+                                                            if (isSuccess) {
+                                                                if (confirm("是否打印成功？")) {
+                                                                    chargeHelper.printInvoiceResponse(chgResult.invoiceId);
+                                                                }
+                                                                //window.location.reload();
+                                                                onCustomerSelected(customerArchive.customerCode);
+                                                            } else {
+                                                                bootbox.alert("打印失败", function () {
+                                                                    //window.location.reload();
+                                                                    onCustomerSelected(customerArchive.customerCode);
+                                                                });
+                                                            }
+                                                        });
+                                                    }
+                                                });
+                                            } else {
+                                                $targetModal.modal('hide');
+                                                onCustomerSelected(customerArchive.customerCode);
+                                            }
+                                        });
+                                    } else {
+                                        chargeHelper.printInvoice(chgResult.invoiceId, function (pData) {
+                                            if (pData == null || pData == undefined) {
+                                                bootbox.alert("打印失败", function () {
+                                                    //window.location.reload();
+                                                    onCustomerSelected(customerArchive.customerCode);
+                                                });
+                                            } else {
+                                                localService.callPrint({ "ptid": pData.printId }, function (retData, isSuccess) {
+                                                    if (isSuccess) {
+                                                        if (confirm("是否打印成功？")) {
+                                                            chargeHelper.printInvoiceResponse(chgResult.invoiceId);
+                                                        }
+                                                        //window.location.reload();
+                                                        onCustomerSelected(customerArchive.customerCode);
+                                                    } else {
+                                                        bootbox.alert("打印失败", function () {
+                                                            //window.location.reload();
+                                                            onCustomerSelected(customerArchive.customerCode);
+                                                        });
+                                                    }
+                                                });
+                                            }
+                                        });
+                                    }
+                                } else {
+                                    bootbox.alert(chgResult.errMsg, function () {
+                                        //window.location.reload();
+                                        onCustomerSelected(customerArchive.customerCode);
+                                    });
+                                }
+                            });
+                        } else {
+                            // 垃圾处理费
+                            chargeHelper.chgWasteFee(customerArchive.customerCode, chgTypeId, money, checkNo, function (chgResult) {
+                                if (chgResult.errCode == "1") {
+                                    bootbox.confirm({
+                                        buttons: {
+                                            confirm: {
+                                                label: '领用发票',
+                                                className: 'btn-success'
+                                            },
+                                            cancel: {
+                                                label: '无需发票',
+                                                className: 'btn-default'
+                                            }
+                                        },
+                                        message: '垃圾费收费成功！<p>是否领用发票？</p>',
+                                        callback: function (result) {
+                                            if (result) {
+                                                $("#detailid").val(chgResult.detailId);
+                                                $("#imoney").val(money);
+                                                $invoiceModal.modal({
+                                                    show: true,
+                                                    backdrop: 'static',
+                                                    keyboard: false
+                                                })
+                                                $invoiceModal.modal('show');
+                                            } else {
+                                                onCustomerSelected(customerArchive.customerCode);
+                                            }
+                                        }
+                                    });
+
+                                } else {
+                                    bootbox.alert(chgResult.errMsg, function () {
+                                        onCustomerSelected(customerArchive.customerCode);
+                                    });
+                                }
+                            })
+                        }
+                    } else {
+                        $("#BtnSub").css("display", "block");
+                    }
+                }
+            });
+        });
+        // 收费按钮
+        $("#divChgContainer").delegate("#BtnSub", "click", function (e) {
+            $("#BtnSub").css("display", "none");
+            var $obj = $(e.currentTarget),
+                $table = $obj.closest("table");
+            var title = $table.find("#chgTitle").val();
+            var chgTypeName = $table.find("input[name=chgType]:checked").attr("text");
+            var chgTypeId = $table.find("input[name=chgType]:checked").val();
+            var money = $table.find("#cashAmount").val();
+            var checkNo = $table.find("#input_checkno").val();
+            var feeType = $table.find("#feeType").val();
+            var basicPrice = chargeHelper.getContext("_current_basicPrice").price1;
+            var useBalancecheckbox;
+            var useBalanceMoney;
+            var useComplement;
+            useBalancecheckbox = $table.find("#changecheck").attr("checked") ? "1" : "0";
+            useBalanceMoney = $table.find("#usebalancemoney").val() == "" ? "0" : $table.find("#usebalancemoney").val();
+            useComplement = $table.find("#complementcheck").attr("checked") ? "1" : "0";
+
+            var customerArchive = chargeHelper.getContext("_current_archive");
+            var message = "";
+            var fee = parseFloat(money) + parseFloat(useBalanceMoney);
+            var icOpenCard = chargeHelper.getContext("hasiccard");
+            var bizId = $.md5(JSON.stringify(customerArchive.customerCode) + new Date().getTime());
+
+
+            if (icOpenCard == "0") {
+                chargeHelper.transFeeToMeasure(customerArchive.customerCode, fee, function (data, isSuccess) {
+                    if (isSuccess && parseFloat(data.money) - parseFloat(data.spent_money) > 0 && useBalancecheckbox != "1") {
+                        var change = parseFloat(parseFloat(data.money) - parseFloat(data.spent_money)).toFixed(2)
+                        bootbox.confirm({
+                            buttons: {
+                                confirm: {
+                                    label: '需要找零：' + change + '元',
+                                    className: 'btn-danger'
+                                },
+                                cancel: {
+                                    label: '无需找零，零钱进入账户余额',
+                                    className: 'btn-default'
+                                }
+                            },
+                            message: '购气金额剩余：' + change + '元，是否需要找零？',
+                            callback: function (result) {
+                                if (result) {
+                                    money = parseFloat(parseFloat(data.spent_money).toFixed(4) - parseFloat(useBalanceMoney)).toFixed(4);
+
+                                } else {
+
+                                }
+                                message += "<p style='font-size: large;' class=\"text-muted\">客户号：" + customerArchive.customerCode + "</p>";
+                                message += "<p style='font-size: large;' class=\"text-muted\">客户姓名：" + customerArchive.customerName + "</p>";
+                                message += "<p style='font-size: large;' class=\"text-muted\">收费方式：<span style='color:green; font-weight:bold;'>" + chgTypeName + "</span></p>";
+                                message += "<p style='font-size: large;' class=\"text-muted\">收费金额：<span style='color:green; font-weight:bold;'>" + chargeHelper.formatMoney(money) + "</span></p>";
+                                message += "<p style='font-size: large;' class=\"text-muted\">销售单价：<span style='color:green; font-weight:bold;'>" + chargeHelper.formatPrice(basicPrice) + "</span></p>";
+                                if (feeType == "gas") {
+                                    if ($table.find("#changecheck").attr("checked")) {
+                                        message += "<p class=\"text-success\">使用IC卡账户余额</p>";
+                                    }
+                                    if ($table.find("#complementcheck").attr("checked")) {
+                                        message += "<p class=\"text-success\">使用IC卡补气量</p>";
+                                    }
+                                }
+                                /* if(!chgTypeName){
+                                 chgTypeName='未选择';
+                                 }*/
+                                var title = "";
+                                if (feeType == "gas") {
+                                    title = "收取燃气费";
+                                } else {
+                                    title = "收取垃圾处理费";
+                                }
+                                bootbox.confirm({
+                                    title: title,
+                                    buttons: {
+                                        confirm: {
+                                            label: '收费信息正确，确认收费',
+                                            className: 'btn-danger'
+                                        },
+                                        cancel: {
+                                            label: '取消',
+                                            className: 'btn-default'
+                                        }
+                                    },
+                                    message: message,
+                                    callback: function (result) {
+                                        if (result) {
+                                            if (feeType == "gas") {
+
+                                                // IC卡收费
+                                                $targetModal.modal({
+                                                    show: true,
+                                                    backdrop: 'static',
+                                                    keyboard: false
+                                                })
+                                                $targetModal.find(".modal-title").html("收费");
+                                                $targetModal.find("#mcontent").html("收费中，请稍后...");
+                                                $targetModal.find("#reWriteCard").hide();
+                                                $targetModal.find("#cancelWriteCard").hide();
+                                                chargeHelper.chgIcGasFee(customerArchive.customerCode, chgTypeId, money, checkNo, useBalanceMoney, useBalancecheckbox, useComplement, bizId, isBlackList,function (success, chgResult) {
+                                                    if (success) {
+                                                        // 缓存写卡信息
+                                                        if (chgResult && chgResult.errCode == "1") {
+                                                            chargeHelper.setContext("writecarddata", chgResult);
+                                                            doWriteCard(chgResult, function (cardData, isSuccess) {
+                                                                if (isSuccess) {
+                                                                    if (money == "0") {
+                                                                        $targetModal.modal('hide');
+                                                                        //window.location.reload();
+                                                                        onCustomerSelected(customerArchive.customerCode);
+                                                                    } else if (chgResult.invoiceType == '2') {
+                                                                        bootbox.confirm("该客户的发票类型为专用发票，是否打印普通发票？", function (confirmResult) {
+                                                                            if (confirmResult) {
+                                                                                $targetModal.find(".modal-title").html("打印发票");
+                                                                                $targetModal.find("#mcontent").html("打印中，请稍后...");
+                                                                                chargeHelper.printInvoice(chgResult.invoiceId, function (pData) {
+                                                                                    if (pData == null || pData == undefined) {
+                                                                                        bootbox.alert("打印失败", function () {
+                                                                                            //window.location.reload();
+                                                                                            onCustomerSelected(customerArchive.customerCode);
+                                                                                        });
+                                                                                    } else {
+                                                                                        localService.callPrint({ "ptid": pData.printId }, function (retData, isSuccess) {
+                                                                                            $targetModal.modal('hide');
+                                                                                            if (isSuccess) {
+                                                                                                bootbox.confirm("是否打印成功？", function (result) {
+                                                                                                    if (result) {
+                                                                                                        chargeHelper.printInvoiceResponse(chgResult.invoiceId);
+                                                                                                    }
+                                                                                                    //window.location.reload();
+                                                                                                    onCustomerSelected(customerArchive.customerCode);
+                                                                                                })
+                                                                                            } else {
+                                                                                                bootbox.alert("打印失败", function () {
+                                                                                                    //window.location.reload();
+                                                                                                    onCustomerSelected(customerArchive.customerCode);
+                                                                                                });
+                                                                                            }
+                                                                                        })
+                                                                                    }
+                                                                                });
+                                                                            } else {
+                                                                                $targetModal.modal('hide');
+                                                                                onCustomerSelected(customerArchive.customerCode);
+                                                                            }
+                                                                        });
+                                                                    } else {
+                                                                        $targetModal.find(".modal-title").html("打印发票");
+                                                                        $targetModal.find("#mcontent").html("打印中，请稍后...");
+                                                                        chargeHelper.printInvoice(chgResult.invoiceId, function (pData) {
+                                                                            if (pData == null || pData == undefined) {
+                                                                                bootbox.alert("打印失败", function () {
+                                                                                    //window.location.reload();
+                                                                                    onCustomerSelected(customerArchive.customerCode);
+                                                                                });
+                                                                            } else {
+                                                                                localService.callPrint({ "ptid": pData.printId }, function (retData, isSuccess) {
+                                                                                    $targetModal.modal('hide');
+                                                                                    if (isSuccess) {
+                                                                                        bootbox.confirm("是否打印成功？", function (result) {
+                                                                                            if (result) {
+                                                                                                chargeHelper.printInvoiceResponse(chgResult.invoiceId);
+                                                                                            }
+                                                                                            //window.location.reload();
+                                                                                            onCustomerSelected(customerArchive.customerCode);
+                                                                                        })
+                                                                                    } else {
+                                                                                        bootbox.alert("打印失败", function () {
+                                                                                            //window.location.reload();
+                                                                                            onCustomerSelected(customerArchive.customerCode);
+                                                                                        });
+                                                                                    }
+                                                                                })
+                                                                            }
+                                                                        });
+                                                                    }
+                                                                } else {
+                                                                    // $targetModal.find(".modal-title").html("写卡错误");
+                                                                    // $targetModal.find("#mcontent").html("收费成功，但是写卡错误，请插卡后重试");
+                                                                    // $targetModal.find("#reWriteCard").show();
+                                                                    // $targetModal.find("#cancelWriteCard").show();
+                                                                    var currentArchive = chargeHelper.getContext("_current_archive");
+                                                                    var writecarddata = chargeHelper.getContext("writecarddata");
+                                                                    chargeHelper.corIc(currentArchive.customerCode, writecarddata.bizId, function (data) {
+                                                                        if (data.errCode == "1") {
+                                                                            bootbox.alert({
+                                                                                buttons: {
+                                                                                    ok: {
+                                                                                        label: '知道了~',
+                                                                                        className: 'btn-myStyle'
+                                                                                    }
+                                                                                },
+                                                                                message: '<p><h4>写卡发生错误，写卡未成功。</h4><p><p><h4>收费金额已存入用户账户余额，请读卡后，勾选"燃气余额转换"进行写卡。</h4><div>' + JSON.stringify(chgResult).replace(/,/g, ', ') + '</div></p>',
+                                                                                callback: function () {
+                                                                                    $targetModal.modal('hide');
+                                                                                    $("#cancelWriteCard").removeAttr("disabled");
+                                                                                    onCustomerSelected(currentArchive.customerCode);
+                                                                                },
+                                                                                title: "写卡未成功,收费金额已存入账户余额",
+                                                                            });
+                                                                        } else {
+                                                                            //冲正失败
+                                                                            bootbox.alert("写卡冲正失败，请保存交易号[" + writecarddata.bizId + "]并联系系统管理员请联系系统管理员!");
+                                                                        }
+                                                                    });
+                                                                    //bootbox.alert("收费成功，钱已存入用户账户。在写卡发生错误，请重新读卡后核对用户账户余额是否")
+                                                                }
+                                                            });
+                                                        } else {
+                                                            bootbox.alert("缴费失败：" + chgResult.errMsg);
+                                                            $targetModal.modal('hide');
+                                                            onCustomerSelected(customerArchive.customerCode);
+                                                        }
+                                                    } else {
+                                                        // 做冲正
+                                                        chargeHelper.corIc(currentArchive.customerCode, bizId, function (data) {
+                                                            bootbox.alert("缴费失败：" + chgResult.errMsg);
+                                                            $targetModal.modal('hide');
+                                                            onCustomerSelected(customerArchive.customerCode);
+                                                        });
+                                                    }
+                                                });
+                                            } else {
+                                                // 垃圾处理费
+                                                chargeHelper.chgWasteFee(customerArchive.customerCode, chgTypeId, money, checkNo, function (chgResult) {
+                                                    if (chgResult.errCode == "1") {
+                                                        bootbox.confirm({
+                                                            buttons: {
+                                                                confirm: {
+                                                                    label: '领用发票',
+                                                                    className: 'btn-success'
+                                                                },
+                                                                cancel: {
+                                                                    label: '无需发票',
+                                                                    className: 'btn-default'
+                                                                }
+                                                            },
+                                                            message: '垃圾费收费成功！<p>是否领用发票？</p>',
+                                                            callback: function (result) {
+                                                                if (result) {
+                                                                    $("#detailid").val(chgResult.detailId);
+                                                                    $("#imoney").val(money);
+                                                                    $invoiceModal.modal({
+                                                                        show: true,
+                                                                        backdrop: 'static',
+                                                                        keyboard: false
+                                                                    })
+                                                                    $invoiceModal.modal('show');
+                                                                } else {
+                                                                    onCustomerSelected(customerArchive.customerCode);
+                                                                }
+                                                            }
+                                                        });
+
+                                                    } else {
+                                                        bootbox.alert(chgResult.errMsg, function () {
+                                                            onCustomerSelected(customerArchive.customerCode);
+                                                        });
+                                                    }
+                                                })
+                                            }
+                                        } else {
+                                            $("#BtnSub").css("display", "block");
+                                            //$("#BtnSub").attr("disabled","");
+
+                                        }
+                                    }
+                                });
+                            }
+                        });
+                    } else {
+                        message += "<p style='font-size: large;' class=\"text-muted\">客户号：" + customerArchive.customerCode + "</p>";
+                        message += "<p style='font-size: large;' class=\"text-muted\">客户姓名：" + customerArchive.customerName + "</p>";
+                        message += "<p style='font-size: large;' class=\"text-muted\">收费方式：<span style='color:green; font-weight:bold;'>" + chgTypeName + "</span></p>";
+                        message += "<p style='font-size: large;' class=\"text-muted\">收费金额：<span style='color:green; font-weight:bold;'>" + chargeHelper.formatMoney(money) + "</span></p>";
+                        message += "<p style='font-size: large;' class=\"text-muted\">销售单价：<span style='color:green; font-weight:bold;'>" + chargeHelper.formatPrice(basicPrice) + "</span></p>";
+
+                        if (feeType == "gas") {
+                            if ($table.find("#changecheck").attr("checked")) {
+                                message += "<p class=\"text-success\">使用IC卡账户余额</p>";
+                            }
+                            if ($table.find("#complementcheck").attr("checked")) {
+                                message += "<p class=\"text-success\">使用IC卡补气量</p>";
+                            }
+                        }
+                        /* if(!chgTypeName){
+                         chgTypeName='未选择';
+                         }*/
+                        var title = "";
+                        if (feeType == "gas") {
+                            title = "收取燃气费";
+                        } else {
+                            title = "收取垃圾处理费";
+                        }
+                        bootbox.confirm({
+                            title: title,
+                            buttons: {
+                                confirm: {
+                                    label: '收费信息正确，确认收费',
+                                    className: 'btn-danger'
+                                },
+                                cancel: {
+                                    label: '取消',
+                                    className: 'btn-default'
+                                }
+                            },
+                            message: message,
+                            callback: function (result) {
+                                if (result) {
+                                    if (feeType == "gas") {
+
+                                        // IC卡收费
+                                        $targetModal.modal({
+                                            show: true,
+                                            backdrop: 'static',
+                                            keyboard: false
+                                        })
+                                        $targetModal.find(".modal-title").html("收费");
+                                        $targetModal.find("#mcontent").html("收费中，请稍后...");
+                                        $targetModal.find("#reWriteCard").hide();
+                                        $targetModal.find("#cancelWriteCard").hide();
+                                        chargeHelper.chgIcGasFee(customerArchive.customerCode, chgTypeId, money, checkNo, useBalanceMoney, useBalancecheckbox, useComplement, bizId,isBlackList, function (success, chgResult) {
+                                            if (success) {
+                                                // 缓存写卡信息
+                                                if (chgResult && chgResult.errCode == "1") {
+                                                    chargeHelper.setContext("writecarddata", chgResult);
+                                                    doWriteCard(chgResult, function (cardData, isSuccess) {
+                                                        if (isSuccess) {
+                                                            if (money == "0") {
+                                                                $targetModal.modal('hide');
+                                                                //window.location.reload();
+                                                                onCustomerSelected(customerArchive.customerCode);
+                                                            } else if (chgResult.invoiceType == '2') {
+                                                                bootbox.confirm("该客户的发票类型为专用发票，是否打印普通发票？", function (confirmResult) {
+                                                                    if (confirmResult) {
+                                                                        $targetModal.find(".modal-title").html("打印发票");
+                                                                        $targetModal.find("#mcontent").html("打印中，请稍后...");
+                                                                        chargeHelper.printInvoice(chgResult.invoiceId, function (pData) {
+                                                                            if (pData == null || pData == undefined) {
+                                                                                bootbox.alert("打印失败", function () {
+                                                                                    //window.location.reload();
+                                                                                    onCustomerSelected(customerArchive.customerCode);
+                                                                                });
+                                                                            } else {
+                                                                                localService.callPrint({ "ptid": pData.printId }, function (retData, isSuccess) {
+                                                                                    $targetModal.modal('hide');
+                                                                                    if (isSuccess) {
+                                                                                        bootbox.confirm("是否打印成功？", function (result) {
+                                                                                            if (result) {
+                                                                                                chargeHelper.printInvoiceResponse(chgResult.invoiceId);
+                                                                                            }
+                                                                                            //window.location.reload();
+                                                                                            onCustomerSelected(customerArchive.customerCode);
+                                                                                        })
+                                                                                    } else {
+                                                                                        bootbox.alert("打印失败", function () {
+                                                                                            //window.location.reload();
+                                                                                            onCustomerSelected(customerArchive.customerCode);
+                                                                                        });
+                                                                                    }
+                                                                                })
+                                                                            }
+                                                                        });
+                                                                    } else {
+                                                                        $targetModal.modal('hide');
+                                                                        onCustomerSelected(customerArchive.customerCode);
+                                                                    }
+                                                                });
+                                                            } else {
+                                                                $targetModal.find(".modal-title").html("打印发票");
+                                                                $targetModal.find("#mcontent").html("打印中，请稍后...");
+                                                                chargeHelper.printInvoice(chgResult.invoiceId, function (pData) {
+                                                                    if (pData == null || pData == undefined) {
+                                                                        bootbox.alert("打印失败", function () {
+                                                                            //window.location.reload();
+                                                                            onCustomerSelected(customerArchive.customerCode);
+                                                                        });
+                                                                    } else {
+                                                                        localService.callPrint({ "ptid": pData.printId }, function (retData, isSuccess) {
+                                                                            $targetModal.modal('hide');
+                                                                            if (isSuccess) {
+                                                                                bootbox.confirm("是否打印成功？", function (result) {
+                                                                                    if (result) {
+                                                                                        chargeHelper.printInvoiceResponse(chgResult.invoiceId);
+                                                                                    }
+                                                                                    //window.location.reload();
+                                                                                    onCustomerSelected(customerArchive.customerCode);
+                                                                                })
+                                                                            } else {
+                                                                                bootbox.alert("打印失败", function () {
+                                                                                    //window.location.reload();
+                                                                                    onCustomerSelected(customerArchive.customerCode);
+                                                                                });
+                                                                            }
+                                                                        })
+                                                                    }
+                                                                });
+                                                            }
+                                                        } else {
+                                                            // $targetModal.find(".modal-title").html("写卡错误");
+                                                            // $targetModal.find("#mcontent").html("收费成功，但是写卡错误，请插卡后重试");
+                                                            // $targetModal.find("#reWriteCard").show();
+                                                            // $targetModal.find("#cancelWriteCard").show();
+
+                                                            var currentArchive = chargeHelper.getContext("_current_archive");
+                                                            var writecarddata = chargeHelper.getContext("writecarddata");
+                                                            chargeHelper.corIc(currentArchive.customerCode, writecarddata.bizId, function (data) {
+                                                                if (data.errCode == "1") {
+                                                                    bootbox.alert({
+                                                                        buttons: {
+                                                                            ok: {
+                                                                                label: '知道了~',
+                                                                                className: 'btn-myStyle'
+                                                                            }
+                                                                        },
+                                                                        message: '<p><h4>写卡发生错误，写卡未成功。</h4><p><p><h4>收费金额已存入用户账户余额，请读卡后，勾选"燃气余额转换"进行写卡。</h4><div>' + JSON.stringify(chgResult).replace(/,/g, ', ') + '</div></p>',
+                                                                        callback: function () {
+                                                                            $targetModal.modal('hide');
+                                                                            $("#cancelWriteCard").removeAttr("disabled");
+                                                                            onCustomerSelected(currentArchive.customerCode);
+                                                                        },
+                                                                        title: "写卡未成功,收费金额已存入账户余额",
+                                                                    });
+                                                                } else {
+                                                                    //冲正失败
+                                                                    bootbox.alert("写卡冲正失败，请保存交易号[" + writecarddata.bizId + "]并联系系统管理员请联系系统管理员!");
+                                                                }
+                                                            });
+                                                        }
+                                                    });
+                                                } else {
+                                                    bootbox.alert("缴费失败：" + chgResult.errMsg);
+                                                    $targetModal.modal('hide');
+                                                    onCustomerSelected(customerArchive.customerCode);
+                                                }
+                                            } else {
+                                                // 做冲正
+                                                chargeHelper.corIc(currentArchive.customerCode, bizId, function (data) {
+                                                    bootbox.alert("缴费失败：" + chgResult.errMsg);
+                                                    $targetModal.modal('hide');
+                                                    onCustomerSelected(customerArchive.customerCode);
+                                                });
+                                            }
+
+                                        });
+                                    } else {
+                                        // 垃圾处理费
+                                        chargeHelper.chgWasteFee(customerArchive.customerCode, chgTypeId, money, checkNo, function (chgResult) {
+                                            if (chgResult.errCode == "1") {
+                                                bootbox.confirm({
+                                                    buttons: {
+                                                        confirm: {
+                                                            label: '领用发票',
+                                                            className: 'btn-success'
+                                                        },
+                                                        cancel: {
+                                                            label: '无需发票',
+                                                            className: 'btn-default'
+                                                        }
+                                                    },
+                                                    message: '垃圾费收费成功！<p>是否领用发票？</p>',
+                                                    callback: function (result) {
+                                                        if (result) {
+                                                            $("#detailid").val(chgResult.detailId);
+                                                            $("#imoney").val(money);
+                                                            $invoiceModal.modal({
+                                                                show: true,
+                                                                backdrop: 'static',
+                                                                keyboard: false
+                                                            })
+                                                            $invoiceModal.modal('show');
+                                                        } else {
+                                                            onCustomerSelected(customerArchive.customerCode);
+                                                        }
+                                                    }
+                                                });
+
+                                            } else {
+                                                bootbox.alert(chgResult.errMsg, function () {
+                                                    onCustomerSelected(customerArchive.customerCode);
+                                                });
+                                            }
+                                        })
+                                    }
+                                } else {
+                                    $("#BtnSub").css("display", "block");
+                                }
+                            }
+                        });
+                    }
+                });
+            } else {
+                // 读卡，判断卡号是否一致
+                chargeHelper.readFactoryCard($("#read_factory_card").val(), function (cardData, isSuccess) {
+                    if (isSuccess) {
+                        var existsCardData = chargeHelper.getContext("_current_iccard");
+                        if (cardData.result.kh != existsCardData.result.kh) {
+                            bootbox.alert("IC卡信息与当前客户信息不符，请插入正确的IC卡...", function () {
+                                $("#BtnSub").css("display", "block");
+                            });
+                        } else {
+                            chargeHelper.transFeeToMeasure(chargeHelper.getContext("_current_archive").customerCode, fee, function (data, isSuccess) {
+                                if (isSuccess && parseFloat(data.money) - parseFloat(data.spent_money) > 0 && useBalancecheckbox != "1") {
+                                    var change = parseFloat(parseFloat(data.money) - parseFloat(data.spent_money)).toFixed(2)
+                                    bootbox.confirm({
+                                        buttons: {
+                                            confirm: {
+                                                label: '需要找零：' + change + '元',
+                                                className: 'btn-danger'
+                                            },
+                                            cancel: {
+                                                label: '无需找零，零钱进入账户余额',
+                                                className: 'btn-default'
+                                            }
+                                        },
+                                        message: '购气金额剩余：' + change + '元，是否需要找零？',
+                                        callback: function (result) {
+                                            if (result) {
+                                                money = parseFloat(parseFloat(data.spent_money).toFixed(4) - parseFloat(useBalanceMoney)).toFixed(4);
+
+                                            } else {
+
+                                            }
+                                            message += "<p style='font-size: large;' class=\"text-muted\">客户号：" + customerArchive.customerCode + "</p>";
+                                            message += "<p style='font-size: large;' class=\"text-muted\">客户姓名：" + customerArchive.customerName + "</p>";
+                                            message += "<p style='font-size: large;' class=\"text-muted\">收费方式：<span style='color:green; font-weight:bold;'>" + chgTypeName + "</span></p>";
+                                            message += "<p style='font-size: large;' class=\"text-muted\">收费金额：<span style='color:green; font-weight:bold;'>" + chargeHelper.formatMoney(money) + "</span></p>";
+                                            message += "<p style='font-size: large;' class=\"text-muted\">销售单价：<span style='color:green; font-weight:bold;'>" + chargeHelper.formatPrice(basicPrice) + "</span></p>";
+
+                                            if (feeType == "gas") {
+                                                if ($table.find("#changecheck").attr("checked")) {
+                                                    message += "<p class=\"text-success\">使用IC卡账户余额</p>";
+                                                }
+                                                if ($table.find("#complementcheck").attr("checked")) {
+                                                    message += "<p class=\"text-success\">使用IC卡补气量</p>";
+                                                }
+                                            }
+                                            /* if(!chgTypeName){
+                                             chgTypeName='未选择';
+                                             }*/
+                                            var title = "";
+                                            if (feeType == "gas") {
+                                                title = "收取燃气费";
+                                            } else {
+                                                title = "收取垃圾处理费";
+                                            }
+                                            bootbox.confirm({
+                                                title: title,
+                                                buttons: {
+                                                    confirm: {
+                                                        label: '收费信息正确，确认收费',
+                                                        className: 'btn-danger'
+                                                    },
+                                                    cancel: {
+                                                        label: '取消',
+                                                        className: 'btn-default'
+                                                    }
+                                                },
+                                                message: message,
+                                                callback: function (result) {
+                                                    if (result) {
+                                                        if (feeType == "gas") {
+
+                                                            // IC卡收费
+                                                            $targetModal.modal({
+                                                                show: true,
+                                                                backdrop: 'static',
+                                                                keyboard: false
+                                                            })
+                                                            $targetModal.find(".modal-title").html("收费");
+                                                            $targetModal.find("#mcontent").html("收费中，请稍后...");
+                                                            $targetModal.find("#reWriteCard").hide();
+                                                            $targetModal.find("#cancelWriteCard").hide();
+                                                            chargeHelper.chgIcGasFee(customerArchive.customerCode, chgTypeId, money, checkNo, useBalanceMoney, useBalancecheckbox, useComplement, bizId, isBlackList,function (success, chgResult) {
+                                                                if (success) {
+                                                                    // 缓存写卡信息
+                                                                    if (chgResult && chgResult.errCode == "1") {
+                                                                        chargeHelper.setContext("writecarddata", chgResult);
+                                                                        doWriteCard(chgResult, function (cardData, isSuccess) {
+                                                                            if (isSuccess) {
+                                                                                if (money == "0") {
+                                                                                    $targetModal.modal('hide');
+                                                                                    //window.location.reload();
+                                                                                    onCustomerSelected(customerArchive.customerCode);
+                                                                                } else if (chgResult.invoiceType == '2') {
+                                                                                    bootbox.confirm("该客户的发票类型为专用发票，是否打印普通发票？", function (confirmResult) {
+                                                                                        if (confirmResult) {
+                                                                                            $targetModal.find(".modal-title").html("打印发票");
+                                                                                            $targetModal.find("#mcontent").html("打印中，请稍后...");
+                                                                                            chargeHelper.printInvoice(chgResult.invoiceId, function (pData) {
+                                                                                                if (pData == null || pData == undefined) {
+                                                                                                    bootbox.alert("打印失败", function () {
+                                                                                                        //window.location.reload();
+                                                                                                        onCustomerSelected(customerArchive.customerCode);
+                                                                                                    });
+                                                                                                } else {
+                                                                                                    localService.callPrint({ "ptid": pData.printId }, function (retData, isSuccess) {
+                                                                                                        $targetModal.modal('hide');
+                                                                                                        if (isSuccess) {
+                                                                                                            bootbox.confirm("是否打印成功？", function (result) {
+                                                                                                                if (result) {
+                                                                                                                    chargeHelper.printInvoiceResponse(chgResult.invoiceId);
+                                                                                                                }
+                                                                                                                //window.location.reload();
+                                                                                                                onCustomerSelected(customerArchive.customerCode);
+                                                                                                            })
+                                                                                                        } else {
+                                                                                                            bootbox.alert("打印失败", function () {
+                                                                                                                //window.location.reload();
+                                                                                                                onCustomerSelected(customerArchive.customerCode);
+                                                                                                            });
+                                                                                                        }
+                                                                                                    })
+                                                                                                }
+                                                                                            });
+                                                                                        } else {
+                                                                                            $targetModal.modal('hide');
+                                                                                            onCustomerSelected(customerArchive.customerCode);
+                                                                                        }
+                                                                                    });
+                                                                                } else {
+                                                                                    $targetModal.find(".modal-title").html("打印发票");
+                                                                                    $targetModal.find("#mcontent").html("打印中，请稍后...");
+                                                                                    chargeHelper.printInvoice(chgResult.invoiceId, function (pData) {
+                                                                                        if (pData == null || pData == undefined) {
+                                                                                            bootbox.alert("打印失败", function () {
+                                                                                                //window.location.reload();
+                                                                                                onCustomerSelected(customerArchive.customerCode);
+                                                                                            });
+                                                                                        } else {
+                                                                                            localService.callPrint({ "ptid": pData.printId }, function (retData, isSuccess) {
+                                                                                                $targetModal.modal('hide');
+                                                                                                if (isSuccess) {
+                                                                                                    bootbox.confirm("是否打印成功？", function (result) {
+                                                                                                        if (result) {
+                                                                                                            chargeHelper.printInvoiceResponse(chgResult.invoiceId);
+                                                                                                        }
+                                                                                                        //window.location.reload();
+                                                                                                        onCustomerSelected(customerArchive.customerCode);
+                                                                                                    })
+                                                                                                } else {
+                                                                                                    bootbox.alert("打印失败", function () {
+                                                                                                        //window.location.reload();
+                                                                                                        onCustomerSelected(customerArchive.customerCode);
+                                                                                                    });
+                                                                                                }
+                                                                                            })
+                                                                                        }
+                                                                                    });
+                                                                                }
+                                                                            } else {
+                                                                                // $targetModal.find(".modal-title").html("写卡错误");
+                                                                                // $targetModal.find("#mcontent").html("收费成功，但是写卡错误，请插卡后重试");
+                                                                                // $targetModal.find("#reWriteCard").show();
+                                                                                // $targetModal.find("#cancelWriteCard").show();
+
+                                                                                var currentArchive = chargeHelper.getContext("_current_archive");
+                                                                                var writecarddata = chargeHelper.getContext("writecarddata");
+                                                                                chargeHelper.corIc(currentArchive.customerCode, writecarddata.bizId, function (data) {
+                                                                                    if (data.errCode == "1") {
+                                                                                        bootbox.alert({
+                                                                                            buttons: {
+                                                                                                ok: {
+                                                                                                    label: '知道了~',
+                                                                                                    className: 'btn-myStyle'
+                                                                                                }
+                                                                                            },
+                                                                                            message: '<p><h4>写卡发生错误，写卡未成功。</h4><p><p><h4>收费金额已存入用户账户余额，请读卡后，勾选"燃气余额转换"进行写卡。</h4><div>' + JSON.stringify(chgResult).replace(/,/g, ', ') + '</div></p>',
+                                                                                            callback: function () {
+                                                                                                $targetModal.modal('hide');
+                                                                                                $("#cancelWriteCard").removeAttr("disabled");
+                                                                                                onCustomerSelected(currentArchive.customerCode);
+                                                                                            },
+                                                                                            title: "写卡未成功,收费金额已存入账户余额",
+                                                                                        });
+                                                                                    } else {
+                                                                                        //冲正失败
+                                                                                        bootbox.alert("写卡冲正失败，请保存交易号[" + writecarddata.bizId + "]并联系系统管理员请联系系统管理员!");
+                                                                                    }
+                                                                                });
+                                                                            }
+                                                                        });
+                                                                    } else {
+                                                                        bootbox.alert("缴费失败：" + chgResult.errMsg);
+                                                                        $targetModal.modal('hide');
+                                                                        onCustomerSelected(customerArchive.customerCode);
+                                                                    }
+                                                                } else {
+                                                                    // 做冲正
+                                                                    chargeHelper.corIc(currentArchive.customerCode, bizId, function (data) {
+                                                                        bootbox.alert("缴费失败：" + chgResult.errMsg);
+                                                                        $targetModal.modal('hide');
+                                                                        onCustomerSelected(customerArchive.customerCode);
+                                                                    });
+                                                                }
+
+                                                            });
+                                                        } else {
+                                                            // 垃圾处理费
+                                                            chargeHelper.chgWasteFee(customerArchive.customerCode, chgTypeId, money, checkNo, function (chgResult) {
+                                                                if (chgResult.errCode == "1") {
+                                                                    bootbox.confirm({
+                                                                        buttons: {
+                                                                            confirm: {
+                                                                                label: '领用发票',
+                                                                                className: 'btn-success'
+                                                                            },
+                                                                            cancel: {
+                                                                                label: '无需发票',
+                                                                                className: 'btn-default'
+                                                                            }
+                                                                        },
+                                                                        message: '垃圾费收费成功！<p>是否领用发票？</p>',
+                                                                        callback: function (result) {
+                                                                            if (result) {
+                                                                                $("#detailid").val(chgResult.detailId);
+                                                                                $("#imoney").val(money);
+                                                                                $invoiceModal.modal({
+                                                                                    show: true,
+                                                                                    backdrop: 'static',
+                                                                                    keyboard: false
+                                                                                })
+                                                                                $invoiceModal.modal('show');
+                                                                            } else {
+                                                                                onCustomerSelected(customerArchive.customerCode);
+                                                                            }
+                                                                        }
+                                                                    });
+
+                                                                } else {
+                                                                    bootbox.alert(chgResult.errMsg, function () {
+                                                                        onCustomerSelected(customerArchive.customerCode);
+                                                                    });
+                                                                }
+                                                            })
+                                                        }
+                                                    } else {
+                                                        $("#BtnSub").css("display", "block");
+                                                    }
+                                                }
+                                            });
+                                        }
+                                    });
+                                } else {
+                                    message += "<p style='font-size: large;' class=\"text-muted\">客户号：" + customerArchive.customerCode + "</p>";
+                                    message += "<p style='font-size: large;' class=\"text-muted\">客户姓名：" + customerArchive.customerName + "</p>";
+                                    //message += "<p style='font-size: large;' class=\"text-muted\">销售单价：<span style='color:green; font-weight:bold;'>" + chargeHelper.formatMoney(money) + "</span></p>";
+                                    message += "<p style='font-size: large;' class=\"text-muted\">收费方式：<span style='color:green; font-weight:bold;'>" + chgTypeName + "</span></p>";
+                                    message += "<p style='font-size: large;' class=\"text-muted\">收费金额：<span style='color:green; font-weight:bold;'>" + chargeHelper.formatMoney(money) + "</span></p>";
+                                    message += "<p style='font-size: large;' class=\"text-muted\">销售单价：<span style='color:green; font-weight:bold;'>" + chargeHelper.formatPrice(basicPrice) + "</span></p>";
+
+                                    //销售单价
+                                    if (feeType == "gas") {
+                                        if ($table.find("#changecheck").attr("checked")) {
+                                            message += "<p class=\"text-success\">使用IC卡账户余额</p>";
+                                        }
+                                        if ($table.find("#complementcheck").attr("checked")) {
+                                            message += "<p class=\"text-success\">使用IC卡补气量</p>";
+                                        }
+                                    }
+                                    /* if(!chgTypeName){
+                                     chgTypeName='未选择';
+                                     }*/
+                                    var title = "";
+                                    if (feeType == "gas") {
+                                        title = "收取燃气费";
+                                    } else {
+                                        title = "收取垃圾处理费";
+                                    }
+                                    bootbox.confirm({
+                                        title: title,
+                                        buttons: {
+                                            confirm: {
+                                                label: '收费信息正确，确认收费',
+                                                className: 'btn-danger'
+                                            },
+                                            cancel: {
+                                                label: '取消',
+                                                className: 'btn-default'
+                                            }
+                                        },
+                                        message: message,
+                                        callback: function (result) {
+                                            if (result) {
+                                                if (feeType == "gas") {
+
+                                                    // IC卡收费
+                                                    $targetModal.modal({
+                                                        show: true,
+                                                        backdrop: 'static',
+                                                        keyboard: false
+                                                    })
+                                                    $targetModal.find(".modal-title").html("收费");
+                                                    $targetModal.find("#mcontent").html("收费中，请稍后...");
+                                                    $targetModal.find("#reWriteCard").hide();
+                                                    $targetModal.find("#cancelWriteCard").hide();
+                                                    chargeHelper.chgIcGasFee(customerArchive.customerCode, chgTypeId, money, checkNo, useBalanceMoney, useBalancecheckbox, useComplement, bizId, isBlackList,function (success, chgResult) {
+                                                        if (success) {
+                                                            // 缓存写卡信息
+                                                            if (chgResult && chgResult.errCode == "1") {
+                                                                chargeHelper.setContext("writecarddata", chgResult);
+                                                                doWriteCard(chgResult, function (cardData, isSuccess) {
+                                                                    if (isSuccess) {
+                                                                        if (money == "0") {
+                                                                            $targetModal.modal('hide');
+                                                                            //window.location.reload();
+                                                                            onCustomerSelected(customerArchive.customerCode);
+                                                                        } else if (chgResult.invoiceType == '2') {
+                                                                            bootbox.confirm("该客户的发票类型为专用发票，是否打印普通发票？", function (confirmResult) {
+                                                                                if (confirmResult) {
+                                                                                    $targetModal.find(".modal-title").html("打印发票");
+                                                                                    $targetModal.find("#mcontent").html("打印中，请稍后...");
+                                                                                    chargeHelper.printInvoice(chgResult.invoiceId, function (pData) {
+                                                                                        if (pData == null || pData == undefined) {
+                                                                                            bootbox.alert("打印失败", function () {
+                                                                                                //window.location.reload();
+                                                                                                onCustomerSelected(customerArchive.customerCode);
+                                                                                            });
+                                                                                        } else {
+                                                                                            localService.callPrint({ "ptid": pData.printId }, function (retData, isSuccess) {
+                                                                                                $targetModal.modal('hide');
+                                                                                                if (isSuccess) {
+                                                                                                    bootbox.confirm("是否打印成功？", function (result) {
+                                                                                                        if (result) {
+                                                                                                            chargeHelper.printInvoiceResponse(chgResult.invoiceId);
+                                                                                                        }
+                                                                                                        //window.location.reload();
+                                                                                                        onCustomerSelected(customerArchive.customerCode);
+                                                                                                    })
+                                                                                                } else {
+                                                                                                    bootbox.alert("打印失败", function () {
+                                                                                                        //window.location.reload();
+                                                                                                        onCustomerSelected(customerArchive.customerCode);
+                                                                                                    });
+                                                                                                }
+                                                                                            })
+                                                                                        }
+                                                                                    });
+                                                                                } else {
+                                                                                    $targetModal.modal('hide');
+                                                                                    onCustomerSelected(customerArchive.customerCode);
+                                                                                }
+                                                                            });
+                                                                        } else {
+                                                                            $targetModal.find(".modal-title").html("打印发票");
+                                                                            $targetModal.find("#mcontent").html("打印中，请稍后...");
+                                                                            chargeHelper.printInvoice(chgResult.invoiceId, function (pData) {
+                                                                                if (pData == null || pData == undefined) {
+                                                                                    bootbox.alert("打印失败", function () {
+                                                                                        //window.location.reload();
+                                                                                        onCustomerSelected(customerArchive.customerCode);
+                                                                                    });
+                                                                                } else {
+                                                                                    localService.callPrint({ "ptid": pData.printId }, function (retData, isSuccess) {
+                                                                                        $targetModal.modal('hide');
+                                                                                        if (isSuccess) {
+                                                                                            bootbox.confirm("是否打印成功？", function (result) {
+                                                                                                if (result) {
+                                                                                                    chargeHelper.printInvoiceResponse(chgResult.invoiceId);
+                                                                                                }
+                                                                                                //window.location.reload();
+                                                                                                onCustomerSelected(customerArchive.customerCode);
+                                                                                            })
+                                                                                        } else {
+                                                                                            bootbox.alert("打印失败", function () {
+                                                                                                //window.location.reload();
+                                                                                                onCustomerSelected(customerArchive.customerCode);
+                                                                                            });
+                                                                                        }
+                                                                                    })
+                                                                                }
+                                                                            });
+                                                                        }
+                                                                    } else {
+                                                                        // $targetModal.find(".modal-title").html("写卡错误");
+                                                                        // $targetModal.find("#mcontent").html("收费成功，但是写卡错误，请插卡后重试");
+                                                                        // $targetModal.find("#reWriteCard").show();
+                                                                        // $targetModal.find("#cancelWriteCard").show();
+
+                                                                        var currentArchive = chargeHelper.getContext("_current_archive");
+                                                                        var writecarddata = chargeHelper.getContext("writecarddata");
+                                                                        chargeHelper.corIc(currentArchive.customerCode, writecarddata.bizId, function (data) {
+                                                                            if (data.errCode == "1") {
+                                                                                bootbox.alert({
+                                                                                    buttons: {
+                                                                                        ok: {
+                                                                                            label: '知道了~',
+                                                                                            className: 'btn-myStyle'
+                                                                                        }
+                                                                                    },
+                                                                                    message: '<p><h4>写卡发生错误，写卡未成功。</h4><p><p><h4>收费金额已存入用户账户余额，请读卡后，勾选"燃气余额转换"进行写卡。</h4><div>' + JSON.stringify(chgResult).replace(/,/g, ', ') + '</div></p>',
+                                                                                    callback: function () {
+                                                                                        $targetModal.modal('hide');
+                                                                                        $("#cancelWriteCard").removeAttr("disabled");
+                                                                                        onCustomerSelected(currentArchive.customerCode);
+                                                                                    },
+                                                                                    title: "写卡未成功,收费金额已存入账户余额",
+                                                                                });
+                                                                            } else {
+                                                                                //冲正失败
+                                                                                bootbox.alert("写卡冲正失败，请保存交易号[" + writecarddata.bizId + "]并联系系统管理员请联系系统管理员!");
+                                                                            }
+                                                                        });
+                                                                    }
+                                                                });
+                                                            } else {
+                                                                bootbox.alert("缴费失败：" + chgResult.errMsg);
+                                                                $targetModal.modal('hide');
+                                                                onCustomerSelected(customerArchive.customerCode);
+                                                            }
+                                                        } else {
+                                                            // 做冲正
+                                                            chargeHelper.corIc(currentArchive.customerCode, bizId, function (data) {
+                                                                bootbox.alert("缴费失败：" + chgResult.errMsg);
+                                                                $targetModal.modal('hide');
+                                                                onCustomerSelected(customerArchive.customerCode);
+                                                            });
+                                                        }
+
+                                                    });
+                                                } else {
+                                                    // 垃圾处理费
+                                                    chargeHelper.chgWasteFee(customerArchive.customerCode, chgTypeId, money, checkNo, function (chgResult) {
+                                                        if (chgResult.errCode == "1") {
+                                                            bootbox.confirm({
+                                                                buttons: {
+                                                                    confirm: {
+                                                                        label: '领用发票',
+                                                                        className: 'btn-success'
+                                                                    },
+                                                                    cancel: {
+                                                                        label: '无需发票',
+                                                                        className: 'btn-default'
+                                                                    }
+                                                                },
+                                                                message: '垃圾费收费成功！<p>是否领用发票？</p>',
+                                                                callback: function (result) {
+                                                                    if (result) {
+                                                                        $("#detailid").val(chgResult.detailId);
+                                                                        $("#imoney").val(money);
+                                                                        $invoiceModal.modal({
+                                                                            show: true,
+                                                                            backdrop: 'static',
+                                                                            keyboard: false
+                                                                        })
+                                                                        $invoiceModal.modal('show');
+                                                                    } else {
+                                                                        onCustomerSelected(customerArchive.customerCode);
+                                                                    }
+                                                                }
+                                                            });
+
+                                                        } else {
+                                                            bootbox.alert(chgResult.errMsg, function () {
+                                                                onCustomerSelected(customerArchive.customerCode);
+                                                            });
+                                                        }
+                                                    })
+                                                }
+                                            } else {
+                                                $("#BtnSub").css("display", "block");
+                                            }
+                                        }
+                                    });
+                                }
+                            });
+                        }
+                    }
+                    else {
+                        bootbox.alert("请插卡后重试...", function () {
+                            $("#BtnSub").css("display", "block");
+                        });
+                    }
+                });
+            }
+
+        });
+        // 金额转换成气量
+        $("#divChgContainer").delegate("#transGas", "blur", function (e) {
+            var $obj = $(e.currentTarget),
+                $table = $obj.closest("table");
+            if ($obj.val() == "") {
+                $obj.val("0");
+            }
+            var fee = 0;
+            fee = fee + parseFloat($(this).val());
+            if (fee < 0) {
+                fee = 0;
+                $(this).val(fee);
+            } else if (fee > 1000 && chargeHelper.getContext("_current_archive").customerKind == "1") {
+                bootbox.confirm("购气金额过大，是否要继续收费？", function (result) {
+                    if (!result) {
+                        fee = 0;
+                        $(this).val(fee);
+                        return;
+                    }
+                });
+            }
+            $table.find("#cashAmount").val(fee);
+            if ($table.find("#changecheck").attr("checked")) {
+                fee = fee + parseFloat($("#usebalancemoney").val());
+
+            }
+            // $table.find("#spanAll").hide();
+            // $table.find("#spanTL").hide();
+            // $table.find("#spanTR").show();
+            //钱转成气量
+
+
+        });
+        $("#divChgContainer").delegate("#changeGas", "click", function (e) {
+            var $obj = $(e.currentTarget),
+                $table = $obj.closest("table");
+            var fee = 0;
+            if (!isNaN(parseFloat($table.find("#usebalancemoney").val()))) {
+                fee += parseFloat($table.find("#usebalancemoney").val());
+            }
+            if (!isNaN(parseFloat($table.find("#transGas").val()))) {
+                fee += parseFloat($table.find("#transGas").val());
+            }
+            chargeHelper.transFeeToMeasure(chargeHelper.getContext("_current_archive").customerCode, fee, function (data) {
+                $table.find("#transMeasure").val(data.measure);
+                $table.find("#oddchange").val((parseFloat(data.money) - parseFloat(data.spent_money)).toFixed(4));
+            });
+        });
+
+        // 气量转换成金额
+        $("#divChgContainer").delegate("#transMeasure", "blur", function (e) {
+            var $obj = $(e.currentTarget),
+                $table = $obj.closest("table");
+            if ($obj.val() == "") {
+                $obj.val("0");
+                return;
+            }
+            $table.find("#spanAll").hide();
+            $table.find("#spanTR").hide();
+            $table.find("#spanTL").show();
+            chargeHelper.transMeasureToFee(chargeHelper.getContext("_current_archive").customerCode, $(this).val(), function (money) {
+                $table.find("#transGas").val(money);
+                $table.find("#cashAmount").val(money);
+            });
+        });
+        // 燃气余额转换
+        $("#divChgContainer").delegate("#changecheck", "click", function (e) {
+            var $obj = $(e.currentTarget),
+                $table = $obj.closest("table");
+            if ($(this).attr("checked")) {
+                $("#usebalancemoney").removeAttr("disabled");
+
+                $("#usebalancemoney").val($("#balance").text());
+
+            } else {
+                $("#usebalancemoney").attr("disabled", "disabled");
+                $('#usebalancemoney').val("");
+            }
+            $table.find("#transGas").trigger("blur");
+        });
+        // 支票号选择
+        // $("#divChgContainer").delegate("#input_checkno", "blur", function (e) {
+        //     var $obj = $(e.currentTarget),
+        //         $table = $obj.closest("table");
+        //     if (parseFloat($table.find("#cashAmount").val()) > 0 && $table.find("#input_checkno").val() != "") {
+        //         $table.find("#BtnSub").removeAttr("disabled");
+        //     } else {
+        //         $table.find("#BtnSub").attr("disabled", "disabled");
+        //     }
+        // });
+        // 读卡
+        $("#read_card").click(function () {
+            chargeHelper.clearContext();
+            // 清除所有tab
+            removeTab('tab_iccard');
+            removeTab('tab_ctm');
+            removeTab('tab_customer');
+            $("#_gasInfo").html("");
+            $("#_wasteInfo").html("");
+
+            $("#read_card").attr("disabled", "disabled");
+            // 清除页面历史记录
+            chargeHelper.readFactoryCard($("#read_factory_card").val(), function (cardData, isSuccess) {
+                $("#read_card").removeAttr("disabled");
+                if (isSuccess) {
+                    // 调用方法加载客户档案信息
+                    chargeHelper.setContext("_current_iccard", cardData);
+                    chargeHelper.getArchiveInfoByIcCard(cardData.result.kh, cardData.result.dqdm, function (isExists) {
+                        if (isExists) {
+                            initData(chargeHelper.getContext("_current_archive").customerCode);
+                        } else {
+                            bootbox.alert("无法找到对应的客户档案", function () {
+                                window.location.reload();
+                            });
+                        }
+                    });
+                    if (cardData.result.ql != "0") {
+                        cardData.result.ql = cardData.result.ql / 100;
+                        bootbox.alert("卡内气量不为0");
+                    }
+                    //点击一次后disabled
+                } else {
+
+                    bootbox.alert({
+                        buttons: {
+                            ok: {
+                                label: '知道了~',
+                                className: 'btn-myStyle'
+                            }
+                        },
+                        message: '1.是否已将IC卡放入读卡器 </br> 2.开新卡时不需要读卡 </br>3.IC卡是否和读卡器匹配 </br> 4.请查看读卡器连接是否正常 </br> 5.请查看IC配置文件中IC卡设置信息是否有误。',
+                        callback: function () {
+                            window.location.reload();
+
+
+                        },
+                        title: "读卡失败,请检查如下情况：",
+                    });
+
+                 /*   bootbox.alert("<b>读卡失败,请检查如下情况：</b></br></br> 1.是否已将IC卡放入读卡器 </br> 2.开新卡时不需要读卡 </br>3.IC卡是否和读卡器匹配 </br> 4.请查看读卡器连接是否正常 </br> 5.请查看IC配置文件中IC卡设置信息是否有误。", function () {
+                        window.location.reload();
+                    })*/;
+                }
+
+            });
+        });
+    });
+    function onCustomerSelected(customerCode) {
+        //chargeHelper.clearContext();
+        // 清除所有tab
+        removeTab('tab_iccard');
+        removeTab('tab_ctm');
+        removeTab('tab_customer');
+        $("#_gasInfo").html("");
+        $("#_wasteInfo").html("");
+        chargeHelper.setContext("unique_chg_id", "");
+        // 1. 根据客户编号，读取客户信息
+        chargeHelper.getArchiveInfo(customerCode, function () {
+           
+            if (chargeHelper.getContext("_current_archive")) {
+                var currentArchive = chargeHelper.getContext("_current_archive");
+                // 用户基础价格
+                chargeHelper.getBasicPriceInfo(currentArchive.gasTypeId, function(data){
+                    chargeHelper.setContext("_current_basicPrice", data);
+                });
+                // 6. 加载IC卡信息
+                chargeHelper.getIcCardInfo(currentArchive.ctmArchiveId, function (data) {
+                    addTab("tab_iccard", "IC卡信息");
+                    var cardData = chargeHelper.getContext("_current_iccard");
+                    if (cardData && cardData.result) {
+                        data = $.extend(cardData.result, data);
+                    } else {
+
+                    }
+                    // 合并卡数据和库数据
+                    dust.loadSource(dust.compile($("#__dust__iccardInfo").html(), "iccardInfo__"));
+                    dust.render("iccardInfo__", { "data": data }, function (err, res) {
+                        $("#tab_iccard").html(res);
+                    });
+                    $("#divChgContainer").show();
+                });
+                // 2. 如果是联合账户，加载联合账户tab
+                chargeHelper.getCTMAccountInfo(currentArchive.ctmArchiveId, function (data) {
+                    chargeHelper.setContext("_current_ctmaccount", data);
+                    addTab("tab_ctm", "联合账户信息");
+                    dust.loadSource(dust.compile($("#__dust__ctmAccountInfo").html(), "ctmAccountInfo__"));
+                    dust.render("ctmAccountInfo__", { "data": data }, function (err, res) {
+                        $("#tab_ctm").html(res);
+                    });
+                });
+
+                // 3. 加载业主信息
+                chargeHelper.getCustomerInfo(currentArchive.customerId, function () {
+                    addTab("tab_customer", "业主信息");
+                    dust.loadSource(dust.compile($("#__dust__customerInfo").html(), "customerInfo__"));
+                    dust.render("customerInfo__", { "data": currentArchive }, function (err, res) {
+                        $("#tab_customer").html(res);
+                    });
+                });
+                //拆除和暂停用气
+
+                if (currentArchive.customerState == '01') {
+                    // 4. 加载燃气费缴费记录
+                    chargeHelper.getGasFee(currentArchive.ctmArchiveId, function (data) {
+
+                        data.isUnion = currentArchive.relChgAccountId ? "0" : "1";
+                        if (currentArchive.relChgAccountId) {
+                            data.isUnion = "1";
+                        } else {
+                            data.isUnion = "0";
+                        }
+                        dust.loadSource(dust.compile($("#__dust__gasRowInfo").html(), "gasrowInfo__"));
+                        dust.render("gasrowInfo__", { "data": data }, function (err, res) {
+                            $("#tabGas").show();
+                            $("#gasFee").removeAttr("style");
+                            $("#_gasInfo").html(res);
+                            chargeHelper.getGasFeeBalance(currentArchive.ctmArchiveId, function (balanceData) {
+                                var $gasBalance = $("#_gasInfo").find("#balance");
+                                var $unionBalance = $("#_gasInfo").find("#unionBalance");
+                                var $btn = $("#_gasInfo").find("#BtnSub")
+                                var balances = parseFloat(balanceData.balance).toFixed(2);
+                                var unionBalances = parseFloat(balanceData.unionBalance).toFixed(2);
+                                $gasBalance.text(balances);
+                                $unionBalance.text(unionBalances);
+                                if (parseFloat(balanceData.balance) > 0) {
+                                    $gasBalance.css("color", "green");
+                                } else if (parseFloat(balanceData.balance) == 0) {
+                                    $gasBalance.css("color", "black");
+                                } else {
+                                    $gasBalance.css("color", "red");
+                                    bootbox.alert("客户燃气费欠费。");
+                                }
+                                var dd = currentArchive.ctmArchiveId;
+                                $.ajax({
+                                    // url: "hzqs/hzqrest/gaschgiccard/? fields={\"ctmArchiveId\":1}&query={\"iccardState\":\"1\",\"ctmArchiveId\":\"" + currentArchive.ctmArchiveId + "\"}",
+                                    url: "hzqs/dbc/pbsel.do?fh=SELDBC0000000J00&resp=bd",
+                                    type: "POST",
+                                    contentType: "application/json;charset=utf-8",
+                                    data: JSON.stringify({
+                                        cols: "*",
+                                        froms: "gasChgIccard a",
+                                        wheres: "iccardState = 1 and ctmArchiveId='" + currentArchive.ctmArchiveId + "'",
+                                        page: "false",
+                                        limit: 1
+                                    }),
+                                    dataType: "json",
+                                    success: function (data) {
+                                        if (currentArchive.relChgAccountId) {
+                                            $("#_gasInfo").find("#BtnChg").show();
+                                        } else {
+                                            $("#_gasInfo").find("#BtnChg").hide();
+                                        }
+                                        if (data && data.rows && data.rows.length > 0) {//有卡直接收费
+                                            $btn.text("购气");
+                                            chargeHelper.setContext("hasiccard", "1");
+                                        } else {//无卡先写新卡在收费
+                                            $btn.text("开卡购气");
+                                            chargeHelper.setContext("hasiccard", "0");
+                                        }
+                                    },
+                                    error: function () {
+                                        //alert("无访问权限");
+                                    }
+                                });
+                            });
+
+                            chargeHelper.getIcComplement(currentArchive.customerCode, function (data) {
+                                var $gasBalance = $("#_gasInfo").find("#complement");
+                                $gasBalance.text(data.gas);
+                            });
+                        });
+                        $("#divChgContainer").show();
+                    });
+                } else if (currentArchive.customerState == '02') {
+                    bootbox.alert("该用户状态为暂停用气，不允许交费。");
+                } else if (currentArchive.customerState == '03') {
+                    bootbox.alert("该用户状态为拆除，不允许交费。");
+                } else {
+                    bootbox.alert("该用户状态异常，不允许交费。");
+                }
+                // 5. 加载垃圾费缴费记录
+                if (currentArchive.customerKind == "9") {
+                    $("#liWaste").hide();
+                    $("#tabGas").tab('show');
+                } else if (currentArchive.customerKind == "1") {
+                    if ($activeTab) {
+                        $activeTab.tab('show');
+                        $activeTab.closest("li").show();
+                    } else {
+                        $("#liGas").show();
+                        $("#tabGas").tab('show');
+                    }
+
+                    chargeHelper.getWasteFee(currentArchive.ctmArchiveId, function (data) {
+                        dust.loadSource(dust.compile($("#__dust__wasteRowInfo").html(), "wasterowInfo__"));
+                        dust.render("wasterowInfo__", { "data": data }, function (err, res) {
+                            $("#_wasteInfo").html(res);
+                            chargeHelper.getWasteFeeBalance(currentArchive.ctmArchiveId, function (balance) {
+                                var $wasteBalance = $("#_wasteInfo").find("#balance");
+                                $wasteBalance.text(balance);
+                                if (parseFloat(balance) > 0) {
+                                    $wasteBalance.css("color", "green");
+                                } else if (parseFloat(balance) == 0) {
+                                    $wasteBalance.css("color", "black");
+                                } else if (parseFloat(balance) < 0) {
+                                    $wasteBalance.css("color", "red");
+
+                                    chargeHelper.wastepretag(function (data) {
+                                        console.log(data.rows[0].parameterValue);
+                                        if (data.rows[0].parameterValue == '1') {
+                                            $("#tabGas").hide();
+                                            $("#gasFee").hide();
+                                            $('#liWaste').show();
+                                            $("#tabWaste").tab('show');
+
+                                        } else {
+                                            bootbox.confirm({
+                                                title: '城镇垃圾处理费欠费',
+                                                buttons: {
+                                                    confirm: {
+                                                        label: '先交垃圾处理费',
+                                                        className: 'btn-success'
+                                                    },
+                                                    cancel: {
+                                                        label: '客户本次拒绝缴纳城镇垃圾处理费',
+                                                        className: 'btn-danger'
+                                                    }
+
+                                                },
+                                                message: '<b>客户号' + currentArchive.customerCode + '城镇垃圾处理费账户余额为 ¥' + balance + '，应先缴纳城镇垃圾处理费后再收取燃气费。请确认客户是否拒绝缴纳垃圾费。</b>',
+                                                callback: function (result) {
+                                                    if (!result) {
+
+                                                        isBlackList = '1';
+                                                    } else {
+                                                        isBlackList = '0';
+                                                        $("#tabGas").hide();
+                                                        $("#gasFee").hide();
+                                                        $('#liWaste').show();
+                                                        $("#tabWaste").tab('show');
+
+                                                    }
+                                                    console.log(isBlackList);
+                                                }
+                                            });
+                                        }
+                                    });
+                                }
+                            });
+                        });
+                        $("#divChgContainer").show();
+                    });
+                } else if (currentArchive.customerState == '02') {
+                    bootbox.alert("该用户状态为暂停用气，不允许交费。");
+                } else if (currentArchive.customerState == '03') {
+                    bootbox.alert("该用户状态为拆除，不允许交费。");
+                } else {
+                    bootbox.alert("该用户状态异常，不允许交费。");
+                }
+            }
+        });
+    }
+    function addTab(id, name) {
+        var title = $('<li>', {
+            'role': 'presentation',
+            'id': "li_" + id
+        }).append($('<a>', {
+            'href': '#' + id,
+            'aria-controls': id,
+            'role': 'tab',
+            'data-toggle': 'tab'
+        }).html(name));
+        var $content = $("#" + id);
+        if ($("#divUserInfoContainer").find("ul").find("#li_" + id).length) {
+            $("#divUserInfoContainer").find(".tab-content").remove("#" + id);
+            $content.insertBefore($("#divUserInfoContainer").find(".tab-content").children(".tab-pane:first-child"));
+        } else {
+            $("#divUserInfoContainer").find("ul").append(title);
+            $content.insertBefore($("#divUserInfoContainer").find(".tab-content").children(".tab-pane:first-child"));
+        }
+    }
+    function removeTab(id) {
+        if ($("#divUserInfoContainer").find("ul").find("#li_" + id).length) {
+            $("#divUserInfoContainer").find(".tab-content").find("#" + id).empty();
+            $("#divUserInfoContainer").find("ul").find("#li_" + id).remove();
+        }
+    }
+
+</script>
+
+</html>

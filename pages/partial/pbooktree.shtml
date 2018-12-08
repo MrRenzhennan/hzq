@@ -1,0 +1,61 @@
+
+<script type="text/x-template" id="__dust_pbooktree" >
+        <div id="tree_1" class="tree-demo">
+            <ul>
+            {#data}
+                <li data-jstree='{ "opened" : true}'>
+                    {name}
+                    <ul>
+                         {?.nodes}
+                         {#nodes}
+                        <li data-jstree='{ "opened" : true}'>
+                            <a data-id={codeid} href="#">
+                                {name}
+                            </a>
+                            <ul>
+                            {?.nodes}
+                            {#nodes}
+                                <li data-jstree='{ "opened" : true}' >
+                                    <a data-id="{codeid}" id="a_{codeid}" href="#" class="a_tree_level3">
+                                        {name}
+                                    </a>
+                                    <ul>
+                                    {?.nodes}
+                                    {#nodes}
+                                        <li data-jstree='{ "opened" : true}' >
+                                            <a data-id="{codeid}" id="a_{codeid}" href="#" class="a_tree_level4" >
+                                                {name}
+                                            </a>
+                                            {?.nodes}
+                                             <ul>
+                                            {#nodes}
+                                                <li data-jstree='{ "opened" : true}'>
+                                                    <a data-id="{codeid}" href="#">
+                                                        {name}
+                                                    </a>
+                                                </li>
+                                            {/nodes}
+                                            </ul>
+                                            {/.nodes}                                            
+                                        </li>
+                                    {/nodes}
+                                    {/.nodes}
+                                    </ul>
+                                </li>
+
+                            {/nodes}
+                            {/.nodes}
+                            </ul>
+                        </li>
+                        
+                        {/nodes}                            
+                        {/.nodes}
+                    </ul>
+                </li>
+            {/data}
+            </ul>
+        </div>
+            
+</script>
+
+

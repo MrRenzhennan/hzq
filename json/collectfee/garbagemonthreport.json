@@ -1,0 +1,11 @@
+{"rows":
+[
+{"UUID":"005","month_money":"150","ID":"3","yyy":"张三","collectTime":"2016-11-11 ","collectTimeend":"2016-11-11 ","type":"垃圾处理费","yy":"道里一"}
+,{"UUID":"008","month_money":"150","ID":"1","yyy":"张三","collectTime":"2016-11-11","collectTimeend":"2016-11-11 ","type":"垃圾处理费","yy":"道里一"}
+,{"UUID":"010","month_money":"100","ID":"2","yyy":"张三","collectTime":"2016-11-11 ","collectTimeend":"2016-11-11 ","type":"垃圾处理费","yy":"道里一"}
+]
+,"total_rows":1
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}
+

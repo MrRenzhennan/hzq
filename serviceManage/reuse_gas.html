@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]>
+<html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <title>重新用气受理</title>
+    <base href="../">
+    <script src="pages/scripts/basepath.js"></script>
+    <script src="pages/scripts/header.js"></script>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8"/>
+    <link href='assets/global/plugins/jquery-watable/watable.css' rel='stylesheet'/>
+    <link href='assets/global/plugins/jquery-watable/animate.min.css' rel='stylesheet'/>
+    <link href="assets/global/plugins/bootstrap-fileinput/fileinput.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-datepicker/css/datepicker.css"/>
+    <link href='assets/global/plugins/bootstrap-datetimepicker/css/datetimepicker.css' rel='stylesheet'/>
+
+    <style>
+        #divtable {
+            display: none;
+        }
+    </style>
+</head>
+<!-- END HEAD -->
+<body class="page-header-fixed page-quick-sidebar-over-content">
+<!-- 标题栏开始 -->
+<div class="page-header navbar navbar-fixed-top">
+    <script>$.include("pages/partial/menu.shtml");</script>
+</div>
+<!-- 标题栏结束 -->
+<div class="clearfix"></div>
+<div class="page-container">
+    <!-- 左侧菜单开始 -->
+    <div class="page-sidebar-wrapper">
+        <script>$.include("pages/partial/sidebar.shtml");</script>
+    </div>
+    <!-- 左侧菜单结束 -->
+    <!-- 主内容开始 -->
+    <div class="page-content-wrapper">
+        <div class="page-content clearfix">
+            <!--内容头开始-->
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa  fa-map-marker"></i>
+                            <a href="javascript:void(0)">服务管理</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="serviceManage/business_process.html">综合业务办理</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">重新用气受理</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 内容头结束-->
+            <!--查询条件-->
+            <script>$.include("serviceManage/partial/select_user.shtml");</script>
+            <!--用户信息-->
+            <script>$.include("serviceManage/partial/user_info.shtml");</script>
+            <!--业务信息-->
+            <div class="tabbable tabbable-custom tabbable-custom-profile col-md-12" style="padding-bottom:0px">
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#tab_1_22" data-toggle="tab">
+                            登记信息 </a>
+
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab11">
+                        <div class="portlet-body">
+                            <div class="form-body">
+                                <script>$.include("common/idcardread.shtml")</script>
+                                <div class="row form-group">
+
+                                    <div class="col-sm-3 form-group">
+                                        <div class="btn-group input-group">
+                                            <div class="input-group-addon">联系人：</div>
+                                            <input name="linkMan" id="linkMan" class="inputclear form-control" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3 form-group">
+                                        <div class="btn-group input-group">
+                                            <div class="input-group-addon">联系电话：</div>
+                                            <input name="linktel" id ="linktel" class="inputclear form-control" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 form-group">
+                                        <div class="btn-group input-group">
+                                            <div class="input-group-addon">预约时间:</div>
+                                            <input id="bookingtime" DATA-DATE-FORMAT="yyyy-mm-dd" class="form-control form-control-inline  form_accuracy_datetime" size="16" type="text" >
+
+                                            <!--<input id ="bookingtime" name="bookingtime"  data-date-format="yyyy-mm-dd" form_accuracy_datetime  type="text"-->
+                                            <!--class="form-control form-control-inline" >-->
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3 form-group">
+                                        <div class="btn-group input-group">
+                                            <div class="input-group-addon">身份证：</div>
+                                            <input name="idCard" id="idCards" class="inputclear form-control" type="text">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-4 form-group">
+                                        <div class="btn-group input-group">
+                                            <div class="input-group-addon">重启状态：</div>
+                                            <div>
+                                                <label class="checkbox-inline">
+                                                    <input type="radio" name="cxyq" checked id="inlineCheckbox3" value="1">
+                                                    阶段性重启
+                                                </label>
+                                                <label class="checkbox-inline">
+                                                    <input type="radio" name="cxyq" checked id="inlineCheckbox1" value="2">
+                                                    关栓重启
+                                                </label>
+                                                <label class="checkbox-inline">
+                                                    <input type="radio" name="cxyq" id="inlineCheckbox2" value="3"> 装表
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 form-group">
+                                        <div class="btn-group input-group" style="width: 100%">
+                                            <div class="input-group-addon">业务说明:</div>
+                                            <input id="remark" class="inputclear form-control" type="text">
+                                            <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                        </div>
+                                    </div>
+                                    <script>$.include("common/gpyupload.shtml");</script>
+                                    <input name="businesstypeId" hidden="hidden" type="text" value="6"
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script>$.include("serviceManage/partial/commit_print.shtml");</script>
+            <!-- 主内容结束 -->
+        </div>
+    </div>
+</div>
+</body>
+
+
+<script>$.include("pages/partial/scripts.shtml");</script>
+<script src="assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-watable/jquery.watable.js"></script>
+<script type="text/javascript" src="pages/scripts/rqlbuilder.js"></script>
+<script type="text/javascript" src="pages/scripts/xwatable.js"></script>
+<script type="text/javascript" src="pages/scripts/refhelper.js"></script>
+<!--<script type="text/javascript" src="assets/global/plugins/select2/select2.js"></script>-->
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script src="assets/admin/pages/scripts/components-pickers.js"></script>
+<script type="text/javascript"
+        src="assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+
+<script src="pages/scripts/jquery.json.min.js"></script>
+<script type="text/javascript" src="pages/scripts/jquery.serialize-object.min.js"></script>
+<script src="serviceManage/js/reuse_gas.js"></script>
+<script src="pages/scripts/validateCard.js"></script>
+
+</html>

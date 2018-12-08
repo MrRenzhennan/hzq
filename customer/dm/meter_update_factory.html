@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]>
+<html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+
+<!-- BEGIN HEAD -->
+<head>
+    <title>在线表具修改</title>
+    <base href="../../">
+    <script src="pages/scripts/header.js"></script>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8"/>
+    <link href='assets/global/plugins/jquery-watable/watable.css' rel='stylesheet'/>
+    <link href='assets/global/plugins/jquery-watable/animate.min.css' rel='stylesheet'/>
+
+    <!--datapicker start-->
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-datepicker/css/datepicker3.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="assets/global/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-colorpicker/css/colorpicker.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="assets/global/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="assets/global/plugins/bootstrap-datetimepicker/css/datetimepicker.css"/>
+    <!--datapicker end-->
+
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-select/bootstrap-select.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/select2/select2.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/jquery-multi-select/css/multi-select.css"/>
+    <link href="assets/global/css/components.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
+    <style>
+        #archive > div {
+            margin-bottom: 15px;
+        }
+
+        #divtable td:last-child {
+            cursor: pointer;
+        }
+
+        table {
+            cursor: default;
+        }
+    </style>
+</head>
+<!-- END HEAD -->
+
+<body class="page-header-fixed page-quick-sidebar-over-content">
+
+<!-- 标题栏开始 -->
+<div class="page-header navbar navbar-fixed-top">
+    <script>$.include("pages/partial/menu.shtml");</script>
+</div>
+<!-- 标题栏结束 -->
+<div class="clearfix"></div>
+<div class="page-container">
+    <!-- 左侧菜单开始 -->
+    <div class="page-sidebar-wrapper">
+        <script>$.include("pages/partial/sidebar.shtml");</script>
+    </div>
+    <!-- 左侧菜单结束 -->
+
+    <!-- 主内容开始 -->
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <!--内容头开始-->
+            <script>$.include("common/navigation_bar.shtml");</script>
+            <!-- 内容头结束-->
+
+            <!-- 内容开始-->
+            <div class="container col-sm-12" style="padding-bottom:0px">
+                <!-- 查询条件控件 -->
+                <div class="row">
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group  input-select2me">
+                            <div class="input-group-addon">供气区域:</div>
+                            <select id="find_unit" class="form-control input-middle select2me"
+                                    data-placeholder="供气区域...">
+                                <option value="">全部</option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group input-select2me">
+                            <div class="input-group-addon">核算员：</div>
+                            <select id="find_countPer" class="form-control input-middle select2me"
+                                    data-placeholder="核算员">
+                                <option value="">全部</option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group input-select2me">
+                            <div class="input-group-addon">抄表员：</div>
+                            <select id="find_servicePer" class="form-control input-middle select2me"
+                                    data-placeholder="抄表员">
+                                <option value="">全部</option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group input-select2me">
+                            <div class="input-group-addon" style="padding-right: 45px">抄表本:</div>
+                            <input id="find_bookCode" class="inputclear form-control" type="text" placeholder="抄表本编号">
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group" style="width: 100%">
+                            <div class="input-group-addon">客户编号:</div>
+                            <input id="find_customerCode" class="inputclear form-control" type="text"
+                                   placeholder="客户编号">
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group input-select2me">
+                            <div class="input-group-addon">客户状态:</div>
+                            <select id="find_customerState" class="form-control input-middle select2me"
+                                    data-placeholder="客户状态...">
+                                <option value="">全部</option>
+                                <option value="00">未开栓</option>
+                                <option value="01">正常</option>
+                                <option value="02">暂停用气</option>
+                                <option value="03">拆除状态</option>
+                                <option value="99">删除</option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group input-select2me">
+                            <div class="input-group-addon">客户类别:</div>
+                            <select id="find_gasTypeId" class="form-control input-middle select2me"
+                                    data-placeholder="客户类型...">
+                                <option value="">全部</option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group input-select2me">
+                            <div class="input-group-addon">用气类型:</div>
+                            <select id="find_gasTypeId1" class="form-control input-middle select2me"
+                                    data-placeholder="用气类型">
+                                <option value="">全部</option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group input-select2me">
+                            <div class="input-group-addon">用气性质:</div>
+                            <select id="find_gasTypeId2" class="form-control input-middle select2me"
+                                    data-placeholder="用气性质">
+                                <option value="">全部</option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group input-select2me">
+                            <div class="input-group-addon">表编号:</div>
+                            <input id="meterCode" type="text" class="inputclear form-control" placeholder="表编号">
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group  input-select2me">
+                            <div class="input-group-addon">表具类型:</div>
+                            <select id="find_meterTypeId" name="meterTypeId" class="form-control input-middle select2me"
+                                    data-placeholder="表具类型...">
+                                <option value="">全部</option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group  input-select2me">
+                            <div class="input-group-addon">物品种类:</div>
+                            <select id="resKind" name="reskindId" class="form-control input-middle select2me"
+                                    data-placeholder="物品种类...">
+                                <option value="">全部</option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group  input-select2me">
+                            <div class="input-group-addon">厂家名称:</div>
+                            <select id="factoryName" name="factoryId" class="form-control input-middle select2me"
+                                    data-placeholder="厂家名称...">
+                                <option value="">全部</option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group  input-select2me">
+                            <div class="input-group-addon">表具规格型号:</div>
+                            <select id="meterModelId" name="meterModelId" class="form-control input-middle select2me"
+                                    data-placeholder="表具规格型号...">
+                                <option value="">全部</option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group  input-select2me">
+                            <div class="input-group-addon">流量范围:</div>
+                            <select id="flowRange" name="flowRange" class="form-control input-middle select2me"
+                                    data-placeholder="流量范围...">
+                                <option value="">全部</option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group input-select2me">
+                            <div class="input-group-addon">二次表状态:</div>
+                            <select id="secondMeter" class="form-control input-middle select2me"
+                                    data-placeholder="客户状态...">
+                                <option value="">全部</option>
+                                <option value="01">正常使用</option>
+                                <option value="06">为校正</option>
+                                <option value="07">二次表损坏</option>
+                                <option value="09">没有二次表</option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 form-group">
+                        <div class="btn-group input-group input-select2me">
+                            <div class="input-group-addon">客户地址:</div>
+                            <input id="customerAddress" type="text" class="inputclear form-control" placeholder="客户地址">
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-3 form-group">
+                        <div class="btn-group input-group">
+                            <div class="input-group-addon">请选择:</div>
+                            <div>
+                                <div class="radio-list">
+                                    <!--<label class="radio-inline">
+                                        <input type="radio" name="ksl" id="inlineCheckbox1" value="1" checked disabled > 有开栓令有档 </label>-->
+                                    <label class="radio-inline">
+                                        <input type="radio" name="meter" id="oneMeter" value="1"> 一次表 </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="meter" id="twoMeter" value="2"> 二次表 </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="lay" class="row" style="display:none;">
+
+                        <div class="col-sm-3 form-group">
+                            <div class="btn-group input-group  input-select2me">
+                                <div class="input-group-addon">表体材质:</div>
+                                <select id="meterMaterial" name="meterMaterial"
+                                        class="form-control input-middle select2me"
+                                        data-placeholder="表体材质...">
+                                    <option value="">全部</option>
+                                </select>
+                                <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 form-group">
+                            <div class="btn-group input-group  input-select2me">
+                                <div class="input-group-addon">基表供应商:</div>
+                                <select id="baseMeterVender" class="form-control input-middle select2me"
+                                        data-placeholder="基表供应商...">
+                                    <option value="">全部</option>
+                                    <option value="1">金卡</option>
+                                    <option value="2">松川</option>
+                                    <option value="3">蓝宝石</option>
+                                </select>
+                                <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 form-group">
+                            <div class="btn-group input-group  input-select2me">
+                                <div class="input-group-addon">显示方式:</div>
+                                <select id="displayType" name="displayType" class="form-control input-middle select2me"
+                                        data-placeholder="基表供应商...">
+                                    <option value="">全部</option>
+                                </select>
+                                <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 form-group">
+                            <div class="btn-group input-group  input-select2me">
+                                <div class="input-group-addon">信控模式:</div>
+                                <select id="controlType" name="controlType" class="form-control input-middle select2me"
+                                        data-placeholder="信控模式...">
+                                    <option value="">全部</option>
+                                </select>
+                                <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 form-group">
+                            <div class="btn-group input-group  input-select2me">
+                                <div class="input-group-addon">芯片类型:</div>
+                                <select id="chipType" class="form-control input-middle select2me"
+                                        data-placeholder="芯片类型...">
+                                    <option value="">全部</option>
+                                    <option value="1">102卡 气量卡</option>
+                                    <option value="2">102卡 金额卡</option>
+                                    <option value="3">4442卡 气量卡</option>
+                                    <option value="4">4442卡 金额卡</option>
+                                    <option value="5">cpu卡</option>
+                                </select>
+                                <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 form-group">
+                            <div class="btn-group input-group  input-select2me">
+                                <div class="input-group-addon">阀门情况:</div>
+                                <select id="valveInfo" name="valveInfo" class="form-control input-middle select2me"
+                                        data-placeholder="阀门情况...">
+                                    <option value="">全部</option>
+                                </select>
+                                <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 form-group">
+                            <div class="btn-group input-group  input-select2me">
+                                <div class="input-group-addon">供电方式:</div>
+                                <select id="powerType" name="powerType" m class="form-control input-middle select2me"
+                                        data-placeholder="供电方式...">
+                                    <option value="">全部</option>
+                                </select>
+                                <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 form-group">
+                            <div class="btn-group input-group  input-select2me">
+                                <div class="input-group-addon">表具状态:</div>
+                                <select id="meterStatus" class="form-control input-middle select2me"
+                                        data-placeholder="表具状态...">
+                                    <option value="">全部</option>
+                                    <option value="1">正常</option>
+                                    <option value="2">表慢</option>
+                                    <option value="3">表快</option>
+                                    <option value="4">死表</option>
+                                </select>
+                                <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 form-group data-select">
+                    <div class="btn-group input-group pull-left col-md-5">
+                        <div class="input-group-addon">生产日期:</div>
+                        <div class="input-group input-large date-picker input-daterange"
+                             data-date-format="yyyy-mm-dd">
+                            <input id="find_start_date" type="text" class="form-control" name="from">
+                            <span class="inputclear glyphicon glyphicon-remove-circle hidden"></span>
+                            <span class="input-group-addon">至</span>
+                            <input id="find_end_date" type="text" class="form-control" name="to">
+                            <span class="inputclear glyphicon glyphicon-remove-circle hidden"></span>
+                        </div>
+                    </div>
+                    <div id="chosedate">
+                        <div class="btn-group form-group">
+                            <button id="find_today_sign" class="btn">当日</button>
+                        </div>
+                        <div class="btn-group form-group">
+                            <button id="find_this_week_sign" class="btn">近一周</button>
+                        </div>
+                        <div class="btn-group form-group">
+                            <button id="find_this_month_sign" class="btn">近一月</button>
+                        </div>
+                        <div class="btn-group form-group">
+                            <button id="find_three_month_sign" class="btn">近三月</button>
+                        </div>
+                        <div class="btn-group form-group">
+                            <button id="find_this_year_sign" class="btn">近一年</button>
+                        </div>
+                        <div class="btn-group form-group">
+                            <button id="find_anyway_sign" class="btn">不限</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 form-group data-select">
+                    <div class="btn-group input-group pull-left col-md-5">
+                        <div class="input-group-addon">上线日期:</div>
+                        <div class="input-group input-large date-picker input-daterange"
+                             data-date-format="yyyy-mm-dd">
+                            <input id="find_start_date1" type="text" class="form-control" name="from">
+                            <span class="inputclear glyphicon glyphicon-remove-circle hidden"></span>
+                            <span class="input-group-addon">至</span>
+                            <input id="find_end_date1" type="text" class="form-control" name="to">
+                            <span class="inputclear glyphicon glyphicon-remove-circle hidden"></span>
+                        </div>
+                    </div>
+                    <div id="chosedate">
+                        <div class="btn-group form-group">
+                            <button id="find_today_sign1" class="btn">当日</button>
+                        </div>
+                        <div class="btn-group form-group">
+                            <button id="find_this_week_sign1" class="btn">近一周</button>
+                        </div>
+                        <div class="btn-group form-group">
+                            <button id="find_this_month_sign1" class="btn">近一月</button>
+                        </div>
+                        <div class="btn-group form-group">
+                            <button id="find_three_month_sign1" class="btn">近三月</button>
+                        </div>
+                        <div class="btn-group form-group">
+                            <button id="find_this_year_sign1" class="btn">近一年</button>
+                        </div>
+                        <div class="btn-group form-group">
+                            <button id="find_anyway_sign1" class="btn">不限</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 form-group">
+                    <div class="btn-group form-group">
+                        <button id="find_button" class="btn yellow">
+                            <i class="fa fa-search"></i> 查询&nbsp;
+                        </button>
+                    </div>
+                    <div class="btn-group form-group ">
+                        <button id="find_hight_user" type="button" class="btn yellow">
+                            高级&nbsp;<i id="ib" class="fa fa-angle-double-down"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div id="divtable" class="table-responsive container-fluid col-md-12" style="background-color: #ffffff">
+                </div>
+            </div>
+            <!-- 内容结束-->
+
+            <div class="clearfix">
+            </div>
+        </div>
+    </div>
+    <!-- 主内容结束 -->
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="meterInfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" backdrop=false>
+    <div class="modal-dialog" style="width:85%">
+        <div class="modal-content" style="width:100%;background: #f7f7f7;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+                        class="sr-only">Close</span></button>
+                <h4 class="modal-title">表具修改</h4>
+            </div>
+            <div class="modal-body">
+                <!-- BEGIN FORM-->
+                <div class="container-fluid">
+                    <div class="add-form">
+                        <form role="form" onsubmit="return false" method="post" id="form">
+                            <div class="form-body">
+                                <div class="row form-group" id="archive">
+                                    <div class="col-md-3">
+                                        <label class="control-label col-md-4">表编号:</label>
+                                        <div class="col-md-8">
+                                            <input id="meterNo" name="meterNo" type="text" class="form-control"
+                                                   placeholder="表编号" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="control-label col-md-4">进气方向:</label>
+                                        <div class="col-md-8">
+                                            <select id="direction'" name="direction"
+                                                    class="form-control input-middle select2me" data-placeholder="进气方向" disabled>
+                                                <option value=""></option>
+                                                <option value="L">左进气</option>
+                                                <option value="R">右进气</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="control-label col-md-4">表具类型:</label>
+                                        <div class="col-md-8">
+                                            <select id="meterTypeId"  name="meterTypeId"
+                                                    class="form-control input-middle select2me" data-placeholder="表具类型" disabled>
+                                                <option value=""></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="control-label col-md-4">物品种类:</label>
+                                        <div class="col-md-8">
+                                            <select id="resKind1" name="reskindId"
+                                                    class="form-control input-middle select2me" data-placeholder="物品种类">
+                                                <option value=""></option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <label class="control-label col-md-4">表具状态:</label>
+                                        <div class="col-md-8">
+                                            <select id="meterStatus1" name="meterStatus"
+                                                    class="form-control input-middle select2me" data-placeholder="表具状态" disabled>
+                                                <option value=""></option>
+                                                <option value="1">正常</option>
+                                                <option value="2">表慢</option>
+                                                <option value="3">表快</option>
+                                                <option value="4">死表</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <label class="control-label col-md-4">生产厂家:</label>
+                                        <div class="col-md-8">
+                                            <select id="factoryName1" name="factoryId"
+                                                    class="form-control input-middle select2me" data-placeholder="生产厂家">
+                                                <option value=""></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="control-label col-md-4">表具规格型号:</label>
+                                        <div class="col-md-8">
+                                            <select id="meterModelId2" name="meterModelId"
+                                                    class="form-control input-middle select2me"
+                                                    data-placeholder="表具规格型号" disabled>
+                                                <option value=""></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="control-label col-md-4">流量范围:</label>
+                                        <div class="col-md-8">
+                                            <select id="flowRange1" name="flowRange"
+                                                    class="form-control input-middle select2me" data-placeholder="流量范围" disabled>
+                                                <option value=""></option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <label class="control-label col-md-4">额定流量:</label>
+                                        <div class="col-md-8">
+                                            <input id="flow" name="flow" type="text" class="form-control"
+                                                   placeholder="额定流量" readonly>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <label class="control-label col-md-4">表位数:</label>
+                                        <div class="col-md-8">
+                                            <input id="meterDigit1" name="meterDigit" type="text" class="form-control"
+                                                   placeholder="表位数" >
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="control-label col-md-4">表读数:</label>
+                                        <div class="col-md-8">
+                                            <input name="reading" type="text" class="form-control" placeholder="表读数" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="control-label col-md-4">口径:</label>
+                                        <div class="col-md-8">
+                                            <input name="bore" type="text" class="form-control" placeholder="口径" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="control-label col-md-4">生产日期:</label>
+                                        <div class="col-md-8 input-daterange date-picker" data-date-format="yyyy-mm-dd">
+                                            <input name="productionDate" type="text" class="form-control"
+                                                   placeholder="生产日期"
+                                                   style="text-align: left;" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="control-label col-md-4">检表日期:</label>
+                                        <div class="col-md-8 input-daterange date-picker" data-date-format="yyyy-mm-dd">
+                                            <input name="checkDate" type="text" class="form-control" placeholder="检表日期"
+                                                   style="text-align: left;" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="control-label col-md-4">注油日期:</label>
+                                        <div class="col-md-8 input-daterange date-picker" data-date-format="yyyy-mm-dd">
+                                            <input name="oilingDate" type="text" class="form-control" placeholder="注油日期"
+                                                   style="text-align: left;" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="control-label col-md-4">更换电池日期:</label>
+                                        <div class="col-md-8 input-daterange date-picker" data-date-format="yyyy-mm-dd">
+                                            <input name="batteryDate" type="text" class="form-control"
+                                                   placeholder="更换电池日期"
+                                                   style="text-align: left;" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="control-label col-md-4">最后施封日期:</label>
+                                        <div class="col-md-8 input-daterange date-picker" data-date-format="yyyy-mm-dd">
+                                            <input name="lastContainersDate" type="text" class="form-control"
+                                                   placeholder="施封日期" style="text-align: left;" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="control-label col-md-4">表体材质:</label>
+                                        <div class="col-md-8">
+                                            <select id="meterMaterial1" name="meterMaterial"
+                                                    class="form-control input-middle select2me"
+                                                    data-placeholder="表体材质" disabled>
+                                                <option value=""></option >
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="control-label col-md-4">表具种类:</label>
+                                        <div class="col-md-8">
+                                            <select id="meterKind'" name="meterKind"
+                                                    class="form-control input-middle select2me" data-placeholder="表具种类" >
+                                                <option value=""></option>
+                                                <option value="01">普通表</option>
+                                                <option value="02">IC卡气量表</option>
+                                                <option value="03">IC卡金额表</option>
+                                                <option value="04">代码表</option>
+                                                <option value="05">远传表</option>
+                                                <option value="06">IC卡cpu表</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="control-label col-md-4">基表供应商:</label>
+                                        <div class="col-md-8">
+                                            <select id="baseMeterVender'" name="baseMeterVender"
+                                                    class="form-control input-middle select2me"
+                                                    data-placeholder="基表供应商" disabled>
+                                                <option value=""></option>
+                                                <option value="1">金卡</option>
+                                                <option value="2">松川</option>
+                                                <option value="3">蓝宝石</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="control-label col-md-4">显示方式:</label>
+                                        <div class="col-md-8">
+                                            <select id="displayType1" name="displayType"
+                                                    class="form-control input-middle select2me"
+                                                    data-placeholder="显示方式" disabled>
+                                                <option value=""></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="control-label col-md-4">信控模式:</label>
+                                        <div class="col-md-8">
+                                            <select id="controlType1" name="controlType"
+                                                    class="form-control input-middle select2me"
+                                                    data-placeholder="信控模式" disabled>
+                                                <option value=""></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="control-label col-md-4">芯片类型:</label>
+                                        <div class="col-md-8">
+                                            <select id="chipType1" name="chipType"
+                                                    class="form-control input-middle select2me"
+                                                    data-placeholder="芯片类型">
+                                                <option value=""></option>
+                                                <option value="1">102卡 气量卡</option>
+                                                <option value="2">102卡 金额卡</option>
+                                                <option value="3">4442卡 气量卡</option>
+                                                <option value="4">4442卡 金额卡</option>
+                                                <option value="5">cpu卡</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="control-label col-md-4">阀门情况:</label>
+                                        <div class="col-md-8">
+                                            <select id="valveInfo1" name="valveInfo"
+                                                    class="form-control input-middle select2me"
+                                                    data-placeholder="阀门情况" disabled>
+                                                <option value=""></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="control-label col-md-4">供电方式:</label>
+                                        <div class="col-md-8">
+                                            <select id="powerType1" name="powerType"
+                                                    class="form-control input-middle select2me"
+                                                    data-placeholder="供电方式" disabled>
+                                                <option value=""></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                    <label class="control-label col-md-4">修正表标记:</label>
+                                    <div class="col-md-8">
+                                        <select id="isOrNo" name="meterFlag" class="form-control input-middle select2me"
+                                                data-placeholder="修正表标记" disabled>
+                                            <option value=""></option>
+                                            <option value="2">是</option>
+                                            <option value="1">否</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                    <div class="col-md-3">
+                                        <label class="control-label col-md-4">备表标记:</label>
+                                        <div class="col-md-8">
+                                            <select  name="isBackup" class="form-control input-middle select2me"
+                                                    data-placeholder="备表标记" disabled>
+                                                <option value=""></option>
+                                                <option value="2">是</option>
+                                                <option value="1">否</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!--<div class="col-md-3">-->
+                                    <!--<label class="control-label col-md-4">修正表标记:</label>-->
+                                    <!--<div class="col-md-8">-->
+                                    <!--<select id="isOrNo" name="chipType" class="form-control input-middle select2me"-->
+                                    <!--data-placeholder="芯片类型">-->
+                                    <!--<option value="">全部</option>-->
+                                    <!--<option value="1">102卡 气量卡</option>-->
+                                    <!--<option value="2">102卡 金额卡</option>-->
+                                    <!--</select>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="col-md-3">-->
+                                    <!--<label class="control-label col-md-4">修正表状态:</label>-->
+                                    <!--<div class="col-md-8">-->
+                                    <!--<select id="meterReviseState" name="chipType" class="form-control input-middle select2me"-->
+                                    <!--data-placeholder="修正表状态">-->
+                                    <!--<option value="">全部</option>-->
+                                    <!--<option value="1">102卡 气量卡</option>-->
+                                    <!--<option value="2">102卡 金额卡</option>-->
+                                    <!--<option value="3">4442卡 气量卡</option>-->
+                                    <!--<option value="4">4442卡 金额卡</option>-->
+                                    <!--</select>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col-md-12">
+                                        <label class="control-label col-md-1">备注:</label>
+                                        <div class="col-md-11">
+                                        <textarea name="meterRemark" class="form-control  col-md-1" cols="12"
+                                                  placeholder="请输入备注信息.." disabled></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <!--<button style="margin-left: 1%" type="button" class="btn blue"data-target="#chose_bills" data-toggle="modal"> <i class="fa fa-plus"></i> 添加入库单</button>-->
+                    </div>
+                </div>
+                <!-- END FORM-->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button id="save_btn" type="button" class="btn btn-primary">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">$.include("pages/partial/xwatable-form.shtml")</script>
+</body>
+
+
+<script>$.include("pages/partial/scripts.shtml");</script>
+<script src="assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-watable/jquery.watable.js"></script>
+<script type="text/javascript" src="pages/scripts/rqlbuilder.js"></script>
+<script type="text/javascript" src="pages/scripts/xwatable.js"></script>
+<script type="text/javascript" src="pages/scripts/refhelper.js"></script>
+
+<!--datapicker start-->
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/clockface/js/clockface.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-daterangepicker/moment.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+<script type="text/javascript"
+        src="assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+
+<script type="text/javascript" src="assets/global/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-multi-select/js/jquery.multi-select.js"></script>
+
+<script src="assets/admin/pages/scripts/components-pickers.js"></script>
+<script src="customer/dm/js/meter_update_factory.js"></script>
+<!--<script src="customer/dm/js/meter_attribute.js"></script>-->
+<script src="mods/timeslot.js"></script>
+<script src="mods/basismanage.js"></script>
+<script src="mods/sys.js"></script>
+<script src="mods/mrd.js"></script>
+<script src="mods/ctm.js"></script>
+<script type="text/javascript">
+    $("#find_hight_user").click(function () {
+        $("#lay input").val("");
+        if ($("#lay").css("display") == "block") {
+            $("#lay").css("display", "none");
+            $("#ib").attr("class", "fa fa-angle-double-down");
+        } else if ($("#lay").css("display") == "none") {
+            $("#lay").css("display", "block");
+            $("#ib").attr("class", "fa fa-angle-double-up");
+        }
+    });
+    meterArchivesSelectAction.init();
+</script><!-- End of User Script-->
+</html>

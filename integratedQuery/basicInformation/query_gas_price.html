@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+
+<!-- BEGIN HEAD -->
+<head>
+    <title>燃气费价格查询</title>
+    <base href="../../">
+    <meta charset="UTF-8">
+    <meta http-equiv="content-type" content="text/html" charset="utf-8"/>
+    <script src="pages/scripts/header.js"></script>
+
+    <link href='assets/global/plugins/jquery-watable/watable.css' rel='stylesheet'/>
+    <link href='assets/global/plugins/jquery-watable/animate.min.css' rel='stylesheet'/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-select/bootstrap-select.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/select2/select2.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/jquery-multi-select/css/multi-select.css"/>
+    <link href="assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
+
+    <!--<link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-datepicker/css/datepicker.css"/>-->
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/jstree/dist/themes/default/style.min.css"/>
+
+
+
+
+
+</head>
+<body  class="page-header-fixed page-quick-sidebar-over-content">
+<!-- 标题栏开始 -->
+<div class="page-header navbar navbar-fixed-top">
+    <script>$.include("pages/partial/menu.shtml");</script>
+</div>
+<!-- 标题栏结束 -->
+<div class="clearfix"></div>
+<div class="page-container">
+    <!-- 左侧菜单开始 -->
+    <div class="page-sidebar-wrapper">
+        <script>$.include("pages/partial/sidebar.shtml");</script>
+    </div>
+    <!-- 左侧菜单结束 -->
+
+    <!-- 主内容开始 -->
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <!--内容头开始-->
+            <script>$.include("common/navigation_bar.shtml");</script>
+            <!-- 内容头结束-->
+            <div class="row">
+                <!-- 内容开始-->
+                <div class="container-fluid">
+                    <!-- BEGIN PAGE CONTENT-->
+                    <div class="row">
+                        <div id="treetable" class="table-responsive container col-md-3" style=" overflow-y: auto">
+                        </div>
+                        <div class="col-md-9">
+                            <!-- BEGIN GENERAL PORTLET-->
+                            <div class="portlet" id="portlet1">
+                                <div class="portlet-title">
+                                    <i class="fa fa-gift"></i> 燃气费价格
+                                    <div class="tools">
+                                        <a href="javascript:;" class="collapse">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="portlet-body">
+                                    <div class="row form-group" style="padding-left: 10px;padding-right: 10px">
+                                        <div class="col-md-4">
+                                            <label class="control-label col-md-4">用气性质:</label>
+                                            <div class="col-md-8">
+                                                <select class="form-control chosen-select select2me" id ="gasType1" name="priceType"  tabindex="1">
+                                                    <option value="">请选择...</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 hide" id="gasType2Div">
+                                            <label class="control-label col-md-4"></label>
+                                            <div class="col-md-8">
+                                                <select class="form-control chosen-select select2me" id="gasType2">
+                                                    <option value="">请选择...</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 hide" id="gasType3Div">
+                                            <label class="control-label col-md-4"></label>
+                                            <div class="col-md-8">
+                                                <select class="form-control chosen-select select2me" id="gasType3">
+                                                    <option value="">请选择...</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--<div class="row " >-->
+                                    <div class="row form-group" style="padding-left: 10px;padding-right: 10px">
+                                        <div class="col-sm-4">
+                                            <label class="control-label col-md-5">生效时间大于:</label>
+                                            <div class="col-md-7">
+                                                <input id ="find_effectTime" name= "find_effectTime" DATA-DATE-FORMAT="yyyy-mm-dd" class="form-control form-control-inline  date-picker" size="16" type="text" value="">
+                                                <!--<input type="text" class="form-control" value="2016-03-10">-->
+                                            </div>
+
+                                        </div>
+                                        <div class="btn-group form-group">
+                                            <button id="find_button" class="btn yellow">
+                                                <i class="fa fa-search"></i> 查询&nbsp;
+                                            </button>
+                                        </div>
+
+                                    </div>
+                                    <!--</div>-->
+
+                                    <div class="row" style="overflow-x: auto">
+                                        <div id="divtable" class="table-responsive container-fluid col-md-12" >
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END GENERAL PORTLET-->
+                        </div>
+                    </div>
+                    <!-- END PAGE CONTENT-->
+                </div>
+                <!-- 内容结束-->
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <!-- 主内容结束 -->
+    <script type="text/javascript">$.include("pages/partial/xwatable-form.shtml")</script>
+
+</div>
+
+</body>
+<script>$.include("pages/partial/scripts.shtml");</script>
+<script type="text/javascript" src="assets/global/plugins/jquery-watable/jquery.watable.js"></script>
+<script type="text/javascript" src="pages/scripts/rqlbuilder.js"></script>
+<script type="text/javascript" src="pages/scripts/xwatable.js"></script>
+<script type="text/javascript" src="pages/scripts/refhelper.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+
+<script type="text/javascript" src="assets/global/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-multi-select/js/jquery.multi-select.js"></script>
+
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script src="assets/admin/pages/scripts/components-pickers.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="pages/scripts/enumUtil.js"></script>
+<script src="assets/global/plugins/jstree/dist/jstree.js"></script>
+<script src="integratedQuery/basicInformation/js/query_gas_price.js"></script>
+<script src="mods/bil.js"></script>
+
+<script type="text/javascript">
+
+    jQuery(document).ready(function() {
+        gaspriceAction.init();
+        ComponentsPickers.init();
+
+    });
+</script>
+
+</html>

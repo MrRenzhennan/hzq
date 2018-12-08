@@ -1,0 +1,16 @@
+{"rows":
+[
+   {"UUID":"001","customer_ID":"客户编号","customer_name":"客户编号","error_find_time":"发现故障时间","deal_time":"处理时间","error_reason":"故障原因","meter_number_offline":"下线时表指针","meter_number_use_offline":"下线时当月用量","meter_change_time":"换表时间","meter_number_use_input_time":"当月用量录入系统时间","spare_meter_use_number":"故障期间备用表用量","meter_total_number":"故障处理后总计用量","remark":"备注"},
+   {"UUID":"001","customer_ID":"客户编号","customer_name":"客户编号","error_find_time":"发现故障时间","deal_time":"处理时间","error_reason":"故障原因","meter_number_offline":"下线时表指针","meter_number_use_offline":"下线时当月用量","meter_change_time":"换表时间","meter_number_use_input_time":"当月用量录入系统时间","spare_meter_use_number":"故障期间备用表用量","meter_total_number":"故障处理后总计用量","remark":"备注"},
+   {"UUID":"001","customer_ID":"客户编号","customer_name":"客户编号","error_find_time":"发现故障时间","deal_time":"处理时间","error_reason":"故障原因","meter_number_offline":"下线时表指针","meter_number_use_offline":"下线时当月用量","meter_change_time":"换表时间","meter_number_use_input_time":"当月用量录入系统时间","spare_meter_use_number":"故障期间备用表用量","meter_total_number":"故障处理后总计用量","remark":"备注"},
+   {"UUID":"001","customer_ID":"客户编号","customer_name":"客户编号","error_find_time":"发现故障时间","deal_time":"处理时间","error_reason":"故障原因","meter_number_offline":"下线时表指针","meter_number_use_offline":"下线时当月用量","meter_change_time":"换表时间","meter_number_use_input_time":"当月用量录入系统时间","spare_meter_use_number":"故障期间备用表用量","meter_total_number":"故障处理后总计用量","remark":"备注"},
+   {"UUID":"001","customer_ID":"客户编号","customer_name":"客户编号","error_find_time":"发现故障时间","deal_time":"处理时间","error_reason":"故障原因","meter_number_offline":"下线时表指针","meter_number_use_offline":"下线时当月用量","meter_change_time":"换表时间","meter_number_use_input_time":"当月用量录入系统时间","spare_meter_use_number":"故障期间备用表用量","meter_total_number":"故障处理后总计用量","remark":"备注"},
+   {"UUID":"001","customer_ID":"客户编号","customer_name":"客户编号","error_find_time":"发现故障时间","deal_time":"处理时间","error_reason":"故障原因","meter_number_offline":"下线时表指针","meter_number_use_offline":"下线时当月用量","meter_change_time":"换表时间","meter_number_use_input_time":"当月用量录入系统时间","spare_meter_use_number":"故障期间备用表用量","meter_total_number":"故障处理后总计用量","remark":"备注"},
+   {"UUID":"001","customer_ID":"客户编号","customer_name":"客户编号","error_find_time":"发现故障时间","deal_time":"处理时间","error_reason":"故障原因","meter_number_offline":"下线时表指针","meter_number_use_offline":"下线时当月用量","meter_change_time":"换表时间","meter_number_use_input_time":"当月用量录入系统时间","spare_meter_use_number":"故障期间备用表用量","meter_total_number":"故障处理后总计用量","remark":"备注"},
+   {"UUID":"001","customer_ID":"客户编号","customer_name":"客户编号","error_find_time":"发现故障时间","deal_time":"处理时间","error_reason":"故障原因","meter_number_offline":"下线时表指针","meter_number_use_offline":"下线时当月用量","meter_change_time":"换表时间","meter_number_use_input_time":"当月用量录入系统时间","spare_meter_use_number":"故障期间备用表用量","meter_total_number":"故障处理后总计用量","remark":"备注"}
+
+]
+,"total_rows":8
+,"totalPages":2
+,"skip":0
+,"limit":2147483647}

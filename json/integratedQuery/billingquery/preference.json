@@ -1,0 +1,10 @@
+{"rows":
+[
+  {"serialNumber":"01","gasArea":"供气区域一","cusNumber":"客户号一","CusName":"客户名一","discountDate":"2017-01-01","disAmount":"20","discategory":"折扣","approvalTime":"2017-01-05"}
+,{"serialNumber":"02","gasArea":"供气区域二","cusNumber":"客户号二","CusName":"客户名二","discountDate":"2017-01-02","disAmount":"50","discategory":"固定价格","approvalTime":"2017-01-10"}
+
+]
+,"total_rows":2
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

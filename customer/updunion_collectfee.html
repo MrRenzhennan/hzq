@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+
+<!-- BEGIN HEAD -->
+<head>
+    <title>联合账户修改</title>
+    <base href="../">
+    <script src="pages/scripts/header.js"></script>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8"/>
+
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-select/bootstrap-select.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/select2/select2.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/jquery-multi-select/css/multi-select.css"/>
+    <link href="assets/global/plugins/bootstrap-fileinput/fileinput.css" rel="stylesheet">
+
+    <!-- BEGIN THEME STYLES -->
+    <link href="assets/global/css/components.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
+    <!-- END THEME STYLES -->
+</head>
+<!-- END HEAD -->
+
+<body class="page-header-fixed page-quick-sidebar-over-content">
+
+<!-- 标题栏开始 -->
+<div class="page-header navbar navbar-fixed-top">
+    <script>$.include("pages/partial/menu.shtml");</script>
+</div>
+<!-- 标题栏结束 -->
+<div class="clearfix"></div>
+<div class="page-container">
+    <!-- 左侧菜单开始 -->
+    <div class="page-sidebar-wrapper">
+        <script>$.include("pages/partial/sidebar.shtml");</script>
+    </div>
+    <!-- 左侧菜单结束 -->
+
+    <!-- 主内容开始 -->
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <!--内容头开始-->
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="page-breadcrumb breadcrumb">
+                        <!-- <li>
+                            <i class="fa fa-map-marker"></i>
+                            <a href="javascript:;">客户管理</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="customer/union_collectfeemanagement.html">联合账户管理</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="javascript:;">联合账户修改</a>
+                        </li> -->
+                    </ul>
+                </div>
+            </div>
+            <!-- 内容头结束-->
+
+            <!-- 内容开始-->
+            <div class="container-fluid">
+                <div class="add-form">
+                    <!-- begin form-->
+                    <form action="javascript:;" role="form">
+                        <div class="form-body">
+                            <div class="row form-group">
+
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">账户名称:</label>
+                                    <div class="col-md-8">
+                                        <input id="accName" type="text" name="accName" class="form-control" placeholder="账户名称">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">发票抬头:</label>
+                                    <div class="col-md-8">
+                                        <input id="invoiceName" type="text" name="invoiceName" class="form-control" placeholder="发票抬头">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">发票类型:</label>
+                                    <div class="col-md-8">
+                                        <select name="invoiceType" class="form-control select2me input-middle" data-placeholder="发票类型" >
+                                            <option value=""></option>
+                                            <option value="1">普通发票</option>
+                                            <option value="2">增值税发票</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">纳税人识别号:</label>
+                                    <div class="col-md-8">
+                                        <input name="taxpayer" type="text" class="form-control" placeholder="纳税人识别号">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">联系人:</label>
+                                    <div class="col-md-8">
+                                        <input id="linkman" type="text" name="linkman" class="form-control" placeholder="联系人">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">联系人电话:</label>
+                                    <div class="col-md-8">
+                                        <input type="text" name="linkmanTel" class="form-control" placeholder="联系人电话">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">联系人手机:</label>
+                                    <div class="col-md-8">
+                                        <input type="text" name="linkmanPhone" class="form-control" placeholder="联系人手机">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">联系人单位:</label>
+                                    <div class="col-md-8">
+                                        <input type="text" name="linkmanUnit" class="form-control" placeholder="联系人工作单位">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">联系人邮编:</label>
+                                    <div class="col-md-8">
+                                        <input type="text" name="linkmanPostcode" class="form-control" placeholder="联系人邮编">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">联系人邮箱:</label>
+                                    <div class="col-md-8">
+                                        <input type="text" name="linkmanMail" class="form-control" placeholder="联系人邮箱">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">联系人地址:</label>
+                                    <div class="col-md-8">
+                                        <input type="text" name="linkmanAddress" class="form-control" placeholder="联系人地址">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-actions fluid">
+                                <div class="btn-set">
+                                    <button id="cancel" type="button" class="btn default">取消</button>
+                                    <button id="save" type="button" class="btn red">修改</button>
+                                    <script>
+                                        $(function () {
+                                            $('#cancel').click(function () {
+                                                window.location="customer/union_collectfeemanagement.html";
+                                            });
+                                            /*  $('#save').click(function () {
+                                             window.location='index.html';
+                                             });*/
+                                        });
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+                    <!--end form-->
+                </div>
+            </div>
+
+            <!-- 内容结束-->
+        </div>
+    </div>
+    <!-- 主内容结束 -->
+</div>
+
+
+
+<script type="text/javascript">$.include("pages/partial/xwatable-form.shtml")</script>
+
+<!-- 底边栏开始 -->
+<script>$.include("pages/partial/foot.shtml");</script>
+<!-- 底边栏结束 -->
+</body>
+
+
+<script>$.include("pages/partial/scripts.shtml");</script>
+<script type="text/javascript" src="pages/scripts/refhelper.js"></script>
+<script type="text/javascript" src="assets/global/plugins/select2/select2.js"></script>
+
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script src="assets/admin/pages/scripts/components-pickers.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script src="assets/admin/pages/scripts/components-form-tools.js"></script>
+<script src="assets/admin/pages/scripts/components-dropdowns.js"></script>
+<script src="assets/global/plugins/jstree/dist/jstree.min.js"></script>
+<script src="assets/admin/pages/scripts/ui-tree.js"></script>
+<script src="assets/global/plugins/jstree/dist/jstree.js"></script>
+<script type="text/javascript" src="pages/scripts/enumUtil.js"></script>
+<script src="pages/scripts/jquery.json.min.js"></script>
+<script type="text/javascript" src="pages/scripts/jquery.serialize-object.min.js"></script>
+
+
+<script src="assets/global/scripts/metronic.js" type="text/javascript"></script>
+<script src="assets/admin/layout/scripts/layout.js" type="text/javascript"></script>
+<script src="assets/admin/layout/scripts/quick-sidebar.js" type="text/javascript"></script>
+
+<script type="text/javascript" src="assets/global/plugins/bootstrap-fileinput/fileinput.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-fileinput/zh.js"></script>
+
+<script type="text/javascript" src="assets/global/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-multi-select/js/jquery.multi-select.js"></script>
+<script src="customer/js/updunion_collectfee.js"></script>
+
+<script type="text/javascript">
+    SideBar.init();
+    SideBar.activeCurByPage("union_collectfeemanagement.html");
+    /*$(function () {
+        $('.file-loading').fileinput({
+            language: 'zh',
+        })
+
+        $("#save").click("on",function () {//点击的时候调用from表单序列化
+//                return false;
+
+            var accountNumber = Restful.findNQ(hzq_rest + "gassysparameter/b2j232u3as8we9qwekffvmqu952s6sd3");
+            console.log(accountNumber.parameterValue)
+            if($("#accName").val() == ""){
+                bootbox.alert("<br><center><h4>账户名称不能为空!!</h4></center><br>");
+            }else if($("#invoiceName").val() == ""){
+                bootbox.alert("<br><center><h4>发票抬头不能为空!!</h4></center><br>");
+            }else if($("#linkman").val() == ""){
+                bootbox.alert("<br><center><h4>联系人不能为空!!</h4></center><br>");
+            }else if($("#linkmanTel").val() == ""){
+                bootbox.alert("<br><center><h4>联系人电话不能为空!!</h4></center><br>");
+            }else if($("#linkmanAddress").val() == ""){
+                bootbox.alert("<br><center><h4>联系人地址不能为空!!</h4></center><br>");
+            }else{
+                console.log($('form').serializeObject());
+                console.log("form:"+$.toJSON($("form").serializeObject()));
+
+
+
+                var chgAccountId = $.md5(JSON.stringify($("form").serializeObject())+new Date().getTime());
+                var unboltJson1 =$("form").serializeObject();
+                unboltJson1["chgAccountNo"]= accountNumber.parameterValue;
+                unboltJson1["accountType"] = "1";
+                unboltJson1["chgAccountId"] = chgAccountId;
+                var unboltJson2 = {};
+                var unboltJson3 = {};
+                var unboltJson4 = {};
+
+                unboltJson2['chgAccountId'] = chgAccountId;
+                unboltJson2['accountType'] = "1";
+                unboltJson2['gasfeeAccountId'] = $.md5(chgAccountId + Math.ceil(Math.random()*101));
+                unboltJson3['chgAccountId'] = chgAccountId;
+                unboltJson3['accountType'] = "1";
+                unboltJson3['wastefeeAccountId'] = $.md5(chgAccountId  + Math.ceil(Math.random()*101));
+                unboltJson4["parameterValue"] = (Number(accountNumber.parameterValue)+1);
+                var submitJson = {"sets":[
+                    {"txid":"1","body":unboltJson1,"path":"/gaschgaccount/","method":"post"},
+                    {"txid":"2","body":unboltJson2,"path":"/gasactgasfeeaccount/","method":"post"},
+                    {"txid":"3","body":unboltJson3,"path":"/gasactwastefeeaccount/","method":"post"},
+                    {"txid":"4","body":unboltJson4,"path":"/gassysparameter/b2j232u3as8we9qwekffvmqu952s6sd3","method":"put"}
+
+                ]};
+
+                console.log("submit::"+JSON.stringify(submitJson));
+
+                var result = Restful.insert("/hzqs/dbc/pbtxs.do?fh=SELDBC0000000J00&resp=bd",submitJson)
+                console.log(result)
+                if(result.success == false){
+                    bootbox.alert("提交失败");
+                }else if(result.success == undefined){
+                    if(result.results[0]["result"]['success']) {
+                        bootbox.alert("提交成功", function () {
+                            window.location = "customer/union_collectfeemanagement.html";
+                        });
+                    }
+                }
+
+            }
+
+
+        });
+
+
+    });*/
+</script><!-- End of User Script-->
+</html>

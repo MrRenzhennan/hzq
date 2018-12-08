@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+
+<!-- BEGIN HEAD -->
+<head>
+    <title>对账管理</title>
+    <script src="../pages/scripts/basepath.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-select/bootstrap-select.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/select2/select2.css">
+
+    <script src="pages/scripts/header.js"></script>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8"/>
+    <link rel='stylesheet' href='assets/global/plugins/jquery-watable/watable.css'/>
+    <link rel='stylesheet' href='assets/global/plugins/jquery-watable/animate.min.css'/>
+</head>
+<!-- END HEAD -->
+
+<body class="page-header-fixed page-quick-sidebar-over-content">
+
+    <!-- 标题栏开始 -->
+    <div class="page-header navbar navbar-fixed-top">
+        <script>$.include("pages/partial/menu.shtml");</script>
+    </div>
+    <!-- 标题栏结束 -->
+    <div class="clearfix"></div>
+    <div class="page-container">
+        <!-- 左侧菜单开始 -->
+        <div class="page-sidebar-wrapper">
+            <script>$.include("pages/partial/sidebar.shtml");</script>
+        </div>
+        <!-- 左侧菜单结束 -->
+
+        <!-- 主内容开始 -->
+        <div class="page-content-wrapper">
+            <div class="page-content">
+                <script>$.include("pages/partial/themepanel.shtml");</script>
+                <!--内容头开始-->
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul class="page-breadcrumb breadcrumb">
+                            <li>
+                                <i class="fa  fa-map-marker"></i>
+                                <a href="javaScript:;">账务管理</a>
+                                <i class="fa fa-angle-right"></i>
+                            </li>
+                            <li>
+                                <a href="accountManage/accountverify.html">对账管理</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- 内容头结束-->
+
+                <!-- 内容开始-->
+                <div class="note note-success container col-sm-12" style="padding-bottom:0px">
+                    <!-- 查询条件控件 -->
+                    <div class="col-sm-6 form-group">
+                        <div class="btn-group input-group">
+                            <div class="input-group-addon">输入查询条件：</div>
+                            <input id="find_key" class="inputclear form-control" type="text"
+                                   placeholder="">
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                        </div>
+                    </div>
+                    <button type="button" class="btn yellow" data-toggle="modal" data-target="#myModal">
+                        查询 <i class="fa fa-search"></i>
+                    </button>
+                    <button id="c_button" class="btn purple" data-target="#stack1" data-toggle="modal">
+                    手动对账
+                    </button>
+                </div>
+                <div class="container-fluid">
+                    <div id="divtable" class="table-responsive container-fluid col-md-12" >
+                    </div>
+                </div>
+                <!-- 内容结束-->
+            </div>
+        </div>
+        <!-- 主内容结束 -->
+    </div>
+
+    <script type="text/javascript">$.include("pages/partial/xwatable-form.shtml")</script>
+
+    <!-- 底边栏开始 -->
+    <script>$.include("pages/partial/foot.shtml");</script>
+    <!-- 底边栏结束 -->
+</body>
+
+
+<script>$.include("pages/partial/scripts.shtml");</script>
+<script src="assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-watable/jquery.watable.js"></script>
+<script type="text/javascript" src="pages/scripts/rqlbuilder.js"></script>
+<script type="text/javascript" src="pages/scripts/xwatable.js"></script>
+<script type="text/javascript" src="pages/scripts/refhelper.js"></script>
+<script type="text/javascript" src="assets/global/plugins/select2/select2.js"></script>
+
+<script type="text/javascript">
+var valueFor=function(val){
+}
+var openButton = function() {
+    return {
+        f: function() {
+            return "<a id='d_button' href='accountManage/accounterrorinfo.html'>查看&nbsp;<span class='glyphicon glyphicon-search'></span></a> ";
+        }
+    }
+}();
+$(function(){
+        XWATable.init(
+                {
+                    //----------------table的选项-------
+                    pageSize: 20, 			//Initial pagesize
+                    columnPicker: true,         //Show the columnPicker button
+                    sorting: false,
+                    transition: 'fade',  //(bounce, fade, flip, rotate, scroll, slide).
+                    checkboxes: true,           //Make rows checkable. (Note. You need a column with the 'unique' property)
+                    checkAllToggle:true,        //Show the check-all toggle//+RQLBuilder.like("KEYY", "a").rql()
+                    rowClicked: function(data) {
+                        console.log('row clicked');   //data.event holds the original jQuery event.
+                        console.log(data);            //data.row holds the underlying row you supplied.
+                    },
+                    //----------------基本restful地址---
+                    restbase: 'json/accountManage/reconciliation.json',
+                    //---------------行定义
+                    coldefs: [
+                        {
+                            col:"accountNumber",
+                            friendly: "账号",
+                            unique: true,
+                            readonly: "readonly",
+                            sortOrder: "asc",
+                            index:1
+                        },
+                        {
+                            col:"penCount",
+                            friendly: "笔数",
+                            readonly: "readonly",
+                            index:2
+                        },
+                        {
+                            col:"date",
+                            friendly: "日期",
+                            readonly: "readonly",
+                            index:3
+                        },
+                        {
+                            col:"abstract",
+                            friendly: "摘要",
+                            readonly: "readonly",
+                            index:4
+                        },
+                        {
+                            col:"turnOut",
+                            friendly: "转出",
+                            readonly: "readonly",
+                            index:5
+                        },
+                        {
+                            col:"turnIn",
+                            friendly: "转入",
+                            readonly: "readonly",
+                            index:6
+                        },
+                        {
+                            col:"balance",
+                            friendly: "余额",
+                            readonly: "readonly",
+                            index:7
+                        },
+                        {
+                            col:"serialNumber",
+                            friendly: "流水号",
+                            readonly: "readonly",
+                            index:8
+                        },
+                        {
+                            col:"reconciliation_result",
+                            friendly: "对账结果",
+                            format: result,
+                            readonly: "readonly",
+                            index:9
+                        },
+                        {
+                            col:"UUID",
+                            friendly:"操作",
+                            nonedit: "nosend",
+                            format:openButton,
+                            index: 10
+                        }
+                    ],
+                    //---------------查询时过滤条件
+                    findFilter: function(){//find function
+                    	var filter = "keyy="+$('#find_key').val();
+                        return filter;
+                    }//--findFilter
+                }//--init
+        );//--end init
+
+
+        $('#find_provincename').on('input',function(e){
+            console.log("changing::"+e.target.value)
+            if(!e.target.value){
+                XWATable.autoResetSearch();
+            }
+        });
+    }
+
+);
+
+//审核状态
+var result = function () {
+    return {
+        f: function (val) {
+            if(val==="1") return "<font color='black'>正常</font>";
+            else if(val==="2") return "<font color='fuchsia'>差错</font>";
+            else return "error";
+        }
+    }
+}();
+</script><!-- End of User Script-->
+</html>

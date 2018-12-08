@@ -1,0 +1,13 @@
+{"rows":
+[
+  {"UUID":"001","contract_ID":"192.168.150.200","sign_date":"是","customer_name":"JGML-2.5","contract":"002","end_date":"规格型号编码","operator1":"","operator2":" P","operator3":"0.003","operator4":"","start_date":"","operator":"009003"},
+  {"UUID":"001","contract_ID":"192.168.150.200","sign_date":"是","customer_name":"JGML-4","contract":"003","end_date":"设置超大气量","operator1":"采暖用户","operator2":" P","operator3":"0.003","operator4":"","start_date":"","operator":"009003"},
+  {"UUID":"001","contract_ID":"192.168.150.200","sign_date":"是","customer_name":"JGML-10","contract":"010","end_date":"设置超大气量","operator1":"采暖用户","operator2":" P","operator3":"0.003","operator4":"","start_date":"","operator":"009003"},
+  {"UUID":"001","contract_ID":"192.168.150.200","sign_date":"是","customer_name":"QK2000-G1.6","contract":"022","end_date":"设置超大气量","operator1":"采暖用户","operator2":" P","operator3":"0.003","operator4":"","start_date":"","operator":"009003"},
+  {"UUID":"001","contract_ID":"192.168.150.200","sign_date":"否","customer_name":"G1.6S","contract":"031","end_date":"设置超大气量","operator1":"采暖用户","operator2":" P","operator3":"0.003","operator4":"","start_date":"01","operator":"009003"},
+  {"UUID":"001","contract_ID":"192.168.150.200","sign_date":"否","customer_name":"G4S","contract":"041","end_date":"设置超大气量","operator1":"采暖用户","operator2":" P","operator3":"0.003","operator4":"","start_date":"02","operator":"009003"}
+]
+,"total_rows":1
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

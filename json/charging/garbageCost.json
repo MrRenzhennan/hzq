@@ -1,0 +1,14 @@
+{"rows":
+[
+  {"customerType":"普通用户","versionID":"v-01","standardCost":"1.5元/月","familyAmount":"1","effectiveDate":"2016/5/10","chargeMode":"年度缴纳","remarks":"","UUID":"1"}
+,{"customerType":"普通用户","versionID":"v-01","standardCost":"3元/月","familyAmount":"2及以上","effectiveDate":"2016/5/10","chargeMode":"年度缴纳","remarks":"","UUID":"2"}
+,{"customerType":"居民(低保户)","versionID":"v-01","standardCost":"0元/月","familyAmount":"-","effectiveDate":"-","chargeMode":"-","remarks":"","UUID":"3"}
+,{"customerType":"居民(低保户)","versionID":"v-01","standardCost":"0元/月","familyAmount":"-","effectiveDate":"-","chargeMode":"-","remarks":"","UUID":"4"}
+,{"customerType":"居民(低收入家庭)","versionID":"v-01","standardCost":"0元/月","familyAmount":"-","effectiveDate":"-","chargeMode":"-","remarks":"","UUID":"5"}
+,{"customerType":"居民(低收入困难家庭)","versionID":"v-01","standardCost":"0元/月","familyAmount":"-","effectiveDate":"-","chargeMode":"-","remarks":"","UUID":"6"}
+
+]
+,"total_rows":1
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

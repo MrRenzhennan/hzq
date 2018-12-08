@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+
+<!-- BEGIN HEAD -->
+<head>
+    <title>表具档案管理</title>
+    <base href="../../">
+    <script src="pages/scripts/header.js"></script>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8"/>
+    <link href='assets/global/plugins/jquery-watable/watable.css' rel='stylesheet'/>
+    <link href='assets/global/plugins/jquery-watable/animate.min.css' rel='stylesheet'/>
+    <link href='assets/global/plugins/bootstrap-datetimepicker/css/datetimepicker.css' rel='stylesheet'/>
+
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-datepicker/css/datepicker3.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-colorpicker/css/colorpicker.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-datetimepicker/css/datetimepicker.css"/>
+
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-select/bootstrap-select.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/select2/select2.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/jquery-multi-select/css/multi-select.css"/>
+    <link href="assets/global/plugins/jquery-file-upload/css/jquery.fileupload.css" rel="stylesheet"/>
+    <link href="assets/global/plugins/jquery-file-upload/css/jquery.fileupload-ui.css" rel="stylesheet"/>
+
+    <link href="assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
+</head>
+<!-- END HEAD -->
+
+<body class="page-header-fixed page-quick-sidebar-over-content">
+
+<!-- 标题栏开始 -->
+<div class="page-header navbar navbar-fixed-top">
+    <script>$.include("pages/partial/menu.shtml");</script>
+</div>
+<!-- 标题栏结束 -->
+<div class="clearfix"></div>
+<div class="page-container">
+    <!-- 左侧菜单开始 -->
+    <div class="page-sidebar-wrapper">
+        <script>$.include("pages/partial/sidebar.shtml");</script>
+    </div>
+    <!-- 左侧菜单结束 -->
+
+    <!-- 主内容开始 -->
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <!--内容头开始-->
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa fa-map-marker"></i>
+                            <a href="javascript:;">基础管理</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="javascript:;">表具基础信息</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="javascript:;">表具档案管理</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 内容头结束-->
+            <div class="modal fade" id="batch_import" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">批量导入</h4>
+                        </div>
+                        <div  style="padding:20px 0 0 20px;">
+                            <form id="formPost2" class="form-horizontal" method="post" enctype="multipart/form-data">
+                                <!--<input type="file" id="fileId" name="fileName">-->
+                                <span class="btn green fileinput-button file">
+                                    <span>选择文件 </span>
+                                    <input type="file" id="fileId" name="files[]" multiple="">
+                                    <i class="fa fa-file-excel-o"></i>
+                                </span>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="fileLeading()">上传</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 内容开始-->
+            <div class="container col-sm-12" style="padding-bottom:0px">
+                <!-- 查询条件控件 -->
+                <div class="row">
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group input-select2me">
+                            <div class="input-group-addon">表编号:</div>
+                            <input type="text" class="inputclear form-control" placeholder="表编号" id="metercode">
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group  input-select2me">
+                            <div class="input-group-addon">表具类型:</div>
+                            <select id="find_metertypeId" class="form-control input-middle select2me" data-placeholder="表具类型...">
+                                <option value="">全部</option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group input-select2me">
+                            <div class="input-group-addon">物品种类:</div>
+                            <select id="find_reskindId" class="form-control input-middle select2me" data-placeholder="物品种类...">
+                                <option value="">全部</option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group input-select2me">
+                            <div class="input-group-addon">规格型号:</div>
+                            <select id="find_meterspecId" class="form-control input-middle select2me" data-placeholder="选择分公司...">
+                                <option value="">全部</option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 form-group data-select">
+                        <div class="btn-group input-group pull-left col-md-5">
+                            <div class="input-group-addon">第一次上线时间:</div>
+                            <div class="input-group input-large date-picker input-daterange" data-date-format="yyyy-mm-dd">
+                                <input id="find_start_date" type="text" class="form-control" name="from">
+                                <span class="inputclear glyphicon glyphicon-remove-circle hidden" ></span>
+                                <span class="input-group-addon">至</span>
+                                <input id="find_end_date" type="text" class="form-control" name="to">
+                                <span class="inputclear glyphicon glyphicon-remove-circle hidden" ></span>
+                            </div>
+                        </div>
+                        <div id="chosedate">
+                            <div class="btn-group form-group">
+                                <button id="find_today_sign" class="btn">当日</button>
+                            </div>
+                            <div class="btn-group form-group">
+                                <button id="find_this_week_sign" class="btn">近一周</button>
+                            </div>
+                            <div class="btn-group form-group">
+                                <button id="find_this_month_sign" class="btn">近一月</button>
+                            </div>
+                            <div class="btn-group form-group">
+                                <button id="find_three_month_sign" class="btn">近三月</button>
+                            </div>
+                            <div class="btn-group form-group">
+                                <button id="find_this_year_sign" class="btn">近一年</button>
+                            </div>
+                            <div class="btn-group form-group">
+                                <button id="find_anyway_sign" class="btn">不限</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 form-group">
+                        <script>$.include("pages/partial/crudbtn.shtml");</script>
+                        <div class="btn-group form-group">
+                            <button class="btn blue" data-target="#batch_import" data-toggle="modal">
+                                <i class="fa fa-plus"></i> 批量导入&nbsp;
+                            </button>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="container-fluid">
+                <div id="divtable" class="table-responsive container-fluid col-md-12" style="background-color: #ffffff">
+                </div>
+            </div>
+            <!-- 内容结束-->
+
+            <div class="clearfix">
+            </div>
+        </div>
+    </div>
+    <!-- 主内容结束 -->
+</div>
+
+<script type="text/javascript">$.include("pages/partial/xwatable-form.shtml")</script>
+
+<!-- 底边栏开始 -->
+<script>$.include("pages/partial/foot.shtml");</script>
+<!-- 底边栏结束 -->
+</body>
+
+
+<script>$.include("pages/partial/scripts.shtml");</script>
+<script src="assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-watable/jquery.watable.js"></script>
+<script type="text/javascript" src="pages/scripts/rqlbuilder.js"></script>
+<script type="text/javascript" src="pages/scripts/xwatable.js"></script>
+<script type="text/javascript" src="pages/scripts/refhelper.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+
+<script type="text/javascript" src="assets/global/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-multi-select/js/jquery.multi-select.js"></script>
+
+<script type="text/javascript" src="assets/global/plugins/bootstrap-fileinput/fileinput.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-fileinput/zh.js"></script>
+
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/clockface/js/clockface.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-daterangepicker/moment.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script src="assets/admin/pages/scripts/components-pickers.js"></script>
+<script src="assets/admin/pages/scripts/components-dropdowns.js"></script>
+<script src="pages/scripts/enumUtil.js"></script>
+<script src="mods/timeslot.js"></script>
+<script src="mods/basismanage.js"></script>
+
+<script src="basismanage/meterbasic/js/mtrmeter.js"></script>
+
+<script type="text/javascript">
+
+    meterAction.init();
+
+    $('.file-loading').fileinput({
+        language: 'zh'
+    });
+
+    ComponentsPickers.init();
+
+    function fileLeading(){
+        //if (checkExcels()) {
+            var form = new FormData(document.getElementById('formPost2'));
+            $.ajax({
+                url: "/sys/imp/meterinfo.do",
+                data: form,
+                dataType: 'text',
+                processData: false,
+                contentType: false,
+                async: false,
+                type: 'POST',
+                success: function (data) {
+                    console.log(JSON.parse(data))
+                    if(JSON.parse(data).length){
+                        bootbox.alert('导入成功！');
+                        $("#fileId").val('');
+                    }else{
+                        bootbox.alert('导入失败！');
+                    }
+                    /*if (data.success){
+                        bootbox.alert('导入成功！');
+                        $("#fileId").val('');
+                        setTimeout(function(){window.location.reload()}, 2000);
+                    }else{
+                        bootbox.alert('导入失败！');
+                        $("#fileId").val('');
+                    }*/
+                },
+                error: function (data) {
+                    bootbox.alert(data);
+                    $("#fileId").val('');
+                }
+            });
+        //}
+    }
+    /*function checkExcels(){
+        var file = $("#fileId").val();
+        if(file == '' || file == null) {
+            bootbox.alert("请选择所要上传的文件！");
+        } else {
+            var index = file.lastIndexOf(".");
+            if(index < 0) {
+                bootbox.alert("上传的文件格式不正确，请选择正确的Excel文件(*.xls)！");
+            } else {
+                var ext = file.substring(index + 1, file.length);
+                if(ext != "xls") {
+                    bootbox.alert("上传的文件格式不正确，请选择正确的Excel文件(*.xls)！");
+                } else {
+                    // $("#error").hide();
+                    return true;
+                }
+            }
+        }
+        $("#fileId").val('');
+        return false;
+    }*/
+
+
+
+
+
+
+</script><!-- End of User Script-->
+</html>

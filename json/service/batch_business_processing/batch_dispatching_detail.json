@@ -1,0 +1,15 @@
+{"rows":
+[
+  {"UUID":"001","ID":"1","meter_reading_ID":"26383","user_ID":"113295101","user_Name":"张三1","meter_name":"默认表户","user_address":"道里区安达街26号4单元3层1室","meter_ID":"","meter_factory":"","meter_date":"","repair_order_generate":"未生成"}
+, {"UUID":"002","ID":"2","meter_reading_ID":"26383","user_ID":"113295102","user_Name":"张三2","meter_name":"默认表户","user_address":"道里区安达街26号4单元3层2室","meter_ID":"","meter_factory":"","meter_date":"","repair_order_generate":"未生成"}
+, {"UUID":"003","ID":"3","meter_reading_ID":"26383","user_ID":"113295103","user_Name":"张三3","meter_name":"默认表户","user_address":"道里区安达街26号4单元3层3室","meter_ID":"150511770446","meter_factory":"浙江金卡","meter_date":"2015-01-01","repair_order_generate":"已生成"}
+, {"UUID":"004","ID":"4","meter_reading_ID":"26383","user_ID":"113295104","user_Name":"张三4","meter_name":"默认表户","user_address":"道里区安达街26号4单元4层1室","meter_ID":"150521002392","meter_factory":"浙江金卡","meter_date":"2015-01-01","repair_order_generate":"已生成"}
+, {"UUID":"005","ID":"5","meter_reading_ID":"26383","user_ID":"113295105","user_Name":"张三5","meter_name":"默认表户","user_address":"道里区安达街26号4单元4层2室","meter_ID":"150511770388","meter_factory":"浙江金卡","meter_date":"2015-01-01","repair_order_generate":"已生成"}
+, {"UUID":"006","ID":"6","meter_reading_ID":"26383","user_ID":"113295106","user_Name":"张三6","meter_name":"默认表户","user_address":"道里区安达街26号4单元4层3室","meter_ID":"150521002971","meter_factory":"浙江金卡","meter_date":"2015-01-01","repair_order_generate":"已生成"}
+, {"UUID":"007","ID":"7","meter_reading_ID":"26383","user_ID":"113295107","user_Name":"张三7","meter_name":"默认表户","user_address":"道里区安达街26号4单元5层1室","meter_ID":"150511770443","meter_factory":"浙江金卡","meter_date":"2015-01-01","repair_order_generate":"已生成"}
+, {"UUID":"008","ID":"8","meter_reading_ID":"26383","user_ID":"113295108","user_Name":"张三8","meter_name":"默认表户","user_address":"道里区安达街26号4单元5层2室","meter_ID":"150521771103","meter_factory":"浙江金卡","meter_date":"2015-01-01","repair_order_generate":"已生成"}
+]
+,"total_rows":1
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

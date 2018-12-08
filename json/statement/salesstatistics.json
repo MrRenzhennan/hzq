@@ -1,0 +1,10 @@
+{"rows":
+[
+  {"UUID":"001","customerID":"道里区","userID":"550户","houseID":"456","accountID":"355户","customerName":"333户","address":"3333户","photo":"￥567843","mobilePhone":"34534","customerCategory":"￥4574574","customerStatus":"￥2423522","meterBook":"￥346346","contract":"2016 8-9","copybooktype":"IC卡采暖","cancellation":"无"},
+  {"UUID":"001","customerID":"道里区","userID":"550户","houseID":"456","accountID":"355户","customerName":"333户","address":"3333户","photo":"￥567843","mobilePhone":"34534","customerCategory":"￥4574574","customerStatus":"￥2423522","meterBook":"￥346346","contract":"2016 8-9","copybooktype":"IC卡采暖","cancellation":"无"},
+  {"UUID":"001","customerID":"道里区","userID":"550户","houseID":"456","accountID":"355户","customerName":"333户","address":"3333户","photo":"￥567843","mobilePhone":"34534","customerCategory":"￥4574574","customerStatus":"￥2423522","meterBook":"￥346346","contract":"2016 8-9","copybooktype":"IC卡采暖","cancellation":"无"}
+]
+,"total_rows":8
+,"totalPages":2
+,"skip":0
+,"limit":2147483647}

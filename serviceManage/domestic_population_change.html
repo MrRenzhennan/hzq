@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]>
+<html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+
+<!-- BEGIN HEAD -->
+<head>
+    <title>家庭人口变更</title>
+    <base href="../">
+    <meta charset="UTF-8">
+    <meta http-equiv="content-type" content="text/html" charset="utf-8"/>
+    <script src="pages/scripts/header.js"></script>
+    <link href='assets/global/plugins/jquery-watable/watable.css' rel='stylesheet'/>
+    <link href='assets/global/plugins/jquery-watable/animate.min.css' rel='stylesheet'/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-select/bootstrap-select.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/select2/select2.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/jquery-multi-select/css/multi-select.css"/>
+    <link href="assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
+
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-datepicker/css/datepicker.css"/>
+    <link href="assets/global/plugins/bootstrap-fileinput/fileinput.min.css" rel="stylesheet">
+
+    <style>
+        .form-bordered .form-group > div {
+            padding: 10px;
+            border: none !important;
+        }
+
+        .form-bordered .form-group {
+            margin: 0;
+            border: none !important;
+        }
+    </style>
+</head>
+<!-- END HEAD -->
+
+<body class="page-header-fixed page-quick-sidebar-over-content">
+
+<!-- 标题栏开始 -->
+<div class="page-header navbar navbar-fixed-top">
+    <script>$.include("pages/partial/menu.shtml");</script>
+</div>
+<!-- 标题栏结束 -->
+<div class="clearfix"></div>
+<div class="page-container">
+    <!-- 左侧菜单开始 -->
+    <div class="page-sidebar-wrapper">
+        <script>$.include("pages/partial/sidebar.shtml");</script>
+    </div>
+    <!-- 左侧菜单结束 -->
+
+    <!-- 主内容开始 -->
+    <div class="page-content-wrapper">
+        <div class="page-content clearfix">
+            <!--内容头开始-->
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa fa-home"></i>
+                            <a href="javascript:void(0)">服务管理</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="serviceManage/business_process.html">综合业务办理</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">家庭人口变更</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 内容头结束-->
+            <script>$.include("serviceManage/partial/select_user.shtml");</script>
+            <script>$.include("serviceManage/partial/user_info.shtml");</script>
+            <div class="tabbable tabbable-custom tabbable-custom-profile col-md-12" style="padding-bottom:0px">
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#tab_1_22" data-toggle="tab">
+                            登记信息 </a>
+
+                    </li>
+                </ul>
+                <!--/row-->
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab11">
+                        <div class="portlet-body">
+                            <div class="add-form">
+                                <!-- begin form-->
+                                <form action="javascript:;" role="form">
+                                    <div class="form-body">
+                                        <div class="row">
+                                            <div class="col-sm-3 form-group">
+                                                <div class="btn-group input-group">
+                                                    <div class="input-group-addon">原家庭人口数：</div>
+                                                    <input id="population_before" class="inputclear form-control" type="text"
+                                                           readonly>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-2 form-group">
+                                                <div class="btn-group form-group">
+                                                    <button id="find_population" class="btn yellow">
+                                                        查询&nbsp; <i class="fa fa-search"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+						
+                                            <div class="col-sm-3 form-group">
+                                                <div class="btn-group input-group">
+                                                    <div class="input-group-addon">变更家庭人口数：</div>
+                                                    <select id="population" class="form-control input-small select2me" data-placeholder="家庭人口数...">
+                                                        <option value=""></option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                        <option value="6">6</option>
+                                                        <option value="7">7</option>
+                                                        <option value="8">8</option>
+                                                        <option value="9">9</option>
+                                                        <option value="10">10或10人以上</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4 form-group">
+                                                <div class="btn-group input-group" style="width: 100%">
+                                                    <div class="input-group-addon">户口本号:</div>
+                                                    <input id="householdRegister" class="inputclear form-control" type="text"/>
+                                                    <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12 form-group">
+                                                <div class="btn-group input-group" style="width: 100%">
+                                                    <div class="input-group-addon">备注:</div>
+                                                    <textarea id="remark" class="inputclear form-control" type="text" style="height: 100px;"></textarea>
+                                                    <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                                </div>
+                                            </div>
+                                            <input class="col-md-10" type="hidden" id="returnpid">
+                                            <input name="businesstypeId" hidden="hidden" type="text" value="39">
+                                        </div>
+                                    </div>
+                                </form>
+                                <!--end form-->
+                                <script>$.include("common/gpyupload.shtml")</script>
+                                <!--<form id="fileupload" onsubmit="return false" enctype="multipart/form-data" class="bootbox-form form-horizontal form-bordered form-label-stripped">
+                                    <div class="row form-group">
+                                        <div class="btn-group input-group col-sm-12">
+                                            <div class="input-group-addon col-md-2">上传数据：</div>
+                                            <input class="file-loading form-control" type="file" name="files" class="fileupload" multiple>
+                                        </div>
+                                    </div>
+                                </form>-->
+                            </div>
+                            <!--/row-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script>$.include("serviceManage/partial/commit_print.shtml");</script>
+        </div>
+    </div>
+</div>
+<!-- 主内容结束 -->
+</div>
+</body>
+<script>$.include("pages/partial/scripts.shtml");</script>
+<script type="text/javascript" src="assets/global/plugins/jquery-watable/jquery.watable.js"></script>
+<script type="text/javascript" src="pages/scripts/rqlbuilder.js"></script>
+<script type="text/javascript" src="pages/scripts/xwatable.js"></script>
+<script type="text/javascript" src="pages/scripts/refhelper.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+
+<script type="text/javascript" src="assets/global/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-multi-select/js/jquery.multi-select.js"></script>
+
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script src="assets/admin/pages/scripts/components-pickers.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+
+
+<script type="text/javascript" src="assets/global/plugins/bootstrap-fileinput/fileinput.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-fileinput/zh.js"></script>
+<script src="pages/scripts/jquery.json.min.js"></script>
+<script type="text/javascript" src="pages/scripts/jquery.serialize-object.min.js"></script>
+<script type="text/javascript" src="serviceManage/js/domestic_population_change.js"></script>
+<script type="text/javascript" src="mods/service.js"></script>
+
+<script type="text/javascript" >
+    PopulationChange.init();
+    SideBar.init();
+    SideBar.activeCurByPage("business_process.html");
+
+</script>
+
+
+
+</html>

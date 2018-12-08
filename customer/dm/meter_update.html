@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]>
+<html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="utf-8"/>
+    <title>表具修改</title>
+    <base href="../../">
+    <script src="pages/scripts/header.js"></script>
+
+    <link href='assets/global/plugins/jquery-watable/watable.css' rel='stylesheet'/>
+    <link href='assets/global/plugins/jquery-watable/animate.min.css' rel='stylesheet'/>
+
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-datepicker/css/datepicker3.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="assets/global/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-colorpicker/css/colorpicker.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="assets/global/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="assets/global/plugins/bootstrap-datetimepicker/css/datetimepicker.css"/>
+
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-select/bootstrap-select.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/select2/select2.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/jquery-multi-select/css/multi-select.css"/>
+    <link href="assets/global/css/components.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
+    <style>
+        #archive > div {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<!-- END HEAD -->
+<!-- BEGIN BODY -->
+<body class="page-header-fixed page-quick-sidebar-over-content ">
+<!-- BEGIN HEADER -->
+<div class="page-header navbar navbar-fixed-top">
+    <script>$.include("pages/partial/menu.shtml");</script>
+</div>
+<!-- END HEADER -->
+<div class="clearfix">
+</div>
+<!-- BEGIN CONTAINER -->
+<div class="page-container">
+    <!-- BEGIN SIDEBAR -->
+    <div class="page-sidebar-wrapper">
+        <script>$.include("pages/partial/sidebar.shtml");</script>
+    </div>
+    <!-- END SIDEBAR -->
+    <!-- BEGIN CONTENT -->
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <!-- BEGIN PAGE HEADER-->
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa fa-home"></i>
+                            <a href="/index.html">主页</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <!--<li>-->
+                        <!--<a href="customer/dm/level1_depository.html">二级库管理</a>-->
+                        <!--<i class="fa fa-angle-right"></i>-->
+                        <!--</li>-->
+                        <li>
+                            <a href="customer/dm/level1_input.html">表具修改</a>
+                        </li>
+                    </ul>
+                    <!-- END PAGE TITLE & BREADCRUMB-->
+                </div>
+            </div>
+            <!-- END PAGE HEADER-->
+            <!-- BEGIN PAGE CONTENT-->
+            <div class="container-fluid">
+                <div class="add-form">
+                    <form role="form" onsubmit="return false" method="post" id="form">
+                        <div class="form-body">
+                            <div class="row form-group" id="archive">
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">表编号:</label>
+                                    <div class="col-md-8">
+                                        <input id="meterNo" name="meterNo" type="text" class="form-control" placeholder="表编号" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">进气方向:</label>
+                                    <div class="col-md-8">
+                                        <select id="direction'" name="direction"
+                                                class="form-control input-middle select2me" data-placeholder="进气方向">
+                                            <option value="">全部</option>
+                                            <option value="L">左进气</option>
+                                            <option value="R">右进气</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">表具类型:</label>
+                                    <div class="col-md-8">
+                                        <select id="meterTypeId" name="meterTypeId"
+                                                class="form-control input-middle select2me" data-placeholder="表具类型">
+                                            <option value="">全部</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">物品种类:</label>
+                                    <div class="col-md-8">
+                                        <select id="resKind" name="reskindId"
+                                                class="form-control input-middle select2me" data-placeholder="物品种类">
+                                            <option value="">全部</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">表具状态:</label>
+                                    <div class="col-md-8">
+                                        <select id="meterStatus" name="meterStatus"
+                                                class="form-control input-middle select2me" data-placeholder="表具状态">
+                                            <option value="">全部</option>
+                                            <option value="1">正常</option>
+                                            <option value="2">表慢</option>
+                                            <option value="3">表快</option>
+                                            <option value="4">死表</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">生产厂家:</label>
+                                    <div class="col-md-8">
+                                        <select id="factoryName" name="factoryId"
+                                                class="form-control input-middle select2me" data-placeholder="生产厂家">
+                                            <option value="">全部</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">表具规格型号:</label>
+                                    <div class="col-md-8">
+                                        <select id="meterModelId" name="meterModelId"
+                                                class="form-control input-middle select2me" data-placeholder="表具规格型号">
+                                            <option value="">全部</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">流量范围:</label>
+                                    <div class="col-md-8">
+                                        <select id="flowRange" name="flowRange"
+                                                class="form-control input-middle select2me" data-placeholder="流量范围">
+                                            <option value="">全部</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">额定流量:</label>
+                                    <div class="col-md-8">
+                                        <input id="flow" name="flow" type="text" class="form-control" placeholder="额定流量">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">表位数:</label>
+                                    <div class="col-md-8">
+                                        <input id="meterDigit" name="meterDigit" type="text" class="form-control" placeholder="表位数">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">表读数:</label>
+                                    <div class="col-md-8">
+                                        <input name="reading" type="text" class="form-control" placeholder="表读数">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">口径:</label>
+                                    <div class="col-md-8">
+                                        <input name="bore" type="text" class="form-control" placeholder="口径">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">生产日期:</label>
+                                    <div class="col-md-8 input-daterange date-picker" data-date-format="yyyy-mm-dd">
+                                        <input name="productionDate" type="text" class="form-control" placeholder="生产日期"
+                                               style="text-align: left;">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">检表日期:</label>
+                                    <div class="col-md-8 input-daterange date-picker" data-date-format="yyyy-mm-dd">
+                                        <input name="checkDate" type="text" class="form-control" placeholder="检表日期"
+                                               style="text-align: left;">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">注油日期:</label>
+                                    <div class="col-md-8 input-daterange date-picker" data-date-format="yyyy-mm-dd">
+                                        <input name="oilingDate" type="text" class="form-control" placeholder="注油日期"
+                                               style="text-align: left;">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">更换电池日期:</label>
+                                    <div class="col-md-8 input-daterange date-picker" data-date-format="yyyy-mm-dd">
+                                        <input name="batteryDate" type="text" class="form-control" placeholder="更换电池日期"
+                                               style="text-align: left;">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">最后施封日期:</label>
+                                    <div class="col-md-8 input-daterange date-picker" data-date-format="yyyy-mm-dd">
+                                        <input name="lastContainersDate" type="text" class="form-control"
+                                               placeholder="施封日期" style="text-align: left;">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">表体材质:</label>
+                                    <div class="col-md-8">
+                                        <select id="meterMaterial" name="meterMaterial" class="form-control input-middle select2me"
+                                                data-placeholder="表体材质">
+                                            <option value="">全部</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">基表供应商:</label>
+                                    <div class="col-md-8">
+                                        <select id="baseMeterVender'" name="baseMeterVender"
+                                                class="form-control input-middle select2me" data-placeholder="基表供应商">
+                                            <option value="">全部</option>
+                                            <option value="1">金卡</option>
+                                            <option value="2">松川</option>
+                                            <option value="3">蓝宝石</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">显示方式:</label>
+                                    <div class="col-md-8">
+                                        <select id="displayType" name="displayType" class="form-control input-middle select2me"
+                                                data-placeholder="显示方式">
+                                            <option value="">全部</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">信控模式:</label>
+                                    <div class="col-md-8">
+                                        <select id="controlType" name="controlType" class="form-control input-middle select2me"
+                                                data-placeholder="信控模式">
+                                            <option value="">全部</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">芯片类型:</label>
+                                    <div class="col-md-8">
+                                        <select id="chipType" name="chipType" class="form-control input-middle select2me"
+                                                data-placeholder="芯片类型">
+                                            <option value="">全部</option>
+                                            <option value="1">102卡 气量卡</option>
+                                            <option value="2">102卡 金额卡</option>
+                                            <option value="3">4442卡 气量卡</option>
+                                            <option value="4">4442卡 金额卡</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">阀门情况:</label>
+                                    <div class="col-md-8">
+                                        <select id="valveInfo" name="valveInfo" class="form-control input-middle select2me"
+                                                data-placeholder="阀门情况">
+                                            <option value="">全部</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">供电方式:</label>
+                                    <div class="col-md-8">
+                                        <select id="powerType" name="powerType" class="form-control input-middle select2me"
+                                                data-placeholder="供电方式">
+                                            <option value="">全部</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <!--<div class="col-md-3">-->
+                                <!--<label class="control-label col-md-4">修正表标记:</label>-->
+                                <!--<div class="col-md-8">-->
+                                <!--<select id="isOrNo" name="chipType" class="form-control input-middle select2me"-->
+                                <!--data-placeholder="芯片类型">-->
+                                <!--<option value="">全部</option>-->
+                                <!--<option value="1">102卡 气量卡</option>-->
+                                <!--<option value="2">102卡 金额卡</option>-->
+                                <!--</select>-->
+                                <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="col-md-3">-->
+                                <!--<label class="control-label col-md-4">修正表状态:</label>-->
+                                <!--<div class="col-md-8">-->
+                                <!--<select id="meterReviseState" name="chipType" class="form-control input-middle select2me"-->
+                                <!--data-placeholder="修正表状态">-->
+                                <!--<option value="">全部</option>-->
+                                <!--<option value="1">102卡 气量卡</option>-->
+                                <!--<option value="2">102卡 金额卡</option>-->
+                                <!--<option value="3">4442卡 气量卡</option>-->
+                                <!--<option value="4">4442卡 金额卡</option>-->
+                                <!--</select>-->
+                                <!--</div>-->
+                                <!--</div>-->
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-md-12">
+                                    <label class="control-label col-md-1">备注:</label>
+                                    <div class="col-md-11">
+                                        <textarea name="meterRemark" class="form-control  col-md-1" cols="12"
+                                                  placeholder="请输入备注信息.."></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <!--<button style="margin-left: 1%" type="button" class="btn blue"data-target="#chose_bills" data-toggle="modal"> <i class="fa fa-plus"></i> 添加入库单</button>-->
+                    <div class="form-actions fluid" style="margin-top: 20px;">
+                        <div class="btn-set">
+                            <button id="cancel_btn" type="button" class="btn default">返回</button>
+
+                            <button id="save_btn" type="submit" class="btn blue">保存</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END PAGE CONTENT-->
+        </div>
+    </div>
+    <!-- END CONTENT -->
+</div>
+<!--<div class="modal fade" id="chose_bills" aria-labelledby="myModalLabel" tabindex="-1" role="dialog"-->
+     <!--aria-hidden="true">-->
+    <!--<div class="modal-dialog modal-lg">-->
+        <!--<div class="modal-content">-->
+            <!--<div class="modal-header">-->
+                <!--<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span-->
+                        <!--class="sr-only">Close</span></button>-->
+                <!--<h4 class="modal-title">选择入库单</h4>-->
+            <!--</div>-->
+            <!--<div class="modal-body">-->
+                <!--&lt;!&ndash; BEGIN FORM&ndash;&gt;-->
+                <!--<div class="form-body">-->
+                    <!--<div class="form-group">-->
+                        <!--<div class="container col-sm-12" style="padding-top:0px !important;">-->
+                            <!--<div class="col-md-4">-->
+                                <!--<label class="control-label col-md-4">申请单编号</label>-->
+                                <!--<div class="col-md-8">-->
+                                    <!--<select id="find_applyNo" name="factoryId"-->
+                                            <!--class="form-control input-middle select2me" data-placeholder="申请单编号">-->
+                                        <!--<option value="">全部</option>-->
+                                    <!--</select>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="btn-group form-group">-->
+                                <!--<button id="find_button" class="btn yellow">-->
+                                    <!--<i class="fa fa-search"></i> 查询&nbsp;-->
+                                <!--</button>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="container-fluid">-->
+                            <!--<div id="divtable" class="table-responsive container-fluid col-md-12">-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+
+                <!--&lt;!&ndash; END FORM&ndash;&gt;-->
+            <!--</div>-->
+            <!--<div class="modal-footer">-->
+                <!--<button id="cancelId" type="button" class="btn btn-default" data-dismiss="modal">取消</button>-->
+                <!--<button id="saveId" type="button" class="btn btn-primary">保存</button>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+<!-- END CONTAINER -->
+<script type="text/javascript">$.include("pages/partial/xwatable-form.shtml")</script>
+</body>
+<script>$.include("pages/partial/scripts.shtml");</script>
+<script src="assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-watable/jquery.watable.js"></script>
+<script type="text/javascript" src="pages/scripts/rqlbuilder.js"></script>
+<script type="text/javascript" src="pages/scripts/xwatable.js"></script>
+<script type="text/javascript" src="pages/scripts/refhelper.js"></script>
+<!--datapicker start-->
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-daterangepicker/moment.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script type="text/javascript"
+        src="assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+
+<script type="text/javascript" src="assets/global/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-multi-select/js/jquery.multi-select.js"></script>
+
+<script src="assets/admin/pages/scripts/components-pickers.js"></script>
+
+<script src="pages/scripts/jquery.json.min.js"></script>
+<script type="text/javascript" src="pages/scripts/jquery.serialize-object.min.js"></script>
+<script src="customer/dm/js/meter_attribute.js"></script>
+<script src="mods/ctm.js"></script>
+<script src="customer/dm/js/meter_update.js"></script>
+<script>
+    $(function () {
+        ComponentsPickers.init();
+    })
+</script>
+<!-- END BODY -->
+</html>

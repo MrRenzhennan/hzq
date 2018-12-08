@@ -1,0 +1,11 @@
+{"rows":
+[
+  {"UUID":"001","customerID":"1","userID":"道里一","houseID":"666777","accountID":"3434543","customerName":"张三","address":"54","photo":"居民","mobilePhone":"小王","customerCategory":"678","customerStatus":"2016 10月8日","meterBook":"456","contract":"354","correctionfactor":"777","revisemeter":"4"},
+  {"UUID":"001","customerID":"1","userID":"道里一","houseID":"666777","accountID":"3434543","customerName":"张三","address":"54","photo":"居民","mobilePhone":"小王","customerCategory":"678","customerStatus":"2016 10月8日","meterBook":"456","contract":"354","correctionfactor":"777","revisemeter":"4"},
+  {"UUID":"001","customerID":"1","userID":"道里一","houseID":"666777","accountID":"3434543","customerName":"张三","address":"54","photo":"居民","mobilePhone":"小王","customerCategory":"678","customerStatus":"2016 10月8日","meterBook":"456","contract":"354","correctionfactor":"777","revisemeter":"4"},
+  {"UUID":"001","customerID":"1","userID":"道里一","houseID":"666777","accountID":"3434543","customerName":"张三","address":"54","photo":"居民","mobilePhone":"小王","customerCategory":"678","customerStatus":"2016 10月8日","meterBook":"456","contract":"354","correctionfactor":"777","revisemeter":"4"}
+]
+,"total_rows":8
+,"totalPages":2
+,"skip":0
+,"limit":2147483647}

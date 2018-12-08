@@ -1,0 +1,11 @@
+{"rows":
+[
+  {"UUID":"001","contract_ID":"192.168.150.200","sign_date":"2","customer_name":"0401","contract":"采暖（营业）","end_date":"设置超大气量","operator1":"采暖用户","operator2":" P","operator3":"0.003","operator4":"","start_date":"222","operator":"采暖用户（04）"},
+  {"UUID":"001","contract_ID":"192.168.150.200","sign_date":"2","customer_name":"0402","contract":"采暖（非营业）","end_date":"设置超大气量","operator1":"采暖用户","operator2":" P","operator3":"0.003","operator4":"","start_date":"222","operator":"采暖用户（04）"},
+  {"UUID":"001","contract_ID":"192.168.150.200","sign_date":"2","customer_name":"0403","contract":"采暖（福利）","end_date":"设置超大气量","operator1":"采暖用户","operator2":" P","operator3":"0.003","operator4":"","start_date":"222","operator":"采暖用户（04）"},
+  {"UUID":"001","contract_ID":"192.168.150.200","sign_date":"2","customer_name":"0405","contract":"采暖混合","end_date":"设置超大气量","operator1":"采暖用户","operator2":" P","operator3":"0.003","operator4":"","start_date":"222","operator":"采暖用户（04）"}
+]
+,"total_rows":1
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

@@ -1,0 +1,12 @@
+{"rows":
+[
+  {"UUID":"001","money":"100","userID":"100230001","yyyName":"范晓辉","cstate":"正常","userName":"张三","buildtime":"2006-11-11","opentime":"2006-11-11 ","collectTime":"2016-11-11 17:12:12","2collectTime":"2015-11-11 17:12:12","endTimeyName":"王丽","feetype":"普通收费","IDcard":"230202198709258900","endgas":"100","ccategory":"居民", "phone":"13388003392","address":"道里区","isstore":"否","isIC":"是","lastgas":"50","endTime":"2016-11-11 17:12:12","yy":"中国银行"}
+,{"UUID":"002","money":"200","userID":"100245601","yyyName":"范晓辉","cstate":"正常","userName":"李浩","buildtime":"2006-11-11","opentime":"20006-11-11 ","collectTime":"2016-11-11 13:12:12","2collectTime":"2015-11-11 17:12:12","endTimeyName":"王丽","feetype":"普通收费","IDcard":"230202198709258900","endgas":"100","ccategory":"居民","phone":"13388003392","address":"道里区","isstore":"否","isIC":"是","lastgas":"50","endTime":"2016-11-11 17:12:12","yy":"中国银行"}
+,{"UUID":"003","money":"200","userID":"101230501","yyyName":"范晓辉","cstate":"正常","userName":"刘文博","buildtime":"2006-11-11","opentime":"2006-11-11 ","collectTime":"2016-11-11 10:12:12","2collectTime":"2015-11-11 17:12:12","endTimeyName":"王丽","feetype":"普通收费","IDcard":"230202198709258900","endgas":"100","ccategory":"居民","phone":"13388003392","address":"道里区","isstore":"否","isIC":"是","lastgas":"50","endTime":"2016-11-11 17:12:12","yy":"中国银行"}
+,{"UUID":"004","money":"140","userID":"100230001","yyyName":"范晓辉","cstate":"正常","userName":"张三","buildtime":"2006-11-11","opentime":"2006-11-11 ","collectTime":"2016-11-11 9:12:12","2collectTime":"2015-11-11 17:12:12","endTimeyName":"王丽","feetype":"普通收费","IDcard":"230202198709258900","endgas":"100","ccategory":"居民","phone":"13388003392","address":"道里区","isstore":"否","isIC":"是","lastgas":"50","endTime":"2016-11-11 17:12:12","yy":"中国银行"}
+,{"UUID":"005","money":"150","userID":"156730001","yyyName":"范晓辉","cstate":"正常","userName":"李丽英","buildtime":"2006-11-11","opentime":"2006-11-11 ","collectTime":"2016-11-11 09:02:12","2collectTime":"2015-11-11 17:12:12","endTimeyName":"张雪","feetype":"普通收费","IDcard":"230202198709258900","endgas":"100","ccategory":"居民","phone":"13388003392","address":"道里区","isstore":"否","isIC":"是","lastgas":"50","endTime":"2016-11-11 17:12:12","yy":"中国银行"}
+]
+,"total_rows":1
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

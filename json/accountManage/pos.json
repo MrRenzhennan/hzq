@@ -1,0 +1,12 @@
+{"rows":
+[
+  {"UUID":"001","date":"2016-2-14","bank":"商业银行","price":"400","is":"1","accounttype":"民用","collectcount":"4","insteadprice":"1.02"},
+  {"UUID":"001","date":"2016-2-14","bank":"哈尔滨银行","price":"300","is":"1","accounttype":"民用","collectcount":"4","insteadprice":"1.02"},
+  {"UUID":"001","date":"2016-2-14","bank":"中国银行","price":"600","is":"2","accounttype":"民用","collectcount":"9","insteadprice":"1.02"},
+  {"UUID":"001","date":"2016-2-14","bank":"建设银行","price":"30","is":"1","accounttype":"民用","collectcount":"4","insteadprice":"1.02"}
+
+]
+,"total_rows":1
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

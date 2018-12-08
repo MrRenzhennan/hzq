@@ -1,0 +1,18 @@
+{"rows":
+[
+  {"cusNumber":"客户编号一","cusType":"非居民","gasProperty":"商服","cusName":"客户名称一","cusAddress":"哈尔滨市南岗区保健路132号","meterName":"表户名称一","meterReading":"5298","prevMeterReading":"5200","reviseReading":"0","prevReviseReading":"0","meterDigit":"4","copyTime":"2016-12-02 13:55:36","gasArea":"供气区域一","copyPre":"抄表员一","barCode":"条码号一","copyBarCode":"实抄条码号一","getBarCodeType":"1","accountClerk":"核算员一","deductionAmount":"0","balance":"200.00","deductionCount":"0","checkOutTime":"2006-04-22 23:39:19","toMinusFee":"0","branchOffice":"分公司一"},
+  {"cusNumber":"客户编号二","cusType":"居民","gasProperty":"普通用户","cusName":"客户名称二","cusAddress":"哈尔滨市道里区中央大街12号","meterName":"表户名称二","meterReading":"43","prevMeterReading":"0","reviseReading":"0","prevReviseReading":"0","meterDigit":"4","copyTime":"2016-12-02 13:55:36","gasArea":"供气区域二","copyPre":"抄表员二","barCode":"条码号二","copyBarCode":"实抄条码号二","getBarCodeType":"1","accountClerk":"核算员一","deductionAmount":"0","balance":"100.00","deductionCount":"0","checkOutTime":"2006-04-21 23:29:19","toMinusFee":"0","branchOffice":"分公司一"},
+  {"cusNumber":"客户编号三","cusType":"非居民","gasProperty":"公益","cusName":"客户名称三","cusAddress":"哈尔滨市江北江北大道132号","meterName":"表户名称三","meterReading":"635","prevMeterReading":"600","reviseReading":"0","prevReviseReading":"0","meterDigit":"4","copyTime":"2016-12-02 13:55:36","gasArea":"供气区域三","copyPre":"抄表员三","barCode":"条码号三","copyBarCode":"实抄条码号三","getBarCodeType":"1","accountClerk":"核算员一","deductionAmount":"0","balance":"0","deductionCount":"0","checkOutTime":"2006-04-23 23:39:29","toMinusFee":"0","branchOffice":"分公司二"},
+  {"cusNumber":"客户编号四","cusType":"居民","gasProperty":"普通用户","cusName":"客户名称四","cusAddress":"哈尔滨市香坊区花园路132号","meterName":"表户名称四","meterReading":"303","prevMeterReading":"268","reviseReading":"0","prevReviseReading":"0","meterDigit":"4","copyTime":"2016-12-02 13:55:36","gasArea":"供气区域四","copyPre":"抄表员四","barCode":"条码号四","copyBarCode":"实抄条码号四","getBarCodeType":"1","accountClerk":"核算员一","deductionAmount":"0","balance":"300.00","deductionCount":"0","checkOutTime":"2006-04-25 22:10:20","toMinusFee":"0","branchOffice":"分公司三"},
+  {"cusNumber":"客户编号五","cusType":"非居民","gasProperty":"锅炉","cusName":"客户名称五","cusAddress":"哈尔滨市南岗区保健路13号","meterName":"表户名称五","meterReading":"2587","prevMeterReading":"2478","reviseReading":"0","prevReviseReading":"0","meterDigit":"5","copyTime":"2016-12-02 13:55:36","gasArea":"供气区域五","copyPre":"抄表员一","barCode":"条码号五","copyBarCode":"实抄条码号五","getBarCodeType":"1","accountClerk":"核算员一","deductionAmount":"0","balance":"1.00","deductionCount":"0","checkOutTime":"2006-04-22 23:39:38","toMinusFee":"0","branchOffice":"分公司四"}
+
+
+
+
+
+
+]
+,"total_rows":5
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

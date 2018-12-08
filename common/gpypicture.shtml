@@ -1,0 +1,187 @@
+<link rel="stylesheet" type="text/css" href="assets/global/plugins/previewPicture/css/component.css" />
+<script type="text/javascript" src="assets/global/plugins/previewPicture/js/modernizr.custom.js"></script>
+<style>
+    #gridss li{
+        position: relative;
+        z-index: 0;
+    }
+    .removePhotoss{
+        position: absolute;
+        right: 0px;
+        top:0px;
+        color:red;
+        z-index: 99;
+    }
+</style>
+<div class="btn-group form-group">
+    <button id="gpypzss" class="btn blue">
+        <i class="fa fa-camera"></i> 拍照&nbsp;
+    </button>
+</div>
+<div class="btn-group form-group">
+    <button id="uploadpicss" class="btn blue">
+        <i class="fa fa-upload"></i> 上传照片&nbsp;
+    </button>
+</div>
+<div class="row form-group">
+    <div class="col-md-12">
+        <!--<label class="control-label">相关照片</label>-->
+        <div id="grid-galleryss" class="grid-gallery">
+            <section class="grid-wrap">
+                <ul id="gridss" class="grid">
+                    <!--<li class="grid-sizer"></li>-->
+                </ul>
+            </section>
+            <section class="slideshow" style="padding-top: 10px">
+                <ul id = "slideIdss">
+                </ul>
+                <nav>
+                    <span class="icon nav-prev"></span>
+                    <span class="icon nav-next"></span>
+                    <span class="icon nav-close" style="padding-top: 50px;"></span>
+                </nav>
+            </section>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="assets/global/plugins/previewPicture/js/imagesloaded.pkgd.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/previewPicture/js/masonry.pkgd.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/previewPicture/js/classie.js"></script>
+<script type="text/javascript" src="assets/global/plugins/previewPicture/js/cbpGridGallery.js"></script>
+<script type="text/javascript" src="assets/global/scripts/jquery.md5.js"></script>
+<script>
+    var gpyphoto = $.md5(JSON.stringify(document.getElementById('form'))+Math.random()+ new Date().getTime())
+    var base64s = [];
+    var picturepaths = [];
+    var gpypictureIds=false;
+    var gridGallerys = new CBPGridGallery(document.getElementById('grid-galleryss'));
+    $("#gpypzss").on("click",function(){
+        $.ajax({
+            url:'http://127.0.0.1:9000/?data={"cmdheader":{"cmdtype":"21"}}',
+            timeout : 2*60*1000, //超时时间设置，单位毫秒
+            type:"get",
+            jsonp: "callfuncname",
+            dataType: "JSONP",
+            async: false,
+            success:function(data){
+                console.log("====================================@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+                console.log(data);
+                if(data.result.resultcode =="0"){
+                    console.log("@@@@@@@@@@############");
+//                    console.log(window.encodeURI("data:image/jpeg;base64,"+data.result.base64 ));
+                    base64s.push(window.encodeURI("data:image/jpeg;base64,"+data.result.base64));
+                    picturepaths.push(data.result.filename.substring((data.result.filename.lastIndexOf("/")+1),data.result.filename.length));
+                    $("#gridss").append("<li><figure><img src='http://127.0.0.1:9000/getfile?data="+data.result.filename+"' alt='"+data.result.filename+"'/></figure><i class='removePhotoss fa fa-times-circle'></i></li>");
+                    $("#slideIdss").append("<li><figure><img src='http://127.0.0.1:9000/getfile?data="+data.result.filename+"' alt='"+data.result.filename+"'/></figure></li>");
+                    gridGallerys._init();
+                }
+
+                console.log(picturepaths)
+            }
+        })
+
+    });
+    $("#gridss").on("click","li .removePhotoss",function(e){
+        console.log(0)
+        var index = $(this).closest("li").index()
+        $(this).closest("li").remove();
+        $("#slideId li").eq(index).remove();
+        picturepaths.del(index);
+        base64s.del(index);
+        console.log("--------------------");
+        console.log(picturepaths);
+        gridGallerys._init();
+    });
+    Array.prototype.del=function(index){
+        if(isNaN(index)||index>=this.length){
+            return false;
+        }
+        for(var i=0,n=0;i<this.length;i++){
+            if(this[i]!=this[index]){
+                this[n++]=this[i];
+            }
+        }
+        this.length-=1;
+    };
+
+
+console.log("===================")
+console.log(picturepaths)
+    $(document).on("click","#uploadpicss",function(){
+        var form = new FormData();
+        console.log(base64s)
+        for(var i=0;i<picturepaths.length;i++){
+            form.append("img"+i,convertImgDataToBlob(base64s[i]),picturepaths[i]);
+            console.log(form.get("img"+i));
+        }
+        $.ajax({
+            url: "/hzqs/sys/upload.do?busiId="+gpyphoto,
+            data: form,
+            dataType: 'text',
+            processData: false,
+            contentType: false,
+            async: false,
+            type: 'POST',
+            success: function (data) {
+                console.log(data);
+                if (JSON.parse(data).length != 0) {
+                    bootbox.alert('导入成功！',function(){
+                        gpypictureIds = true;
+                    });
+                } else {
+                    bootbox.alert("导入失败！");
+                }
+            },
+            error: function (data) {
+                bootbox.alert(data);
+                if(arguments[0].status == '413'){
+                    bootbox.alert("文件不能超过1M");
+                }
+            }
+
+        });
+
+
+    });
+
+    var convertImgDataToBlob = function (base64Data) {
+//        console.log(base64Data)
+        var format = "image/jpeg";
+        var base64 = base64Data;
+//        console.log(base64)
+//        console.log(base64.split(",")[1])
+        var code = window.atob(base64.split(",")[1]);
+        var aBuffer = new window.ArrayBuffer(code.length);
+        var uBuffer = new window.Uint8Array(aBuffer);
+        for(var i = 0; i < code.length; i++){
+            uBuffer[i] = code.charCodeAt(i) & 0xff ;
+        }
+        var blob=null;
+        try{
+            blob = new Blob([uBuffer], {type : format});
+        }
+        catch(e){
+            window.BlobBuilder = window.BlobBuilder ||
+                window.WebKitBlobBuilder ||
+                window.MozBlobBuilder ||
+                window.MSBlobBuilder;
+            if(e.name == 'TypeError' && window.BlobBuilder){
+                var bb = new window.BlobBuilder();
+                bb.append(uBuffer.buffer);
+                blob = bb.getBlob("image/jpeg");
+
+            }
+            else if(e.name == "InvalidStateError"){
+                blob = new Blob([aBuffer], {type : format});
+            }
+            else{
+
+            }
+        }
+        console.log(blob)
+        return blob;
+
+    };
+
+
+</script>

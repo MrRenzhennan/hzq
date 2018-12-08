@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]>
+<html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+
+<!-- BEGIN HEAD -->
+<head>
+    <title>非居民开栓令录入</title>
+    <base href="../">
+    <link href="assets/global/plugins/bootstrap-fileinput/fileinput.css" rel="stylesheet">
+    <script src="pages/scripts/header.js"></script>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8"/>
+
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-select/bootstrap-select.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/select2/select2.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/jquery-multi-select/css/multi-select.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-datepicker/css/datepicker3.css"/>
+    <!-- BEGIN THEME STYLES -->
+    <link href="assets/global/css/components.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
+    <!-- END THEME STYLES -->
+</head>
+<!-- END HEAD -->
+
+<body class="page-header-fixed page-quick-sidebar-over-content">
+
+<!-- 标题栏开始 -->
+<div class="page-header navbar navbar-fixed-top">
+    <script>$.include("pages/partial/menu.shtml");</script>
+</div>
+<!-- 标题栏结束 -->
+<div class="clearfix"></div>
+<div class="page-container">
+    <!-- 左侧菜单开始 -->
+    <div class="page-sidebar-wrapper">
+        <script>$.include("pages/partial/sidebar.shtml");</script>
+    </div>
+    <!-- 左侧菜单结束 -->
+
+    <!-- 主内容开始 -->
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <!--内容头开始-->
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="page-breadcrumb breadcrumb">
+                        <!-- <li>
+                            <i class="fa fa-map-marker"></i>
+                            <a href="javascript:;">客户管理</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="javascript:;">开栓令管理</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="customer/non_inhabitant_open_boltmanagement.html">非居民开栓令管理</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="javascript:;">非居民开栓令录入</a>
+                        </li> -->
+                    </ul>
+                </div>
+            </div>
+            <!-- 内容头结束-->
+
+            <!-- 内容开始-->
+            <div class="container-fluid">
+                <div class="add-form">
+                    <!-- begin form-->
+                    <form role="form" onsubmit="return false" id="form">
+                        <div class="form-body">
+                            <div class="row form-group">
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">开栓令编号:</label>
+                                    <div class="col-md-8">
+                                        <input id="unboltNo" name="unboltNo" type="text" class="form-control"
+                                               pattern="开栓令编号">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">项目编号:</label>
+                                    <div class="col-md-8">
+                                        <input id="addProjectNo" name="projectNo" type="text" class="form-control"
+                                               placeholder="项目编号">
+                                    </div>
+                                </div>
+                                <div class="col-md-3" id="dg_unbolttime">
+                                    <label class="control-label col-md-4">项目日期:</label>
+                                    <div class="col-md-8" id="di_unbolttime">
+                                        <input name="projectDate" id="projectDate" data-date-format="yyyy-mm-dd"
+                                               type="text" class="form-control form-control-inline date-picker"
+                                               placeholder="项目日期">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">项目名称:</label>
+                                    <div class="col-md-8">
+                                        <input id="addProjectName" name="projectName" type="text" class="form-control"
+                                               placeholder="项目名称">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">供气区域:</label>
+                                    <div class="col-md-8">
+                                        <select id="find_unit" name="areaId"
+                                                class="form-control input-middle select2me" data-placeholder="供气区域..">
+                                            <option value=""></option>
+                                        </select>
+                                        <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                    </div>
+                                </div>
+                               <!-- <div class="col-md-3">
+                                    <label class="control-label col-md-4">核算员:</label>
+                                    <div class="col-md-8">
+                                        <select id="find_countPer" name="countperId"
+                                                class="form-control input-middle select2me" data-placeholder="核算员..">
+                                            <option value=""></option>
+                                        </select>
+                                        <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">抄表员:</label>
+                                    <div class="col-md-8">
+                                        <select id="find_servicePer" name="serviceperId"
+                                                class="form-control input-middle select2me" data-placeholder="抄表员..">
+                                            <option value=""></option>
+                                        </select>
+                                        <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                    </div>
+                                </div>-->
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">联系人:</label>
+                                    <div class="col-md-8">
+                                        <input id="addLinkMan" name="linkMan" type="text" class="form-control"
+                                               placeholder="联系人">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">联系方式:</label>
+                                    <div class="col-md-8">
+                                        <input id="addLinkTel" name="linkTel" type="text" class="form-control"
+                                               placeholder="联系方式">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">工程类别:</label>
+                                    <div class="col-md-8">
+                                        <select id="find_customerstate" name="projectType" class="form-control input-middle select2me"
+                                                data-placeholder="工程类别..." multiple="multiple">
+                                            <option value=""></option>
+                                            <option value="1">工业</option>
+                                            <option value="2">商服</option>
+                                            <option value="3">公益</option>
+                                            <option value="4">锅炉</option>
+                                            <option value="5">福利</option>
+                                            <option value="6">煤改气</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="row form-group">
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">开栓令类型:</label>
+                                    <div class="col-md-8">
+                                        <select id="unboleType" name="unboleType" class="form-control input-middle select2me"
+                                                data-placeholder="开栓令类型...">
+                                            <option value="">请选择</option>
+                                            <option value="1">普通开栓令</option>
+                                            <option value="2">增减容开栓令</option>
+                                            <option value="3">煤改气开栓令</option>
+                                        </select>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="control-label col-md-2">建设单位:</label>
+                                    <div class="col-md-10">
+                                        <input id="addBuildUnit" name="buildUnit" type="text" class="form-control"
+                                               pattern="建设单位">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+
+                                <div class="col-md-6">
+                                    <label class="control-label col-md-2">工程地址:</label>
+                                    <div class="col-md-10">
+                                        <input id="projectAddress" name="projectAddress" type="text"
+                                               class="form-control"
+                                               pattern="工程地址">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="control-label col-md-2">备注:</label>
+                                    <div class="col-md-10">
+                                        <input id="reservedField2" name="reservedField2" type="text"
+                                               class="form-control"
+                                               pattern="备注">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+
+                                <input id="customer_type" name="customerType" hidden="hidden" type="text" value="9">
+                                <input id="approveStatus" name="approveStatus" hidden="hidden" type="text" value="1">
+                            </div>
+                            <div class="row form-group">
+                                <form id="fileupload"  onsubmit="return false" enctype="multipart/form-data">
+                                    <div class="col-sm-12 form-group">
+                                        <div class="btn-group input-group" style="width: 100%">
+                                            <div class="input-group-addon">上传数据:</div>
+                                            <input class="file-loading form-control" type="file" name="files[]"  multiple>
+                                        </div>
+                                    </div>
+                                    <table role="presentation" class="table table-striped"><tbody class="files"></tbody></table>
+                                </form>
+                                <!--<div class="col-md-6">
+                                    <label class="control-label col-md-2">用气性质:</label>
+                                    <div class="col-md-10">
+                                        &lt;!&ndash;<input id="gasTypeId" name="gasTypeId" type="text" class="form-control" pattern="用气性质" value="1001">&ndash;&gt;
+
+                                        <select id="gasTypeId" name="gasTypeId" class="form-control input-middle select2me" data-placeholder="用气性质..">
+                                            <option value=""></option>
+                                        </select>
+                                        <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                    </div>
+                                </div>-->
+                            </div>
+
+                            <!--<input name="projectType" hidden="hidden" type="text" value="6" >-->
+                        </div>
+
+                    </form>
+                    <script>$.include("common/gpypicture.shtml")</script>
+                    <!--end form-->
+                </div>
+            </div>
+            <div class="tabbable tabbable-custom tabbable-custom-profile col-md-12" style="padding-bottom:0px">
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#tab_1_22" data-toggle="tab" >
+                            开栓明细 </a>
+
+                    </li>
+                </ul>
+                <!--/row-->
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab11">
+                        <div class="portlet-body">
+                            <table class="watable table table-striped table-hover table-bordered table-condensed">
+                                <thead>
+                                <th></th>
+                                <th>用气类型</th>
+                                <th>额定流量</th>
+                                <th>数量</th>
+                                </thead>
+                                <tbody id="tbody">
+                                <tr>
+                                    <td width="15px"></td>
+                                    <td>
+                                        <select id="gastype" name="gasTypeId" class="form-control input-middle select2me" data-placeholder="选择用气类型..">
+                                            <option value=""></option>
+                                        </select>
+                                        <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                    </td>
+                                    <td><input type="number" name="capacity" class="form-control" placeholder="额定流量"></td>
+                                    <td><input type="number" name="mtrCount" class="form-control" placeholder="数量" value="1" readonly></td>
+                                </tr>
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                    <td colspan="4"><img id="add_btn" class="img-responsive center-block"
+                                                         src="assets/global/img/add.png"
+                                                         style="width: 32px;height: 32px"></td>
+                                </tr>
+                                <!--<tr>-->
+                                    <!--<td></td>-->
+                                    <!--<th>总计</th>-->
+                                    <!--<td><input type="text" class="form-control" placeholder="额定流量总和"></td>-->
+                                    <!--<td><input type="text" class="form-control" placeholder="数量总和"></td>-->
+                                <!--</tr>-->
+                                </tfoot>
+                            </table>
+                            <!--/row-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tabbable tabbable-custom tabbable-custom-profile col-md-12" style="padding-bottom:0px">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab114">
+                        <div class="portlet-body">
+                            <div class="row form-group">
+                                <div class="col-sm-6 form-group">
+                                    <div class="btn-group input-group" style="width: 100%">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-sm-6 form-group" style="margin-left: 35%">
+                                    <button id="cancel" type="button" class="btn red default">取消</button>
+                                    <button id="save_btn" type="button" class="btn blue">保存</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           <!-- <div class="form-actions fluid">
+                <div class="btn-set">
+                    <button id="cancel" type="button" class="btn default">取消</button>
+                    <button id="save_btn" type="button" class="btn blue">保存</button>
+                </div>
+            </div>-->
+            <!-- 内容结束-->
+        </div>
+    </div>
+    <!-- 主内容结束 -->
+</div>
+
+<script type="text/javascript">$.include("pages/partial/xwatable-form.shtml")</script>
+
+</body>
+
+
+<script>$.include("pages/partial/scripts.shtml");</script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-fileinput/fileinput.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-fileinput/zh.js"></script>
+<script type="text/javascript" src="pages/scripts/refhelper.js"></script>
+<script type="text/javascript" src="pages/scripts/rqlbuilder.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-multi-select/js/jquery.multi-select.js"></script>
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+<script type="text/javascript"
+        src="assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script src="assets/admin/pages/scripts/components-pickers.js"></script>
+<script src="pages/scripts/jquery.json.min.js"></script>
+<script type="text/javascript" src="pages/scripts/jquery.serialize-object.min.js"></script>
+<script src="assets/admin/pages/scripts/components-pickers.js"></script>
+
+<script src="mods/sys.js"></script>
+<script src="mods/ctm.js"></script>
+
+<script type="text/javascript" src="assets/global/plugins/bootstrap-daterangepicker/moment.min.js"></script>
+<script src="customer/js/non_inhabitant_open_bolt_input.js"></script>
+<script type="text/javascript">
+    ComponentsPickers.init();
+    GasChangeAction.init();
+</script>
+</html>

@@ -1,0 +1,9 @@
+{"rows":
+[
+  {"UUID":"001","approvalorder":"1","approvalresult":"已审批","approvalopinion":"","pftime":"2016-11-11 17:12:12","pfr":"李华珍"}
+,{"UUID":"002","approvalorder":"2","approvalresult":"已审批","approvalopinion":"","pftime":"2016-11-11 13:12:12","pfr":"李松玲"}
+]
+,"total_rows":1
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

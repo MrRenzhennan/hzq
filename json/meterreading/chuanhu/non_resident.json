@@ -1,0 +1,14 @@
+{"rows":
+[
+  {"UUID":"001","bookID":"道里区","USER_ID":"3653456","GAS_USER_ID":"小张","areaid":"2016-11-11 12:12:12","bookcode":"小李","DOORCOUNT":"8888888888","COPYMONTH":"未达预警线","COPYRULEDAY":"数据正常","OLDBOOKNO":"88°","PROPERTYUNIT":"700°","BOOKTYPE":"8000°","BOOSTERCODE":"正常","DAYMEASURE":"7500°"}
+ ,{"UUID":"001","bookID":"道里区","USER_ID":"3653456","GAS_USER_ID":"小张","areaid":"2016-11-11 12:12:12","bookcode":"小李","DOORCOUNT":"8888888888","COPYMONTH":"未达预警线","COPYRULEDAY":"数据正常","OLDBOOKNO":"88°","PROPERTYUNIT":"700°","BOOKTYPE":"8000°","BOOSTERCODE":"正常","DAYMEASURE":"7500°"}
+,{"UUID":"001","bookID":"道里区","USER_ID":"3653456","GAS_USER_ID":"小张","areaid":"2016-11-11 12:12:12","bookcode":"小李","DOORCOUNT":"8888888888","COPYMONTH":"未达预警线","COPYRULEDAY":"数据正常","OLDBOOKNO":"88°","PROPERTYUNIT":"700°","BOOKTYPE":"8000°","BOOSTERCODE":"正常","DAYMEASURE":"7500°"}
+,{"UUID":"001","bookID":"道里区","USER_ID":"3653456","GAS_USER_ID":"小张","areaid":"2016-11-11 12:12:12","bookcode":"小李","DOORCOUNT":"8888888888","COPYMONTH":"未达预警线","COPYRULEDAY":"数据正常","OLDBOOKNO":"88°","PROPERTYUNIT":"700°","BOOKTYPE":"8000°","BOOSTERCODE":"正常","DAYMEASURE":"7500°"}
+,{"UUID":"001","bookID":"道里区","USER_ID":"3653456","GAS_USER_ID":"小张","areaid":"2016-11-11 12:12:12","bookcode":"小李","DOORCOUNT":"8888888888","COPYMONTH":"未达预警线","COPYRULEDAY":"数据正常","OLDBOOKNO":"88°","PROPERTYUNIT":"700°","BOOKTYPE":"8000°","BOOSTERCODE":"正常","DAYMEASURE":"7500°"}
+,{"UUID":"001","bookID":"道里区","USER_ID":"3653456","GAS_USER_ID":"小张","areaid":"2016-11-11 12:12:12","bookcode":"小李","DOORCOUNT":"8888888888","COPYMONTH":"未达预警线","COPYRULEDAY":"数据正常","OLDBOOKNO":"88°","PROPERTYUNIT":"700°","BOOKTYPE":"8000°","BOOSTERCODE":"正常","DAYMEASURE":"7500°"}
+
+]
+,"total_rows":1
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

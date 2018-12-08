@@ -1,0 +1,10 @@
+{"rows":
+[
+  {"serialNumber":"01","gasArea":"供气区域一","cusNumber":"客户号一","cusName":"客户名一","cusAddress":"道外区景阳街179门牌号景阳百货楼号1单元4层3室","retroDate":"2016-10-10","retroVolume":"100","retroFee":"100.00","retroReason":"补欠费","retroPre":"追补人一"}
+,{"serialNumber":"02","gasArea":"供气区域二","cusNumber":"客户号二","cusName":"客户名二","cusAddress":"道里区前进路39－1号三电小区1楼号2单元5层2室","retroDate":"2016-11-10","retroVolume":"50","retroFee":"50.00","retroReason":"死表","retroPre":"追补人二"}
+
+]
+,"total_rows":2
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

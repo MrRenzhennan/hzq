@@ -1,0 +1,9 @@
+{"rows":
+[
+  {"lxID":"阿斌","time":"2017-1-9","amount_receivable":"￥200","fine":"￥200","cumulative_arrears":"￥200","payable_amount":"￥200","cash":"用户付款","mode":"支付宝","payment_status":"已缴","invoice_number":"041400","operator":"Bink","operation_date":"2017-1-9 12:00","source":"营业厅","UUID":"缴费"},
+  {"lxID":"阿斌","time":"2017-1-9","amount_receivable":"￥200","fine":"￥200","cumulative_arrears":"￥200","payable_amount":"￥200","cash":"用户付款","mode":"支付宝","payment_status":"已缴","invoice_number":"041400","operator":"Bink","operation_date":"2017-1-9 12:00","source":"营业厅","UUID":"缴费"}
+]
+,"total_rows":1
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

@@ -1,0 +1,13 @@
+{"rows":
+[
+  {"cusNumber":"客户编号一","ICCardNumber":"IC卡号一","cusName":"客户名称一","cusType":"非居民","gasProperty":"商服","meterName":"表户名称一","cantangocopyTime":"2016-12-02 13:55:36","residualGas":"100","surplusAmount":"","preCatango":"008","afterCatango":"007","deductionAmount":"10.00","refundAmount":"","gasArea":"供气区域一","copyPre":"抄表员一","accountClerk":"核算员一","applyState":"1","branchOffice":"分公司一"},
+  {"cusNumber":"客户编号二","ICCardNumber":"IC卡号二","cusName":"客户名称二","cusType":"居民","gasProperty":"普通用户","meterName":"表户名称二","cantangocopyTime":"2016-12-02 13:55:36","residualGas":"200","surplusAmount":"","preCatango":"006","afterCatango":"005","deductionAmount":"23.00","refundAmount":"","gasArea":"供气区域二","copyPre":"抄表员二","accountClerk":"核算员一","applyState":"2","branchOffice":"分公司一"},
+  {"cusNumber":"客户编号三","ICCardNumber":"IC卡号三","cusName":"客户名称三","cusType":"非居民","gasProperty":"公益","meterName":"表户名称三","cantangocopyTime":"2016-12-02 13:55:36","residualGas":"300","surplusAmount":"","preCatango":"003","afterCatango":"002","deductionAmount":"33.00","refundAmount":"","gasArea":"供气区域三","copyPre":"抄表员三","accountClerk":"核算员一","applyState":"3","branchOffice":"分公司二"},
+  {"cusNumber":"客户编号四","ICCardNumber":"IC卡号四","cusName":"客户名称四","cusType":"居民","gasProperty":"普通用户","meterName":"表户名称四","cantangocopyTime":"2016-12-02 13:55:36","residualGas":"110","surplusAmount":"","preCatango":"008","afterCatango":"007","deductionAmount":"11.00","refundAmount":"","gasArea":"供气区域四","copyPre":"抄表员四","accountClerk":"核算员一","applyState":"4","branchOffice":"分公司三"},
+  {"cusNumber":"客户编号五","ICCardNumber":"IC卡号五","cusName":"客户名称五","cusType":"非居民","gasProperty":"锅炉","meterName":"表户名称五","cantangocopyTime":"2016-12-02 13:55:36","residualGas":"","surplusAmount":"343","preCatango":"005","afterCatango":"004","deductionAmount":"","refundAmount":"233.10","gasArea":"供气区域五","copyPre":"抄表员一","accountClerk":"核算员一","applyState":"1","branchOffice":"分公司四"}
+
+]
+,"total_rows":5
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

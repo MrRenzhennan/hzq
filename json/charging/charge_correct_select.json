@@ -1,0 +1,15 @@
+{"rows":
+[
+  {"UUID":"1","cusNumber":"客户编号一","cusName":"客户名称一","meterName":"表户名称一","copyTime":"2016-01-01","area":"供气区域一","bookCode":"抄表本编号一","accountClark":"核算员一","difCorrectReason":"换表","remarks":"","applyState":"1","applyTime":"2016-01-01 20:10:00"},
+  {"UUID":"2","cusNumber":"客户编号二","cusName":"客户名称二","meterName":"表户名称二","copyTime":"2016-01-01","area":"供气区域二","bookCode":"抄表本编号二","accountClark":"核算员二","difCorrectReason":"换表","remarks":"","applyState":"2","applyTime":"2016-01-01 20:10:00"},
+  {"UUID":"3","cusNumber":"客户编号三","cusName":"客户名称三","meterName":"表户名称三","copyTime":"2016-01-01","area":"供气区域三","bookCode":"抄表本编号三","accountClark":"核算员三","difCorrectReason":"表具损坏","remarks":"","applyState":"3","applyTime":"2016-01-01 20:10:00"},
+  {"UUID":"4","cusNumber":"客户编号四","cusName":"客户名称四","meterName":"表户名称四","copyTime":"2016-01-01","area":"供气区域四","bookCode":"抄表本编号四","accountClark":"核算员四","difCorrectReason":"表具损坏","remarks":"","applyState":"1","applyTime":"2016-01-01 20:10:00"},
+  {"UUID":"5","cusNumber":"客户编号五","cusName":"客户名称五","meterName":"表户名称五","copyTime":"2016-01-01","area":"供气区域五","bookCode":"抄表本编号五","accountClark":"核算员五","difCorrectReason":"表具损坏","remarks":"","applyState":"2","applyTime":"2016-01-01 20:10:00"},
+  {"UUID":"6","cusNumber":"客户编号六","cusName":"客户名称六","meterName":"表户名称六","copyTime":"2016-01-01","area":"供气区域六","bookCode":"抄表本编号六","accountClark":"核算员六","difCorrectReason":"重新开栓","remarks":"","applyState":"3","applyTime":"2016-01-01 20:10:00"},
+  {"UUID":"7","cusNumber":"客户编号七","cusName":"客户名称七","meterName":"表户名称七","copyTime":"2016-01-01","area":"供气区域七","bookCode":"抄表本编号七","accountClark":"核算员七","difCorrectReason":"预估气量过高","remarks":"","applyState":"1","applyTime":"2016-01-01 20:10:00"},
+  {"UUID":"8","cusNumber":"客户编号八","cusName":"客户名称八","meterName":"表户名称八","copyTime":"2016-01-01","area":"供气区域八","bookCode":"抄表本编号八","accountClark":"核算员八","difCorrectReason":"预估气量过高","remarks":"","applyState":"2","applyTime":"2016-01-01 20:10:00"}
+]
+,"total_rows":8
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

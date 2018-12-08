@@ -1,0 +1,177 @@
+<script type="text/x-template" id="__dust__gasRowInfo">
+    <input type="hidden" id="chgTitle" value="燃气费"/>
+    <input type="hidden" id="feeType" value="gas"/>
+    {#data}
+    {@eq key=isUnion value="1"}
+        <tr>
+            <td style="width: 100px">
+                余额:
+            </td>
+            <td style="width: 20%">
+                <span id="balance">0</span> 
+            </td>
+            <td style="border-left: 1px solid #dedede !important;width: 100px">
+                联合账户余额:
+            </td>
+            <td style="width: 25%;">
+                <span id="unionBalance">0</span>
+            </td>
+            <td style="border-left: 1px solid #dedede !important;width: 100px">
+
+            </td>
+            <td style="border-top: 1px solid #dedede !important;">
+
+            </td>
+        </tr>
+    {/eq}
+    {@eq key=isUnion value="0"}
+        <tr>
+            <td style="width: 100px">
+                余额:
+            </td>
+            <td style="width: 20%">
+                <span id="balance">0</span> 
+            </td>
+            <td style="border-left: 1px solid #dedede !important;width: 100px">
+                
+            </td>
+            <td style="width: 25%;">
+                
+            </td>
+            <td style="border-left: 1px solid #dedede !important;width: 100px">
+
+            </td>
+            <td style="border-top: 1px solid #dedede !important;">
+
+            </td>
+        </tr>
+    {/eq}
+    <tr>
+        <td style="width: 100px">
+            供气区域:
+        </td>
+        <td style="width: 100px;">
+            {areaName}
+        </td>
+        <td style="border-left: 1px solid #dedede;width: 100px">
+            用气性质:
+        </td>
+        <td>
+            {gasTypeName}
+        </td>
+        <td style="width: 100px;border-left: 1px solid #dedede;">
+
+        </td>
+        <td style="width: 100px;">
+
+        </td>
+    </tr>
+    <tr>
+        <td style="width: 100px">
+            燃气余额转换:
+        </td>
+        <td style="width: 100px">
+            <!--    <input type="checkbox" id="changecheck"/> 金额&nbsp;&lt;!&ndash;<span id="balance">0</span>&ndash;&gt;
+                <input type="number" id="balance" class="form-control" aria-label="Convert gas balance"
+                       placeholder="请输入要转换余额">-->
+            <div class="input-group">
+                      <span class="input-group-addon">
+                        <input type="checkbox" id="changecheck" aria-label="Convert gas balance">
+                      </span>
+                <input type="number" disabled id="usebalancemoney" class="form-control" aria-label="Convert gas balance"
+                       placeholder="请输入要转换的余额">
+            </div><!-- /input-group -->
+
+        </td>
+        <td style="border-left: 1px solid #dedede !important;width: 100px">
+            补气:
+        </td>
+        <td style="width: 30%;">
+            <input type="checkbox" id="complementcheck"/> 气量&nbsp;<span id="complement">0</span>
+        </td>
+        <!-- <td style="border-left: 1px solid #dedede;width: 100px">
+
+         </td>-->
+        <td style="width: 100px;border-left: 1px solid #dedede;">
+
+        </td>
+        <td style="width: 100px;">
+
+        </td>
+    </tr>
+    <tr>
+        <td style="width: 120px"><b>收费金额:</b></td>
+        <td>
+            <div class="input-group">
+                <input type="number" id="transGas" class="form-control" aria-label="Amount (to the nearest dollar)"
+                       placeholder="金额" min="1" max="99999" style="width:100px">
+                <button type="button" id="changeGas" class="btn btn-default btn-sm">气量换算</button>
+            </div>
+        </td>
+        <td style="border-left: 1px solid #dedede !important;width: 100px">
+            可购气量:
+        </td>
+        <td>
+            <div class="input-group">
+                <input type="number" disabled id="transMeasure" class="form-control" aria-label="Amount (to the nearest dollar)" placeholder="气量">
+            </div>
+        </td>
+        <td style="border-left: 1px solid #dedede;width: 100px">
+            找零:
+        </td>
+        <td>
+            <div class="input-group">
+                <input type="number" id="oddchange" disabled class="form-control" aria-label="change" placeholder="找零">
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td style="width: 100px">收费方式:</td>
+        <td colspan="5">
+            <label class="radio-inline" style="padding-left:40px !important;">
+                <input type="radio" name="chgType" value="1" text="现金"> 现金
+            </label>
+            <label class="radio-inline" style="padding-left:40px !important;">
+                <input type="radio" name="chgType" value="4" text="支票"> 支票
+            </label>
+            <label class="radio-inline" style="padding-left:40px !important;">
+                <input type="radio" name="chgType" value="3" text="银行转账"> 银行转账
+            </label>
+            <label class="radio-inline" style="padding-left:40px !important;">
+                <input type="radio" name="chgType" value="2" text="POS机"> POS机
+            </label>
+        </td>
+    </tr>
+    <tr>
+        <td style="width: 100px">金额:</td>
+        <td style="width: 20%">
+            <input id="cashAmount" disabled class="inputclear form-control" disabled type="number"/>
+        </td>
+        <td style="border-left: 1px solid #dedede !important;width: 100px">
+            支票号:
+        </td>
+        <td style="width: 25%;">
+            <input id="input_checkno" class="inputclear form-control" disabled type="text"/>
+        </td>
+        <td style="border-left: 1px solid #dedede;" colspan="2">
+            <button type="button" id="BtnChg" class="btn btn-success btn-sm" disabled="disabled"> 联合账户充值 <span
+                    class="glyphicon glyphicon-fire" aria-hidden="true"></span></button>
+
+            <button type="button" id="BtnSub" class="btn btn-danger btn-sm" disabled="disabled"> IC卡燃气费收费 <span
+                    class="glyphicon glyphicon-fire" aria-hidden="true"></span></button>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="6"><a href="JavaScript:void(0)" hzq-modal="#hzqModal" hzq-type="remoteModal"
+                           hzq-remote="/collectfee/partial/searchicgaspayhistory.html"
+                           hzq-cb="render" hzq-param='{"archiveId":"{ctmArchiveId}"}'>IC卡收费历史信息</a> &nbsp;&nbsp;&nbsp;
+            <a href="JavaScript:void(0)" hzq-modal="#hzqModal" hzq-type="remoteModal"
+               hzq-remote="/collectfee/partial/searchicchangehistory.html"
+               hzq-cb="render" hzq-param='{"archiveId":"{ctmArchiveId}"}'>IC卡变更信息</a> &nbsp;&nbsp;&nbsp;
+            <a href="JavaScript:void(0)" hzq-modal="#hzqModal" hzq-type="remoteModal"
+               hzq-remote="/collectfee/partial/searchtickethistory.html"
+               hzq-cb="render" hzq-param='{"customerCode":"{customerCode}"}'>发票打印</a>
+        </td>
+    </tr>
+    {/data}
+</script>

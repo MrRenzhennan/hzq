@@ -1,0 +1,18 @@
+{"rows":
+[
+  {"UUID":"001","date":"2016-2-14","bank":"商业银行","bankID":"01","price":"400","cxprice":"400","bankprice":"400","xtprice":"400","is":"1","accounttype":"民用","collectcount":"4","cxcount":"4","xtcount":"0","bankcount":"0","insteadprice":"1.02","is":"2"},
+  {"UUID":"001","date":"2016-2-14","bank":"商业银行","bankID":"01","price":"400","cxprice":"400","bankprice":"400","xtprice":"400","is":"1","accounttype":"民用","collectcount":"4","cxcount":"4","xtcount":"0","bankcount":"0","insteadprice":"1.02","is":"2"},
+  {"UUID":"001","date":"2016-2-14","bank":"商业银行","bankID":"01","price":"400","cxprice":"400","bankprice":"400","xtprice":"400","is":"1","accounttype":"民用","collectcount":"4","cxcount":"4","xtcount":"0","bankcount":"0","insteadprice":"1.02","is":"2"},
+  {"UUID":"001","date":"2016-2-14","bank":"建设银行","bankID":"06","price":"30","cxprice":"400","bankprice":"400","xtprice":"400","is":"1","accounttype":"民用","collectcount":"4","cxcount":"4","xtcount":"0","bankcount":"0","insteadprice":"1.02","is":"1"},
+
+  {"UUID":"001","date":"2016-2-14","bank":"商业银行","bankID":"01","price":"400","cxprice":"400","bankprice":"400","xtprice":"400","is":"1","accounttype":"民用","collectcount":"4","cxcount":"4","xtcount":"0","bankcount":"0","insteadprice":"1.02","is":"2"},
+  {"UUID":"001","date":"2016-2-14","bank":"中国银行","bankID":"90","price":"600","cxprice":"400","bankprice":"400","xtprice":"400","is":"2","accounttype":"民用","collectcount":"9","cxcount":"4","xtcount":"0","bankcount":"0","insteadprice":"1.02","is":"1"},
+  {"UUID":"001","date":"2016-2-14","bank":"中国银行","bankID":"90","price":"600","cxprice":"400","bankprice":"400","xtprice":"400","is":"2","accounttype":"民用","collectcount":"9","cxcount":"4","xtcount":"0","bankcount":"0","insteadprice":"1.02","is":"1"},
+  {"UUID":"001","date":"2016-2-14","bank":"中国银行","bankID":"90","price":"600","cxprice":"400","bankprice":"400","xtprice":"400","is":"2","accounttype":"民用","collectcount":"9","cxcount":"4","xtcount":"0","bankcount":"0","insteadprice":"1.02","is":"1"},
+  {"UUID":"001","date":"2016-2-14","bank":"建设银行","bankID":"06","price":"30","cxprice":"400","bankprice":"400","xtprice":"400","is":"1","accounttype":"民用","collectcount":"4","cxcount":"4","xtcount":"0","bankcount":"0","insteadprice":"1.02","is":"1"}
+
+]
+,"total_rows":1
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

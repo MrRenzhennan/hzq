@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="utf-8" />
+    <title>中庆燃气营业信息系统</title>
+    <script src="pages/scripts/header_login.js"></script>
+    <!-- BEGIN PAGE LEVEL STYLES -->
+    <link href="assets/admin/pages/css/login-soft.css" rel="stylesheet" type="text/css" />
+    <link href="assets/global/plugins/ladda-bootstrap/ladda-themeless.min.css" rel="stylesheet" type="text/css" />
+
+</head>
+<!-- END HEAD -->
+
+<body>
+    <div class="content">
+        <div class="row">
+            <textarea id="tradeAtl" cols="30" rows="10"></textarea>
+            <button id="btnGen">构造结果</button>
+            <button id="btnIns">创建ATL</button>
+            <button id="btnRefresh">刷新</button>
+            <input type="text" id="balance">
+            <input type="text" id="icbalance">
+            <button id="btnAcc">更新ACCOUNT</button>
+        </div>
+        <div class="row">
+            <table border="1">
+                <thead>
+                    <tr>
+                        <td>GASFEE_ATL_ID</td>
+                        <td>GASFEE_ACCOUNT_ID</td>
+                        <td>CHG_TYPE_ID</td>
+                        <td>CUSTOMER_CODE</td>
+                        <td>TRADE_TYPE</td>
+                        <td>GAS</td>
+                        <td>MONEY</td>
+                        <td>TRADE_DATE</td>
+                        <td>CLR_TAG</td>
+                        <td>CLR_DATE</td>
+                        <td>CREATED_TIME</td>
+                        <td>MODIFIED_TIME</td>
+                        <td>CREATED_BY</td>
+                        <td>MODIFIED_BY</td>
+                        <td>RESERVED_FIELD1</td>
+                        <td>RESERVED_FIELD2</td>
+                        <td>CHG_ACCOUNT_ID</td>
+                        <td>CHARGE_UNIT_ID</td>
+                        <td>AREA_ID</td>
+                        <td>USER_ID</td>
+                        <td>GAS_TYPE_ID</td>
+                        <td>BANK_CHECK_FLAT</td>
+                        <td>CUSTOMER_KIND</td>
+                        <td>CUSTOMER_TYPE</td>
+                        <td>LAST_MONEY</td>
+                        <td>LAST_IC_MONEY</td>
+                        <td>TRADE_TYPE_DESC</td>
+                        <td>TRADE_NO</td>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <!--[if lt IE 9]>
+
+<script src="assets/global/plugins/respond.min.js"></script>
+<script src="assets/global/plugins/excanvas.min.js"></script>
+<![endif]-->
+    <script src="assets/global/plugins/jquery-1.11.0.min.js" type="text/javascript"></script>
+    <script src="assets/global/plugins/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+    <!-- IMPORTANT! Load jquery-ui-1.10.3.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
+    <script src="assets/global/plugins/jquery-ui/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
+    <script src="assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+    <script src="assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <script src="assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+    <script src="assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+    <script src="assets/global/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
+    <script src="assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+    <!-- END CORE PLUGINS -->
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    <script src="assets/global/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
+    <script src="assets/global/plugins/backstretch/jquery.backstretch.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="assets/global/plugins/select2/select2.min.js"></script>
+    <!-- END PAGE LEVEL PLUGINS -->
+    <!-- BEGIN PAGE LEVEL SCRIPTS -->
+    <script src="assets/global/scripts/metronic.js" type="text/javascript"></script>
+    <script src="assets/admin/layout/scripts/layout.js" type="text/javascript"></script>
+    <script src="assets/admin/layout/scripts/quick-sidebar.js" type="text/javascript"></script>
+    <script src="assets/admin/pages/scripts/login-soft.js" type="text/javascript"></script>
+    <!-- END PAGE LEVEL SCRIPTS -->
+    <script src="pages/scripts/rest.js" type="text/javascript"></script>
+    <script src="assets/global/plugins/bootbox/bootbox.min.js" type="text/javascript"></script>
+
+    <!--     <script src="assets/global/plugins/bootstrap-modal/js/bootstrap-modalmanager.js" type="text/javascript"></script>
+    <script src="assets/global/plugins/bootstrap-modal/js/bootstrap-modal.js" type="text/javascript"></script>
+ -->
+
+
+    <script src="assets/global/plugins/ladda-bootstrap/spin.min.js" type="text/javascript"></script>
+    <script src="assets/global/plugins/ladda-bootstrap/ladda.min.js" type="text/javascript"></script>
+    <script src="assets/addons/jquery.jcryption-1.1.min.js" type="text/javascript"></script>
+    <script src="assets/addons/validateForm.js" type="text/javascript"></script>
+    <script type="text/javascript" src="assets/global/scripts/jquery.md5.js"></script>
+    <script src="assets/global/plugins/moment.min.js"></script>
+    <script type="text/javascript">
+        function getLocalTime(nS) {
+            return moment(new Date(parseInt(nS))).format("YYYY-MM-DDThh:mm:ss");
+        }
+        $(document).ready(function () {
+            $("#btnAcc").click(function () {
+                $.ajax({
+                    url: "hzq_rest/gasactgasfeeaccount/" + $("#tradeAtl").val(),
+                    method: "PUT",
+                    async: false,
+                    contentType: "application/json;charset=utf-8",
+                    dataType: "json",
+                    data: JSON.stringify({
+                        "balance": $("#balance").val(),
+                        "icBalance": $("#icbalance").val(),
+                        "gasfeeAccountId": $("#tradeAtl").val()
+                    }),
+                    success: function (data) {
+                    }
+                });
+            });
+
+            $("#btnRefresh").click(function () {
+                $("#tbody").empty();
+            });
+
+            $("#btnIns").click(function () {
+                $("#tbody").find("tr").each(function (index, element) {
+                    var $tr = $(element);
+                    var data = {
+                        "gasfeeAtlId": $tr.find("#gasFeeAtlId").val(),
+                        "gasfeeAccountId": $tr.find("#gasFeeAccountId").val(),
+                        "chgTypeId": $tr.find("#chgTypeId").val(),
+                        "customerCode": $tr.find("#customerCode").val(),
+                        "tradeType": $tr.find("#tradeType").val(),
+                        "gas": $tr.find("#gas").val(),
+                        "money": $tr.find("#money").val(),
+                        "tradeDate": $tr.find("#tradeDate").val(),
+                        "clrTag": $tr.find("#clrTag").val(),
+                        "clrDate": $tr.find("#clrDate").val(),
+                        "createdTime": $tr.find("#createdTime").val(),
+                        "modifiedTime": $tr.find("#modifiedTime").val(),
+                        "createdBy": $tr.find("#createdBy").val(),
+                        "modifiedBy": $tr.find("#modifiedBy").val(),
+                        "reservedField1": $tr.find("#reservedField1").val(),
+                        "reservedField2": $tr.find("#reservedField2").val(),
+                        "chgAccountId": $tr.find("#chgAccountId").val(),
+                        "chargeUnitId": $tr.find("#chargeUnitId").val(),
+                        "areaId": $tr.find("#areaId").val(),
+                        "userId": $tr.find("#userId").val(),
+                        "gasTypeId": $tr.find("#gasTypeId").val(),
+                        "bankCheckFlat": $tr.find("#bankCheckFlat").val(),
+                        "customerKind": $tr.find("#customerKind").val(),
+                        "customerType": $tr.find("#customerType").val(),
+                        "lastMoney": $tr.find("#lastMoney").val(),
+                        "lastIcMoney": $tr.find("#lastIcMoney").val(),
+                        "tradeTypeDesc": $tr.find("#tradeTypeDesc").val(),
+                        "tradeNo": $tr.find("#tradeNo").val()
+                    };
+                    $.ajax({
+                        url: "hzq_rest/gasactgasfeeatl",
+                        method: "POST",
+                        async: false,
+                        contentType: "application/json;charset=utf-8",
+                        dataType: "json",
+                        data: JSON.stringify(data), success: function (data) {
+                            if (data.success == true) {
+                                $tr.remove();
+                            }
+                        }
+                    })
+                });
+            });
+            $("#btnGen").click(function () {
+                var strs = $("#tradeAtl").val();
+                var arry = strs.split("\n");
+                arry.forEach(function (str) {
+                    $.ajax({
+                        url: "hzqs/crl/pbqlm.do?fh=QLMCRL0000000J00&resp=bd",
+                        method: "POST",
+                        async: false,
+                        contentType: "application/json;charset=utf-8",
+                        dataType: "json",
+                        data: JSON.stringify({
+                            "user": str
+                        }),
+                        success: function (data) {
+                            if (data && data.msg) {
+                                var atls = data.msg.split("|||");
+                                if (atls != '') {
+                                    atls.forEach(function (element) {
+                                        if (element != '') {
+                                            var atlRow = "<tr>";
+                                            var atlItems = element.split(">>>");
+                                            if (atlItems[4] != ' ') {
+                                                atlRow += "<td><input type='text' value='" + atlItems[0] + "' id='gasFeeAtlId' /></td>";
+                                                atlRow += "<td><input type='text' value='" + atlItems[1] + "' id='gasFeeAccountId' /></td>";
+                                                atlRow += "<td><input type='text' value='" + atlItems[2] + "' id='chgTypeId' /></td>";
+                                                atlRow += "<td><input type='text' value='" + atlItems[3] + "' id='customerCode' /></td>";
+                                                atlRow += "<td><input type='text' value='" + atlItems[4] + "' id='tradeType' /></td>";
+                                                atlRow += "<td><input type='text' value='" + (atlItems[5] == 'null' ? '' : atlItems[5]) + "' id='gas' /></td>";
+                                                atlRow += "<td><input type='text' value='" + atlItems[6] + "' id='money' /></td>";
+                                                atlRow += "<td><input type='text' value='" + getLocalTime(atlItems[7]) + "' id='tradeDate' /></td>";
+                                                atlRow += "<td><input type='text' value='" + atlItems[8] + "' id='clrTag' /></td>";
+                                                atlRow += "<td><input type='text' value='" + getLocalTime(atlItems[9]) + "' id='clrDate' /></td>";
+                                                atlRow += "<td><input type='text' value='" + getLocalTime(atlItems[10]) + "' id='createdTime' /></td>";
+                                                atlRow += "<td><input type='text' value='" + getLocalTime(atlItems[11]) + "' id='modifiedTime' /></td>";
+                                                atlRow += "<td><input type='text' value='" + atlItems[12] + "' id='createdBy' /></td>";
+                                                atlRow += "<td><input type='text' value='" + atlItems[13] + "' id='modifiedBy' /></td>";
+                                                atlRow += "<td><input type='text' value='" + atlItems[14] + "' id='reservedField1' /></td>";
+                                                atlRow += "<td><input type='text' value='" + atlItems[15] + "' id='reservedField2' /></td>";
+                                                atlRow += "<td><input type='text' value='" + atlItems[16] + "' id='chgAccountId' /></td>";
+                                                atlRow += "<td><input type='text' value='" + atlItems[17] + "' id='chargeUnitId' /></td>";
+                                                atlRow += "<td><input type='text' value='" + atlItems[18] + "' id='areaId' /></td>";
+                                                atlRow += "<td><input type='text' value='" + atlItems[19] + "' id='userId' /></td>";
+                                                atlRow += "<td><input type='text' value='" + (atlItems[20] == 'null' ? '' : atlItems[20]) + "' id='gasTypeId' /></td>";
+                                                atlRow += "<td><input type='text' value='" + (atlItems[21] == 'null' ? '' : atlItems[21]) + "' id='bankCheckFlat' /></td>";
+                                                atlRow += "<td><input type='text' value='" + atlItems[22] + "' id='customerKind' /></td>";
+                                                atlRow += "<td><input type='text' value='" + (atlItems[23] == 'null' ? '' : atlItems[23]) + "' id='customerType' /></td>";
+                                                atlRow += "<td><input type='text' value='" + atlItems[24] + "' id='lastMoney' /></td>";
+                                                atlRow += "<td><input type='text' value='" + atlItems[25] + "' id='lastIcMoney' /></td>";
+                                                atlRow += "<td><input type='text' value='" + atlItems[26] + "' id='tradeTypeDesc' /></td>";
+                                                atlRow += "<td><input type='text' value='" + (atlItems[27] == 'null' ? '' : atlItems[27]) + "' id='tradeNo' /></td>";
+                                                atlRow += "</tr>";
+                                                $("#balance").val(atlItems[24]);
+                                                $("#icbalance").val(atlItems[25]);
+                                                $("#tbody").prepend(atlRow);
+                                            }
+                                        }
+                                    });
+                                    $("#tradeAtl").val("");
+                                }
+                            }
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+
+</body>
+<!-- END BODY -->
+
+</html>

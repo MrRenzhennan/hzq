@@ -1,0 +1,27 @@
+<script type="text/x-template" id="__dust__mrdHistoryRowInfo">
+    {#data}
+        <tr>
+            <td>
+                
+            </td>
+            <td>
+                {areaName}
+            </td>
+            <td>
+                {copytime}
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                {serviceperName}
+            </td>
+            <td>
+                {countperName}
+            </td>
+        </tr>
+    {/data}
+</script>

@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>收费管理</title>
+    <style>
+        #search {
+            width: 100%;
+            margin: 0 auto;
+            text-align: center;
+        }
+    </style>
+    <base href="../">
+    <meta charset="UTF-8">
+    <script src="pages/scripts/basepath.js"></script>
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-select/bootstrap-select.min.css">
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/select2/select2.css">
+    <script src="pages/scripts/header.js"></script>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8" />
+    <link href="assets/global/css/plugins.css" rel="stylesheet" type="text/css" />
+    <link href='assets/global/plugins/jquery-watable/watable.css' rel='stylesheet' />
+    <link href="assets/global/plugins/bootstrap-fileinput/fileinput.min.css" rel="stylesheet">
+    <style>
+        #divtable {
+            display: none;
+        }
+
+        .table td {
+            vertical-align: middle !important;
+        }
+    </style>
+</head>
+
+<body class="page-header-fixed page-quick-sidebar-over-content">
+    <script>
+        $.include("collectfee/partial/customerinfo.shtml");
+        $.include("collectfee/partial/icgasrowinfo.shtml");
+        $.include("collectfee/partial/wasterowinfo.shtml");
+        $.include("collectfee/partial/ctmaccountinfo.shtml");
+        $.include("collectfee/partial/iccardinfo.shtml");
+    </script>
+    <div class="page-header navbar navbar-fixed-top">
+        <script>
+            $.include("pages/partial/menu.shtml");
+        </script>
+    </div>
+
+    <div class="clearfix"></div>
+    <div class="page-container">
+        <!-- 左侧菜单开始 -->
+        <div class="page-sidebar-wrapper">
+            <script>
+                $.include("pages/partial/sidebar.shtml");
+            </script>
+        </div>
+        <!-- 左侧菜单结束 -->
+        <div id="gfdata"></div>
+        <!-- 主内容开始 -->
+        <div class="page-content-wrapper">
+            <div class="page-content">
+                <!--内容头开始-->
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul class="page-breadcrumb breadcrumb">
+                            <li>
+                                <i class="fa  fa-map-marker"></i>
+                                <a href="index.html">收费管理</a>
+                                <i class="fa fa-angle-right"></i>
+                            </li>
+                            <li>
+                                <a href="index.html">燃气收费管理</a>
+                                <i class="fa fa-angle-right"></i>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">IC卡补量申请</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <script>
+                    $.include("serviceManage/partial/select_user.shtml");
+                </script>
+                <!--用户信息-->
+                <script>
+                    $.include("serviceManage/partial/user_info.shtml");
+                </script>
+                <div class="tabbable tabbable-custom tabbable-custom-profile col-md-12" style="padding-bottom:0px">
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#tab22" data-toggle="tab" style="font-size: 14px;color: blue;">
+                            登记信息 </a>
+
+                        </li>
+                    </ul>
+                    <!--/row-->
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tab22">
+                            <div class="portlet-body">
+                                <!-- begin form-->
+                                <div class="form-body">
+                                    <div class="row form-group">
+                                        <div class="col-sm-3 form-group">
+                                            <div class="btn-group input-group">
+                                                <div class="input-group-addon">联系人:</div>
+                                                <input id="linkMan" name="linkMan" class="inputclear form-control" type="text">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 form-group">
+                                            <div class="btn-group input-group">
+                                                <div class="input-group-addon">联系电话:</div>
+                                                <input id="linkTel" name="linktel" class="inputclear form-control" type="text">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-6 form-group">
+                                            <div class="btn-group input-group" style="width: 100%">
+                                                <div class="input-group-addon">工程地址:</div>
+                                                <input id="projectAddress" class="inputclear form-control" type="text">
+                                                <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+
+                                    <div class="col-sm-6 form-group">
+                                        <div class="btn-group input-group" style="width: 100%">
+                                            <div class="input-group-addon">业务说明:</div>
+                                            <textarea id="remark" class="inputclear form-control"></textarea>
+
+                                            <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-3 form-group">
+                                        <div class="btn-group input-group">
+                                            <div class="input-group-addon">申请气量:</div>
+                                            <input id="applygas" name="linkMan" class="inputclear form-control" type="number">
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="row form-group">
+
+                                    <div class="col-sm-3 form-group">
+                                        <div class="btn-group input-group input-select2me">
+                                            <div class="input-group-addon">补量原因:</div>
+                                            <select id="lost_reason" class="form-control input-middle select2me" data-placeholder="请选择...">
+	                                            <option value=""></option>
+	                                        </select>
+                                            <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                        </div>
+                                    </div>
+
+                                    <script>
+                                        $.include("common/gpyupload.shtml");
+                                    </script>
+                                </div>
+
+                                <!--end form-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                                        $.include("serviceManage/partial/commit_print.shtml");
+                </script>
+
+            </div>
+        </div>
+    </div>
+    <div id="tab_iccard" class="tab-pane" role="tabpanel">
+    </div>
+    <div id="tab_ctm" class="tab-pane" role="tabpanel">
+    </div>
+    <div id="tab_customer" class="tab-pane" role="tabpanel">
+    </div>
+    <div id="write_iccard" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body">
+                    <p id="mcontent"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="cancelWriteCard" class="btn btn-default">不写卡</button>
+                    <button type="button" id="reWriteCard" class="btn btn-primary">重新写卡</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--收费历史modal-->
+    <div class="modal fade" id="payHistoryModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg">
+            <div id="mcontentc" class="modal-content">
+
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="mtdHistoryModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg">
+            <div id="mcontent" class="modal-content">
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="hzqModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg">
+            <div id="mcontent" class="modal-content">
+            </div>
+        </div>
+    </div>
+    <!-- 底边栏开始 -->
+    <script>
+                    $.include("pages/partial/foot.shtml");
+    </script>
+    <script type="text/javascript">
+        $.include("pages/partial/xwatable-form.shtml")
+    </script>
+</body>
+
+<script>
+        $.include("pages/partial/scripts.shtml");
+
+</script>
+
+<script src="assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-watable/jquery.watable.js"></script>
+<script type="text/javascript" src="pages/scripts/rqlbuilder.js"></script>
+<script type="text/javascript" src="pages/scripts/xwatable.js"></script>
+<script type="text/javascript" src="pages/scripts/refhelper.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script src="assets/admin/pages/scripts/components-pickers.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-daterangepicker/moment.min.js"></script>
+
+<script src="pages/scripts/jquery.json.min.js"></script>
+<script type="text/javascript" src="pages/scripts/jquery.serialize-object.min.js"></script>
+<script type="text/javascript" src="collectfee/js/charge.js"></script>
+<script type="text/javascript" src="collectfee/js/localservice.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-fileinput/fileinput.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-fileinput/zh.js"></script>
+<!-- 底边栏结束 -->
+<script type="text/javascript">
+    $(function () {
+        $(".tab-content").delegate("a[hzq-type=remoteModal]", "click", function (obj) {
+            var $targetModalhzq = $($(obj.target).attr("hzq-modal"));
+            var targetPath = $(obj.target).attr("hzq-remote");
+            var fnstring = $(obj.target).attr("hzq-cb");
+            var param = $(obj.target).attr("hzq-param");
+            $targetModalhzq.modal({
+                show: true
+            })
+            $targetModalhzq.unbind("show.bs.modal").on("show.bs.modal", function (e) {
+                $(e.currentTarget).find("#mcontent").empty();
+            });
+            $targetModalhzq.unbind("shown.bs.modal").on("shown.bs.modal", function (e) {
+                // 加载数据模板
+                //console.log($(e.currentTarget));
+                $(e.currentTarget).find("#mcontent").load(targetPath, function () {
+                    if (fnstring) {
+                        var fn = window[fnstring];
+                        if (typeof fn === "function") fn.call(null, JSON.parse(param));
+                        window[fnstring] = undefined;
+
+                        //if (typeof fn === "function") fn.call(null, param );
+                    }
+                });
+            });
+            $targetModalhzq.on("hidden.bs.modal", function () {
+                $(this).removeData("bs.modal");
+            });
+        });
+    });
+    var userInfo = JSON.parse(localStorage.getItem('user_info'));
+    var lostReasonEnum = { "1": "IC卡丢失", "2": "IC卡损坏", "3": "气量充表失败", "4": "换表补量", "5": "其他" }
+    $.map(lostReasonEnum, function (key, val) {
+        $("#lost_reason").append('<option  value="' + val + '">' + key + '</option>');
+    });
+    var $targetModal;
+    $(document).ready(function () {
+        $targetModal = $("#write_iccard");
+        $targetModal.modal({
+            show: false,
+            backdrop: 'static',
+            keyboard: false
+        })
+        $targetModal.unbind("shown.bs.modal").on("shown.bs.modal", function (e) {
+            var content = "";
+            $(e.currentTarget).find("#mcontent").append(content);
+        });
+        $targetModal.on("hidden.bs.modal", function () {
+            $(this).removeData("bs.modal");
+        });
+        $("#find_user_btn").closest(".row").append("<div class=\"btn-group form-group col-sm-1\"><button id=\"read_card\" type=\"button\" class=\"btn blue\">读卡&nbsp;<i id=\"ib\" class=\"icon-credit-card\"></i></button></div>");
+        $("#find_user_btn").closest(".row").append("<select id=\"read_factory_card\" class=\"form-control input-small select2me\"><option value=\"\">自动选择</option><option value=\"01\">浙江金卡</option><option value=\"02\">浙江松川</option><option value=\"03\">浙江蓝宝石</option><option value=\"04\">浙江正泰</option><option value=\"05\">上海真兰</option><option value=\"06\">浙江天信</option></select>");
+
+        // 读卡
+
+        $("#read_card").click(function () {
+            chargeHelper.clearContext();
+            // 清除所有tab
+            removeTab('tab_iccard');
+            removeTab('tab_ctm');
+            removeTab('tab_customer');
+
+            $("#read_card").attr("disabled", "disabled");
+            // 清除页面历史记录
+            chargeHelper.readFactoryCard($("#read_factory_card").val(), function (cardData, isSuccess) {
+                $("#read_card").removeAttr("disabled");
+                if (isSuccess) {
+                    // 调用方法加载客户档案信息
+                    chargeHelper.setContext("_current_iccard", cardData);
+                    chargeHelper.getArchiveInfoByIcCard(cardData.result.kh, cardData.result.dqdm, function (isExists) {
+                        if (isExists) {
+                            initData(chargeHelper.getContext("_current_archive").customerCode);
+                        } else {
+                            bootbox.alert("<br><center><h4>无法找到对应的客户档案</h4></center><br>", function () {
+                                window.location.reload();
+                            });
+                        }
+                    });
+                    if (cardData.result.ql != "0") {
+                        cardData.result.ql = cardData.result.ql / 100;
+                        bootbox.alert("<br><center><h4>卡内气量不为0</h4></center><br>");
+                    }
+                    //点击一次后disabled
+                } else {
+
+                    bootbox.alert({
+                        buttons: {
+                            ok: {
+                                label: '知道了~',
+                                className: 'btn-myStyle'
+                            }
+                        },
+                        message: '1.是否已将IC卡放入读卡器 </br> 2.开新卡时不需要读卡 </br>3.IC卡是否和读卡器匹配 </br> 4.请查看读卡器连接是否正常 </br> 5.请查看IC配置文件中IC卡设置信息是否有误。',
+                        callback: function () {
+                            window.location.reload();
+
+
+                        },
+                        title: "读卡失败,请检查如下情况：",
+                    });
+
+                 /*   bootbox.alert("<b>读卡失败,请检查如下情况：</b></br></br> 1.是否已将IC卡放入读卡器 </br> 2.开新卡时不需要读卡 </br>3.IC卡是否和读卡器匹配 </br> 4.请查看读卡器连接是否正常 </br> 5.请查看IC配置文件中IC卡设置信息是否有误。", function () {
+                        window.location.reload();
+                    })*/;
+                }
+
+            });
+        });
+        /* // 读卡
+         $("#read_card").click(function () {
+             chargeHelper.readCard(function (cardData, isSuccess) {
+                 console.log(cardData);
+                 if (isSuccess) {
+                     // 调用方法加载客户档案信息
+                     chargeHelper.setContext("_current_iccard", cardData);
+                     if (cardData.result.ql != "0") {
+                         bootbox.alert("卡内气量不为0");
+                     } else {
+                         chargeHelper.getArchiveInfoByIcCard(cardData.result.kh, function () {
+                             initData(chargeHelper.getContext("_current_archive").customerCode);
+                         });
+                     }
+                 } else {
+                     bootbox.alert("<b>读卡失败,请检查如下情况：</b></br> 1.是否已将IC卡放入读卡器 </br> 2.开新卡时不需要读卡 </br>3.IC卡是否和读卡器匹配 </br> 4.请查看读卡器连接是否正常 </br> 5.请查看IC配置文件中IC卡设置信息是否有误。",function () {
+                         window.location.reload();
+                     });
+                 }
+ 
+             });
+         });*/
+
+
+    });
+    function onCustomerSelected(customerCode) {
+
+        // 1. 根据客户编号，读取客户信息
+        chargeHelper.getArchiveInfo(customerCode, function () {
+            if (chargeHelper.getContext("_current_archive").customerType == 'I') {
+                var currentArchive = chargeHelper.getContext("_current_archive");
+                //alert("ICka");
+                $("#linkMan").val(currentArchive.customerName);
+                $("#projectAddress").val(currentArchive.customerAddress);
+                $("#linkTel").val(currentArchive.tel);
+
+            } else if (chargeHelper.getContext("_current_archive").customerType == 'P') {
+                bootbox.alert("<br><center><h4>普表用户~，不可以补量~</h4></center><br>");
+
+            }
+        });
+    }
+
+    var apply;
+    //保存按钮
+    $("#save_btn").on('click', function () {
+        var currentArchive = chargeHelper.getContext("_current_archive");
+        var flow_def_id = "ICCOMPLEMENTAPPLY";
+        var wfName = $("#linkMan").val() + "(" + currentArchive.customerCode + ")";
+        if (!$("#applygas").val()) {
+            bootbox.alert("<br><center><h4>请填写补气量</h4></center><br>");
+            return;
+        }
+        if (!$("#lost_reason").val()) {
+            bootbox.alert("<br><center><h4>请选择补量原因</h4></center><br>");
+            return;
+        }
+        var uniqueid = $.md5(JSON.stringify(currentArchive.ctmArchiveId) + new Date().getTime());
+        apply = {
+            "complementId":uniqueid ,
+            "ctmArchiveId": currentArchive.ctmArchiveId,
+            "customerCode": currentArchive.customerCode,
+            "applyTime": new Date().getTime(),
+            "remark": $("#remark").val(),
+            "applyGas": $("#applygas").val(),
+            "applyState": "1",
+            "applyReason": $("#lost_reason").val(),
+            "approveGas": $("#applygas").val(),
+            "wfId": uniqueid,
+            "customerName": $("#linkMan").val(),
+            "address": $("#linkMan").val()
+        };
+        var flowjson = {
+            "flow_def_id": flow_def_id,
+            "ref_no": uniqueid, // 唯一标识
+            "operator": userInfo.userId, // 流程提交人
+            "be_orgs": userInfo.area_id, // 所属角色
+            "flow_inst_id": uniqueid, // 流程实例id
+            "propstr2048": JSON.stringify({
+                "complementId": apply.complementId,
+                "customerCode": apply.customerCode
+            }), // 业务参数
+            "prop1str64": moment().format("YYYY-MM-DD HH:mm:ss"),
+            "prop2str64": wfName, // 代办名称
+            "propstr128": userInfo.employee_name == "" || userInfo.employee_name == undefined ? userInfo.userId : userInfo.employee_name,  // loginName
+            "propstr256": "", //
+            "override_exists": false
+        }
+
+        var result = Restful.insert(hzq_rest + "gaschgiccardcomplement", apply)
+        if (result['success']) {
+            /* var flow_result = Restful.insert("/hzqs/psm/pbisn.do?fh=VFLSCGC000000J00&bd={}&resp=bd", flowjson)*/
+            bootbox.alert("<br><center><h4>补量申请保存成功</h4></center><br>");
+             $("#save_btn").attr("disabled", "disabled");
+            $("#print_btn").removeClass("disabled");
+            $("#submit_btn").removeClass("disabled");
+
+        }
+    });
+    //打印
+    $("#print_btn").on('click', function () {
+        var currentArchive = chargeHelper.getContext("_current_archive");
+        var pid = $.md5(JSON.stringify(currentArchive.ctmArchiveId) + new Date().getTime())
+        var printcontentjson = JSON.stringify({
+            "occurrencetime": moment().format("YYYY-MM-DD"),
+            "opertor": userInfo.employee_name,
+            "customtype": "客户类型: " + currentArchive.gasTypeName,
+            "customname": "客户名称: " + currentArchive.customerName,
+            "customtel": "客户电话: " + (currentArchive.tel ? currentArchive.tel : ""),
+            "businessname": "IC卡补气补量",
+            "customaddress": "地址: " + (currentArchive.customerAddress ? currentArchive.customerAddress : ""),
+            "customercode": "客户号: " + currentArchive.customerCode,
+            "customic": "身份证号: " + (currentArchive.idcard ? currentArchive.idcard : ""),
+            "linkman": "联系人: " + ($("#linkMan").val() ? $("#linkMan").val() : ""),
+            "linktel": "联系电话: " + ($("#linkTel").val() ? $("#linkTel").val() : ""),
+            "applyreason": "补量原因: " + ($("#lost_reason").val() ? lostReasonEnum[$("#lost_reason").val()] : ""),
+            "applygas": "申请气量: " + ($("#applygas").val() ? $("#applygas").val() : "")
+        });
+        console.log(printcontentjson)
+        $.ajax({
+            url: "/hzqs/spt/pbprt.do?fh=PRTSPT0000000J00&resp=bd",
+            dataType: "json",
+            async: false,
+            data: JSON.stringify({
+                businesstype: "icbqbl",
+                printcontent: printcontentjson,
+                pid: pid
+            }),
+            type: "POST",
+            contentType: "application/json;charset=utf-8",
+            success: function (data) {
+                if (data.errCode == '1') {
+                    localService.callPrint({ "ptid": pid }, function (retData, isSuccess) {
+                        if (isSuccess) {
+                            bootbox.alert("<br><center><h4>打印完成</h4></center><br>");
+                        } else {
+                            bootbox.alert("<br><center><h4>打印失败</h4></center><br>");
+                            pid = $.md5(JSON.stringify(currentArchive.ctmArchiveId) + new Date().getTime())
+                        }
+                    })
+
+                } else {
+                    bootbox.alert("<br><center><h4>保存失败</h4></center><br>");
+                    pid = $.md5(JSON.stringify(currentArchive.ctmArchiveId) + new Date().getTime())
+                }
+            }
+        })
+    });
+    //提交
+    $("#submit_btn").on('click', function () {
+
+            var currentArchive = chargeHelper.getContext("_current_archive");
+                var flow_def_id = "ICCOMPLEMENTAPPLY";
+                var wfName = $("#linkMan").val() + "(" + currentArchive.customerCode + ")";
+
+                if (gpypictureId) {
+
+                } else {
+                    fileId = "";
+                }
+                //流程
+                var flowjson = {
+                    "flow_def_id": flow_def_id,
+                    "ref_no": apply.complementId, // 唯一标识
+                    "operator": userInfo.userId, // 流程提交人
+                    "be_orgs": userInfo.area_id, // 所属角色
+                    "flow_inst_id": apply.complementId, // 流程实例id
+                    "propstr2048": JSON.stringify({
+                        "complementId": apply.complementId,
+                        "customerCode": apply.customerCode,
+                        "file_id": fileId
+                    }), // 业务参数
+                    "prop1str64": moment().format("YYYY-MM-DD HH:mm:ss"),
+                    "prop2str64": wfName, // 代办名称
+                    "propstr128": userInfo.employee_name == "" || userInfo.employee_name == undefined ? userInfo.userId : userInfo.employee_name,  // loginName
+                    "propstr256": "", //
+                    "override_exists": false
+                }
+                var flow_result = Restful.insert("/hzqs/psm/pbisn.do?fh=VFLSCGC000000J00&bd={}&resp=bd", flowjson)
+                //console.log(flow_result);
+                if (flow_result.retcode == "0") {
+                    var gascsrbusiregister = {};
+                    gascsrbusiregister.busiRegisterId = apply.complementId;//业务登记ID
+                    gascsrbusiregister.businessTypeId = "ICCOMPLEMENTAPPLY";
+                    gascsrbusiregister.ctmArchiveId = currentArchive.ctmArchiveId;//档案ID
+                    //gascsrbusiregister.ctmMeterId=bookId;
+                    gascsrbusiregister.areaId = userInfo.area_id;
+                    gascsrbusiregister.customerCode = currentArchive.customerCode;//客户编号
+                    gascsrbusiregister.customerName = currentArchive.customerName;//客户姓名
+                    gascsrbusiregister.customerAddr = $("#projectAddress").val();//客户地址
+                    gascsrbusiregister.linkMan = $("#linkMan").val();//联系人
+                    gascsrbusiregister.linkPhone = $("#linkTel").val();//联系人电话
+                    gascsrbusiregister.acceptDate = new Date(moment().format("YYYY-MM-DD HH:mm:ss")+"-00:00");//受理时间
+                    gascsrbusiregister.precontractTime = new Date(moment().format("YYYY-MM-DD HH:mm:ss")+"-00:00");//预约时间
+                    gascsrbusiregister.description = $("#remark").val();//备注
+                    gascsrbusiregister.flowInstance = apply.complementId;//流程实例ID
+                    gascsrbusiregister.blankOutSign = "N";
+                    gascsrbusiregister.busiAcceptCode = gascsrbusiregister.busiRegisterId.substring(20);//受理单号 暂定
+                    gascsrbusiregister.billState = "0";
+                    gascsrbusiregister.createdTime = new Date(moment().format("YYYY-MM-DD HH:mm:ss")+"-00:00");//创建时间
+                    gascsrbusiregister.createdBy = userInfo.userId;//创建人
+                    gascsrbusiregister.modifiedTime = new Date(moment().format("YYYY-MM-DD HH:mm:ss")+"-00:00");//变更时间
+                    gascsrbusiregister.reservedField1 = JSON.stringify(apply) ;//预留字段1当初状态
+                    gascsrbusiregister.reservedField2 = fileId;//图片
+                    var submitJson;
+                    submitJson = {
+                        "sets": [
+                            { "txid": "1", "body": gascsrbusiregister, "path": "/gascsrbusiregister/", "method": "POST" },
+                        ]
+                    }
+                    var a = Restful.insert("/hzqs/dbc/pbtxs.do?fh=SELDBC0000000J00&resp=bd", submitJson);
+                   
+
+                    bootbox.alert({
+                        buttons: {
+                            ok: {
+                                /*  label: '我是ok按钮',*/
+                                className: 'btn-myStyle'
+                            }
+                        },
+                        message: '补量申请提交成功',
+                        callback: function () {
+
+                            window.location.reload();
+
+                        },
+                        /*title: "bootbox alert也可以添加标题哦",*/
+                    });
+                }
+    });
+
+    function addTab(id, name) {
+        var title = $('<li>', {
+            'role': 'presentation',
+            'id': "li_" + id
+        }).append($('<a>', {
+            'href': '#' + id,
+            'aria-controls': id,
+            'role': 'tab',
+            'data-toggle': 'tab'
+        }).html(name));
+        var content = $("#" + id);
+        if ($("#divUserInfoContainer").find("ul").find("#li_" + id).length) {
+            $("#divUserInfoContainer").find(".tab-content").remove("#" + id);
+            $("#divUserInfoContainer").find(".tab-content").append(content);
+        } else {
+            $("#divUserInfoContainer").find("ul").append(title);
+            $("#divUserInfoContainer").find(".tab-content").append(content);
+        }
+    }
+    function removeTab(id) {
+        if ($("#divUserInfoContainer").find("ul").find("#li_" + id).length) {
+            $("#divUserInfoContainer").find(".tab-content").find("#" + id).empty();
+            $("#divUserInfoContainer").find("ul").find("#li_" + id).remove();
+        }
+    }
+
+</script>
+<script type="text/javascript" src="../assets/global/plugins/select2/select2.js"></script>
+
+
+</html>

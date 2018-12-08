@@ -1,0 +1,10 @@
+{"rows":
+[
+  {"serialNumber":"01","gasArea":"供气区域一","cusNumber":"客户号一","CusName":"客户名一","remissionDate":"2007-08-09","remissionGas":"99","remissionMoney":"99.00","operationPre":"操作人一","remissionReason":"初始指数录错"}
+,{"serialNumber":"02","gasArea":"供气区域二","cusNumber":"客户号二","CusName":"客户名二","remissionDate":"2007-08-09","remissionGas":"100","remissionMoney":"100.00","operationPre":"操作人二","remissionReason":"置换出账造成过周计费"}
+
+]
+,"total_rows":1
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

@@ -1,0 +1,16 @@
+{"rows":
+[
+  {"UUID":"001","ID":"1","gas_supply_unit":"道四管理处","hesuanyuan":"核算员1","customer_service":"客服1","meter_book_ID":"12424","user_ID":"113295115","user_Name":"张三1","user_address":"道里区安达街26号4单元3层1室","meter_Name":"默认表户","serial_number":"201610030020202","accept_date":"2016-01-23"}
+, {"UUID":"002","ID":"2","gas_supply_unit":"道四管理处","hesuanyuan":"核算员2","customer_service":"客服2","meter_book_ID":"24124","user_ID":"113295115","user_Name":"张三2","user_address":"道里区安达街26号4单元3层1室","meter_Name":"默认表户","serial_number":"201602030020202","accept_date":"2016-03-24"}
+, {"UUID":"003","ID":"3","gas_supply_unit":"道四管理处","hesuanyuan":"核算员3","customer_service":"客服3","meter_book_ID":"12324","user_ID":"113295115","user_Name":"张三3","user_address":"道里区安达街26号4单元3层1室","meter_Name":"默认表户","serial_number":"201610030020202","accept_date":"2016-02-04"}
+, {"UUID":"004","ID":"4","gas_supply_unit":"道四管理处","hesuanyuan":"核算员4","customer_service":"客服2","meter_book_ID":"17543","user_ID":"113295115","user_Name":"张三4","user_address":"道里区安达街26号4单元3层1室","meter_Name":"默认表户","serial_number":"201610030020202","accept_date":"2016-05-17"}
+, {"UUID":"005","ID":"5","gas_supply_unit":"道四管理处","hesuanyuan":"核算员5","customer_service":"客服3","meter_book_ID":"12432","user_ID":"113295115","user_Name":"张三5","user_address":"道里区安达街26号4单元3层1室","meter_Name":"默认表户","serial_number":"201610030020202","accept_date":"2016-05-17"}
+, {"UUID":"006","ID":"6","gas_supply_unit":"道四管理处","hesuanyuan":"核算员6","customer_service":"客服1","meter_book_ID":"11231","user_ID":"113295115","user_Name":"张三6","user_address":"道里区安达街26号4单元3层1室","meter_Name":"默认表户","serial_number":"201610030020202","accept_date":"2016-05-17"}
+, {"UUID":"007","ID":"7","gas_supply_unit":"道四管理处","hesuanyuan":"核算员7","customer_service":"客服2","meter_book_ID":"11542","user_ID":"113295115","user_Name":"张三7","user_address":"道里区安达街26号4单元3层1室","meter_Name":"默认表户","serial_number":"201610030020202","accept_date":"2016-05-17"}
+, {"UUID":"008","ID":"8","gas_supply_unit":"道四管理处","hesuanyuan":"核算员8","customer_service":"客服1","meter_book_ID":"22212","user_ID":"113295115","user_Name":"张三8","user_address":"道里区安达街26号4单元3层1室","meter_Name":"默认表户","serial_number":"201610030020202","accept_date":"2016-05-17"}
+
+]
+,"total_rows":1
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

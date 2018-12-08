@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]>
+<html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+
+<!-- BEGIN HEAD -->
+
+<head>
+    <title>按用气类型非居民销售排名</title>
+    <script src="../pages/scripts/basepath.js"></script>
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-select/bootstrap-select.min.css">
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/select2/select2.css">
+    <script src="../pages/scripts/header.js"></script>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8" />
+    <link href='../assets/global/plugins/jquery-watable/watable.css' rel='stylesheet' />
+    <link href='../assets/global/plugins/jquery-watable/animate.min.css' rel='stylesheet' />
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.css"
+    />
+    <link href='../assets/global/plugins/bootstrap-datetimepicker/css/datetimepicker.css' rel='stylesheet' />
+
+    <!--datapicker css start-->
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-datepicker/css/datepicker3.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-colorpicker/css/colorpicker.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css"
+    />
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-datetimepicker/css/datetimepicker.css" />
+    <!--datapicker end-->
+
+    <link rel="stylesheet" href="/statement/css/3.3.7/bootstrap.min.css">
+    <link href='../assets/global/css/bootstrap-monthpicker.css' rel='stylesheet' />
+    <!-- END THEME STYLES -->
+    <style>
+        @media print {
+            .noneprint {
+                display: none;
+            }
+        }
+
+        .tabPrint td {
+            border-left: #000000 solid 1px;
+            border-top: #000000 solid 1px;
+            height: 21px;
+        }
+
+        table.tabPrint {
+            border-right: #000000 solid 1px;
+            border-bottom: #000000 solid 1px;
+        }
+
+        .nextPage {
+            page-break-after: always;
+        }
+
+        .linetd {
+            border-bottom: solid 1px #000;
+        }
+    </style>
+</head>
+<!-- END HEAD -->
+
+<body class="page-header-fixed page-quick-sidebar-over-content">
+
+    <!-- 标题栏开始 -->
+    <div class="page-header navbar navbar-fixed-top">
+        <script>
+            $.include("pages/partial/menu.shtml");
+        </script>
+    </div>
+    <!-- 标题栏结束 -->
+    <div class="clearfix"></div>
+    <div class="page-container">
+        <!-- 左侧菜单开始 -->
+        <div class="page-sidebar-wrapper">
+            <script>
+                $.include("pages/partial/sidebar.shtml");
+            </script>
+        </div>
+        <!-- 左侧菜单结束 -->
+
+        <!-- 主内容开始 -->
+        <div class="page-content-wrapper">
+            <div class="page-content">
+                <!--内容头开始-->
+                <!--内容头开始-->
+                <div class="row noneprint">
+                    <div class="col-md-12">
+                        <ul class="page-breadcrumb breadcrumb">
+                            <li>
+                                <i class="fa fa-map-marker"></i>
+                                <a href="index.html">报表统计</a>
+                                <i class="fa fa-angle-right"></i>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">按用气类型非居民销售排名</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- 内容头结束-->
+
+                <!-- 内容开始-->
+
+                <div class="container col-sm-12 noneprint" style="padding-bottom:0px">
+                    <div class="row">
+                        <div class="col-sm-5 form-group">
+                            <div class="btn-group input-group pull-left">
+                                <div class="input-group-addon" style="border:0px;">开始日期:</div>
+                                <div class="input-group input-large date-picker input-daterange" data-date-format="yyyy-mm-dd">
+                                    <input id="find_start_date" type="text" class="form-control" readonly>
+                                    <span class="inputclear glyphicon glyphicon-remove-circle hidden"></span>
+                                    <span class="input-group-addon">至</span>
+                                    <input id="find_end_date" type="text" class="form-control" readonly>
+                                    <span class="inputclear glyphicon glyphicon-remove-circle hidden"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 form-group">
+                            <div class="btn-group input-group input-select2me col-sm-12">
+                                <div class="input-group-addon" style="border:0px;">单位：</div>
+                                <select id="find_area" class="form-control input-middle select2me" data-placeholder="供气区域...">
+                                    <option value="">全部</option>
+                                </select>
+                                <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-2 form-group">
+                            <div class="btn-group input-group input-select2me col-sm-12">
+                                <div class="input-group-addon" style="border:0px;">账户类型：</div>
+                                <select id="find_union" class="form-control input-middle select2me" data-placeholder="供气区域...">
+                                    <option value="">全部</option>
+                                    <option value="1">非联合账户</option>
+                                    <option value="2">联合账户</option>
+                                </select>
+                                <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                            </div>
+                        </div>
+                        
+                        <div class="col-sm-2 form-group">
+                            <div class="btn-group input-group input-select2me col-sm-12">
+                                <div class="input-group-addon" style="border:0px;">是否去零气量：</div>
+                                <select id="find_zero" class="form-control input-middle select2me" data-placeholder="供气区域...">
+                                    <option value="0">否</option>
+                                    <option value="1">是</option>
+                                </select>
+                                <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3 form-group">
+                            <div class="btn-group input-group">
+                                <div class="input-group-addon" style="border:0px;">客户号：</div>
+                                <div id="div_date" class="input-group">
+                                    <input id="find_customer_code" placeholder="请输入客户号" type="text" class="form-control" name="from">
+                                    <span class="inputclear glyphicon glyphicon-remove-circle hidden"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 form-group">
+                            <div class="btn-group input-group input-select2me col-sm-12">
+                                <div class="input-group-addon" style="border:0px;">用气性质：</div>
+                                <select id="find_gastypeid" class="form-control input-middle select2me" data-placeholder="供气区域...">
+                                    <option value="">全部</option>
+                                </select>
+                                <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 form-group">
+                            <div class="btn-group input-group input-select2me col-sm-12">
+                                <div class="input-group-addon" style="border:0px;">排序：</div>
+                                <select id="find_order" class="form-control input-middle select2me" data-placeholder="供气区域...">
+                                    <option value="order by ysl desc">销售量降序</option>
+                                    <option value="order by sse desc">实收额降序</option>
+                                    <option value="order by ysl asc">销售量升序</option>
+                                    <option value="order by sse asc">实收额升序</option>
+                                </select>
+                                <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <button id="find_sign" type="button" class="btn yellow">
+                                查询 <i class="fa fa-search"></i>
+                            </button> 
+                            </button>
+                            </div>
+                        </div>
+
+                        
+                    </div>
+                </div>
+                <!-- 内容头结束-->
+                <div class="container-fluid">
+                    <div id="divtable" class="table-responsive col-md-12">
+                    </div>
+                </div>
+                <div class="container-fluid" id="divtabledetailcon" style="display:none;">
+                    <h4 id="detailtitle"></h4>
+                    <div id="divtabledetail" class="table-responsive">
+                    </div>
+                </div>
+                <!-- 内容结束-->
+            </div>
+        </div>
+        <!-- 主内容结束 -->
+    </div>
+    <script type="text/javascript">
+                $.include("pages/partial/xwatable-form.shtml")
+
+    </script>
+    <!-- 底边栏开始 -->
+    <script>
+        $.include("pages/partial/foot.shtml");
+    </script>
+    <!-- 底边栏结束 -->
+</body>
+
+
+<script>
+        $.include("pages/partial/scripts.shtml");
+
+</script>
+<!--跳到原稿-->
+<script src="../assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="../assets/global/plugins/jquery-watable/jquery.watable.js"></script>
+<script type="text/javascript" src="../pages/scripts/rqlbuilder.js"></script>
+<script type="text/javascript" src="../pages/scripts/xwatable.js"></script>
+<script type="text/javascript" src="../pages/scripts/refhelper.js"></script>
+
+<!--datapicker start-->
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/clockface/js/clockface.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-daterangepicker/moment.min.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script src="../assets/admin/pages/scripts/components-pickers.js"></script>
+
+<script type="text/javascript" src="../assets/global/plugins/select2/select2.js"></script>
+<script type="text/javascript" src="../assets/global/scripts/bootstrap-monthpicker.js"></script>
+
+
+<script src="/statement/js/libs/js-xlsx/xlsx.core.min.js" type="text/javascript"></script>
+<script src="/statement/js/libs/html2canvas/html2canvas.min.js" type="text/javascript"></script>
+<script src="/statement/js/tableExport.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+    var gs = [];
+    var gasTypeName = [];
+
+    jQuery(document).ready(function () {
+        ComponentsPickers.init();
+    });
+
+    document.onkeydown = function () { keydown(); };
+    function keydown() {
+        //P 空格 会车 event.keyCode==80 || event.keyCode==32 || event.keyCode==13
+        if (event.keyCode == 13) {
+            window.print();
+        }
+    }
+    var getAreaName = function () {
+        return {
+            f: function (data, row) {
+                var areaName = "";
+                gs.forEach(function (m) {
+                    if (m.areaId == row.chgAreaId) {
+                        areaName = m.areaName;
+                    }
+                })
+                return areaName;
+            }
+        }
+    }();
+    var getGasTypeName = function () {
+        return {
+            f: function (data, row) {
+                var name = "";
+                gasTypeName.forEach(function (m) {
+                    if (m.gasTypeId.length > 2) {
+                        if (row.gasTypeId.substring(0, 3) == m.gasTypeId) {
+                            name = m.gasTypeName;
+                        }
+                    }
+                })
+                return name;
+            }
+        }
+    }();
+    var getUnionName = function () {
+        return {
+            f: function (data, row) {
+                var name = "";
+                if (row.unionType == "2") {
+                    name = "联合账户";
+                }
+                return name;
+            }
+        }
+    }();
+    var rowClickedFunction = function (data) {
+        $("#divtabledetailcon").show();
+        $('#divtabledetail').html('');
+        if (data.row.unionType == "2") {
+            $("#detailtitle").html("联合账户子账户");
+        } else {
+            $("#divtabledetailcon").hide();
+            return;
+        }
+        var find_start_date = $("#find_start_date").val(),
+            find_end_date = moment($("#find_end_date").val()).add("day", 1).format('YYYY-MM-DD'),
+            find_areaid = $("#find_area").val(),
+            find_order = $("#find_order").val(),
+            find_customer_code = $("#find_customer_code").val(),
+            find_gastypeid = $("#find_gastypeid").val(),
+            find_zero = $("#find_zero").val();
+        var whereDate = " and tradeDate>=to_date('" + find_start_date + "','yyyy-MM-dd') and tradeDate<to_date('" + find_end_date + "','yyyy-MM-dd')";
+        var where="1=1 "
+        if (find_areaid != "" && find_areaid != "1") {
+            where += " and chgAreaId=" + find_areaid;
+        }
+        where+=" and gasTypeId like '" + data.row.gasTypeId + "%'"
+        where += " and relChgAccountNo='" + data.row.relChgAccountNo + "'";
+        var whereZero="";
+        if(find_zero=="1"){
+            whereZero=" and ysl<>0";
+        }
+        var orderby = find_order;
+        var bd =
+            {
+                "cols":"sys_guid() guid,sum(ysl) ysl,sum(yse) yse,sum(ssl) ssl,sum(sse) sse,customerCode,customerName,customerAddress,\
+                        chgAreaId,substr(gasTypeId,0,3) gasTypeId,unionType",
+                "froms":"(\
+                            select aa.*,c.customerName,c.customerAddress \
+                            from (\
+                                select nvl(a.ysl,0) ysl,nvl(a.yse,0.00) yse,nvl(b.ssl,0) ssl,nvl(b.sse,0.00) sse,\
+                                        nvl(a.customerCode,b.customerCode) customerCode,nvl(a.customerCode,b.customerCode) relChgAccountNo,\
+                                        nvl(a.gasTypeId,b.gasTypeId) gasTypeId,nvl(a.areaId,b.areaId) areaId,'1' unionType,nvl(a.areaId,b.areaId) chgAreaId\
+                                from (\
+                                    select nvl(sum(gas),0) ysl,nvl(sum(sse),0.00) yse,customerCode,gasTypeId,areaId \
+                                    from gasReportYsl \
+                                    where customerKind='9' and relChgAccountNo is null "+whereDate+"\
+                                    group by customerCode,gasTypeId,areaId\
+                                ) a \
+                                full join \
+                                (\
+                                    select nvl(sum(ysl),0) ssl,nvl(sum(money),0.00) sse,customerCode,gasTypeId,areaId from gasReportSse \
+                                    where customerKind='9' and relChgAccountNo is null "+whereDate+"\
+                                    group by customerCode,gasTypeId,areaId\
+                                ) b on a.customerCode=b.customerCode and a.gasTypeId=b.gasTypeId and a.areaId=b.areaId \
+                            ) aa left join gasCtmArchive c on aa.customerCode=c.customerCode \
+                            where 1=1 "+whereZero+" \
+                            union all \
+                            select dd.*,f.accName customerName,'' customerAddress \
+                            from (\
+                                select nvl(d.ysl,0) ysl,nvl(d.yse,0.00) yse,nvl(e.ssl,0) ssl,nvl(e.sse,0.00) sse,\
+                                        nvl(d.customerCode,e.customerCode) customerCode,nvl(d.relChgAccountNo,e.relChgAccountNo) relChgAccountNo,\
+                                        nvl(d.gasTypeId,e.gasTypeId) gasTypeId,nvl(d.areaId,e.areaId) areaId,'2' unionType ,nvl(d.areaId,e.areaId) chgAreaId\
+                                from (\
+                                    select nvl(sum(gas),0) ysl,nvl(sum(sse),0.00) yse,customerCode,relChgAccountNo,gasTypeId,areaId \
+                                    from gasReportYsl \
+                                    where customerKind='9' and relChgAccountNo is not null "+whereDate+"\
+                                    group by customerCode,gasTypeId,areaId,relChgAccountNo\
+                                ) d \
+                                full join \
+                                (\
+                                    select nvl(sum(ysl),0) ssl,nvl(sum(money),0.00) sse,customerCode,relChgAccountNo,gasTypeId,areaId \
+                                    from gasReportSse \
+                                    where customerKind='9' and relChgAccountNo is not null "+whereDate+"\
+                                    group by customerCode,gasTypeId,areaId,relChgAccountNo\
+                                ) e on d.customerCode=e.customerCode and d.relChgAccountNo=e.relChgAccountNo and d.gasTypeId=e.gasTypeId and d.areaId=e.areaId \
+                            ) dd left join gasChgAccount f on dd.relChgAccountNo=f.chgAccountNo \
+                            where 1=1 "+whereZero+"\
+                        ) u ",
+                "wheres": where + " group by u.customerCode,u.customerName,u.customerAddress,u.chgAreaId,substr(u.gasTypeId,0,3),u.unionType "+orderby,
+                "page": true,
+                "limit": 20,
+            };
+        xw = XWATable.init(
+            {
+                divname: "divtabledetail",
+                //----------------table的选项-------
+                pageSize: 10, 			//Initial pagesize
+                columnPicker: true,         //Show the columnPicker button
+                sorting: true,
+                transition: 'fade',  //(bounce, fade, flip, rotate, scroll, slide).
+                checkboxes: false,           //Make rows checkable. (Note. You need a column with the 'unique' property)
+                checkAllToggle: true,        //Show the check-all toggle//+RQLBuilder.like("KEYY", "a").rql()
+                restURL: 'hzqs/dbc/pbsel.do?fh=SELDBC0000000J00&resp=bd&bd=' + encodeURIComponent(JSON.stringify(bd)),
+                key_column: 'guid',
+                coldefs: [
+                    {
+                        col: "guid",
+                        hidden: true,
+                        unique: true
+                    },
+                    {
+                        col: "rn",
+                        friendly: "排名",
+                        sorting: false,
+                        index: 1
+                    },
+                    {
+                        col: "customerCode",
+                        friendly: "客户号",
+                        sorting: false,
+                        index: 2
+                    },
+                    {
+                        col: "customerName",
+                        friendly: "客户名",
+                        sorting: false,
+                        index: 3
+                    },
+                    {
+                        col: "customerAddress",
+                        friendly: "用户地址",
+                        sorting: false,
+                        index: 4
+                    },
+                    {
+                        col: "gasTypeId",
+                        friendly: "用气性质",
+                        sorting: false,
+                        format: getGasTypeName,
+                        index: 5
+                    },
+                    {
+                        col: "ysl",
+                        friendly: "销售量",
+                        sorting: false,
+                        index: 6
+                    },
+                    {
+                        col: "yse",
+                        friendly: "销售额",
+                        sorting: false,
+                        index: 7
+                    },
+                    {
+                        col: "ssl",
+                        friendly: "实收量",
+                        sorting: false,
+                        index: 8
+                    },
+                    {
+                        col: "sse",
+                        friendly: "实收额",
+                        sorting: false,
+                        index: 9
+                    },
+                    {
+                        col: "chgAreaId",
+                        friendly: "所属供气分公司",
+                        sorting: false,
+                        format: getAreaName,
+                        index: 10
+                    }
+                ],
+            });
+    };
+    $(function () {
+        $("#find_start_date").val(moment().format("YYYY-MM-DD"));
+        $("#find_end_date").val(moment().format("YYYY-MM-DD"));
+        $("#btn_down_detail").removeClass("disabled");
+        $("#btn_down_detail").removeClass("gray");
+        $("#btn_down_detail").addClass("green");
+
+        $("#btn_print_page").removeClass("disabled");
+        $("#btn_print_page").removeClass("gray");
+        $("#btn_print_page").addClass("green");
+        var areas = new Array();
+        var area_id = JSON.parse(localStorage.getItem("user_info")).area_id;
+        areas.push(area_id);
+        //查询areaId下级areaId
+        var queryCondion = RQLBuilder.and([
+            RQLBuilder.equal("status", "1"),
+            RQLBuilder.equal("parentAreaId", area_id)
+        ]).rql()
+        $.ajax({
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            type: 'get',
+            async: false,
+            url: hzq_rest + "gasbizarea?query=" + queryCondion,
+            success: function (data) {
+                for (var i = 0; i < data.length; i++) {
+                    areas.push(data[i].areaId);
+                }
+            }
+        });
+        var AreaHelper1 = RefHelper.create({
+            ref_url: 'gasbizarea?query={"areaId":{"$in":' + JSON.stringify(areas) + '}}',
+            ref_col: "areaId",
+            ref_display: "areaName",
+            "sort": "posCode"
+        });
+        gs = AreaHelper1.getRawData();
+        gs.forEach(function (val) {
+            $('#find_area').append('<option value="' + val.areaId + '">' + val.areaName + '</option>');
+        })
+        //加载用气性质
+        $.ajax({
+            url: "hzqs/dbc/pbsel.do?fh=SELDBC0000000J00&resp=bd",
+            type: "POST",
+            contentType: "application/json;charset=utf-8",
+            data: JSON.stringify({
+                cols: "gasTypeId,gasTypeName",
+                froms: "gasBizGasType",
+                wheres: " posCode = 0 and length(gasTypeCode)=3 order by gasTypeCode",
+                page: "false"
+            }),
+            dataType: "json",
+            success: function (data) {
+                if (data.rows) {
+                    data.rows.forEach(function (m) {
+                        $('#find_gastypeid').append('<option value="' + m.gasTypeId + '">' + m.gasTypeName + '</option>');
+                    })
+                    gasTypeName = data.rows;
+                }
+            }
+        });
+        $("#find_sign").click(function (e) {
+            $('#divtable').html('');
+            var find_start_date = $("#find_start_date").val(),
+                find_end_date = moment($("#find_end_date").val()).add("day", 1).format('YYYY-MM-DD'),
+                find_areaid = $("#find_area").val(),
+                find_order = $("#find_order").val(),
+                find_customer_code = $("#find_customer_code").val(),
+                find_gastypeid = $("#find_gastypeid").val(),
+                find_zero=$("#find_zero").val(),
+                find_union=$("#find_union").val();
+            var where="1=1";
+            var whereDate = "and tradeDate>=to_date('" + find_start_date + "','yyyy-MM-dd') and tradeDate<to_date('" + find_end_date + "','yyyy-MM-dd')"
+
+            if (find_gastypeid != "") {
+                whereDate += " and gasTypeId like '" + find_gastypeid + "%'"
+            }
+
+            if(area_id=="1"){
+                if (find_areaid != "" && find_areaid != "1") {
+                    where += " and chgAreaId=" + find_areaid;
+                }
+            }else{
+                where += " and chgAreaId=" + area_id;
+            }
+
+            if(find_union!=""){
+                where += " and unionType='"+find_union+"'";
+            }
+            if (find_customer_code != "") {
+                where += " and relChgAccountNo like '%" + find_customer_code + "%'";
+            }
+            var whereZero="";
+            if(find_zero=="1"){
+                whereZero +=" and ysl<>0";
+            }
+            var orderby = find_order;
+            var bd =
+                { 
+                    "cols":"sys_guid() guid,sum(ysl) ysl,sum(yse) yse,sum(ssl) ssl,sum(sse) sse,relChgAccountNo,customerName,customerAddress,\
+                            chgAreaId,substr(gasTypeId,0,3) gasTypeId,unionType",
+                    "froms":"(\
+                            select aa.*,c.customerName,c.customerAddress \
+                            from (\
+                                select nvl(a.ysl,0) ysl,nvl(a.yse,0.00) yse,nvl(b.ssl,0) ssl,nvl(b.sse,0.00) sse,\
+                                    nvl(a.customerCode,b.customerCode) customerCode,nvl(a.customerCode,b.customerCode) relChgAccountNo,\
+                                    nvl(a.gasTypeId,b.gasTypeId) gasTypeId,nvl(a.areaId,b.areaId) areaId,'1' unionType ,nvl(a.areaId,b.areaId) chgAreaId\
+                                from (\
+                                    select nvl(sum(gas),0) ysl,nvl(sum(sse),0.00) yse,customerCode,gasTypeId,areaId \
+                                    from gasReportYsl \
+                                    where customerKind='9' and relChgAccountNo is null "+whereDate+"\
+                                    group by customerCode,gasTypeId,areaId\
+                                ) a \
+                                full outer join \
+                                (\
+                                    select nvl(sum(ysl),0) ssl,nvl(sum(money),0.00) sse,customerCode,gasTypeId,areaId from gasReportSse \
+                                    where customerKind='9' and relChgAccountNo is null "+whereDate+"\
+                                    group by customerCode,gasTypeId,areaId\
+                                ) b on a.customerCode=b.customerCode and a.gasTypeId=b.gasTypeId and a.areaId=b.areaId \
+                            ) aa left join gasCtmArchive c on aa.customerCode=c.customerCode \
+                            where 1=1 "+whereZero+"\
+                            union all \
+                            select dd.*,f.accName customerName,'' customerAddress\
+                            from (\
+                                select nvl(d.ysl,0) ysl,nvl(d.yse,0.00) yse,nvl(e.ssl,0) ssl,nvl(e.sse,0.00) sse,\
+                                    nvl(d.customerCode,e.customerCode) customerCode,nvl(d.relChgAccountNo,e.relChgAccountNo) relChgAccountNo,\
+                                    nvl(d.gasTypeId,e.gasTypeId) gasTypeId,nvl(d.areaId,e.areaId) areaId,'2' unionType ,\
+                                    nvl(d.areaId,e.areaId) chgAreaId\
+                                from (\
+                                    select nvl(sum(gas),0) ysl,nvl(sum(sse),0.00) yse,customerCode,relChgAccountNo,gasTypeId,areaId \
+                                    from gasReportYsl \
+                                    where customerKind='9' and relChgAccountNo is not null "+whereDate+"\
+                                    group by customerCode,gasTypeId,areaId,relChgAccountNo\
+                                ) d \
+                                full outer join \
+                                (\
+                                    select nvl(sum(ysl),0) ssl,nvl(sum(money),0.00) sse,customerCode,relChgAccountNo,gasTypeId,areaId \
+                                    from gasReportSse \
+                                    where customerKind='9' and relChgAccountNo is not null "+whereDate+"\
+                                    group by customerCode,gasTypeId,areaId,relChgAccountNo\
+                                ) e on d.customerCode=e.customerCode and d.relChgAccountNo=e.relChgAccountNo and d.gasTypeId=e.gasTypeId and d.areaId=e.areaId \
+                            ) dd left join gasChgAccount f on dd.relChgAccountNo=f.chgAccountNo \
+                            where 1=1 "+whereZero+"\
+                        ) u ",
+                    "wheres": where + " group by u.relChgAccountNo,u.customerName,u.customerAddress,u.chgAreaId,substr(u.gasTypeId,0,3),u.unionType "+orderby,
+                    "page": true,
+                    "limit": 50,
+                };
+            /**
+            "cols":"sys_guid() guid,sum(ysl) ysl,sum(yse) yse,sum(ssl) ssl,sum(sse) sse,relChgAccountNo,customerName,customerAddress,\
+                            chgAreaId,substr(gasTypeId,0,3) gasTypeId,unionType",
+                    "froms":"(\
+                                select nvl(a.ysl,0) ysl,nvl(a.yse,0.00) yse,nvl(b.ssl,0) ssl,nvl(b.sse,0.00) sse,\
+                                        nvl(a.customerCode,b.customerCode) customerCode,nvl(a.customerCode,b.customerCode) relChgAccountNo,\
+                                        nvl(a.gasTypeId,b.gasTypeId) gasTypeId,nvl(a.areaId,b.areaId) areaId,'1' unionType ,nvl(a.areaId,b.areaId) chgAreaId,\
+                                        c.customerName,c.customerAddress\
+                                from (\
+                                        select nvl(sum(gas),0) ysl,nvl(sum(sse),0.00) yse,customerCode,gasTypeId,areaId \
+                                        from gasReportYsl \
+                                        where customerKind='9' and relChgAccountNo is null "+whereDate+"\
+                                        group by customerCode,gasTypeId,areaId\
+                                    ) a \
+                                    full outer join \
+                                    (\
+                                        select nvl(sum(ysl),0) ssl,nvl(sum(money),0.00) sse,customerCode,gasTypeId,areaId from gasReportSse \
+                                        where customerKind='9' and relChgAccountNo is null "+whereDate+"\
+                                        group by customerCode,gasTypeId,areaId\
+                                    ) b on a.customerCode=b.customerCode and a.gasTypeId=b.gasTypeId and a.areaId=b.areaId \
+                                    left join gasCtmArchive c on a.customerCode=c.customerCode \
+                                where 1=1 "+whereZero+"\
+                                union all \
+                                select nvl(d.ysl,0) ysl,nvl(d.yse,0.00) yse,nvl(e.ssl,0) ssl,nvl(e.sse,0.00) sse,\
+                                        nvl(d.customerCode,e.customerCode) customerCode,nvl(d.relChgAccountNo,e.relChgAccountNo) relChgAccountNo,\
+                                        nvl(d.gasTypeId,e.gasTypeId) gasTypeId,nvl(d.areaId,e.areaId) areaId,'2' unionType ,\
+                                        nvl(d.areaId,e.areaId) chgAreaId,f.accName customerName,\
+                                        '' customerAddress\
+                                from (\
+                                        select nvl(sum(gas),0) ysl,nvl(sum(sse),0.00) yse,customerCode,relChgAccountNo,gasTypeId,areaId \
+                                        from gasReportYsl \
+                                        where customerKind='9' and relChgAccountNo is not null "+whereDate+"\
+                                        group by customerCode,gasTypeId,areaId,relChgAccountNo\
+                                    ) d \
+                                    full outer join \
+                                    (\
+                                        select nvl(sum(ysl),0) ssl,nvl(sum(money),0.00) sse,customerCode,relChgAccountNo,gasTypeId,areaId \
+                                        from gasReportSse \
+                                        where customerKind='9' and relChgAccountNo is not null "+whereDate+"\
+                                        group by customerCode,gasTypeId,areaId,relChgAccountNo\
+                                    ) e on d.customerCode=e.customerCode and d.relChgAccountNo=e.relChgAccountNo and d.gasTypeId=e.gasTypeId and d.areaId=e.areaId \
+                                    left join gasChgAccount f on d.relChgAccountNo=f.chgAccountNo \
+                                where 1=1 "+whereZero+"\
+                            ) u ",
+                    "wheres": where + " group by u.relChgAccountNo,u.customerName,u.customerAddress,u.chgAreaId,substr(u.gasTypeId,0,3),u.unionType "+orderby,
+                    "page": true,
+                    "limit": 50,
+            var where="1=1";
+            var whereDate="1=1 ";
+            whereDate += " and pViewParam.setSdate(to_date('" + find_start_date + "','yyyy-MM-dd'))=to_date('" + find_start_date + "','yyyy-MM-dd') \
+                        and pViewParam.setEdate(to_date('" + find_end_date + "','yyyy-MM-dd'))=to_date('" + find_end_date + "','yyyy-MM-dd')"
+            
+            if (find_gastypeid != "") {
+                whereDate += " and u.gasTypeId like '" + find_gastypeid + "%'"
+            }
+
+            if(area_id=="1"){
+                if (find_areaid != "" && find_areaid != "1") {
+                    where += " and u.chgAreaId=" + find_areaid;
+                }
+            }else{
+                where += " and u.chgAreaId=" + area_id;
+            }
+
+            if(find_union!=""){
+                where += " and u.unionType='"+find_union+"'";
+            }
+            if (find_customer_code != "") {
+                whereDate += " and u.relChgAccountNo like '%" + find_customer_code + "%'";
+            }
+            var whereZero="";
+            if(find_zero=="1"){
+                whereZero +=" and u.ysl<>0";
+            }
+            var orderby = find_order;
+            var bd =
+                { 
+                    "cols":"sys_guid() guid,sum(u.ysl) ysl,sum(u.yse) yse,sum(u.ssl) ssl,sum(u.sse) sse,u.relChgAccountNo,u.customerName,u.customerAddress,u.chgAreaId,u.gasTypeId,u.unionType",
+                    "froms":"vmReportNoUserSaleSort u",
+                    "wheres": where + " group by u.relChgAccountNo,u.customerName,u.customerAddress,u.chgAreaId,gasTypeId,u.unionType "+orderby,
+                    "page": true,
+                    "limit": 20,
+                };**/
+            xw = XWATable.init({
+                divname: "divtable",
+                //----------------table的选项-------
+                pageSize: 10, 			//Initial pagesize
+                columnPicker: true,         //Show the columnPicker button
+                sorting: true,
+                transition: 'fade',  //(bounce, fade, flip, rotate, scroll, slide).
+                checkboxes: false,           //Make rows checkable. (Note. You need a column with the 'unique' property)
+                checkAllToggle: true,        //Show the check-all toggle//+RQLBuilder.like("KEYY", "a").rql()
+                restURL: 'hzqs/dbc/pbsel.do?fh=SELDBC0000000J00&resp=bd&bd=' + encodeURIComponent(JSON.stringify(bd)),
+                rowClicked: rowClickedFunction,
+                key_column: 'guid',
+                coldefs: [
+                    {
+                        col: "guid",
+                        hidden: true,
+                        unique: true
+                    },
+                    {
+                        col: "rn",
+                        friendly: "排名",
+                        sorting: false,
+                        index: 1
+                    },
+                    {
+                        col: "relChgAccountNo",
+                        friendly: "客户号",
+                        sorting: false,
+                        index: 2
+                    },
+                    {
+                        col: "customerName",
+                        friendly: "客户名",
+                        sorting: false,
+                        index: 3
+                    },
+                    {
+                        col: "customerAddress",
+                        friendly: "用户地址",
+                        sorting: false,
+                        index: 4
+                    },
+                    {
+                        col: "gasTypeId",
+                        friendly: "用气性质",
+                        sorting: true,
+                        format: getGasTypeName,
+                        index: 5
+                    },
+                    {
+                        col: "ysl",
+                        friendly: "销售量",
+                        sorting: false,
+                        index: 6
+                    },
+                    {
+                        col: "yse",
+                        friendly: "销售额",
+                        sorting: false,
+                        index: 7
+                    },
+                    {
+                        col: "ssl",
+                        friendly: "实收量",
+                        sorting: false,
+                        index: 8
+                    },
+                    {
+                        col: "sse",
+                        friendly: "实收额",
+                        sorting: false,
+                        index: 9
+                    },
+                    {
+                        col: "chgAreaId",
+                        friendly: "所属供气分公司",
+                        sorting: false,
+                        format: getAreaName,
+                        index: 10
+                    },
+                    {
+                        col: "unionType",
+                        friendly: "账户类型",
+                        format: getUnionName,
+                        sorting: false,
+                        index: 11
+                    }
+                ],
+            });
+
+            $("#divtabledetailcon").hide();
+            $('#divtabledetail').html('');
+        });
+    });
+
+</script>
+<!-- End of User Script-->
+
+</html>

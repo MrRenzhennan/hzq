@@ -1,0 +1,13 @@
+{"rows":
+[
+  {"versionID":"001","gasCategory":"11","gasType":"1","gasStart":"0","gasEnd":"9999","price":"100","changeTime":"2016/1/1","effectTime":"2016/12/31","changePerson":"张三","unionAccount":"","UUID":"1"}
+,{"versionID":"002","gasCategory":"22","gasType":"2","gasStart":"0","gasEnd":"9999","price":"40","changeTime":"2016/1/1","effectTime":"2016/12/31","changePerson":"张三","unionAccount":"","UUID":"1"}
+,{"versionID":"003","gasCategory":"11","gasType":"3","gasStart":"0","gasEnd":"9999","price":"1000","changeTime":"2016/1/1","effectTime":"2016/12/31","changePerson":"张三","unionAccount":"","UUID":"1"}
+,{"versionID":"004","gasCategory":"22","gasType":"4","gasStart":"0","gasEnd":"9999","price":"500","changeTime":"2016/1/1","effectTime":"2016/12/31","changePerson":"张三","unionAccount":"","UUID":"1"}
+,{"versionID":"005","gasCategory":"11","gasType":"5","gasStart":"0","gasEnd":"9999","price":"1500","changeTime":"2016/1/1","effectTime":"2016/12/31","changePerson":"张三","unionAccount":"","UUID":"1"}
+,{"versionID":"006","gasCategory":"11","gasType":"3","gasStart":"0","gasEnd":"9999","price":"1200","changeTime":"2016/1/1","effectTime":"2016/12/31","changePerson":"张三","unionAccount":"","UUID":"1"}
+  ]
+,"total_rows":1
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

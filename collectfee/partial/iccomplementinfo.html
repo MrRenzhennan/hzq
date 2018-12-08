@@ -1,0 +1,78 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+    </button>
+    <h4 class="modal-title" id="myModalLabel">信息</h4>
+</div>
+<div class="modal-body">
+    <div data-always-visible="1" data-rail-visible="1">
+        <table class="lg watable table table-striped table-hover table-bordered table-condensed">
+            <thead>
+            <tr>
+                <th>
+                    收费日期
+                </th>
+                <th class="hidden-xs">
+                    营业网点
+                </th>
+                <th>
+                    营业员
+                </th>
+                <th>
+                    金额
+                </th>
+            </tr>
+            </thead>
+            <tbody id="_payHistoryInfo">
+            <!--    <tbody id="_garbageHistoryInfo">-->
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+</div>
+<script type="text/x-template" id="__dust__gaspayHistoryRowInfo">
+    {#data}
+    <tr>
+        <td>
+            {createdTime}
+        </td>
+        <td class="hidden-xs">
+            {chargeUnitName}
+        </td>
+        <td>
+           {employeeName}
+        </td>
+        <td>
+            {money}
+        </td>
+    </tr>
+    {/data}
+</script>
+
+<script type="text/javascript">
+    function render(param){
+        dust.loadSource(dust.compile($("#__dust__gaspayHistoryRowInfo").html(), "gaspayhistoryrowInfo__"));
+        $.ajax({
+            url: "/hzqs/dbc/pbsel.do?fh=SELDBC0000000J00&resp=bd",
+            dataType: "json",
+            contentType: "application/json;charset=utf-8",
+            type: "POST",
+            data: JSON.stringify({
+                cols: "a.createdTime,d.employeeName,e.chargeUnitName,a.money",
+                froms: "gasChgAccount b, gasActGasfeeAtl a,gasCtmArchive c,gasSysUser d,gasBizChargeUnit e",
+                wheres:"b.chgAccountId =a.chgAccountId and c.ctmArchiveId=b.ctmArchiveId and e.chargeUnitId= d.chargeUnitId and d.userId = a.createdBy and c.ctmArchiveId='"+param.archiveId+"' order by e.createdTime desc ",
+                page: true,
+                limit: 10,
+            }),
+            success: function (data) {
+                if (data && data.rows) {
+                    console.log(data);
+                    dust.render("gaspayhistoryrowInfo__", { "data": data.rows }, function (err, res) {
+                        $("#_payHistoryInfo").html(res);
+                    });
+                }
+            }
+        });
+    }
+</script>

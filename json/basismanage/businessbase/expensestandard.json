@@ -1,0 +1,13 @@
+{"rows":
+[
+  {"UUID":"001","sign_date":"百分比","customer_name":"0.003","contract":"滞纳金率","end_date":"2005/10/8","operator":"张淼","operator1":"001","operator2":"2015/12/7","start_date":"","operator":"Y"},
+  {"UUID":"002","sign_date":"百分比","customer_name":"0.003","contract":"滞纳金率","end_date":"2009/10/8","operator":"张淼","operator1":"001","operator2":"2015/12/7","start_date":"","operator":"N"},
+  {"UUID":"003","sign_date":"百分比","customer_name":"0.003","contract":"滞纳金率","end_date":"2005/10/8","operator":"张淼","operator1":"001","operator2":"2015/12/7","start_date":"","operator":"Y"},
+  {"UUID":"004","sign_date":"百分比","customer_name":"0.003","contract":"滞纳金率","end_date":"2008/10/8","operator":"张淼","operator1":"001","operator2":"2015/12/7","start_date":"","operator":"Y"},
+  {"UUID":"005","sign_date":"百分比","customer_name":"0.003","contract":"滞纳金率","end_date":"20012/10/8","operator":"张淼","operator1":"001","operator2":"2015/12/7","start_date":"","operator":"N"}
+
+]
+,"total_rows":1
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

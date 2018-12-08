@@ -1,0 +1,10 @@
+{"rows":
+[
+  {"collectType":"现金","address":"道里营业部","yyyName":"张三","collectdate":"2016-11","wyj":"2","ljfee":"3","yjMoney":"5","jfState":"已交"}
+,{"collectType":"POS机","address":"道里营业部","yyyName":"张三","collectdate":"2016-12","wyj":"0","ljfee":"3","yjMoney":"3","jfState":"未交"}
+,{"collectType":"现金","address":"道里营业部","yyyName":"张三","collectdate":"2016-13","wyj":"0","ljfee":"3","yjMoney":"3","jfState":"未交"}
+]
+,"total_rows":1
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]>
+<html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+
+<!-- BEGIN HEAD -->
+<head>
+    <title>退款申请</title>
+
+    <base href="../">
+    <link href="assets/global/plugins/bootstrap-fileinput/fileinput.css" rel="stylesheet">
+    <script src="pages/scripts/header.js"></script>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8"/>
+    <link href='assets/global/plugins/jquery-watable/watable.css' rel='stylesheet'/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-select/bootstrap-select.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/select2/select2.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/jquery-multi-select/css/multi-select.css"/>
+
+    <!-- BEGIN THEME STYLES -->
+    <link href="assets/global/css/components.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
+
+    <script src="pages/scripts/basepath.js"></script>
+
+</head>
+<!-- END HEAD -->
+
+<body class="page-header-fixed page-quick-sidebar-over-content">
+
+<!-- 标题栏开始 -->
+<div class="page-header navbar navbar-fixed-top">
+    <script>$.include("pages/partial/menu.shtml");</script>
+</div>
+<!-- 标题栏结束 -->
+<div class="clearfix"></div>
+<div class="page-container">
+    <!-- 左侧菜单开始 -->
+    <div class="page-sidebar-wrapper">
+        <script>$.include("pages/partial/sidebar.shtml");</script>
+    </div>
+    <!-- 左侧菜单结束 -->
+
+    <!-- 主内容开始 -->
+    <div class="page-content-wrapper">
+        <div class="page-content clearfix">
+            <!--内容头开始-->
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa  fa-map-marker"></i>
+                            <a href="index.html">服务管理</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="serviceManage/business_process.html">综合业务办理</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">退款申请</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 内容头结束-->
+
+            <!-- 内容开始-->
+            <!--查询条件-->
+            <script>$.include("serviceManage/partial/select_user.shtml");</script>
+            <!--用户信息-->
+            <script>$.include("serviceManage/partial/user_info.shtml");</script>
+            <!--业务信息-->
+            <div class="tabbable tabbable-custom tabbable-custom-profile col-md-12" style="padding-bottom:0px">
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#tab_1_22" data-toggle="tab">
+                            登记信息 </a>
+                    </li>
+                </ul>
+                <!--/row-->
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab11">
+                        <div class="portlet-body">
+                            <div class="add-form">
+                                <!-- begin form-->
+                                <form action="javascript:;" role="form" id="refundForm" name="refundForm">
+                                    <div class="form-body">
+                                    	<div class="btn-group form-group">
+                                            <button id="idcardread" class="btn blue">
+                                                <i class="fa fa-credit-card"></i> 识别身份证&nbsp;
+                                            </button>
+                                        </div>
+                                        <div class="row form-group">
+                                            <div class="col-sm-3 form-group">
+                                                <div class="btn-group input-group">
+                                                    <div class="input-group-addon">申请人姓名:</div>
+                                                    <input id="linkman" name="linkman" class="inputclear form-control customerNames" type="text">
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-sm-3 form-group">
+                                                <div class="btn-group input-group">
+                                                    <div class="input-group-addon">身份证号:</div>
+                                                    <input id="linkidcard" name="idcard" class="inputclear form-control idcards" type="text">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3 form-group">
+                                                <div class="btn-group input-group">
+                                                    <div class="input-group-addon">申请人电话:</div>
+                                                    <input id="linktel" name="linkphone" class="inputclear form-control" type="text">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3 form-group">
+                                                <div class="btn-group input-group input-select2me">
+                                                    <div class="input-group-addon">退款类型:</div>
+                                                    <select id="refundType" class="form-control input-middle select2me" data-placeholder="请选择...">
+                                                        <option value=""></option>
+                                                        <option value="1">燃气费</option>
+                                                        <option value="2">垃圾费</option>
+                                                    </select>
+                                                    <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-sm-3 form-group">
+                                                <div class="btn-group input-group">
+                                                    <div class="input-group-addon">领款银行账号:</div>
+                                                    <input id="bankCardNo" name="bankCardNo" class="inputclear form-control" type="text">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3 form-group">
+                                                <div class="btn-group input-group">
+                                                    <div class="input-group-addon">银行账号姓名:</div>
+                                                    <input id="bankCardName" name="bankCardName" class="inputclear form-control" type="text">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3 form-group">
+                                                <div class="btn-group input-group input-select2me">
+                                                    <div class="input-group-addon">银行名称:</div>
+                                                    <select id="bankName" name="bankName" class="form-control input-middle select2me" data-placeholder="银行名称">
+                                                        <option value=""></option>
+                                                    </select>
+                                                    <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3 form-group" id="otherBank" style="display: none;">
+                                                <div class="btn-group input-group">
+                                                    <div class="input-group-addon">其他银行名称:</div>
+                                                    <input id="otherBankName" name="otherBankName" class="inputclear form-control" type="text">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3 form-group">
+                                                <div class="btn-group input-group input-select2me">
+                                                    <div class="input-group-addon">申请原因:</div>
+                                                    <select id="reason" class="form-control input-middle select2me" data-placeholder="请选择...">
+                                                        <option value=""></option>
+                                                        <option value="1">用户注销</option>
+                                                        <option value="2">暂停用气</option>
+                                                        <option value="3">其他</option>
+                                                    </select>
+                                                    <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3 form-group">
+                                                <div class="btn-group input-group">
+                                                    <div class="input-group-addon">退款金额:</div>
+                                                    <input id="money" name="money" class="inputclear form-control" type="text" readonly/>
+                                                </div>
+                                            </div>
+                                             </form>
+                                            <script>$.include("common/gpyupload.shtml");</script>
+                                        </div>
+                                    </div>
+
+
+                                <!--end form-->
+                            </div>
+                            <!--/row-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script>$.include("serviceManage/partial/commit_print.shtml");</script>
+        </div>
+    </div>
+</div>
+<!-- 主内容结束 -->
+</div>
+</body>
+
+<script>$.include("pages/partial/scripts.shtml");</script>
+<script src="assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-watable/jquery.watable.js"></script>
+<script type="text/javascript" src="pages/scripts/rqlbuilder.js"></script>
+<script type="text/javascript" src="pages/scripts/xwatable.js"></script>
+<script type="text/javascript" src="pages/scripts/refhelper.js"></script>
+<script type="text/javascript" src="assets/global/plugins/select2/select2.js"></script>
+
+<script type="text/javascript" src="assets/global/plugins/bootstrap-fileinput/fileinput.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-fileinput/zh.js"></script>
+<script src="pages/scripts/jquery.json.min.js"></script>
+<script type="text/javascript" src="pages/scripts/jquery.serialize-object.min.js"></script>
+<script src="serviceManage/js/refund_application.js"></script>
+
+<script type="text/javascript" src="assets/global/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-multi-select/js/jquery.multi-select.js"></script>
+
+<script type="text/javascript" src="assets/global/plugins/bootstrap-daterangepicker/moment.min.js"></script>
+</html>

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]>
+<html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+
+<!-- BEGIN HEAD -->
+<head>
+    <title>账务管理</title>
+    <base href="../../">
+
+    <meta http-equiv="content-type" content="text/html" charset="utf-8"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-select/bootstrap-select.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/select2/select2.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/jquery-multi-select/css/multi-select.css"/>
+    <script src="pages/scripts/header.js"></script>
+    <link href='assets/global/plugins/jquery-watable/watable.css' rel='stylesheet'/>
+    <link href='assets/global/plugins/jquery-watable/animate.min.css' rel='stylesheet'/>
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-datepicker/css/datepicker3.css"/>
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-colorpicker/css/colorpicker.css"/>
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css"/>
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-datetimepicker/css/datetimepicker.css"/>
+    <link href='../assets/global/plugins/bootstrap-datetimepicker/css/datetimepicker.css' rel='stylesheet'/>
+
+</head>
+<!-- END HEAD -->
+<body class="page-header-fixed page-quick-sidebar-over-content">
+<!-- 标题栏开始 -->
+<div class="page-header navbar navbar-fixed-top">
+    <script>$.include("pages/partial/menu.shtml");</script>
+</div>
+<!-- 标题栏结束 -->
+<div class="clearfix"></div>
+<div class="page-container">
+    <!-- 左侧菜单开始 -->
+    <div class="page-sidebar-wrapper">
+        <script>$.include("pages/partial/sidebar.shtml");</script>
+    </div>
+    <!-- 左侧菜单结束 -->
+
+    <!-- 主内容开始 -->
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <!--内容头开始-->
+            <script>$.include("common/navigation_bar.shtml");</script>
+            <!-- 内容头结束-->
+
+            <!-- 内容开始-->
+            <div class="tabbable tabbable-custom">
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#tab_1_1" data-toggle="tab">
+                            联合账户 </a>
+                    </li>
+                    <li>
+                        <a href="#tab_1_2" data-toggle="tab">
+                            非联合账户 </a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab_1_1">
+                        <div class="scroller" style="height: auto;" data-always-visible="1" data-rail-visible="0">
+                            <div class="container col-sm-12">
+                                <!-- 查询条件控件 -->
+                                <div class="col-sm-3 form-group">
+                                    <div class="btn-group input-group input-select2me">
+                                        <div class="input-group-addon">供气区域:</div>
+                                        <select id="find_area" class="form-control input-middle select2me" data-placeholder="供气区域">
+                                            <option value=""></option>
+                                        </select>
+                                        <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 form-group">
+                                    <div class="btn-group input-group" style="width: 100%">
+                                        <div class="input-group-addon">联合账户编号:</div>
+                                        <input id="find_code" class="inputclear form-control" type="text"
+                                               placeholder="联合账户编号">
+                                        <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-sm-3 form-group">
+			                        <div class="btn-group input-group">
+			                        	<div class="input-group-addon">月份：</div>
+			                            <div style="width: 100%;" class="input-group date-picker input-daterange" data-date="11/2012" data-date-format="yyyy年mm月">
+			                                <input id="find_month" type="text" class="form-control">
+			                            </div>
+			                        </div>
+			                    </div>
+
+                                <div class="col-sm-3 form-group">
+                                    <div class="btn-group input-group" style="width: 100%">
+                                        <div class="input-group-addon">联合账户名称:</div>
+                                        <input id="find_name" class="inputclear form-control" type="text"
+                                               placeholder="联合账户名称">
+                                        <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                    </div>
+                                </div>
+
+                                <div class="btn-group form-group">
+                                    <button id="find_button1" class="btn yellow">
+                                        <i class="fa fa-search"></i> 查询
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="container-fluid">
+                                <div id="divtable" class="table-responsive container-fluid col-md-12" style="background-color: #ffffff">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="tab_1_2">
+                        <div class="scroller" data-always-visible="1" data-rail-visible1="0">
+
+                            <div class="container col-sm-12">
+                                <div class="col-sm-3 form-group">
+                                    <div class="btn-group input-group input-select2me">
+                                        <div class="input-group-addon">供气区域:</div>
+                                        <select id="find_area2" class="form-control input-middle select2me" data-placeholder="供气区域">
+                                            <option value=""></option>
+                                        </select>
+                                        <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 form-group">
+                                    <div class="btn-group input-group" style="width: 100%">
+                                        <div class="input-group-addon">客户编号:</div>
+                                        <input id="find_code2" class="inputclear form-control" type="text"
+                                               placeholder="客户编号">
+                                        <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 form-group">
+                                    <div class="btn-group input-group" style="width: 100%">
+                                        <div class="input-group-addon">客户名称:</div>
+                                        <input id="find_name2" class="inputclear form-control" type="text"
+                                               placeholder="客户名称">
+                                        <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                    </div>
+                                </div>
+								<div class="col-sm-3 form-group" >
+			                        <div class="btn-group input-group">
+			                            <div class="input-group-addon">月份：</div>
+			                            <div style="width: 100%;" class="input-group date-picker input-daterange" data-date="11/2012" data-date-format="yyyy年mm月">
+			                                <input id="find_month2" type="text" class="form-control">
+			                            </div>
+			                        </div>
+			                    </div>
+			                    <!--
+                                <div class="col-sm-3 form-group">
+                                    <div class="btn-group input-group" style="width: 100%">
+                                        <div class="input-group-addon">用气性质:</div>
+                                        <select id="find_gastype" name="description" class="form-control input-middle select2me"placeholder="请选择...">
+                                            <option value=""></option>
+                                        </select>
+                                        <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                    </div>
+                                </div>
+                               -->
+                                <div class="col-sm-3 form-group">
+                                    <div class="btn-group input-group" style="width: 100%">
+                                        <div class="input-group-addon">表具类别:</div>
+                                        <select id="find_type" name="description" class="form-control input-middle select2me"placeholder="请选择...">
+                                            <option value=""></option>
+                                            <option value="P">普表用户</option>
+                                            <option value="I">IC卡用户</option>
+                                        </select>
+                                        <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 form-group">
+                                    <div class="btn-group form-group">
+                                        <button id="find_button2" class="btn yellow">
+                                            查询&nbsp; <i class="fa fa-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container-fluid">
+                                <div id="divtable1" class="table-responsive container-fluid col-md-12" style="background-color: #ffffff">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            
+       <!--     <div class="container col-sm-12">
+                &lt;!&ndash; 查询条件控件 &ndash;&gt;
+                <div class="col-sm-3 form-group">
+                    <div class="btn-group input-group" style="width: 100%">
+                        <div class="input-group-addon">客户号:</div>
+                        <input id="find_billcode" class="inputclear form-control" type="text"
+                               placeholder="客户号">
+                        <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                    </div>
+                </div>
+				<div class="col-sm-3 form-group">
+                    <div class="btn-group input-group" style="width: 100%">
+                        <div class="input-group-addon">联合账户编号:</div>
+                        <input id="find_billcode" class="inputclear form-control" type="text"
+                               placeholder="联合账户编号">
+                        <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                    </div>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <div class="btn-group input-group input-select2me">
+                        <div class="input-group-addon">用气性质:</div>
+                        <select id="find_billtype" class="form-control input-middle select2me"
+                                data-placeholder="请选择...">
+                            <option value=""></option>
+                        </select>
+                        <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                    </div>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <div class="btn-group input-group" style="width: 100%">
+                        <div class="input-group-addon">月份:</div>
+                        <input id="find_customercode" class="inputclear form-control" type="text"
+                               placeholder="月份">
+                        <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                    </div>
+                </div>
+
+                <div class="col-sm-3 form-group">
+                    <div class="btn-group input-group" style="width: 100%">
+                        <div class="input-group-addon">客户名称:</div>
+                        <input id="find_customername" class="inputclear form-control" type="text"
+                               placeholder="客户名称">
+                        <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                    </div>
+                </div>
+                
+                <div class="btn-group form-group">
+                    <button id="find_button" class="btn yellow">
+                        <i class="fa fa-search"></i> 查询
+                    </button>
+                </div>
+            </div>
+			<div class="container-fluid">
+			<div class="row">
+                <div class="col-md-12">
+					<div class="tabbable tabbable-custom">
+		                <ul class="nav nav-tabs" id="navtab">
+		                    <li class="active">
+		                        <a href="#tab_1_1" data-toggle="tab">联合账户 </a>
+		                    </li>
+		                    <li>
+		                        <a href="#tab_1_2" data-toggle="tab">非联合账户 </a>
+		                    </li>
+		                </ul>
+		                <div class="tab-content">
+		                    <div class="tab-pane active" id="tab_1_1">
+					                <div id="divtable" class="table-responsive container-fluid col-md-12">
+					                </div>
+		                    </div>
+		                    <div class="tab-pane active" id="tab_1_2">
+		                    	
+					                <div id="divtable1" class="table-responsive container-fluid col-md-12">
+					                </div>
+		                    </div>
+		                </div>
+		            </div>
+            	</div>
+            </div>-->
+            </div>
+            <!-- 内容结束-->
+        </div>
+    </div>
+    <!-- 主内容结束 -->
+</div>
+
+<script type="text/javascript">$.include("pages/partial/xwatable-form.shtml")</script>
+
+<!-- 底边栏开始 -->
+<script>$.include("pages/partial/foot.shtml");</script>
+<!-- 底边栏结束 -->
+</body>
+
+
+<script>$.include("pages/partial/scripts.shtml");</script>
+<script src="assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-watable/jquery.watable.js"></script>
+<script type="text/javascript" src="pages/scripts/rqlbuilder.js"></script>
+<script type="text/javascript" src="pages/scripts/xwatable.js"></script>
+<script type="text/javascript" src="pages/scripts/refhelper.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+
+<script type="text/javascript" src="assets/global/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-multi-select/js/jquery.multi-select.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-daterangepicker/moment.min.js"></script>
+<script src="assets/global/scripts/metronic.js" type="text/javascript"></script>
+<script src="assets/admin/layout/scripts/layout.js" type="text/javascript"></script>
+<script src="assets/admin/layout/scripts/quick-sidebar.js" type="text/javascript"></script>
+<script src="assets/admin/pages/scripts/components-pickers.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript"
+        src="../assets/global/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/clockface/js/clockface.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-daterangepicker/moment.min.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script src="../assets/admin/pages/scripts/components-pickers.js"></script>
+<script src="accountManage/js/account_manager.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        ComponentsPickers.init();
+        AccountManager.init();
+    });
+</script><!-- End of User Script-->
+</html>

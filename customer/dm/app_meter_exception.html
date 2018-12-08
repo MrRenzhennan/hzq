@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<!--
+	作者：belle
+	时间：2017-08-29
+	描述：app手机端上报的表具异常信息查询---for 计量中心
+	1. app手机反馈的表具异常，
+	2. 有二次表的 二次表系数 小于 0.97 或 大于 1.38 的
+-->
+
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+
+<!-- BEGIN HEAD -->
+<head>
+    <title>app上报表具异常信息</title>
+    <base href="../../">
+    <script src="pages/scripts/header.js"></script>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8"/>
+
+    <link href='assets/global/plugins/jquery-watable/watable.css' rel='stylesheet'/>
+    <link href='assets/global/plugins/jquery-watable/animate.min.css' rel='stylesheet'/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-datepicker/css/datepicker3.css"/>
+
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-select/bootstrap-select.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/select2/select2.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/jquery-multi-select/css/multi-select.css"/>
+
+
+    <!-- BEGIN THEME STYLES -->
+    <link href="assets/global/css/components.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
+    <!-- END THEME STYLES -->
+</head>
+<body class="page-header-fixed page-quick-sidebar-over-content">
+<!-- 标题栏开始 -->
+<div class="page-header navbar navbar-fixed-top">
+    <script>$.include("pages/partial/menu.shtml");</script>
+</div>
+<!-- 标题栏结束 -->
+<div class="clearfix"></div>
+<div class="page-container">
+	<!-- 左侧菜单开始 -->
+    <div class="page-sidebar-wrapper">
+        <script>$.include("pages/partial/sidebar.shtml");</script>
+    </div>
+    <!-- 左侧菜单结束 -->
+    <!-- 主内容开始 -->
+	<div class="page-content-wrapper">
+		<div class="page-content">
+			<!--内容头开始-->
+            <script>$.include("common/navigation_bar.shtml");</script>
+            <!-- 内容头结束-->
+            <!-- 内容开始-->
+            
+            <div class="container col-sm-12" style="background-color: #ffffff; ">
+            	<div class="row">
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group input-select2me col-sm-12">
+                            <div class="input-group-addon">供气区域:</div>
+                            <select id="find_areaId" class="form-control input-middle select2me" data-placeholder="供气区域...">
+                                <option value="">全部</option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group input-select2me col-sm-12">
+                            <div class="input-group-addon">核算员:</div>
+                            <select id="find_countperId" class="form-control input-middle select2me" data-placeholder="核算员...">
+                                <option value="">全部</option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group input-select2me col-sm-12">
+                            <div class="input-group-addon">客户服务员</div>
+                            <select  id="find_serviceperId" class="form-control input-middlle select2me" data-placeholder="客户服务员...">
+                                <option value="">全部</option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group input-select2me col-sm-12">
+                            <div class="input-group-addon">抄表类型</div>
+                            <select id="copy_type" class="form-control input-middle select2me" data-placeholder="抄表类型...">
+                                <option value=""></option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group input-select2me col-sm-12">
+                            <div class="input-group-addon">数据来源</div>
+                            <select id="data_source" class="form-control input-middle select2me" data-placeholder="数据来源...">
+                                <option value=""></option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group input-select2me col-sm-12">
+                            <div class="input-group-addon">是否为计划抄表</div>
+                            <select id="copy_operate" class="form-control input-middle select2me" data-placeholder="是否为计划抄表...">
+                                <option value="">全部</option>
+                                <!--<option value="P">计划抄表</option>
+                                <option value="S">业务抄表</option>
+                                <option value="T">临时抄表</option>-->
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group input-select2me col-sm-12">
+                            <div class="input-group-addon">客户状态</div>
+                            <select id="customer_state" class="form-control input-middle select2me" data-placeholder="客户状态...">
+                                <option value=""></option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group input-select2me col-sm-12">
+                            <div class="input-group-addon">客户类型</div>
+                            <select id="customer_type" class="form-control input-middle select2me" data-placeholder="客户类型...">
+                                <option value=""></option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group input-select2me">
+                            <div class="input-group-addon">表具异常种类:</div>
+                            <select id="find_appmetererror" class="form-control input-middle select2me"
+                                    data-placeholder=" ">
+                                <option value=""></option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group input-select2me col-sm-12">
+                            <div class="input-group-addon">客户名称</div>
+                            <input id="customer_name" class="inputclear form-control" type="text" placeholder="客户名称">
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group input-select2me col-sm-12">
+                            <div class="input-group-addon">客户编号</div>
+                            <input id="customer_code" class="inputclear form-control" type="text" placeholder="客户编号">
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group">
+                            <div class="input-group-addon">客户地址</div>
+                            <input id="customer_address" class="inputclear form-control" type="text" placeholder="客户地址">
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group input-select2me col-sm-12">
+                            <div class="input-group-addon">抄表本编号</div>
+                            <input id="book_code" class="inputclear form-control" type="text" placeholder="抄表本编号">
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                        </div>
+                    </div>
+                    </div>
+                    <!-- 修正表系数范围 录入地方 -->
+                    <div class="row">
+	                    <div class="col-sm-6 form-group">
+	                        <div class="btn-group input-group input-select2me col-sm-12">
+	                            <div class="input-group-addon">正常修真表系数最大值</div>
+	                            <input id="max_quotiety" class="inputclear form-control" type="text" placeholder="填写修正表系数的最小值和最大值：查询出超出本范围的数据">
+	                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+	                        </div>
+	                    </div>
+	                    <div class="col-sm-6 form-group">
+	                        <div class="btn-group input-group input-select2me col-sm-12">
+	                            <div class="input-group-addon">正常修真表系数最小值</div>
+	                            <input id="min_quotiety" class="inputclear form-control" type="text" placeholder="填写修正表系数的最小值和最大值：查询出超出本范围的数据">
+	                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+	                        </div>
+	                    </div>
+                    </div>
+					<div class="col-sm-1">
+                        <button class="btn yellow" id="find_button" style="border:none;">
+                            	查询&nbsp; <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                    <!-- 客户编号 ，客户地址 -->
+                    <!--表具异常信息-->
+                    <!--二次表系数 最大值，最小值-->
+                    <!--<div class="col-sm-3 form-group">
+                        <div class="btn-group input-group input-select2me col-sm-12">
+                            <div class="input-group-addon">客户服务员</div>
+                            <select  id="find_serviceperId" class="form-control input-middlle select2me" data-placeholder="客户服务员...">
+                                <option value="">全部</option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                        </div>
+                    </div>-->
+            	</div>
+            </div>
+            <div class="container-fluid">
+                <div id="divtable" class="table-responsive container-fluid col-md-12" >
+                </div>
+            </div>
+            <!-- 内容结束-->
+		</div>
+	</div>
+    <!-- 主内容结束 -->
+</div>
+<script type="text/javascript">$.include("pages/partial/xwatable-form.shtml")</script>
+
+<!-- 底边栏开始 -->
+<script>$.include("pages/partial/foot.shtml");</script>
+<!-- 底边栏结束 -->
+</body>
+
+
+<script>$.include("pages/partial/scripts.shtml");</script>
+<script type="text/javascript" src="assets/global/plugins/jquery-watable/jquery.watable.js"></script>
+<script type="text/javascript" src="pages/scripts/rqlbuilder.js"></script>
+<script type="text/javascript" src="pages/scripts/xwatable.js"></script>
+<script type="text/javascript" src="pages/scripts/refhelper.js"></script>
+
+
+<script src="assets/admin/pages/scripts/components-pickers.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+
+
+<script type="text/javascript" src="assets/global/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-multi-select/js/jquery.multi-select.js"></script>
+
+<script type="text/javascript" src="assets/global/plugins/bootstrap-fileinput/fileinput.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-fileinput/zh.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script src="assets/admin/pages/scripts/components-dropdowns.js"></script>
+
+<!-- END PAGE LEVEL SCRIPTS -->
+<script src="mods/timeslot.js"></script>
+<script src="mods/sys.js"></script>
+<script src="mods/bas.js"></script>
+<script src="mods/mrd.js"></script>
+<script src="mods/ctm.js"></script>
+<script src="mods/mtr.js"></script>
+<!--<script src="mods/customer.js"></script>-->
+<script src="customer/dm/js/appmeterexception.js"></script>
+<script src="assets/admin/pages/scripts/components-pickers.js"></script>
+
+
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        ComponentsPickers.init();
+        AppMeterExceptionAction.init()
+    });
+</script><!-- End of User Script-->
+
+</html>

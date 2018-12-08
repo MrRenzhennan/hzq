@@ -1,0 +1,6 @@
+[{"staffauditor":"正常","value":1},
+{"staffauditor":"首超预警线","value":2},
+  {"staffauditor":"潜在流失","value":3},
+  {"staffauditor":"流失","value":4}
+
+]

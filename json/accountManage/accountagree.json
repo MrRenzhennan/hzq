@@ -1,0 +1,17 @@
+{"rows":
+[
+  {"UUID":"001","agreeID":"协议编号一","customerID":"客户编号一","customerName":"客户名一","address":"道里一上海街1号","supplement_code":"协议编号一","signTime":"2016-11-11","validPeriod":"3年","deadTime":"2029-11-11","examine":"1","payStatement":"1"},
+  {"UUID":"001","agreeID":"协议编号二","customerID":"客户编号二","customerName":"客户名二","address":"道里一上海街2号","supplement_code":"协议编号二","signTime":"2016-11-11","validPeriod":"3年","deadTime":"2029-11-11","examine":"2","payStatement":"1"},
+  {"UUID":"001","agreeID":"协议编号三","customerID":"客户编号三","customerName":"客户名三","address":"道里一上海街3号","supplement_code":"协议编号三","signTime":"2016-11-11","validPeriod":"3年","deadTime":"2029-11-11","examine":"4","payStatement":"2"},
+  {"UUID":"001","agreeID":"协议编号四","customerID":"客户编号四","customerName":"客户名四","address":"道里一上海街4号","supplement_code":"协议编号四","signTime":"2016-11-11","validPeriod":"3年","deadTime":"2029-11-11","examine":"4","payStatement":"2"},
+  {"UUID":"001","agreeID":"协议编号五","customerID":"客户编号五","customerName":"客户名五","address":"道里一上海街5号","supplement_code":"协议编号五","signTime":"2016-11-11","validPeriod":"3年","deadTime":"2029-11-11","examine":"3","payStatement":"1"},
+  {"UUID":"001","agreeID":"协议编号六","customerID":"客户编号六","customerName":"客户名六","address":"道里一上海街6号","supplement_code":"协议编号六","signTime":"2016-11-11","validPeriod":"3年","deadTime":"2029-11-11","examine":"2","payStatement":"2"},
+  {"UUID":"001","agreeID":"协议编号七","customerID":"客户编号七","customerName":"客户名七","address":"道里一上海街7号","supplement_code":"协议编号七","signTime":"2016-11-11","validPeriod":"3年","deadTime":"2029-11-11","examine":"1","payStatement":"1"},
+  {"UUID":"001","agreeID":"协议编号八","customerID":"客户编号八","customerName":"客户名八","address":"道里一上海街8号","supplement_code":"协议编号八","signTime":"2016-11-11","validPeriod":"3年","deadTime":"2029-11-11","examine":"2","payStatement":"2"},
+  {"UUID":"001","agreeID":"协议编号九","customerID":"客户编号九","customerName":"客户名九","address":"道里一上海街9号","supplement_code":"协议编号九","signTime":"2016-11-11","validPeriod":"3年","deadTime":"2029-11-11","examine":"3","payStatement":"1"}
+
+]
+,"total_rows":1
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

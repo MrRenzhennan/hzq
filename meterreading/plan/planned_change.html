@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+
+<!-- BEGIN HEAD -->
+<head>
+    <title>抄表计划管理</title>
+    <base href="../../">
+    <script src="pages/scripts/header.js"></script>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8"/>
+
+    <link href='assets/global/plugins/jquery-watable/watable.css' rel='stylesheet'/>
+    <link href='assets/global/plugins/jquery-watable/animate.min.css' rel='stylesheet'/>
+
+
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-select/bootstrap-select.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/select2/select2.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/jquery-multi-select/css/multi-select.css"/>
+    <link href="assets/global/plugins/bootstrap-fileinput/fileinput.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-datepicker/css/datepicker3.css"/>
+
+    <!-- BEGIN THEME STYLES -->
+    <link href="assets/global/css/components.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
+    <style>
+        #exhibition>div{
+            margin-bottom: 10px;
+        }
+    </style>
+
+</head>
+<!-- END HEAD -->
+
+<body class="page-header-fixed page-quick-sidebar-over-content">
+
+<!-- 标题栏开始 -->
+<div class="page-header navbar navbar-fixed-top">
+    <script>$.include("pages/partial/menu.shtml");</script>
+</div>
+<!-- 标题栏结束 -->
+<div class="clearfix"></div>
+<div class="page-container">
+    <!-- 左侧菜单开始 -->
+    <div class="page-sidebar-wrapper">
+        <script>$.include("pages/partial/sidebar.shtml");</script>
+    </div>
+    <!-- 左侧菜单结束 -->
+
+    <!-- 主内容开始 -->
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <!--内容头开始-->
+            <!--<div class="row">
+                <div class="col-md-12">
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa  fa-map-marker"></i>
+                            <a href="index.html">抄表管理</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="customer/dm/meter_check_plan_Management.html">抄表计划变更</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>-->
+             	<script>$.include("common/navigation_bar.shtml");</script>
+
+            <!-- 内容头结束-->
+
+            <!-- 内容开始-->
+            <div class="container col-sm-12" style="background-color: #ffffff; ">
+                <div class="row" >
+                    <div class="col-sm-4 form-group">
+                        <div class="btn-group input-group input-select2me col-sm-12">
+                            <div class="input-group-addon">供气区域:</div>
+                            <select id="find_communityid" class="form-control input-middle select2me" data-placeholder="供气区域...">
+                                <option value="">中庆燃气有限责任公司</option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 form-group">
+                        <div class="btn-group input-group input-select2me col-sm-12">
+                            <div class="input-group-addon">核算员:</div>
+                            <select id="find_account" class="form-control input-middle select2me" data-placeholder="核算员...">
+                                <option value="">全部</option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 form-group">
+                        <div class="btn-group input-group input-select2me col-sm-12">
+                            <div class="input-group-addon">抄表员:</div>
+                            <select  id="meter_reader" class="form-control input-middlle select2me" data-placeholder="客户服务员...">
+                                <option value="">全部</option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 form-group data-select" style="margin:0 0 10px 0;">
+                        <div class="btn-group input-group pull-left col-sm-4">
+                            <div class="input-group-addon">创建起始日期:</div>
+                            <div class="input-group input-large date-picker input-daterange" data-date-format="yyyy-mm-dd">
+                                <input id="createtimefrom" type="text" class="form-control" name="from">
+                                <span class="inputclear glyphicon glyphicon-remove-circle hidden" ></span>
+                                <span class="input-group-addon">至</span>
+                                <input id="createtimeto" type="text" class="form-control" name="to">
+                                <span class="inputclear glyphicon glyphicon-remove-circle hidden" ></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-5">
+                            <div class="btn-group data-select">
+                                <button id="find_today_sign" class="btn">当日</button>
+                            </div>
+                            <div class="btn-group">
+                                <button id="find_this_week_sign" class="btn">近一周</button>
+                            </div>
+                            <div class="btn-group">
+                                <button id="find_this_month_sign" class="btn">近一月</button>
+                            </div>
+                            <div class="btn-group">
+                                <button id="find_three_month_sign" class="btn">近三月</button>
+                            </div>
+                            <div class="btn-group">
+                                <button id="find_this_year_sign" class="btn">近一年</button>
+                            </div>
+                            <div class="btn-group">
+                                <button id="find_anyway_sign" class="btn">不限</button>
+                            </div>
+                        </div>
+                        <div class="col-sm-1">
+                            <button class="btn yellow" id="find_button" style="border:none;">
+                                查询&nbsp; <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 form-group">
+                        <div class="btn-group input-group input-select2me col-sm-12">
+                            <div class="input-group-addon">变更原因:</div>
+                            <select id="planchange" class="form-control input-middle select2me" data-placeholder="供气区域...">
+                                <option value="">变更原因</option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 form-group">
+                        <div class="col-sm-6">
+                            <button class="btn blue" id="" style="border:none;">
+                                变更&nbsp; <i class="fa fa-pencil"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-fluid">
+                    <div id="divtable" class="table-responsive container-fluid col-md-12" >
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- 内容结束-->
+        </div>
+    </div>
+    <!-- 主内容结束 -->
+</div>
+
+<script type="text/javascript">$.include("pages/partial/xwatable-form.shtml")</script>
+
+<!-- 底边栏开始 -->
+<!--<script>$.include("pages/partial/foot.shtml");</script>-->
+<!-- 底边栏结束 -->
+</body>
+
+
+<script>$.include("pages/partial/scripts.shtml");</script>
+<script type="text/javascript" src="assets/global/plugins/jquery-watable/jquery.watable.js"></script>
+<script type="text/javascript" src="pages/scripts/rqlbuilder.js"></script>
+<script type="text/javascript" src="pages/scripts/xwatable.js"></script>
+<script type="text/javascript" src="pages/scripts/refhelper.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+
+<script type="text/javascript" src="assets/global/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-multi-select/js/jquery.multi-select.js"></script>
+
+<script type="text/javascript" src="assets/global/plugins/bootstrap-fileinput/fileinput.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-fileinput/zh.js"></script>
+<script type="text/javascript" src="../../assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script src="assets/admin/pages/scripts/components-dropdowns.js"></script>
+
+<script src="assets/admin/pages/scripts/components-pickers.js"></script>
+<script src="meterreading/js/planned_change.js"></script>
+
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        ComponentsPickers.init();
+        detailsofsuppllyManagerAction.init()
+    });
+</script><!-- End of User Script-->
+</html>

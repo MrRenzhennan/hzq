@@ -1,0 +1,13 @@
+{"rows":
+[
+  {"versionID":"2015/5/6","gasCategory":"0543","gasType":"王朝","gasStart":"554","gasEnd":"未审批","price":"已提交","changeTime":"正在申请中","effectTime":"未作废","changePerson":"抄表员抄错了表","unionAccount":"","UUID":"1"}
+, {"versionID":"2015/5/6","gasCategory":"0543","gasType":"马汉","gasStart":"336","gasEnd":"未审批","price":"已提交","changeTime":"正在申请中","effectTime":"未作废","changePerson":"抄表员抄错了表","unionAccount":"","UUID":"1"}
+,{"versionID":"2015/5/6","gasCategory":"0543","gasType":"张龙","gasStart":"447","gasEnd":"未审批","price":"已提交","changeTime":"正在申请中","effectTime":"未作废","changePerson":"抄表员抄错了表","unionAccount":"","UUID":"1"}
+,{"versionID":"2015/5/6","gasCategory":"0543","gasType":"赵虎","gasStart":"512","gasEnd":"未审批","price":"已提交","changeTime":"正在申请中","effectTime":"未作废","changePerson":"抄表员抄错了表","unionAccount":"","UUID":"1"}
+,{"versionID":"2015/5/6","gasCategory":"0543","gasType":"李亮","gasStart":"509","gasEnd":"未审批","price":"已提交","changeTime":"正在申请中","effectTime":"未作废","changePerson":"抄表员抄错了表","unionAccount":"","UUID":"1"}
+
+]
+,"total_rows":1
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

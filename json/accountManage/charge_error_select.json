@@ -1,0 +1,15 @@
+{"rows":
+[
+  {"UUID":"1","cusNumber":"客户编号一","cusName":"客户名称一","meterName":"表户名称一","copyTime":"2016-01-01","meterReading":"230","correctReading":"210","readingDifference":"-20","gasFee":"24","correctGasFee":"4","gasFeeDifference":"-20","difCorrectReason":"预估气量过高","remarks":"","applyState":"1","applyTime":"2016-01-01 20:10:00"},
+  {"UUID":"2","cusNumber":"客户编号二","cusName":"客户名称二","meterName":"表户名称二","copyTime":"2016-01-01","meterReading":"45","correctReading":"40","readingDifference":"-5","gasFee":"27","correctGasFee":"22","gasFeeDifference":"-5","difCorrectReason":"预估气量过高","remarks":"","applyState":"2","applyTime":"2016-01-01 20:10:00"},
+  {"UUID":"3","cusNumber":"客户编号三","cusName":"客户名称三","meterName":"表户名称三","copyTime":"2016-01-01","meterReading":"89","correctReading":"90","readingDifference":"1","gasFee":"34","correctGasFee":"35","gasFeeDifference":"1","difCorrectReason":"预估气量过高","remarks":"","applyState":"3","applyTime":"2016-01-01 20:10:00"},
+  {"UUID":"4","cusNumber":"客户编号四","cusName":"客户名称四","meterName":"表户名称四","copyTime":"2016-01-01","meterReading":"808","correctReading":"800","readingDifference":"-8","gasFee":"0","correctGasFee":"-8","gasFeeDifference":"-8","difCorrectReason":"预估气量过高","remarks":"","applyState":"1","applyTime":"2016-01-01 20:10:00"},
+  {"UUID":"5","cusNumber":"客户编号五","cusName":"客户名称五","meterName":"表户名称五","copyTime":"2016-01-01","meterReading":"490","correctReading":"499","readingDifference":"9","gasFee":"78","correctGasFee":"87","gasFeeDifference":"-9","difCorrectReason":"预估气量过高","remarks":"","applyState":"2","applyTime":"2016-01-01 20:10:00"},
+  {"UUID":"6","cusNumber":"客户编号六","cusName":"客户名称六","meterName":"表户名称六","copyTime":"2016-01-01","meterReading":"22","correctReading":"25","readingDifference":"3","gasFee":"2","correctGasFee":"5","gasFeeDifference":"3","difCorrectReason":"预估气量过高","remarks":"","applyState":"3","applyTime":"2016-01-01 20:10:00"},
+  {"UUID":"7","cusNumber":"客户编号七","cusName":"客户名称七","meterName":"表户名称七","copyTime":"2016-01-01","meterReading":"909","correctReading":"910","readingDifference":"1","gasFee":"90","correctGasFee":"91","gasFeeDifference":"1","difCorrectReason":"预估气量过高","remarks":"","applyState":"1","applyTime":"2016-01-01 20:10:00"},
+  {"UUID":"8","cusNumber":"客户编号八","cusName":"客户名称八","meterName":"表户名称八","copyTime":"2016-01-01","meterReading":"89","correctReading":"100","readingDifference":"11","gasFee":"40","correctGasFee":"51","gasFeeDifference":"11","difCorrectReason":"预估气量过高","remarks":"","applyState":"2","applyTime":"2016-01-01 20:10:00"}
+]
+,"total_rows":8
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

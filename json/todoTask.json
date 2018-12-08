@@ -1,0 +1,39 @@
+[
+  {
+    "taskName":"检表计划确定",
+    "icon":"fa-check-square-o",
+    "counter":2,
+    "url":"customer/dm/add_meter_check.html"
+  },
+  {
+    "taskName":"抄表复核",
+    "icon":"fa-check-square-o",
+    "counter":1,
+    "url":"recoderform/reexamine.html"
+  },
+  {
+    "taskName":"自助缴费处理",
+    "icon":"fa-cny",
+    "counter":5,
+    "url":"#"
+  },
+  {
+    "taskName":"任务监控",
+    "icon":"fa-align-justify",
+    "counter":0,
+    "url":"monitor/meterreading.html"
+  },
+  {
+    "taskName":"预警处理",
+    "icon":"fa-warning",
+    "counter":1,
+    "url":"#"
+  },
+  {
+    "taskName":"催缴费",
+    "icon":"fa-weixin",
+    "counter":2,
+    "url":"#"
+  }
+]
+

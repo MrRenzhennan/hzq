@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+
+<!-- BEGIN HEAD -->
+<head>
+    <title>表具更换明细</title>
+    <base href="../../">
+    <script src="pages/scripts/header.js"></script>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8"/>
+
+    <link href='assets/global/plugins/jquery-watable/watable.css' rel='stylesheet'/>
+    <link href='assets/global/plugins/jquery-watable/animate.min.css' rel='stylesheet'/>
+    <link href='assets/global/plugins/bootstrap-datetimepicker/css/datetimepicker.css' rel='stylesheet'/>
+
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-select/bootstrap-select.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/select2/select2.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/jquery-multi-select/css/multi-select.css"/>
+    <link href="assets/global/plugins/bootstrap-fileinput/fileinput.min.css" rel="stylesheet">
+
+    <!-- BEGIN THEME STYLES -->
+    <link href="assets/global/css/components.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
+    <!-- END THEME STYLES -->
+</head>
+<!-- END HEAD -->
+<body class="page-header-fixed page-quick-sidebar-over-content">
+<!-- 标题栏开始 -->
+<div class="page-header navbar navbar-fixed-top">
+    <script>$.include("pages/partial/menu.shtml");</script>
+</div>
+<!-- 标题栏结束 -->
+<div class="clearfix"></div>
+<div class="page-container">
+    <!-- 左侧菜单开始 -->
+    <div class="page-sidebar-wrapper">
+        <script>$.include("pages/partial/sidebar.shtml");</script>
+    </div>
+    <!-- 左侧菜单结束 -->
+
+    <!-- 主内容开始 -->
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <!--内容头开始-->
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa fa-map-marker"></i>
+                            <a href="javascript:;">客户管理</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="javascript:;">表具管理</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="customer/dm/meter_exchange_plan_Management.html">表具更换管理</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="javascript:;">表具更换明细</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 内容头结束-->
+
+            <!-- 内容开始-->
+            <div class="container col-sm-12" style="padding-bottom:0px">
+                <!-- 查询条件控件 -->
+                <div class="col-sm-3 form-group">
+                    <div class="btn-group input-group input-select2me">
+                        <div class="input-group-addon">表具类型：</div>
+                        <select id="find_metertypeId" class="form-control input-small select2me" data-placeholder="表具类型...">
+                            <option value="">全部</option>
+                        </select>
+                        <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                    </div>
+                </div>
+
+                <div class="col-sm-3 form-group">
+                    <div class="btn-group form-group">
+                        <button id="find_button" class="btn yellow">
+                            查询<i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                    <!--<div class="btn-group form-group">-->
+                        <!--<a class="btn blue" type="submit" href="customer/dm/meter_exchange_plan_Management.html">执行<i class="glyphicon glyphicon-ok"></i></a>-->
+                    <!--</div>-->
+                    <!--<div class="btn-group form-group">-->
+                        <!--<a class="btn red" type="submit" href="customer/dm/meter_exchange_plan_Management.html">驳回<i class="glyphicon glyphicon-remove"></i></a>-->
+                    <!--</div>-->
+                </div>
+            </div>
+
+            <div class="container col-sm-12" style="padding-bottom:0px">
+                <h4 class="form-sections">计划信息</h4>
+                <div class="col-md-3">
+                    <label class="control-label col-md-6">计划年度:</label>
+                    <div class="col-md-6">
+                        <p class="form-control-static">
+                            2016
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-fluid">
+                <div id="divtable" class="table-responsive container-fluid col-md-12" style="background-color: #ffffff">
+                </div>
+            </div>
+            <!-- 内容结束-->
+        </div>
+    </div>
+    <!-- 主内容结束 -->
+</div>
+
+<script type="text/javascript">$.include("pages/partial/xwatable-form.shtml")</script>
+
+<!-- 底边栏开始 -->
+<script>$.include("pages/partial/foot.shtml");</script>
+<!-- 底边栏结束 -->
+</body>
+
+
+<script>$.include("pages/partial/scripts.shtml");</script>
+<script type="text/javascript" src="assets/global/plugins/jquery-watable/jquery.watable.js"></script>
+<script type="text/javascript" src="pages/scripts/rqlbuilder.js"></script>
+<script type="text/javascript" src="pages/scripts/xwatable.js"></script>
+<script type="text/javascript" src="pages/scripts/refhelper.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+
+<script type="text/javascript" src="assets/global/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-multi-select/js/jquery.multi-select.js"></script>
+
+<script type="text/javascript" src="assets/global/plugins/bootstrap-fileinput/fileinput.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-fileinput/zh.js"></script>
+
+<script src="assets/admin/pages/scripts/components-dropdowns.js"></script>
+
+<script src="customer/dm/js/meter_exchange_plan_detail.js"></script>
+
+<script type="text/javascript">
+
+    meterExchangePlanDetailAction.init();
+</script><!-- End of User Script-->
+</html>

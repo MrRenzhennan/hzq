@@ -1,0 +1,36 @@
+<script type="text/x-template" id="__dust__gasRowInfo">
+    <input type="hidden" id="chgTitle" value="燃气费" />
+    <input type="hidden" id="feeType" value="gas" />
+    {#data}
+    <tr>
+        <td style="width: 100px">
+           {}
+        </td>
+        <td style="width: 20%">
+           {}
+        </td>
+        <td style="border-left: 1px solid #dedede !important;width: 100px">
+          {}
+        </td>
+        <td style="width: 25%;">
+            {}
+        </td>
+        <td style="border-left: 1px solid #dedede;width: 100px">
+            {}:
+        </td>
+        <td>
+            {gasTypeName}
+        </td>
+    </tr>
+
+    <tr>
+        <td colspan="6"><a href="JavaScript:void(0)" hzq-modal="#hzqModal" hzq-type="remoteModal" hzq-remote="/collectfee/partial/searchgaspayhistory.html"
+                hzq-cb="render" hzq-param='{"archiveId":"{ctmArchiveId}"}'>查看收费历史信息</a> &nbsp;&nbsp;&nbsp;
+            <a href="JavaScript:void(0)" hzq-modal="#hzqModal" hzq-type="remoteModal" hzq-remote="/collectfee/partial/searchmtdhistory.html"
+                hzq-cb="render" hzq-param='{"archiveId":"{ctmArchiveId}"}'>查看抄表历史信息</a> &nbsp;&nbsp;&nbsp; 
+            <a href="JavaScript:void(0)" hzq-modal="#hzqModal" hzq-type="remoteModal" hzq-remote="/collectfee/partial/searchtickethistory.html"
+                hzq-cb="render" hzq-param='{"customerCode":"{customerCode}"}'>发票打印</a>
+        </td>
+    </tr>
+    {/data}
+</script>

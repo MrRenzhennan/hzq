@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>收费管理</title>
+    <style>
+        #search {
+            width: 100%;
+            margin: 0 auto;
+            text-align: center;
+        }
+    </style>
+    <base href="../">
+    <meta charset="UTF-8">
+    <script src="pages/scripts/basepath.js"></script>
+    <script src="pages/scripts/header.js"></script>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8" />
+    <link href="assets/global/css/components.css" rel="stylesheet" type="text/css" />
+    <link href="assets/global/css/plugins.css" rel="stylesheet" type="text/css" />
+    <link href='assets/global/plugins/jquery-watable/watable.css' rel='stylesheet' />
+    <link href="assets/global/plugins/bootstrap-fileinput/fileinput.min.css" rel="stylesheet">
+    <style>
+        #divtable {
+            display: none;
+        }
+
+        .table td {
+            vertical-align: middle !important;
+        }
+    </style>
+</head>
+
+<body class="page-header-fixed page-quick-sidebar-over-content">
+    <script>
+        $.include("collectfee/partial/customerinfo.shtml");
+        $.include("collectfee/partial/gasrowinfo.shtml");
+        $.include("collectfee/partial/wasterowinfo.shtml");
+        $.include("collectfee/partial/ctmaccountinfo.shtml");
+    </script>
+    <div class="page-header navbar navbar-fixed-top">
+        <script>
+            $.include("pages/partial/menu.shtml");
+        </script>
+    </div>
+
+    <div class="clearfix"></div>
+    <div class="page-container">
+        <!-- 左侧菜单开始 -->
+        <div class="page-sidebar-wrapper">
+            <script>
+                $.include("pages/partial/sidebar.shtml");
+            </script>
+        </div>
+        <!-- 左侧菜单结束 -->
+        <div id="gfdata"></div>
+        <!-- 主内容开始 -->
+        <div class="page-content-wrapper">
+            <div class="page-content">
+                <!--内容头开始-->
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul class="page-breadcrumb breadcrumb">
+                            <li>
+                                <i class="fa  fa-map-marker"></i>
+                                <a href="javascript:void(0)">收费管理</a>
+                                <i class="fa fa-angle-right"></i>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">燃气收费管理</a>
+                                <i class="fa fa-angle-right"></i>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">收费</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <script>
+                    $.include("serviceManage/partial/select_user.shtml");
+                </script>
+                <!--用户信息-->
+                <script>
+                    $.include("serviceManage/partial/user_info.shtml");
+                </script>
+
+
+                <div id="divChgContainer" class="tabbable tabbable-custom tabbable-custom-profile col-md-12" style="padding-bottom:0px; display: none">
+                    <ul class="nav nav-tabs">
+                        <li role="presentation" id="gas" class="active"><a id="tabGas" href="#gasFee" aria-controls="gasFee" role="tab" data-toggle="tab">燃气费</a></li>
+                        <li role="presentation" id="waste"><a id="tabWaste" href="#wasteFee" aria-controls="wasteFee" role="tab" data-toggle="tab">垃圾处理费</a></li>
+
+                    </ul>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane" id="wasteFee">
+                            <div data-always-visible="1" data-rail-visible="1">
+                                <table class="table">
+                                    <tbody id="_wasteInfo">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane active" id="gasFee">
+                            <div data-always-visible="1" data-rail-visible="1">
+                                <table class="table">
+                                    <tbody id="_gasInfo">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div id="tab_ctm" class="tab-pane" role="tabpanel">
+    </div>
+    <div id="tab_customer" class="tab-pane" role="tabpanel">
+    </div>
+
+    <!--收费历史modal-->
+    <div class="modal fade bs-example-modal-lg" id="payHistoryModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg">
+            <div id="mcontentc" class="modal-content">
+
+            </div>
+        </div>
+    </div>
+    <div class="modal fade bs-example-modal-lg" id="mtdHistoryModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg">
+            <div id="mcontent" class="modal-content">
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade bs-example-modal-lg" id="hzqModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg">
+            <div id="mcontent" class="modal-content">
+            </div>
+        </div>
+    </div>
+    <!-- Button trigger modal -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="invoiceModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">发票领用</h4>
+                </div>
+                <div id="mcontent" class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <input id="detailid" type="hidden" name="detailid">
+                    <input id="imoney" type="hidden" name="imoney">
+                    <input type="hidden" id="amount">
+                    <button id="cancel" type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button id="receive" type="button" class="btn btn-primary">确定领用</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal end-->
+
+    <!-- 底边栏开始 -->
+    <script>
+                    $.include("pages/partial/foot.shtml");
+    </script>
+    <script type="text/javascript">
+        $.include("pages/partial/xwatable-form.shtml")
+    </script>
+</body>
+
+<script>
+        $.include("pages/partial/scripts.shtml");
+
+</script>
+
+
+
+<script src="assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-watable/jquery.watable.js"></script>
+<script type="text/javascript" src="pages/scripts/rqlbuilder.js"></script>
+<script type="text/javascript" src="pages/scripts/xwatable.js"></script>
+<script type="text/javascript" src="pages/scripts/refhelper.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-fileinput/fileinput.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-fileinput/zh.js"></script>
+
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script src="assets/admin/pages/scripts/components-pickers.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+<script src="pages/scripts/jquery.json.min.js"></script>
+<script type="text/javascript" src="pages/scripts/jquery.serialize-object.min.js"></script>
+<script type="text/javascript" src="collectfee/js/charge.js"></script>
+<script type="text/javascript" src="collectfee/js/localservice.js"></script>
+
+
+<!-- 底边栏结束 -->
+<script type="text/javascript">
+    var isBlackList = '0';//0否
+    var $invoiceModal;
+    var $activeTab;
+    $(function () {
+        $invoiceModal = $("#invoiceModal");
+        $invoiceModal.on("hidden.bs.modal", function () {
+            $(this).removeData("bs.modal");
+        });
+        $invoiceModal.unbind("show.bs.modal").on("show.bs.modal", function (e) {
+            $(e.currentTarget).find("#mcontent").empty();
+        });
+        $invoiceModal.unbind("shown.bs.modal").on("shown.bs.modal", function (e) {
+            // 加载数据模板
+            $(e.currentTarget).find("#mcontent").load("collectfee/partial/wasteinvoice.shtml", function () {
+            });
+        });
+        //发票
+        $("#invoiceModal").delegate("button[btncount]", "click", function () {
+            var $btn = $(this),
+                $container = $btn.closest("div[je]"),
+                $invoiceCount = $container.find("#count"),
+                $invoiceValue = $("#summoney")
+            $invoiceTotalCount = $("#sumcount");
+
+            var selectInvoiceValue = 0;
+            selectInvoiceValue = $invoiceValue.html() * 1 + $btn.attr("btnvalue") * 1;
+
+            var selectInvoiceCount = 0;
+            selectInvoiceCount = $invoiceCount.text() * 1 + $btn.attr("btncount") * 1;
+
+            if (selectInvoiceValue > $("#imoney").val()) {
+                bootbox.alert("发票总金额不能大于实际收费金额");
+                return
+            }
+            else if (selectInvoiceCount < 0) {
+                bootbox.alert("发票数量不能小于0");
+                return
+            }
+            else {
+                $invoiceCount.html(selectInvoiceCount);
+                $invoiceTotalCount.html($invoiceTotalCount.text() * 1 + $btn.attr("btncount") * 1);
+                $invoiceValue.html(selectInvoiceValue);
+            }
+        });
+
+        $("#receive").click(function () {
+            var $container = $("#invoiceModal"),
+                $invoiceCounts = $container.find("label[type=count]"),
+                $invoiceValues = $container.find("label[value]");
+            var invoice = "";
+
+            for (var i = 0; i < $invoiceCounts.length; i++) {
+                var count = parseInt($($invoiceCounts[i]).text());
+                if (count > 0) {
+                    for (var j = 0; j < count; j++) {
+                        invoice += $($invoiceValues[i]).attr("value") + "|";
+                    }
+                }
+            }
+            chargeHelper.invoiceWaste($("#detailid").val(), invoice, function (success, data) {
+                if (success) {
+                    if (data.errCode == '1') {
+                        bootbox.alert("发票领用成功");
+                        $invoiceModal.modal('hide');
+                        var customerArchive = chargeHelper.getContext("_current_archive");
+                        onCustomerSelected(customerArchive.customerCode);
+                    } else {
+                        bootbox.alert("发票领用失败：" + data.errCode, function () {
+                            $invoiceModal.modal('hide');
+                            var customerArchive = chargeHelper.getContext("_current_archive");
+                            onCustomerSelected(customerArchive.customerCode);
+                        });
+                    }
+                } else {
+                    bootbox.alert("发票领用异常");
+                }
+            });
+        });
+
+        $("#cancel").click(function () {
+            var customerArchive = chargeHelper.getContext("_current_archive");
+            onCustomerSelected(customerArchive.customerCode);
+        });
+        $(".tab-content").delegate("a[hzq-type=remoteModal]", "click", function (obj) {
+            var $targetModal = $($(obj.target).attr("hzq-modal"));
+            var targetPath = $(obj.target).attr("hzq-remote");
+            var fnstring = $(obj.target).attr("hzq-cb");
+            var param = $(obj.target).attr("hzq-param");
+            $targetModal.modal({
+                show: true
+            })
+            $targetModal.unbind("show.bs.modal").on("show.bs.modal", function (e) {
+                $(e.currentTarget).find("#mcontent").empty();
+            });
+            $targetModal.unbind("shown.bs.modal").on("shown.bs.modal", function (e) {
+                // 加载数据模板
+                //console.log($(e.currentTarget));
+                $(e.currentTarget).find("#mcontent").load(targetPath, function () {
+                    if (fnstring) {
+                        var fn = window[fnstring];
+                        //console.log(param);
+                        if (typeof fn === "function") fn.call(null, JSON.parse(param));
+                        window[fnstring] = undefined;
+
+                        //if (typeof fn === "function") fn.call(null, param );
+                    }
+                });
+            });
+            $targetModal.on("hidden.bs.modal", function () {
+                $(this).removeData("bs.modal");
+            });
+        });
+    });
+    $(document).ready(function () {
+        $('#divChgContainer').delegate("a[data-toggle=tab]", 'shown.bs.tab', function (e) {
+            $activeTab = $(e.target);
+        });
+        /*
+                $("#find_user_btn").closest(".row").append("<div class=\"btn-group form-group col-sm-1\"><button id=\"read_card\" type=\"button\" class=\"btn green\">读卡&nbsp;<i id=\"ib\" class=\"fa fa-paper-plane\"></i></button></div>");
+        */
+        //收费大额提示,
+        $("#divChgContainer").delegate("input[id=cashAmount]", "blur", function (e) {
+
+            var $obj = $(e.currentTarget),
+                $table = $obj.closest("table"),
+                $chgType = $table.find("input[name=chgType]"),
+                money = parseFloat($obj.val());
+            if (parseFloat($obj.val()) > 1000) {
+                // alert("金额过大");
+                bootbox.confirm({
+                    buttons: {
+                        confirm: {
+                            label: '确定金额输入正确',
+                            className: 'btn-danger'
+                        },
+                        cancel: {
+                            label: '更正',
+                            className: 'btn-success'
+                        }
+                    },
+                    message: '输入的购气金额 <b style="color:red">¥' + $obj.val() + '</b> 过大，请确认是否输入正确',
+                    callback: function (result) {
+                        if (result) {
+
+                        } else {
+                            $obj.val("");
+                        }
+                    }
+                });
+            } else if (parseFloat($obj.val()) < 0) {
+                //alert("金额不能为负值");
+                bootbox.alert("输入的金额为负值，请重新输入", function () {
+                    $obj.val("");
+                });
+            }
+
+            if ($chgType.val() == "4") {
+                if (money > 0 && checkNo != "") {
+                    $table.find("#BtnSub").removeAttr("disabled");
+                } else {
+                    $table.find("#BtnSub").attr("disabled", "disabled");
+                }
+            } else {
+                if (money > 0) {
+                    $table.find("#BtnSub").removeAttr("disabled");
+                } else {
+                    $table.find("#BtnSub").attr("disabled", "disabled");
+                }
+            }
+        });
+        //收费大额提示,
+        $("#divChgContainer").delegate("input[id=input_checkno]", "blur", function (e) {
+
+            var $obj = $(e.currentTarget),
+                $table = $obj.closest("table"),
+                $chgType = $table.find("input[name=chgType]"),
+                money = parseFloat($obj.val());
+            if ($chgType.val() == "4") {
+                if (money > 0 && checkNo != "") {
+                    $table.find("#BtnSub").removeAttr("disabled");
+                } else {
+                    $table.find("#BtnSub").attr("disabled", "disabled");
+                }
+            } else {
+                if (money > 0) {
+                    $table.find("#BtnSub").removeAttr("disabled");
+                } else {
+                    $table.find("#BtnSub").attr("disabled", "disabled");
+                }
+            }
+        });
+
+        $("#divChgContainer").delegate("input[name=chgType]", "click", function (e) {
+            var $obj = $(e.currentTarget),
+                $table = $obj.closest("table");
+            var money = parseFloat($table.find("#cashAmount").val());
+
+            // if ($obj.val() == "1") {//现金
+            $table.find("#cashAmount").removeAttr("disabled");
+            // }
+
+            if ($obj.val() == "4") {//支票
+                $table.find("#cashAmount").removeAttr("disabled");
+                $table.find("#input_checkno").removeAttr("disabled");
+            } else {
+                $table.find("#input_checkno").attr("disabled", "disabled");
+                $table.find("#input_checkno").val("");
+            }
+            var checkNo = $table.find("#input_checkno").val();
+
+            if ($obj.val() == "4") {
+                if (money > 0 && checkNo != "") {
+                    $table.find("#BtnSub").removeAttr("disabled");
+                } else {
+                    $table.find("#BtnSub").attr("disabled", "disabled");
+                }
+            } else {
+                if (money > 0) {
+                    $table.find("#BtnSub").removeAttr("disabled");
+                } else {
+                    $table.find("#BtnSub").attr("disabled", "disabled");
+                }
+            }
+            // $table.find("#cashAmount").removeAttr("disabled");
+        });
+
+
+        $("#divChgContainer").delegate("#BtnSub", "click", function (e) {
+
+
+            var $obj = $(e.currentTarget),
+                $table = $obj.closest("table");
+            var title = $table.find("#chgTitle").val();
+            //var chgTypeName = $table.find("#chgType").attr("text");
+
+            var chgTypeName = $table.find("input[name=chgType]:checked").attr("text");
+            var chgTypeId = $table.find("input[name=chgType]:checked").val();
+            var money = $table.find("#cashAmount").val();
+            var checkNo = $table.find("#input_checkno").val();
+            var feeType = $table.find("#feeType").val();
+            var customerArchive = chargeHelper.getContext("_current_archive");
+            var message = "";
+            var basicPrice = chargeHelper.getContext("_current_basicPrice").price1;
+
+            message += "<p style='font-size: large;' class=\"text-muted\">客户号：" + customerArchive.customerCode + "</p>";
+            message += "<p style='font-size: large;' class=\"text-muted\">客户姓名：" + customerArchive.customerName + "</p>";
+            //message += "<p style='font-size: large;' class=\"text-muted\">销售单价：<span style='color:green; font-weight:bold;'>" + chargeHelper.formatMoney(price) + "</span></p>";
+            message += "<p style='font-size: large;' class=\"text-muted\">收费方式：<span style='color:green; font-weight:bold;'>" + chgTypeName + "</span></p>";
+            message += "<p style='font-size: large;' class=\"text-muted\">收费金额：<span style='color:green; font-weight:bold;'>" + chargeHelper.formatMoney(money) + "</span></p>";
+            message += "<p style='font-size: large;' class=\"text-muted\">销售单价：<span style='color:green; font-weight:bold;'>" + chargeHelper.formatPrice(basicPrice) + "</span></p>";
+
+            var title = "";
+            if (feeType == "gas") {
+                title = "收取燃气费";
+            } else {
+                title = "收取垃圾处理费";
+            }
+            bootbox.confirm({
+                title: title,
+                buttons: {
+                    confirm: {
+                        label: '收费信息正确，确认收费',
+                        className: 'btn-danger'
+                    },
+                    cancel: {
+                        label: '取消',
+                        className: 'btn-default'
+                    }
+                },
+                message: message,
+                callback: function (result) {
+                    if (result) {
+                        if (feeType == "gas") {
+                            chargeHelper.chgGasFee(customerArchive.customerCode, chgTypeId, money, checkNo, isBlackList, function (chgResult) {
+                                if (chgResult.errCode == "1") {
+                                    if (chgResult.invoiceType == "2") {
+                                        bootbox.confirm("该客户的发票类型为专用发票，是否打印普通发票？", function (confirmResult) {
+                                            if (confirmResult) {
+                                                chargeHelper.printInvoice(chgResult.invoiceId, function (pData) {
+                                                    if (pData == null || pData == undefined) {
+                                                        bootbox.alert("打印失败", function () {
+                                                            onCustomerSelected(customerArchive.customerCode);
+                                                        });
+                                                    } else {
+                                                        localService.callPrint({ "ptid": pData.printId }, function (retData, isSuccess) {
+                                                            if (isSuccess) {
+                                                                if (confirm("是否打印成功？")) {
+                                                                    chargeHelper.printInvoiceResponse(chgResult.invoiceId);
+                                                                }
+                                                                onCustomerSelected(customerArchive.customerCode);
+                                                            } else {
+                                                                bootbox.alert("打印失败", function () {
+                                                                    onCustomerSelected(customerArchive.customerCode);
+                                                                });
+                                                            }
+                                                        });
+                                                    }
+                                                });
+                                            } else {
+                                                onCustomerSelected(customerArchive.customerCode);
+                                            }
+                                        });
+                                    } else {
+                                        chargeHelper.printInvoice(chgResult.invoiceId, function (pData) {
+                                            if (pData == null || pData == undefined) {
+                                                bootbox.alert("打印失败", function () {
+                                                    onCustomerSelected(customerArchive.customerCode);
+                                                });
+                                            } else {
+                                                localService.callPrint({ "ptid": pData.printId }, function (retData, isSuccess) {
+                                                    if (isSuccess) {
+                                                        if (confirm("是否打印成功？")) {
+                                                            chargeHelper.printInvoiceResponse(chgResult.invoiceId);
+                                                        }
+                                                        onCustomerSelected(customerArchive.customerCode);
+                                                    } else {
+                                                        bootbox.alert("打印失败", function () {
+                                                            onCustomerSelected(customerArchive.customerCode);
+                                                        });
+                                                    }
+                                                });
+                                            }
+                                        });
+                                    }
+                                } else {
+                                    bootbox.alert(chgResult.errMsg, function () {
+                                        onCustomerSelected(customerArchive.customerCode);
+                                    });
+                                }
+                            });
+                        } else {
+                            // 垃圾处理费
+                            chargeHelper.chgWasteFee(customerArchive.customerCode, chgTypeId, money, checkNo, function (chgResult) {
+                                if (chgResult.errCode == "1") {
+                                    bootbox.confirm({
+                                        buttons: {
+                                            confirm: {
+                                                label: '领用发票',
+                                                className: 'btn-success'
+                                            },
+                                            cancel: {
+                                                label: '无需发票',
+                                                className: 'btn-default'
+                                            }
+                                        },
+                                        message: '垃圾费收费成功！<p>是否领用发票？</p>',
+                                        callback: function (result) {
+                                            if (result) {
+                                                $("#detailid").val(chgResult.detailId);
+                                                $("#imoney").val(money);
+                                                $invoiceModal.modal({
+                                                    show: true,
+                                                    backdrop: 'static',
+                                                    keyboard: false
+                                                })
+                                                $invoiceModal.modal('show');
+                                            } else {
+                                                onCustomerSelected(customerArchive.customerCode);
+                                            }
+                                        }
+                                    });
+
+                                } else {
+                                    bootbox.alert(chgResult.errMsg, function () {
+                                        onCustomerSelected(customerArchive.customerCode);
+                                    });
+                                }
+                            })
+                        }
+                    } else {
+
+                    }
+                }
+            });
+        });
+    });
+    function onCustomerSelected(customerCode) {
+        chargeHelper.clearContext();
+        // 清除所有tab
+        removeTab('tab_ctm');
+        removeTab('tab_customer');
+        $("#_gasInfo").html("");
+        $("#_wasteInfo").html("");
+        chargeHelper.setContext("unique_chg_id", "");
+
+        // 1. 根据客户编号，读取客户信息
+        chargeHelper.getArchiveInfo(customerCode, function () {
+            if (chargeHelper.getContext("_current_archive")) {
+                var currentArchive = chargeHelper.getContext("_current_archive");
+                // 用户基础价格
+                chargeHelper.getBasicPriceInfo(currentArchive.gasTypeId, function(data){
+                    chargeHelper.setContext("_current_basicPrice", data);
+                });
+                // 2. 如果是联合账户，加载联合账户tab
+                chargeHelper.getCTMAccountInfo(currentArchive.ctmArchiveId, function (data) {
+                    chargeHelper.setContext("_current_ctmaccount", data);
+                    addTab("tab_ctm", "联合账户信息");
+                    dust.loadSource(dust.compile($("#__dust__ctmAccountInfo").html(), "ctmAccountInfo__"));
+                    dust.render("ctmAccountInfo__", { "data": data }, function (err, res) {
+                        $("#tab_ctm").html(res);
+                    });
+                });
+
+                // 3. 加载业主信息
+                chargeHelper.getCustomerInfo(currentArchive.customerId, function () {
+                    addTab("tab_customer", "业主信息");
+                    dust.loadSource(dust.compile($("#__dust__customerInfo").html(), "customerInfo__"));
+                    dust.render("customerInfo__", { "data": currentArchive }, function (err, res) {
+                        $("#tab_customer").html(res);
+                    });
+                });
+
+                if (currentArchive.customerState == '01' || currentArchive.customerKind == "9") {
+                    // 4. 加载燃气费缴费记录
+                    chargeHelper.getGasFee(currentArchive.ctmArchiveId, function (data) {
+                        data.isUnion = currentArchive.relChgAccountId ? "0" : "1";
+                        if (currentArchive.relChgAccountId) {
+                            data.isUnion = "1";
+                        } else {
+                            data.isUnion = "0";
+                        }
+                        dust.loadSource(dust.compile($("#__dust__gasRowInfo").html(), "gasrowInfo__"));
+                        dust.render("gasrowInfo__", { "data": data }, function (err, res) {
+                            $("#tabGas").show();
+                            $("#gasFee").removeAttr("style");
+
+                            $("#_gasInfo").html(res);
+
+                            chargeHelper.getGasFeeBalance(currentArchive.ctmArchiveId, function (data) {
+                                var $gasBalance = $("#_gasInfo").find("#balance");
+                                var $unionBalance = $("#_gasInfo").find("#unionBalance");
+
+                                var balances = parseFloat(data.balance).toFixed(2);
+                                var unionBalances = parseFloat(data.unionBalance).toFixed(2);
+                                $gasBalance.text(balances);
+
+                                $unionBalance.text(unionBalances);
+                                if (parseFloat(data.balance) > 0) {
+                                    $gasBalance.css("color", "green");
+                                } else if (parseFloat(data.balance) == 0) {
+                                    $gasBalance.css("color", "black");
+                                } else {
+                                    $gasBalance.css("color", "red");
+                                }
+                            });
+                        });
+                        $("#divChgContainer").show();
+                    });
+                } else if (currentArchive.customerState == '02') {
+                        bootbox.alert("该用户状态为暂停用气,不允许交燃气费。");
+                } else if (currentArchive.customerState == '00') {
+                    bootbox.alert("该用户状态为未开栓,不允许燃气交费。");
+                }/* else if (currentArchive.customerState == '03') {
+                    bootbox.alert("该用户状态为拆除，不允许燃气交费。");
+                } */else {
+                    bootbox.alert("该用户状态异常，不允许燃气交费。");
+                }
+
+                if (chargeHelper.getContext("_current_archive").customerKind == '1') {
+                    if (chargeHelper.getContext("_current_archive").customerState == '01') {
+                        // 5. 加载垃圾费缴费记录
+                        if ($activeTab) {
+                            $activeTab.tab('show');
+                            $activeTab.closest("li").show();
+                        } else {
+                            $('#gas').show();
+                            $("#tabGas").tab('show');
+                        }
+
+                        chargeHelper.getWasteFee(currentArchive.ctmArchiveId, function (data) {
+                            dust.loadSource(dust.compile($("#__dust__wasteRowInfo").html(), "wasterowInfo__"));
+                            dust.render("wasterowInfo__", { "data": data }, function (err, res) {
+                                $("#_wasteInfo").html(res);
+                                chargeHelper.getWasteFeeBalance(currentArchive.ctmArchiveId, function (balance) {
+                                    var $wasteBalance = $("#_wasteInfo").find("#balance");
+                                    var wbalance = parseFloat(balance).toFixed(2);
+                                    $wasteBalance.text(wbalance);
+                                    if (parseFloat(balance) > 0) {
+                                        $wasteBalance.css("color", "green");
+                                    } else if (parseFloat(balance) == 0) {
+                                        $wasteBalance.css("color", "black");
+                                    } else if (parseFloat(balance) < 0) {
+                                        $wasteBalance.css("color", "red");
+                                        chargeHelper.wastepretag(function (data) {
+                                            console.log(data.rows[0].parameterValue);
+                                            if (data.rows[0].parameterValue == '1') {
+                                                $("#tabGas").hide();
+                                                $("#gasFee").hide();
+                                                //$("#wasteFee").show();
+                                                $('#waste').show();
+                                                $("#tabWaste").tab('show');
+
+                                                //removeTab("gas");
+
+                                            } else {
+                                                bootbox.confirm({
+                                                    title: '城镇垃圾处理费欠费',
+                                                    buttons: {
+                                                        confirm: {
+                                                            label: '先交垃圾处理费',
+                                                            className: 'btn-success'
+                                                        },
+                                                        cancel: {
+                                                            label: '客户本次拒绝缴纳城镇垃圾处理费',
+                                                            className: 'btn-danger'
+                                                        }
+                                                    },
+                                                    message: '<b>客户号' + currentArchive.customerCode + '城镇垃圾处理费账户余额为 ¥' + balance + '，应先缴纳城镇垃圾处理费后再收取燃气费。请确认客户是否拒绝缴纳垃圾费。</b>',
+                                                    callback: function (result) {
+                                                        if (!result) {
+
+                                                            isBlackList = '1';
+                                                        } else {
+                                                            isBlackList = '0';
+                                                            $("#tabGas").hide();
+                                                            $("#gasFee").hide();
+                                                            $('#waste').show();
+                                                            $("#tabWaste").tab('show');
+                                                        }
+                                                        //console.log(isBlackList);
+                                                    }
+                                                });
+                                            }
+                                        });
+
+
+                                    }
+                                });
+                            });
+                            $("#divChgContainer").show();
+                        });
+                    } else if (currentArchive.customerState == '02') {
+                        bootbox.alert("该用户状态为暂停用气,不允许交垃圾费。");
+                    } else if (currentArchive.customerState == '00') {
+                        bootbox.alert("该用户状态为未开栓,不允许交垃圾费。");
+                    } else if (currentArchive.customerState == '03') {
+                        bootbox.alert("该用户状态为拆除，不允许交垃圾费。");
+                    } else {
+                        bootbox.alert("该用户状态异常，不允许交垃圾费。");
+                    }
+                } else {
+                    $('#waste').hide();
+                    $("#tabGas").tab('show');
+                }
+
+            }
+        });
+    }
+    function addTab(id, name) {
+        var title = $('<li>', {
+            'role': 'presentation',
+            'id': "li_" + id
+        }).append($('<a>', {
+            'href': '#' + id,
+            'aria-controls': id,
+            'role': 'tab',
+            'data-toggle': 'tab'
+        }).html(name));
+        var $content = $("#" + id);
+        if ($("#divUserInfoContainer").find("ul").find("#li_" + id).length) {
+            $("#divUserInfoContainer").find(".tab-content").remove("#" + id);
+            $content.insertBefore($("#divUserInfoContainer").find(".tab-content").children(".tab-pane:first-child"));
+        } else {
+            $("#divUserInfoContainer").find("ul").append(title);
+            $content.insertBefore($("#divUserInfoContainer").find(".tab-content").children(".tab-pane:first-child"));
+        }
+    }
+    function removeTab(id) {
+        //console.log("123");
+        if ($("#divUserInfoContainer").find("ul").find("#li_" + id).length) {
+            $("#divUserInfoContainer").find(".tab-content").find("#" + id).empty();
+            $("#divUserInfoContainer").find("ul").find("#li_" + id).remove();
+        }
+    }
+
+</script>
+
+</html>

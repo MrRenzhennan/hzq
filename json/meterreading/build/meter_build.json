@@ -1,0 +1,15 @@
+{"rows":
+[
+  {"UUID":"001","versionID":"道里区","gasCategory":"居民","bookcode":"50","gasStart":"道里区工程路","customerService":"9527","areaid":"5077","DOORCOUNT":"张三","DOORCOUNT1":"34","DOORCOUNT2":"G2-5","DOORCOUNT3":"正常","DOORCOUNT4":"普表","metermonth":"2016年8月","meterday":"8658899","COPYMONTH":"776567","oldbook":"9527","COPYRULEDAY":"2016年7月8日","OLDBOOKNO":"139.......","PROPERTYUNIT":"工程小区","BOOKTYPE":"道里区上海街38号","BOOSTERCODE":"编号66666","DAYMEASURE":"本类型"
+ ,"cod":"897654","man":"张三","pirce":"低保","Person":"400","effect":"aaaaaaa","change":"50","effect":"555","customerstatus":"9527","customercod":"2016年7月8日","tel":"139......","PROPERTYUNIT":"工程小区","BOOKTYPE":"正常","BOOSTERCODE":"编号66666","DAYMEASURE":"本类型"},
+ {"UUID":"001","versionID":"道里区","gasCategory":"居民","bookcode":"50","gasStart":"道里区工程路","customerService":"9527","areaid":"5077","DOORCOUNT":"张三","DOORCOUNT1":"34","DOORCOUNT2":"G2-5","DOORCOUNT3":"正常","DOORCOUNT4":"普表","metermonth":"2016年8月","meterday":"8658899","COPYMONTH":"776567","oldbook":"9527","COPYRULEDAY":"2016年7月8日","OLDBOOKNO":"139.......","PROPERTYUNIT":"工程小区","BOOKTYPE":"道里区上海街38号","BOOSTERCODE":"编号66666","DAYMEASURE":"本类型"
+ ,"cod":"897654","man":"张三","pirce":"低保","Person":"400","effect":"aaaaaaa","change":"50","effect":"555","customerstatus":"9527","customercod":"2016年7月8日","tel":"139......","PROPERTYUNIT":"工程小区","BOOKTYPE":"正常","BOOSTERCODE":"编号66666","DAYMEASURE":"本类型"},
+ {"UUID":"001","versionID":"道里区","gasCategory":"居民","bookcode":"50","gasStart":"道里区工程路","customerService":"9527","areaid":"5077","DOORCOUNT":"张三","DOORCOUNT1":"34","DOORCOUNT2":"G2-5","DOORCOUNT3":"正常","DOORCOUNT4":"普表","metermonth":"2016年8月","meterday":"8658899","COPYMONTH":"776567","oldbook":"9527","COPYRULEDAY":"2016年7月8日","OLDBOOKNO":"139.......","PROPERTYUNIT":"工程小区","BOOKTYPE":"道里区上海街38号","BOOSTERCODE":"编号66666","DAYMEASURE":"本类型"
+ ,"cod":"897654","man":"张三","pirce":"低保","Person":"400","effect":"aaaaaaa","change":"50","effect":"555","customerstatus":"9527","customercod":"2016年7月8日","tel":"139......","PROPERTYUNIT":"工程小区","BOOKTYPE":"正常","BOOSTERCODE":"编号66666","DAYMEASURE":"本类型"}
+
+
+]
+,"total_rows":1
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

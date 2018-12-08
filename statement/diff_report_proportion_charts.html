@@ -1,0 +1,585 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8"/>
+    <title>应收占比</title>
+    <script src="../pages/scripts/basepath.js"></script>
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-select/bootstrap-select.min.css">
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/select2/select2.css">
+    <script src="../pages/scripts/header.js"></script>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8"/>
+    <link href='../assets/global/plugins/jquery-watable/watable.css' rel='stylesheet'/>
+    <link href='../assets/global/plugins/jquery-watable/animate.min.css' rel='stylesheet'/>
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.css"/>
+    <link href='../assets/global/plugins/bootstrap-datetimepicker/css/datetimepicker.css' rel='stylesheet'/>
+
+    <!--datapicker css start-->
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-datepicker/css/datepicker3.css"/>
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-colorpicker/css/colorpicker.css"/>
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css"/>
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-datetimepicker/css/datetimepicker.css"/>
+    <!--datapicker end-->
+
+    <link rel="stylesheet" href="/statement/css/3.3.7/bootstrap.min.css">
+    <link href='../assets/global/css/bootstrap-monthpicker.css' rel='stylesheet'/>
+</head>
+
+<body class="page-header-fixed page-quick-sidebar-over-content">
+
+<!-- 标题栏开始 -->
+<div class="page-header navbar navbar-fixed-top">
+    <script>$.include("pages/partial/menu.shtml");</script>
+</div>
+<!-- 标题栏结束 -->
+<div class="clearfix"></div>
+<div class="page-container">
+    <!-- 左侧菜单开始 -->
+    <div class="page-sidebar-wrapper">
+        <script>$.include("pages/partial/sidebar.shtml");</script>
+    </div>
+    <!-- 左侧菜单结束 -->
+
+    <!-- 主内容开始 -->
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <!--内容头开始-->
+            <!--内容头开始-->
+            <div class="row noneprint">
+                <div class="col-md-12">
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa fa-map-marker"></i>
+                            <a href="index.html">报表统计</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">应收占比</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 内容头结束-->
+
+            <div class="container col-sm-12 noneprint" style="padding-bottom:0px">
+                <div class="row">
+
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group">
+                            <div class="input-group-addon" style="border:0px;">月份：</div>
+                            <div id="div_date" class="input-group input-daterange" data-date="11/2012" data-date-format="yyyy年mm月">
+                                <input id="find_date" type="text" class="form-control" name="from">
+                                <span class="inputclear glyphicon glyphicon-remove-circle hidden" ></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                    </div>
+                    <div class="col-sm-3 form-group">
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <button id="find_sign" type="button" class="btn yellow">
+                                查询 <i class="fa fa-search"></i>
+                            </button>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <button id="btn_print_page" onclick="window.print()" type="button" class="btn gray disabled" >
+                                打印<i class="glyphicon"></i>
+                            </button>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <button id="btn_down_detail" type="button" class="btn gray disabled export-excel">
+                                导出<i class="glyphicon"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="container-fluid">
+                <br/><br/>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div id="main1" style="height:400px"></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div id="main2" style="height:400px"></div>
+                    </div>
+                </div>
+                <br/>
+                <table class="tabPrint table-bordered table-hover table-condensed " width="98%" align="center" cellSpacing="0" cellPadding="0" border="0"
+                       id="table_0">
+                    <thead style="display:table-header-group;font-weight:bold"
+                           mce_style="display:table-header-group;font-weight:bold">
+                    <tr align="center">
+                        <td id="table_0_thead_r1_c1" rowspan="2" colspan="1">用气类型</td>
+                        <td id="table_0_thead_r2_c2" rowspan="1" colspan="4">本年</td>
+                        <td id="table_0_thead_r3_c3" rowspan="1" colspan="4">同期</td>
+                    </tr>
+                    <tr align="center">
+                        <td id="table_1_thead_r2_c2" rowspan="1" colspan="1">本月</td>
+                        <td id="table_1_thead_r2_c3" rowspan="1" colspan="1">累计</td>
+                        <td id="table_1_thead_r2_c4" rowspan="1" colspan="1">本月占比</td>
+                        <td id="table_1_thead_r2_c5" rowspan="1" colspan="1">累计占比</td>
+                        <td id="table_1_thead_r2_c6" rowspan="1" colspan="1">本月</td>
+                        <td id="table_1_thead_r2_c7" rowspan="1" colspan="1">累计</td>
+                        <td id="table_1_thead_r2_c8" rowspan="1" colspan="1">本月占比</td>
+                        <td id="table_1_thead_r2_c9" rowspan="1" colspan="1">累计占比</td>
+                    </tr>
+                    </thead>
+                    <tbody id="tbody">
+                    </tbody>
+                </table>
+
+                <br/><br/>
+                <br/><br/></div>
+            <!-- 内容结束-->
+        </div>
+    </div>
+    <!-- 主内容结束 -->
+</div>
+
+<!-- 底边栏开始 -->
+<script>$.include("pages/partial/foot.shtml");</script>
+<!-- 底边栏结束 -->
+</body>
+
+
+<script>$.include("pages/partial/scripts.shtml");</script>
+<!--跳到原稿-->
+<script src="../assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="../assets/global/plugins/jquery-watable/jquery.watable.js"></script>
+<script type="text/javascript" src="../pages/scripts/rqlbuilder.js"></script>
+<script type="text/javascript" src="../pages/scripts/xwatable.js"></script>
+<script type="text/javascript" src="../pages/scripts/refhelper.js"></script>
+
+<!--datapicker start-->
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/clockface/js/clockface.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-daterangepicker/moment.min.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script src="../assets/admin/pages/scripts/components-pickers.js"></script>
+
+<script type="text/javascript" src="../assets/global/plugins/select2/select2.js"></script>
+<script type="text/javascript" src="../assets/global/scripts/bootstrap-monthpicker.js"></script>
+
+
+<script src="/statement/js/libs/js-xlsx/xlsx.core.min.js" type="text/javascript"></script>
+<script src="/statement/js/libs/html2canvas/html2canvas.min.js" type="text/javascript"></script>
+<script src="/statement/js/tableExport.js" type="text/javascript"></script>
+<script src="/statement/js/datehelper.js" type="text/javascript"></script>
+
+<script type="text/javascript" src="/statement/js/libs/charts/echarts.js"></script>
+<script type="text/javascript" src="/statement/js/libs/charts/echarts-gl.js"></script>
+<script type="text/javascript">
+    $(".export-excel").attr("data-table",".tabPrint");
+    //    $(".export-excel").attr("data-filename","");
+    $(".export-excel").on("click", function (e) {
+        e.preventDefault();
+        var exportTable = $(this).data("table");
+        var filename = $("title").text();//$(this).data("filename");
+        var ignoreColumn = "";//$(this).data("ignorecolumn");
+        $(exportTable).tableExport({
+            fileName: filename,
+            type: 'excel',
+            escape: 'false',
+            excelstyles: ['border-bottom', 'border-top', 'border-left', 'border-right'],
+            ignoreColumn: '[' + ignoreColumn + ']'
+        });
+    });
+
+    function getNum(data,gastypeid){
+        var num=0;
+        if(data){
+            data.forEach(function(o){
+                if(o.gasTypeId ){    
+                    if(o.gasTypeId.length>2){
+                        if(o.gasTypeId.substring(0,3)==gastypeid){ 
+                            if(o.ctmNum)num+=o.ctmNum;
+                        }
+                    }
+                }
+            });
+        }
+        
+        return num;
+    }
+
+    $(function(){
+        ComponentsPickers.init();
+        $('#find_date').bootstrapMonthpicker();
+        $("#find_date").val(moment().format('YYYY-MM'));
+
+        // 基于准备好的dom，初始化echarts图表
+        var myChart1 = echarts.init(document.getElementById("main1"));
+        var option1 = {
+            title : {
+                text: '截止'+moment($("#find_date").val()).format("YYYY年MM月")+'用气情况累计占比',
+                subtext: '',
+                x:'center'
+            },
+            tooltip : {
+                trigger: 'item',
+                formatter: "{a} <br/>{b} : {c}% ({d})"
+            },
+            legend: {
+                type: 'scroll',
+                orient: 'vertical',
+                left: 0,
+                data:["居民","工业","锅炉","商服","公益","福利","动力汽车","内部用气"]
+            },
+            toolbox: {
+                show : true,
+                feature : {
+                    mark : {show: true},
+                    dataView : {show: true, readOnly: false},
+                    magicType : {
+                        show: true,
+                        type: ['pie', 'funnel']
+                    },
+                    restore : {show: true},
+                    saveAsImage : {show: true}
+                }
+            },
+            calculable : true,
+            series : [
+                {
+                    name:'用气情况占比',
+                    type:'pie',
+                    radius : [10, 110],
+                    center : ['50%', '50%'],
+                    data:[
+                        {value:0, name:'居民'},
+                        {value:0, name:'工业'},
+                        {value:0, name:'锅炉'},
+                        {value:0, name:'商服'},
+                        {value:0, name:'公益'},
+                        {value:0, name:'福利'},
+                        {value:0, name:'动力汽车'},
+                        {value:0, name:'内部用气'}
+                    ]
+                }
+            ]
+        };
+
+
+        // 基于准备好的dom，初始化echarts图表
+        var myChart2 = echarts.init(document.getElementById("main2"));
+        var option2 = {
+            title : {
+                text: '截止'+moment($("#find_date").val()).add('year',-1).format("YYYY年MM月")+'用气情况累计占比',
+                subtext: '',
+                x:'center'
+            },
+            tooltip : {
+                trigger: 'item',
+                formatter: "{a} <br/>{b} : {c}% ({d})"
+            },
+            legend: {
+                type: 'scroll',
+                orient: 'vertical',
+                left: 0,
+                data:["居民","工业","锅炉","商服","公益","福利","动力汽车","内部用气"]
+            },
+            toolbox: {
+                show : true,
+                feature : {
+                    mark : {show: true},
+                    dataView : {show: true, readOnly: false},
+                    magicType : {
+                        show: true,
+                        type: ['pie', 'funnel']
+                    },
+                    restore : {show: true},
+                    saveAsImage : {show: true}
+                }
+            },
+            calculable : true,
+            series : [
+                {
+                    name:'用气情况占比',
+                    type:'pie',
+                    radius : [10, 110],
+                    center : ['50%', '50%'],
+                    data:[
+                        {value:0, name:'居民'},
+                        {value:0, name:'工业'},
+                        {value:0, name:'锅炉'},
+                        {value:0, name:'商服'},
+                        {value:0, name:'公益'},
+                        {value:0, name:'福利'},
+                        {value:0, name:'动力汽车'},
+                        {value:0, name:'内部用气'}
+                    ]
+                }
+            ]
+        };
+
+        // 为echarts对象加载数据
+        myChart1.setOption(option1);
+        // 为echarts对象加载数据
+        myChart2.setOption(option2);
+
+        var tbody = "";
+
+        var legendData=[],seriesData=[],seriesData2=[];
+        $.ajax({
+            url: "hzqs/dbc/pbsel.do?fh=SELDBC0000000J00&resp=bd",
+            type: "POST",
+            contentType: "application/json;charset=utf-8",
+            data: JSON.stringify({
+                cols: "gasTypeId,gasTypeName",
+                froms: "gasBizGasType",
+                wheres: " posCode = 0 and length(gasTypeCode)=3 order by gasTypeCode",
+                page: "false"
+            }),
+            dataType: "json",
+            success: function (data) {                
+                var gs=data.rows;
+                gs.push({gasTypeName:"小计",gasTypeId:-1});
+                for (var j = 0; j < gs.length; j++) {
+                    tbody = tbody + '<tr align="center" data-gastypeid="'+gs[j].gasTypeId+'">' +
+                        '<td id="tbody_r'+gs[j].gasTypeId+'_c1" rowspan="1" colspan="1"><b>' + gs[j].gasTypeName + '</b></td>' +
+                        '<td id="tbody_r'+gs[j].gasTypeId+'_c2" rowspan="1" colspan="1">0</td>' +
+                        '<td id="tbody_r'+gs[j].gasTypeId+'_c3" rowspan="1" colspan="1">0</td>' +
+                        '<td id="tbody_r'+gs[j].gasTypeId+'_c4" rowspan="1" colspan="1">0%</td>' +
+                        '<td id="tbody_r'+gs[j].gasTypeId+'_c5" rowspan="1" colspan="1">0%</td>' +
+                        '<td id="tbody_r'+gs[j].gasTypeId+'_c6" rowspan="1" colspan="1">0</td>' +
+                        '<td id="tbody_r'+gs[j].gasTypeId+'_c7" rowspan="1" colspan="1">0</td>' +
+                        '<td id="tbody_r'+gs[j].gasTypeId+'_c8" rowspan="1" colspan="1">0%</td>' +
+                        '<td id="tbody_r'+gs[j].gasTypeId+'_c9" rowspan="1" colspan="1">0%</td>' +
+                    '</tr>';
+                    if(gs[j].gasTypeId!=-1){
+                        legendData.push(gs[j].gasTypeName);
+                    }
+                }
+                $("#tbody").html(tbody);
+            }
+        }); 
+
+        //查询按钮时间
+        $("#find_sign").on("click",function() {
+            //哈中庆
+            var areaid="1";
+            if ($("#find_date").val() == "") {
+                bootbox.alert("请您选择要查询的月份！");
+                return;
+            }
+
+            $("#btn_down_detail").removeClass("disabled");
+            $("#btn_down_detail").removeClass("gray");
+            $("#btn_down_detail").addClass("green");
+
+            $("#btn_print_page").removeClass("disabled");
+            $("#btn_print_page").removeClass("gray");
+            $("#btn_print_page").addClass("green");
+            //报表时间是上月26日到当月26日
+            var curMonth=$("#find_date").val().replace('年','-').replace('月','');   
+            //月末         
+            var end = dateHelper.getMonthEnd(curMonth);
+            //月初
+            var start = dateHelper.getMonthStart(curMonth);
+            //获取当年年初
+            var startYear=dateHelper.getCurYearMonthStart(curMonth);
+            //当年
+            var year=dateHelper.getCurYear(curMonth);
+            
+            //当月
+            var month=parseInt(dateHelper.getCurMonth(curMonth));
+            //上年上月 {prevmonth:"",prevyear:""};考虑跨年
+            var prev=dateHelper.getPrevMonth(curMonth);
+            //上年
+            var prevyear=dateHelper.getPrevYear(curMonth);
+            option1.title.text='截止'+moment($("#find_date").val()).format("YYYY年MM月")+'用气情况累计占比';
+            option2.title.text='截止'+moment($("#find_date").val()).add('year',-1).format("YYYY年MM月")+'用气情况累计占比';
+            seriesData=[],seriesData2=[];
+            /* 本月应收 累积应收 */
+            var whereClause2=" reportYear="+year+" and reportMonth="+month;
+            $.ajax({
+                url: "hzqs/dbc/pbsel.do?fh=SELDBC0000000J00&resp=bd",
+                type: "POST",
+                contentType: "application/json;charset=utf-8",
+                data: JSON.stringify({
+                    cols: "sum(a.gas) ctmNum,a.gasTypeId",
+                    froms: "gasReportYslNewDiff a  ",
+                    wheres: whereClause2 + " group by a.gasTypeId",
+                    page: "false",
+                }),
+                dataType: "json",
+                success: function (data) {
+                    console.log("本月应收",data);
+                    var numTotal=0;
+                    $("#tbody").find("tr").each(function(){
+                        var gasTypeId=$(this).data("gastypeid"); 
+                        //小计
+                        if(gasTypeId=="-1"){
+                            $(this).find("#tbody_r"+gasTypeId+"_c2").html(numTotal);
+                            numTotal=0;
+                        }else{
+                            var num=getNum(data.rows,gasTypeId) ;
+                            numTotal+=num;
+                            $(this).find("#tbody_r"+gasTypeId+"_c2").html(num);
+                        } 
+                    })
+                    
+                    var total=parseInt($("#tbody_r-1_c2").text());
+                    $("#tbody").find("tr").each(function(){
+                        var gasTypeId=$(this).data("gastypeid"); 
+                        //小计
+                        var val=parseInt($(this).find("#tbody_r"+gasTypeId+"_c2").text());
+                        var rate=0;
+                        if(total!=0){
+                            rate=((val/total)*100).toFixed(2)+"%";
+                        }
+                        $(this).find("#tbody_r"+gasTypeId+"_c4").html(rate);
+                    })
+                }
+            })
+            //累积应收
+            var whereClause3=" reportYear="+year+" and reportMonth<="+month;
+            $.ajax({
+                url: "hzqs/dbc/pbsel.do?fh=SELDBC0000000J00&resp=bd",
+                type: "POST",
+                contentType: "application/json;charset=utf-8",
+                data: JSON.stringify({
+                    cols: "sum(a.gas) ctmNum,a.gasTypeId",
+                    froms: "gasReportYslNewDiff a  ",
+                    wheres: whereClause3 + " group by a.gasTypeId",
+                    page: "false",
+                }),
+                dataType: "json",
+                success: function (data) {
+                    console.log("累积应收",data);
+                    var numTotal=0;
+                    $("#tbody").find("tr").each(function(){
+                        var gasTypeId=$(this).data("gastypeid"); 
+                        //小计
+                        if(gasTypeId=="-1"){
+                            $(this).find("#tbody_r"+gasTypeId+"_c3").html(numTotal);
+                            numTotal=0;
+                        }else{
+                            var num=getNum(data.rows,gasTypeId) ;
+                            numTotal+=num;
+                            $(this).find("#tbody_r"+gasTypeId+"_c3").html(num);
+                        } 
+                    })
+                    var total=parseInt($("#tbody_r-1_c3").text());
+                    $("#tbody").find("tr").each(function(){
+                        var gasTypeId=$(this).data("gastypeid"); 
+                        //小计
+                        var val=parseInt($(this).find("#tbody_r"+gasTypeId+"_c3").text());
+                        var rate=0;
+                        if(total!=0){
+                            rate=((val/total)*100).toFixed(2);
+                        }                        
+                        $(this).find("#tbody_r"+gasTypeId+"_c5").html(rate+"%");                            
+                        if(gasTypeId!=-1){
+                            seriesData.push({value:rate, name:$(this).find("#tbody_r"+gasTypeId+"_c1").text()}) 
+                        }              
+                    })
+                    option1.legend.data=legendData;
+                    option1.series[0].data=seriesData;
+                    // 为echarts对象加载数据
+                    myChart1.setOption(option1);
+                }
+            })
+            //同期
+            var whereClause6=" reportYear="+prevyear+" and reportMonth="+month;
+            $.ajax({
+                url: "hzqs/dbc/pbsel.do?fh=SELDBC0000000J00&resp=bd",
+                type: "POST",
+                contentType: "application/json;charset=utf-8",
+                data: JSON.stringify({
+                    cols: "sum(a.gas) ctmNum,a.gasTypeId",
+                    froms: "gasReportYslNewDiff a  ",
+                    wheres: whereClause6 + " group by a.gasTypeId",
+                    page: "false",
+                }),
+                dataType: "json",
+                success: function (data) {
+                    console.log("同期本月应收",data);
+                    var numTotal=0;
+                    $("#tbody").find("tr").each(function(){
+                        var gasTypeId=$(this).data("gastypeid"); 
+                        //小计
+                        if(gasTypeId=="-1"){
+                            $(this).find("#tbody_r"+gasTypeId+"_c6").html(numTotal);
+                            numTotal=0;
+                        }else{
+                            var num=getNum(data.rows,gasTypeId) ;
+                            numTotal+=num;
+                            $(this).find("#tbody_r"+gasTypeId+"_c6").html(num);
+                        } 
+                    })
+                    
+                    var total=parseInt($("#tbody_r-1_c6").text());
+                    $("#tbody").find("tr").each(function(){
+                        var gasTypeId=$(this).data("gastypeid"); 
+                        //小计
+                        var val=parseInt($(this).find("#tbody_r"+gasTypeId+"_c6").text());
+                        if(total!=0){
+                            var rate=((val/total)*100).toFixed(2)+"%";
+                        } 
+                        $(this).find("#tbody_r"+gasTypeId+"_c8").html(rate);                       
+                    })
+                }
+            })
+            //累积应收
+            var whereClause7=" reportYear="+prevyear+" and reportMonth<="+month;
+            $.ajax({
+                url: "hzqs/dbc/pbsel.do?fh=SELDBC0000000J00&resp=bd",
+                type: "POST",
+                contentType: "application/json;charset=utf-8",
+                data: JSON.stringify({
+                    cols: "sum(a.gas) ctmNum,a.gasTypeId",
+                    froms: "gasReportYslNewDiff a  ",
+                    wheres: whereClause7 + " group by a.gasTypeId",
+                    page: "false",
+                }),
+                dataType: "json",
+                success: function (data) {
+                    console.log("同期累积应收",data);
+                    var numTotal=0;
+                    $("#tbody").find("tr").each(function(){
+                        var gasTypeId=$(this).data("gastypeid"); 
+                        //小计
+                        if(gasTypeId=="-1"){
+                            $(this).find("#tbody_r"+gasTypeId+"_c7").html(numTotal);
+                            numTotal=0;
+                        }else{
+                            var num=getNum(data.rows,gasTypeId) ;
+                            numTotal+=num;
+                            $(this).find("#tbody_r"+gasTypeId+"_c7").html(num);
+                        } 
+                    })
+                    var total=parseInt($("#tbody_r-1_c7").text());
+                    
+                    $("#tbody").find("tr").each(function(){
+                        var gasTypeId=$(this).data("gastypeid"); 
+                        //小计
+                        var val=parseInt($(this).find("#tbody_r"+gasTypeId+"_c7").text());
+                        var rate=0;
+                        if(total!=0){
+                            rate=((val/total)*100).toFixed(2);
+                        }                          
+                        $(this).find("#tbody_r"+gasTypeId+"_c9").html(rate+"%");                          
+                        if(gasTypeId!=-1){
+                            seriesData2.push({value:rate, name:$(this).find("#tbody_r"+gasTypeId+"_c1").text()}) 
+                        }                   
+                    })
+                    option2.legend.data=legendData;
+                    option2.series[0].data=seriesData2;
+                    // 为echarts对象加载数据
+                    myChart2.setOption(option2);
+                }
+            })
+        }); 
+    })
+
+</script>
+</body>
+</html>

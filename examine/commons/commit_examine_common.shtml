@@ -1,0 +1,289 @@
+<div class="tabbable tabbable-custom tabbable-custom-profile col-md-12" style="padding-bottom:0px">
+    <ul class="nav nav-tabs">
+        <li class="active">
+            <a href="#tab_1_22" data-toggle="tab">
+                审批 </a>
+
+        </li>
+    </ul>
+    <!--/row-->
+    <div class="tab-content">
+        <div class="tab-pane active" id="tab11">
+            <div class="portlet-body">
+                <div class="row form-group">
+                    <div class="col-sm-6 form-group">
+                        <div class="btn-group input-group" style="width: 100%">
+                            <div class="input-group-addon">审批过程:</div>
+                            <input id="stepid" type="hidden">
+                            <span id="opinion_msg" ></span>  
+                        </div>
+                    </div>
+                </div>
+                <div class="row form-group">
+	                <div class="col-sm-6 form-group" style="margin-left: 35%">
+					    <div class="btn-group form-group">
+					        <a class='pull-right btn btn-sm btn-circle green' data-toggle='modal' href='#tongyi'>
+					            继续
+					        </a>
+					    </div>
+					    <div class="btn-group form-group">
+					        <a class='pull-right btn btn-sm btn-circle red' data-toggle='modal' href='#jujue'>
+					            拒绝
+					        </a>
+					    </div>
+					    <div class="btn-group form-group">
+					        <a class='pull-right btn btn-sm btn-circle blue' id='back_btn'>
+					            返回
+					        </a>
+					    </div>
+					</div>
+				</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="tongyi" class="modal fade" tabindex="-1" data-width="400">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">审批建议</h4>
+            </div>
+            <div class="modal-body">
+
+
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div id="__radiocheck">
+                            <label class="checkbox-inline">
+                                <div class="radio"> 
+                                        <input type="radio" name="spjy" checked=""  value="审批通过">              
+                                </div>
+                                审批同意
+                            </label>
+                            <label class="checkbox-inline">
+                                <div class="radio" >
+                                    
+                                        <input type="radio" name="spjy" value="保留意见">                          
+                                </div> 保留意见
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <p>
+                            <input id="agreereason" type="text" maxlength="64" size="64" class="col-md-12 form-control">
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" class="btn">关闭</button>
+                <button type="button" id='agree_btn' data-dismiss="modal" value="同意" class="btn blue">提交</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="jujue" class="modal fade" tabindex="-1" data-width="400">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">拒绝理由</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p>
+                            <input id="unagreereason" type="text" value="不同意" maxlength="64" size="64" class="col-md-12 form-control">
+                        </p>
+                    </div>
+                </div>
+ 
+            </div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" class="btn">关闭</button>
+                <button type="button" id='unagree_btn' data-dismiss="modal" class="btn blue">提交</button>
+            </div>
+        </div>
+    </div>
+    
+</div>
+<script src="assets/global/scripts/metronic.js" type="text/javascript"></script>
+<script src="../pages/scripts/userinfo.js"></script>
+<script type="text/javascript">
+var stepid = Metronic.getURLParameter("stepid");
+var refno = Metronic.getURLParameter("refno");
+var step_result;
+var step;
+jQuery(document).ready(function() { 
+    INITAction.init();
+});
+var INITAction = function() {
+    return {
+        agreeBtn:   $('#agree_btn'),
+        unagreeBtn:   $('#unagree_btn'),
+        backBtn:   $('#back_btn'),
+ 
+        init:function(){ 
+            if(stepid==""){
+               window.location.replace("index.html"); 
+            }
+            this.getTask();
+            this.bind();   
+        },
+        bind:function(){ 
+            this.agreeBtn.on('click',this.agree);
+            this.unagreeBtn.on('click',this.unagree);
+            this.backBtn.on('click',this.back);
+        },
+         
+        agree:function(){ 
+            INITAction.postSubmit("0");
+            
+        },
+        unagree:function(encrypted){ 
+            
+            INITAction.postSubmit("1");
+            
+        },
+        back:function(encrypted){ 
+            
+            window.location.replace("index.html"); 
+            
+        },
+        postSubmit:function(val){ 
+        	var fn = window["doCheck"];
+			if (typeof(fn)==='function') {
+				if(fn.call(null, step)){
+					return;
+				}
+			}
+//      	if(doCheck()){
+//      		
+//      	}
+            var radiovar = $('#__radiocheck input:radio:checked').val();
+            var approvalopinion = $("#agreereason").val();
+            var unapprovalopinion = $("#unagreereason").val();
+            if(val=="0"){
+            	if(approvalopinion==undefined ||approvalopinion ==""){
+	                bootbox.alert("请填写审批意见");
+	                return;
+            	}
+            	approvalopinion += "(" +radiovar+ ")";
+            }else{
+            	if(unapprovalopinion==undefined ||unapprovalopinion ==""){
+	                bootbox.alert("请填写审批意见");
+	                return;
+            	}
+            	approvalopinion=unapprovalopinion;
+            }
+            
+            bootbox.confirm("确定提交吗?", function(result) {
+                if(result){
+					var userName=UserInfo.init().employee_name;
+					if(!userName){
+						userName=UserInfo.userId();
+					}
+	                approvalopinion =step.gs_chcode+ "["+userName+"]:"+moment().format("YYYY-MM-DD HH:mm:ss")+" "+ approvalopinion +"<br>";
+	                var opinion_msg = $("#opinion_msg").html();
+	                approvalopinion=opinion_msg+ approvalopinion;
+	
+	                //2.提交流程
+	                var flow_result = Restful.insert("/hzqs/psm/pbput.do?fh=VPUTPSM000000J00&resp=bd",
+	                    {
+	                        "step_inst_id": step.step_inst_id,
+	                        "ref_no":step.ref_no,
+	                        "prop1str64": step.prop1str64,
+	                        "prop2str64": step.prop2str64,
+	                        "propstr128": step.propstr128,
+	                        "propstr256": approvalopinion,
+	                        "propstr2048": step.propstr2048,
+	                        "results":val
+	                    })
+	                console.log(flow_result);
+	                if(flow_result.retcode=='0'&&flow_result.steps&&flow_result.steps.length>0){
+	                    $.ajax({
+							headers: {
+						      'Accept': 'application/json',
+						      'Content-Type': 'application/json'
+							},
+							type: 'get',
+							async: false,
+							url: hzq_rest+'psmstepinst/'+step.step_inst_id,
+							success: function (data) {	
+								console.log(data);
+								if(data){
+									step.to_orders=data.toOrders;
+									step.results=data.results;
+									step.propstr256=data.propstr256;
+								}
+						    } 
+						})
+						console.log(step)
+	                    if(step.to_orders=="END"){//如果流程即将结束
+			                //此处进行业务操作
+			                //doBusi(step);
+			                var fn = window["doBusi"];
+							if (typeof(fn)==='function') {
+								fn.call(null, step);
+							}
+			            }else{
+			            	var fn = window["doNext"];
+							if (typeof(fn)==='function') {
+								fn.call(null, step);
+							}
+			            }
+	                    bootbox.alert("流程提交成功",function(){
+	                        window.location.replace("index.html");
+	                    });
+	                }else{
+	                	bootbox.alert("流程提交发生错误",function(){
+	                        window.location.replace("index.html");
+	                    });
+	                }
+                }
+            });
+            
+        },
+        getTask:function(){ 
+			step_result = Restful.insert("/hzqs/psm/pbget.do?fh=VFLSCGC000000J00&bd={}&resp=bd",{
+                "flow_inst_id":refno,"step_status":"2",
+                "do_operator":UserInfo.userId()
+            })
+
+            console.log("step_result=="+JSON.stringify(step_result)+"::"+step_result.rowcount)
+
+            if(step_result.rowcount==0){
+                step_result = Restful.insert("/hzqs/psm/pbget.do?fh=VFLSCGC000000J00&bd={}&resp=bd",{
+                    "flow_inst_id":refno,"step_status":"1",
+                    "do_operator":UserInfo.userId()
+                })
+            }
+            if(step_result.rowcount&&step_result.rowcount==1){
+            	//如果step_status为1，更新状态为2
+            	if(UserInfo.userId()==""||UserInfo.userId()=="undefined"){
+            		//need to login
+            		bootbox.alert("登录信息错误，请重新登录");
+                    if(window.location.pathname.indexOf('/login.html')<0)
+                    {
+                        window.location.replace("/login.html?redirect="+window.location.pathname);
+                    }
+            	}
+            	
+                step = step_result.steps[0]
+                $("#opinion_msg").html(step.propstr256);
+            }else{
+                if(stepid){
+                    console.log("未找到对应的审批流程");
+                    bootbox.alert("未找到对应的审批流程");
+                }
+            }
+        }
+    };
+}();
+</script>

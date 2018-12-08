@@ -1,0 +1,16 @@
+{"rows":
+[
+  {"UUID":"001","date":"2016-2-14","bank":"商业银行","price":"400","is":"1","markstate":"未标记"},
+  {"UUID":"001","date":"2016-2-14","bank":"哈尔滨银行","price":"300","is":"1","markstate":"未标记"},
+  {"UUID":"001","date":"2016-2-14","bank":"中国银行","price":"600","is":"2","markstate":"未标记"},
+  {"UUID":"001","date":"2016-2-14","bank":"建设银行","price":"30","is":"1","markstate":"未标记"},
+  {"UUID":"001","date":"2016-2-14","bank":"哈尔滨玛克威鞋城公共设施有限公司","price":"30","is":"1","markstate":"未标记"},
+  {"UUID":"001","date":"2016-2-14","bank":"哈尔滨宏博会展广场","price":"30","is":"1","markstate":"未标记"},
+  {"UUID":"001","date":"2016-2-14","bank":"金帝索菲亚酒店","price":"30","is":"1","markstate":"南二"},
+  {"UUID":"001","date":"2016-2-14","bank":"师大附中","price":"30","is":"1","markstate":"商服"}
+
+]
+,"total_rows":1
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+
+<!-- BEGIN HEAD -->
+<head>
+    <title>在线燃气表档案查询</title>
+    <base href="../../">
+    <script src="pages/scripts/header.js"></script>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8"/>
+    <link href='assets/global/plugins/jquery-watable/watable.css' rel='stylesheet'/>
+    <link href='assets/global/plugins/jquery-watable/animate.min.css' rel='stylesheet'/>
+    <link href='assets/global/plugins/bootstrap-datetimepicker/css/datetimepicker.css' rel='stylesheet'/>
+</head>
+<!-- END HEAD -->
+
+<body class="page-header-fixed page-quick-sidebar-over-content">
+
+<!-- 标题栏开始 -->
+<div class="page-header navbar navbar-fixed-top">
+    <script>$.include("pages/partial/menu.shtml");</script>
+</div>
+<!-- 标题栏结束 -->
+<div class="clearfix"></div>
+<div class="page-container">
+    <!-- 左侧菜单开始 -->
+    <div class="page-sidebar-wrapper">
+        <script>$.include("pages/partial/sidebar.shtml");</script>
+    </div>
+    <!-- 左侧菜单结束 -->
+
+    <!-- 主内容开始 -->
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <!--内容头开始-->
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa fa-home"></i>
+                            <a href="index.html">主页</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="customer/archiveManagement.html">表具档案管理</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 内容头结束-->
+
+            <!-- 内容开始-->
+            <div class="note note-success container col-sm-12" style="padding-bottom:0px">
+                <!-- 查询条件控件 -->
+                <div class="row">
+                    <div class="col-sm-5 form-group">
+                        <div class="btn-group input-group">
+                            <div class="input-group-addon">表具编号：</div>
+                            <input class="inputclear form-control" type="text" placeholder="表具编号">
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 form-group">
+                        <div class="btn-group input-group">
+                            <div class="input-group-addon">建档时间：</div>
+                            <div class="input-group input-large date-picker input-daterange" data-date="2017-01-14" data-date-format="yyyy-mm-dd">
+                                <input type="text" class="form-control" name="from">
+                                <span class="input-group-addon"> to </span>
+                                <input type="text" class="form-control" name="to">
+                                <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                            </div>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-5 form-group">
+                        <div class="btn-group input-group">
+                            <div class="input-group-addon">表具条码：</div>
+                            <input class="inputclear form-control" type="text" placeholder="条形码">
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 form-group">
+                        <div class="btn-group form-group">
+                            <button id="find_button" class="btn yellow">
+                                查询&nbsp; <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="container-fluid">
+                <div id="divtable" class="table-responsive container-fluid col-md-12" >
+                </div>
+            </div>
+            <!-- 内容结束-->
+
+            <div class="clearfix">
+            </div>
+        </div>
+    </div>
+    <!-- 主内容结束 -->
+</div>
+
+<script type="text/javascript">$.include("pages/partial/xwatable-form.shtml")</script>
+
+<!-- 底边栏开始 -->
+<script>$.include("pages/partial/foot.shtml");</script>
+<!-- 底边栏结束 -->
+</body>
+
+
+<script>$.include("pages/partial/scripts.shtml");</script>
+<script src="assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-watable/jquery.watable.js"></script>
+<script type="text/javascript" src="pages/scripts/rqlbuilder.js"></script>
+<script type="text/javascript" src="pages/scripts/xwatable.js"></script>
+<script type="text/javascript" src="pages/scripts/refhelper.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+
+<script type="text/javascript">
+
+    $(function(){
+            XWATable.init(
+                {
+                    //----------------table的选项-------
+                    pageSize: 20, 			//Initial pagesize
+                    columnPicker: true,         //Show the columnPicker button
+                    sorting: true,
+                    transition: 'fade',  //(bounce, fade, flip, rotate, scroll, slide).
+                    checkboxes: true,           //Make rows checkable. (Note. You need a column with the 'unique' property)
+                    checkAllToggle:true,        //Show the check-all toggle//+RQLBuilder.like("KEYY", "a").rql()
+                    rowClicked: function(data) {
+                        console.log('row clicked');   //data.event holds the original jQuery event.
+                        console.log(data);            //data.row holds the underlying row you supplied.
+                    },
+                    //----------------基本restful地址---
+                    restbase: 'json/customer/dm/meter.json',
+                    //---------------行定义
+                    coldefs: [
+                        {
+                            col:"METERID",
+                            friendly: "表具Id",
+                            index:1
+                        },
+                        {
+                            col:"METERTYPEID",
+                            friendly: "表具类型",
+                            index:2
+                        },
+                        {
+                            col:"METERCODE",
+                            friendly: "表号",
+                            index:3
+                        },
+                        {
+                            col:"BARCODE",
+                            friendly:"条形码",
+                            index:4
+                        },
+                        {
+                            col:"METERSTATE",
+                            friendly:"表具状态",
+                            index:5
+                        },
+                        {
+                            col:"FACTORY",
+                            friendly:"厂家",
+                            index:6
+                        },
+                        {
+                            col:"NAMEPLATECODE",
+                            friendly:"铭牌号",
+                            index:7
+                        },
+                        {
+                            col:"MODELNUMBER",
+                            friendly: "型号",
+                            index:8
+                        },
+                        {
+                            col:"FLOWORDER",
+                            friendly: "进气方向" ,
+                            index:9
+                        },
+                        {
+                            col:"METERDIGIT",
+                            friendly: "表位数" ,
+                            index:10
+                        },
+                        {
+                            col:"CAPACITY",
+                            friendly: "额定流量" ,
+                            index:11
+                        },
+                        {
+                            col:"LEAVEFACTORYDATE",
+                            friendly: "出厂日期" ,
+                            index:12
+                        },
+                        {
+                            col:"METERREADING",
+                            friendly: "燃气表读数" ,
+                            index:13
+                        },
+                        {
+                            col:"REVISEMETERSTATE",
+                            friendly: "修正表状态" ,
+                            index:14
+                        },
+                        {
+                            col:"RESINFOID",
+                            friendly: "物品信息类" ,
+                            index:15
+                        },
+                        {
+                            col:"OILINGTIME",
+                            friendly: "注油时间",
+                            index:16
+                        },
+                        {
+                            col:"CALIBRE",
+                            friendly: "口径",
+                            index:17
+                        },
+                        {
+                            col:"CHECKDATE",
+                            friendly: "检表日期",
+                            index:18
+                        },
+                        {
+                            col:"BATTERIESUSINGTIME",
+                            friendly: "电池使用时间",
+                            index:19
+                        },
+                        {
+                            col:"DEBUGTIME",
+                            friendly: "调试时间",
+                            index:20
+                        },
+                        {
+                            col:"ENCAPSULATIONTIME",
+                            friendly: "打封时间",
+                            index:21
+                        },
+                        {
+                            col:"ISONLINE",
+                            friendly: "是否在线",
+                            index:22
+                        },
+                        {
+                            col:"RunState",
+                            friendly: "运行状态",
+                            index:23
+                        },
+                        {
+                            col:"CANCELLATIONCAUSE",
+                            friendly: "作废原因",
+                            indeix:24
+                        },
+                        {
+                            col:"INMETERENVELOPNO",
+                            friendly: "进气表封号",
+                            index:25
+                        },
+                        {
+                            col:"REVISEFLAG",
+                            friendly: "修正表标记",
+                            index:26
+                        },
+                        {
+                            col:"PLUMBUMENVELOPNO",
+                            friendly: "铅封号",
+                            index:27
+                        },
+                        {
+                            col:"FACTORYID",
+                            friendly: "表厂家",
+                            index:28
+                        },
+                        {
+                            col:"CREATETIME",
+                            friendly: "创建时间",
+                            index:29
+                        },
+                        {
+                            col:"OPERATIONPERID",
+                            friendly: "操作人",
+                            index:30
+                        },
+                        {
+                            col:"METERSPECID",
+                            friendly: "表具规格型号",
+                            index:31
+                        },
+                        {
+                            col:"METERFLOWID",
+                            friendly: "表具流量",
+                            index:32
+                        },
+                        {
+                            col:"RESKINDID",
+                            friendly: "物品种类",
+                            index:33
+                        },
+                        {
+                            col:"AREAID",
+                            friendly: "供气区域",
+                            index:34
+                        },
+                        {
+                            col:"FIRSTUSEDATE",
+                            friendly: "第一次上线时间",
+                            index:35
+                        },
+                        {
+                            col:"MatchingState",
+                            friendly: "匹配状态",
+                            index:36
+                        }
+                    ],
+                    //---------------查询时过滤条件
+                    findFilter: function(){//find function
+                        var filter = "keyy="+$('#find_key').val();
+                        return filter;
+                    }//--findFilter
+                }//--init
+            );//--end init
+
+            $('#find_provincename').on('input',function(e){
+                console.log("changing::"+e.target.value)
+                if(!e.target.value){
+                    XWATable.autoResetSearch();
+                }
+            });
+        }
+    );
+
+    // helper & format
+
+
+
+</script><!-- End of User Script-->
+</html>

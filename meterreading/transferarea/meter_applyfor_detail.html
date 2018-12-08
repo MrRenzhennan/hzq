@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<!--
+Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.1.1
+Version: 3.1
+Author: KeenThemes
+Website: http://www.keenthemes.com/
+Contact: support@keenthemes.com
+Follow: www.twitter.com/keenthemes
+Like: www.facebook.com/keenthemes
+Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
+License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
+-->
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="utf-8"/>
+    <title>转区</title>
+    <base href="../../">
+    <script src="../../pages/scripts/basepath.js"></script>
+    <script src="../../pages/scripts/header.js"></script>
+
+    <meta content="" name="description"/>
+    <meta content="" name="author"/>
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    <link href="../../assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="../../assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css"/>
+    <link href="../../assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="../../assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css"/>
+    <link href="../../assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css"/>
+    <!-- END GLOBAL MANDATORY STYLES -->
+    <!-- BEGIN PAGE LEVEL STYLES -->
+    <link rel="stylesheet" type="text/css" href="../../assets/global/plugins/select2/select2.css"/>
+    <!-- END PAGE LEVEL SCRIPTS -->
+    <!-- BEGIN THEME STYLES -->
+    <link href="../../assets/global/css/components.css" rel="stylesheet" type="text/css"/>
+    <link href="../../assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
+    <link href="../../assets/admin/layout/css/layout.css" rel="stylesheet" type="text/css"/>
+    <link id="style_color" href="../../assets/admin/layout/css/themes/default.css" rel="stylesheet" type="text/css"/>
+    <link href="../../assets/admin/layout/css/custom.css" rel="stylesheet" type="text/css"/>
+    <!-- END THEME STYLES -->
+    <link href='../../assets/global/plugins/jquery-watable/watable.css' rel='stylesheet'/>
+    <link href='../../assets/global/plugins/jquery-watable/animate.min.css' rel='stylesheet'/>
+    <link href='../../assets/global/plugins/bootstrap-datetimepicker/css/datetimepicker.css' rel='stylesheet'/>
+
+    <link href="assets/global/plugins/bootstrap-fileinput/fileinput.min.css" rel="stylesheet">
+    <!--<link rel="shortcut icon" href="favicon.ico"/>-->
+</head>
+<!-- END HEAD -->
+<!-- BEGIN BODY -->
+<!-- DOC: Apply "page-header-fixed-mobile" and "page-footer-fixed-mobile" class to body element to force fixed header or footer in mobile devices -->
+<!-- DOC: Apply "page-sidebar-closed" class to the body and "page-sidebar-menu-closed" class to the sidebar menu element to hide the sidebar by default -->
+<!-- DOC: Apply "page-sidebar-hide" class to the body to make the sidebar completely hidden on toggle -->
+<!-- DOC: Apply "page-sidebar-closed-hide-logo" class to the body element to make the logo hidden on sidebar toggle -->
+<!-- DOC: Apply "page-sidebar-hide" class to body element to completely hide the sidebar on sidebar toggle -->
+<!-- DOC: Apply "page-sidebar-fixed" class to have fixed sidebar -->
+<!-- DOC: Apply "page-footer-fixed" class to the body element to have fixed footer -->
+<!-- DOC: Apply "page-sidebar-reversed" class to put the sidebar on the right side -->
+<!-- DOC: Apply "page-full-width" class to the body element to have full width page without the sidebar menu -->
+<body class="page-header-fixed page-quick-sidebar-over-content ">
+<!-- BEGIN HEADER -->
+<div class="page-header navbar navbar-fixed-top">
+    <script>$.include("pages/partial/menu.shtml");</script>
+</div>
+<!-- END HEADER -->
+<div class="clearfix">
+</div>
+<!-- BEGIN CONTAINER -->
+<div class="page-container">
+    <!-- BEGIN SIDEBAR -->
+    <div class="page-sidebar-wrapper">
+        <script>$.include("pages/partial/sidebar.shtml");</script>
+    </div>
+    <!-- END SIDEBAR -->
+    <!-- BEGIN CONTENT -->
+    <div class="page-content-wrapper">
+        <div class="page-content">
+        	 	<script>$.include("common/navigation_bar.shtml");</script>
+
+            <!-- BEGIN STYLE CUSTOMIZER -->
+            <!-- END STYLE CUSTOMIZER -->
+            <!-- BEGIN PAGE HEADER-->
+            <!--<div class="row">
+                <div class="col-md-12">
+                    <!-- BEGIN PAGE TITLE & BREADCRUMB
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa fa-home"></i>
+                            <a href="/index.html">主页</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a >抄表本管理</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a >抄表本转区</a>
+                        </li>
+                    </ul>
+                    <!-- END PAGE TITLE & BREADCRUMB
+                </div>
+            </div>--->
+            <!-- END PAGE HEADER-->
+            <!-- BEGIN PAGE CONTENT-->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="tab-pane" id="tab_4">
+                        <div class="portlet box blue">
+                            <div class="portlet-title">
+                                <div class="caption">
+                                    <i class="fa fa-user"></i>抄表本转区申请
+                                </div>
+                                <div class="tools">
+                                    <a href="" class="collapse">
+                                    </a>
+                                   <!-- <a href="#portlet-config" data-toggle="modal" data-target="#update_customer_Info" class="config">-->
+                                    </a>
+                                    <a href="" class="reload">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="portlet-body form">
+                                <!-- BEGIN FORM-->
+                                <form class="form-horizontal" role="form">
+                                    <div class="form-body">
+                                        <h4>转区信息</h4>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <label class="control-label col-md-4">原区域：:</label>
+                                                <div class="col-md-8">
+                                                    <p class="form-control-static">
+                                                        道里区
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <!--/span-->
+                                            <div class="col-md-4">
+                                                <label class="control-label col-md-4">目标区域:</label>
+                                                <div class="col-md-8">
+                                                    <p class="form-control-static">
+                                                        道外区
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <!--/span-->
+                                            <div class="col-md-4">
+                                                <label class="control-label col-md-4">抄表本号:</label>
+                                                <div class="col-md-8">
+                                                    <p class="form-control-static">
+                                                        139............
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            
+                                            <div class="col-md-4">
+                                                <label class="control-label col-md-4">目标核算员:</label>
+                                                <div class="col-md-8">
+                                                    <p class="form-control-static">
+                                                        小王
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="control-label col-md-4">目标抄表员:</label>
+                                                <div class="col-md-8">
+                                                    <p class="form-control-static">
+                                                          小张
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                       <h4>申请信息</h4>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <label class="control-label col-md-4">申请人:</label>
+                                                <div class="col-md-8">
+                                                    <p class="form-control-static">
+                                                        小刘
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="control-label col-md-4">岗位:</label>
+                                                <div class="col-md-8">
+                                                    <p class="form-control-static">
+                                                        核算员
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="control-label col-md-4">部门:</label>
+                                                <div class="col-md-8">
+                                                    <p class="form-control-static">
+                                                        道三经营科
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <label class="control-label col-md-4">申请单号:</label>
+                                                <div class="col-md-8">
+                                                    <p class="form-control-static">
+                                                        201522222222
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="control-label col-md-4">申请时间:</label>
+                                                <div class="col-md-8">
+                                                    <p class="form-control-static">
+                                                        2016 7-8
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="control-label col-md-4">申请类型:</label>
+                                                <div class="col-md-8">
+                                                    <p class="form-control-static">
+                                                        抄表差错申请
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <label class="control-label col-md-4">申请状态:</label>
+                                                <div class="col-md-8">
+                                                    <p class="form-control-static">
+                                                        这次的申请是2016年5-8日的请及时审批
+                                                </p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="control-label col-md-4">备注:</label>
+                                                <div class="col-md-8">
+                                                    <p class="form-control-static">
+                                                        这次的申请是2016年5-8日的请及时审批
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            </div>
+                                                          <h4>错转信息</h4>
+
+
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <label class="control-label col-md-4">错转抄表本号：:</label>
+                                                <div class="col-md-8">
+
+                                                    <p class="form-control-static">
+                                                        666754
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="control-label col-md-4">错转区域:</label>
+                                                <div class="col-md-8">
+                                                    <p class="form-control-static">
+                                                        南一区
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="control-label col-md-4">原区域:</label>
+                                                <div class="col-md-8">
+                                                    <p class="form-control-static">
+                                                        道里区
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <label class="control-label col-md-4">原核算员:</label>
+                                                <div class="col-md-8">
+                                                    <p class="form-control-static">
+                                                        小张
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="control-label col-md-4">原抄表员:</label>
+                                                <div class="col-md-8">
+                                                    <p type="date" class="form-control-static">
+                                                        小李
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="control-label col-md-4">目标区域:</label>
+                                                <div class="col-md-8">
+                                                    <p class="form-control-static">
+                                                        南二区
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="control-label col-md-4">目标核算员:</label>
+                                                <div class="col-md-8">
+                                                    <p class="form-control-static">
+                                                        刘金丹
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="control-label col-md-4">目标抄表员:</label>
+                                                <div class="col-md-8">
+                                                    <p class="form-control-static">
+                                                        刘二
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-actions fluid">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="col-md-offset-3 col-md-9">
+                                                        <button type="button" id="submit" class="btn green"><i class="glyphicon glyphicon-ok"></i> 执行</button>
+                                                        <button type="button" id="submit2" class="btn red"><i class="glyphicon glyphicon-ok"></i> 提交下一级审批人</button>
+                                                        <button type="button" id="submitt"class="btn yellow"><i class="glyphicon glyphicon-remove"></i>作废</button>
+
+                                                    </div>
+                                                    <script>
+                                                        $('#submitt').click(function(){
+                                                            bootbox.confirm("确定作废吗?", function(result) {
+                                                                if(result===false){
+                                                                }else {
+                                                                    window.location="../error/meter_error_applyfor.html";
+                                                                }
+                                                            });
+                                                        });
+                                                        $('#submit2').click(function(){
+                                                            bootbox.confirm("提交下一级", function(result) {
+                                                                if(result===false){
+                                                                }else {
+                                                                    window.location="../error/meter_error_applyfor.html";
+                                                                }
+                                                            });
+                                                        });
+                                                        $('#submit1').click(function(){
+                                                            bootbox.confirm("保存?", function(result) {
+                                                                if(result===false){
+                                                                }else {
+                                                                    window.location="../error/meter_error_applyfor.html";
+                                                                }
+                                                            });
+                                                        });
+                                                        $('#submit').click(function(){
+                                                            bootbox.confirm("确定执行吗?", function(result) {
+                                                                if(result===false){
+                                                                }else {
+                                                                    window.location="../error/meter_error_applyfor.html";
+                                                                }
+                                                            });
+                                                        });
+                                                    </script>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+
+                </div>
+            </div>
+            <!-- END PAGE CONTENT-->
+        </div>
+    </div>
+    <!-- END CONTENT -->
+</div>
+<!-- END CONTAINER -->
+<!-- BEGIN FOOTER -->
+<div class="page-footer">
+    <div class="page-footer-inner">
+        2016 &copy; 哈尔滨中庆燃气公司.
+    </div>
+    <div class="page-footer-tools">
+		<span class="go-top">
+		<i class="fa fa-angle-up"></i>
+		</span>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="importContract" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">录入合同</h4>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <span>上传数据</span>
+                    <input class="file" type="file" multiple data-preview-file-type="any" data-upload-url="#">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="import_device" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">录入燃气设备档案</h4>
+            </div>
+            <div class="modal-body">
+                <!-- BEGIN FORM-->
+                <form role="form">
+                    <div class="form-body">
+                        <h4 class="form-actions">模版导入</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="file" class="file">
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4 class="form-actions">手工导入</h4>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>名称</label>
+                                    <input type="text" class="form-control" placeholder="名称">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>容量</label>
+                                    <input type="text" class="form-control" placeholder="容量">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>出厂日期</label>
+                                    <input type="text" class="form-control" placeholder="生产日期">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>保质期</label>
+                                    <input type="text" class="form-control" placeholder="保质期">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <!-- END FORM-->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="update_customer_Info" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">更新档案信息</h4>
+            </div>
+            <div class="modal-body">
+                <!-- BEGIN FORM-->
+                <form role="form">
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>客户姓名</label>
+                                    <input type="text" class="form-control" placeholder="客户姓名">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>性别</label>
+                                    <div class="input-group">
+                                        <select class="bs-select form-control input-medium">
+                                            <option>男</option>
+                                            <option>女</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>身份证号</label>
+                                    <input type="text" class="form-control" placeholder="身份证号">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>客户地址</label>
+                                    <input type="text" class="form-control" placeholder="客户地址">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>小区</label>
+                                    <input type="text" class="form-control" placeholder="小区">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>联系电话</label>
+                                    <input type="text" class="form-control" placeholder="联系电话">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>邮编</label>
+                                    <input type="text" class="form-control" placeholder="邮编">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>邮箱</label>
+                                    <input type="text" class="form-control" placeholder="邮箱">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>家庭人口</label>
+                                    <input type="text" class="form-control" placeholder="家庭人口">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>特殊群体</label>
+                                    <input type="text" class="form-control" placeholder="特殊群体">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>社区</label>
+                                    <input type="text" class="form-control" placeholder="社区">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>街道办</label>
+                                    <input type="text" class="form-control" placeholder="街道办">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>IC卡用户</label>
+                                    <div class="input-group">
+                                        <select class="bs-select form-control input-medium">
+                                            <option>是</option>
+                                            <option>否</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>派出所</label>
+                                    <div class="input-group">
+                                        <select class="bs-select form-control input-medium">
+                                            <option>道里一派出所</option>
+                                            <option>道里二派出所</option>
+                                            <option>南岗派出所</option>
+                                            <option>道外派出所</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <!-- END FORM-->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END FOOTER -->
+<!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+<!-- BEGIN CORE PLUGINS -->
+<!--[if lt IE 9]>
+                <script src="../../assets/global/plugins/respond.min.js"></script>
+                <script src="../../assets/global/plugins/excanvas.min.js"></script>
+                <![endif]-->
+<script src="../../assets/global/plugins/jquery-1.11.0.min.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+<!-- IMPORTANT! Load jquery-ui-1.10.3.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
+<script src="../../assets/global/plugins/jquery-ui/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+<!-- END CORE PLUGINS -->
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<script type="text/javascript" src="../../assets/global/plugins/select2/select2.min.js"></script>
+<script src="../../assets/global/plugins/bootbox/bootbox.min.js" type="text/javascript"></script>
+<script src="../../assets/admin/pages/scripts/ui-alert-dialog-api.js"></script>
+<!-- END PAGE LEVEL PLUGINS -->
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<script src="../../assets/global/scripts/metronic.js" type="text/javascript"></script>
+<script src="../../assets/admin/layout/scripts/layout.js" type="text/javascript"></script>
+<script src="../../assets/admin/layout/scripts/quick-sidebar.js" type="text/javascript"></script>
+<script src="../../assets/admin/pages/scripts/form-samples.js"></script>
+
+<script type="text/javascript" src="assets/global/plugins/bootstrap-fileinput/fileinput.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-fileinput/zh.js"></script>
+<!-- END PAGE LEVEL SCRIPTS -->
+<script>
+    jQuery(document).ready(function() {
+        // initiate layout and plugins
+        Metronic.init(); // init metronic core components
+        Layout.init(); // init current layout
+        QuickSidebar.init(); // init quick sidebar
+        FormSamples.init();
+        UIAlertDialogApi.init();
+    });
+</script>
+<!-- END JAVASCRIPTS -->
+</body>
+<!-- END BODY -->
+</html>

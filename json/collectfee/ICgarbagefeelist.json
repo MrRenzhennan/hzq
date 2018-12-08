@@ -1,0 +1,9 @@
+  {"rows":
+[
+  {"UUID":"001","tollMethod":"现金","userID":"116450074","money":"150","userName":"李好","date":"2016-11","chargeType":"普通收费","chargeItem":"","yyy":"张亮"}
+,{"UUID":"003","tollMethod":"银行卡","userID":"116450074","money":"100","userName":"李好","date":"2016-13","chargeType":"普通收费","chargeItem":"","yyy":"张三"}
+]
+,"total_rows":1
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

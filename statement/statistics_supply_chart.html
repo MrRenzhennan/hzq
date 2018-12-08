@@ -1,0 +1,718 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8"/>
+    <title>近三年供销差率对比</title>
+    <script src="../pages/scripts/basepath.js"></script>
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-select/bootstrap-select.min.css">
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/select2/select2.css">
+    <script src="../pages/scripts/header.js"></script>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8"/>
+    <link href='../assets/global/plugins/jquery-watable/watable.css' rel='stylesheet'/>
+    <link href='../assets/global/plugins/jquery-watable/animate.min.css' rel='stylesheet'/>
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.css"/>
+    <link href='../assets/global/plugins/bootstrap-datetimepicker/css/datetimepicker.css' rel='stylesheet'/>
+
+    <!--datapicker css start-->
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-datepicker/css/datepicker3.css"/>
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-colorpicker/css/colorpicker.css"/>
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css"/>
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-datetimepicker/css/datetimepicker.css"/>
+    <!--datapicker end-->
+
+    <link rel="stylesheet" href="/statement/css/3.3.7/bootstrap.min.css">
+</head>
+
+<body class="page-header-fixed page-quick-sidebar-over-content">
+
+<!-- 标题栏开始 -->
+<div class="page-header navbar navbar-fixed-top">
+    <script>$.include("pages/partial/menu.shtml");</script>
+</div>
+<!-- 标题栏结束 -->
+<div class="clearfix"></div>
+<div class="page-container">
+    <!-- 左侧菜单开始 -->
+    <div class="page-sidebar-wrapper">
+        <script>$.include("pages/partial/sidebar.shtml");</script>
+    </div>
+    <!-- 左侧菜单结束 -->
+
+    <!-- 主内容开始 -->
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <!--内容头开始-->
+            <!--内容头开始-->
+            <script>$.include("common/navigation_bar.shtml");</script>
+            <!-- 内容头结束-->
+
+
+
+            <div class="container-fluid">
+                <div id="main" style="height:400px"></div>
+                <br/>
+                <br/>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <a id="find_sign" type="button" class="btn yellow" href="/statement/statistics_supply_chart_op.html">
+                                录入气量
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <br/>
+                <div>
+                    <table cellSpacing="0" cellPadding="2" width="95%" align="center" border="0">
+                        <tr>
+                            <td id="table_0_title" align="center" title="">2017供销差率对比</td>
+                        </tr>
+                    </table>
+                </div>
+                <br/>
+                <table class="tabPrint table-bordered table-hover table-condensed " align="center" width="98%" cellSpacing="0" cellPadding="0" border="0"
+                       id="table_0">
+                    <thead style="display:table-header-group;font-weight:bold"
+                           mce_style="display:table-header-group;font-weight:bold">
+                    <tr align="center">
+                        <td id="table_0_thead_r1_c1" rowspan="1" colspan="2">项目</td>
+                        <td id="table_0_thead_r1_c3" rowspan="1" colspan="1">一月</td>
+                        <td id="table_0_thead_r1_c4" rowspan="1" colspan="1">二月</td>
+                        <td id="table_0_thead_r1_c5" rowspan="1" colspan="1">三月</td>
+                        <td id="table_0_thead_r1_c6" rowspan="1" colspan="1">四月</td>
+                        <td id="table_0_thead_r1_c7" rowspan="1" colspan="1">五月</td>
+                        <td id="table_0_thead_r1_c8" rowspan="1" colspan="1">六月</td>
+                        <td id="table_0_thead_r1_c9" rowspan="1" colspan="1">七月</td>
+                        <td id="table_0_thead_r1_c10" rowspan="1" colspan="1">八月</td>
+                        <td id="table_0_thead_r1_c11" rowspan="1" colspan="1">九月 </td>
+                        <td id="table_0_thead_r1_c12" rowspan="1" colspan="1">十月</td>
+                        <td id="table_0_thead_r1_c13" rowspan="1" colspan="1">十一月</td>
+                        <td id="table_0_thead_r1_c14" rowspan="1" colspan="1">十二月</td>
+                    </tr>
+                    </thead>
+                    <tbody id="table_0_tbody">
+                    <tr align="center">
+                        <td id="table_0_tbody_r1_c0" rowspan="1" colspan="2">购气量</td>
+                        <td id="table_0_tbody_r1_c1" rowspan="1" colspan="1"></td>
+                        <td id="table_0_tbody_r1_c2" rowspan="1" colspan="1"></td>
+                        <td id="table_0_tbody_r1_c3" rowspan="1" colspan="1"></td>
+                        <td id="table_0_tbody_r1_c4" rowspan="1" colspan="1"></td>
+                        <td id="table_0_tbody_r1_c5" rowspan="1" colspan="1"></td>
+                        <td id="table_0_tbody_r1_c6" rowspan="1" colspan="1"></td>
+                        <td id="table_0_tbody_r1_c7" rowspan="1" colspan="1"></td>
+                        <td id="table_0_tbody_r1_c8" rowspan="1" colspan="1"></td>
+                        <td id="table_0_tbody_r1_c9" rowspan="1" colspan="1"></td>
+                        <td id="table_0_tbody_r1_c10" rowspan="1" colspan="1"></td>
+                        <td id="table_0_tbody_r1_c11" rowspan="1" colspan="1"></td>
+                        <td id="table_0_tbody_r1_c12" rowspan="1" colspan="1"></td>
+                    </tr>
+                    <tr align="center">
+                        <td id="table_0_tbody_r2_c0" rowspan="1" colspan="2">销气量</td>
+                        <td id="table_0_tbody_r2_c1" rowspan="1" colspan="1"></td>
+                        <td id="table_0_tbody_r2_c2" rowspan="1" colspan="1"></td>
+                        <td id="table_0_tbody_r2_c3" rowspan="1" colspan="1"></td>
+                        <td id="table_0_tbody_r2_c4" rowspan="1" colspan="1"></td>
+                        <td id="table_0_tbody_r2_c5" rowspan="1" colspan="1"></td>
+                        <td id="table_0_tbody_r2_c6" rowspan="1" colspan="1"></td>
+                        <td id="table_0_tbody_r2_c7" rowspan="1" colspan="1"></td>
+                        <td id="table_0_tbody_r2_c8" rowspan="1" colspan="1"></td>
+                        <td id="table_0_tbody_r2_c9" rowspan="1" colspan="1"></td>
+                        <td id="table_0_tbody_r2_c10" rowspan="1" colspan="1"></td>
+                        <td id="table_0_tbody_r2_c11" rowspan="1" colspan="1"></td>
+                        <td id="table_0_tbody_r2_c12" rowspan="1" colspan="1"></td>
+                    </tr>
+                    <tr align="center">
+                        <td id="table_0_tbody_r3_c" rowspan="2" colspan="1">供销差率</td>
+                        <td id="table_0_tbody_r3_c0" rowspan="1" colspan="1">本月</td>
+                        <td id="table_0_tbody_r3_c1" rowspan="1" colspan="1"></td>
+                        <td id="table_0_tbody_r3_c2" rowspan="1" colspan="1"></td>
+                        <td id="table_0_tbody_r3_c3" rowspan="1" colspan="1"></td>
+                        <td id="table_0_tbody_r3_c4" rowspan="1" colspan="1"></td>
+                        <td id="table_0_tbody_r3_c5" rowspan="1" colspan="1"></td>
+                        <td id="table_0_tbody_r3_c6" rowspan="1" colspan="1"></td>
+                        <td id="table_0_tbody_r3_c7" rowspan="1" colspan="1"></td>
+                        <td id="table_0_tbody_r3_c8" rowspan="1" colspan="1"></td>
+                        <td id="table_0_tbody_r3_c9" rowspan="1" colspan="1"></td>
+                        <td id="table_0_tbody_r3_c10" rowspan="1" colspan="1"></td>
+                        <td id="table_0_tbody_r3_c11" rowspan="1" colspan="1"></td>
+                        <td id="table_0_tbody_r3_c12" rowspan="1" colspan="1"></td>
+                    </tr>
+                    <tr align="center">
+                        <td id="table__tbody_r4_c0" rowspan="1" colspan="1">累计</td>
+                        <td id="table_0_tbody_r4_c1" rowspan="1" colspan="1"></td>
+                        <td id="table_0_tbody_r4_c2" rowspan="1" colspan="1"></td>
+                        <td id="table_0_tbody_r4_c3" rowspan="1" colspan="1"></td>
+                        <td id="table_0_tbody_r4_c4" rowspan="1" colspan="1"></td>
+                        <td id="table_0_tbody_r4_c5" rowspan="1" colspan="1"></td>
+                        <td id="table_0_tbody_r4_c6" rowspan="1" colspan="1"></td>
+                        <td id="table_0_tbody_r4_c7" rowspan="1" colspan="1"></td>
+                        <td id="table_0_tbody_r4_c8" rowspan="1" colspan="1"></td>
+                        <td id="table_0_tbody_r4_c9" rowspan="1" colspan="1"></td>
+                        <td id="table_0_tbody_r4_c10" rowspan="1" colspan="1"></td>
+                        <td id="table_0_tbody_r4_c11" rowspan="1" colspan="1"></td>
+                        <td id="table_0_tbody_r4_c12" rowspan="1" colspan="1"></td>
+                    </tr>
+                    </tbody>
+                </table>
+
+
+                <br/>
+                <br/>
+                <br/>
+                <div>
+                    <table cellSpacing="0" cellPadding="2" width="95%" align="center" border="0">
+                        <tr>
+                            <td id="table_1_title" align="center" title="">2016供销差率对比</td>
+                        </tr>
+                    </table>
+                </div>
+                <br/>
+                <table class="tabPrint table-bordered table-hover table-condensed " align="center" width="98%" cellSpacing="0" cellPadding="0" border="0"
+                       id="table_1">
+                    <thead style="display:table-header-group;font-weight:bold"
+                           mce_style="display:table-header-group;font-weight:bold">
+                    <tr align="center">
+                        <td id="table_1_thead_r1_c1" rowspan="1" colspan="2">项目</td>
+                        <td id="table_1_thead_r1_c3" rowspan="1" colspan="1">一月</td>
+                        <td id="table_1_thead_r1_c4" rowspan="1" colspan="1">二月</td>
+                        <td id="table_1_thead_r1_c5" rowspan="1" colspan="1">三月</td>
+                        <td id="table_1_thead_r1_c6" rowspan="1" colspan="1">四月</td>
+                        <td id="table_1_thead_r1_c7" rowspan="1" colspan="1">五月</td>
+                        <td id="table_1_thead_r1_c8" rowspan="1" colspan="1">六月</td>
+                        <td id="table_1_thead_r1_c9" rowspan="1" colspan="1">七月</td>
+                        <td id="table_1_thead_r1_c10" rowspan="1" colspan="1">八月</td>
+                        <td id="table_1_thead_r1_c11" rowspan="1" colspan="1">九月 </td>
+                        <td id="table_1_thead_r1_c12" rowspan="1" colspan="1">十月</td>
+                        <td id="table_1_thead_r1_c13" rowspan="1" colspan="1">十一月</td>
+                        <td id="table_1_thead_r1_c14" rowspan="1" colspan="1">十二月</td>
+                    </tr>
+                    </thead>
+                    <tbody id="table_1_tbody">
+                    <tr align="center">
+                        <td id="table_1_tbody_r1_c0" rowspan="1" colspan="2">购气量</td>
+                        <td id="table_1_tbody_r1_c1" rowspan="1" colspan="1"></td>
+                        <td id="table_1_tbody_r1_c2" rowspan="1" colspan="1"></td>
+                        <td id="table_1_tbody_r1_c3" rowspan="1" colspan="1"></td>
+                        <td id="table_1_tbody_r1_c4" rowspan="1" colspan="1"></td>
+                        <td id="table_1_tbody_r1_c5" rowspan="1" colspan="1"></td>
+                        <td id="table_1_tbody_r1_c6" rowspan="1" colspan="1"></td>
+                        <td id="table_1_tbody_r1_c7" rowspan="1" colspan="1"></td>
+                        <td id="table_1_tbody_r1_c8" rowspan="1" colspan="1"></td>
+                        <td id="table_1_tbody_r1_c9" rowspan="1" colspan="1"></td>
+                        <td id="table_1_tbody_r1_c10" rowspan="1" colspan="1"></td>
+                        <td id="table_1_tbody_r1_c11" rowspan="1" colspan="1"></td>
+                        <td id="table_1_tbody_r1_c12" rowspan="1" colspan="1"></td>
+                    </tr>
+                    <tr align="center">
+                        <td id="table_1_tbody_r2_c0" rowspan="1" colspan="2">销气量</td>
+                        <td id="table_1_tbody_r2_c1" rowspan="1" colspan="1"></td>
+                        <td id="table_1_tbody_r2_c2" rowspan="1" colspan="1"></td>
+                        <td id="table_1_tbody_r2_c3" rowspan="1" colspan="1"></td>
+                        <td id="table_1_tbody_r2_c4" rowspan="1" colspan="1"></td>
+                        <td id="table_1_tbody_r2_c5" rowspan="1" colspan="1"></td>
+                        <td id="table_1_tbody_r2_c6" rowspan="1" colspan="1"></td>
+                        <td id="table_1_tbody_r2_c7" rowspan="1" colspan="1"></td>
+                        <td id="table_1_tbody_r2_c8" rowspan="1" colspan="1"></td>
+                        <td id="table_1_tbody_r2_c9" rowspan="1" colspan="1"></td>
+                        <td id="table_1_tbody_r2_c10" rowspan="1" colspan="1"></td>
+                        <td id="table_1_tbody_r2_c11" rowspan="1" colspan="1"></td>
+                        <td id="table_1_tbody_r2_c12" rowspan="1" colspan="1"></td>
+                    </tr>
+                    <tr align="center">
+                        <td id="table_1_tbody_r3_c" rowspan="2" colspan="1">供销差率</td>
+                        <td id="table_1_tbody_r3_c0" rowspan="1" colspan="1">本月</td>
+                        <td id="table_1_tbody_r3_c1" rowspan="1" colspan="1"></td>
+                        <td id="table_1_tbody_r3_c2" rowspan="1" colspan="1"></td>
+                        <td id="table_1_tbody_r3_c3" rowspan="1" colspan="1"></td>
+                        <td id="table_1_tbody_r3_c4" rowspan="1" colspan="1"></td>
+                        <td id="table_1_tbody_r3_c5" rowspan="1" colspan="1"></td>
+                        <td id="table_1_tbody_r3_c6" rowspan="1" colspan="1"></td>
+                        <td id="table_1_tbody_r3_c7" rowspan="1" colspan="1"></td>
+                        <td id="table_1_tbody_r3_c8" rowspan="1" colspan="1"></td>
+                        <td id="table_1_tbody_r3_c9" rowspan="1" colspan="1"></td>
+                        <td id="table_1_tbody_r3_c10" rowspan="1" colspan="1"></td>
+                        <td id="table_1_tbody_r3_c11" rowspan="1" colspan="1"></td>
+                        <td id="table_1_tbody_r3_c12" rowspan="1" colspan="1"></td>
+                    </tr>
+                    <tr align="center">
+                        <td id="table_1_tbody_r4_c0" rowspan="1" colspan="1">累计</td>
+                        <td id="table_1_tbody_r4_c1" rowspan="1" colspan="1"></td>
+                        <td id="table_1_tbody_r4_c2" rowspan="1" colspan="1"></td>
+                        <td id="table_1_tbody_r4_c3" rowspan="1" colspan="1"></td>
+                        <td id="table_1_tbody_r4_c4" rowspan="1" colspan="1"></td>
+                        <td id="table_1_tbody_r4_c5" rowspan="1" colspan="1"></td>
+                        <td id="table_1_tbody_r4_c6" rowspan="1" colspan="1"></td>
+                        <td id="table_1_tbody_r4_c7" rowspan="1" colspan="1"></td>
+                        <td id="table_1_tbody_r4_c8" rowspan="1" colspan="1"></td>
+                        <td id="table_1_tbody_r4_c9" rowspan="1" colspan="1"></td>
+                        <td id="table_1_tbody_r4_c10" rowspan="1" colspan="1"></td>
+                        <td id="table_1_tbody_r4_c11" rowspan="1" colspan="1"></td>
+                        <td id="table_1_tbody_r4_c12" rowspan="1" colspan="1"></td>
+                    </tr>
+                    </tbody>
+                </table>
+
+
+                <br/>
+                <br/>
+                <br/>
+                <div>
+                    <table cellSpacing="0" cellPadding="2" width="95%" align="center" border="0">
+                        <tr>
+                            <td id="table_2_title" align="center" title="">2015供销差率对比</td>
+                        </tr>
+                    </table>
+                </div>
+                <br/>
+                <table class="tabPrint table-bordered table-hover table-condensed " align="center" width="98%" cellSpacing="0" cellPadding="0" border="0"
+                       id="table_2">
+                    <thead style="display:table-header-group;font-weight:bold"
+                           mce_style="display:table-header-group;font-weight:bold">
+                    <tr align="center">
+                        <td id="table_2_thead_r1_c1" rowspan="1" colspan="2">项目</td>
+                        <td id="table_2_thead_r1_c3" rowspan="1" colspan="1">一月</td>
+                        <td id="table_2_thead_r1_c4" rowspan="1" colspan="1">二月</td>
+                        <td id="table_2_thead_r1_c5" rowspan="1" colspan="1">三月</td>
+                        <td id="table_2_thead_r1_c6" rowspan="1" colspan="1">四月</td>
+                        <td id="table_2_thead_r1_c7" rowspan="1" colspan="1">五月</td>
+                        <td id="table_2_thead_r1_c8" rowspan="1" colspan="1">六月</td>
+                        <td id="table_2_thead_r1_c9" rowspan="1" colspan="1">七月</td>
+                        <td id="table_2_thead_r1_c10" rowspan="1" colspan="1">八月</td>
+                        <td id="table_2_thead_r1_c11" rowspan="1" colspan="1">九月 </td>
+                        <td id="table_2_thead_r1_c12" rowspan="1" colspan="1">十月</td>
+                        <td id="table_2_thead_r1_c13" rowspan="1" colspan="1">十一月</td>
+                        <td id="table_2_thead_r1_c14" rowspan="1" colspan="1">十二月</td>
+                    </tr>
+                    </thead>
+                    <tbody id="table_2_tbody">
+                    <tr align="center">
+                        <td id="table_2_tbody_r1_c0" rowspan="1" colspan="2">购气量</td>
+                        <td id="table_2_tbody_r1_c1" rowspan="1" colspan="1"></td>
+                        <td id="table_2_tbody_r1_c2" rowspan="1" colspan="1"></td>
+                        <td id="table_2_tbody_r1_c3" rowspan="1" colspan="1"></td>
+                        <td id="table_2_tbody_r1_c4" rowspan="1" colspan="1"></td>
+                        <td id="table_2_tbody_r1_c5" rowspan="1" colspan="1"></td>
+                        <td id="table_2_tbody_r1_c6" rowspan="1" colspan="1"></td>
+                        <td id="table_2_tbody_r1_c7" rowspan="1" colspan="1"></td>
+                        <td id="table_2_tbody_r1_c8" rowspan="1" colspan="1"></td>
+                        <td id="table_2_tbody_r1_c9" rowspan="1" colspan="1"></td>
+                        <td id="table_2_tbody_r1_c10" rowspan="1" colspan="1"></td>
+                        <td id="table_2_tbody_r1_c11" rowspan="1" colspan="1"></td>
+                        <td id="table_2_tbody_r1_c12" rowspan="1" colspan="1"></td>
+                    </tr>
+                    <tr align="center">
+                        <td id="table_2_tbody_r2_c0" rowspan="1" colspan="2">销气量</td>
+                        <td id="table_2_tbody_r2_c1" rowspan="1" colspan="1"></td>
+                        <td id="table_2_tbody_r2_c2" rowspan="1" colspan="1"></td>
+                        <td id="table_2_tbody_r2_c3" rowspan="1" colspan="1"></td>
+                        <td id="table_2_tbody_r2_c4" rowspan="1" colspan="1"></td>
+                        <td id="table_2_tbody_r2_c5" rowspan="1" colspan="1"></td>
+                        <td id="table_2_tbody_r2_c6" rowspan="1" colspan="1"></td>
+                        <td id="table_2_tbody_r2_c7" rowspan="1" colspan="1"></td>
+                        <td id="table_2_tbody_r2_c8" rowspan="1" colspan="1"></td>
+                        <td id="table_2_tbody_r2_c9" rowspan="1" colspan="1"></td>
+                        <td id="table_2_tbody_r2_c10" rowspan="1" colspan="1"></td>
+                        <td id="table_2_tbody_r2_c11" rowspan="1" colspan="1"></td>
+                        <td id="table_2_tbody_r2_c12" rowspan="1" colspan="1"></td>
+                    </tr>
+                    <tr align="center">
+                        <td id="table_2_tbody_r3_c" rowspan="2" colspan="1">供销差率</td>
+                        <td id="table_2_tbody_r3_c0" rowspan="1" colspan="1">本月</td>
+                        <td id="table_2_tbody_r3_c1" rowspan="1" colspan="1"></td>
+                        <td id="table_2_tbody_r3_c2" rowspan="1" colspan="1"></td>
+                        <td id="table_2_tbody_r3_c3" rowspan="1" colspan="1"></td>
+                        <td id="table_2_tbody_r3_c4" rowspan="1" colspan="1"></td>
+                        <td id="table_2_tbody_r3_c5" rowspan="1" colspan="1"></td>
+                        <td id="table_2_tbody_r3_c6" rowspan="1" colspan="1"></td>
+                        <td id="table_2_tbody_r3_c7" rowspan="1" colspan="1"></td>
+                        <td id="table_2_tbody_r3_c8" rowspan="1" colspan="1"></td>
+                        <td id="table_2_tbody_r3_c9" rowspan="1" colspan="1"></td>
+                        <td id="table_2_tbody_r3_c10" rowspan="1" colspan="1"></td>
+                        <td id="table_2_tbody_r3_c11" rowspan="1" colspan="1"></td>
+                        <td id="table_2_tbody_r3_c12" rowspan="1" colspan="1"></td>
+                    </tr>
+                    <tr align="center">
+                        <td id="table_2_tbody_r4_c0" rowspan="1" colspan="1">累计</td>
+                        <td id="table_2_tbody_r4_c1" rowspan="1" colspan="1"></td>
+                        <td id="table_2_tbody_r4_c2" rowspan="1" colspan="1"></td>
+                        <td id="table_2_tbody_r4_c3" rowspan="1" colspan="1"></td>
+                        <td id="table_2_tbody_r4_c4" rowspan="1" colspan="1"></td>
+                        <td id="table_2_tbody_r4_c5" rowspan="1" colspan="1"></td>
+                        <td id="table_2_tbody_r4_c6" rowspan="1" colspan="1"></td>
+                        <td id="table_2_tbody_r4_c7" rowspan="1" colspan="1"></td>
+                        <td id="table_2_tbody_r4_c8" rowspan="1" colspan="1"></td>
+                        <td id="table_2_tbody_r4_c9" rowspan="1" colspan="1"></td>
+                        <td id="table_2_tbody_r4_c10" rowspan="1" colspan="1"></td>
+                        <td id="table_2_tbody_r4_c11" rowspan="1" colspan="1"></td>
+                        <td id="table_2_tbody_r4_c12" rowspan="1" colspan="1"></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <br/><br/>
+                <br/><br/></div>
+            <!-- 内容结束-->
+        </div>
+    </div>
+    <!-- 主内容结束 -->
+</div>
+
+<!-- 底边栏开始 -->
+<script>$.include("pages/partial/foot.shtml");</script>
+<!-- 底边栏结束 -->
+</body>
+
+
+<script>$.include("pages/partial/scripts.shtml");</script>
+<!--跳到原稿-->
+<script src="../assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="../assets/global/plugins/jquery-watable/jquery.watable.js"></script>
+<script type="text/javascript" src="../pages/scripts/rqlbuilder.js"></script>
+<script type="text/javascript" src="../pages/scripts/xwatable.js"></script>
+<script type="text/javascript" src="../pages/scripts/refhelper.js"></script>
+
+<!--datapicker start-->
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/clockface/js/clockface.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-daterangepicker/moment.min.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script src="../assets/admin/pages/scripts/components-pickers.js"></script>
+
+<script type="text/javascript" src="../assets/global/plugins/select2/select2.js"></script>
+
+<script type="text/javascript" src="/statement/js/libs/charts/echarts.js"></script>
+<script type="text/javascript" src="/statement/js/libs/charts/echarts-gl.js"></script>
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts图表
+    var myChart = echarts.init(document.getElementById('main'));
+
+    var title = "供销差率情况";
+
+    var xTitle = ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
+    var year=moment().format('YYYY');
+    $("#table_0_title").html(year+"年供销差率对比");
+    $("#table_1_title").html((year-1)+"年供销差率对比");
+    $("#table_2_title").html((year-2)+"年供销差率对比");
+    var datas = [
+        {
+            name : year+"年",
+            data : [21.14,12.98,28.26,2.89,2.53,2.64]
+        },
+        {
+            name : (year-1)+"年",
+            data : [17.41,11.45,7.47,-6.18,-4.27,3.29,-2.69,-0.09,1.11,3.60,5.10,6.81]
+        },
+        {
+            name : (year-2)+'年',
+            data : [13.38,10.54,2.23,1.03,1.58,23.95,2.91,1.35,2.75,0.08,3.62,6.40]
+        }
+    ];
+    
+    function loadData(){
+        var option = {
+            title: {text: '',subtext: '百分比%'},
+            tooltip: {trigger: 'item',formatter: "{a}<br/>{b}={c}%"},
+            legend: {data: []},
+            toolbox: {
+                show: true,
+                feature: {
+                    dataZoom: {
+                        yAxisIndex: 'none'
+                    },
+                    dataView: {readOnly: false},
+                    magicType: {type: ['line', 'bar']},
+                    restore: {},
+                    saveAsImage: {}
+                }
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: xTitle
+            },
+            yAxis: {
+                type: 'value',
+                axisLabel: {
+                    formatter: '{value} %'
+                }
+            },
+            series: []
+        };
+
+        for(var i=0;i<datas.length;i++){
+            option.title.text += datas[i].name + " ";
+            option.legend.data.push(datas[i].name + title);
+            option.series.push({
+                name:datas[i].name+title,
+                type:'line',
+                data:datas[i].data,
+                markPoint: {
+                    data: [
+                        {type: 'max', name: '最大值'},
+                        {type: 'min', name: '最小值'}
+                    ]
+                }
+            });
+        }
+        option.title.text += title;
+
+        // 为echarts对象加载数据
+        myChart.setOption(option);
+    }
+    /*
+    购气量/销气量 都是录入的
+
+    表结构
+    -------------------------
+    year | type | month | val
+    -------------------------
+    2017 | 1    |   1   | 100
+    -------------------------
+    2017 | 2    |   1   | 80
+    -------------------------
+    2017 | 1    |   2   | 80
+    -------------------------
+    2017 | 2    |   2   | 80
+    -------------------------
+    供销率 本月=1-本月销气量/本月购气量
+          累积=1-累计销气量/累计购气量
+    */
+    // var data=[{
+    //         year:2017,type:"1",month:1,val:100
+    //     },{
+    //         year:2017,type:"2",month:1,val:50
+    //     },{
+    //         year:2017,type:"1",month:2,val:100
+    //     },{
+    //         year:2017,type:"2",month:2,val:40
+    //     },{
+    //         year:2017,type:"1",month:3,val:100
+    //     },{
+    //         year:2017,type:"2",month:3,val:40
+    //     },{
+    //         year:2017,type:"1",month:4,val:100
+    //     },{
+    //         year:2017,type:"2",month:4,val:40
+    //     },{
+    //         year:2017,type:"1",month:5,val:100
+    //     },{
+    //         year:2017,type:"2",month:5,val:40
+    //     },{
+    //         year:2017,type:"1",month:6,val:100
+    //     },{
+    //         year:2017,type:"2",month:6,val:40
+    //     },{
+    //         year:2017,type:"1",month:7,val:100
+    //     },{
+    //         year:2017,type:"2",month:7,val:40
+    //     },{
+    //         year:2017,type:"1",month:8,val:100
+    //     },{
+    //         year:2017,type:"2",month:8,val:40
+    //     },{
+    //         year:2017,type:"1",month:9,val:100
+    //     },{
+    //         year:2017,type:"2",month:9,val:40
+    //     },{
+    //         year:2017,type:"1",month:10,val:100
+    //     },{
+    //         year:2017,type:"2",month:10,val:40
+    //     },{
+    //         year:2017,type:"1",month:11,val:100
+    //     },{
+    //         year:2017,type:"2",month:11,val:40
+    //     },{
+    //         year:2017,type:"1",month:12,val:100
+    //     },{
+    //         year:2017,type:"2",month:12,val:40
+    //     },{
+    //         year:2016,type:"1",month:1,val:100
+    //     },{
+    //         year:2016,type:"2",month:1,val:30
+    //     },{
+    //         year:2016,type:"1",month:2,val:20
+    //     },{
+    //         year:2016,type:"2",month:2,val:40
+    //     },{
+    //         year:2016,type:"1",month:3,val:80
+    //     },{
+    //         year:2016,type:"2",month:3,val:90
+    //     },{
+    //         year:2016,type:"1",month:4,val:60
+    //     },{
+    //         year:2016,type:"2",month:4,val:54
+    //     },{
+    //         year:2016,type:"1",month:5,val:223
+    //     },{
+    //         year:2016,type:"2",month:5,val:55
+    //     },{
+    //         year:2016,type:"1",month:6,val:34
+    //     },{
+    //         year:2016,type:"2",month:6,val:45
+    //     },{
+    //         year:2016,type:"1",month:7,val:123
+    //     },{
+    //         year:2016,type:"2",month:7,val:78
+    //     },{
+    //         year:2016,type:"1",month:8,val:86
+    //     },{
+    //         year:2016,type:"2",month:8,val:34
+    //     },{
+    //         year:2016,type:"1",month:9,val:44
+    //     },{
+    //         year:2016,type:"2",month:9,val:34
+    //     },{
+    //         year:2016,type:"1",month:10,val:22
+    //     },{
+    //         year:2016,type:"2",month:10,val:44
+    //     },{
+    //         year:2016,type:"1",month:11,val:56
+    //     },{
+    //         year:2016,type:"2",month:11,val:22
+    //     },{
+    //         year:2016,type:"1",month:12,val:34
+    //     },{
+    //         year:2016,type:"2",month:12,val:54
+    //     },{
+    //         year:2015,type:"1",month:1,val:68
+    //     },{
+    //         year:2015,type:"2",month:1,val:26
+    //     },{
+    //         year:2015,type:"1",month:2,val:43
+    //     },{
+    //         year:2015,type:"2",month:2,val:40
+    //     },{
+    //         year:2015,type:"1",month:3,val:77
+    //     },{
+    //         year:2015,type:"2",month:3,val:66
+    //     },{
+    //         year:2015,type:"1",month:4,val:45
+    //     },{
+    //         year:2015,type:"2",month:4,val:33
+    //     },{
+    //         year:2015,type:"1",month:5,val:100
+    //     },{
+    //         year:2015,type:"2",month:5,val:29
+    //     },{
+    //         year:2015,type:"1",month:6,val:102
+    //     },{
+    //         year:2015,type:"2",month:6,val:29
+    //     },{
+    //         year:2015,type:"1",month:7,val:38
+    //     },{
+    //         year:2015,type:"2",month:7,val:104
+    //     },{
+    //         year:2015,type:"1",month:8,val:95
+    //     },{
+    //         year:2015,type:"2",month:8,val:56
+    //     },{
+    //         year:2015,type:"1",month:9,val:63
+    //     },{
+    //         year:2015,type:"2",month:9,val:71
+    //     },{
+    //         year:2015,type:"1",month:10,val:82
+    //     },{
+    //         year:2015,type:"2",month:10,val:62
+    //     },{
+    //         year:2015,type:"1",month:11,val:72
+    //     },{
+    //         year:2015,type:"2",month:11,val:87
+    //     },{
+    //         year:2015,type:"1",month:12,val:100
+    //     },{
+    //         year:2015,type:"2",month:12,val:99
+    // }]
+    $(function(){
+        //默认加载三年的
+        $.ajax({
+            url: "hzqs/dbc/pbsel.do?fh=SELDBC0000000J00&resp=bd",
+            type: "POST",
+            contentType: "application/json;charset=utf-8",
+            data: JSON.stringify({
+                cols: "year,type,month,val",
+                froms: "gasReportSupply",
+                wheres: "year in ("+year+","+(year-1)+","+(year-2)+")",
+                page: "false"
+            }),
+            dataType: "json",
+            success: function (data) {    
+                if(data.rows){
+                    data.rows.forEach(function(m){
+                        //加载当年的
+                        if(m.year==year){
+                            $("#table_0_tbody_r"+m.type+"_c"+m.month).html(m.val);
+                        }else if(m.year==(year-1)){//前一年
+                            $("#table_1_tbody_r"+m.type+"_c"+m.month).html(m.val);
+                        }else if(m.year==(year-2)){//前两年
+                            $("#table_2_tbody_r"+m.type+"_c"+m.month).html(m.val);
+                        }
+                    })
+                    var months=[1,2,3,4,5,6,7,8,9,10,11,12];
+                    //购气量累计 销气量累计
+                    var mgTotal=0,mxTotal=0,mgTotal1=0,mxTotal1=0,mgTotal2=0,mxTotal2=0,dataOne=[],dataTwo=[],dataThree=[];
+                    months.forEach(function(m){
+                        //当年
+                        var mg=parseInt($("#table_0_tbody_r1_c"+m).text());
+                        var mx=parseInt($("#table_0_tbody_r2_c"+m).text());
+                        mgTotal+=mg;
+                        mxTotal+=mx;
+                        var ml=(((mg-mx)/mg)*100).toFixed(2);
+                        if(isNaN(ml))ml="";
+                        var mlRate=ml==""?ml:ml+"%"
+                        $("#table_0_tbody_r3_c"+m).html(mlRate);
+                        var mlTotal=(((mgTotal-mxTotal)/mgTotal)*100).toFixed(2);
+                        if(isNaN(mlTotal))mlTotal="";
+                        var mlTotalRate=mlTotal==""?mlTotal:mlTotal+"%";
+                        $("#table_0_tbody_r4_c"+m).html(mlTotalRate);
+                        if(mlTotal=="")mlTotal=0;
+                        dataOne.push(mlTotal);
+
+                        //前一年
+                        mg=parseInt($("#table_1_tbody_r1_c"+m).text());
+                        mx=parseInt($("#table_1_tbody_r2_c"+m).text());
+                        mgTotal1+=mg;
+                        mxTotal1+=mx;
+                        var ml=(((mg-mx)/mg)*100).toFixed(2);
+                        if(isNaN(ml))ml="";
+                        mlRate=ml==""?ml:ml+"%"
+                        $("#table_1_tbody_r3_c"+m).html(mlRate);
+                        var mlTotal1=(((mgTotal1-mxTotal1)/mgTotal1)*100).toFixed(2);
+                        if(isNaN(mlTotal1))mlTotal1="";
+                        var mlTotal1Rate=mlTotal1==""?mlTotal1:mlTotal1+"%";
+                        $("#table_1_tbody_r4_c"+m).html(mlTotal1Rate);
+                        if(mlTotal1=="")mlTotal1=0;
+                        dataTwo.push(mlTotal1);
+
+                        //前两年
+                        var mg=parseInt($("#table_2_tbody_r1_c"+m).text());
+                        var mx=parseInt($("#table_2_tbody_r2_c"+m).text());
+                        mgTotal2+=mg;
+                        mxTotal2+=mx;
+                        ml=(((mg-mx)/mg)*100).toFixed(2);
+                        if(isNaN(ml))ml="";
+                        mlRate=ml==""?ml:ml+"%"
+                        $("#table_2_tbody_r3_c"+m).html(mlRate);
+                        var mlTotal2=(((mgTotal2-mxTotal2)/mgTotal2)*100).toFixed(2);
+                        if(isNaN(mlTotal2))mlTotal2="";
+                        var mlTotal2Rate=mlTotal2==""?mlTotal2:mlTotal2+"%";
+                        $("#table_2_tbody_r4_c"+m).html(mlTotal2Rate);
+                        if(mlTotal2=="")mlTotal2=0;
+                        dataThree.push(mlTotal2);
+                    })       
+                    datas[0].data=dataOne;
+                    datas[1].data=dataTwo;
+                    datas[2].data=dataThree;
+
+                    loadData();
+                }
+            }
+        }); 
+
+        
+    })
+</script>
+</body>
+</html>

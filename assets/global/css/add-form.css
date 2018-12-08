@@ -1,0 +1,21 @@
+.add-form {
+    margin-bottom: 25px;
+    /*margin-top: 10px;*/
+    background-color: #ffffff;
+}
+
+.add-form form {
+    padding: 20px 0 0 0;
+}
+
+.add-form form .form-actions.fluid {
+    padding:12px 0 0px 0;
+}
+
+.form-action {
+    text-align: center;
+}
+.form-actions {
+    margin: 0 auto;
+    /* width: 316px; */
+}

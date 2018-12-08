@@ -1,0 +1,28 @@
+<script type="text/x-template" id="__dust__ICCardPurchaseRowInfo">
+    {#data}
+    <tr>
+        <td>
+            {areaName}
+        </td>
+        <td>    
+            {chargeUnitName}
+        </td>
+        <td>
+            {cardCode}
+        </td>
+        <td>
+            {meterNo}
+        </td>
+
+        <td>
+            {buyGasTime}
+        </td>
+        <td>    
+            {measure}m³
+        </td>
+        <td>
+            {buyGasTimes}
+        </td>
+    </tr>
+    {/data}
+</script>

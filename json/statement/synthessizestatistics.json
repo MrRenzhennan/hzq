@@ -1,0 +1,10 @@
+{"rows":
+[
+  {"UUID":"001","customerID":"9527","userID":"5000","houseID":"￥45673453","accountID":"5554立方","customerName":"￥33433","address":"￥33733","photo":"￥5643","mobilePhone":"￥34536","customerCategory":"￥65464","customerStatus":"5646立方","meterBook":"3455立方","contract":"2016 8-9","copybooktype":"IC卡采暖","cancellation":"无"},
+  {"UUID":"001","customerID":"9527","userID":"5000","houseID":"￥45673453","accountID":"5554立方","customerName":"￥33433","address":"￥33733","photo":"￥5643","mobilePhone":"￥34536","customerCategory":"￥65464","customerStatus":"5646立方","meterBook":"3455立方","contract":"2016 8-9","copybooktype":"IC卡采暖","cancellation":"无"},
+  {"UUID":"001","customerID":"9527","userID":"5000","houseID":"￥45673453","accountID":"5554立方","customerName":"￥33433","address":"￥33733","photo":"￥5643","mobilePhone":"￥34536","customerCategory":"￥65464","customerStatus":"5646立方","meterBook":"3455立方","contract":"2016 8-9","copybooktype":"IC卡采暖","cancellation":"无"}
+]
+,"total_rows":8
+,"totalPages":2
+,"skip":0
+,"limit":2147483647}

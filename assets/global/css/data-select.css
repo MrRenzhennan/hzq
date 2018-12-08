@@ -1,0 +1,20 @@
+.data-select  button {
+    background-color: #ffffff;
+    border: 1px solid #1d8bd8;
+    color:#1d8bd8;
+}
+
+.data-select {
+    height: 30px;
+}
+
+.data-select .input-group .input-group-addon {
+    background-color: #ffffff;
+    border: 0px;
+    font-size: 12px;
+}
+
+.btn:hover {
+    background-color: #1d8bd8;
+    color: #ffffff;
+}

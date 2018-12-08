@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>收费管理</title>
+    <style>
+        #search {
+            width: 100%;
+            margin: 0 auto;
+            text-align: center;
+        }
+    </style>
+    <base href="../">
+    <meta charset="UTF-8">
+    <script src="pages/scripts/basepath.js"></script>
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-select/bootstrap-select.min.css">
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/select2/select2.css">
+    <script src="pages/scripts/header.js"></script>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8" />
+    <link href="assets/global/plugins/bootstrap-fileinput/fileinput.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/previewPicture/css/component.css" />
+    <script type="text/javascript" src="assets/global/plugins/previewPicture/js/modernizr.custom.js"></script>
+    <style>
+        .table td {
+            vertical-align: middle !important;
+        }
+    </style>
+</head>
+
+<body class="page-header-fixed page-quick-sidebar-over-content">
+    <script>
+        $.include("collectfee/partial/customerinfo.shtml");
+        $.include("collectfee/partial/icgasrowinfo.shtml");
+        $.include("collectfee/partial/wasterowinfo.shtml");
+        $.include("collectfee/partial/ctmaccountinfo.shtml");
+        $.include("collectfee/partial/iccardinfo.shtml");
+        $.include("collectfee/partial/iccardmessage.shtml");
+        $.include("collectfee/partial/iccardpurchase.shtml");
+        $.include("collectfee/partial/iccardchangemessage.shtml");
+    </script>
+    <div class="page-header navbar navbar-fixed-top">
+        <script>
+            $.include("pages/partial/menu.shtml");
+        </script>
+    </div>
+
+    <div class="clearfix"></div>
+    <div class="page-container">
+        <!-- 左侧菜单开始 -->
+        <div class="page-sidebar-wrapper">
+            <script>
+                $.include("pages/partial/sidebar.shtml");
+            </script>
+        </div>
+        <!-- 左侧菜单结束 -->
+        <div id="gfdata"></div>
+        <!-- 主内容开始 -->
+        <div class="page-content-wrapper">
+            <div class="page-content">
+                <!--内容头开始-->
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul class="page-breadcrumb breadcrumb">
+                            <li>
+                                <i class="fa  fa-map-marker"></i>
+                                <a href="index.html">收费管理</a>
+                                <i class="fa fa-angle-right"></i>
+                            </li>
+                            <li>
+                                <a href="index.html">燃气收费管理</a>
+                                <i class="fa fa-angle-right"></i>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">IC卡补量审批</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!--   <script>
+                   $.include("serviceManage/partial/select_user.shtml");
+               </script>-->
+                <!--用户信息-->
+                <!--   <script>
+                   $.include("serviceManage/partial/user_info.shtml");
+               </script>-->
+
+                <div class="tabbable tabbable-custom tabbable-custom-profile col-md-12" style="padding-bottom:0px">
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#tab22" data-toggle="tab" style="font-size: 14px;color: blue;">
+                            补量申请信息 </a>
+
+                        </li>
+                    </ul>
+                    <!--/row-->
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tab22">
+                            <div class="portlet-body">
+                                <!-- begin form-->
+                                <div class="form-body">
+                                    <div class="row form-group">
+                                        <div class="col-sm-3 form-group">
+                                            <div class="btn-group input-group">
+                                                <div class="input-group-addon">联系人:</div>
+                                                <input id="linkMan" name="linkMan" class="inputclear form-control" type="text" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 form-group">
+                                            <div class="btn-group input-group">
+                                                <div class="input-group-addon">联系电话:</div>
+                                                <input id="linkTel" name="linktel" class="inputclear form-control" type="text" disabled>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-6 form-group">
+                                            <div class="btn-group input-group" style="width: 100%">
+                                                <div class="input-group-addon">工程地址:</div>
+                                                <input id="projectAddress" name="projectAddress" class="inputclear form-control" type="text" disabled>
+                                                <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col-sm-3 form-group">
+                                        <div class="btn-group input-group input-select2me">
+                                            <div class="input-group-addon">丢失原因:</div>
+                                            <select id="lost_reason" class="form-control input-middle " disabled>
+                                            <option value=""></option>  
+                                            <option value="1">IC卡丢失</option>
+                                            <option value="2">IC卡损坏</option>
+                                            <option value="3">气量充表失败</option>
+                                            <option value="4">换表补量</option>
+                                            <option value="5">其他</option>
+                                        </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3 form-group">
+                                        <div class="btn-group input-group">
+                                            <div class="input-group-addon">申请气量:</div>
+                                            <input id="applygas" name="applygas" class="inputclear form-control" type="text" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3 form-group">
+                                        <div class="btn-group input-group">
+                                            <div class="input-group-addon">批准气量:</div>
+                                            <input id="approvegas" name="approvegas" class="inputclear form-control" type="number">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3 form-group">
+                                        <div class="btn-group input-group">
+                                            <div class="input-group-addon">累计购气量:</div>
+                                            <input id="sumgas" name="applygas" class="inputclear form-control" type="text" disabled>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row form-group">
+                                    <div class="col-sm-12 form-group">
+                                        <div class="btn-group input-group" style="width: 100%">
+                                            <div class="input-group-addon">业务说明:</div>
+                                            <textarea id="remark" name="remark" class="inputclear form-control" type="text" disabled style="height: 60px"></textarea>
+                                            <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                        </div>
+                                        <script>
+                                            $.include("common/picture.shtml");
+                                        </script>
+                                    </div>
+                                </div>
+
+
+
+                                <!--end form-->
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div id="IC" class="tabbable tabbable-custom tabbable-custom-profile col-md-12" style="padding-bottom:0px">
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#tab_t_11" data-toggle="tab" style="color:#1d8bd8;">
+                            补量情况 </a>
+
+                        </li>
+                        <li>
+                            <a href="#tabICgas" data-toggle="tab">
+                            IC卡购气信息 </a>
+                        </li>
+                        <li>
+                            <a href="#tabIC" data-toggle="tab">
+                            IC卡信息 </a>
+                        </li>
+                        <li>
+                            <a href="#tabICChange" data-toggle="tab">
+                            IC卡变更信息 </a>
+                        </li>
+                    </ul>
+                    <!--/row-->
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tab_t_11">
+                            <div class="portlet-body">
+                                <div class="row">
+                                    <div class="container-fluid">
+                                        <div id="divtable" class="table-responsive container-fluid col-md-12">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="tabICgas">
+                            <div class="panel panel-default">
+                                <div class="portlet-body">
+                                    <table class="watable table table-striped table-hover table-bordered table-condensed" style="margin-bottom:0px;">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    供气区域
+                                                </th>
+                                                <th>
+                                                    营业网点
+                                                </th>
+                                                <th>
+                                                    IC卡号
+                                                </th>
+                                                <th>
+                                                    表编号
+                                                </th>
+                                                <th>
+                                                    购气时间
+                                                </th>
+                                                <th>
+                                                    购气量
+                                                </th>
+                                                <th>
+                                                    购气次数
+                                                </th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody id="_iccardpurchaseInfo">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane" id="tabIC">
+                            <div class="panel panel-default">
+                                <div class="portlet-body">
+                                    <table class="watable table table-striped table-hover table-bordered table-condensed">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    客户编号
+                                                </th>
+                                                <th>
+                                                    IC卡号
+                                                </th>
+                                                <th>
+                                                    地区编码
+                                                </th>
+                                                <th>
+                                                    表编号
+                                                </th>
+                                                <th>
+                                                    IC卡状态
+                                                </th>
+                                                <th>
+                                                    厂家
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="_iccardmessgeInfo">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="tabICChange">
+                            <div class="panel panel-default">
+                                <div class="portlet-body">
+                                    <table class="watable table table-striped table-hover table-bordered table-condensed">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    客户编号
+                                                </th>
+                                                <th>
+                                                    IC卡号
+                                                </th>
+                                                <th>
+                                                    表编号
+                                                </th>
+                                                <th>
+                                                    IC卡变动类型
+                                                </th>
+                                                <th>
+                                                    时间
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="_iccardchangeInfo">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <script>
+                                            $.include("examine/commons/commit_examine_common.shtml");
+                </script>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- 底边栏开始 -->
+    <script>
+                    $.include("pages/partial/foot.shtml");
+    </script>
+    <script type="text/javascript">
+        $.include("pages/partial/xwatable-form.shtml")
+    </script>
+</body>
+
+<script>
+        $.include("pages/partial/scripts.shtml");
+
+</script>
+
+<script src="assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-watable/jquery.watable.js"></script>
+<script type="text/javascript" src="pages/scripts/rqlbuilder.js"></script>
+<script type="text/javascript" src="pages/scripts/xwatable.js"></script>
+<script type="text/javascript" src="pages/scripts/refhelper.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script src="assets/admin/pages/scripts/components-pickers.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+<script src="pages/scripts/jquery.json.min.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-daterangepicker/moment.min.js"></script>
+<script type="text/javascript" src="pages/scripts/jquery.serialize-object.min.js"></script>
+<script type="text/javascript" src="collectfee/js/charge.js"></script>
+<script type="text/javascript" src="collectfee/js/localservice.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/select2/select2.js"></script>
+<!-- 底边栏结束 -->
+<script type="text/javascript">
+    //补量
+
+
+    $(document).ready(function () {
+        var xw1;
+        var errorApplyId = JSON.parse(step.propstr2048).complementId;
+        var customerCode = JSON.parse(step.propstr2048).customerCode;
+        var fileId = JSON.parse(step.propstr2048).file_id;
+        if (fileId) {
+            pic(fileId);
+        }
+
+
+
+        $('#divtable').html('');
+        var stateFormat = function () {
+            return {
+                f: function (data, row) {
+                    if (data == "1") {
+                        return "审批中";
+                    } else if (data == "2") {
+                        return "审批通过";
+                    } else if (data == "3") {
+                        return "审批不通过";
+                    }
+                    return "";
+                }
+            }
+        }();
+        var reasonFormat = function () {
+            return {
+                f: function (data, row) {
+                    if (data == "1") {
+                        return "IC卡丢失";
+                    } else if (data == "2") {
+                        return "IC卡损坏";
+                    } else if (data == "3") {
+                        return "气量充表失败";
+                    } else if (data == "4") {
+                        return "换表补量";
+                    } else if (data == "5") {
+                        return "其他";
+                    }
+                    return "";
+                }
+            }
+        }();
+        var timeFormat = function () {
+            return {
+                f: function (data, row) {
+                    if (data == "" || data == undefined) {
+                        return "—";
+                    } else {
+                        return moment(data).format("YYYY-MM-DD HH:mm:ss");
+                    }
+                    return "";
+                }
+            }
+        }();
+        var bd = {
+                "cols": "a.remark,a.applyState,a.customerCode,a.customerName applyer,a.applyReason,a.approveTime,a.applyGas,c.customerName",
+                "froms":"gas_chg_iccard_complement a,gasCtmArchive c ",
+                 "wheres": "a.ctm_archive_id = c.ctm_archive_id and a.customerCode = '" + customerCode + "'"
+            };
+        xw1 = XWATable.init(
+            {
+                divname: "divtable",
+                //----------------table的选项-------
+                pageSize: 10, 			//Initial pagesize
+                columnPicker: true,         //Show the columnPicker button
+                sorting: true,
+                transition: 'fade',  //(bounce, fade, flip, rotate, scroll, slide).
+                checkboxes: false,           //Make rows checkable. (Note. You need a column with the 'unique' property)
+                checkAllToggle: true,        //Show the check-all toggle//+RQLBuilder.like("KEYY", "a").rql()
+                //----------------基本restful地址---
+                //restbase: 'gaschgiccardcomplement/?query={"customerCode":"' + customerCode + '"}',
+                key_column: 'errorApplyId',
+                restURL: 'hzqs/dbc/pbsel.do?fh=SELDBC0000000J00&resp=bd&proxy=VSELDBC000000J00&bd=' + encodeURIComponent(JSON.stringify(bd)),
+                coldefs: [
+                    {
+                        col: "customerCode",
+                        friendly: "客户编号",
+                        sorting: false,
+                        index: 1
+                    },
+                    {
+                        col: "customerName",
+                        friendly: "客户名",
+                        sorting: false,
+                        index: 2
+                    },
+                    {
+                        col: "applyer",
+                        friendly: "申请人姓名",
+                        sorting: false,
+                        index: 3
+                    },
+                    {
+                        col: "applyReason",
+                        friendly: "申请原因",
+                        readonly: "readonly",
+                        sorting: false,
+                        index: 4,
+                        format: reasonFormat
+                    },
+                    {
+                        col: "approveTime",
+                        friendly: "批准时间",
+                        readonly: "readonly",
+                        sorting: false,
+                        format: timeFormat,
+                        index: 7
+                    },
+                    {
+                        col: "applyGas",
+                        friendly: "申请气量",
+                        readonly: "readonly",
+                        sorting: false,
+                        index: 5
+                    },
+                    {
+                        col: "applyState",
+                        friendly: "审批状态",
+                        readonly: "readonly",
+                        sorting: false,
+                        format: stateFormat,
+                        index: 6
+                    },
+                    {
+                        col: "remark",
+                        friendly: "说明",
+                        readonly: "readonly",
+                        sorting: false,
+                        index: 8
+                    },
+                    {
+                        col: "wfId",
+                        friendly: "流程实例ID",
+                        readonly: "readonly",
+                        hidden: true,
+                        sorting: false,
+                        index: 9
+                    }
+
+                ],
+            });
+
+        //查补量表
+        $.ajax({
+            url: "hzqs/hzqrest/gaschgiccardcomplement/" + errorApplyId,
+            url: "hzqs/dbc/pbsel.do?fh=SELDBC0000000J00&resp=bd",
+            type: "POST",
+            async: false,
+            contentType: "application/json;charset=utf-8",
+            data: JSON.stringify({
+                cols: "a.*,b.customerAddr,b.linkPhone",
+                froms: "gasChgIccardComplement a,gasCsrBusiRegister b",
+                wheres: "b.busiRegisterId = a.complementId and a.complementId ='" + errorApplyId + "'",
+                page: "false",
+                limit: 1
+            }),
+            success: function (data) {
+                if (data && data.rows && data.rows.length > 0) {
+                    var data = data.rows[0];
+                    $("#linkMan").val(data.customerName);
+                    $("#projectAddress").val(data.customerAddr);
+                    $("#linkTel").val(data.linkPhone);
+                    $("#remark").val(data.remark);
+                    $("#applygas").val(data.applyGas);
+                    $("#approvegas").val(data.approveGas);
+                    $("#lost_reason").val(data.applyReason);
+                    //$("#lost_reason").val(data.)
+                } else {
+
+                }
+            },
+            error: function () {
+
+            }
+        });
+        //累计购气量
+        $.ajax({
+            //url: "hzqs/hzqrest/gaschgiccardcomplement/" + errorApplyId,
+            url: "hzqs/dbc/pbsel.do?fh=SELDBC0000000J00&resp=bd",
+            type: "POST",
+            async: false,
+            contentType: "application/json;charset=utf-8",
+            data: JSON.stringify({
+                cols: "sum(a.measure) measure",
+                froms: "gasChgIccardCharge a left join gasChgIccard c on a.ctmArchiveId = c.ctmArchiveId inner join gasCtmArchive b on a.ctmArchiveId = b.ctmArchiveId",
+                wheres: "c.iccardState = '1' and a.status = '1' and b.customerCode ='" + customerCode + "'",
+                page: "false",
+                limit: 1
+            }),
+            success: function (data) {
+                if (data && data.rows && data.rows.length > 0) {
+                    var data = data.rows[0];
+                    $("#sumgas").val(data.measure);
+
+                } else {
+
+                }
+            },
+            error: function () {
+
+            }
+        });
+        //IC卡购气信息
+        chargeHelper.renderIcChargeInfo(customerCode, function (data) {
+            dust.loadSource(dust.compile($("#__dust__ICCardPurchaseRowInfo").html(), "cardpurchaseInfo__"));
+            dust.render("cardpurchaseInfo__", { "data": data }, function (err, res) {
+                $("#_iccardpurchaseInfo").html(res);
+            })
+        });
+
+        //IC卡信息
+        chargeHelper.renderIccardInfo(customerCode, function (data) {
+            dust.loadSource(dust.compile($("#__dust__ICCardAllMessageRowInfo").html(), "cardallmessageInfo__"));
+            dust.render("cardallmessageInfo__", { "data": data }, function (err, res) {
+                $("#_iccardmessgeInfo").html(res);
+            })
+        });
+        //IC卡变更信息
+        chargeHelper.renderIccardChangeInfo(customerCode, function (data) {
+            dust.loadSource(dust.compile($("#__dust__ICCardChangeRowInfo").html(), "cardchangeInfo__"));
+            dust.render("cardchangeInfo__", { "data": data.rows }, function (err, res) {
+                $("#_iccardchangeInfo").html(res);
+            });
+
+        });
+    });
+    //继续时调用
+    function doNext(step) {
+        //console.log(step);
+        var errorApplyId = JSON.parse(step.propstr2048).complementId;
+        console.log("--------");
+        console.log(step.results);
+        //console.log(step.result);
+        var statusJson = {
+            "applyState": step.results == "1" ? "3" : "1",
+            "approveTime": new Date().getTime(),
+            "approveGas": $("#approvegas").val(),
+        }
+        Restful.update("hzqs/hzqrest/gaschgiccardcomplement/", errorApplyId, statusJson);
+        window.location.href = 'index.html';
+    }
+    function doBusi(step) {
+        console.log("++++++++");
+        console.log(step);
+        var applyState = "2";
+        if (step.results == "1") {
+            applyState = "3";
+        }
+        var errorApplyId = JSON.parse(step.propstr2048).complementId;
+        $.ajax({
+            url: "hzqs/hzqrest/gaschgiccardcomplement/" + errorApplyId,
+            type: "PUT",
+            dataType: "json",
+            async: false,
+            data: JSON.stringify({
+                "approveTime": new Date().getTime(),
+                "approveGas": $("#approvegas").val(),
+                "applyState": applyState,
+                "useState": "0"
+            }),
+            success: function (data) {
+                var finishTimeJson;
+                finishTimeJson = {
+                    "finishTime": new Date()
+                }
+
+                //var finishtime = new Date().getMonth + new Date().getDay;
+                var a = Restful.update("/hzqs/dbc/pbtxs.do?fh=SELDBC0000000J00&resp=bd", errorApplyId, finishTimeJson);
+
+
+            }
+        });
+        var regid = step.ref_no;
+        console.log(regid)
+	    var register=Restful.getByID(hzq_rest+'gascsrbusiregister',regid);
+	    if(register){
+	        register.modifiedTime = new Date(moment().format("YYYY-MM-DD HH:mm:ss")+"-00:00");;
+	        register.finishDate = new Date(moment().format("YYYY-MM-DD HH:mm:ss")+"-00:00");;
+	        register.billState = (step.results==0?"3":"2");
+	        register.modifiedBy = UserInfo.userId();
+	        var ret2 = Restful.update(hzq_rest+"/gascsrbusiregister",regid,register);
+	    }
+    }
+
+</script>
+
+</html>

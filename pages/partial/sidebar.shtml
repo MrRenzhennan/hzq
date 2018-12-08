@@ -1,0 +1,196 @@
+<!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+<!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+<link href='pages/font/font/iconfont.css' rel='stylesheet'/>
+<div class="page-sidebar navbar-collapse collapse leftmenu" style="min-height:100vh !important">
+    <!-- BEGIN SIDEBAR MENU -->
+    <!--<ul class="page-sidebar-menu" data-auto-scroll="true" data-slide-speed="200" id="__sidebar">-->
+        <ul class="page-sidebar-menu page-sidebar-menu-hover-submenu hovers" style="min-height:100vh !important"  data-auto-scroll="true"  data-slide-speed="200" id="__sidebar">
+        <!-- DOC: To remove the sidebar toggler from the sidebar you just need to completely remove the below "sidebar-toggler-wrapper" LI element -->
+        <li class="sidebar-toggler-wrapper" style="text-align:center">
+            <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+            <div class="sidebar-toggler" style="text-align:center;display: inline-block">
+            </div>
+            <!-- END SIDEBAR TOGGLER BUTTON -->
+        </li>
+        <!-- DOC: To remove the search box from the sidebar you just need to completely remove the below "sidebar-search-wrapper" LI element -->
+        <li class="start">
+            <a href="index.html">
+                <i class="icon-home"></i>
+                <span class="title">首页</span>
+                <span class="arrow"></span>
+            </a>
+        </li>
+        <script type="text/x-template" id="dust_sidebar">
+            {#data}
+            <li class="leftmenu-hover">
+                <a href="javascript:;" >
+                    <i class="{icon}"></i>
+                    <span class="title">{menuName}({.children.length})</span>
+                    <span class="arrow" style="margin-left: 5px"></span>
+                </a>
+                {?.children}
+                <ul class="sub-menu">
+                    {#children}
+                    <li>
+                        {?.menuUrl}
+                            <li>
+                                <a href="{menuUrl}">
+                                    {?.icon}<i class="{icon}"></i>{/.icon}
+                                    <span class="title">{menuName}</span>
+                                </a>
+                            </li>
+                        {/.menuUrl}
+                        {?.children}
+                            <a href="javascript:;">
+                                {?.icon}<i class="{icon}"></i>{/.icon}
+                                <span class="title">{menuName}({.children.length})</span>
+                                <span class="arrow"></span>
+                            </a>
+                            <ul class="sub-menu">
+                                {#children}
+                                <li>
+                                    <a href="{menuUrl}">
+                                        {?.icon}<i class="{icon}"></i>{/.icon}
+                                        <span class="title">{menuName}</span>
+                                    </a>
+                                </li>
+                                {/children}
+                            </ul>
+                        {/.children}
+                    </li>
+                    {/children}
+                </ul>
+                {/.children}
+            </li>
+            {/data}
+        </script>
+
+    </ul>
+    <!-- END SIDEBAR MENU -->
+    <!--<div class="page-footer">-->
+        <!--<div class="page-footer-inner" style="font-size: 10px; margin-bottom: 100px; bottom: 0px;position: absolute; ">-->
+            <!--2017 &copy;  哈尔滨中庆燃气有限责任公司-->
+        <!--</div>-->
+    <!--</div>-->
+</div>
+
+
+<!-- 登录失败提示 -->
+<div class="modal fade" data-toggle="modal" id="checkbasic" tabindex="-1" role="basic" aria-hidden="true" >
+    <div class="modal-dialog" style="margin: auto;text-align: center">
+        <div class="modal-content" style="width: 300px;margin: auto;text-align: center">
+            <div class="modal-body" >
+                <h3>登录失效，请重新登录</h3>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btn_ok" onclick="btnOkFun()" class="btn blue">确定</button>
+                <button type="button" id="btn_close" onclick="btnCloseFun()" class="btn default">关闭</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<script type="text/javascript" src="assets/addons/dust-full-2.4.0.min.js"></script>
+<script type="text/javascript">
+    var restURL = "json/sidebar_admin.json";
+    var dusterBuildArr = function(tmplEle){
+        var buildingTemplate = dust.compile(tmplEle.html(),"_dust_"+tmplEle.id);
+        dust.loadSource(buildingTemplate);
+        return function(building) {
+            var result;
+            dust.render("_dust_"+tmplEle.id, {"data":building}, function(err, res) {
+                result = res;
+            });
+            return result;
+        };
+    }
+
+    var activeCurByPage =  function(){
+        var pages=window.location.pathname.split('/');
+        var pageName=pages[pages.length-1];
+        //console.log("pages::"+pageName);
+
+        if(pageName==""||pageName=="index.html"){
+            var pp= $("#__sidebar>li.start");
+            pp.addClass('active');
+            pp.children('a').children('span.arrow').removeClass('arrow').addClass('selected')
+            return;
+        }
+        $(".page-sidebar-menu .active").removeClass("active");
+        var links = $("#__sidebar").find("a[href$='/"+pageName+"']");
+        if(links){
+            links.parent("li").addClass("active");
+            var pp=links.parentsUntil('sub-menu').parent('li');
+            pp.addClass('active')
+            pp.children('a').children('span.arrow').removeClass('arrow').addClass('selected')
+        }
+    }
+
+   /* $.ajax({
+        type: 'get',
+        url: restURL,
+        dataType: 'json',
+        contentType: "application/json; charset=utf-8",
+        async: false,
+        success: function(data, textStatus, xhr) {
+            if(xhr.status == 200){
+                var template= dusterBuildArr($("#dust_sidebar"));
+                $("#__sidebar").append(template(data));
+                activeCurByPage();
+            } else if(xhr.status == 403){
+                errorProcess();
+            }
+        },
+        error: function(err) {
+            if(err.status == 403){
+                errorProcess();
+            }
+        }
+    });*/
+
+
+    var menu_info = JSON.parse(localStorage.getItem("menu_info"));
+   // console.log(JSON.stringify(menu_info));
+  /*  var template= dusterBuildArr($("#dust_sidebar"));
+    $("#__sidebar").append(template(menu_info));
+    activeCurByPage();*/
+    var len = menu_info.length;
+    $.each(menu_info,function(index,item){
+        if(item["menuUrl"] == "#"){
+            delete item["menuUrl"];
+        }
+        if(item["children"]){
+            $.each(item["children"],function(key,val){
+
+                if(val["menuUrl"] == "#"){
+                    delete val["menuUrl"];
+                }
+                if(val["children"]){
+                    $.each(val["children"],function(k,v){
+                        if(v["menuUrl"] == "#"){
+                            delete v["menuUrl"];
+                        }
+                    })
+                }
+            })
+        }
+
+    });
+    console.log(menu_info)
+    var template= dusterBuildArr($("#dust_sidebar"));
+    $("#__sidebar").append(template(menu_info));
+    activeCurByPage();
+var sss = $(document).height();
+
+$(".leftmenu-hover").mouseover(function(){
+    $(".leftmenu").attr("style","height:"+($(document).height()-40)+"px !important");
+})
+
+$(".leftmenu-hover").mouseout(function(){
+    $(".leftmenu").attr("style","height:"+(sss)+"px !important");
+})
+
+
+
+</script>

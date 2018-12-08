@@ -1,0 +1,67 @@
+<script type="text/x-template" id="__dust__icarchiveInfo">
+    {#data}
+    <tr  >
+        <th>客户名称:</th>
+        <td>{customerName}</td>
+        <th style="border-left: 1px solid #ececec;">客户编号:</th>
+        <td id="customerid">{customerCode}</td>
+    </tr>
+    <tr>
+        <th>客户类别:</th>
+        <td>{?.customerKind}
+            {@select key=customerKind}
+            {@eq value="1"}<span>居民</span>{/eq}
+            {@eq value="9"} <span>非居民</span>{/eq}
+            {@default}<span style="color: red;font-weight:bold;">{balance}</span>{/default}
+            {/select}
+            {/.customerKind}</td>
+
+        <th style="border-left: 1px solid #ececec;">客户状态:</th>
+        <td>
+            {?.customerState}
+            {@select key=customerState}
+            {@eq value="02"}<span>暂停用气</span>{/eq}
+            {@eq value="01"} <span>正常</span>{/eq}
+            {@default}<span style="color: red;font-weight:bold;">{balance}</span>{/default}
+            {/select}
+            {/.customerState}
+        </td>
+    </tr>
+    <tr>
+        <th>特殊用户:</th>
+        <td>{gasTypeName}</td>
+        <th style="border-left: 1px solid #ececec;">联系电话</th>
+        <td>{?.tel}
+            {@select key=tel}
+            {@eq value=""}<span>—</span>{/eq}
+            {/select}
+            {:else}
+            <span>-</span>
+            {/.tel}</td>
+    </tr>
+    <tr>
+        <th>客户地址:</th>
+        <td>{customerAddress}</td>
+        <th style="border-left: 1px solid #ececec;">供气区域:</th>
+        <td>{areaName}</td>
+    </tr>
+    <tr>
+        <th>表厂家:</th>
+        <td style="border-right: 1px solid #ececec;">{}</td>
+        <th>表型号:</th>
+        <td style="border-right: 1px solid #ececec;">{}</td>
+    </tr>
+    <tr>
+        <th>身份证号:</th>
+        <td style="border-right: 1px solid #ececec;">{idCard}</td>
+        <th style="border-left: 1px solid #ececec;"> 违约金:</th>
+        <td >0</td>
+    </tr>
+    <!--<tr>
+        <td>身份证号:</td>
+        <td id="kh" style="border-right: 1px solid #ececec;">{customerNo}</td>
+        <td style="border-left: 1px solid #ececec;"> 违约金:</td>
+        <td >0</td>
+    </tr>-->
+    {/data}
+</script>

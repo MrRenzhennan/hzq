@@ -1,0 +1,15 @@
+{"rows":
+[
+  {"versionID":"9129","gasCategory":"4A","gasType":"28日","gasStart":"东直小区1#","gasEnd":"88户","gasEnd2":"","price":"5343","changeTime":"","effectTime":"月抄计划","effectTime1":"编号0012345","effectTime2":"0511","effectTime3":"已准备","effectTime4":"","effectTime5":"1","effectTime6":"一次计费表","effectTime10":"一次计费表","changePerson":""}
+  ,{"versionID":"9123","gasCategory":"4A","gasType":"28日","gasStart":"东直小区1#","gasEnd":"168户","gasEnd2":"","price":"5346","changeTime":"","effectTime":"月抄计划","effectTime1":"编号0012345","effectTime2":"0511","effectTime3":"已准备","effectTime4":"","effectTime5":"1","effectTime6":"一次计费表","effectTime10":"一次计费表","changePerson":""}
+,{"versionID":"9124","gasCategory":"","gasType":"","gasStart":"东直小区1#","gasEnd":"77户","gasEnd1":"周二","price":"5345","changeTime":"","effectTime":"周抄计划","effectTime1":"编号0012345","effectTime2":"0511","effectTime3":"已准备","effectTime4":"","effectTime5":"1","effectTime6":"一次计费表","effectTime10":"一次计费表","changePerson":""}
+,{"versionID":"9127","gasCategory":"4A","gasType":"28日","gasStart":"东直小区1#","gasEnd":"123户","gasEnd2":"","price":"5322","changeTime":"","effectTime":"月抄计划","effectTime1":"编号0012345","effectTime2":"0511","effectTime3":"已准备","effectTime4":"","effectTime5":"1","effectTime6":"一次计费表","effectTime10":"一次计费表","changePerson":""},
+  {"versionID":"9133","gasCategory":"","gasType":"","gasStart":"天木小区1#","gasEnd":"311户","gasEnd1":"周五","price":"5111","changeTime":"","effectTime":"周抄计划","effectTime1":"编号0012333","effectTime2":"0511","effectTime3":"已准备","effectTime4":"","effectTime5":"1","effectTime6":"一次计费表","effectTime10":"一次计费表","changePerson":""}
+,{"versionID":"9544","gasCategory":"7B","gasType":"9日","gasStart":"天木小区1#","gasEnd":"111户","gasEnd2":"","price":"5222","changeTime":"","effectTime":"月抄计划","effectTime1":"编号0012333","effectTime2":"0511","effectTime3":"已准备","effectTime4":"","effectTime5":"1","effectTime6":"一次计费表","effectTime10":"一次计费表","changePerson":""}
+,{"versionID":"9755","gasCategory":"7B","gasType":"9日","gasStart":"天木小区1#","gasEnd":"255户","gasEnd2":"","price":"5000","changeTime":"","effectTime":"月抄计划","effectTime1":"编号0012333","effectTime2":"0511","effectTime3":"已准备","effectTime4":"","effectTime5":"1","effectTime6":"一次计费表","effectTime10":"一次计费表","changePerson":""}
+,{"versionID":"9933","gasCategory":"7B","gasType":"9日","gasStart":"天木小区1#","gasEnd":"233户","gasEnd2":"","price":"5322","changeTime":"","effectTime":"月抄计划","effectTime1":"编号0012333","effectTime2":"0511","effectTime3":"已准备","effectTime4":"","effectTime5":"1","effectTime6":"一次计费表","effectTime10":"一次计费表","changePerson":""}
+]
+,"total_rows":1
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

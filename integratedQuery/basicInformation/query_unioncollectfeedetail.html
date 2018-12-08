@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+
+<!-- BEGIN HEAD -->
+<head>
+    <title>联合账户详情</title>
+    <base href="../../">
+    <meta charset="UTF-8">
+    <meta http-equiv="content-type" content="text/html" charset="utf-8"/>
+    <script src="pages/scripts/header.js"></script>
+
+    <link href='assets/global/plugins/jquery-watable/watable.css' rel='stylesheet'/>
+    <link href='assets/global/plugins/jquery-watable/animate.min.css' rel='stylesheet'/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-select/bootstrap-select.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/select2/select2.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/jquery-multi-select/css/multi-select.css"/>
+    <link href="assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
+</head>
+<!-- END HEAD -->
+
+<body class="page-header-fixed page-quick-sidebar-over-content">
+
+<!-- 标题栏开始 -->
+<div class="page-header navbar navbar-fixed-top">
+    <script>$.include("pages/partial/menu.shtml");</script>
+</div>
+<!-- 标题栏结束 -->
+<div class="clearfix"></div>
+<div class="page-container">
+    <!-- 左侧菜单开始 -->
+    <div class="page-sidebar-wrapper">
+        <script>$.include("pages/partial/sidebar.shtml");</script>
+    </div>
+    <!-- 左侧菜单结束 -->
+
+    <!-- 主内容开始 -->
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <!--内容头开始-->
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="page-breadcrumb breadcrumb">
+                        <!-- <li>
+                            <i class="fa fa-map-marker"></i>
+                            <a href="javascript:;">客户管理</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="customer/union_collectFeeManagement.html">联合账户管理</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="javascript:;">联合账户详情</a>
+                        </li> -->
+                    </ul>
+                </div>
+            </div>
+            <!-- 内容头结束-->
+
+            <!-- 内容开始-->
+            <div class="container-fluid">
+                <div class="add-form">
+                    <!-- begin form-->
+                    <form action="javascript:;" role="form">
+                        <div class="form-body">
+                            <div class="row form-group">
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">账户编号：</label>
+                                    <div class="col-md-8">
+                                        <input type="text" id="chgAccountNo" class="form-control" disabled>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">账户名称：</label>
+                                    <div class="col-md-8">
+                                        <input type="text" id="acc_Name" class="form-control"  disabled>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">发票抬头：</label>
+                                    <div class="col-md-8">
+                                        <input type="text" id="invoice_Name" class="form-control"disabled>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">发票类型：</label>
+                                    <div class="col-md-8">
+                                        <input type="text" id="invoiceType" class="form-control"disabled>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">联系人：</label>
+                                    <div class="col-md-8">
+                                        <input type="text" id ="link_man" class="form-control"  disabled>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">联系人电话：</label>
+                                    <div class="col-md-8">
+                                        <input type="text" id="linkman_Tel" class="form-control"  disabled>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">联系人手机：</label>
+                                    <div class="col-md-8">
+                                        <input type="text" id="linkman_Phone" class="form-control" disabled>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">联系人单位：</label>
+                                    <div class="col-md-8">
+                                        <input type="text" id ="linkman_Unit" class="form-control"  disabled>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">联系人邮编：</label>
+                                    <div class="col-md-8">
+                                        <input type="text" id="linkman_Postcode" class="form-control" disabled>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">联系人邮箱：</label>
+                                    <div class="col-md-8">
+                                        <input type="text" id ="linkman_Mail" class="form-control"  disabled>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="control-label col-md-2">联系人地址：</label>
+                                    <div class="col-md-10">
+                                        <input type="text" id ="linkman_Address" class="form-control" disabled>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h4 class="form-section" style="margin-top: 20px;">联合用户列表&nbsp;&nbsp;
+                            </h4>
+                            <div id="divtable" class="table-responsive container-fluid col-md-12" style="padding-top:10px !important;" >
+
+                            </div>
+                            <div class="form-actions fluid">
+                                <div class="btn-set">
+                                    <button id="cancel" type="button" class="btn default">返回</button>
+                                    <script>
+                                        $(function () {
+                                            $('#cancel').click(function () {
+                                                history.go("-1");
+//                                                window.location="customer/union_collectFeeManagement.html";
+                                            });
+                                        });
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+                    <!--end form-->
+                </div>
+            </div>
+            <!-- 内容结束-->
+        </div>
+    </div>
+    <!-- 主内容结束 -->
+</div>
+
+<script type="text/javascript">$.include("pages/partial/xwatable-form.shtml")</script>
+
+<!-- 底边栏开始 -->
+<script>$.include("pages/partial/foot.shtml");</script>
+<!-- 底边栏结束 -->
+</body>
+<script>$.include("pages/partial/scripts.shtml");</script>
+<script type="text/javascript" src="assets/global/plugins/jquery-watable/jquery.watable.js"></script>
+<script type="text/javascript" src="pages/scripts/rqlbuilder.js"></script>
+<script type="text/javascript" src="pages/scripts/xwatable.js"></script>
+<script type="text/javascript" src="pages/scripts/refhelper.js"></script>
+
+<script type="text/javascript" src="assets/global/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-multi-select/js/jquery.multi-select.js"></script>
+
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script type="text/javascript" src="assets/admin/pages/scripts/components-pickers.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-multi-select/js/jquery.multi-select.js"></script>
+<script src="mods/ctm.js"></script>
+<script src="integratedQuery/basicInformation/js/query_unioncollectFeedetail.js"></script>
+<!--<script src="pages/scripts/jquery.json.min.js"></script>-->
+<!--<script type="text/javascript" src="pages/scripts/jquery.serialize-object.min.js"></script>-->
+
+<script>
+    unionCollectFeeDetailAction.init();
+    SideBar.init();
+    SideBar.activeCurByPage("query_jointaccountinquiry.html");
+</script>
+</html>

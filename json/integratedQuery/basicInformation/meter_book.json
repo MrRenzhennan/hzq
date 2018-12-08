@@ -1,0 +1,15 @@
+{"rows":
+[
+   {"UUID":"001","area":"供气区域","accountant":"核算员","attendant":"客户服务员","meter_book_ID":"抄表本编号","meter_book_type":"本类型","meter_book_address":"本地址","house_count":"户数","normal_house_count":"正常用气户数","gas_day_house":"户日均用气量","meter_reading_month":"抄表月份","meter_reading_rule_day":"抄表例日","remark":"备注"},
+   {"UUID":"001","area":"供气区域","accountant":"核算员","attendant":"客户服务员","meter_book_ID":"抄表本编号","meter_book_type":"本类型","meter_book_address":"本地址","house_count":"户数","normal_house_count":"正常用气户数","gas_day_house":"户日均用气量","meter_reading_month":"抄表月份","meter_reading_rule_day":"抄表例日","remark":"备注"},
+   {"UUID":"001","area":"供气区域","accountant":"核算员","attendant":"客户服务员","meter_book_ID":"抄表本编号","meter_book_type":"本类型","meter_book_address":"本地址","house_count":"户数","normal_house_count":"正常用气户数","gas_day_house":"户日均用气量","meter_reading_month":"抄表月份","meter_reading_rule_day":"抄表例日","remark":"备注"},
+   {"UUID":"001","area":"供气区域","accountant":"核算员","attendant":"客户服务员","meter_book_ID":"抄表本编号","meter_book_type":"本类型","meter_book_address":"本地址","house_count":"户数","normal_house_count":"正常用气户数","gas_day_house":"户日均用气量","meter_reading_month":"抄表月份","meter_reading_rule_day":"抄表例日","remark":"备注"},
+   {"UUID":"001","area":"供气区域","accountant":"核算员","attendant":"客户服务员","meter_book_ID":"抄表本编号","meter_book_type":"本类型","meter_book_address":"本地址","house_count":"户数","normal_house_count":"正常用气户数","gas_day_house":"户日均用气量","meter_reading_month":"抄表月份","meter_reading_rule_day":"抄表例日","remark":"备注"},
+   {"UUID":"001","area":"供气区域","accountant":"核算员","attendant":"客户服务员","meter_book_ID":"抄表本编号","meter_book_type":"本类型","meter_book_address":"本地址","house_count":"户数","normal_house_count":"正常用气户数","gas_day_house":"户日均用气量","meter_reading_month":"抄表月份","meter_reading_rule_day":"抄表例日","remark":"备注"},
+   {"UUID":"001","area":"供气区域","accountant":"核算员","attendant":"客户服务员","meter_book_ID":"抄表本编号","meter_book_type":"本类型","meter_book_address":"本地址","house_count":"户数","normal_house_count":"正常用气户数","gas_day_house":"户日均用气量","meter_reading_month":"抄表月份","meter_reading_rule_day":"抄表例日","remark":"备注"},
+   {"UUID":"001","area":"供气区域","accountant":"核算员","attendant":"客户服务员","meter_book_ID":"抄表本编号","meter_book_type":"本类型","meter_book_address":"本地址","house_count":"户数","normal_house_count":"正常用气户数","gas_day_house":"户日均用气量","meter_reading_month":"抄表月份","meter_reading_rule_day":"抄表例日","remark":"备注"}
+]
+,"total_rows":8
+,"totalPages":2
+,"skip":0
+,"limit":2147483647}

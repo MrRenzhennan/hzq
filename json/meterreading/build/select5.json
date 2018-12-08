@@ -1,0 +1,7 @@
+[{"staffauditor":"周抄计划","value":1},
+{"staffauditor":"月抄计划","value":2},
+  {"staffauditor":"季度计划","value":3},
+  {"staffauditor":"半年计划","value":4},
+  {"staffauditor":"全年{日抄}","value":5}
+
+]

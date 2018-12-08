@@ -1,0 +1,10 @@
+{"rows":
+[
+  {"serialNumber":"01","gasArea":"供气区域一","amount":"100"}
+,{"serialNumber":"02","gasArea":"供气区域二","amount":"86"}
+
+]
+,"total_rows":2
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

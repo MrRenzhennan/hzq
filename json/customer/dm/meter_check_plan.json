@@ -1,0 +1,16 @@
+{"rows":
+[
+    {"UUID":"1","meter_inspect_plan_ID":"001","meter_inspect_plan_year":"2009年度","meter_inspect_plan_type":"居民检表","area":"南一分公司","maker":"张红","make_date":"2010/01/01","applyer":"赵宇","apply_date":"2010/01/01","meter_check_num":"700","meter_checked_num":"100","plan_status":"待确认"},
+    {"UUID":"2","meter_inspect_plan_ID":"002","meter_inspect_plan_year":"2009年度","meter_inspect_plan_type":"非居民检表","area":"南一分公司","maker":"张红","make_date":"2010/01/01","applyer":"航宇村","apply_date":"2010/01/01","meter_check_num":"780","meter_checked_num":"100","plan_status":"驳回"},
+    {"UUID":"3","meter_inspect_plan_ID":"003","meter_inspect_plan_year":"2009年度","meter_inspect_plan_type":"居民检表","area":"道里二分公司","maker":"张红","make_date":"2010/01/01","applyer":"宋金航","apply_date":"2010/01/01","meter_check_num":"900","meter_checked_num":"100","plan_status":"执行中"},
+    {"UUID":"4","meter_inspect_plan_ID":"004","meter_inspect_plan_year":"2009年度","meter_inspect_plan_type":"非居民检表","area":"道里二分公司","maker":"张红","make_date":"2010/01/01","applyer":"林丹","apply_date":"2010/01/01","meter_check_num":"890","meter_checked_num":"100","plan_status":"执行中"},
+    {"UUID":"5","meter_inspect_plan_ID":"005","meter_inspect_plan_year":"2009年度","meter_inspect_plan_type":"居民检表","area":"道里一分公司","maker":"张红","make_date":"2010/01/01","applyer":"王宇村","apply_date":"2010/01/01","meter_check_num":"1200","meter_checked_num":"100","plan_status":"执行中"},
+    {"UUID":"6","meter_inspect_plan_ID":"006","meter_inspect_plan_year":"2009年度","meter_inspect_plan_type":"非居民检表","area":"道里一分公司","maker":"张红","make_date":"2010/01/01","applyer":"郭琳琳","apply_date":"2010/01/01","meter_check_num":"750","meter_checked_num":"100","plan_status":"执行中"},
+    {"UUID":"7","meter_inspect_plan_ID":"007","meter_inspect_plan_year":"2009年度","meter_inspect_plan_type":"居民检表","area":"道里三分公司","maker":"张红","make_date":"2010/01/01","applyer":"马兰","apply_date":"2010/01/01","meter_check_num":"1000","meter_checked_num":"100","plan_status":"执行中"},
+    {"UUID":"8","meter_inspect_plan_ID":"008","meter_inspect_plan_year":"2009年度","meter_inspect_plan_type":"非居民检表","area":"道里三分公司","maker":"张红","make_date":"2010/01/01","applyer":"张峰","apply_date":"2010/01/01","meter_check_num":"800","meter_checked_num":"100","plan_status":"执行中"}
+
+]
+,"total_rows":8
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

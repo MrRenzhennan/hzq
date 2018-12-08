@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+
+<!-- BEGIN HEAD -->
+<head>
+    <title>非居民数据追踪</title>
+    <base href="../../">
+    <script src="pages/scripts/header.js"></script>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8"/>
+
+    <link href='assets/global/plugins/jquery-watable/watable.css' rel='stylesheet'/>
+    <link href='assets/global/plugins/jquery-watable/animate.min.css' rel='stylesheet'/>
+
+
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-select/bootstrap-select.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/select2/select2.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/jquery-multi-select/css/multi-select.css"/>
+    <link href="assets/global/plugins/bootstrap-fileinput/fileinput.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-datepicker/css/datepicker3.css"/>
+
+    <!-- BEGIN THEME STYLES -->
+    <link href="assets/global/css/components.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
+
+
+</head>
+<body  class="page-header-fixed page-quick-sidebar-over-content">
+<!-- 标题栏开始 -->
+<div class="page-header navbar navbar-fixed-top">
+   <!-- <script>$.include("pages/partial/menu.shtml");</script>-->
+</div>
+<!-- 标题栏结束 -->
+<div class="clearfix"></div>
+<div class="page-container">
+    <!-- 左侧菜单开始 -->
+    <div class="page-sidebar-wrapper">
+       <script>$.include("pages/partial/sidebar.shtml");</script>
+    </div>
+    <!-- 左侧菜单结束 -->
+
+    <!-- 主内容开始 -->
+    <div class="page-content-wrapper">
+        <div class="page-content">
+           <!-- <script>$.include("pages/partial/themepanel.shtml");</script>-->
+            <!--内容头开始-->
+            <!--<div class="row">
+                <div class="col-md-12">
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa  fa-map-marker"></i>
+                            <a >抄表管理</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+
+                            <a>数据分析</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a>数据管理</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>-->
+             	<script>$.include("common/navigation_bar.shtml");</script>
+
+            <!-- 内容头结束-->
+
+
+            <div class="container col-sm-12" style="background-color: #ffffff">
+
+                <div class="row"  style="padding: 5px 20px 0px 20px">
+                <!-- 查询条件控件 -->
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group input-select2me">
+                            <div class="input-group-addon">区域：</div>
+                            <select class="form-control input-small select2me" data-placeholder="选择区域...">
+                                <option value=""></option>
+                                <option>道里一分公司</option>
+                                <option>道里二分公司</option>
+                                <option>道里三分公司</option>
+                                <option>道里四分公司</option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group input-select2me">
+                            <div class="input-group-addon">核算员：</div>
+                            <select class="form-control input-small select2me" data-placeholder="选择核算员...">
+                                <option value=""></option>
+                                <option>张丽</option>
+                                <option>王博</option>
+                                <option>王亚飞</option>
+                                <option>赵嘉怡</option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group input-select2me">
+                            <div class="input-group-addon">客户服务员：</div>
+                            <select class="form-control input-small select2me" data-placeholder="选择客户服务员...">
+                                <option value=""></option>
+                                <option>韩雅君</option>
+                                <option>张军</option>
+                                <option>张艺兴</option>
+                                <option>朱嘉怡</option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                        </div>
+                    </div>
+                <div class="col-sm-3 form-group">
+                    <div class="btn-group input-group">
+                        <div class="input-group-addon">客户编号：</div>
+                        <input id="datetimepicker" class="inputclear form-control" type="text" placeholder="客户编号">
+                        <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                    </div>
+                </div>
+                    <div class="col-sm-12 form-group data-select">
+                        <div class="btn-group input-group pull-left col-md-5">
+                            <div class="input-group-addon">起止日期：</div>
+                            <div class="input-group input-large date-picker input-daterange" data-date="10/11/2012" data-date-format="mm/dd/yyyy">
+                                <input type="text" class="form-control" name="from">
+                                <span class="inputclear glyphicon glyphicon-remove-circle hidden" ></span>
+                                <span class="input-group-addon">至</span>
+                                <input type="text" class="form-control" name="to">
+                                <span class="inputclear glyphicon glyphicon-remove-circle hidden" ></span>
+                            </div>
+                        </div>
+                        <div class="btn-group form-group data-select">
+                            <button id="find_today_sign" class="btn">当日</button>
+                        </div>
+                        <div class="btn-group form-group">
+                            <button id="find_this_week_sign" class="btn">近一周</button>
+                        </div>
+                        <div class="btn-group form-group">
+                            <button id="find_this_month_sign" class="btn">近一月</button>
+                        </div>
+                        <div class="btn-group form-group">
+                            <button id="find_three_month_sign" class="btn">近三月</button>
+                        </div>
+                        <div class="btn-group form-group">
+                            <button id="find_this_year_sign" class="btn">近一年</button>
+                        </div>
+                        <div class="btn-group form-group">
+                            <button id="find_anyway_sign" class="btn">不限</button>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-sm-3 form-group">
+                    <div class="btn-group input-group">
+                        <div class="input-group-addon">客户状态：</div>
+                        <select class="form-control input-small select2me" data-placeholder="选择操作员...">
+                            <option>请选择</option>
+                            <option>正常</option>
+                            <option>中断</option>
+                            <option>流失</option>
+                        </select>
+                        <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                    </div>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <div class="btn-group input-group">
+                        <div class="input-group-addon">预警状态：</div>
+                        <select class="form-control input-small select2me" data-placeholder="选择操作员...">
+                            <option>请选择</option>
+                            <option>首次达预警线</option>
+                            <option>过警戒线</option>
+                            <option>未过警戒线</option>
+                        </select>
+                        <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                    </div>
+                </div>
+                <div class="btn-group form-group">
+                    <button id="find_button" class="btn yellow">
+                        查询&nbsp; <i class="fa fa-search"></i>
+                    </button>
+                </div>
+</div>
+
+
+                                    <div class="container-fluid">
+                                        <div id="divtable" class="table-responsive container-fluid col-md-12" >
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="col-sm-4 form-group">
+                                            <div class="btn-group input-group input-select2me">
+                                                <div class="input-group-addon">客户状态：</div>
+                                                <select class="form-control input-small select2me" data-placeholder="选择状态...">
+                                                    <option value=""></option>
+                                                    <option>正常</option>
+                                                    <option>中断</option>
+                                                    <option>流失</option>
+                                                </select>
+                                                <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-4 form-group">
+                                            <button id="find_button" class="btn red">
+                                                更新状态&nbsp; <i class="fa fa-"></i>
+                                            </button>
+                                        </div>
+                                        </div>
+
+    <!-- 主内容结束 -->
+
+
+            <div class="modal fade" id="apply4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                            <h4 class="modal-title">录入异常数据</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <div>
+                                    <div class="tabbable tabbable-custom tabbable-custom-profile col-md-12" style="padding-bottom:0px">
+                                        <ul class="nav nav-tabs">
+                                            <li class="active">
+                                                <a href="#tab_1_22" data-toggle="tab" style="font-size: 16px;color: #1d8bd8;">
+                                                    客户基本信息 </a>
+
+                                            </li>
+                                        </ul>
+                                        <!--/row-->
+                                        <div class="tab-content">
+                                            <div class="tab-pane active" id="tab11">
+                                                <div class="portlet-body">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-3">核算员:</label>
+                                                                <div class="col-md-9">
+                                                                    <input type="text" class="form-control" placeholder="" value="张三"
+                                                                           readonly>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-3">抄表员:</label>
+                                                                <div class="col-md-9">
+                                                                    <input type="text" class="form-control" placeholder="" value="李武"
+                                                                           readonly>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-3">客户名称:</label>
+                                                                <div class="col-md-9">
+                                                                    <input type="text" class="form-control" placeholder="" value="张三"
+                                                                           readonly>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-3">客户编号:</label>
+                                                                <div class="col-md-9">
+                                                                    <input type="text" class="form-control" placeholder="" value="210001"
+                                                                           readonly>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!--/row-->
+
+                                                    <!--/row-->
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-3">特殊用户:</label>
+                                                                <div class="col-md-9">
+                                                                    <input type="text" class="form-control" placeholder="" value=""
+                                                                           readonly>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-3">联系方式:</label>
+                                                                <div class="col-md-9">
+                                                                    <input type="text" class="form-control" placeholder=""
+                                                                           value="15978490456"
+                                                                           readonly>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!--/row-->
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-3">客户地址:</label>
+                                                                <div class="col-md-9">
+                                                                    <input type="text" class="form-control" placeholder=""
+                                                                           value="黑龙江省哈尔滨市南岗区嵩山路嵩山小区"
+                                                                           readonly>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-3">供气区域:</label>
+
+                                                                <div class="col-md-9">
+                                                                    <input type="text" class="form-control" placeholder="" value="道里一部"
+                                                                           readonly>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-3">身份证号:</label>
+                                                                <div class="col-md-9">
+                                                                    <input type="text" class="form-control" placeholder=""
+                                                                           value="230102199301019809"
+                                                                           readonly>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-3">申请退款人:</label>
+                                                                <div class="col-md-9">
+                                                                    <input type="text" class="form-control" placeholder="" value="张三"
+                                                                           readonly>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label>本月日均用气量</label>
+                                        <input class="form-control" type="text" placeholder="7444">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label>前三月日均用气量</label>
+                                        <input class="form-control" type="text" placeholder="5432">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label>客户状态</label>
+                                        <input class="form-control" type="text" placeholder="正常">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label>预警状态</label>
+                                        <input class="form-control" type="text" placeholder="未达预警线">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>备注</label>
+                                            <textarea class="form-control" placeholder="备注"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <h5>表数图片</h5>
+                                <div class="col-md-12">
+                                    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#new_archive_union">
+                                        选择图片
+                                    </button>
+                                </div>
+                                <div class="tab-pane active col-md-12" id="tab_1">
+
+                                    <img src="../../pages/images/photo.png" id="demo1" alt="表图" class="img-responsive"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">保存</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+    <script type="text/javascript">$.include("pages/partial/xwatable-form.shtml")</script>
+
+    <!-- 底边栏开始 -->
+    <script>$.include("pages/partial/foot.shtml");</script>
+    <!-- 底边栏结束 -->
+</div>
+
+<script>$.include("pages/partial/scripts.shtml");</script>
+<script src="../../assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="../../assets/global/plugins/jquery-watable/jquery.watable.js"></script>
+
+<script type="text/javascript" src="../../pages/scripts/rqlbuilder.js"></script>
+<script type="text/javascript" src="../../pages/scripts/xwatable.js"></script>
+
+<script type="text/javascript" src="../../pages/scripts/refhelper.js"></script>
+<script type="text/javascript" src="../../assets/global/plugins/select2/select2.js"></script>
+
+<script type="text/javascript" src="../../assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script src="../../assets/admin/pages/scripts/components-pickers.js"></script>
+<script type="text/javascript" src="../../assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+  <script src="../meterreading/js/nonresident.js"></script>
+<script type="text/javascript"  >
+    BaseAction.init();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+<table class="watable table table-striped table-hover table-bordered table-condensed" id="tododiv">
+    <thead>
+        <tr class="sort"><th><span class="pull-left">业务类型</span></th><th><span class="pull-left">客户名称及编号</span></th><th><span class="pull-left">流程节点</span></th><th><span class="pull-left">流程状态</span></th><th><span class="pull-left">业务受理人</span></th><th><span class="pull-left">业务申请时间</span></th><th><span class="pull-left">操作</span></th></tr>
+    </thead>
+    <tbody style="" id="__todolist">
+    <script type="text/x-template" id="__dust_todolist" >
+	    {#data}
+	        <tr >
+	            <td>{busitype}</td><td>{cusotmer}</td><td>{flowstep}</td><td>{flowstatus}</td><td>{accopertor}</td><td>{createtime}</td><td><a href="{stepid}" >处理</a></td></tr>
+	    {/data}
+    </script>   
+    </tbody>
+</table>
+
+
+<!-- 
+var href = document.location.href;
+var archiveId = Metronic.getURLParameter("stepid");//-->
+

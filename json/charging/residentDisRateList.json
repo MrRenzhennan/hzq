@@ -1,0 +1,10 @@
+{"rows":
+[
+  {"cusNumber":"01","cusName":"客户名称一","cusPhone":"13245566445","cusAddress":"哈尔滨市南岗区清滨胡同2号","gasProperty":"普通用户"}
+,{"cusNumber":"02","cusName":"客户名称二","cusPhone":"15623456543","cusAddress":"哈尔滨道里区果戈里大街","gasProperty":"普通用户"}
+
+]
+,"total_rows":2
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

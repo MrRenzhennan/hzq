@@ -1,0 +1,111 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title" id="myModalLabel">抄表历史信息</h4>
+</div>
+<div class="modal-body">
+    <div data-always-visible="1" data-rail-visible="1">
+        <table class="watable table table-striped table-hover table-bordered table-condensed">
+            <thead>
+                <tr>
+                    <th>
+                        抄表时间
+                    </th>
+                    <th>
+                        表读数
+                    </th>
+                    <th>
+                        气量
+                    </th>
+                    <th>
+                        燃气费
+                    </th>
+                    <th>
+                        用气性质
+                    </th>
+                    <th>
+                        费用类型
+                    </th>
+                    <th>
+                        客户服务员
+                    </th>
+                    <th>
+                        核算员
+                    </th>
+                </tr>
+            </thead>
+            <tbody id="_mtdHistoryInfo">
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+</div>
+
+<script type="text/x-template" id="__dust__mtrHistoryRowInfo">
+    {#data}
+    <tr>
+        <td>
+            {modifiedTime}
+        </td>
+        <td>
+            {meterReading}
+        </td>
+        <td>
+            {finallyMeasure}
+        </td>
+        <td>
+            {gasFee}
+        </td>
+        <td>
+            {gasTypeName}
+        </td>
+        <td>
+            {@select key=chargingType}
+                {@any}-{/any}
+                {@none}-{/none}
+                {@eq value="01"}抄表计费{/eq}
+                {@eq value="02"}协议气量计费{/eq}
+                {@eq value="03"}追补计费{/eq}
+                {@eq value="04"}优惠计费{/eq}
+                {@eq value="05"}减免燃气费{/eq}
+                {@eq value="06"}IC卡计费{/eq}
+            {/select}
+        </td>
+        <td>
+            {servicePerName}
+        </td>
+        <td>
+            {countPerName}
+        </td>
+    </tr>
+    {/data}
+</script>
+
+<script type="text/javascript">
+    function render(param) {
+        dust.loadSource(dust.compile($("#__dust__mtrHistoryRowInfo").html(), "mtrhistoryrowInfo__"));
+        $.ajax({
+            url: "hzqs/dbc/pbsel.do?fh=SELDBC0000000J00&resp=bd",
+            type: "POST",
+            async: false,
+            contentType: "application/json;charset=utf-8",
+            data: JSON.stringify({
+                cols: "to_char(c.copyTime,'yyyy-MM-dd hh24:mi:ss') copyTime,c.meterReading,c.finallyMeasure,c.gasFee,c.chargingType,b.gasTypeName,d.employeeName countPerName, e.employeeName servicePerName",
+                froms: "gasCtmArchive a inner join gasBizGasType b on a.gasTypeId = b.gasTypeId inner join gasBllDetail c on a.ctmArchiveId = c.ctmArchiveId left join gasSysUser d on c.countPerId = d.userId left join gasSysUser e on c.servicePerId= e.userId",
+                wheres: "c.ctmArchiveId='" + param.archiveId + "' order by c.createdTime desc",
+                page: true,
+                limit: 10
+            }),
+            success: function (data) {
+                if (data && data.rows) {
+                    console.log(data);
+                    dust.render("mtrhistoryrowInfo__", { "data": data.rows }, function (err, res) {
+                        $("#_mtdHistoryInfo").html(res);
+                    });
+                }
+            }
+        });
+    }
+
+</script>

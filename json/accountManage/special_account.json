@@ -1,0 +1,12 @@
+{"rows":
+[
+  {"UUID":"收入","date":"2016-2-14","bank":"商业银行","income":"400","accountchange":"400","outcome":"0","fundtype":"燃气费","accounttype":"燃气费账户"},
+  {"UUID":"收入","date":"2016-2-14","bank":"哈尔滨银行","income":"300","accountchange":"300","outcome":"0","fundtype":"垃圾处理费","accounttype":"燃气费账户"},
+  {"UUID":"收入","date":"2016-2-14","bank":"中国银行","income":"600","accountchange":"600","outcome":"0","fundtype":"燃气费","accounttype":"垃圾处理费账户"},
+  {"UUID":"收入","date":"2016-2-14","bank":"建设银行","income":"30","accountchange":"30","outcome":"0","fundtype":"燃气费","accounttype":"燃气费账户"}
+
+]
+,"total_rows":1
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

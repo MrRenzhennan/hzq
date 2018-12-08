@@ -1,0 +1,70 @@
+<script type="text/x-template" id="__dust__nonrsdt_dct">
+        {#data}
+         <tr>
+            <th>大客户名称:</th>
+            <td>{customerName}</td>
+            <th >地址:</th>
+            <td >{customerAddress}</td>
+            <th >大客户电话:</th>
+            <td>{customerTel}</td>
+        </tr>
+        <tr>
+            <th >证件号码:</th>
+            <td>{customerState}</td>
+            <th>优惠类型:</th>
+            <td>
+            {?.discountType}
+            {@select key=discountType}
+            {@eq value="1"}<span>阶梯价格</span>{/eq}<!-- //1阶梯价格，2固定价格,3照付不议-->
+            {@eq value="2"} <span>固定价格</span>{/eq}
+            {@eq value="3"} <span>照付不议</span>{/eq}
+            {@default}<span style="color: red;font-weight:bold;">未知</span>{/default}
+            {/select}
+            {/.discountType}
+            </td>
+        </tr>
+        <tr>
+            <th >第一阶梯起始气量:</th>
+            <td >{measureFrom1}</td>
+            <th >第一阶梯结束气量:</th>
+            <td>{measureTo1}</td>
+            <th >第一阶梯价格:</th>
+            <td>{price1}</td>
+        </tr>
+        <tr>
+            <th >第二阶梯起始气量:</th>
+            <td >{measureFrom2}</td>
+            <th >第二阶梯结束气量:</th>
+            <td>{measureTo2}</td>
+            <th >第二阶梯价格:</th>
+            <td>{price2}</td>
+        </tr>
+        <tr>
+            <th >第三阶梯起始气量:</th>
+            <td >{measureFrom3}</td>
+            <th >第三阶梯结束气量:</th>
+            <td>{measureTo3}</td>
+            <th >第三阶梯价格:</th>
+            <td>{price3}</td>
+        </tr>
+        <tr>
+            <th >第四阶梯起始气量:</th>
+            <td >{measureFrom4}</td>
+            <th >第四阶梯结束气量:</th>
+            <td>{measureTo4}</td>
+            <th >第四阶梯价格:</th>
+            <td>{price4}</td>
+        </tr>
+        <tr>
+            <th >第五阶梯起始气量:</th>
+            <td >{measureFrom5}</td>
+            <th >第五阶梯结束气量:</th>
+            <td>{measureTo5}</td>
+            <th >第五阶梯价格:</th>
+            <td>{price5}</td>
+        </tr>
+        {/data}
+ </script>
+
+
+

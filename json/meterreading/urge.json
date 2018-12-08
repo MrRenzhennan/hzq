@@ -1,0 +1,12 @@
+{"rows":
+[
+  {"versionID":"王五","gasCategory":"336","gasType":"0","gasStart":"0","gasEnd":"张三","price":"李四","price1":"道里区","price2":"00123","price3":"441","changeTime":"2016/5/8","effectTime1":"￥0.00","effectTime":"居民","changePerson":"￥12.68","unionAccount":"","UUID":"1"}
+,{"versionID":"王五","gasCategory":"336","gasType":"0","gasStart":"0","gasEnd":"张三","price":"李四","price1":"道里区","price2":"00123","price3":"441","changeTime":"2016/5/8","effectTime1":"￥0.00","effectTime":"居民","changePerson":"￥7.12","unionAccount":"","UUID":"1"}
+,{"versionID":"王五","gasCategory":"336","gasType":"0","gasStart":"0","gasEnd":"张三","price":"李四","price1":"道里区","price2":"00123","price3":"441","changeTime":"2016/5/8","effectTime1":"￥0.00","effectTime":"居民","changePerson":"￥23.51","unionAccount":"","UUID":"1"}
+,{"versionID":"王五","gasCategory":"336","gasType":"0","gasStart":"0","gasEnd":"张三","price":"李四","price1":"道里区","price2":"00123","price3":"441","changeTime":"2016/5/8","effectTime1":"￥0.00","effectTime":"居民","changePerson":"￥10.00","unionAccount":"","UUID":"1"}
+
+]
+,"total_rows":1
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

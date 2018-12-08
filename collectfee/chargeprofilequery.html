@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+
+<!-- BEGIN HEAD -->
+
+<head>
+    <title>营业概况查询</title>
+    <base href="../">
+    <meta charset="UTF-8">
+    <link href="assets/global/plugins/bootstrap-fileinput/fileinput.css" rel="stylesheet">
+    <meta http-equiv="content-type" content="text/html" charset="utf-8" />
+    <script src="pages/scripts/header.js"></script>
+
+    <link href='assets/global/plugins/jquery-watable/watable.css' rel='stylesheet' />
+    <link href='assets/global/plugins/jquery-watable/animate.min.css' rel='stylesheet' />
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-select/bootstrap-select.min.css" />
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/select2/select2.css" />
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/jquery-multi-select/css/multi-select.css" />
+    <link href="assets/global/css/plugins.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.css"/>
+    <link href='../assets/global/plugins/bootstrap-datetimepicker/css/datetimepicker.css' rel='stylesheet' />
+
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-datepicker/css/datepicker.css" />
+    <!--datapicker css start-->
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-datepicker/css/datepicker3.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-colorpicker/css/colorpicker.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css"
+    />
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-datetimepicker/css/datetimepicker.css" />
+    <!--datapicker end-->
+</head>
+<!-- END HEAD -->
+
+<body class="page-header-fixed page-quick-sidebar-over-content">
+
+    <!-- 标题栏开始 -->
+    <div class="page-header navbar navbar-fixed-top">
+        <script>
+            $.include("pages/partial/menu.shtml");
+        </script>
+    </div>
+    <!-- 标题栏结束 -->
+    <div class="clearfix"></div>
+    <div class="page-container">
+        <!-- 左侧菜单开始 -->
+        <div class="page-sidebar-wrapper">
+            <script>
+                $.include("pages/partial/sidebar.shtml");
+            </script>
+        </div>
+        <!-- 左侧菜单结束 -->
+
+        <!-- 主内容开始 -->
+        <div class="page-content-wrapper">
+            <div class="page-content">
+                <!--内容头开始-->
+                <script>$.include("common/navigation_bar.shtml");</script>
+                <!-- 内容头结束-->
+
+                <!-- 内容开始-->
+                <div class="container col-sm-12" style="padding-bottom:0px">
+                    <div class="row">
+                        <div class="col-sm-12 form-group data-select">
+                            <div class="btn-group input-group pull-left col-md-5">
+                                <div class="input-group-addon">时间范围:</div>
+                                <div class="input-group input-large date-picker input-daterange" data-date-format="yyyy-mm-dd">
+                                    <input id="find_start_date" type="text" class="form-control" name="from">
+                                    <span class="inputclear glyphicon glyphicon-remove-circle hidden"></span>
+                                    <span class="input-group-addon">至</span>
+                                    <input id="find_end_date" type="text" class="form-control" name="to">
+                                    <span class="inputclear glyphicon glyphicon-remove-circle hidden"></span>
+                                </div>
+                            </div>
+                            <div id="chosedate">
+                                <div class="btn-group form-group">
+                                    <button id="find_today_sign" class="btn">当日</button>
+                                </div>
+                                <div class="btn-group form-group">
+                                    <button id="find_this_week_sign" class="btn">近一周</button>
+                                </div>
+                                <div class="btn-group form-group">
+                                    <button id="find_this_month_sign" class="btn">近一月</button>
+                                </div>
+                                <div class="btn-group form-group">
+                                    <button id="find_three_month_sign" class="btn">近三月</button>
+                                </div>
+                                <div class="btn-group form-group">
+                                    <button id="find_this_year_sign" class="btn">近一年</button>
+                                </div>
+                                <div class="btn-group form-group">
+                                    <button id="find_anyway_sign" class="btn">不限</button>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 from-group">
+
+                            </div>
+                        </div>
+                        <div class="col-sm-3 form-group">
+                            <div class="btn-group input-group input-select2me">
+                                <div class="input-group-addon">供气区域：</div>
+                                <select id="find_area" class="form-control select2me" data-placeholder="供气区域">
+                                <option value="">全部</option>
+                            </select>
+                                <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-3 form-group">
+                            <div class="btn-group input-group input-select2me">
+                                <div class="input-group-addon">营业网点：</div>
+                                <select id="find_chargeUnitId" class="form-control select2me" data-placeholder="营业网点">
+                                <option value="">全部</option>
+                            </select>
+                                <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 form-group">
+                            <div class="btn-group input-group input-select2me">
+                                <div class="input-group-addon">营业员：</div>
+                                <select id="find_employeeName" class="form-control select2me" data-placeholder="营业员">
+                                <option value="">全部</option>
+                            </select>
+                                <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 form-group">
+                            <div class="btn-group input-group input-select2me">
+                                <div class="input-group-addon">表具类型：</div>
+                                <select id="customer_type" class="form-control select2me" data-placeholder="客户类型：">
+                                <option value="">全部</option>
+                                <option value="P">普表</option>
+                                <option value="I">IC卡</option>
+                            </select>
+                                <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 form-group">
+                            <div class="btn-group input-group input-select2me">
+                                <div class="input-group-addon">客户类别：</div>
+                                <select id="customer_kind" class="form-control select2me" data-placeholder="客户类型：">
+                                <option value="">全部</option>
+                                <option value="1">居民</option>
+                                <option value="9">非居民</option>
+                            </select>
+                                <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 form-group">
+                            <div class="btn-group input-group input-select2me">
+                                <div class="input-group-addon">是否本区域：</div>
+                                <select id="is_Local" class="form-control select2me" data-placeholder="是否本区域：">
+                                <option value="">全部</option>
+                                <option value="1">是</option>
+                                <option value="0">否</option>
+                            </select>
+                                <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 form-group">
+                            <div class="btn-group input-group input-select2me">
+                                <div class="input-group-addon">收费方式：</div>
+                                <select id="find_chg_type" class="form-control select2me" data-placeholder="请选择...">
+                                <option selected="selected" value="">全部</option>
+                                <option value="1">现金</option>
+                                <option value="2">POS机</option>
+                                <option value="3">银行转账</option>
+                                <option value="4">支票</option>
+                            </select>
+                                <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                <!-- /input-group -->
+                            </div>
+                        </div>
+                        <div class="col-sm-3 form-group">
+                            <div class="btn-group input-group input-select2me">
+                                <div class="input-group-addon">收费类型：</div>
+                                <select id="find_fee_type" class="form-control select2me" data-placeholder="请选择...">
+                                <option selected="selected" value="">全部</option>
+                                <option value="1">燃气费</option>
+                                <option value="2">垃圾处理费</option>
+                            </select>
+                                <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                <!-- /input-group -->
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <button id="find_button" type="button" class="btn yellow" onclick="queryAction().reload();">
+                                查询 <i class="fa fa-search"></i>
+                            </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-fluid">
+                    <div id="divtable" class="table-responsive container-fluid col-md-12">
+                    </div>
+                </div>
+                <!-- 内容结束-->
+            </div>
+        </div>
+        <!-- 主内容结束 -->
+    </div>
+</body>
+
+<script type="text/javascript">
+                $.include("pages/partial/xwatable-form.shtml")
+
+</script>
+<script>
+    $.include("pages/partial/scripts.shtml");
+
+</script>
+<script type="text/javascript" src="assets/global/plugins/jquery-watable/jquery.watable.js"></script>
+<script type="text/javascript" src="pages/scripts/rqlbuilder.js"></script>
+<script type="text/javascript" src="pages/scripts/xwatable.js"></script>
+<script type="text/javascript" src="pages/scripts/refhelper.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+
+<script type="text/javascript" src="assets/global/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-multi-select/js/jquery.multi-select.js"></script>
+
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script src="assets/admin/pages/scripts/components-pickers.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+
+<script type="text/javascript" src="assets/global/plugins/bootstrap-fileinput/fileinput.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-fileinput/zh.js"></script>
+
+
+<script src="pages/scripts/jquery.json.min.js"></script>
+<script type="text/javascript" src="pages/scripts/jquery.serialize-object.min.js"></script>
+<script src="../collectfee/js/reporttable.js"></script>
+
+<script src="charging/js/dis_cus_register.js"></script>
+<script src="mods/bil.js"></script>
+<script src="mods/timeslot.js"></script>
+<script src="collectfee/js/chargeprofilequery.js"></script>
+<script src="mods/sys.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        //        ComponentsDropdowns.init();
+        queryAction().init();
+        ComponentsPickers.init();
+    });
+    
+
+</script>
+<!-- End of User Script-->
+
+</html>

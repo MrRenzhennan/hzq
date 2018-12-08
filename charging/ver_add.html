@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+
+<!-- BEGIN HEAD -->
+<head>
+    <title>版本添加</title>
+    <base href="../">
+    <meta charset="UTF-8">
+    <meta http-equiv="content-type" content="text/html" charset="utf-8"/>
+    <script src="pages/scripts/header.js"></script>
+
+    <link href='assets/global/plugins/jquery-watable/watable.css' rel='stylesheet'/>
+    <link href='assets/global/plugins/jquery-watable/animate.min.css' rel='stylesheet'/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-select/bootstrap-select.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/select2/select2.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/jquery-multi-select/css/multi-select.css"/>
+    <link href="assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
+
+    <link href="assets/global/plugins/bootstrap-fileinput/fileinput.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-datepicker/css/datepicker.css"/>
+
+</head>
+
+<body  class="page-header-fixed page-quick-sidebar-over-content">
+<!-- 标题栏开始 -->
+<div class="page-header navbar navbar-fixed-top">
+    <script>$.include("pages/partial/menu.shtml");</script>
+</div>
+<!-- 标题栏结束 -->
+<div class="clearfix"></div>
+<div class="page-container">
+    <!-- 左侧菜单开始 -->
+    <div class="page-sidebar-wrapper">
+        <script>$.include("pages/partial/sidebar.shtml");</script>
+    </div>
+    <!-- 左侧菜单结束 -->
+
+    <!-- 主内容开始 -->
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <!--内容头开始-->
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa  fa-map-marker"></i>
+                            <a href="index.html">计费管理</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="index.html">价格管理</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="charging/gasCost.html">燃气价格设置</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="charging/verAdd.html">顺价</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 内容头结束-->
+
+            <!-- 内容开始-->
+            <div class="row">
+                <div class="col-md-12">
+                    <!--BEGIN TABS-->
+                    <div class="tabbable tabbable-custom">
+                        <ul class="nav nav-tabs">
+                            <li class="active">
+                                <a href="#tab_1_1" data-toggle="tab">
+                                    顺价表单 </a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active clearfix" id="tab_1_1">
+                                <div  style = "height:auto" data-always-visible="0" data-rail-visible="0">
+                                    <!-- BEGIN FORM-->
+                                    <form class="form-horizontal " role="form" onsubmit="return false;">
+                                        <div class="form-body">
+                                            <div class="row form-group">
+                                                <!--<div class="col-md-4">-->
+                                                    <!--<label class="control-label col-md-4">气源:</label>-->
+                                                    <!--<div class="col-md-8">-->
+                                                        <!--<input type="text" class="form-control" value="居民" disabled>-->
+                                                    <!--</div>-->
+                                                <!--</div>-->
+                                                <div class="col-md-4">
+                                                    <label class="control-label col-md-4">用气性质:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="hidden" id="priceType" name="priceType" class="form-control"  >
+                                                        <input type="hidden"  id ="gasTypeId" name ="gasTypeId" class="form-control"  disabled>
+                                                        <input type="text"  id ="gasTypeName" class="form-control"  disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label class="control-label col-md-4">版本号:</label>
+                                                    <div class="col-md-8">
+                                                        <input type="text"  id ="priceVersion" name="priceVersion" class="form-control"  >
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row form-group">
+                                                <div class="col-md-4">
+                                                    <label class="control-label col-md-4">设置阶梯数:</label>
+                                                    <div class="col-md-8">
+                                                        <select class="select2_category form-control" id ="step" data-placeholder="Choose a Category" tabindex="1">
+                                                            <option value="Category 1">1</option>
+                                                            <option value="Category 2">2</option>
+                                                            <option value="Category 3">3</option>
+                                                            <option value="Category 4">4</option>
+                                                            <option value="Category 4">5</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <input type="button"  id="ladder_btn" class="btn blue" value="确定"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row" id="ladder_box"></div>
+                                            <hr class="form-group">
+                                            <div class="row form-group">
+                                                <div class="col-md-4">
+                                                    <label class="control-label col-md-4">调价人:</label>
+                                                    <div class="col-md-8-new">
+                                                        <input id="creator" name="createdBy" type="text" class="form-control" value="操作员一" >
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label class="control-label col-md-4">调价时间:</label>
+                                                    <div class="col-md-8">
+                                                        <input id="createTime" name ="createTime" DATA-DATE-FORMAT="yyyy-mm-dd" class="form-control form-control-inline  date-picker" size="16" type="text" value="">
+                                                        <!--<input type="text" class="form-control" value="2016-02-28" disabled>-->
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label class="control-label col-md-4">生效时间:</label>
+                                                    <div class="col-md-8">
+                                                        <input id ="effectTime" name= "effectTime" DATA-DATE-FORMAT="yyyy-mm-dd" class="form-control form-control-inline  date-picker" size="16" type="text" value="">
+                                                        <!--<input type="text" class="form-control" value="2016-03-10">-->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--<hr class="form-group">-->
+                                            <div class="row form-group">
+                                                <div class="col-md-8">
+                                                    <label class="control-label col-md-2">备注:</label>
+                                                    <div class="col-md-8">
+                                                        <textarea class="form-control" cols="12" >价格上调...</textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col-md-12">
+                                                    <div class="btn-group col-md-3">
+                                                    </div>
+                                                    <div class="btn-group col-md-2">
+                                                        <button id="saveAddVer_btn" class="btn red">
+                                                            确定&nbsp;
+                                                        </button>
+                                                    </div>
+
+                                                    <div class="btn-group col-md-2">
+                                                        <button  id="cancelAddVer_btn" class="btn green">
+                                                            取消&nbsp;
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </form>
+                                    <!-- END FORM-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 内容结束-->
+
+        </div>
+    </div>
+    <!-- 主内容结束 -->
+    <script type="text/javascript">$.include("pages/partial/xwatable-form.shtml")</script>
+
+    <!-- 底边栏开始 -->
+    <script>$.include("pages/partial/foot.shtml");</script>
+    <!-- 底边栏结束 -->
+</div>
+<!--<script type="text/javascript">
+    window.onload=function(){
+        var oBox=document.getElementById('ladder_box');
+        var oBtn=document.getElementById('ladder_btn');
+        oBtn.onclick=function(){
+            var oText=$("#step option:selected").text();
+            oBox.innerHTML="";
+            for(var i=1; i<=oText; i++){
+                var str=" <div class='col-md-3 '><label  class='control-label col-md-6-new'>起始气量:</label><div class='col-md-6 '><input id = 'measureFrom"+i+"' name='measureFrom"+i+"' type='text' class='form-control'/></div></div>";
+                str+="<div class='col-md-3 '> <label class='control-label col-md-6-new'>结束气量:</label><div class='col-md-6'><input id='measureTo"+i+"' name = 'measureTo"+i+"' type='text' class='form-control'/></div></div>";
+                str+="<div class='col-md-3 '> <label class='control-label col-md-6-new'>价格:</label><div class='col-md-6'><input id='price"+i+"' name = 'price"+i+"'  type='text' class='form-control'/></div></div>";
+
+                oBox.innerHTML+="<div class='col-md-3 '><label class='control-label col-md-6-new'>阶梯数:</label><div class='col-md-6 '><input type='text' class='form-control' placeholder='"+i+"' readonly='true'/></div></div>";
+                oBox.innerHTML+=str;
+                oBox.innerHTML+="<div class='row form-group'></div>";
+              ;
+            }
+        };
+    };
+</script>-->
+<script>$.include("pages/partial/scripts.shtml");</script>
+<script type="text/javascript" src="assets/global/plugins/jquery-watable/jquery.watable.js"></script>
+<script type="text/javascript" src="pages/scripts/rqlbuilder.js"></script>
+<script type="text/javascript" src="pages/scripts/xwatable.js"></script>
+<script type="text/javascript" src="pages/scripts/refhelper.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+
+<script type="text/javascript" src="assets/global/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-multi-select/js/jquery.multi-select.js"></script>
+<script src="pages/scripts/jquery.json.min.js"></script>
+<script type="text/javascript" src="pages/scripts/jquery.serialize-object.min.js"></script>
+
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script src="assets/admin/pages/scripts/components-pickers.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="pages/scripts/enumUtil.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-fileinput/fileinput.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-fileinput/zh.js"></script>
+<script src="charging/js/verAdd.js"></script>
+<script type="text/javascript">
+        jQuery(document).ready(function() {
+        gaspriceVerAdd.init();
+            ComponentsPickers.init();
+      //  SideBar.init();
+       // SideBar.activeCurByPage("gascost.html");
+
+        /*$('#cancel').click(function () {
+            window.location = "../gascost.html";
+        });*/
+    });
+</script>
+</body>
+</html>

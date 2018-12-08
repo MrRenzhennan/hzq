@@ -1,0 +1,16 @@
+{"rows":
+[
+    {"UUID":"1","meter_ID":"001","meter_type":"表具类型_1","meter_model":"仓库_1","barcode":"1203","factory":"1000","manufacture_date":"203","last_inspect_date":"20130101","meter_inspect_cycletime":"小张","is_inspect":"2016-7-8","meter_book":"抄表本_1"},
+    {"UUID":"2","meter_ID":"002","meter_type":"表具类型_2","meter_model":"仓库_2","barcode":"1203","factory":"5000","manufacture_date":"-3739","last_inspect_date":"20130102","meter_inspect_cycletime":"小王","is_inspect":"2016-7-8","meter_book":"抄表本_2"},
+    {"UUID":"3","meter_ID":"003","meter_type":"表具类型_3","meter_model":"仓库_3","barcode":"120","factory":"9000","manufacture_date":"-8880","last_inspect_date":"20130103","meter_inspect_cycletime":"小吴","is_inspect":"2016-7-8","meter_book":"抄表本_3"},
+    {"UUID":"4","meter_ID":"004","meter_type":"表具类型_4","meter_model":"仓库_4","barcode":"131331","factory":"6666","manufacture_date":"124665","last_inspect_date":"20130104","meter_inspect_cycletime":"小郭","is_inspect":"2016-7-8","meter_book":"抄表本_4"},
+    {"UUID":"5","meter_ID":"005","meter_type":"表具类型_5","meter_model":"仓库_5","barcode":"3102","factory":"4444","manufacture_date":"-1342","last_inspect_date":"20130105","meter_inspect_cycletime":"小飞","is_inspect":"2016-7-8","meter_book":"抄表本_5"},
+    {"UUID":"6","meter_ID":"006","meter_type":"表具类型_6","meter_model":"仓库_6","barcode":"2323","factory":"9999","manufacture_date":"-7676","last_inspect_date":"20130106","meter_inspect_cycletime":"小天","is_inspect":"2016-7-8","meter_book":"抄表本_6"},
+    {"UUID":"7","meter_ID":"007","meter_type":"表具类型_7","meter_model":"仓库_7","barcode":"2322","factory":"3333","manufacture_date":"-1011","last_inspect_date":"20130307","meter_inspect_cycletime":"小彻","is_inspect":"2016-7-8","meter_book":"抄表本_7"},
+    {"UUID":"8","meter_ID":"008","meter_type":"表具类型_8","meter_model":"仓库_8","barcode":"311","factory":"2222","manufacture_date":"-1911","last_inspect_date":"201301888","meter_inspect_cycletime":"阿花","is_inspect":"2016-7-8","meter_book":"抄表本_8"}
+
+]
+,"total_rows":8
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

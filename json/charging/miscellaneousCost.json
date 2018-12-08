@@ -1,0 +1,12 @@
+{"rows" :
+[
+  {"expensesID":"01","expensesType":"新装手续费","price":"100.00"}
+,{"expensesID":"02","expensesType":"材料费","price":"20.00"}
+,{"expensesID":"03","expensesType":"人工费","price":"50.00"}
+,{"expensesID":"04","expensesType":"过户费","price":"450.00"}
+
+]
+,"total_rows":1
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

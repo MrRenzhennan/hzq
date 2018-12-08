@@ -1,0 +1,10 @@
+{"rows":
+[
+  {"serialNumber":"01","gasArea":"供气区域一","chargingMoney":"1043360.00","chargingAmount":"20666","deductionMoney":"913529.31","deductAmount":"20076","chargeMoney":"22203.55","chargeAmount":"195","month":"201410"}
+,{"serialNumber":"02","gasArea":"供气区域二","chargingMoney":"0.00","chargingAmount":"76","deductionMoney":"6569.65","deductAmount":"131","chargeMoney":"50","retroFee":"33846.34","chargeAmount":"296","month":"201411"}
+
+]
+,"total_rows":2
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

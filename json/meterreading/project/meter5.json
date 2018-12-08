@@ -1,0 +1,11 @@
+{"rows":
+[
+  {"versionID":"2015","gasCategory":"1月","gasType":"道里区","gasStart":"716","gasEnd":"2341","gasEnd1":"2300","gasEnd2":"周二","price":"李四","changeTime":"28号","effectTime":"周抄","effectTime1":"道里区买卖街12号","effectTime2":"张三","effectTime3":"漏抄","effectTime4":"半年计划","effectTime5":"已提交","effectTime6":"2014/12/26","effectTime7":"已审核","effectTime8":"2015/12/14","effectTime9":"2015/3/10","effectTime15":"日抄","effectTime10":"2015/2/28"}
+  ,{"versionID":"2015","gasCategory":"2月","gasType":"道里一","gasStart":"716","gasEnd":"2342","gasEnd1":"2300","gasEnd2":"周三","price":"李四","changeTime":"28号","effectTime":"周抄","effectTime1":"道里区买卖街12号","effectTime2":"王明","effectTime3":"漏抄","effectTime4":"年抄计划","effectTime5":"未提交","effectTime6":"2014/12/26","effectTime7":"未审核","effectTime8":"2015/12/26","effectTime9":"2014/12/26","effectTime15":"日抄","effectTime10":"2015/2/28"}
+,{"versionID":"2015","gasCategory":"3月","gasType":"道里二","gasStart":"716","gasEnd":"2343","gasEnd1":"2300","gasEnd2":"周四","price":"赵六","changeTime":"28号","effectTime":"周抄","effectTime1":"道里区买卖街12号","effectTime2":"马俊","effectTime3":"漏抄","effectTime4":"月抄表计划","effectTime5":"已提交","effectTime6":"2014/12/26","effectTime7":"已审核","effectTime8":"2015/9/28","effectTime9":"2015/2/28","effectTime15":"日抄","effectTime10":"2015/2/28"}
+,{"versionID":"2015","gasCategory":"4月","gasType":"道里三","gasStart":"716","gasEnd":"2344","gasEnd1":"2300","gasEnd2":"周五","price":"王五","changeTime":"","effectTime":"周抄","effectTime1":"道里区买卖街12号","effectTime2":"刘五","effectTime3":"漏抄","effectTime4":"周抄计划","effectTime5":"未提交","effectTime6":"2014/12/26","effectTime7":"未审核","effectTime8":"2015/10/28","effectTime9":"2015/2/28","effectTime15":"日抄","effectTime10":"2015/2/28"}
+]
+,"total_rows":1
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

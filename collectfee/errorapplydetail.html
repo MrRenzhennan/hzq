@@ -1,0 +1,278 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <h4 class="modal-title">
+        <span id="feeType"></span>收费差错变更申请</h4>
+</div>
+<div class="modal-body">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>客户编号</label>
+                <input type="text" id="customerCode" class="form-control" readonly="readonly">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>客户姓名</label>
+                <input type="text" id="customerName" class="form-control" readonly="readonly">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>收费方式</label>
+                <select name="chgTypeId" id="chgTypeId" class="form-control" disabled="disabled">
+                    <option value=""></option>
+                    <option value="1">现金</option>
+                    <option value="4">支票</option>
+                    <option value="3">银行转账</option>
+                    <option value="2">POS机</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>收费金额</label>
+                <input type="text" id="chgMoney" class="form-control" readonly="readonly">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>收费差错类型</label>
+                <select name="errType" id="errType" class="form-control select2me " data-placeholder="Select...">
+                    <option value=""></option>
+                    <option value="1">收费方式</option>
+                    <option value="2">收费金额</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-6">
+        </div>
+    </div>
+    <div class="row" id="divChgMoney" style="display:none">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>变更前金额</label>
+                <input type="text" id="beforeMoney" class="form-control" readonly="readonly">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>变更后金额</label>
+                <input type="text" id="afterMoney" class="form-control">
+            </div>
+        </div>
+    </div>
+    <div class="row" id="divChgType" style="display:none">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>变更前收费方式</label>
+                <select name="beforeChgType" id="beforeChgType" class="form-control select2me" data-placeholder="Select..." disabled="disabled">
+                    <option value=""></option>
+                    <option value="1">现金</option>
+                    <option value="4">支票</option>
+                    <option value="3">银行转账</option>
+                    <option value="2">POS机</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>变更后收费方式</label>
+                <select name="afterChgType" id="afterChgType" class="form-control select2me" data-placeholder="Select...">
+                    <option value=""></option>
+                    <option value="1">现金</option>
+                    <option value="4">支票</option>
+                    <option value="3">银行转账</option>
+                    <option value="2">POS机</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label>差错原因</label>
+                <select id="errorReason" name="errorReason" class="form-control select2me ">
+                    <option value="1">操作错误</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label>备注</label>
+                <textarea name="remark" id="remark" class="form-control" rows="3"></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <input type="hidden" id="gasAtlId" name="gasAtlId" />
+    <input type="hidden" id="customerKind" name="customerKind" />
+    <input type="hidden" id="isSettlement" name="isSettlement" />
+    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+    <button type="button" id="errorApply" class="btn btn-primary" data-dismiss="modal">提交申请</button>
+</div>
+
+<script type="text/javascript">
+    var chgdetailId = "";
+    var chgType = "";
+    var atlId = "";
+
+    function render(param) {
+        chgdetailId = param.detailId;
+        chgType = param.feeTypeId;
+        if (param.feeTypeId == "1") {
+            errorApplyHelper.getChgGasInfo(param.detailId, function (data) {
+                $("#customerCode").val(data.customerCode);
+                $("#customerName").val(data.customerName);
+                $("#chgTypeId").val(data.chgTypeId);
+                $("#chgMoney").val(data.money);
+                $("#gasAtlId").val(data.gasfeeAtlId);
+                $("#beforeChgType").val(data.chgTypeId);
+                $("#afterChgType").find("option[value=" + data.chgTypeId + "]").attr("disabled", "disabled");
+                $("#beforeMoney").val(data.money);
+                $("#customerKind").val(data.customerKind);
+                $("#feeType").text("燃气费");
+                atlId = data.gasfeeAtlId;
+
+                errorApplyHelper.getSettlementInfo(data.gasfeeAtlId, function (settlement) {
+                    $("#isSettlement").val("1");
+                });
+            });
+        } else {
+            errorApplyHelper.getChgWasteInfo(param.detailId, function (data) {
+                $("#customerCode").val(data.customerCode);
+                $("#customerName").val(data.customerName);
+                $("#chgTypeId").val(data.chgTypeId);
+                $("#chgMoney").val(data.money);
+                $("#gasAtlId").val(data.wastefeeAtlId);
+                $("#beforeChgType").val(data.chgTypeId);
+                $("#afterChgType").find("option[value=" + data.chgTypeId + "]").attr("disabled", "disabled");
+                $("#beforeMoney").val(data.money);
+                $("#customerKind").val(data.customerKind);
+                $("#feeType").text("垃圾费");
+                atlId = data.wastefeeAtlId;
+
+                errorApplyHelper.getSettlementInfo(data.wastefeeAtlId, function (settlement) {
+                    $("#isSettlement").val("1");
+                });
+            });
+        }
+    };
+    $("#errType").change(function () {
+        var $obj = $(this);
+        if ($obj.val() == "1") {
+            $("#divChgType").show();
+            $("#divChgMoney").hide();
+        } else {
+            $("#divChgType").hide();
+            $("#divChgMoney").show();
+        }
+    });
+
+    $("#errorApply").click(function () {
+        if (confirm("是否提交收费差错变更申请？")) {
+            var flow_def_id = "";
+            var wfName = "";
+            var beforeMoney = $("#beforeMoney").val();
+            var afterMoney = $("#afterMoney").val();
+            var beforeChgType = $("#beforeChgType").val();
+            var afterChgType = $("#afterChgType").val();
+
+            var apply = {
+                "errorId": $.md5(JSON.stringify(chgdetailId) + new Date().getTime()),
+                "wfId": flow_inst_id,
+                "chgDetailId": chgdetailId,
+                "chgType": chgType,
+                "errorType": $("#errType").val(),
+                "errorProperty": $("#errType").val() == "1" ? "chgTypeId" : "money",
+                "beforeChange": $("#errType").val() == "1" ? beforeChgType : beforeMoney,
+                "afterChange": $("#errType").val() == "1" ? afterChgType : afterMoney,
+                "applyUser": userInfo.userId,
+                "errorReason": $("#errorReason").val(),
+                "remark": $("#remark").val(),
+                "applyDate": moment().format("YYYY-MM-DD HH:mm:ss"),
+                "customerCode": $("#customerCode").val(),
+                "customerName": $("#customerName").val(),
+                "sourceChgTypeId": $("#chgTypeId").val(),
+                "sourceChgMoney": $("#chgMoney").val(),
+                "optResult": "0"
+            };
+
+            var flow_inst_id = $.md5(JSON.stringify(apply.errorId) + new Date().getTime());
+            // 如果是收费方式变更
+            wfName = $("#customerName").val() + "(" + $("#customerCode").val() + ")";
+            if ($("#errType").val() == "1") {
+                if ($("#isSettlement").val() == "1") {
+                    // 1. 日结后的
+                    flow_def_id = "CHGTYPEERRORAPPLY02";
+                    //wfName = "收费方式变更申请(已日结)";
+                } else {
+                    // 2. 日结前的
+                    flow_def_id = "CHGTYPEERRORAPPLY01";
+                    //wfName = "收费方式变更申请(未日结)";
+                }
+            } else if ($("#errType").val() == "2") {
+                if ($("#customerKind").val() == "1") {
+                    if(Math.abs(parseFloat(afterMoney) - parseFloat(beforeMoney)) < 500){
+                    	flow_def_id = "CHGMONEYERRORAPPLY04";
+                    }else{
+                    	flow_def_id = "CHGMONEYERRORAPPLY02";
+                    }
+                } else {
+                    if (Math.abs(parseFloat(afterMoney) - parseFloat(beforeMoney)) < 100) {
+                        flow_def_id = "CHGMONEYERRORAPPLY01";
+                        //wfName = "收费金额变更申请(差错金额小于100)";
+                    } else if (Math.abs(parseFloat(afterMoney) - parseFloat(beforeMoney)) < 10000) {
+                        flow_def_id = "CHGMONEYERRORAPPLY02";
+                        //wfName = "收费金额变更申请(差错金额小于10000)";
+                    } else {
+                        flow_def_id = "CHGMONEYERRORAPPLY03";
+                        //wfName = "收费金额变更申请(差错金额大于10000)";
+                    }
+                }
+            } else {
+                alert("请选择收费差错类型");
+                return;
+            }
+
+            var flowjson = {
+                "flow_def_id": flow_def_id,
+                "ref_no": flow_inst_id, // 唯一标识
+                "operator": userInfo.userId, // 流程提交人
+                "be_orgs": userInfo.area_id, // 所属角色
+                "flow_inst_id": flow_inst_id, // 流程实例id
+                "propstr2048": JSON.stringify({ "bizId": apply.errorId }), // 业务参数
+                "prop1str64": moment().format("YYYY-MM-DD HH:mm:ss"),
+                "prop2str64": wfName, // 代办名称
+                "propstr128": userInfo.employee_name == "" || userInfo.employee_name == undefined ? userInfo.userId : userInfo.employee_name,  // loginName
+                "propstr256": "", // 
+                "override_exists": false
+            }
+            apply.wfId = flowjson.flow_inst_id;
+            var flow_result = Restful.insert("/hzqs/psm/pbisn.do?fh=VFLSCGC000000J00&bd={}&resp=bd", flowjson)
+
+            if (flow_result["retcode"] == "0") {
+                var result = Restful.insert(hzq_rest + "gaschgerror", apply)
+                if (result['retcode'] == "0") {
+                    // 账户状态设置为禁用
+                    // if (chgType == "1") {
+                    //     Restful.update(hzq_rest + "gasActGasfeeAccount", $("#gasAtlId").val(), { "status": "2" });
+                    // } else {
+                    //     Restful.update(hzq_rest + "gasActWastefeeAccount", $("#gasAtlId").val(), { "status": "2" });
+                    // }
+                    bootbox.alert("提交成功！");
+                }
+            }
+        }
+    });
+
+</script>

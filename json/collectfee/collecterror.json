@@ -1,0 +1,10 @@
+{"rows":
+[
+{"UUID":"005","money":"150","userID":"156730001","userName":"李丽英","collectTime":"2016-11-11 09:02:12","yyyName":"张雪","shyName":"马志","shmethod":"现金","type":"普通收费","yy":"中国银行"}
+,{"UUID":"008","money":"150","userID":"107780001","userName":"张三","collectTime":"2016-11-11 12:12:12","yyyName":"张雪","shyName":"马志","shmethod":"现金","type":"普通收费","yy":"中国银行"}
+,{"UUID":"010","money":"100","userID":"101253001","userName":"张三","collectTime":"2016-11-11 12:12:12","yyyName":"张雪","shyName":"马志","shmethod":"现金","type":"普通收费","yy":"中国银行"}
+]
+,"total_rows":1
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

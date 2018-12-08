@@ -1,0 +1,16 @@
+{"rows":
+[
+    {"UUID":"1","chargeID":"001","userID":"001","operator":"核算员_1","username":"用户_1","user_area":"区域_1","user_address":"用户地址","charge_date":"计费日期","gas_volume":"表数","gas_price":"气价"},
+    {"UUID":"2","chargeID":"002","userID":"002","operator":"核算员_2","username":"用户_2","user_area":"区域_2","user_address":"用户地址","charge_date":"计费日期","gas_volume":"表数","gas_price":"气价"},
+    {"UUID":"3","chargeID":"003","userID":"003","operator":"核算员_3","username":"用户_3","user_area":"区域_3","user_address":"用户地址","charge_date":"计费日期","gas_volume":"表数","gas_price":"气价"},
+    {"UUID":"4","chargeID":"004","userID":"004","operator":"核算员_4","username":"用户_4","user_area":"区域_4","user_address":"用户地址","charge_date":"计费日期","gas_volume":"表数","gas_price":"气价"},
+    {"UUID":"5","chargeID":"005","userID":"005","operator":"核算员_5","username":"用户_5","user_area":"区域_5","user_address":"用户地址","charge_date":"计费日期","gas_volume":"表数","gas_price":"气价"},
+    {"UUID":"6","chargeID":"006","userID":"006","operator":"核算员_6","username":"用户_6","user_area":"区域_6","user_address":"用户地址","charge_date":"计费日期","gas_volume":"表数","gas_price":"气价"},
+    {"UUID":"7","chargeID":"007","userID":"007","operator":"核算员_7","username":"用户_7","user_area":"区域_7","user_address":"用户地址","charge_date":"计费日期","gas_volume":"表数","gas_price":"气价"},
+    {"UUID":"8","chargeID":"008","userID":"008","operator":"核算员_8","username":"用户_8","user_area":"区域_8","user_address":"用户地址","charge_date":"计费日期","gas_volume":"表数","gas_price":"气价"}
+
+]
+,"total_rows":8
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

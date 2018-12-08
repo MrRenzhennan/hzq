@@ -1,0 +1,90 @@
+分公司副主任审批角色 FGSFUZHUREN
+分公司主任审批角色 FGSZHUREN
+分公司副经理审批角色 FGSFUJINGLI
+营业部收费管理员审批角色 YYBSHOUFEIADMIN
+营业部审批角色 YINGYEBU
+营业务部长审批角色 YYBBUZHANG
+主管副经理审批角色 ZHUGUANFUJINGLI
+---------
+主任审批角色 ZHUREN
+主管审批角色 ZHUGUAN
+=========
+
+CHGMONEYERRORAPPLY01 收费金额变更申请(差错金额小于100)
+START 
+STEP1:
+    角色：FGSFUZHUREN
+    地址：./collectfee/errorapplyapprove.html
+STEP2:
+    角色：FGSFUJINGLI
+    地址：./collectfee/errorapplyapprove.html
+END
+
+CHGMONEYERRORAPPLY02 收费金额变更申请(差错金额小于10000)
+START
+STEP1:
+    角色：FGSFUZHUREN
+    地址：./collectfee/errorapplyapprove.html
+STEP2:
+    角色：FGSFUJINGLI
+    地址：./collectfee/errorapplyapprove.html
+STEP3:
+    角色：YYBSHOUFEIADMIN
+    地址：./collectfee/errorapplyapprove.html
+END
+
+CHGMONEYERRORAPPLY03 收费金额变更申请(差错金额大于10000)
+START
+STEP1:
+    角色：FGSFUZHUREN
+    地址：./collectfee/errorapplyapprove.html
+STEP2:
+    角色：FGSFUJINGLI
+    地址：./collectfee/errorapplyapprove.html
+STEP3:
+    角色：YYBSHOUFEIADMIN
+    地址：./collectfee/errorapplyapprove.html
+STEP4:
+    角色：YYBBUZHANG
+    地址：./collectfee/errorapplyapprove.html
+END
+
+CHGTYPEERRORAPPLY01 收费方式变更申请(未日结)
+START
+STEP1:
+    角色：FGSFUZHUREN
+    地址：./collectfee/errorapplyapprove.html
+END
+
+CHGTYPEERRORAPPLY02 收费方式变更申请(已日结)
+START
+STEP1:
+    角色：FGSFUZHUREN
+    地址：./collectfee/errorapplyapprove.html
+STEP2:
+    角色：FGSFUJINGLI
+    地址：./collectfee/errorapplyapprove.html
+STEP3:
+    角色：YYBSHOUFEIADMIN
+    地址：./collectfee/errorapplyapprove.html
+END
+
+ICCOMPLEMENTAPPLY 补气补量申请
+START
+STEP1:
+    角色：FGSZHUREN
+    地址：./collectfee/iccomplementapprove.html
+STEP2:
+    角色：FGSFUJINGLI
+    地址：./collectfee/iccomplementapprove.html
+STEP3:
+    角色：YINGYEBU
+    地址：./collectfee/iccomplementapprove.html
+STEP4:
+    角色：YYBBUZHANG
+    地址：./collectfee/iccomplementapprove.html
+STEP5:
+    角色：ZHUGUANFUJINGLI
+    地址：./collectfee/iccomplementapprove.html
+END
+

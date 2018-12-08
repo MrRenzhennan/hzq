@@ -1,0 +1,53 @@
+
+<style>
+    td
+    {
+        margin-right:auto;
+        width:40%;
+    }
+</style>
+<script type="text/x-template" id="__dust__archiveInfo">
+
+    {#data}
+    <tr>
+        <th>客户名称:</th>
+        <td>{customerName}</td>
+        <th style="border-left: 1px solid #ececec;">客户编号:</th>
+        <td id="customerid">{customerCode}</td>
+    </tr>
+    <tr>
+        <th>客户类别:</th>
+        <td>{customerKind}</td>
+
+        <th style="border-left: 1px solid #ececec;">客户状态: </th>
+
+        <td>
+            {?.customerState}
+            {@select key=customerState}
+                {@eq value="02"}<span>暂停用气</span>{/eq}
+                {@eq value="01"} <span>正常</span>{/eq}
+                {@default}<span style="color: red;font-weight:bold;">{balance}</span>{/default}
+            {/select}
+            {/.customerState}
+        </td>
+    </tr>
+    <tr>
+        <th>特殊用户:</th>
+        <td>{gasTypeName}</td>
+        <th style="border-left: 1px solid #ececec;">联系电话</th>
+        <td>{tel}</td>
+    </tr>
+    <tr>
+        <th>客户地址:</th>
+        <td>{customerAddress}</td>
+        <th style="border-left: 1px solid #ececec;">供气区域:</th>
+        <td>{areaName}</td>
+    </tr>
+    <!--<tr>
+        <td>身份证号:</td>
+        <td id="kh" style="border-right: 1px solid #ececec;">{customerNo}</td>
+        <td style="border-left: 1px solid #ececec;"> 违约金:</td>
+        <td >0</td>
+    </tr>-->
+    {/data}
+</script>

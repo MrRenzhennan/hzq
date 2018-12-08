@@ -1,0 +1,80 @@
+<script type="text/javascript" src="assets/global/plugins/previewPicture/js/modernizr.custom.js"></script>
+<link rel="stylesheet" type="text/css" href="assets/global/plugins/previewPicture/css/component.css"/>
+<div class="row form-group">
+    <div class="col-md-12">
+        <label class="control-label">相关照片</label>
+        <div id="grid-gallery" class="grid-gallery">
+            <section class="grid-wrap">
+                <ul id="grid" class="grid">
+                    <li class="grid-sizer"></li><!-- for Masonry column width -->
+                </ul>
+            </section><!-- // grid-wrap -->
+            <section class="slideshow" style="padding-top: 10px">
+                <ul id = "slideId">
+                </ul>
+                <nav>
+                    <span class="icon nav-prev"></span>
+                    <span class="icon nav-next"></span>
+                    <span class="icon nav-close" style="padding-top: 50px;"></span>
+                </nav>
+            </section><!-- // slideshow -->
+        </div><!-- // grid-gallery -->
+    </div>
+
+</div>
+<!--<div class="col-md-12">
+    <label class="control-label">附件</label>
+    <div class="row form-group">
+        <div class="col-md-2 gallery-item" id="enclosure">
+        </div>
+    </div>
+</div>-->
+<script type="text/javascript" src="assets/global/plugins/previewPicture/js/imagesloaded.pkgd.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/previewPicture/js/masonry.pkgd.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/previewPicture/js/classie.js"></script>
+<script type="text/javascript" src="assets/global/plugins/previewPicture/js/cbpGridGallery.js"></script>
+<script>
+    function pic(busiId){
+        $.ajax({
+            url: hzq_rest+"gasbasfile?fields={}&query={\"busiId\":\"" + busiId + "\"}",
+            method: "get",
+            async: false,
+            dataType: "json",
+            success: function (data) {
+                if(data && data.length > 0){
+                   // var busiId  =data.busiId;
+                    for(var i=0; i<data.length;i++){
+                        var datali = data[i];
+
+//                        var str = datali.fileName;
+//                        var strRegex = "(.jpg|.png|.gif|.ps|.jpeg)$"; //用于验证图片扩展名的正则表达式
+//                        var pic=new RegExp(strRegex,"i");
+//                        if (pic.test(str.toLowerCase())){
+                            $("#grid").append("<li><figure><img src='/hzqs/sys/download.do?fileId="+datali.fileId+"&w=300' alt='"+datali.fileName+"'/></figure></li>")
+                            $("#slideId").append("<li><figure><img src='/hzqs/sys/download.do?fileId="+datali.fileId+"' alt='"+datali.fileName+"'/></figure></li>")
+//                        }
+                        /*else {
+
+                            $("#enclosure").append('<label class="control-label">' + datali.fileName + '</label>' +
+                                '<a href=/hzqs/sys/download.do?fid=' + datali.fileId + '>下载</a>'
+                            )
+
+                        }*/
+                    }
+                }
+                console.log("ssdsds"+JSON.stringify(data));
+//                console.log(JSON.parse(data));
+
+            },
+            error: function (data) {
+                bootbox.alert(data);
+
+            }
+
+        });
+        setTimeout(function(){
+            new CBPGridGallery(document.getElementById('grid-gallery'));
+        },300)
+
+    }
+</script>

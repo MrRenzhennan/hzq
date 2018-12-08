@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]>
+<html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+
+<!-- BEGIN HEAD -->
+
+<head>
+    <title>收费差错变更申请</title>
+    <<base href="../">
+        <meta charset="UTF-8">
+        <script src="pages/scripts/basepath.js"></script>
+        <script src="pages/scripts/header.js"></script>
+        <meta http-equiv="content-type" content="text/html" charset="utf-8" />
+        <link href="assets/global/plugins/bootstrap-fileinput/fileinput.min.css" rel="stylesheet">
+</head>
+<!-- END HEAD -->
+
+<body class="page-header-fixed page-quick-sidebar-over-content">
+
+    <!-- 标题栏开始 -->
+    <div class="page-header navbar navbar-fixed-top">
+        <script>
+            $.include("pages/partial/menu.shtml");
+        </script>
+    </div>
+    <!-- 标题栏结束 -->
+    <div class="clearfix"></div>
+    <div class="page-container">
+        <!-- 左侧菜单开始 -->
+        <div class="page-sidebar-wrapper">
+            <script>
+                $.include("pages/partial/sidebar.shtml");
+            </script>
+        </div>
+        <!-- 左侧菜单结束 -->
+
+        <!-- 主内容开始 -->
+        <div class="page-content-wrapper">
+            <div class="page-content clearfix">
+                <!--内容头开始-->
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul class="page-breadcrumb breadcrumb">
+                            <li>
+                                <i class="fa  fa-map-marker"></i>
+                                <a href="javascript:void(0)">审批流程</a>
+                                <i class="fa fa-angle-right"></i>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tabbable tabbable-custom tabbable-custom-profile col-md-12" style="padding-bottom:0px">
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#tab_1_22" data-toggle="tab">
+                            收费差错变更申请 </a>
+                        </li>
+                    </ul>
+                    <!--/row-->
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tab11">
+                            <div class="portlet-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label style="color:red" id="labAlert"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>客户编号</label>
+                                            <input type="text" id="customerCode" class="form-control" disabled="disabled">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>客户姓名</label>
+                                            <input type="text" id="customerName" class="form-control" disabled="disabled">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>收费方式</label>
+                                            <select name="chgTypeId" id="chgTypeId" class="form-control" disabled="disabled">
+                                                <option value=""></option>
+                                                <option value="1">现金</option>
+                                                <option value="4">支票</option>
+                                                <option value="3">银行转账</option>
+                                                <option value="2">POS机</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>收费金额</label>
+                                            <input type="text" id="chgMoney" class="form-control" disabled="disabled">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>收费差错类型</label>
+                                            <select name="errType" id="errType" class="form-control select2me " disabled="disabled" data-placeholder="Select...">
+                                            <option value=""></option>
+                                            <option value="1">收费方式</option>
+                                            <option value="2">收费金额</option>
+                                        </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                    </div>
+                                </div>
+                                <div class="row" id="divChgMoney" style="display:none">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>变更前金额</label>
+                                            <input type="text" id="beforeMoney" class="form-control" disabled="disabled">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>变更后金额</label>
+                                            <input type="text" id="afterMoney" disabled="disabled" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" id="divChgType" style="display:none">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>变更前收费方式</label>
+                                            <select name="beforeChgType" id="beforeChgType" class="form-control select2me" data-placeholder="Select..." disabled="disabled">
+                                                <option value=""></option>
+                                                <option value="1">现金</option>
+                                                <option value="4">支票</option>
+                                                <option value="3">银行转账</option>
+                                                <option value="2">POS机</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>变更后收费方式</label>
+                                            <select name="afterChgType" id="afterChgType" class="form-control select2me" data-placeholder="Select..." disabled="disabled">
+                                                <option value=""></option>
+                                                <option value="1">现金</option>
+                                                <option value="4">支票</option>
+                                                <option value="3">银行转账</option>
+                                                <option value="2">POS机</option>
+                                        </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>差错原因</label>
+                                            <select id="errorReason" class="form-control select2me " disabled="disabled">
+                                            <option value="操作错误" selected="selected">操作错误</option>
+                                        </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4 form-group">
+                                        <div class="btn-group form-group" id="customerMation" style="padding-top: 20px;">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>备注</label>
+                                            <textarea name="remark" id="remark" class="form-control" rows="3" disabled="disabled"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    $.include("examine/commons/commit_examine_common.shtml");
+                </script>
+            </div>
+        </div>
+    </div>
+
+    <script>
+                    $.include("common/customerinformation.shtml")
+    </script>
+</body>
+<script>
+        $.include("pages/partial/scripts.shtml");
+
+</script>
+<script src="assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-watable/jquery.watable.js"></script>
+<script type="text/javascript" src="pages/scripts/rqlbuilder.js"></script>
+<script type="text/javascript" src="pages/scripts/xwatable.js"></script>
+<script type="text/javascript" src="pages/scripts/refhelper.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script src="assets/admin/pages/scripts/components-pickers.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+<script src="pages/scripts/jquery.json.min.js"></script>
+<script src="common/customerinformation.js"></script>
+<script type="text/javascript" src="pages/scripts/jquery.serialize-object.min.js"></script>
+
+<script src="../collectfee/js/errorApply.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var errorApplyId = JSON.parse(step.propstr2048).bizId;
+        errorApplyHelper.getChgError(errorApplyId, function (data) {
+            $("#customerCode").val(data.customerCode);
+            $("#customerName").val(data.customerName);
+            $("#chgTypeId").val(data.sourceChgTypeId);
+            $("#chgMoney").val(data.sourceChgMoney);
+            $("#errType").val(data.errorType);
+            $("#remark").html(data.remark);
+
+            var result = Restful.findNQ(hzq_rest + 'gasctmarchive/?query={"customerCode":"' + data.customerCode + '"}');
+            if (result[0].customerKind == '1') {
+                //                $('#customerKind').val("居民");
+                $("#customerMation").html("<a class=\"btn btn-md btn-circle blue information\" id='customerinformation' data-kind='" + JSON.stringify(result[0]) + "' href=\"javascript:;\">客户详细信息</a>");
+                $('#navtab li').data({
+                    'ctmArchiveId': result[0].ctmArchiveId,
+                    'customerCode': result[0].customerCode,
+                    'customerKind': "1"
+                });
+            } else {
+                //                $('#customerKind').val("非居民");
+                $("#customerMation").html("<a class=\"btn btn-md btn-circle blue noninformation\" id='customerinformation' data-kind='" + JSON.stringify(result[0]) + "' href=\"javascript:;\">客户详细信息</a>");
+                $('#navtab1 li').data({
+                    'ctmArchiveId': result[0].ctmArchiveId,
+                    'customerCode': result[0].customerCode,
+                    'customerKind': "9",
+                });
+            }
+            if (data.errorType == "1") {
+                $("#divChgMoney").hide();
+                $("#divChgType").show();
+
+                $("#beforeChgType").val(data.beforeChange);
+                $("#afterChgType").val(data.afterChange);
+            } else {
+                $("#divChgMoney").show();
+                $("#divChgType").hide();
+
+                $("#beforeMoney").val(data.beforeChange);
+                $("#afterMoney").val(data.afterChange);
+            }
+            $("#errorReason").val(data.errorReason);
+            $("#remark").val(data.remark);
+
+            // 判断是否已经做了日结，界面给提示
+            if (data.chgType == "2") {
+                $("#labAlert").html("垃圾费收费差错审批");
+            } else {
+                $("#labAlert").html("燃气费收费差错审批");
+            }
+        });
+    });
+    function doBusi(step) {
+        var errorApplyId = JSON.parse(step.propstr2048).bizId;
+        errorApplyHelper.approveApply(errorApplyId, step.results == "0" ? "1" : "0", function (ret) {
+            if (ret && ret.errCode == "1") {
+
+            }
+        });
+    }
+
+</script>
+<!--<script src="common/customerinformation.js"></script>-->
+
+</html>

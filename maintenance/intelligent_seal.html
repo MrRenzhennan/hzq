@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" >
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="utf-8"/>
+    <title>智能封印</title>
+    <base href="../">
+    <script src="pages/scripts/header.js"></script>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8"/>
+    <link href='assets/global/plugins/jquery-watable/watable.css' rel='stylesheet'/>
+    <link href='assets/global/plugins/jquery-watable/animate.min.css' rel='stylesheet'/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-select/bootstrap-select.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/select2/select2.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/jquery-multi-select/css/multi-select.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-datepicker/css/datepicker3.css"/>
+    <link href="assets/global/plugins/bootstrap-fileinput/fileinput.css" rel="stylesheet">
+
+    <!-- BEGIN THEME STYLES -->
+    <link href="assets/global/css/components.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
+    <style>
+        #qunit-fixture #fileuploads > div{
+            width:100%;
+        }
+    </style>
+
+    <!--<link rel="shortcut icon" href="favicon.ico"/>-->
+</head>
+<!-- END HEAD -->
+<body class="page-header-fixed page-quick-sidebar-over-content ">
+<!-- BEGIN HEADER -->
+<div class="page-header navbar navbar-fixed-top">
+    <script>$.include("pages/partial/menu.shtml");</script>
+</div>
+<!-- END HEADER -->
+<div class="clearfix">
+</div>
+<!-- BEGIN CONTAINER -->
+<div class="page-container">
+    <!-- BEGIN SIDEBAR -->
+    <div class="page-sidebar-wrapper">
+        <script>$.include("pages/partial/sidebar.shtml");</script>
+    </div>
+    <!-- END SIDEBAR -->
+    <!-- BEGIN CONTENT -->
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <!-- BEGIN STYLE CUSTOMIZER -->
+            <!-- END STYLE CUSTOMIZER -->
+            <!-- BEGIN PAGE HEADER-->
+            <script>$.include("common/navigation_bar.shtml");</script>
+            <!-- END PAGE HEADER-->
+            <!-- BEGIN PAGE CONTENT-->
+            <div class="row">
+                <div class="col-md-12">
+                    <!--BEGIN TABS-->
+                    <div class="tabbable tabbable-custom">
+                        <ul class="nav nav-tabs">
+                            <li class="active">
+                                <a href="#tab_1_1" data-toggle="tab">
+                                    客户档案 </a>
+                            </li>
+                            <!--<li>
+                                <a href="#tab_1_2" data-toggle="tab">
+                                    联合账户 </a>
+                            </li>-->
+                            <!--<li>
+                                <a href="#tab_1_3" data-toggle="tab">
+                                    表具档案 </a>
+                            </li>
+                            <li>
+                                <a href="#tab_1_4" data-toggle="tab">
+                                    燃气设备档案
+                                </a>
+                            </li>-->
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tab_1_1">
+                                <div class="scroller" style="height: auto;" data-always-visible="1" data-rail-visible="0">
+                                    <div class="container col-sm-12" style="padding: 30px 20px 0px 20px">
+                                        <!-- 查询条件控件 -->
+                                        <div class="row">
+                                            <div class="col-sm-3 form-group">
+                                                <div class="btn-group input-group input-select2me">
+                                                    <div class="input-group-addon">供气区域:</div>
+                                                    <select id="find_unit" class="form-control input-middle select2me" data-placeholder="供气区域">
+                                                        <option value="">全部</option>
+                                                    </select>
+                                                    <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3 form-group">
+                                                <div class="btn-group input-group" style="width: 100%">
+                                                    <div class="input-group-addon">客户编号:</div>
+                                                    <input id="find_customerCode" class="inputclear form-control" type="text"
+                                                           placeholder="客户编号">
+                                                    <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3 form-group">
+                                                <div class="btn-group input-group" style="width: 100%">
+                                                    <div class="input-group-addon">客户名称:</div>
+                                                    <input id="find_customerName" class="inputclear form-control" type="text"
+                                                           placeholder="客户名称">
+                                                    <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3 form-group">
+                                                <div class="btn-group input-group input-select2me">
+                                                    <div class="input-group-addon">客户状态:</div>
+                                                    <select id="find_customerState" class="form-control input-middle select2me"
+                                                            data-placeholder="客户状态...">
+                                                        <option value=""></option>
+                                                        <option value="00">未开栓</option>
+                                                        <option value="01">正常</option>
+                                                        <option value="02">暂停用气</option>
+                                                        <option value="03">拆除状态</option>
+                                                        <option value="04">长期不用</option>
+                                                        <option value="99">删除</option>
+                                                    </select>
+                                                    <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-3 form-group">
+                                                <div class="btn-group input-group input-select2me">
+                                                    <div class="input-group-addon">表类别:</div>
+                                                    <select id="find_customerType" class="form-control input-middle select2me"
+                                                            data-placeholder="表类别...">
+                                                        <option value=""></option>
+                                                        <option value="I">IC卡表</option>
+                                                        <option value="P">普表</option>
+                                                    </select>
+                                                    <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3 form-group">
+                                                <div class="btn-group input-group" style="width: 100% !important;">
+                                                    <div class="input-group-addon">客户地址:</div>
+                                                    <input id="find_customerAddress" class="inputclear form-control" type="text"
+                                                           placeholder="客户地址">
+                                                    <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3 form-group">
+                                                <div class="btn-group input-group input-select2me">
+                                                    <div class="input-group-addon">客户类型:</div>
+                                                    <select id="find_gasTypeId" class="form-control input-middle select2me"
+                                                            data-placeholder="客户类型...">
+                                                        <option value=""></option>
+                                                    </select>
+                                                    <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3 form-group">
+                                                <div class="btn-group input-group input-select2me">
+                                                    <div class="input-group-addon">用气类型:</div>
+                                                    <select id="find_gasTypeId1" class="form-control input-middle select2me"
+                                                            data-placeholder="请选择">
+                                                        <option value=""></option>
+                                                    </select>
+                                                    <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3 form-group">
+                                                <div class="btn-group input-group input-select2me">
+                                                    <div class="input-group-addon">用气性质:</div>
+                                                    <select id="find_gasTypeId2" class="form-control input-middle select2me"
+                                                            data-placeholder=" ">
+                                                        <option value=""></option>
+                                                    </select>
+                                                    <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6 form-group">
+                                                <div class="btn-group form-group">
+                                                    <button id="find_button" class="btn yellow">
+                                                        <i class="fa fa-search"></i> 查询&nbsp;
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="container-fluid">
+                                        <div id="divtable" class="table-responsive container-fluid col-md-12">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END PAGE CONTENT-->
+        </div>
+    </div>
+    <!-- END CONTENT -->
+</div>
+
+
+<!-- END CONTAINER -->
+<script type="text/javascript">$.include("pages/partial/xwatable-form.shtml")</script>
+<script>$.include("pages/partial/scripts.shtml");</script>
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<script src="pages/scripts/rest.js" type="text/javascript"></script>
+<script src="assets/addons/jquery-dateFormat.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-watable/jquery.watable.js"></script>
+<script type="text/javascript" src="pages/scripts/rqlbuilder.js"></script>
+<script type="text/javascript" src="pages/scripts/xwatable.js"></script>
+<script type="text/javascript" src="pages/scripts/refhelper.js"></script>
+
+<script type="text/javascript" src="assets/global/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-multi-select/js/jquery.multi-select.js"></script>
+
+<script src="assets/admin/pages/scripts/components-pickers.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-daterangepicker/moment.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script src="mods/timeslot.js"></script>
+<script src="mods/basismanage.js"></script>
+<script src="mods/sys.js"></script>
+<script src="mods/ctm.js"></script>
+<script src="maintenance/js/intelligent_seal.js"></script>
+
+<script>
+   inhabitnatArchiveManagementAction.init();
+</script>
+
+</body>
+<!-- END BODY -->
+</html>

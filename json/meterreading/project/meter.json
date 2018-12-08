@@ -1,0 +1,11 @@
+{"rows":
+[
+  {"versionID":"9129","gasCategory":"00789","gasType":"2342","gasStart":"716","gasEnd":"2341","gasEnd1":"华联超市","gasEnd2":"","price":"3.5.6.9.A.B","changeTime":"28号","effectTime":"半年","effectTime1":"道里区买卖街12号","effectTime2":"0511","effectTime3":"漏抄","effectTime4":"半年计划","effectTime5":"已提交","effectTime6":"2014/12/26","effectTime7":"已审核","effectTime8":"2015/12/14","effectTime9":"2015/3/10","effectTime10":"2015/2/28"}
+  ,{"versionID":"9129","gasCategory":"00789","gasType":"2342","gasStart":"716","gasEnd":"2342","gasEnd1":"胜利浴池","gasEnd2":"","price":"全年","changeTime":"28号","effectTime":"全年","effectTime1":"道里区买卖街12号","effectTime2":"0511","effectTime3":"漏抄","effectTime4":"年抄计划","effectTime5":"未提交","effectTime6":"2014/12/26","effectTime7":"未审核","effectTime8":"2015/12/26","effectTime9":"2014/12/26","effectTime10":"2015/2/28"}
+,{"versionID":"9129","gasCategory":"00789","gasType":"2342","gasStart":"716","gasEnd":"2343","gasEnd1":"飞翔旅馆","gasEnd2":"","price":"3.9","changeTime":"28号","effectTime":"两个月","effectTime1":"道里区买卖街12号","effectTime2":"0511","effectTime3":"漏抄","effectTime4":"月抄表计划","effectTime5":"已提交","effectTime6":"2014/12/26","effectTime7":"已审核","effectTime8":"2015/9/28","effectTime9":"2015/2/28","effectTime10":"2015/2/28"}
+,{"versionID":"9129","gasCategory":"00789","gasType":"2342","gasStart":"716","gasEnd":"2344","gasEnd1":"大众饭店","gasEnd2":"周五","price":"3.6.A","changeTime":"","effectTime":"三个月","effectTime1":"道里区买卖街12号","effectTime2":"0511","effectTime3":"漏抄","effectTime4":"周抄计划","effectTime5":"未提交","effectTime6":"2014/12/26","effectTime7":"未审核","effectTime8":"2015/10/28","effectTime9":"2015/2/28","effectTime10":"2015/2/28"}
+]
+,"total_rows":1
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

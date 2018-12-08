@@ -1,0 +1,15 @@
+{"rows":
+[
+   {"UUID":"001","gas_source":"气源","gas_type":"用气性质","gas_price":"价格"},
+   {"UUID":"001","gas_source":"气源","gas_type":"用气性质","gas_price":"价格"},
+   {"UUID":"001","gas_source":"气源","gas_type":"用气性质","gas_price":"价格"},
+   {"UUID":"001","gas_source":"气源","gas_type":"用气性质","gas_price":"价格"},
+   {"UUID":"001","gas_source":"气源","gas_type":"用气性质","gas_price":"价格"},
+   {"UUID":"001","gas_source":"气源","gas_type":"用气性质","gas_price":"价格"},
+   {"UUID":"001","gas_source":"气源","gas_type":"用气性质","gas_price":"价格"},
+   {"UUID":"001","gas_source":"气源","gas_type":"用气性质","gas_price":"价格"}
+]
+,"total_rows":8
+,"totalPages":2
+,"skip":0
+,"limit":2147483647}

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+
+<head>
+    <meta charset="utf-8" />
+    <title>中庆燃气营业信息系统</title>
+    <script src="pages/scripts/header_login.js"></script>
+    <!-- BEGIN PAGE LEVEL STYLES -->
+    <link href="assets/admin/pages/css/login-soft.css" rel="stylesheet" type="text/css" />
+    <link href="assets/global/plugins/ladda-bootstrap/ladda-themeless.min.css" rel="stylesheet" type="text/css" />
+
+    <!--     <link href="assets/global/plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/global/plugins/bootstrap-modal/css/bootstrap-modal.css" rel="stylesheet" type="text/css"/>
+ -->
+
+    <!-- END PAGE LEVEL SCRIPTS -->
+    <style type="text/css">
+        .login .content .form-actions {
+            background-color: transparent;
+            clear: both;
+            border: 0px;
+            padding: 0px 30px 25px 50px;
+            margin-left: -30px;
+            margin-right: -30px;
+        }
+
+        .form-actions {
+            margin: 0 auto;
+            /* width: 360px; */
+        }
+
+        @media (min-width:481px) {
+            #login-panel {
+                padding-left: 23.9%;
+            }
+        }
+    </style>
+</head>
+<!-- END HEAD -->
+
+<body class="login">
+    <!-- BEGIN LOGO -->
+    <!-- <div style="height:100%;width: 1px;background: red;position: absolute;left: 61.8%;top: 0;">
+
+    </div>-->
+    <div id="login-panel">
+        <div class="logo">
+            <a href="login.html">
+                <img src="pages/images/logo.png" height="90px" alt="" />
+            </a>
+            <h2 class="form-title">
+                <font color="black" style="line-height:50px; letter-spacing:2px; font-weight: 400">哈尔滨中庆燃气有限责任公司<br />营业管理信息系统</font>
+            </h2>
+        </div>
+        <!-- END LOGO -->
+        <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+        <div class="menu-toggler sidebar-toggler">
+        </div>
+        <!-- END SIDEBAR TOGGLER BUTTON -->
+        <!-- BEGIN LOGIN -->
+        <div class="content">
+            <!-- BEGIN LOGIN FORM -->
+            <form class="login-form" method="post" action="">
+                <h4 class="form-title">登录到您的首页</h4>
+                <!-- <div class="alert alert-danger display-hide">
+                <button class="close" data-close="alert"></button>
+                <span id="confirm"></span>
+            </div> -->
+                <div class="form-group">
+                    <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+                    <label class="control-label visible-ie8 visible-ie9">用户名</label>
+                    <div class="input-icon">
+                        <i class="fa fa-user"></i>
+                        <input id="loginname" class="form-control placeholder-no-fix" type="text" placeholder="用户名" name="loginname" value="" />
+                        <span id="username_confirm" style="color: red"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label visible-ie8 visible-ie9">密码</label>
+                    <div class="input-icon">
+                        <i class="fa fa-lock"></i>
+                        <input id="password" class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="密码" name="password"
+                            value="" />
+                        <span id="password_confirm" style="color: red"></span>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <!-- <label class="checkbox">
+                        <input type="checkbox"  id="remember" name="sb_remember" value="0" />记住密码</label>-->
+                    <button id="submitbtn" type="button" class="btn blue pull-right ladda-button" data-style="expand-left">
+                        登录 <i class="m-icon-swapright m-icon-white"></i>
+                    </button>
+                </div>
+            </form>
+            <span id="confirm" style="color: red"></span>
+            <div class="create-account">
+                <p>&nbsp;</p>
+            </div>
+        </div>
+
+        <div class="copyright">
+            2017 &nbsp;&nbsp; 哈尔滨中庆燃气有限责任公司
+        </div>
+    </div>
+    <!--[if lt IE 9]>
+
+<script src="assets/global/plugins/respond.min.js"></script>
+<script src="assets/global/plugins/excanvas.min.js"></script>
+<![endif]-->
+    <script src="assets/global/plugins/jquery-1.11.0.min.js" type="text/javascript"></script>
+    <script src="assets/global/plugins/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+    <!-- IMPORTANT! Load jquery-ui-1.10.3.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
+    <script src="assets/global/plugins/jquery-ui/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
+    <script src="assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+    <script src="assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <script src="assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+    <script src="assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+    <script src="assets/global/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
+    <script src="assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+    <!-- END CORE PLUGINS -->
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    <script src="assets/global/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
+    <script src="assets/global/plugins/backstretch/jquery.backstretch.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="assets/global/plugins/select2/select2.min.js"></script>
+    <!-- END PAGE LEVEL PLUGINS -->
+    <!-- BEGIN PAGE LEVEL SCRIPTS -->
+    <script src="assets/global/scripts/metronic.js" type="text/javascript"></script>
+    <script src="assets/admin/layout/scripts/layout.js" type="text/javascript"></script>
+    <script src="assets/admin/layout/scripts/quick-sidebar.js" type="text/javascript"></script>
+    <script src="assets/admin/pages/scripts/login-soft.js" type="text/javascript"></script>
+    <!-- END PAGE LEVEL SCRIPTS -->
+    <script src="pages/scripts/rest.js" type="text/javascript"></script>
+    <script src="assets/global/plugins/bootbox/bootbox.min.js" type="text/javascript"></script>
+
+    <!--     <script src="assets/global/plugins/bootstrap-modal/js/bootstrap-modalmanager.js" type="text/javascript"></script>
+    <script src="assets/global/plugins/bootstrap-modal/js/bootstrap-modal.js" type="text/javascript"></script>
+ -->
+
+
+    <script src="assets/global/plugins/ladda-bootstrap/spin.min.js" type="text/javascript"></script>
+    <script src="assets/global/plugins/ladda-bootstrap/ladda.min.js" type="text/javascript"></script>
+    <script src="assets/addons/jquery.jcryption-1.1.min.js" type="text/javascript"></script>
+    <script src="assets/addons/validateForm.js" type="text/javascript"></script>
+    <script type="text/javascript" src="assets/global/scripts/jquery.md5.js"></script>
+    <script src="login/login.js" type="text/javascript"></script>
+    <script src="pages/scripts/utils.js"></script>
+    <script src="pages/scripts/refhelper.js"></script>
+
+
+    <script type="text/javascript">
+        jQuery(document).ready(function () {
+            LoginAction.init();
+
+            /* $('#loginname').val('admin');
+             $('#password').val('123456');*/
+        });
+
+        $(document).keyup(function (event) {
+            if (event.keyCode == 13) {
+                $("#submitbtn").trigger("click");
+                event.stopPropagation();
+                event.preventDefault();
+
+            }
+        });
+    </script>
+
+</body>
+<!-- END BODY -->
+
+</html>

@@ -1,0 +1,11 @@
+{"rows":
+[
+  {"UUID":"001","lmoney":"50","endmoney":"50","gasarea":"道里一","userID":"100230001","userName":"张三","caddress":"道里区","phone":"0001","meterreader":"王丽","accountstaff":"王丽","enddate":"2008-02-18 10:13:36.0","address":"中国银行","feetype":"普通收费"}
+,{"UUID":"002","lmoney":"20","endmoney":"50","gasarea":"道里一","userID":"100245601","userName":"李浩","caddress":"道里区","phone":"0001","meterreader":"王丽","accountstaff":"王丽","enddate":"2008-02-18 10:13:36.0","address":"中国银行","feetype":"普通收费"}
+,{"UUID":"004","lmoney":"50","endmoney":"50","gasarea":"道里一","userID":"100230001","userName":"张三","caddress":"道里区","phone":"0001","meterreader":"王丽","accountstaff":"王丽","enddate":"2008-02-18 10:13:36.0","address":"中国银行","feetype":"普通收费"}
+,{"UUID":"006","lmoney":"40","endmoney":"50","gasarea":"道里一","userID":"100230001","userName":"张一","caddress":"道里区","phone":"0001","meterreader":"王丽","accountstaff":"王丽","enddate":"2008-02-18 10:13:36.0","address":"道里一分公司","feetype":"普通收费"}
+]
+,"total_rows":1
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

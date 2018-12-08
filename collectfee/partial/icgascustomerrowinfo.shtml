@@ -1,0 +1,40 @@
+<script type="text/x-template" id="__dust__icgasCustomerRowInfo">
+    {#data}
+    <tr>
+        <td><a href="JavaScript:void(0)" onClick="select('{customerCode}')">
+            {customerAddress}</a>
+        </td>
+        <td>
+            {areaName}
+        </td>
+        <td>
+            {gasTypeName}
+        </td>
+        <td>
+            {?.balance}
+            {@select key=balance}
+                {@gte value=0} <span style="color: green">{balance}</span> {/gte}
+                {@default}<span style="color: red;font-weight:bold;">{balance}</span>{/default}
+            {/select}
+            {:else}
+                <span>-</span>
+            {/.balance}
+        </td>
+        <td><a href="JavaScript:void(0)" hzq-modal="#hzqModal" hzq-type="remoteModal" hzq-remote="/collectfee/partial/searchgaspayhistory.html"
+               hzq-cb="render" hzq-param='{"archiveId":"{ctmArchiveId}"}'>查看收费历史信息</a></td>
+        <td><a href="JavaScript:void(0)" hzq-modal="#hzqModal" hzq-type="remoteModal" hzq-remote="/collectfee/partial/searchmtdhistory.html"
+               hzq-cb="render" hzq-param='{"archiveId":"{ctmArchiveId}"}'>查看抄表历史信息</a>
+        </td>
+        <td>
+
+        </td>
+    </tr>
+    {/data}
+</script>
+<script type="text/javascript">
+    function select(code) {
+        if(confirm("确定要查看？")) {
+            location.href="/collectfee/charge.html?code="+code;
+        }
+    }
+</script>

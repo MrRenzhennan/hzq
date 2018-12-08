@@ -1,0 +1,10 @@
+{"rows":
+[
+  {"userType":"普通用户","versionID":"v-01","standardCost":"1.50元/月","familyAmount":"1","changeTime":"2016-05-09","effectiveDate":"2016-05-10","endDate":"2200-12-31","changePre":"调价人一","chargeMode":"年度缴纳","remarks":""}
+,{"userType":"普通用户","versionID":"v-01","standardCost":"3.00元/月","familyAmount":"2","changeTime":"2016-05-09","effectiveDate":"2016-05-10","endDate":"2200-12-31","changePre":"调价人一","chargeMode":"年度缴纳","remarks":""}
+
+]
+,"total_rows":2
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

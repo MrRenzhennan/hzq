@@ -1,0 +1,10 @@
+{"rows":
+[
+  {"serialNumber":"01","gasArea":"供气区域一","accountingClerk":"核算员一","CusSerOfficer":"客户服务员一","bookNumber":"本号一","cusNumber":"客户号一","cusName":"客户名一","tableDoorName":"表户名称一","chargingDate":"2011-05-31","effectiveDate":"2011-04-23","expiryDate":"2011-05-23","protocolVolume":"2400","protocolGasMoney":"4800.00","remarks":"表具故障，非人为损坏。"}
+,{"serialNumber":"02","gasArea":"供气区域二","accountingClerk":"核算员二","CusSerOfficer":"客户服务员二","bookNumber":"本号二","cusNumber":"客户号二","cusName":"客户名二","tableDoorName":"表户名称二","chargingDate":"2012-08-21","effectiveDate":"2012-07-02","expiryDate":"2012-07-04","protocolVolume":"1863","protocolGasMoney":"7079.40","remarks":"表具故障，非人为损坏。"}
+
+]
+,"total_rows":2
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

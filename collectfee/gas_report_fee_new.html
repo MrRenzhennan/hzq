@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]>
+<html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+
+<!-- BEGIN HEAD -->
+
+<head>
+    <title>网点收费结账</title>
+    <script src="../pages/scripts/basepath.js"></script>
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-select/bootstrap-select.min.css">
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/select2/select2.css">
+    <script src="../pages/scripts/header.js"></script>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8" />
+    <link href='../assets/global/plugins/jquery-watable/watable.css' rel='stylesheet' />
+    <link href='../assets/global/plugins/jquery-watable/animate.min.css' rel='stylesheet' />
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.css"
+    />
+    <link href='../assets/global/plugins/bootstrap-datetimepicker/css/datetimepicker.css' rel='stylesheet' />
+
+    <!--datapicker css start-->
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-datepicker/css/datepicker3.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-colorpicker/css/colorpicker.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css"
+    />
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-datetimepicker/css/datetimepicker.css" />
+    <!--datapicker end-->
+</head>
+<!-- END HEAD -->
+
+<body class="page-header-fixed page-quick-sidebar-over-content">
+
+    <!-- 标题栏开始 -->
+    <div class="page-header navbar navbar-fixed-top">
+        <script>
+            $.include("pages/partial/menu.shtml");
+        </script>
+    </div>
+    <!-- 标题栏结束 -->
+    <div class="clearfix"></div>
+    <div class="page-container">
+        <!-- 左侧菜单开始 -->
+        <div class="page-sidebar-wrapper">
+            <script>
+                $.include("pages/partial/sidebar.shtml");
+            </script>
+        </div>
+        <!-- 左侧菜单结束 -->
+        <!-- 主内容开始 -->
+        <div class="page-content-wrapper">
+            <div class="page-content">
+                <!--内容头开始-->
+                <script>$.include("common/navigation_bar.shtml");</script>
+
+                <div class="container col-sm-12" style="padding-bottom:0px; background-color: white">
+                    <div class="row">
+                        <div class="col-sm-3 form-group">
+                            <div class="btn-group input-group">
+                                <div class="input-group-addon">营业网点：</div>
+                                <select id="find_chargeUnitId" class="form-control input-small select2me" data-placeholder="请选择营业网点">
+                                <option value=""></option>
+                            </select>
+                                <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 form-group">
+                            <div class="btn-group input-group">
+                                <div class="input-group-addon">营业员：</div>
+                                <select id="find_employeeName" class="form-control input-small select2me" data-placeholder="请选择...">
+                                <option value="">无</option>
+                            </select>
+                                <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 form-group">
+                            <div class="btn-group input-group">
+                                <div class="input-group-addon">收费类型：</div>
+                                <select id="find_fee_type" class="form-control input-small select2me" data-placeholder="请选择...">
+                                <option selected="selected" value="">全部</option>
+                                <option value="1">燃气费</option>
+                                <option value="2">垃圾处理费</option>
+                            </select>
+                                <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                <!-- /input-group -->
+                            </div>
+                        </div>
+                        <div class="col-sm-3 form-group">
+                            <div class="btn-group input-group">
+                                <div class="input-group-addon">收费方式：</div>
+                                <select id="find_chg_type" class="form-control input-small select2me" data-placeholder="请选择...">
+                                <option selected="selected" value="">全部</option>
+                                <option value="1">现金</option>
+                                <option value="2">POS机</option>
+                                <option value="3">银行转账</option>
+                                <option value="4">支票</option>
+                            </select>
+                                <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                <!-- /input-group -->
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <button id="find_sign" type="button" class="btn yellow">
+                                查询 <i class="fa fa-search"></i>
+                            </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 内容头结束-->
+                <div class="tabbable tabbable-custom tabbable-custom-profile col-md-12" style="padding-bottom:0px; padding-top:20px;">
+                    <ul class="nav nav-tabs">
+                        <li role="presentation" class="active"><a href="#unSettlement" aria-controls="unSettlement" role="tab" data-toggle="tab">未结</a></li>
+                        <li role="presentation"><a id="tabWaste" href="#alreadySettlement" aria-controls="alreadySettlement" role="tab" data-toggle="tab">已结</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="unSettlement">
+                            <div data-always-visible="1" data-rail-visible="1">
+                                <h4 class="form-section" id="report_title">收费总计</h4>
+                                <!--/row-->
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">总金额:</label>
+                                            <div class="col-md-6">
+                                                <input id="all_amount" type="text" class="form-control" placeholder="" value="" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">总户数:</label>
+                                            <div class="col-md-6">
+                                                <input id="all_count" type="text" class="form-control" placeholder="" value="" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--/row-->
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">POS机收费总金额:</label>
+                                            <div class="col-md-6">
+                                                <input id="pos_amount" type="text" class="form-control" placeholder="" value="" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">POS机收费户数:</label>
+                                            <div class="col-md-6">
+                                                <input id="pos_count" type="text" class="form-control" placeholder="" value="" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/row-->
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">现金收费总金额:</label>
+                                            <div class="col-md-6">
+                                                <input id="cash_amount" type="text" class="form-control" placeholder="" value="" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">现金收费总户数:</label>
+                                            <div class="col-md-6">
+                                                <input id="cash_count" type="text" class="form-control" placeholder="" value="" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/row-->
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">银行转账总金额:</label>
+                                            <div class="col-md-6">
+                                                <input id="bank_amount" type="text" class="form-control" placeholder="" value="" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">银行转账总户数:</label>
+                                            <div class="col-md-6">
+                                                <input id="bank_count" type="text" class="form-control" placeholder="" value="" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">支票转账总金额:</label>
+                                            <div class="col-md-6">
+                                                <input id="check_amount" type="text" class="form-control" placeholder="" value="" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">支票转账总户数:</label>
+                                            <div class="col-md-6">
+                                                <input id="check_count" type="text" class="form-control" placeholder="" value="" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" style="padding-top:20px;">
+                                    <div class="col-sm-3 form-group">
+                                        <div class="btn-group input-group">
+                                            <div class="input-group-addon">客户编号：</div>
+                                            <input id="unsettlementCustomerCode" type="text" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <button id="find_unsettlement_detail" type="button" class="btn yellow">
+                                查询 <i class="fa fa-search"></i>
+                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div id="divtable" class="table-responsive container-fluid col-md-12"></div>
+                                </div>
+                                <div class="row" style="text-align:center;">
+                                    <button id="btn_report_fee" type="button" class="btn green">
+                            结账<i class="glyphicon"></i>
+                        </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="alreadySettlement">
+                            <div data-always-visible="1" data-rail-visible="1">
+                                <div class="row">
+                                    <div id="divSettlementtable" class="table-responsive container-fluid col-md-12"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-3 form-group">
+                                        <div class="btn-group input-group">
+                                            <div class="input-group-addon">客户编号：</div>
+                                            <input id="detailCustomerCode" type="text" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <button id="find_detail" type="button" class="btn yellow">
+                                查询 <i class="fa fa-search"></i>
+                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div id="divSettlementDetailtable" class="table-responsive container-fluid col-md-12"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 内容结束-->
+            </div>
+        </div>
+        <!-- 主内容结束 -->
+    </div>
+    <script type="text/javascript">
+                $.include("pages/partial/xwatable-form.shtml")
+    </script>
+
+    <!-- 底边栏开始 -->
+    <script>
+        $.include("pages/partial/foot.shtml");
+    </script>
+    <!--英尺-->
+    <!-- 底边栏结束 -->
+    <div class="modal fade" id="hzqModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog">
+            <div id="mcontent" class="modal-content">
+            </div>
+        </div>
+    </div>
+</body>
+
+
+<script>
+        $.include("pages/partial/scripts.shtml");
+
+</script>
+<!--跳到原稿-->
+<script src="../assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="../assets/global/plugins/jquery-watable/jquery.watable.js"></script>
+<script type="text/javascript" src="../pages/scripts/rqlbuilder.js"></script>
+<script type="text/javascript" src="../pages/scripts/xwatable.js"></script>
+<script type="text/javascript" src="../pages/scripts/refhelper.js"></script>
+
+<!--datapicker start-->
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/clockface/js/clockface.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-daterangepicker/moment.min.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script src="../assets/admin/pages/scripts/components-pickers.js"></script>
+
+
+<script src="../collectfee/js/reporttable.js"></script>
+<script src="../collectfee/js/errorApply.js"></script>
+<!--datapicker end-->
+
+<script type="text/javascript">
+    var global_remap = {
+        "chgType": "1:现金,2:POS机,3:银行转账,4:支票",
+        "feeTypeId": "1:燃气费,2:垃圾费",
+        "customerType": "P:普表,I:IC卡表",
+        "chgId": "1:燃气费,2:垃圾费",
+        "reservedField1": "1:普通发票,2:税控发票"
+    };
+    var userInfo = JSON.parse(localStorage.getItem('user_info'));
+    var resultTable;
+    var chgTypeFormat = function () {
+        return {
+            f: function (data, row) {
+                if (data == "1") {
+                    return "现金";
+                } else if (data == "2") {
+                    return "POS机";
+                } else if (data == "3") {
+                    return "银行转账";
+                } else if (data == "4") {
+                    return "支票";
+                } else {
+                    return "";
+                }
+            }
+        }
+    }();
+    var optionFormater = function () {
+        return {
+            f: function (data, row, cell) {
+                // 异步取最后一次变更申请的状态
+                $.ajax({
+                    url: "hzqs/dbc/pbsel.do?fh=SELDBC0000000J00&resp=bd",
+                    dataType: "json",
+                    contentType: "application/json;charset=utf-8",
+                    type: "POST",
+                    data: JSON.stringify({
+                        cols: "a.*",
+                        froms: "gasChgError a",
+                        wheres: "a.chgDetailId='" + data + "' order by applyDate desc",
+                        page: "false",
+                        limit: 1
+                    }),
+                    success: function (retData) {
+                        if (retData && retData.rows) {
+                            console.log(retData.rows[0].optResult);
+                            if (retData.rows[0].optResult == '2') {
+                                cell.html("<a href=\"JavaScript:void(0)\" hzq-modal=\"#hzqModal\" hzq-type=\"remoteModal\" hzq-remote=\"/collectfee/errorapplydetail.html\" hzq-cb=\"render\" hzq-param='{\"detailId\":\"" + data + "\",\"feeTypeId\":\"" + row.feeTypeId + "\"}'>审核不通过,重新提交</a>");
+                            } else if (retData.rows[0].optResult == "1") {
+                                cell.html("审核通过");
+                            } else if (retData.rows[0].optResult == "0") {
+                                cell.html("审核中");
+                            } else {
+                                cell.html("<a href=\"JavaScript:void(0)\" hzq-modal=\"#hzqModal\" hzq-type=\"remoteModal\" hzq-remote=\"/collectfee/errorapplydetail.html\" hzq-cb=\"render\" hzq-param='{\"detailId\":\"" + data + "\",\"feeTypeId\":\"" + row.feeTypeId + "\"}'>收费差错变更申请</a>");
+                            }
+                        } else {
+                            cell.html("<a href=\"JavaScript:void(0)\" hzq-modal=\"#hzqModal\" hzq-type=\"remoteModal\" hzq-remote=\"/collectfee/errorapplydetail.html\" hzq-cb=\"render\" hzq-param='{\"detailId\":\"" + data + "\",\"feeTypeId\":\"" + row.feeTypeId + "\"}'>收费差错变更申请</a>");
+                        }
+                    },
+                    error: function () {
+                        cell.html("-");
+                    }
+                });
+            }
+        }
+    }();
+    var dateTimeFormat = function () {
+        return {
+            f: function (data, row) {
+                return moment(data).format("YYYY-MM-DD HH:mm:ss");
+            }
+        }
+    }();
+    var printFormat = function () {
+        return {
+            f: function (data, row) {
+                return "<button id=\"btn_print_page\" settlementid=\"" + data + "\" type=\"button\" class=\"btn green\"> 打印预览</button>";
+            }
+        }
+    }();
+    var moneyFormat = function () {
+        return {
+            f: function (data, row) {
+                if (isNaN(parseFloat(data))) {
+                    return "";
+                } else {
+                    return "¥" + parseFloat(data).toFixed(4);
+                }
+            }
+        }
+    }();
+    var feeTypeFormat = function () {
+        return {
+            f: function (data, row) {
+                if (data == "1") {
+                    return "燃气费";
+                } else if (data == "2") {
+                    return "垃圾费";
+                } else {
+                    return "";
+                }
+            }
+        }
+    }();
+    var invoiceTypeFormat = function () {
+        return {
+            f: function (data, row) {
+                if (data == "2") {
+                    return "增值税发票";
+                } else {
+                    return "普通发票";
+                }
+            }
+        }
+    }();
+    $(function () {
+        $("#divSettlementDetailtable").delegate("a[hzq-type=remoteModal]", "click", function (obj) {
+            var $targetModal = $($(obj.target).attr("hzq-modal"));
+            var targetPath = $(obj.target).attr("hzq-remote");
+            var fnstring = $(obj.target).attr("hzq-cb");
+            var param = $(obj.target).attr("hzq-param");
+            $targetModal.modal({
+                show: true
+            })
+            $targetModal.unbind("show.bs.modal").on("show.bs.modal", function (e) {
+                $(e.currentTarget).find("#mcontent").empty();
+            });
+            $targetModal.unbind("shown.bs.modal").on("shown.bs.modal", function (e) {
+                $(e.currentTarget).find("#mcontent").load(targetPath, function () {
+                    if (fnstring) {
+                        var fn = window[fnstring];
+                        if (typeof fn === "function") fn.call(null, JSON.parse(param));
+                        window[fnstring] = undefined;
+                    }
+                });
+            });
+            $targetModal.on("hidden.bs.modal", function () {
+                $(this).removeData("bs.modal");
+            });
+        });
+
+        $("#divtable").delegate("a[hzq-type=remoteModal]", "click", function (obj) {
+            var $targetModal = $($(obj.target).attr("hzq-modal"));
+            var targetPath = $(obj.target).attr("hzq-remote");
+            var fnstring = $(obj.target).attr("hzq-cb");
+            var param = $(obj.target).attr("hzq-param");
+            $targetModal.modal({
+                show: true
+            })
+            $targetModal.unbind("show.bs.modal").on("show.bs.modal", function (e) {
+                $(e.currentTarget).find("#mcontent").empty();
+            });
+            $targetModal.unbind("shown.bs.modal").on("shown.bs.modal", function (e) {
+                $(e.currentTarget).find("#mcontent").load(targetPath, function () {
+                    if (fnstring) {
+                        var fn = window[fnstring];
+                        if (typeof fn === "function") fn.call(null, JSON.parse(param));
+                        window[fnstring] = undefined;
+                    }
+                });
+            });
+            $targetModal.on("hidden.bs.modal", function () {
+                $(this).removeData("bs.modal");
+            });
+        });
+
+        $("#find_detail").click(function () {
+            settlementDetailTable.setRestURL('/hzqs/dbc/pbsel.do?fh=SELDBC0000000J00&resp=bd&bd={"cols":"a.*","froms":"vwChgDaySettlementDetail a","wheres":"a.chgSettlementId=\'' + clickchgSettlementId + '\' and (\'' + $("#detailCustomerCode").val() + '\' is null or a.customerCode = \'' + $("#detailCustomerCode").val() + '\') order by a.tradeDate desc","page":true,"limit":10}');
+            settlementDetailTable.update();
+        });
+
+        $("#find_unsettlement_detail").click(function () {
+            $("#find_sign").click();
+        });
+
+    });
+    var settlementDetailTable;
+    var clickchgSettlementId = "";
+    var rowClickedFunction = function (data) {
+        $("#divSettlementDetailtable").html("");
+        clickchgSettlementId = data.row.chgSettlementId;
+        settlementDetailTable = XWATable.init(
+            {
+                divname: "divSettlementDetailtable",
+                //----------------table的选项-------
+                pageSize: 20, 			//Initial pagesize
+                columnPicker: false,         //Show the columnPicker button
+                sorting: false,
+                transition: 'fade',  //(bounce, fade, flip, rotate, scroll, slide).
+                checkboxes: false,           //Make rows checkable. (Note. You need a column with the 'unique' property)
+                checkAllToggle: false,        //Show the check-all toggle//+RQLBuilder.like("KEYY", "a").rql()
+                //----------------基本restful地址---
+                // restbase: 'gasctmarchive/queryArchiveInfo',
+                //      key_column: '',
+                restURL: '/hzqs/dbc/pbsel.do?fh=SELDBC0000000J00&resp=bd&bd={"cols":"a.userName,a.areaName,a.reservedField1,a.chgId,a.customerCode,a.chgType,a.money,to_char(a.tradeDate,\'yyyy-MM-dd hh24:mi:ss\') tradeDate,detailId,feeTypeId","froms":"vwChgDaySettlementDetail a","wheres":"a.chgSettlementId=\'' + clickchgSettlementId + '\' and (\'' + $("#detailCustomerCode").val() + '\' is null or a.customerCode = \'' + $("#detailCustomerCode").val() + '\') order by a.tradeDate desc","page":true,"limit":10}',
+                key_column: "balanceDetailId",
+                coldefs: [
+                    {
+                        col: "customerCode",
+                        friendly: "客户编号",
+                        sorting: true,
+                        index: 1
+                    },
+                    {
+                        col: "chgType",
+                        friendly: "收费方式",
+                        sorting: true,
+                        index: 2,
+                        format: chgTypeFormat
+                    },
+                    {
+                        col: "money",
+                        friendly: "收费金额",
+                        sorting: true,
+                        index: 3,
+                        format: moneyFormat
+                    },
+                    {
+                        col: "tradeDate",
+                        friendly: "收费时间",
+                        sorting: true,
+                        index: 3,
+                        format: dateTimeFormat
+                    },
+                    {
+                        col: "chgId",
+                        friendly: "费用类型",
+                        sorting: true,
+                        index: 4,
+                        format: feeTypeFormat
+                    },
+                    {
+                        col: "reservedField1",
+                        friendly: "发票类型",
+                        sorting: true,
+                        index: 4,
+                        format: invoiceTypeFormat
+                    },
+                    {
+                        col: "areaName",
+                        friendly: "营业网点",
+                        sorting: true,
+                        index: 5
+                    },
+                    {
+                        col: "userName",
+                        friendly: "营业员",
+                        sorting: true,
+                        index: 6
+                    },
+                    {
+                        col: "detailId",
+                        friendly: "操作",
+                        index: 10,
+                        format: optionFormater
+                    }
+                ],
+            });
+    };
+    $(function () {
+        var isNotYYY = true;
+        if (userInfo.station_id && (userInfo.station_id == "4" || userInfo.station_id == "5")) {
+            isNotYYY = false;
+            var opts = '';
+            if (userInfo.station_id == "4") {
+                $("#find_employeeName").html('<option selected="selected" value="' + userInfo.userId + '">班长-' + userInfo.employee_name + '</option>');
+            } else {
+                $("#find_employeeName").html('<option selected="selected" value="' + userInfo.userId + '">营业员-' + userInfo.employee_name + '</option>');
+            }
+            $.ajax({
+                type: 'get',
+                url: '/hzq_rest/gasbizchargeunit/' + userInfo.charge_unit_id,
+                dataType: 'json',
+                contentType: "application/json; charset=utf-8",
+                async: false,
+                success: function (data, textStatus, xhr) {
+                    if (xhr.status == 200) {
+                        var opts = "";
+                        opts += '<option selected="selected"  value="' + data.chargeUnitId + '">' + data.chargeUnitName + '</option>';
+                        $("#find_chargeUnitId").html(opts);
+                        $("#find_employeeName").val(data.chargeUnitId).trigger('change');
+                        //$("#find_chargeUnitId").attr("disabled", true);
+                    } else if (xhr.status == 403) {
+
+                    }
+                },
+                error: function (err) {
+                    if (err.status == 403) {
+
+                    }
+                }
+            });
+        }
+
+        if (isNotYYY == true) {
+            $.ajax({
+                type: 'get',
+                url: "/hzq_rest/gasbizchargeunit/?query={\"status\":\"1\"}",
+                dataType: 'json',
+                contentType: "application/json; charset=utf-8",
+                async: false,
+                success: function (data, textStatus, xhr) {
+                    if (xhr.status == 200) {
+                        var opts = '<option value=""></option>';
+                        var rows = data;
+                        for (var i = 0; i < rows.length; i++) {
+                            opts += '<option value="' + rows[i].chargeUnitId + '">' + rows[i].chargeUnitName + '</option>';
+                        }
+                        $("#find_chargeUnitId").html(opts);
+                    } else if (xhr.status == 403) {
+
+                    }
+                },
+                error: function (err) {
+                    if (err.status == 403) {
+
+                    }
+                }
+            });
+        }
+        $("#find_chargeUnitId").change(function () {
+            if ($("#find_chargeUnitId").val() == "") {
+                var opts = '<option value="" >无</option>';
+                $("#find_employeeName").html(opts);
+                $("#find_employeeName").select2("val", "");
+                $("#find_employeeName").select2("open");
+                return;
+            }
+            var f_u_s = RQLBuilder.and([
+                RQLBuilder.equal("chargeUnitId", $("#find_chargeUnitId").val())
+                , RQLBuilder.or([
+                    RQLBuilder.equal("stationId", "5")
+                    , RQLBuilder.equal("stationId", "4")
+                ])
+            ]);
+            $.ajax({
+                type: 'get',
+                url: '/hzq_rest/gassysuser?query=' + f_u_s.rql(),
+                dataType: 'json',
+                contentType: "application/json; charset=utf-8",
+                async: false,
+                success: function (data, textStatus, xhr) {
+                    if (xhr.status == 200) {
+                        var opts = '';
+                        var rows = data;
+                        if (!rows.length || rows.length == 0) {
+                            opts = '<option value="" >无</option>';
+                        } else {
+                             opts = '<option value="" >全部</option>';
+                            for (var i = 0; i < rows.length; i++) {
+                                if (rows[i].stationId == "4") {
+                                    opts += '<option value="' + rows[i].userId + '">班长-' + rows[i].employeeName + '</option>';
+                                } else {
+                                    opts += '<option value="' + rows[i].userId + '">营业员-' + rows[i].employeeName + '</option>';
+                                }
+
+                            }
+                        }
+                        $("#find_employeeName").html(opts);
+                        $("#find_employeeName").select2("open");
+                    } else if (xhr.status == 403) {
+
+                    }
+                },
+                error: function (err) {
+                    if (err.status == 403) {
+
+                    }
+                }
+            });
+        });
+
+        function toAmount(amount) {
+            return parseFloat(amount).toFixed(4);
+        }
+
+        var find_chargeUnitId_val = "";
+        var find_employeeName_val = "";
+        var find_start_date_val = moment().format("YYYY-MM-DD");
+        var find_end_date_val = "";
+        var find_fee_type_val = "";
+
+        var find_chargeUnitId_text = "";
+        var find_employeeName_text = "";
+
+        //查询按钮时间
+        $("#find_sign").click(function () {
+            if ($("#find_chargeUnitId").val() == "") {
+                bootbox.alert("请您选择要查询的营业网点！");
+                return;
+            }
+           
+
+            find_chargeUnitId_val = $("#find_chargeUnitId").val();
+            find_employeeName_val = $("#find_employeeName").val();
+            find_end_date_val = moment().format("YYYY-MM-DD");
+            find_fee_type_val = $("#find_fee_type").val();
+
+            find_customer_text = $('#unsettlementCustomerCode').val();
+            find_chargeUnitId_text = $('#find_chargeUnitId option:selected').html();
+            find_employeeName_text = $('#find_employeeName option:selected').html();
+
+
+            //if ($("#find_date_sign_id").html() == "find_today_sign") {
+
+            var wheres = "chargeUnitId='" + find_chargeUnitId_val + "' ";
+            var wheresTotal = "b.chargeUnitId='" + find_chargeUnitId_val + "' ";
+
+            if (find_employeeName_val != "") {
+                wheres += "and userId='" + find_employeeName_val + "' ";
+                wheresTotal += "and a.createdBy='" + find_employeeName_val + "' ";
+            }
+            if (find_fee_type_val != "") {
+                wheres += "and feeType='" + find_fee_type_val + "' ";
+            }
+            if (find_customer_text != "") {
+                wheres += "and customerCode= '" + find_customer_text + "' ";
+            }
+            if ($("#find_chg_type").val() != "") {
+                wheres += "and chargeTypeId = '" + $("#find_chg_type").val() + "'";
+            }
+
+            $("#divtable").html("");
+            $("#divSettlementtable").html("");
+
+            var bd = {
+                "cols": "sum(money) as amount,count(1) as count,chargeTypeName"
+                , "froms": "vwChgDayBalance"
+                , "wheres": wheres + " group by chargeTypeName", "page": false
+            };
+            wheres += " order by createdTime desc"
+            $.ajax({
+                type: 'get',
+                url: '/hzqs/dbc/pbsel.do?fh=SELDBC0000000J00&resp=bd&bd=' + JSON.stringify(bd),
+                dataType: 'json',
+                contentType: "application/json; charset=utf-8",
+                async: false,
+                success: function (data, textStatus, xhr) {
+                    if (xhr.status == 200) {
+                        var rows = data.rows;
+                        if (!data.rows || !rows.length || rows.length == 0) {
+                            $("#pos_amount").val("");
+                            $("#pos_count").val("");
+                            $("#bank_amount").val("");
+                            $("#bank_count").val("");
+                            $("#cash_amount").val("");
+                            $("#cash_count").val("");
+                            $("#check_amount").val("");
+                            $("#check_count").val("");
+                            $("#all_amount").val("");
+                            $("#all_count").val("");
+                        } else {
+                            var all_amount = 0;
+                            var all_count = 0;
+                            for (var i = 0; i < rows.length; i++) {
+                                if (rows[i].chargeTypeName == "POS机") {
+                                    $("#pos_amount").val(toAmount(rows[i].amount));
+                                    $("#pos_count").val(rows[i].count);
+                                } else if (rows[i].chargeTypeName == "银行转账") {
+                                    $("#bank_amount").val(toAmount(rows[i].amount));
+                                    $("#bank_count").val(rows[i].count);
+                                } else if (rows[i].chargeTypeName == "现金") {
+                                    $("#cash_amount").val(toAmount(rows[i].amount));
+                                    $("#cash_count").val(rows[i].count);
+                                } else if (rows[i].chargeTypeName == "支票") {
+                                    $("#check_amount").val(toAmount(rows[i].amount));
+                                    $("#check_count").val(rows[i].count);
+                                }
+                                try {
+                                    all_amount = all_amount + rows[i].amount;
+                                    all_count = all_count + rows[i].count;
+                                } catch (e) {
+                                    bootbox.alert("数据类型转换异常：" + JSON.stringify(rows[i]));
+                                }
+                            }
+                            $("#all_amount").val(toAmount(all_amount));
+                            $("#all_count").val(all_count);
+                        }
+                        $("#btn_down_detail").removeClass("disabled");
+                        $("#btn_down_detail").removeClass("gray");
+                        $("#btn_down_detail").addClass("green");
+
+                        $("#btn_print_page").removeClass("disabled");
+                        $("#btn_print_page").removeClass("gray");
+                        $("#btn_print_page").addClass("green");
+
+                    } else if (xhr.status == 403) {
+
+                    }
+                },
+                error: function (err) {
+                    if (err.status == 403) {
+
+                    }
+                }
+            });
+
+            //单日结账
+            resultTable = RFTable.init(
+                {
+                    //----------------table的选项-------
+                    pageSize: 20, 			//Initial pagesize
+                    columnPicker: true,         //Show the columnPicker button
+                    sorting: true,
+                    transition: 'fade',  //(bounce, fade, flip, rotate, scroll, slide).
+                    checkboxes: false,           //Make rows checkable. (Note. You need a column with the 'unique' property)
+                    checkAllToggle: false,        //Show the check-all toggle//+RQLBuilder.like("KEYY", "a").rql()
+                    rowClicked: function (data) {
+                    },
+                    //----------------基本restful地址---
+                    //restbase: '../json/collectfee/gasdayreportdetail.json',
+                    restbase: '/hzqs/dbc/pbsel.do?fh=SELDBC0000000J00&resp=bd&bd={"cols":"money,feeType,feeTypeId,chargeTypeName,customerCode,chargeUnitName,customerName,to_char(createdTime,\'yyyy-MM-dd hh24:mi:ss\') createdTime,employeeName,chgDetailId","froms":"vwChgDayBalance","wheres":"' + wheres + '","page":true,"limit":10}',
+                    //---------------行定义
+                    coldefs: [
+                        {
+                            col: "customerCode",
+                            friendly: "客户编号",
+                            unique: true,
+                            readonly: "readonly",
+                            index: 1
+                        },
+                        {
+                            col: "customerName",
+                            friendly: "客户姓名",
+                            readonly: "readonly",
+                            sortOrder: "asc",
+                            index: 2
+                        },
+                        {
+                            col: "createdTime",
+                            friendly: "收费时间",
+                            readonly: "readonly",
+                            index: 3,
+                            sortOrder: "desc",
+                            format: dateTimeFormat
+                            /* readonly: "readonly" */
+                            /*   inputsource: "custom",
+                             inputbuilder: "valueFor"*/
+                        },
+                        {
+                            col: "employeeName",
+                            friendly: "营业员",
+                            readonly: "readonly",
+                            index: 4
+                        },
+                        {
+                            col: "chargeUnitName",
+                            friendly: "营业网点",
+                            readonly: "readonly",
+                            index: 5
+                        },
+                        {
+                            col: "chargeTypeName",
+                            friendly: "收费方式",
+                            inputsource: "select",
+                            index: 6
+                        },
+                        {
+                            col: "feeType",
+                            friendly: "收费类型",
+                            readonly: "readonly",
+                            index: 7
+                        },
+                        {
+                            col: "money",
+                            friendly: "金额",
+                            readonly: "readonly",
+                            index: 9
+                        },
+                        {
+                            col: "chgDetailId",
+                            friendly: "操作",
+                            index: 10,
+                            format: optionFormater
+                        }
+                    ],
+                    //---------------查询时过滤条件
+                    findFilter: function () {//find function
+                        var filter = "keyy=" + $('#find_key').val();
+                        return filter;
+                    }//--findFilter
+                }//--init
+            );//--end init
+
+            RFTable.init(
+                {
+                    divname: "divSettlementtable",
+                    pageSize: 20, 			//Initial pagesize
+                    columnPicker: true,         //Show the columnPicker button
+                    sorting: true,
+                    transition: 'fade',  //(bounce, fade, flip, rotate, scroll, slide).
+                    checkboxes: false,           //Make rows checkable. (Note. You need a column with the 'unique' property)
+                    checkAllToggle: false,        //Show the check-all toggle//+RQLBuilder.like("KEYY", "a").rql()
+                    rowClicked: rowClickedFunction,
+                    //----------------基本restful地址---
+                    //restbase: '../json/collectfee/gasdayreportdetail.json',
+                    restbase: '/hzqs/dbc/pbsel.do?fh=SELDBC0000000J00&resp=bd&bd={"cols":"a.*, b.employeeName","froms":"gasChgSettlement a, gasSysUser b","wheres":" a.createdBy=b.userId and ' + wheresTotal + ' order by a.createdTime desc","page":true,"limit":10}',
+                    //---------------行定义
+                    key_column: "chgSettlementId",
+                    coldefs: [
+                        {
+                            col: "chgSettlementId",
+                            hidden: true,
+                            unique: true
+                        },
+                        {
+                            col: "employeeName",
+                            friendly: "营业员",
+                            readonly: "readonly",
+                            index: 1
+                        },
+                        {
+                            col: "createdTime",
+                            friendly: "结算时间",
+                            unique: true,
+                            readonly: "readonly",
+                            index: 2,
+                            format: dateTimeFormat,
+                            sortOrder: "desc"
+                        },
+                        {
+                            col: "totalAmount",
+                            friendly: "总金额",
+                            readonly: "readonly",
+                            index: 3
+                        },
+                        {
+                            col: "totalCount",
+                            friendly: "总数量",
+                            readonly: "readonly",
+                            index: 4
+
+                        },
+                        {
+                            col: "cashAmount",
+                            friendly: "现金总金额",
+                            inputsource: "select",
+                            index: 5
+                        },
+                        {
+                            col: "cashCount",
+                            friendly: "现金总数量",
+                            readonly: "readonly",
+                            index: 6
+                        },
+                        {
+                            col: "posAmount",
+                            friendly: "pos机总金额",
+                            readonly: "readonly",
+                            index: 7
+                        },
+                        {
+                            col: "posCount",
+                            friendly: "pos机总数量",
+                            readonly: "readonly",
+                            index: 8
+                        },
+
+                        {
+                            col: "transferAmount",
+                            friendly: "转账总金额",
+                            readonly: "readonly",
+                            index: 9
+                        },
+                        {
+                            col: "transferCount",
+                            friendly: "转账总数量",
+                            index: 10
+                        },
+                        {
+                            col: "checkAmount",
+                            friendly: "支票总金额",
+                            readonly: "readonly",
+                            index: 11
+                        },
+                        {
+                            col: "checkCount",
+                            friendly: "支票总数量",
+                            index: 12
+                        }, {
+                            col: "chgSettlementId",
+                            friendly: "操作",
+                            index: 12,
+                            format: printFormat,
+                        }
+                    ],
+                    //---------------查询时过滤条件
+                    findFilter: function () {//find function
+                        var filter = "keyy=" + $('#find_key').val();
+                        return filter;
+                    }//--findFilter
+                }//--init
+            );//--end init
+        });
+        //结算按钮时间
+        $("#btn_report_fee").click(function () {
+            if (find_employeeName_val != userInfo.userId) {
+                bootbox.alert("不允许日结");
+                return;
+            }
+            $.ajax({
+                type: 'get',
+                url: 'hzqs/chg/pbdst.do?fh=DSTCHG0000000J00&resp=bd', //?page=true&limit=10&skip=0
+                dataType: 'json',
+                contentType: "application/json; charset=utf-8",
+                async: false,
+                success: function (data, textStatus, xhr) {
+                    if (xhr.status == 200) {
+                        if (data.errCode == "1") {
+                            bootbox.alert("收费结账成功");
+                            $("#find_sign").click();
+                        } else {
+                            if (data.errCode == "-2") {
+                                bootbox.alert("有未审批完成的收费差错变更，不允许日结");
+                            } else {
+                                bootbox.alert("收费结账失败");
+                            }
+                        }
+                    } else if (xhr.status == 403) {
+
+                    } else if (xhr.status == 406) {
+
+                    }
+                },
+                error: function (err) {
+                    if (err.status == 403) {
+
+                    }
+                }
+            });
+        });
+        //打印预览按钮时间
+        $(document).delegate("#btn_print_page", "click", function () {
+            var $obj = $(this);
+            var param = {
+                "sid": $obj.attr("settlementid"),
+                "startdate": moment().format("YYYY-MM-DD"),
+                "enddate": moment().format("YYYY-MM-DD"),
+                "printType": "11",
+                "employeeNameText": find_employeeName_text,
+                "chargeUnitIdText": find_chargeUnitId_text,
+                "employeeName": find_employeeName_val,
+                "chargeUnitId": find_chargeUnitId_val
+            };
+            window.open('collectfee/gas_report_print.html?s=' + JSON.stringify(param));
+        });
+
+        function date_format(date, fmt) {
+            var dataJson = {
+                "M+": date.getMonth() + 1, //月份
+                "d+": date.getDate(), //日
+                "h+": date.getHours(), //小时
+                "m+": date.getMinutes(), //分
+                "s+": date.getSeconds(), //秒
+                "q+": Math.floor((date.getMonth() + 3) / 3), //季度
+                "S": date.getMilliseconds() //毫秒
+            };
+            if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (date.getFullYear() + "").substr(4 - RegExp.$1.length));
+            for (var k in dataJson)
+                if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (dataJson[k]) : (("00" + dataJson[k]).substr(("" + dataJson[k]).length)));
+            return fmt;
+        }
+    }
+    );
+    $.fn.datetimepicker.dates['zh-CN'] = {
+        days: ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"],
+        daysShort: ["周日", "周一", "周二", "周三", "周四", "周五", "周六", "周日"],
+        daysMin: ["日", "一", "二", "三", "四", "五", "六", "日"],
+        months: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
+        monthsShort: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
+        today: "今天",
+        suffix: [],
+        meridiem: ["上午", "下午"]
+    };
+    jQuery(document).ready(function () {
+        ComponentsPickers.init();
+    });
+
+</script>
+<script type="text/javascript" src="../assets/global/plugins/select2/select2.js"></script>
+
+</html>

@@ -1,0 +1,808 @@
+
+
+    <!-- 主内容开始 -->
+    <div class="page-content-wrapper">
+            <!-- 业务信息 -->
+            <div class="tabbable tabbable-custom tabbable-custom-profile col-md-12" style="padding-bottom:0px">
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#tab11" data-toggle="tab">基本信息 </a>
+                    </li>
+                </ul>
+                <!--/row-->
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab11" style="padding-left: 50px;">
+                        <div class="portlet-body">
+                            <div class="row form-group">
+                                <div class="col-md-3 form-group">
+                                    <div class="btn-group input-group" style="width: 100% !important;">
+                                        <div class="input-group-addon">用户姓名:</div>
+                                        <input id="customerName3" class="inputclear form-control" type="text"
+                                               readonly="readonly">
+                                    </div>
+                                </div>
+                                <div class="col-md-3 form-group">
+                                    <div class="btn-group input-group" style="width: 100% !important;">
+                                        <div class="input-group-addon">用户电话:</div>
+                                        <input id="tel3" class="inputclear form-control" type="text" readonly/>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 form-group">
+                                    <div class="btn-group input-group" style="width: 100% !important;">
+                                        <div class="input-group-addon">用户地址:</div>
+                                        <input id="customerAddress3" class="inputclear form-control" type="text"
+                                               readonly/>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 form-group">
+                                    <div class="btn-group input-group" style="width: 100% !important;">
+                                        <div class="input-group-addon">报修时间:</div>
+                                        <input id="createdTime3" class="inputclear form-control" type="text"
+                                               disabled>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 form-group">
+                                    <div class="btn-group input-group" style="width: 100% !important;">
+                                        <div class="input-group-addon">预约时间:</div>
+                                        <input id="bookingTime3" class="inputclear form-control" type="text"
+                                               disabled/>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 form-group">
+                                    <div class="btn-group input-group" style="width: 100% !important;">
+                                        <div class="input-group-addon">派工时间:</div>
+                                        <input id="sendDate3" class="inputclear form-control" type="text"
+                                               disabled/>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 form-group">
+                                    <div class="btn-group input-group input-select2me" style="width: 100% !important;">
+                                        <div class="input-group-addon">派工人:</div>
+                                        <select id="sendPerson3" name="sendPerson"
+                                                class="select2-container form-control select2me"
+                                                data-placeholder="请选择..." disabled>
+                                            <option value=""></option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 form-group">
+                                    <div class="btn-group input-group" style="width: 100% !important;">
+                                        <div class="input-group-addon">报修内容:</div>
+                                        <input id="" class="inputclear form-control" type="text" readonly="readonly">
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 form-group">
+                                    <div class="btn-group input-group" style="width: 100% !important;">
+                                        <div class="input-group-addon">到户时间:</div>
+                                        <input id="arriveTime3" name="arriveTime" DATA-DATE-FORMAT="yyyy-mm-dd"
+                                               class="form-control form-control-inline form_accuracy_datetime" size="16"
+                                               type="text">
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 form-group">
+                                    <div class="btn-group input-group" style="width: 100% !important;">
+
+                                        <div class="input-group-addon">完成时间:</div>
+                                        <input id="finishTime3" DATA-DATE-FORMAT="yyyy-mm-dd"
+                                               class="form-control form-control-inline  form_accuracy_datetime"
+                                               size="16" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 form-group">
+                                    <div class="btn-group input-group" style="width: 100% !important;">
+                                        <div class="input-group-addon">故障原因(部位):</div>
+                                        <input class="inputclear form-control" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 form-group">
+                                    <div class="btn-group input-group" style="width: 100% !important;">
+                                        <div class="input-group-addon">检查维修内容:</div>
+                                        <input id="checkMaintenanceContents3" class="inputclear form-control"
+                                               type="text"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/row-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tabbable tabbable-custom tabbable-custom-profile col-md-12" style="padding-bottom:0px">
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#tab22" data-toggle="tab">
+                            燃气表基础信息 </a>
+
+                    </li>
+                </ul>
+                <!--/row-->
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab22" style="padding-left: 50px;">
+                        <div class="portlet-body">
+                            <div class="row form-group">
+                                <form action="javascript:;" role="form" name="meterForm5" id="meterForm5">
+                                    <div class="col-md-3 form-group">
+                                        <div class="btn-group input-group input-select2me"
+                                             style="width: 100% !important;">
+                                            <div class="input-group-addon">进气方向:</div>
+                                            <select id="direction3" name="direction"
+                                                    class="select2-container form-control select2me"
+                                                    data-placeholder="请选择..." disabled>
+                                                <option value=""></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 form-group">
+                                        <div class="btn-group input-group input-select2me"
+                                             style="width: 100% !important;">
+                                            <div class="input-group-addon">生产厂家:</div>
+                                            <select id="factoryId3" name="factoryId"
+                                                    class="select2-container form-control select2me"
+                                                    data-placeholder="请选择..." disabled>
+                                                <option value=""></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 form-group">
+                                        <div class="btn-group input-group input-select2me"
+                                             style="width: 100% !important;">
+                                            <div class="input-group-addon">规格型号:</div>
+                                            <select id="meterModelId3" name="meterModelId"
+                                                    class="select2-container form-control select2me"
+                                                    data-placeholder="请选择..." disabled>
+                                                <option value=""></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 form-group">
+                                        <div class="btn-group input-group input-select2me"
+                                             style="width: 100% !important;">
+                                            <div class="input-group-addon">表具类型:</div>
+                                            <select id="meterKind3" name="meterKind"
+                                                    class="select2-container form-control select2me"
+                                                    data-placeholder="请选择..." disabled>
+                                                <option value=""></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 form-group">
+                                        <div class="btn-group input-group" style="width: 100% !important;">
+                                            <div class="input-group-addon">显示方式:</div>
+                                            <!--<input required class="inputclear form-control" type="text"/>-->
+                                            <select id="displayMode3" name="displayMode"
+                                                    class="select2-container form-control select2me"
+                                                    data-placeholder="请选择..." disabled>
+                                                <option value=""></option>
+                                                <option value="1">机械</option>
+                                                <option value="2">电子</option>
+                                                <option value="3">电子+机械</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 form-group">
+                                        <div class="btn-group input-group" style="width: 100% !important;">
+                                            <div class="input-group-addon">表位数:</div>
+                                            <input class="inputclear form-control" type="text" name="meterDigit"
+                                                   id="meterDigit3" maxlength="22" readonly/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 form-group">
+                                        <div class="btn-group input-group" style="width: 100% !important;">
+                                            <div class="input-group-addon">表编号:</div>
+                                            <input class="inputclear form-control" type="text" name="meterNo"
+                                                   id="barCode3" maxlength="20" readonly/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 form-group">
+                                        <div class="btn-group input-group" style="width: 100% !important;">
+                                            <div class="input-group-addon">表具生产日期:</div>
+                                            <input name="productionDate" id="productionDate3"
+                                                   DATA-DATE-FORMAT="yyyy-mm-dd"
+                                                   class="form-control form-control-inline  date-picker" size="16"
+                                                   type="text" readonly/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 form-group">
+                                        <div class="btn-group input-group" style="width: 100% !important;">
+                                            <div class="input-group-addon">一次表表读数:</div>
+                                            <input class="inputclear form-control" required type="text" id="reading3"
+                                                   name="reading"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 form-group">
+                                        <div class="btn-group input-group" style="width: 100% !important;">
+                                            <div class="input-group-addon">一次微机表读数:</div>
+                                            <input class="inputclear form-control" id="vreading3" type="text" readonly/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 form-group">
+                                        <div class="btn-group input-group" style="width: 100% !important;">
+                                            <div class="input-group-addon">IC累计用量:</div>
+                                            <input id="fullgas3" class="inputclear form-control" type="text"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 form-group">
+                                        <div class="btn-group input-group" style="width: 100% !important;">
+                                            <div class="input-group-addon">IC余量:</div>
+                                            <input id="surgas3" class="inputclear form-control" type="text"/>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="row form-group">
+                                <form action="javascript:;" role="form" name="meterForm4" id="meterForm4">
+
+                                    <div class="col-md-3 form-group">
+                                        <div class="btn-group input-group" style="width: 100% !important;">
+                                            <div class="input-group-addon">二次表表读数:</div>
+                                            <input id="reviseReading3" name="reading" class="inputclear form-control"
+                                                   type="text"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 form-group">
+                                        <div class="btn-group input-group" style="width: 100% !important;">
+                                            <div class="input-group-addon">二次微机表读数:</div>
+                                            <input id="vreviseReading3" name="reading" class="inputclear form-control"
+                                                   type="text"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 form-group">
+                                        <div class="btn-group input-group" style="width: 100% !important;">
+                                            <div class="input-group-addon">二次表进气方向:</div>
+                                            <select id="reviseDirection3" name="direction"
+                                                    class="select2-container form-control select2me"
+                                                    data-placeholder="请选择..." disabled>
+                                                <option value=""></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 form-group">
+                                        <div class="btn-group input-group" style="width: 100% !important;">
+                                            <div class="input-group-addon">二次表编号:</div>
+                                            <input id="meterNo3" name="meterNo" class="inputclear form-control"
+                                                   type="text" maxlength="100" readonly/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 form-group">
+                                        <div class="btn-group input-group input-select2me"
+                                             style="width: 100% !important;">
+                                            <div class="input-group-addon">二次表厂家:</div>
+                                            <select id="reviseFactoryId3" name="factoryId"
+                                                    class="select2-container form-control select2me"
+                                                    data-placeholder="请选择..." disabled>
+                                                <option value=""></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 form-group">
+                                        <div class="btn-group input-group" style="width: 100% !important;">
+                                            <div class="input-group-addon">二次表流量范围:</div>
+                                            <input class="inputclear form-control" type="text" readonly/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 form-group">
+                                        <div class="btn-group input-group" style="width: 100% !important;">
+                                            <div class="input-group-addon">二次表规格型号:</div>
+                                            <select id="reviseMeterModelId3" name="meterModelId"
+                                                    class="select2-container form-control select2me"
+                                                    data-placeholder="请选择..." disabled>
+                                                <option value=""></option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
+                            <!--/row-->
+                            <!--</div>-->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tabbable tabbable-custom tabbable-custom-profile col-md-12" style="padding-bottom:0px">
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#tab33" data-toggle="tab">
+                                结果反馈 </a>
+
+                        </li>
+                    </ul>
+                    <!--/row-->
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tab33" style="padding-left: 50px;">
+                            <div class="portlet-body">
+                                <form action="javascript:;" role="form" id="resultForm3" name="resultForm3">
+                                    <div class="row form-group">
+                                        <div class="col-md-12 form-group">
+                                            <div class="btn-group input-group" id="textbox">
+                                                <div class="input-group-addon">维修结果:</div>
+                                                <input type="hidden" id="repairResult3" name="repairResult"/>
+                                                <div style="padding: 5px 0;">
+                                                    <input type="checkbox" id="shuas" class="fors" value="2"disabled>刷栓合格&nbsp;&nbsp;&nbsp;
+                                                    <input type="checkbox" id="jingy" class="fors" value="3"disabled>
+                                                    经仪器检查室内环境正常 &nbsp;&nbsp;&nbsp;
+                                                    <input type="checkbox" id="fangs" class="fors" value="4"disabled> 已放散 &nbsp;&nbsp;&nbsp;
+                                                    <input type="checkbox" id="gaif" class="fors" value="6"disabled>
+                                                    该服务单第二联已交客户保存 &nbsp;&nbsp;&nbsp;
+                                                    <input type="checkbox" id="luj" class="fors" value="7"disabled> 炉具点火正常
+                                                    &nbsp;&nbsp;&nbsp;
+                                                    <input type="checkbox" id="guans" class="fors" value="8" disabled> 关栓待处理
+                                                    &nbsp;&nbsp;&nbsp;
+                                                </div>
+                                                <div style="padding: 5px 0;">
+                                                    <div style="float:left;"><input id="dy3" type="checkbox" class="fors" value="1"disabled> 打压
+                                                    </div>
+                                                    <div id="suppressMmho3" name="suppressMmho"
+                                                         style="float:left;width: 30px;height: 15px; border: 1px solid #C0CFDD;margin-left: 5px;margin-right: 5px;"></div>
+                                                    <div style="float:left;">mmH2O</div>
+                                                    <div id="suppressQualified3" name="suppressQualified"
+                                                         style="float:left;width: 30px;height: 15px; border: 1px solid #C0CFDD;margin-left: 5px;margin-right: 5px"></div>
+                                                    分钟合格 &nbsp;&nbsp;&nbsp;
+                                                </div>
+                                                <div style="padding: 5px 0;">
+                                                    <div style="float:left;"><input id="zqy3" type="checkbox" class="fors" value="5" disabled> 灶前压力
+                                                    </div>
+                                                    <div id="stovePressureMmho3" name="stovePressureMmho"
+                                                         style="float:left;width: 30px;height: 15px; border: 1px solid #C0CFDD;margin-left: 5px;margin-right: 5px;"></div>
+                                                    <div style="float:left;">mmH2O</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col-sm-3 form-group">
+                                            <div class="btn-group input-group input-select2me"
+                                                 style="width: 100% !important;">
+                                                <div class="input-group-addon">用户满意情况:</div>
+                                                <select id="customerSatisfactionFlag3" name="customerSatisfactionFlag"
+                                                        class="select2-container form-control select2me"
+                                                        data-placeholder="请选择..." disabled>
+                                                    <option value=""></option>
+                                                    <option value="1">满意</option>
+                                                    <option value="2">不满意</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 form-group">
+                                            <div class="btn-group input-group input-select2me"
+                                                 style="width: 100% !important;">
+                                                <div class="input-group-addon">回访用户意见:</div>
+                                                <select id="revisitCustomerCommentsFlag3"
+                                                        name="revisitCustomerCommentsFlag"
+                                                        class="select2-container form-control select2me"
+                                                        data-placeholder="请选择..." disabled>
+                                                    <option value=""></option>
+                                                    <option value="1">满意</option>
+                                                    <option value="2">不满意</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 form-group">
+                                            <div class="btn-group input-group input-select2me"
+                                                 style="width: 100% !important;">
+                                                <div class="input-group-addon">维修员:</div>
+                                                <select id="repairer3" name="repairer"
+                                                        class="select2-container form-control select2me"
+                                                        data-placeholder="请选择..." disabled>
+                                                    <option value=""></option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 form-group">
+                                            <div class="btn-group input-group" style="width: 100% !important;">
+                                                <div class="input-group-addon">审核:</div>
+                                                <input id="examiner3" name="examiner" class="inputclear form-control"
+                                                       type="text"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col-md-3 form-group">
+                                            <div class="btn-group input-group" style="width: 100% !important;">
+                                                <div class="input-group-addon">回访人:</div>
+                                                <input id="visitor3" name="visitor" class="inputclear form-control"
+                                                       type="text"/>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 form-group">
+                                            <div class="btn-group input-group" style="width: 100% !important;">
+                                                <div class="input-group-addon">回访时间:</div>
+                                                <input id="revisitTime3" name="revisitTime" DATA-DATE-FORMAT="yyyy-mm-dd"
+                                                       class="form-control form-control-inline date-picker" size="16"
+                                                       type="text" disabled>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 form-group">
+                                            <div class="btn-group input-group" style="width: 100% !important;">
+                                                <div class="input-group-addon">返营业室时间:</div>
+                                                <input id="workBillBackTime3" name="workBillBackTime"
+                                                       DATA-DATE-FORMAT="yyyy-mm-dd"
+                                                       class="form-control form-control-inline form_accuracy_datetime"
+                                                       size="16" type="text" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 form-group">
+                                            <div class="btn-group input-group" style="width: 100% !important;">
+                                                <!--<div class="input-group-addon">用户对维修内容、结果、服务质量确认后签字:</div> -->
+                                                <div class="input-group-addon">用户确认签字:</div>
+                                                <input id="customerSignName3" name="customerSignName"
+                                                       class="inputclear form-control" type="text"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col-sm-12 form-group">
+                                            <div class="btn-group input-group" style="width: 100% !important;">
+                                                <div class="input-group-addon">备注:</div>
+                                                <input id="remark3" name="remark" class="inputclear form-control"
+                                                       type="text"/>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </form>
+                            </div>
+                            <!--<script>$.include("common/picture.shtml");</script>-->
+                            <!--/row-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 内容结束-->
+    </div>
+
+    <!-- 主内容结束 -->
+
+
+
+<script>
+
+    $("#removem input").attr("readonly","readonly");
+    $("#removem select").attr("disabled","disabled");
+    $("#removem input[text='checkbox']").attr("disabled","disabled");
+
+    function removem(billTitle) {
+        $("#removem input[type='text']").val("").trigger("change");
+        $("#removem select").val("").trigger("change");
+        $("#removem input[type='checkbox']").parent("span").removeClass("checked");
+
+        $("#suppressMmho3").html("")
+        $("#suppressQualified3").html("")
+        $("#stovePressureMmho3").html("")
+        //初始化表具类型
+        var meterKindEnum={"01":"普表","02":"IC卡气量表","03":"IC卡金额表","04":"代码表","05":"远传表"};
+        $.map(meterKindEnum, function (key, val) {
+            $('#meterKind3').append('<option  value="' + val + '">' + key + '</option>');
+        });
+        //初始化进气方向
+        var directionEnum={"L":"左进","R":"右进"};
+        $.map(directionEnum, function (key, val) {
+            $('#direction3').append('<option  value="' + val + '">' + key + '</option>');
+            $('#reviseDirection3').append('<option  value="' + val + '">' + key + '</option>');
+        });
+        //初始化规格型号
+        $.ajax({
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            type: 'get',
+            async: false,
+            url: hzq_rest+'gasmtrmeterspec',
+            success: function (data) {
+                for(var o in data){
+                    $('#meterModelId3').append('<option  value="' + data[o].meterModelId + '">' + data[o].meterModelName + '</option>');
+                    $('#reviseMeterModelId3').append('<option  value="' + data[o].meterModelId + '">' + data[o].meterModelName + '</option>');
+                }
+            }
+        })
+        //初始化生产厂家
+        $.ajax({
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            type: 'get',
+            async: false,
+            url: hzq_rest+'gasmtrfactory',
+            success: function (data) {
+                for(var o in data){
+                    $('#factoryId3').append('<option  value="' + data[o].factoryId + '">' + data[o].factoryName + '</option>');
+                    $('#reviseFactoryId3').append('<option  value="' + data[o].factoryId + '">' + data[o].factoryName + '</option>');
+                }
+            }
+        })
+
+
+        var workBill,
+            ctmArchiveId,
+            customerCode,
+            ctmArchive;
+
+
+        $.ajax({
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            type: 'get',
+            async: false,
+            url: hzq_rest + 'gascsrworkbill/?query={"billTitle":"' + billTitle + '"}',
+            success: function (data) {
+                if (data.length) {
+
+                    workBill = data[0];
+                    customerCode = data[0].customerCode;
+                    $("#customerCode3").val(data[0].customerCode);
+                    $("#customerName3").val(data[0].customerName);
+                    $("#customerAddress3").val(data[0].customerAddress);
+                    $("#createdTime3").val(data[0].createdTime);
+                    $("#sendDate3").val(data[0].sendDate);
+                    $("#bookingTime3").val(data[0].precontractTime);
+                    $("#residentdetails").modal("show")
+                } else {
+                    $("#residentdetails").modal("hide");
+                    bootbox.alert("<center><h4>审批未结束。</h4></center>")
+                    return false;
+                }
+
+            }
+        })
+        console.log("++++++++++++")
+        console.log(workBill)
+        var xwQuery = RQLBuilder.and([
+            RQLBuilder.equal("customerCode", customerCode)
+        ]).rql();
+        $.ajax({
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            type: 'get',
+            async: false,
+            url: hzq_rest + 'gasctmarchive?query=' + xwQuery,
+            success: function (data) {
+                if (data.length > 0) {
+                    ctmArchive= data[0] ;
+                    $("#tel3").val(data[0].tel);
+                }
+            }
+        })
+        if(workBill){
+            var xwQuerys = RQLBuilder.and([
+                RQLBuilder.equal("unitId", workBill.ownUnit),
+            ]).rql();
+            $.ajax({
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                type: 'get',
+                async: false,
+                url: hzq_rest + 'gassysuser?query=' + xwQuerys,
+                success: function (data) {
+                    console.log("”“”“”“”“”“”“”“”“”“”“”“")
+                    console.log(workBill.ownUnit);
+                    console.log(data)
+                    if (data.length > 0) {
+                        for (var o in data) {
+                            $("select[name='sendPerson']").append('<option value="' + data[o].userId + '">' + data[o].employeeName + '</option>');
+                        }
+                    }
+                }
+            })
+            console.log(workBill.ownUnit);
+            var xwQuerya = RQLBuilder.and([
+                RQLBuilder.equal("areaId", workBill.areaId),
+                RQLBuilder.equal("stationId", "54")
+            ]).rql();
+            $.ajax({
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                type: 'get',
+                async: false,
+                url: hzq_rest + 'gassysuser?query=' + xwQuerya,
+                success: function (data) {
+                    console.log(data)
+                    if (data.length > 0) {
+                        for (var o in data) {
+                            $('#repairers').append('<option value="' + data[o].userId + '">' + data[o].employeeName + '</option>');
+                        }
+                    }
+                }
+            });
+            //查询下线表最后一次表读数
+            var paramurl = "/hzqs/dbc/pbsel.do?fh=SELDBC0000000J00&resp=bd";
+            var froms = "(select ctm_archive_id,meter_reading,meter_reading_id,copy_time,row_number() over (partition by ctm_archive_id order by copy_time desc )as rn1 from gas_mrd_meter_reading where ctm_archive_id='" + ctmArchive.ctmArchiveId + "'and is_mrd='1' and is_bll='1' and copy_state = '6') d";
+            var params = {
+                "cols": "d.*",
+                "froms": froms,
+                "wheres": "d.rn1=1",
+                "page": true,
+                "limit": 1
+            }
+            var readingData = Restful.insert(paramurl,params);
+            if(readingData.rows&&readingData.rows.length>0){
+                mrdMeterReading=readingData.rows[0];
+                $("#vreading3").val(readingData.rows[0].meterReading);
+            }
+
+            var xwQuery = RQLBuilder.and([
+                RQLBuilder.equal("unitId",workBill.ownUnit),
+            ]).rql();
+            $.ajax({
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                type: 'get',
+                async: false,
+                url: hzq_rest+'gassysuser?query='+xwQuery,
+                success: function (data) {
+                    console.log("##########")
+                    console.log(data)
+                    if(data.length>0){
+                        for(var o in data){
+                            $('#sendPerson3').append('<option value="' + data[o].userId + '">' + data[o].employeeName + '</option>');
+                        }
+                    }
+                }
+            })
+            var xwQuery = RQLBuilder.and([
+                RQLBuilder.equal("unitId",workBill.ownUnit),
+                RQLBuilder.equal("stationId","54"),
+                RQLBuilder.equal("status","1")
+            ]).rql();
+            $.ajax({
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                type: 'get',
+                async: false,
+                url: hzq_rest+'gassysuser?query='+xwQuery,
+                success: function (data) {
+                    console.log(data)
+                    if(data.length>0){
+                        for(var o in data){
+                            $('#repairer3').append('<option value="' + data[o].userId + '">' + data[o].employeeName + '</option>');
+                        }
+                    }
+                }
+            });
+            ctmMeter=queryCtmMeter(ctmArchive.ctmArchiveId);
+            //查询下线表信息
+            console.log("**************");
+            console.log(ctmMeter);
+            if(ctmMeter){
+                downMeter = Restful.getByID(hzq_rest+"gasmtrmeter",ctmMeter.meterId);
+                $.each(downMeter, function(key,val) {
+                    $("form[name='meterForm5'] input[name='"+key+"']").val(val);
+                    $("form[name='meterForm5'] select[name='"+key+"']").val(val).trigger("change");
+                });
+
+
+                $("#reading3").val("");
+                if(ctmMeter.reviseMeterId){
+                    downReviseMeter = Restful.getByID(hzq_rest+"gasmtrmeter",ctmMeter.reviseMeterId);
+                    console.log(downReviseMeter)
+                    $.each(downReviseMeter, function(key,val) {
+                        $("form[name='meterForm4'] input[name='"+key+"']").val(val);
+                        $("form[name='meterForm4'] select[name='"+key+"']").val(val).trigger("change");
+                    });
+                }
+                $("#reviseReading3").val("");
+            }
+            $.ajax({
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                type: 'get',
+                async: false,
+                url: hzq_rest+'gascsrworkbillresult?query={"workBillId":"'+workBill.workBillId+'"}',
+                success: function (data) {
+                    console.log("######@@@@@@@@@")
+                    console.log(data)
+                    if(data.length>0){
+                        workbillresult=data[0];
+                        $("#arriveTime3").val(data[0].arriveTime);
+                        $("#finishTime3").val(data[0].finishTime);
+                        $("#sendPerson3").val(data[0].sendPerson).trigger("change");
+                        $("#changeMeter3").val(data[0].changeMeter).trigger("change");
+                        $("#hiddenDangerPosition3").val(data[0].hiddenDangerPosition);
+                        if(data[0].downMeterReading){
+                            $("#reading3").val(data[0].downMeterReading);
+                        }
+                        if(data[0].downMeterReading){
+                            $("#revisereading3").val(data[0].downMeterReviseReading);
+                        }
+
+                        $.each(data[0], function(key,val) {
+                            $("form[name='resultForm3'] input[name='"+key+"']").val(val);
+                            $("form[name='resultForm3'] select[name='"+key+"']").val(val).trigger("change");
+                        });
+
+                        if(data[0].repairResult){
+                            console.log(data[0].repairResult);
+                            var checks=$('input.fors');
+                            for(var i=0;i<checks.length;i++){
+                                checks[i].index=i;
+                                if(data[0].repairResult.indexOf(checks[i].value)>=0){
+                                    $(checks[i]).parent("span").attr("class","checked");
+                                }
+
+                            }
+                        }
+                        if(data[0].suppressMmho){
+                            $("#suppressMmho3").text(data[0].suppressMmho);
+                        }
+                        if(data[0].stovePressureMmho){
+                            $("#stovePressureMmho3").text(data[0].stovePressureMmho);
+                        }
+                        if(data[0].suppressQualified){
+                            $("#suppressQualified3").text(data[0].suppressQualified);
+                        }
+                        if(data[0].upMeterNo){
+                            $("#meterNo3").val(data[0].upMeterNo).trigger("blur");
+                        }
+                        if(data[0].upMeterReading){
+                            $("#reading3").val(data[0].upMeterReading);
+                        }
+
+                        if(data[0].upReviseMeterReading){
+                            $("#reviseReading3").val(data[0].upReviseMeterReading);
+                        }
+                        if(data[0].icFullgas){
+                            $("#fullgas3").val(data[0].icFullgas);
+                        }
+                        if(data[0].icSurgas){
+                            $("#surgas3").val(data[0].icSurgas);
+                        }
+                        if(data[0].checkMaintenanceContents){
+                            $("#checkMaintenanceContents3").val(data[0].checkMaintenanceContents);
+                        }
+                        console.log("_____________+++++++++")
+                        console.log(data[0].files)
+                        if(data[0].files){
+                            pics(data[0].files)
+                        }
+                    }else{
+                        bootbox.alert("<center><h4>未录入工单。</h4></center>")
+                    }
+                }
+            })
+        }
+
+
+    }
+    var queryCtmMeter = function(ctmArchiveId){
+        var a;
+        var oneQuery = RQLBuilder.and([
+            RQLBuilder.equal("ctmArchiveId",ctmArchiveId)
+        ]).rql();
+
+        $.ajax({
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            type: 'get',
+            async: false,
+            url: hzq_rest+'gasctmmeter?query='+oneQuery,
+            success: function (data) {
+                if(data.length>0){
+                    a=data[0];
+                }
+            }
+        })
+        return a;
+    }
+
+</script>

@@ -1,0 +1,28 @@
+<div class="col-sm-12 form-group">
+    <div class="btn-group input-group pull-left col-md-5">
+        <div class="input-group-addon">起止日期：</div>
+        <div class="input-group input-large date-picker input-daterange" data-date="10/11/2012" data-date-format="mm/dd/yyyy">
+            <input type="text" class="form-control" name="from">
+            <span class="input-group-addon">to</span>
+            <input type="text" class="form-control" name="to">
+        </div>
+    </div>
+    <div class="btn-group form-group">
+        <button id="find_button" class="btn yellow">当日</button>
+    </div>
+    <div class="btn-group form-group">
+        <button id="find_button" class="btn yellow">近一周</button>
+    </div>
+    <div class="btn-group form-group">
+        <button id="find_button" class="btn yellow">近一月</button>
+    </div>
+    <div class="btn-group form-group">
+        <button id="find_button" class="btn yellow">近三月</button>
+    </div>
+    <div class="btn-group form-group">
+        <button id="find_button" class="btn yellow">近一年</button>
+    </div>
+    <div class="btn-group form-group">
+        <button id="find_button" class="btn yellow">不限</button>
+    </div>
+</div>

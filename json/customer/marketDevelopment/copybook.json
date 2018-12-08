@@ -1,0 +1,18 @@
+{"rows":
+[
+  {"UUID":"001","bookID":"1","USER_ID":"1","GAS_USER_ID":"张三","areaid":"2016-11-11 12:12:12","bookcode":"王丽","DOORCOUNT":"马志","COPYMONTH":"通过","COPYRULEDAY":"立项审批文件.pdf","OLDBOOKNO":"通过","PROPERTYUNIT":"产权单位","BOOKTYPE":"本类型","BOOSTERCODE":"本类型","DAYMEASURE":"本类型"}
+ ,{"UUID":"002","bookID":"1","USER_ID":"1","GAS_USER_ID":"张三","areaid":"2016-11-11 12:12:12","bookcode":"王丽","DOORCOUNT":"马志","COPYMONTH":"通过","COPYRULEDAY":"立项审批文件.pdf","OLDBOOKNO":"通过","PROPERTYUNIT":"产权单位","BOOKTYPE":"本类型","BOOSTERCODE":"本类型","DAYMEASURE":"本类型"}
+ ,{"UUID":"003","bookID":"1","USER_ID":"1","GAS_USER_ID":"张三","areaid":"2016-11-11 12:12:12","bookcode":"王丽","DOORCOUNT":"马志","COPYMONTH":"通过","COPYRULEDAY":"立项审批文件.pdf","OLDBOOKNO":"通过","PROPERTYUNIT":"产权单位","BOOKTYPE":"本类型","BOOSTERCODE":"本类型","DAYMEASURE":"本类型"}
+ ,{"UUID":"004","bookID":"1","USER_ID":"1","GAS_USER_ID":"张三","areaid":"2016-11-11 12:12:12","bookcode":"王丽","DOORCOUNT":"马志","COPYMONTH":"通过","COPYRULEDAY":"立项审批文件.pdf","OLDBOOKNO":"通过","PROPERTYUNIT":"产权单位","BOOKTYPE":"本类型","BOOSTERCODE":"本类型","DAYMEASURE":"本类型"}
+ ,{"UUID":"005","bookID":"1","USER_ID":"1","GAS_USER_ID":"张三","areaid":"2016-11-11 12:12:12","bookcode":"王丽","DOORCOUNT":"马志","COPYMONTH":"通过","COPYRULEDAY":"立项审批文件.pdf","OLDBOOKNO":"通过","PROPERTYUNIT":"产权单位","BOOKTYPE":"本类型","BOOSTERCODE":"本类型","DAYMEASURE":"本类型"}
+ ,{"UUID":"006","bookID":"1","USER_ID":"1","GAS_USER_ID":"张三","areaid":"2016-11-11 12:12:12","bookcode":"王丽","DOORCOUNT":"马志","COPYMONTH":"通过","COPYRULEDAY":"立项审批文件.pdf","OLDBOOKNO":"通过","PROPERTYUNIT":"产权单位","BOOKTYPE":"本类型","BOOSTERCODE":"本类型","DAYMEASURE":"本类型"}
+ ,{"UUID":"007","bookID":"1","USER_ID":"1","GAS_USER_ID":"张三","areaid":"2016-11-11 12:12:12","bookcode":"王丽","DOORCOUNT":"马志","COPYMONTH":"通过","COPYRULEDAY":"立项审批文件.pdf","OLDBOOKNO":"通过","PROPERTYUNIT":"产权单位","BOOKTYPE":"本类型","BOOSTERCODE":"本类型","DAYMEASURE":"本类型"}
+ ,{"UUID":"008","bookID":"1","USER_ID":"1","GAS_USER_ID":"张三","areaid":"2016-11-11 12:12:12","bookcode":"王丽","DOORCOUNT":"马志","COPYMONTH":"通过","COPYRULEDAY":"立项审批文件.pdf","OLDBOOKNO":"通过","PROPERTYUNIT":"产权单位","BOOKTYPE":"本类型","BOOSTERCODE":"本类型","DAYMEASURE":"本类型"}
+ ,{"UUID":"001","bookID":"1","USER_ID":"1","GAS_USER_ID":"张三","areaid":"2016-11-11 12:12:12","bookcode":"王丽","DOORCOUNT":"马志","COPYMONTH":"通过","COPYRULEDAY":"立项审批文件.pdf","OLDBOOKNO":"通过","PROPERTYUNIT":"产权单位","BOOKTYPE":"本类型","BOOSTERCODE":"本类型","DAYMEASURE":"本类型"}
+ ,{"UUID":"001","bookID":"1","USER_ID":"1","GAS_USER_ID":"张三","areaid":"2016-11-11 12:12:12","bookcode":"王丽","DOORCOUNT":"马志","COPYMONTH":"通过","COPYRULEDAY":"立项审批文件.pdf","OLDBOOKNO":"通过","PROPERTYUNIT":"产权单位","BOOKTYPE":"本类型","BOOSTERCODE":"本类型","DAYMEASURE":"本类型"}
+
+]
+,"total_rows":1
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

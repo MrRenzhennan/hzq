@@ -1,0 +1,13 @@
+{
+  "rows": [
+    {"METERID":"39395","METERTYPEID":"113","METERCODE":"10919","BARCODE":"114889964","METERSTATE":"正常","FACTORY":"哈煤气表厂","NAMEPLATECODE":"33344","MODELNUMBER":"G2.5","LEAVEFACTORYDATE":"37622","CHECKDATE":"2016年12月8日","RunState":"正常","ISONLINE":"N","FACTORYID":"17","AREAID":"道里区","receivable":"233","Paidinamount":"210","Accounts":"￥2899","PaidinMoney":"￥2176","SalesEquipment":"566件","SalesNumber":"322户"},
+    {"METERID":"39395","METERTYPEID":"113","METERCODE":"10919","BARCODE":"114889964","METERSTATE":"正常","FACTORY":"哈煤气表厂","NAMEPLATECODE":"33344","MODELNUMBER":"G2.5","LEAVEFACTORYDATE":"37622","CHECKDATE":"2016年12月8日","RunState":"正常","ISONLINE":"N","FACTORYID":"17","AREAID":"道里区","receivable":"233","Paidinamount":"210","Accounts":"￥2899","PaidinMoney":"￥2176","SalesEquipment":"566件","SalesNumber":"322户"},
+    {"METERID":"39395","METERTYPEID":"113","METERCODE":"10919","BARCODE":"114889964","METERSTATE":"正常","FACTORY":"哈煤气表厂","NAMEPLATECODE":"33344","MODELNUMBER":"G2.5","LEAVEFACTORYDATE":"37622","CHECKDATE":"2016年12月8日","RunState":"正常","ISONLINE":"N","FACTORYID":"17","AREAID":"道里区","receivable":"233","Paidinamount":"210","Accounts":"￥2899","PaidinMoney":"￥2176","SalesEquipment":"566件","SalesNumber":"322户"},
+    {"METERID":"39395","METERTYPEID":"113","METERCODE":"10919","BARCODE":"114889964","METERSTATE":"正常","FACTORY":"哈煤气表厂","NAMEPLATECODE":"33344","MODELNUMBER":"G2.5","LEAVEFACTORYDATE":"37622","CHECKDATE":"2016年12月8日","RunState":"正常","ISONLINE":"N","FACTORYID":"17","AREAID":"道里区","receivable":"233","Paidinamount":"210","Accounts":"￥2899","PaidinMoney":"￥2176","SalesEquipment":"566件","SalesNumber":"322户"},
+    {"METERID":"39395","METERTYPEID":"113","METERCODE":"10919","BARCODE":"114889964","METERSTATE":"正常","FACTORY":"哈煤气表厂","NAMEPLATECODE":"33344","MODELNUMBER":"G2.5","LEAVEFACTORYDATE":"37622","CHECKDATE":"2016年12月8日","RunState":"正常","ISONLINE":"N","FACTORYID":"17","AREAID":"道里区","receivable":"233","Paidinamount":"210","Accounts":"￥2899","PaidinMoney":"￥2176","SalesEquipment":"566件","SalesNumber":"322户"}
+  ],
+  "total_rows": 16,
+  "totalPages": 1,
+  "skip": 0,
+  "limit": 2147483647
+}

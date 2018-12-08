@@ -1,0 +1,11 @@
+{"rows":
+[
+  {"UUID":"001","contract_ID":"192.168.150.200","sign_date":"IC写卡","customer_name":"中国银行","contract":"01","end_date":"8333521","operator1":"dsrq","operator2":" P","operator3":"0.003","operator4":"","start_date":"营业部","operator":"drsq"},
+  {"UUID":"001","contract_ID":"192.168.150.156","sign_date":"IC写卡","customer_name":"邮政储蓄-IC","contract":"02","end_date":"","operator1":"123456","operator2":"P","operator3":"0.003","operator4":"","start_date":"营业部","operator":"123456"},
+  {"UUID":"001","contract_ID":"192.168.150.134","sign_date":"代收","customer_name":"邮政储蓄","contract":"03","end_date":"","operator1":"jthy","operator2":"P","operator3":"0.003","operator4":"","start_date":"营业部","operator":"jthy"},
+  {"UUID":"001","contract_ID":"192.168.150.112","sign_date":"代收","customer_name":"交通银行","contract":"04","end_date":"","operator1":"tgvd","operator2":"O","operator3":"0.003","operator4":"","start_date":"营业部","operator":"tgvd"},
+  {"UUID":"001","contract_ID":"192.168.150.111","sign_date":"代收","customer_name":"工商银行","contract":"05","end_date":"3534533","operator1":"6789","operator2":"P","operator3":"0.003","operator4":"","start_date":"营业部","operator":"6789"}]
+,"total_rows":1
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

@@ -1,0 +1,32 @@
+<script type="text/x-template" id="__dust__recoverRowInfo">
+    {#data}
+    <tr>
+        <td>
+            {recoverGas}m³
+        </td>
+        <td>
+            ￥{recoverMoney}
+        </td>
+        <td>
+            {reason}
+        </td>
+
+        <td>{?.reasonType}
+            {@select key=reasonType}
+            {@eq value="1"}<span>死表</span>{/eq}
+            {@eq value="2"} <span>下线表用量未收回</span>{/eq}
+            {@eq value="3"} <span>其他</span>{/eq}
+            {/select}
+            {/.reasonType}</td>
+        <td>
+            {createdTime}
+        </td>
+        <td>
+            {employeeName}
+        </td>
+        <td>
+            {chargeUnitName}
+        </td>
+    </tr>
+    {/data}
+</script>

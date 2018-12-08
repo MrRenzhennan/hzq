@@ -1,0 +1,54 @@
+<script type="text/x-template" id="__dust_simpleform">
+    <div class="container-fluid">
+        <div class="add-form">
+            <!-- BEGIN FORM-->
+            <form action="javascript:;" role="form">
+                <div class="form-body">
+                    {#data}
+                    <div class="row form-group">
+                        {#grp_rows} {?.type} {@select key=type} {@eq value="textarea"}
+                        <div class="col-md-{col} col-sm-12">
+                            <label class="control-label col-sm-{tcol}">{title}</label>
+                            <textarea id="sf_{colname}" class="form-control  col-sm-{vcol}" cols="{cols}" rows="{rows}" disabled>{value}
+                                </textarea>
+                        </div>
+                        {/eq} {@eq value="img"}
+                        {#imgurls} 
+                        <div class="col-md-{col} gallery-item">
+                            <label class="control-label">{alt}</label>
+                              <a data-rel="fancybox-button" title="{alt} <a href={src} >下载</a>" href="{src}&type=.jpeg" class="fancybox-button">
+                                <img alt="" src="{src}&w=200&type=.jpeg" class="img-responsive">
+                                <div class="zoomix"><i class="fa fa-search"></i></div>
+                              </a> 
+                        </div>
+                        {/imgurls}
+                        {/eq} {/select} {:else}
+                        <div class="col-md-{col}">
+                            <label class="control-label col-md-4">{title}</label>
+                            <div class="col-md-8">
+                                <input id="sf_{colname}" type="text" class="form-control" value="{value}" disabled>
+                            </div>
+                        </div>
+                        {/type} {/grp_rows}
+                    </div>
+                    {/data}
+                    <div class="row col-md-12 container-fluid">
+                        <center>                    
+                            <button id="detail_prev" type="button" class="btn btn-lg default pull-left" 
+                                {?extprops.prev} {:else} disabled {/extprops.prev}
+                                >上一条记录&nbsp;</button>                        
+                            <button id="cancel" type="button" class="btn btn-lg default " 
+                                    data-dismiss="modal">返回&nbsp;</button>
+                            <button id="info_mod" 
+                                    data-ref="{extprops.refId}" data-group="{extprops.groups}"
+                                type="button" class="btn btn-lg btn-primary" 
+                                    >保存修改&nbsp;</button>
+                            <button id="info_last" data-ref="{extprops.refId}" data-group="{extprops.groups}" type="button" class="btn btn-lg purple" >重新获取上次表读数&nbsp;</button>
+                            <button id="detail_next" type="button" {?extprops.next} {:else} disabled {/extprops.next} class="btn btn-lg default pull-right" >下一条记录&nbsp;</button>
+                        </center>                        
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</script>

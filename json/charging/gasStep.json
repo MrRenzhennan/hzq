@@ -1,0 +1,13 @@
+{"rows":
+[
+  {"customerType":"居民","gasSource":"天然气","gasProperties":"普通用户","versionID":"08","children":[{"stepNum":"1","startGas":"0","endGas":"288(含)","price":"2.80"},{"stepNum":"2","startGas":"288","endGas":"360(含)","price":"3.36"},{"stepNum":"3","startGas":"360","endGas":"-","price":"4.20"}],"preNumber":"5人(含)以下","changeTime":"2016/1/1","effectTime":"2016/12/31","changePerson":"张三","UUID":"001"}
+,{"customerType":"居民","gasSource":"天然气","gasProperties":"低保户","versionID":"02","children":[{"stepNum":"1","startGas":"0","endGas":"999999999999","price":"2.00"}],"preNumber":"5人(含)以下","changeTime":"2016/1/1","effectTime":"2016/12/31","changePerson":"张三","UUID":"002"}
+,{"customerType":"居民","gasSource":"天然气","gasProperties":"低收入家庭","versionID":"03","children":[{"stepNum":"1","startGas":"0","endGas":"999999999999","price":"2.80"}],"preNumber":"5人(含)以下","changeTime":"2016/1/1","effectTime":"2016/12/31","changePerson":"张三","UUID":"003"}
+,{"customerType":"居民","gasSource":"天然气","gasProperties":"低困难家庭","versionID":"04","children":[{"stepNum":"1","startGas":"0","endGas":"999999999999","price":"2.80"}],"preNumber":"5人(含)以下","changeTime":"2016/1/1","effectTime":"2016/12/31","changePerson":"张三","UUID":"004"}
+,{"customerType":"居民","gasSource":"天然气","gasProperties":"锅炉","versionID":"04","children":[{"stepNum":"1","startGas":"0","endGas":"999999999999","price":"2.50"}],"preNumber":"5人(含)以下","changeTime":"2016/1/1","effectTime":"2016/12/31","changePerson":"张三","UUID":"005"}
+,{"customerType":"居民","gasSource":"天然气","gasProperties":"加气站","versionID":"04","children":[{"stepNum":"1","startGas":"0","endGas":"999999999999","price":"2.30"}],"preNumber":"5人(含)以下","changeTime":"2016/1/1","effectTime":"2016/12/31","changePerson":"张三","UUID":"006"}
+  ]
+,"total_rows":1
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

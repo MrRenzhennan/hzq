@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]>
+<html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+
+<!-- BEGIN HEAD -->
+<head>
+    <title>录入非居民合同</title>
+    <base href="../">
+    <link href="assets/global/plugins/bootstrap-fileinput/fileinput.css" rel="stylesheet">
+    <script src="pages/scripts/header.js"></script>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-select/bootstrap-select.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/select2/select2.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/jquery-multi-select/css/multi-select.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-datepicker/css/datepicker3.css"/>
+    <!-- BEGIN THEME STYLES -->
+    <link href="assets/global/css/components.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
+    <!-- END THEME STYLES -->
+
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/previewPicture/css/component.css" />
+    <script type="text/javascript" src="assets/global/plugins/previewPicture/js/modernizr.custom.js"></script>
+    <style>
+        .removePhoto{
+            position: absolute;
+            right: 0px;
+            top:0px;
+            color:red;
+            z-index: 99;
+        }
+        input{
+            text-align: left !important;
+        }
+        .error{
+            color: red;
+        }
+    </style>
+</head>
+<!-- END HEAD -->
+
+<body class="page-header-fixed page-quick-sidebar-over-content">
+
+<!-- 标题栏开始 -->
+<div class="page-header navbar navbar-fixed-top">
+    <script>$.include("pages/partial/menu.shtml");</script>
+</div>
+<!-- 标题栏结束 -->
+<div class="clearfix"></div>
+<div class="page-container">
+    <!-- 左侧菜单开始 -->
+    <div class="page-sidebar-wrapper">
+        <script>$.include("pages/partial/sidebar.shtml");</script>
+    </div>
+    <!-- 左侧菜单结束 -->
+
+    <!-- 主内容开始 -->
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <!--内容头开始-->
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa fa-map-marker"></i>
+                            <a href="javascript:;">客户管理</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="javascript:;">合同管理</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <!-- <li>
+                             <a href="customer/non_inhabitant_contractManagement.html">居民合同管理</a>
+                             <i class="fa fa-angle-right"></i>
+                         </li>-->
+                        <li>
+                            <a href="javascript:;">录入非居民合同</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 内容头结束-->
+            <!-- 内容开始-->
+            <div class="container-fluid">
+                <div class="add-form">
+                    <form role="form" onsubmit="return false" method="post" id="form">
+                        <div class="form-body">
+                            <div class="row form-group">
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">合同编号:</label>
+                                    <div class="col-md-8">
+                                        <input id="contractNo"  name="contractNo" id="cont" type="text" class="form-control" placeholder="合同编号">
+                                        <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">用气人:</label>
+                                    <div class="col-md-8">
+                                        <input id="useGasPerson" name="useGasPerson" id="useGas" type="text" class="form-control" placeholder="用气人">
+                                        <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                    </div>
+                                </div>
+                                <!--<input id="gasKind" name="gasKind" hidden="hidden" type="text" value="9">-->
+                                <!--<input id="areaId" name="areaId" hidden="hidden" type="text" value="1">-->
+
+
+                                <div class="col-md-12" style="margin-top: 10px; margin-left: -7px;">
+                                    <label class="control-label col-md-1">备注:</label>
+                                    <div class="col-md-11">
+                                        <input name="remark" type="text" class="form-control" placeholder="备注">
+                                        <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="qunit-fixture" class="row">
+                                <form id="fileupload"  onsubmit="return false" enctype="multipart/form-data">
+                                    <div class="col-sm-12 form-group">
+                                        <div class="btn-group input-group" style="width: 100%">
+                                            <div class="input-group-addon">上传数据:</div>
+                                            <input class="file-loading form-control" type="file" name="files[]"  multiple>
+                                        </div>
+                                    </div>
+                                    <table role="presentation" class="table table-striped"><tbody class="files"></tbody></table>
+                                </form>
+                            </div>
+
+
+
+                        </div>
+                    </form>
+                    <!--end form-->
+                    <div class="btn-group form-group">
+                        <button id="gpypz" class="btn blue">
+                            <i class="fa fa-camera"></i> 拍照&nbsp;
+                        </button>
+                    </div>
+                    <div class="btn-group form-group">
+                        <button id="uploadpic" class="btn blue">
+                            <i class="fa fa-upload"></i> 上传照片&nbsp;
+                        </button>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <!--<label class="control-label">相关照片</label>-->
+                            <div id="grid-gallerys" class="grid-gallery">
+                                <section class="grid-wrap">
+                                    <ul id="grids" class="grid">
+                                        <!--<li class="grid-sizer"></li>-->
+                                    </ul>
+                                </section>
+                                <section class="slideshow" style="padding-top: 10px">
+                                    <ul id = "slideIds">
+                                    </ul>
+                                    <nav>
+                                        <span class="icon nav-prev"></span>
+                                        <span class="icon nav-next"></span>
+                                        <span class="icon nav-close" style="padding-top: 50px;"></span>
+                                    </nav>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="tabbable tabbable-custom tabbable-custom-profile col-md-12" style="padding-bottom:0px">
+                <!--/row-->
+                <div class="tab-content">
+                        <div class="row form-group">
+                            <div class="col-sm-6 form-group">
+                                <div class="btn-group input-group" style="width: 100%">
+                                    <div class="input-group-addon">审批意见:</div>
+                                    <input id="stepid" type="hidden">
+                                    <span id="opinion_msg">
+
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label class="control-label">相关照片</label>
+                            <div id="grid-gallery" class="grid-gallery">
+                                <section class="grid-wrap">
+                                    <ul id="grid" class="grid">
+                                        <li class="grid-sizer"></li><!-- for Masonry column width -->
+                                    </ul>
+                                </section><!-- // grid-wrap -->
+                                <section class="slideshow" style="padding-top: 10px">
+                                    <ul id = "slideId">
+                                    </ul>
+                                    <nav>
+                                        <span class="icon nav-prev"></span>
+                                        <span class="icon nav-next"></span>
+                                        <span class="icon nav-close" style="padding-top: 50px;"></span>
+                                    </nav>
+                                </section><!-- // slideshow -->
+                            </div><!-- // grid-gallery -->
+                        </div>
+                    </div>
+                    <div class="form-actions fluid" style="padding: 30px 0;">
+                        <div class="btn-set">
+                            <button id="cancel_btn" type="button" class="btn default">取消&nbsp;</button>
+                            <script>
+                                $("#cancel_btn").on('click', function () {
+                                    history.go("-1")
+                                })
+                            </script>
+                            <button id="save_btn" type="submit" class="btn blue">保存</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+        <!-- 内容结束-->
+    </div>
+</div>
+<!-- 主内容结束 -->
+</div>
+
+<script type="text/javascript">$.include("pages/partial/xwatable-form.shtml")</script>
+
+</body>
+<script>$.include("pages/partial/scripts.shtml");</script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-fileinput/fileinput.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-fileinput/zh.js"></script>
+<script type="text/javascript" src="pages/scripts/refhelper.js"></script>
+<script type="text/javascript" src="pages/scripts/rqlbuilder.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-multi-select/js/jquery.multi-select.js"></script>
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-daterangepicker/moment.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+
+<script type="text/javascript" src="assets/global/plugins/previewPicture/js/imagesloaded.pkgd.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/previewPicture/js/masonry.pkgd.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/previewPicture/js/classie.js"></script>
+<script type="text/javascript" src="assets/global/plugins/previewPicture/js/cbpGridGallery.js"></script>
+
+<script src="pages/scripts/jquery.json.min.js"></script>
+<script type="text/javascript" src="pages/scripts/jquery.serialize-object.min.js"></script>
+<script src="assets/admin/pages/scripts/components-pickers.js"></script>
+<!--<script type="text/javascript" src="customer/js/inhabitant_noncontract_input.js"></script>-->
+<script type="text/javascript">
+
+
+    ComponentsPickers.init();
+    SideBar.init();
+    SideBar.activeCurByPage("contract_noninhabitant.html");
+
+    var contractId = Metronic.getURLParameter("refno");
+
+    $("#cont").on("blur",function(){
+        console.log($(this).val())
+        var resultq = Restful.findNQ( hzq_rest +'gasctmcontract/?query={"contractNo":"'+$(this).val()+'"}');
+        console.log(resultq);
+        if(resultq.length>1){
+            bootbox.alert("<center><h4>该合同编号已经存在，请更换合同编号。</h4></center>");
+            $("#addsubmit").attr("disabled","disabled")
+        }else if(resultq.length == 1 && resultq[0].contractNo != $(this).val()){
+            bootbox.alert("<center><h4>该合同编号已经存在，请更换合同编号。</h4></center>");
+            $("#addsubmit").attr("disabled","disabled")
+        }else{
+            $("#addsubmit").attr("disabled",false)
+        }
+    });
+
+    var gasTypeHelper = RefHelper.create({
+        ref_url: "gasbizgastype/" + '?query={"parentTypeId":"3"}"',
+        ref_col: "gasTypeId",
+        ref_display: "gasTypeName"
+    });
+    $.map(gasTypeHelper.getData(), function (value, key) {
+        $('#gasType').append('<option value="' + key + '">' + value + '</option>');
+    });
+    var gpyphoto = $.md5(JSON.stringify(document.getElementById('form'))+Math.random()+ new Date().getTime())
+    var base64 = [];
+    var picturepath = [];
+    var picturess = false;
+    var gridGallery = new CBPGridGallery(document.getElementById('grid-gallerys'));
+    $("#gpypz").on("click",function(){
+        $.ajax({
+            url:'http://127.0.0.1:9000/?data={"cmdheader":{"cmdtype":"21"}}',
+            type:"get",
+            jsonp: "callfuncname",
+            dataType: "JSONP",
+            async: false,
+            success:function(data){
+                console.log(data);
+                if(data.result.resultcode =="0"){
+                    base64.push("data:image/jpeg;base64,"+data.result.base64);
+                    picturepath.push(data.result.filename.substring((data.result.filename.lastIndexOf("/")+1),data.result.filename.length));
+                    $("#grids").append("<li><figure><img src='http://127.0.0.1:9000/getfile?data="+data.result.filename+"' alt='"+data.result.filename+"'/></figure><i class='removePhoto fa fa-times-circle'></i></li>");
+                    $("#slideIds").append("<li><figure><img src='http://127.0.0.1:9000/getfile?data="+data.result.filename+"' alt='"+data.result.filename+"'/></figure></li>");
+                    gridGallery._init();
+                }
+
+                console.log(picturepath)
+            }
+        })
+
+    });
+    $(document).on("click",".removePhoto",function(e){
+        gridGallery._closeSlideshow();
+        console.log(0)
+        var index = $(this).closest("li").index()
+        $(this).closest("li").remove();
+        $("#slideId li").eq(index).remove();
+        picturepath.del(index);
+        base64.del(index);
+        console.log("--------------------");
+        console.log(picturepath);
+        gridGallery._init();
+    });
+    Array.prototype.del=function(index){
+        if(isNaN(index)||index>=this.length){
+            return false;
+        }
+        for(var i=0,n=0;i<this.length;i++){
+            if(this[i]!=this[index]){
+                this[n++]=this[i];
+            }
+        }
+        this.length-=1;
+    };
+
+
+    $("#uploadpic").on("click",function(){
+        var form = new FormData();
+
+        for(var i=0;i<picturepath.length;i++){
+            form.append("img"+i,convertImgDataToBlob(base64[i]),picturepath[i]);
+        }
+        console.log(form.get("img0"));
+        $.ajax({
+            url: "/hzqs/sys/upload.do?busiId="+gpyphoto,
+            data: form,
+            dataType: 'text',
+            processData: false,
+            contentType: false,
+            async: false,
+            type: 'POST',
+            success: function (data) {
+                console.log(data);
+
+                if (JSON.parse(data).length != 0) {
+                    bootbox.alert('导入成功！');
+                    picturess = true;
+                } else {
+                    bootbox.alert("导入失败！");
+                }
+            },
+            error: function (data) {
+                bootbox.alert(data);
+                if(arguments[0].status == '413'){
+                    bootbox.alert("文件不能超过1M");
+                }
+            }
+
+        });
+
+    })
+
+    var convertImgDataToBlob = function (base64Data) {
+        var format = "image/jpeg";
+        var base64 = base64Data;
+        var code = window.atob(base64.split(",")[1]);
+        var aBuffer = new window.ArrayBuffer(code.length);
+        var uBuffer = new window.Uint8Array(aBuffer);
+        for(var i = 0; i < code.length; i++){
+            uBuffer[i] = code.charCodeAt(i) & 0xff ;
+        }
+        console.info([aBuffer]);
+        console.info(uBuffer);
+        console.info(uBuffer.buffer);
+        console.info(uBuffer.buffer==aBuffer); //true
+
+        var blob=null;
+        try{
+            blob = new Blob([uBuffer], {type : format});
+        }
+        catch(e){
+            window.BlobBuilder = window.BlobBuilder ||
+                window.WebKitBlobBuilder ||
+                window.MozBlobBuilder ||
+                window.MSBlobBuilder;
+            if(e.name == 'TypeError' && window.BlobBuilder){
+                var bb = new window.BlobBuilder();
+                bb.append(uBuffer.buffer);
+                blob = bb.getBlob("image/jpeg");
+
+            }
+            else if(e.name == "InvalidStateError"){
+                blob = new Blob([aBuffer], {type : format});
+            }
+            else{
+
+            }
+        }
+        console.log(blob)
+        return blob;
+
+    };
+
+
+
+
+
+    var results = Restful.findNQ(hzq_rest + "gasctmcontract/"+contractId);
+    console.log(results)
+    $.each(results,function (key, val) {
+        $("input[name='"+key+"']").val(val).trigger("change");
+        $("select[name='"+key+"']").val(val).trigger("change");
+    });
+
+
+    if(results.activityInstanceId){
+        var yijian = Restful.findNQ(hzq_rest + "psmstepinst/"+results.activityInstanceId);
+        console.log(yijian.propstr256)
+        $("#opinion_msg").html(yijian.propstr256);
+    }
+    var picpath;
+    if(results.reservedField2){
+        picpath = results.reservedField2.split(",");console.log(picpath)
+        $.each(picpath,function(index){
+            pic(picpath[index]);
+        });
+    }
+
+    //图片
+    function pic(busiId){
+        $.ajax({
+            url: hzq_rest+"gasbasfile?fields={}&query={\"busiId\":\"" + busiId + "\"}",
+            method: "get",
+            async: false,
+            dataType: "json",
+            success: function (data) {
+                if(data && data.length > 0){
+                    for(var i=0; i<data.length;i++){
+                        var datali = data[i];
+                        $("#grid").append("<li><figure><img src='/hzqs/sys/download.do?fileId="+datali.fileId+"&w=300' alt='"+datali.fileName+"'/></figure></li>")
+                        $("#slideId").append("<li><figure><img src='/hzqs/sys/download.do?fileId="+datali.fileId+"' alt='"+datali.fileName+"'/></figure></li>")
+                    }
+                }
+
+                new CBPGridGallery(document.getElementById('grid-gallery'));
+            },
+            error: function (data) {
+                bootbox.alert(data);
+
+            }
+
+        });
+
+    }
+
+
+
+    $('.file-loading').fileinput({
+        language: 'zh'
+    })
+
+
+
+    //图片上传
+    var busiId1=gpyphoto;
+    $(document).on("click",'.fileinput-upload-button', function (e) {
+        e.preventDefault();
+        var form = new FormData(document.getElementById('form'));
+        $.ajax({
+            url: "/hzqs/sys/upload.do?busiId="+busiId1,
+            data: form,
+            dataType: 'text',
+            processData: false,
+            contentType: false,
+            async: false,
+            type: 'POST',
+            success: function (data) {
+                console.log(JSON.stringify(data));
+                console.log(JSON.parse(data));
+                if (JSON.parse(data).length != 0) {
+                    bootbox.alert('导入成功！');
+                    picturess = true;
+                } else {
+                    bootbox.alert("导入失败！");
+                }
+            },
+            error: function (data) {
+                console.log(data);
+                if(data.status == '413'){
+                    bootbox.alert("文件不能超过1M");
+                }
+                $("#fileId").val('');
+            }
+        });
+    });
+
+
+    // 保存提交流程
+    $("#save_btn").on("click",function(e){
+
+        var form = $('#form').serializeObject();
+        console.log(results.reservedField2)
+        console.log(picturess)
+
+        if(picturess && results.reservedField2){
+            form["reservedField2"] =results.reservedField2+ ","+busiId1;
+        }else if(results.reservedField2 && !picturess){
+            form["reservedField2"] =results.reservedField2;
+        }else if(!results.reservedField2 && picturess){
+            form["reservedField2"] =busiId1;
+        }else{
+            form["reservedField2"] = "";
+        }
+        form["reservedField1"] = "0";
+        form["modifiedTime"] = new Date(moment().format("YYYY-MM-DD HH:mm:ss")+"-00:00");
+        form["modifiedBy"] = JSON.parse(localStorage.getItem("user_info")).userId;
+        console.log(form["reservedField2"]);
+        var Num="";
+        for(var i=0;i<6;i++){
+            Num+=Math.floor(Math.random()*10);
+        };
+        var str= $("#useGasPerson").val()+"(合同编号:"+$("#contractNo").val()+") — 预签";
+            console.log(str)
+        console.log(form)
+        flowjson = {
+            "flow_def_id":"FJMHT",
+            "ref_no":contractId +Num,
+            "be_orgs":JSON.parse(localStorage.getItem("user_info")).area_id,
+            "operator":JSON.parse(localStorage.getItem("user_info")).userId,
+            "flow_inst_id":contractId  +Num,
+            "propstr2048":JSON.stringify(form),
+            "prop1str64":moment().format("YYYY-MM-DD HH:mm:ss"),
+            "prop2str64":str,
+            "propstr256":$("#opinion_msg").html(),
+            "propstr128":"营业部合同管理员",
+            "override_exists":false
+        };
+
+        var flow_result = Restful.insert("/hzqs/psm/pbisn.do?fh=VFLSCGC000000J00&bd={}&resp=bd",flowjson);
+        console.log(flow_result);
+        if(flow_result.retmsg == "SUCCESS:1"){
+            bootbox.alert("<center><h4>提交成功。</h4></center>",function(){
+//                if($("#supplyGas").val()){
+                    var contractresult = Restful.updateRNQ(hzq_rest + "gasctmcontract",contractId,form)
+                    console.log(contractresult)
+//                }
+                history.go("-1");
+            });
+        }
+
+    })
+
+
+</script>
+</html>

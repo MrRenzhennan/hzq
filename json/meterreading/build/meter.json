@@ -1,0 +1,11 @@
+{"rows":
+[
+  {"versionID":"9129","gasCategory":"麻辣烫","gasType":"0","gasStart":"716","gasEnd":"0","gasEnd1":"王林","price":"0","changeTime":"麻辣烫","effectTime":"5","effectTime1":"道里区买卖街12号","effectTime2":"0511","effectTime3":"已准备","effectTime4":"","effectTime5":"1","effectTime6":"一次计费表","effectTime7":"已提交","changePerson":""}
+  ,{"versionID":"7769","gasCategory":"理发店","gasType":"0","gasStart":"2716","gasEnd":"0","price":"0","changeTime":"理发店","effectTime":"5","effectTime1":"道里区买卖街34号","effectTime2":"0711","effectTime3":"已准备","effectTime4":"","effectTime5":"1","effectTime6":"一次计费表","effectTime7":"未提交","changePerson":""}
+,{"versionID":"7645","gasCategory":"超市","gasType":"0","gasStart":"6716","gasEnd":"0","price":"0","changeTime":"超市","effectTime":"5","effectTime1":"道里区安静街16号","effectTime2":"0517","effectTime3":"已准备","effectTime4":"","effectTime5":"1","effectTime6":"一次计费表","effectTime7":"已审核","changePerson":""}
+,{"versionID":"6533","gasCategory":"书店","gasType":"0","gasStart":"916","gasEnd":"0","price":"0","changeTime":"书店","effectTime":"5","effectTime1":"道里区中央大街12号","effectTime2":"0531","effectTime3":"已准备","effectTime4":"","effectTime5":"1","effectTime6":"一次计费表","effectTime7":"未审核","changePerson":""}
+]
+,"total_rows":1
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

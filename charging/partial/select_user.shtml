@@ -1,0 +1,593 @@
+<div id="customerList" class="tabbable tabbable-custom tabbable-custom-profile col-md-12" style="padding-bottom:0px">
+	<ul class="nav nav-tabs">
+		<li class="active">
+			<a href="#tab01" data-toggle="tab" style="font-size: 14px;color: blue;">
+				客户列表 </a>
+		</li>
+	</ul>
+	<!--/row-->
+	<div class="tab-content">
+		<div class="row container" >
+			<div class="col-sm-3 form-group">
+				<div class="btn-group input-group">
+					<div class="input-group-addon">客户编号：</div>
+					<input id="find_key" class="inputclear form-control" type="text" placeholder="客户编号" onkeydown='if(event.keyCode==13){$("#find_user_btn").click();}'>
+					<span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+				</div>
+			</div>
+
+			<div class="btn-group form-group col-sm-1">
+				<button id="find_user_btn" class="btn yellow off">
+				查询&nbsp; <i class="fa fa-search"></i>
+			</button>
+			</div>
+			<div class="btn-group form-group col-sm-1">
+				<button id="find_hight_user" type="button" class="btn yellow">
+				高级&nbsp;<i id="ib" class="fa fa-angle-double-down"></i>
+			</button>
+			</div>
+		</div>
+		<div id="lay" class="row" style="display:none;">
+			<div class="col-sm-3 form-group">
+				<div class="btn-group input-group">
+					<div class="input-group-addon">客户姓名：</div>
+					<input id="customerName1" class="inputclear form-control" type="text" placeholder="客户姓名">
+					<span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+				</div>
+			</div>
+			<div class="col-sm-3 form-group">
+				<div class="btn-group input-group">
+					<div class="input-group-addon">客户电话：</div>
+					<input id="tel1" class="inputclear form-control" type="text" placeholder="请输入客户电话">
+					<span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+				</div>
+			</div>
+			<div class="col-sm-3 form-group">
+				<div class="btn-group input-group">
+					<div class="input-group-addon">客户地址：</div>
+					<input id="customerAddress1" class="inputclear form-control" type="text" placeholder="请输入客户地址">
+					<span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+				</div>
+			</div>
+		</div>
+		<div class="tab-pane active" id="tab01">
+			<div class="portlet-body">
+				<div id='row' class="row">
+					<div id="pdivtable" class="table-responsive container-fluid col-md-12" style="display: none">
+					</div>
+				</div>
+				<!--/row-->
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	$.include("pages/partial/xwatable-form.shtml")
+
+</script>
+<script type="text/javascript">
+	$.include("customer/partial/addcontract.shtml")
+
+</script>
+<script type="text/javascript">
+	$("#find_hight_user").click(function () {
+		$("#lay input").val("");
+		if ($("#lay").css("display") == "block") {
+			$("#lay").css("display", "none");
+			$("#ib").attr("class", "fa fa-angle-double-down");
+		} else if ($("#lay").css("display") == "none") {
+
+			$("#lay").css("display", "block");
+			$("#ib").attr("class", "fa fa-angle-double-up");
+
+		}
+	});
+
+	function doNexts() {
+	    bootbox.alert("<center><h4>合同签订成功。</h4></center>")
+		$contractTargetModal.modal('hide');
+		initData($("#find_key").val());
+	}
+
+	var $contractTargetModal;
+
+	jQuery(document).ready(function () {
+		queryCustomerList.init();
+		$contractTargetModal = $("#addcontract");
+		$contractTargetModal.modal({
+			show: false,
+			backdrop: 'static',
+			keyboard: false
+		})
+		$contractTargetModal.unbind("shown.bs.modal").on("shown.bs.modal", function (e) {
+			doLoadContract($("#find_key").val());
+			linkage();
+		});
+		$contractTargetModal.on("hidden.bs.modal", function () {
+			$(this).removeData("bs.modal");
+		});
+		$("#userInfo").delegate("#add_contract", 'click', function () {
+			var $obj = $(this);
+			$contractTargetModal.modal('show');
+		});
+	});
+	var cardTypeEnum = {"1":"营业执照","2":"法人身份证","3":"房产证","4":"租房合同","5":"居民身份证"}
+	var lowerProtectionEnum = {"0":"正常","1":"低保","2":"低收入","3":"低困"}
+	var meterStatusEnum = {"1":"正常","0":"异常","2":"表慢","3":"表快","4":"死表"}
+	var userHelper = RefHelper.create({
+        ref_url: "gassysuser",
+        ref_col: "userId",
+        ref_display: "employeeName"
+    });
+	var areaHelper = RefHelper.create({
+        ref_url: "gasbizarea",
+        ref_col: "areaId",
+        ref_display: "areaName"
+    });
+	var meterSpecHelper = RefHelper.create({
+        ref_url: "gasmtrmeterspec",
+        ref_col: "meterModelId",
+        ref_display: "meterModelName"
+    }); 
+    var factoryHelper = RefHelper.create({
+        ref_url: "gasmtrfactory",
+        ref_col: "factoryId",
+        ref_display: "factoryName"
+    });
+    var meterTypeHelper = RefHelper.create({
+        ref_url: "gasmtrmetertype",
+        ref_col: "meterTypeId",
+        ref_display: "meterTypeName"
+    });
+    var meterFlowHelper = RefHelper.create({
+        ref_url: "gasmtrmeterflow",
+        ref_col: "meterFlowId",
+        ref_display: "ratingFlux"
+    });
+    var gasTypeHelper = RefHelper.create({
+        ref_url: "gasbizgastype",
+        ref_col: "gasTypeId",
+        ref_display: "gasTypeName"
+    });
+	var cardTypeFM = function () {
+		return {
+			f: function (val) {
+				return cardTypeEnum[val];
+			},
+		}
+	}();
+	//	var customerCode;
+	var baseDBC = "/hzqs";
+	var paramurl = baseDBC + "/dbc/pbsel.do?fh=SELDBC0000000J00&resp=bd";
+	queryCustomerList = function () {
+		return {
+			init: function () {
+
+				this.reload();
+			},
+
+			reload: function () {
+
+				$('#pdivtable').html('');
+				xw = XWATable.init(
+					{
+						divname: "pdivtable",
+						//----------------table的选项-------
+						pageSize: 10,
+						columnPicker: true,
+						transition: 'fade',
+						checkboxes: true,
+                        sorting:true,
+						checkAllToggle: false,
+						//----------------基本restful地址---
+						restbase: 'gasctmarchive?query={"gasResource":"2"}',
+						key_column: 'ctmArchiveId',
+						coldefs: [
+
+							{
+								col: "ctmArchiveId",
+								friendly: "ctmArchiveId",
+								unique: true,
+								hidden: true,
+								nonedit: "nosend",
+								readonly: "readonly",
+								sorting: true,
+								index: 1
+							},
+							{
+								col: "customerCode",
+								friendly: "客户编号",
+								readonly: "readonly",
+								sorting: true,
+								index: 2
+							},
+							{
+								col: "customerName",
+								friendly: "客户名称",
+								sorting: true,
+								readonly: "readonly",
+								index: 3
+							},
+							{
+								col: "tel",
+								friendly: "客户电话",
+								sorting: true,
+								readonly: "readonly",
+								index: 4
+							},
+							{
+								col: "customerAddress",
+								friendly: "客户地址",
+								sorting: true,
+								index: 5
+							},
+							{
+								col: "idcardType",
+								friendly: "证件类型",
+								sorting: true,
+								index: 5,
+								format: cardTypeFM
+							},
+							{
+								col: "idcard",
+								friendly: "证件号码",
+								sorting: true,
+								index: 5
+							},
+						]
+						,
+						findFilter: function () {//find function
+						}
+					});
+				//--init
+			},
+		}
+	}();
+	var initData = function (customerCode) {
+		$("#find_key").val(customerCode)
+		$("#pdivtable").css("display", "none");
+		$("#customerInfo").css("display", "block");
+		var $customerInfo = $("#divUserInfoContainer");
+		var ctmArchiveId;
+		var customerKind;
+		if (customerCode) {
+			var xwQuery = RQLBuilder.and([
+				RQLBuilder.equal("customerCode", customerCode)
+			]).rql();
+			$.ajax({
+				headers: {
+					'Accept': 'application/json',
+					'Content-Type': 'application/json'
+				},
+				type: 'get',
+				url: hzq_rest + 'gasctmarchive?query=' + xwQuery,
+				async: false,
+				success: function (data) {
+					console.log("=================")
+					console.log(data)
+
+					if (data) {
+						ctmArchiveId = data[0].ctmArchiveId;
+						$customerInfo.find("#customerCode").text(customerCode);
+						$customerInfo.find("#customerName").text(data[0].customerName);
+						// if (data[0].customerKind == 1) {
+						// 	$customerInfo.find("#customerKind").text("居民");
+						// } else {
+						// 	$customerInfo.find("#customerKind").text("非居民");
+						// }
+						if (data[0].validOrInvalid&&data[0].validOrInvalid == 'Y') {
+							$customerInfo.find("#validOrInvalid").text("是").css("color", "red");
+						}else{
+							$customerInfo.find("#validOrInvalid").text("否");
+						}
+						if (data[0].customerState == "01") {
+							$customerInfo.find("#customerState").text("正常");
+						} else if (data[0].customerState == "02") {
+							$customerInfo.find("#customerState").text("暂停用气");
+						} else if (data[0].customerState == "03") {
+							$customerInfo.find("#customerState").text("拆除");
+						} else if (data[0].customerState == "04") {
+							$customerInfo.find("#customerState").text("长期不用");
+						} else if (data[0].customerState == "99") {
+							$customerInfo.find("#customerState").text("删除");
+						}
+
+						customerKind = data[0].customerKind;
+						//用气性质暂时使用id，关联查询后变更
+						//$("#gasType").text(data[0].gasTypeId);
+						$customerInfo.find("#customerAddress").text(data[0].customerAddress);
+						$customerInfo.find("#idCard").text(data[0].idcard);
+						var idcardType = data[0].idcardType;
+						$customerInfo.find("#idcardType").text(cardTypeEnum[idcardType]);
+						
+                        $customerInfo.find("#miscellaneousBalance").text("0");
+                        $customerInfo.find("#owe").text("0");
+
+						$customerInfo.find("#Tel").text(data[0].tel);
+						var unboltTime = data[0].unboltTime
+						if (unboltTime) {
+							$customerInfo.find("#unboltTime").text(unboltTime.substring(0, 10));
+						}
+						$customerInfo.find("#opeacceptId").text(data[0].opeacceptid);
+						var lowerProtection = data[0].lowerProtection;
+						
+						if (!lowerProtection) {
+							$customerInfo.find("#lowerProtection").text("正常");
+						}else{
+							$customerInfo.find("#lowerProtection").text(lowerProtectionEnum[lowerProtection]);
+						}
+					}
+				}
+			})
+
+			//查询基础
+			var params2 = {
+				"cols": "d.*",
+				"froms": "gas_ctm_archive a,(select * from (select ctm_archive_id,meter_reading,copy_time,card_balanc_esum,countper_id,serviceper_id,row_number() over (partition by ctm_archive_id order by copy_time desc )as rn1 from gas_mrd_meter_reading) where rn1='1') d",
+				"wheres": " a.ctm_archive_id=d.ctm_archive_id and a.customer_code='" + customerCode + "'",
+				"page": true,
+				"limit": 10
+			}
+			$.ajax({
+				headers: {
+					'Accept': 'application/json',
+					'Content-Type': 'application/json'
+				},
+				type: 'POST',
+				url: paramurl,
+//				async: false,
+				data: JSON.stringify(params2),
+				success: function (data) {
+					if (data.rows) {
+						var json = data.rows[0];
+						//基本信息
+
+						var copyTime = json.copyTime;
+						if (copyTime) {
+							$customerInfo.find("#copyTime").text(copyTime.substring(0, 10));
+						}
+						$customerInfo.find("#meterReading").text(json.meterReading);
+						$customerInfo.find("#cardMeasure").text(json.cardBalancEsum);
+					}
+				}
+			})
+
+			//查询合同信息
+			var params4 = {
+				"cols": "a.gas_type_id,b.serviceper_id,b.countper_id,a.area_id,d.contract_state,d.use_gas_address,d.begin_date,d.end_date,"+
+						"f.meter_no,f.meter_digit,f.production_date,f.direction,f.chip_type,f.meter_status,f.factory_id,f.meter_type_id,f.meter_model_id,f.flow",
+				"froms": "gas_ctm_archive a"+
+						" left join gas_mrd_book b on a.book_id=b.book_id"+
+						" left join gas_ctm_contract d on a.ctm_archive_id=d.ctm_archive_id"+
+						" left join gas_ctm_meter e on a.ctm_archive_id=e.ctm_archive_id"+
+						" left join gas_mtr_meter f on e.meter_id=f.meter_id",
+				"wheres": "e.meter_user_state!='99' and a.customer_code='" + customerCode + "'",
+				"page": true,
+				"limit": 10
+			}
+			$.ajax({
+				headers: {
+					'Accept': 'application/json',
+					'Content-Type': 'application/json'
+				},
+				type: 'POST',
+				url: paramurl,
+//				async: false,
+				data: JSON.stringify(params4),
+				success: function (data) {
+					// 如果是居民，只有签订和未签订
+                    if (data.rows) {
+						var json = data.rows[0];
+						$customerInfo.find("#areaName").text(areaHelper.getDisplay(json.areaId));
+						$customerInfo.find("#countPer").text(userHelper.getDisplay(json.countperId));
+						$customerInfo.find("#meterPer").text(userHelper.getDisplay(json.serviceperId));
+						$customerInfo.find("#gasType").text(gasTypeHelper.getDisplay(json.gasTypeId));
+						$customerInfo.find("#meterNo").text(json.meterNo);
+						$customerInfo.find("#meterTypeName").text(meterTypeHelper.getDisplay(json.meterTypeId));
+						$customerInfo.find("#meterStatus").text(meterStatusEnum[json.meterStatus]);
+                    	$customerInfo.find("#factoryName").text(factoryHelper.getDisplay(json.factoryId));
+                    	$customerInfo.find("#meterDigit").text(json.meterDigit);
+                    	$customerInfo.find("#flow").text(meterFlowHelper.getDisplay(json.flow));
+                    	$customerInfo.find("#direction").text(json.direction);
+                    	$customerInfo.find("#modelNumber").text(meterSpecHelper.getDisplay(json.meterModelId));
+                    	$customerInfo.find("#useGasAddress").text(json.useGasAddress);
+                    	if (json.meterFlag == 1) {
+							$customerInfo.find("#meterFlag").text("否");
+						}
+						if (json.meterFlag == 2) {
+							$customerInfo.find("#meterFlag").text("是");
+						}
+						if (json.chipType == "1") {
+							$customerInfo.find("#chipType").text("102气量卡");
+						} else if (json.chipType == "2") {
+							$customerInfo.find("#chipType").text("102金额卡");
+						} else if (json.chipType == "3") {
+							$customerInfo.find("#chipType").text("4442气量卡");
+						} else if (json.chipType == "4") {
+							$customerInfo.find("#chipType").text("4442金额卡");
+						} else if (json.chipType == "5") {
+							$customerInfo.find("#chipType").text("CPU卡");
+						} else {
+							$customerInfo.find("#chipType").text("-");
+						}
+						var leavefactorydate = json.productionDate
+						if (leavefactorydate) {
+							$customerInfo.find("#leavefactoryate").text(leavefactorydate.substring(0, 10));
+						}
+						$customerInfo.find("#contractState").html("");
+						if (customerKind == "1") {
+							if(json.contractState == 1 || json.contractState == 2){
+								$customerInfo.find("#contractState").append("<button type=\"button\"   class=\"btn btn-success btn-xs\">合同已签订</button>");
+							}else{
+								$customerInfo.find("#contractState").append("<button type=\"button\" id=\"add_contract\" class=\"btn btn-warning btn-xs\">合同未签订，点击签订合同</button>");
+							}
+						}
+						/*else if(customerKind == "9") {
+							if(!json.contractState){
+
+							}else{
+								if (json.contractState == 0) {
+									$customerInfo.find("#contractState").html("合同预签");
+								}
+								if (json.contractState == 1) {
+									$customerInfo.find("#contractState").html("合同新签");
+								}
+								if (json.contractState == 2) {
+									$customerInfo.find("#contractState").html("合同正常");
+		
+								}
+								if (json.contractState == 3) {
+									$customerInfo.find("#contractState").html("合同即将到期");
+		                            var endDate = json.endDate;
+		                            $customerInfo.find("#endDate").append('<font color="red">' + "供气合同" + endDate.substring(0, 10) + "即将到期" + '</font>');
+								}
+								if (json.contractState == 5) {
+									$customerInfo.find("#contractState").html("合同过期");
+		                            $customerInfo.find("#endDate").append('<font color="red">' + "供气合同已经过期请重新签订" + '</font>');
+								}
+								if (json.contractState == 6) {
+									$customerInfo.find("#contractState").html("续签合同");
+								}
+								if (json.contractState == 7) {
+									$customerInfo.find("#contractState").html("合同作废");
+								}
+							}
+							// 表具信息
+							$customerInfo.find("#useGasAddress").text(json.useGasAddress);
+							var beginDate = json.beginDate;
+							if (beginDate) {
+								var year = beginDate.substring(0, 4);
+								var month = beginDate.substring(5, 7);
+								var d = new Date();
+								var nowYear = d.getFullYear();
+								var nowMonth = d.getMonth();
+								var meterUse = nowYear - year;
+								$customerInfo.find("#meterUseTime").append('<font color="red">' + "表具使用年限已达" + meterUse + "年" + '</font>');
+							}
+						}*/
+                    }/*else{
+                    	$customerInfo.find("#contractState").append("<button type=\"button\" id=\"add_contract\" class=\"btn btn-warning btn-xs\">合同未签订，点击签订合同</button>");
+                    }*/
+				}
+			})
+
+			//查询基础信息，燃气、垃圾相关信息
+			var gasBalance = 0;
+			var bageBalance = 0;
+
+			$.ajax({
+				url: "hzqs/chg/pbgbl.do?fh=GBLCHG0000000J00&resp=bd",
+				dataType: "json",
+				contentType: "application/json;charset=utf-8",
+				type: "POST",
+				data: JSON.stringify({
+					"ctmArchiveId": ctmArchiveId
+				}),
+				success: function (data) {
+					if (data) {
+						gasBalance = data.balance;
+						if (parseFloat(gasBalance) >= 0) {
+							$customerInfo.find("#gasBalance").text(parseFloat(gasBalance).toFixed(2));
+							$customerInfo.find("#gastoMinus").text("0.00");
+						} else {
+							$customerInfo.find("#gasBalance").text(parseFloat(gasBalance).toFixed(2));
+							$customerInfo.find("#gastoMinus").text(parseFloat(Math.abs(gasBalance)).toFixed(2));
+						}
+					}
+				}
+			});
+			$.ajax({
+				url: "hzqs/chg/pbwbl.do?fh=WBLCHG0000000J00&resp=bd",
+				dataType: "json",
+				contentType: "application/json;charset=utf-8",
+				type: "POST",
+				data: JSON.stringify({
+					"ctmArchiveId": ctmArchiveId
+				}),
+				success: function (data) {
+					if (data) {
+						bageBalance = data.balance;
+						if (parseFloat(bageBalance) >= 0) {
+							$customerInfo.find("#bageBalance").text(parseFloat(bageBalance).toFixed(2));
+							$customerInfo.find("#bagetoMinus").text("0.00");
+						} else {
+							$customerInfo.find("#bageBalance").text(parseFloat(bageBalance).toFixed(2));
+							$customerInfo.find("#bagetoMinus").text(parseFloat(Math.abs(bageBalance)).toFixed(2));
+						}
+					}
+				}
+			});
+
+			var fn = window["onCustomerSelected"];
+			if (typeof (fn) === 'function') {
+				fn.call(null, customerCode);
+			}
+		} else {
+			bootbox.alert("请输入查询条件");
+		}
+	}
+	$("#find_user_btn").click(function () {
+		var queryUrl = hzq_rest + "gasctmarchive";
+		var querys = new Array();
+		if ($('#find_key').val()) {
+			querys.push(RQLBuilder.like("customerCode", $('#find_key').val()));
+		}
+
+		if ($('#customerName1').val()) {
+			querys.push(RQLBuilder.like("customerName", $('#customerName1').val()));
+		}
+
+		if ($('#tel1').val()) {
+			querys.push(RQLBuilder.like("tel", $('#tel1').val()));
+		}
+		if ($('#customerAddress1').val()) {
+			querys.push(RQLBuilder.like("customerAddress", $('#customerAddress1').val()));
+		}
+		console.log(querys)
+		if(UserInfo.init().area_id=='1'){
+			
+		}else{
+			querys.push(RQLBuilder.equal("areaId", UserInfo.init().area_id));
+		}
+		querys.push(RQLBuilder.equal("gasResource", "2"));
+		if (querys.length > 0) {
+			queryUrl += "?query=" + RQLBuilder.and(querys).rql();
+		}
+
+		xw.setRestURL(queryUrl);
+		xw.update()
+
+		var data = xw.getTable().getData();
+
+		$("#pdivtable p").html('');
+		if (data.total_rows > 0) {
+			$('#customerInfo').css("display", "none");
+			if (data.total_rows == 1) {
+				initData(data.rows[0].customerCode);
+			} else {
+				$('#pdivtable').css("display", "block");
+				$("#pdivtable").prepend("<p>请选择一条符合条件的记录   <button id='confirm_btn' class='btn blue'>确定</button></p>");
+			}
+		} else {
+			$("#pdivtable").css("display", "block");
+			$("#pdivtable").prepend("<p>请选择一条符合条件的记录   <button id='confirm_btn' class='btn blue'>确定</button></p>");
+		}
+
+		$("#confirm_btn").on('click', function () {
+
+			var data = xw.getTable().getData(true);
+			if (data.rows.length == 0) {
+				bootbox.alert("<br><center><h4>请选择一条数据！</h4></center><br>");
+				return false;
+			}
+			if (data.rows.length > 1) {
+				bootbox.alert("<br><center><h4>只能选择一行！</h4></center><br>");
+				return false;
+			}
+			if (data.rows.length == 1) {
+				initData(data.rows[0].customerCode);
+			}
+		});
+		//return "";
+	})
+</script>

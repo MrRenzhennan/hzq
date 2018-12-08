@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+
+<!-- BEGIN HEAD -->
+<head>
+    <title>二级库下线表管理</title>
+    <base href="../../">
+    <script src="pages/scripts/header.js"></script>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8"/>
+    <link href='assets/global/plugins/jquery-watable/watable.css' rel='stylesheet'/>
+    <link href='assets/global/plugins/jquery-watable/animate.min.css' rel='stylesheet'/>
+    <link href='assets/global/plugins/bootstrap-datetimepicker/css/datetimepicker.css' rel='stylesheet'/>
+
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-select/bootstrap-select.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/select2/select2.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/jquery-multi-select/css/multi-select.css"/>
+<!--
+    <link href="assets/global/css/components.css" rel="stylesheet" type="text/css"/>
+-->
+    <link href="assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
+</head>
+<!-- END HEAD -->
+
+<body class="page-header-fixed page-quick-sidebar-over-content">
+
+<!-- 标题栏开始 -->
+<div class="page-header navbar navbar-fixed-top">
+    <script>$.include("pages/partial/menu.shtml");</script>
+</div>
+<!-- 标题栏结束 -->
+<div class="clearfix"></div>
+<div class="page-container">
+    <!-- 左侧菜单开始 -->
+    <div class="page-sidebar-wrapper">
+        <script>$.include("pages/partial/sidebar.shtml");</script>
+    </div>
+    <!-- 左侧菜单结束 -->
+
+    <!-- 主内容开始 -->
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <!--内容头开始-->
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa fa-map-marker"></i>
+                            <a href="javascript:;">客户管理</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="javascript:;">表具管理</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="javascript:;">二级库下线表管理</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 内容头结束-->
+
+            <!-- 内容开始-->
+            <div class="container col-sm-12" style="padding-bottom:0px">
+                <!-- 查询条件控件 -->
+                <div class="row">
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group  input-select2me">
+                            <div class="input-group-addon">表具类型:</div>
+                            <select class="form-control input-middle select2me" data-placeholder="表具类型...">
+                                <option value=""></option>
+                                <option>普通皮膜表</option>
+                                <option>普通涡轮表(机械式)</option>
+                                <option>普通罗茨表</option>
+                                <option>IC卡皮膜表</option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group input-select2me">
+                            <div class="input-group-addon">物品种类:</div>
+                            <select class="form-control input-middle select2me" data-placeholder="物品种类...">
+                                <option value=""></option>
+                                <option>民用皮膜表1.6</option>
+                                <option>民用皮膜表2.5</option>
+                                <option>民用皮膜表4</option>
+                                <option>民用IC卡皮膜表1.6</option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group">
+                            <div class="input-group-addon">规格型号:</div>
+                            <select class="form-control input-middle select2me" data-placeholder="选择分公司...">
+                                <option value=""></option>
+                                <option>JGML-2.5</option>
+                                <option>JGML-4</option>
+                                <option>JGML-10</option>
+                                <option>G1.6S</option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group">
+                            <div class="input-group-addon">表编号：</div>
+                            <input class="inputclear form-control" type="text" placeholder="表编号">
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 form-group">
+                        <div class="btn-group form-group">
+                            <button id="find_button" class="btn yellow">
+                                查询&nbsp; <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+
+                        <div class="btn-group form-group">
+                            <button id="add_button" class="btn green" data-target="#stack1" data-toggle="modal">
+                                添加&nbsp; <i class="fa fa-plus"></i>
+                            </button>
+                        </div>
+
+                        <div class="btn-group form-group">
+                            <button class="btn red" data-target="#breakup" data-toggle="modal">
+                                入一级库&nbsp;
+                                <i class="fa fa-eject"></i>
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="container col-sm-12" style="padding-bottom: 0px;">
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="col-md-4">下线表总数：</label>
+                        <div class="col-md-8">
+                            1000
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-fluid">
+                <div id="divtable" class="table-responsive container-fluid col-md-12" style="background-color: #ffffff;">
+                </div>
+            </div>
+            <!-- 内容结束-->
+
+            <div class="clearfix">
+            </div>
+        </div>
+    </div>
+    <!-- 主内容结束 -->
+</div>
+
+<script type="text/javascript">$.include("pages/partial/xwatable-form.shtml")</script>
+
+<!-- 底边栏开始 -->
+<script>$.include("pages/partial/foot.shtml");</script>
+<!-- 底边栏结束 -->
+</body>
+
+
+<script>$.include("pages/partial/scripts.shtml");</script>
+<script src="assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-watable/jquery.watable.js"></script>
+<script type="text/javascript" src="pages/scripts/rqlbuilder.js"></script>
+<script type="text/javascript" src="pages/scripts/xwatable.js"></script>
+<script type="text/javascript" src="pages/scripts/refhelper.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+
+<script type="text/javascript" src="assets/global/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-multi-select/js/jquery.multi-select.js"></script>
+
+<script type="text/javascript" src="assets/global/plugins/bootstrap-fileinput/fileinput.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-fileinput/zh.js"></script>
+
+<script src="assets/admin/pages/scripts/components-dropdowns.js"></script>
+
+<script type="text/javascript">
+
+    $(function(){
+            XWATable.init(
+                {
+                    //----------------table的选项-------
+                    pageSize: 20, 			//Initial pagesize
+                    columnPicker: true,         //Show the columnPicker button
+                    sorting: true,
+                    transition: 'fade',  //(bounce, fade, flip, rotate, scroll, slide).
+                    checkboxes: true,           //Make rows checkable. (Note. You need a column with the 'unique' property)
+                    checkAllToggle:true,        //Show the check-all toggle//+RQLBuilder.like("KEYY", "a").rql()
+                    rowClicked: function(data) {
+                        console.log('row clicked');   //data.event holds the original jQuery event.
+                        console.log(data);            //data.row holds the underlying row you supplied.
+                    },
+                    //----------------基本restful地址---
+                    restbase: 'json/customer/dm/offline.json',
+                    //---------------行定义
+                    coldefs: [
+                        {
+                            col:"meter_ID",
+                            friendly:"表编号",
+                            sorting:false,
+                            unique:true,
+                            index:1
+                        },
+                        {
+                            col:"meter_num",
+                            friendly:"表指针",
+                            sorting:false,
+                            index:2
+                        },
+                        {
+                            col:"meter_type",
+                            friendly:"表类型",
+                            sorting:false,
+                            index:3
+                        },
+                        {
+                            col:"meter_spec",
+                            friendly:"表规格",
+                            sorting:false,
+                            index:4
+                        },
+                        {
+                            col:"offline_date",
+                            friendly:"下线日期",
+                            index:5
+                        },
+                        {
+                            col:"offline_reason",
+                            friendly: "下线原因",
+                            sorting:false,
+                            index:6
+                        },
+                        {
+                            col:"supply_office",
+                            friendly: "上交机构",
+                            nonedit:"nosend",
+                            format:sourceFormat,
+                            sorting:false,
+                            index:7
+                        },
+                        {
+                            col:"office",
+                            friendly:"所属机构",
+                            nonedit:"nosend",
+                            format:levelFormat,
+                            sorting:false,
+                            index:8
+                        },
+                        {
+                            col:"input_date",
+                            friendly:"录入日期",
+                            nonedit:"nosend",
+                            index:9
+                        },
+                        {
+                            col:"input_user",
+                            friendly: "录入人员",
+                            sorting:false,
+                            nonedit:"nosend",
+                            index:10
+                        },
+                        {
+                            col:"picture",
+                            friendly:"照片",
+                            sorting:false,
+                            hidden:true,
+                            index:11
+                        }
+                    ],
+                    //---------------查询时过滤条件
+                    findFilter: function(){//find function
+                        var filter = "keyy="+$('#find_key').val();
+                        return filter;
+                    }//--findFilter
+                }//--init
+            );//--end init
+        }
+    );
+
+    // helper & format
+
+    //仓库级别format
+    var levelFormat = function () {
+        return {
+            f: function (val) {return "<font>二级库</font>";}
+        }
+    }();
+
+    var sourceFormat = function () {
+        return {
+            f : function () {
+                return "直接下线";
+            }
+        }
+    }();
+
+
+    jQuery(document).ready(function() {
+        ComponentsDropdowns.init();
+    });
+</script><!-- End of User Script-->
+</html>

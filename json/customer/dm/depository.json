@@ -1,0 +1,24 @@
+{
+  "rows": [
+    {"UUID":"11","PID":"0","funcLevel":"1","IsDir":"1","depositoryCode":"1","depositoryName":"一级库","depositoryAddress":"哈中庆营业部","branchId":"哈中庆营业部","attendantName":"王青","lockFlag":"Y","status":"Y"},
+    {"UUID":"28","PID":"1","funcLevel":"2","IsDir":"2","depositoryCode":"10111","depositoryName":"道一二级库","depositoryAddress":"道里一营业厅","branchId":"道里一分公司","attendantName":"张红军","lockFlag":"Y","status":"Y"},
+    {"UUID":"15","PID":"1","funcLevel":"2","IsDir":"2","depositoryCode":"10112","depositoryName":"道二二级库","depositoryAddress":"道里二营业厅","branchId":"道里二分公司","attendantName":"赵磊","lockFlag":"N","status":"N"},
+    {"UUID":"12","PID":"1","funcLevel":"2","IsDir":"2","depositoryCode":"10113","depositoryName":"道三二级库","depositoryAddress":"道里三营业厅","branchId":"道里三分公司","attendantName":"王彤彤","lockFlag":"Y","status":"Y"},
+    {"UUID":"29","PID":"1","funcLevel":"2","IsDir":"2","depositoryCode":"10114","depositoryName":"外一二级库","depositoryAddress":"外一营业厅","branchId":"外一分公司","attendantName":"王志远","lockFlag":"N","status":"N"},
+    {"UUID":"30","PID":"1","funcLevel":"2","IsDir":"2","depositoryCode":"10115","depositoryName":"外二二级库","depositoryAddress":"外二营业厅","branchId":"外二分公司","attendantName":"丁原","lockFlag":"N","status":"N"},
+    {"UUID":"48","PID":"1","funcLevel":"2","IsDir":"2","depositoryCode":"10116","depositoryName":"道四二级库","depositoryAddress":"道里四营业厅","branchId":"道里四分公司","attendantName":"张峰","lockFlag":"Y","status":"Y"},
+    {"UUID":"31","PID":"1","funcLevel":"2","IsDir":"2","depositoryCode":"10201","depositoryName":"南一二级库","depositoryAddress":"南一营业厅","branchId":"南一分公司","attendantName":"张瀚","lockFlag":"N","status":"N"},
+    {"UUID":"39","PID":"1","funcLevel":"2","IsDir":"2","depositoryCode":"10202","depositoryName":"南二二级库","depositoryAddress":"南二营业厅","branchId":"南二分公司","attendantName":"赵鹏骏","lockFlag":"N","status":"N"},
+    {"UUID":"40","PID":"1","funcLevel":"2","IsDir":"2","depositoryCode":"10203","depositoryName":"南三二级库","depositoryAddress":"南三营业厅","branchId":"南三分公司","attendantName":"时新","lockFlag":"N","status":"N"},
+    {"UUID":"34","PID":"1","funcLevel":"2","IsDir":"2","depositoryCode":"10204","depositoryName":"动力二级库","depositoryAddress":"动力营业厅","branchId":"动力分公司","attendantName":"周易可","lockFlag":"Y","status":"Y"},
+    {"UUID":"41","PID":"1","funcLevel":"2","IsDir":"2","depositoryCode":"10205","depositoryName":"香坊二级库","depositoryAddress":"香坊营业厅","branchId":"香坊分公司","attendantName":"王鹏军","lockFlag":"N","status":"N"},
+    {"UUID":"42","PID":"1","funcLevel":"2","IsDir":"2","depositoryCode":"10206","depositoryName":"平房二级库","depositoryAddress":"平房营业厅","branchId":"平房分公司","attendantName":"张淼","lockFlag":"N","status":"N"},
+    {"UUID":"43","PID":"1","funcLevel":"2","IsDir":"2","depositoryCode":"10301","depositoryName":"商一二级库","depositoryAddress":"商一营业厅","branchId":"商一分公司","attendantName":"宋红","lockFlag":"N","status":"N"},
+    {"UUID":"44","PID":"1","funcLevel":"2","IsDir":"2","depositoryCode":"10302","depositoryName":"商二二级库","depositoryAddress":"商一营业厅","branchId":"商二分公司","attendantName":"刘娟","lockFlag":"N","status":"N"},
+    {"UUID":"14","PID":"0","funcLevel":"1","IsDir":"1","depositoryCode":"2","depositoryName":"客户目标仓库","depositoryAddress":"商一营业厅","branchId":"商一分公司","attendantName":"孙艳涵","lockFlag":"N","status":"N"}
+  ],
+  "total_rows": 16,
+  "totalPages": 1,
+  "skip": 0,
+  "limit": 2147483647
+}

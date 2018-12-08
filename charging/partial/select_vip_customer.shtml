@@ -1,0 +1,274 @@
+<div id = "customerList" class="tabbable tabbable-custom tabbable-custom-profile col-md-12" style="padding-bottom:0px">
+	<ul class="nav nav-tabs">
+		<li class="active">
+			<a href="#tab01" data-toggle="tab" style="font-size: 14px;color: blue;">
+				大客户列表 </a>
+		</li>
+	</ul>
+	<!--/row-->
+	<div class="tab-content">
+		<div class="row">
+			<div class="col-sm-3 form-group">
+				<div class="btn-group input-group">
+					<div class="input-group-addon">大客户名称：</div>
+					<input id="find_key" class="inputclear form-control" type="text" placeholder="大客户名称">
+					<span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+				</div>
+			</div>
+
+			<div class="btn-group form-group col-sm-1">
+				<button id="find_customer"   class="btn yellow off">
+					查询&nbsp; <i class="fa fa-search"></i>
+				</button>
+			</div>
+			<div class="btn-group form-group col-sm-1">
+				<button id="find_hight_user" type="button" class="btn yellow">
+					高级&nbsp;<i id="ib" class="fa fa-angle-double-down"></i>
+				</button>
+			</div>
+		</div>
+		<div id="lay" class="row" style="display:none;">
+			<div class="col-sm-3 form-group">
+				<div class="btn-group input-group">
+					<div class="input-group-addon">大客户电话：</div>
+					<input id="tel1" class="inputclear form-control" type="text" placeholder="大客户电话">
+					<span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+				</div>
+			</div>
+			<div class="col-sm-3 form-group">
+				<div class="btn-group input-group">
+					<div class="input-group-addon">大客户地址：</div>
+					<input id="customerAddress1" class="inputclear form-control" type="text" placeholder="大客户地址">
+					<span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+				</div>
+			</div>
+			<div class="col-sm-3 form-group">
+				<div class="btn-group input-group">
+					<div class="input-group-addon">所属公司：</div>
+					<input id="belongTo1" class="inputclear form-control" type="text" placeholder="所属公司">
+					<span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+				</div>
+			</div>
+		</div>
+		<div class="tab-pane active" id="tab01">
+			<div class="portlet-body">
+				<div id='row' class="row">
+					<div id="pdivtable" class="table-responsive container-fluid col-md-12" style="display: none">
+					</div>
+				</div>
+				<!--/row-->
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">$.include("pages/partial/xwatable-form.shtml")</script>
+<script type="text/javascript">
+    $("#find_hight_user").click(function () {
+        $("#lay input").val("");
+        if($("#lay").css("display")=="block"){
+            $("#lay").css("display","none");
+            $("#ib").attr("class","fa fa-angle-double-down");
+        }else if($("#lay").css("display")=="none"){
+
+            $("#lay").css("display","block");
+            $("#ib").attr("class","fa fa-angle-double-up");
+
+        }
+    });
+
+
+    jQuery(document).ready(function() {
+        queryCustomerList.init();
+    });
+
+	var  queryCustomerList = function(){
+	    var xw;
+
+        var stepAndPriceFormat = function () {
+            return {
+                f : function (val,row) {
+                    var stepStr = "";
+                    if(row["priceType"] ==2){ //固定价格
+                        stepStr = "周期价:"+ row["price1"];
+                    }else{
+                        for(var i=1;i<=5;i++) {
+                            var measureFrom = "measureFrom"+i ;
+                            var measureTo = "measureTo"+i ;
+                            var price = "price"+i ;
+                            if((row[measureFrom]==0 ||row[measureFrom]) && row[measureTo] && row[price]){
+                                stepStr=stepStr +"第"+i+"阶梯:"+row[measureFrom]+ "~"+row[measureTo]+"&nbsp价格:" +row[price]+"<br/>";
+                            }
+                        }
+                    }
+                    return stepStr;
+                }
+            }
+        }();
+
+        return {
+            init:function(){
+
+                this.reload();
+                this.initNonrsdtDct();
+            },
+
+            reload:function(){
+
+                $('#pdivtable').html('');
+                xw=XWATable.init(
+                    {
+                        divname : "pdivtable",
+                        //----------------table的选项-------
+                        pageSize : 10,
+                        columnPicker : true,
+                        transition : 'fade',
+                        checkboxes : true,
+                        checkAllToggle : true,
+                        //----------------基本restful地址---
+                        restbase: 'gasctmarchive',
+                        key_column:'ctmArchiveId',
+                        coldefs:[
+                            {
+                                col:"nonRsdtDctId",
+                                friendly:"非居民优惠ID",
+                                hidden:true,
+                                unique:"true",
+                                readonly:"readonly",
+                                nonedit:"nosend",
+                                index:1
+                            },
+                            {
+                                col:"customerName",
+                                friendly:"大客户名称",
+                                // format:bigCusInfoFormat,
+                                index:2
+                            },
+                            {
+                                col:"customerTel",
+                                friendly:"大客户电话",
+                                index:3
+                            },
+                            {
+                                col:"customerAddress",
+                                friendly:"大客户地址",
+                                index:4
+                            },
+                            {
+                                col:"discountType",
+                                friendly:"优惠类型",
+                                inputsource: "select",
+                                format:GasModBil.DiscountType,
+                                inputsource: "custom",
+                                inputbuilder: "disCusRegisterAction.discountTypeEditBuilder",
+                                index:5
+                            },
+                            {
+                                col:"rn",
+                                friendly:"阶梯和气价",
+                                format:stepAndPriceFormat,
+                                // format:GasModBil.measure_price,
+                                nonedit: "noeidt",
+                                index:6
+                            },
+                            {
+                                col:"treatyStartTime",
+                                friendly:"协议开始时间",
+                                format:GasModBil.dateFormat,
+                                inputsource:"datepicker",
+                                date_format:"yyyy-MM-dd",
+                                validate:"date",
+                                readonly:"readonly",
+                                index:7
+                            },
+                            {
+                                col:"treatyEndTime",
+                                friendly:"协议结束时间",
+                                format:GasModBil.dateFormat,
+                                inputsource:"datepicker",
+                                date_format:"yyyy-MM-dd",
+                                readonly:"readonly",
+                                index:9
+                            },
+                            {
+                                col:"belongTo",
+                                friendly:"所属单位",
+                                index:10
+                            }
+                        ]
+                        ,
+                        findFilter: function(){//find function
+                        }
+                    });
+                //--init
+            },
+
+            initData: function (NonrsdtDctArchive) {
+                $("#pdivtable").css("display","none");
+                applicationAdd.initNonrsdtDctArchiveData(NonrsdtDctArchive);
+               // var json = eval(NonrsdtDctArchive);
+               // applicationAdd.initArchive(json.nonRsdtDctId);
+            },
+
+
+            initNonrsdtDct: function () {
+                $('#find_customer').click(function () {
+
+                    var queryUrl=hzq_rest+"gasbllnonrsdtdct";
+                    var querys=new Array()
+
+                    var querys=new Array();
+                    if ($('#find_key').val()) {
+                        querys.push(RQLBuilder.like("customerName", $('#find_key').val()));
+                    }
+
+                    if ($('#tel1').val()) {
+                        querys.push(RQLBuilder.like("customerTel" , $('#tel1').val()));
+                    }
+                    if ($('#customerAddress1').val()) {
+                        querys.push(RQLBuilder.like("customerAddress" , $('#customerAddress1').val()));
+                    }
+                    if ($('#belongTo1').val()) {
+                        querys.push(RQLBuilder.like("belongTo", $('#belongTo1').val()));
+                    }
+                    console.log(querys)
+                    if(querys.length>0){
+                        queryUrl += "?query="+RQLBuilder.and(querys).rql();
+                    }
+                    console.log("querys:"+ queryUrl);
+
+                    xw.setRestURL( queryUrl);
+                    xw.update();
+                    var data = xw.getTable().getData();
+                    console.log("data:"+ JSON.stringify(data));
+                    $("#pdivtable p").html('');
+                    if(data.total_rows>0){
+                        $('#customerInfo').css("display","none");
+                        $('#pdivtable').css("display","block");
+                        $("#pdivtable").prepend("<p>请选择一条符合条件的记录   <button id='confirm_btn' class='btn blue'>确定</button></p>");
+                    }else{
+                        $("#pdivtable").css("display","block");
+                        $("#pdivtable").prepend("<p>请选择一条符合条件的记录   <button id='confirm_btn' class='btn blue'>确定</button></p>");
+                    }
+                    $("#confirm_btn").on('click',function(){
+
+                        var data = xw.getTable().getData(true);
+                        if(data.rows.length == 0){
+                            bootbox.alert("<br><center><h4>请选择一条数据！</h4></center><br>");
+                            return false;
+                        }
+                        if(data.rows.length>1){
+                            bootbox.alert("<br><center><h4>只能选择一行！</h4></center><br>");
+                            return false;
+                        }
+                        if(data.rows.length==1){
+                            queryCustomerList.initData(data.rows[0]);
+                        }
+                    });
+
+                });
+
+            },
+        }
+    }();
+
+</script>

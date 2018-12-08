@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]>
+<html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+
+<!-- BEGIN HEAD -->
+<head>
+    <title>居民月度抄表情况统计表</title>
+    <base href="../../">
+    <script src="../pages/scripts/basepath.js"></script>
+    <script src="pages/scripts/header.js"></script>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8"/>
+
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-select/bootstrap-select.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/select2/select2.css">
+    <link href="assets/admin/pages/css/search.css" rel="stylesheet" type="text/css"/>
+
+    <script src="pages/scripts/header.js"></script>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8"/>
+    <link rel='stylesheet' href='assets/global/plugins/jquery-watable/watable.css'/>
+    <link rel='stylesheet' href='assets/global/plugins/jquery-watable/animate.min.css'/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-datepicker/css/datepicker.css"/>
+    <link href='assets/global/plugins/bootstrap-datetimepicker/css/datetimepicker.css' rel='stylesheet'/>
+
+    <link href="assets/global/css/components.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
+    <style>
+        @media print {
+            .noneprint {
+                display: none;
+            }
+        }
+
+        .table-bordered > thead > tr > th, .table-bordered > thead > tr > td {
+            border-bottom-width: 1px;
+        }
+
+        .areaName {
+            padding-left: 20px !important;
+            width: 250px;
+            align: left !important;
+        }
+    </style>
+    <!-- END THEME STYLES -->
+</head>
+<!-- END HEAD -->
+
+<body class="page-header-fixed page-quick-sidebar-over-content">
+
+<!-- 标题栏开始 -->
+<div class="page-header navbar navbar-fixed-top">
+    <script>$.include("pages/partial/menu.shtml");</script>
+</div>
+<!-- 标题栏结束 -->
+<div class="clearfix"></div>
+<div class="page-container">
+    <!-- 左侧菜单开始 -->
+    <div class="page-sidebar-wrapper">
+        <script>$.include("pages/partial/sidebar.shtml");</script>
+    </div>
+    <!-- 左侧菜单结束 -->
+
+    <!-- 主内容开始 -->
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <!--内容头开始-->
+            <div class="row noneprint">
+                <div class="col-md-12">
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <a href="index.html">报表统计</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">居民月度抄表情况统计表</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="container col-sm-12 noneprint" style="padding-bottom:0px">
+                <div class="row">
+
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group">
+                            <div class="input-group-addon" style="border:0px;">月份：</div>
+                            <div id="div_date" class="input-group input-daterange" data-date="11/2012"
+                                 data-date-format="yyyy年mm月">
+                                <input id="find_date" type="text" class="form-control" name="from">
+                                <span class="inputclear glyphicon glyphicon-remove-circle hidden"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                    </div>
+                    <div class="col-sm-3 form-group">
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <button id="find_sign" type="button" class="btn yellow">
+                                查询 <i class="fa fa-search"></i>
+                            </button>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <button id="btn_print_page" onclick="window.print()" type="button"
+                                    class="btn gray disabled">
+                                打印<i class="glyphicon"></i>
+                            </button>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <button id="btn_down_detail" type="button" class="btn gray disabled export-excel">
+                                导出<i class="glyphicon"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-fluid">
+                <div>
+                    <table cellSpacing="0" cellPadding="2" width="95%" align="center" border="0">
+                        <tr>
+                            <td id="title" align="center" title="">分公司月度抄表情况统计</td>
+                        </tr>
+                    </table>
+                </div>
+                <br/>
+                <div>
+                    <table cellSpacing="0" cellPadding="2" width="95%" align="center" border="0">
+                        <tr>
+                            <td id="head_r0_c1" rowspan="1" colspan="1" width="85%" align="left">
+
+                            </td>
+                            <td id="head_r0_c2" rowspan="1" colspan="1"></td>
+                            <td id="head_r0_c3" rowspan="1" colspan="1"></td>
+                            <td id="head_r0_c4" rowspan="1" colspan="1"></td>
+                            <td id="head_r0_c5" rowspan="1" colspan="1"></td>
+                            <td id="head_r0_c6" rowspan="1" colspan="1"></td>
+                            <td id="head_r0_c7" rowspan="1" colspan="1"></td>
+                            <td id="head_r0_c8" rowspan="1" colspan="1"></td>
+                            <td id="head_r0_c9" rowspan="1" colspan="1"></td>
+                            <td id="head_r0_c10" rowspan="1" colspan="1"></td>
+                            <td id="head_r0_c11" rowspan="1" colspan="1"></td>
+                            <td id="head_r0_c12" rowspan="1" colspan="1"></td>
+                            <td id="head_r0_c13" rowspan="1" colspan="1"></td>
+                            <td id="head_r0_c14" rowspan="1" colspan="1"></td>
+                            <td id="head_r0_c15" rowspan="1" colspan="1" width="20%" align="right">单位:立方米／元</td>
+                        </tr>
+                    </table>
+                </div>
+                <div>
+                    <table class="tabPrint table-hover table-condensed " align="center" width="95%" cellSpacing="0"
+                           cellPadding="0" border="1"
+                           ID="Table2">
+                        <thead style="display:table-header-group;font-weight:bold"
+                               mce_style="display:table-header-group;font-weight:bold">
+                        <tr align="center">
+                            <td id="thead_r1_c1" rowspan="3" colspan="1">单位</td>
+                            <td id="thead_r1_c2" rowspan="3" colspan="1">客户类别</td>
+                            <td id="thead_r1_c3" rowspan="3" colspan="1">表类别</td>
+                            <td id="thead_r1_c4" rowspan="3" colspan="1">应收费户</td>
+                            <td id="thead_r1_c5" rowspan="3" colspan="1">本月应抄表户数</td>
+                            <td id="thead_r1_c6" rowspan="3" colspan="1">本月实抄表户数</td>
+                            <td id="thead_r1_c7" rowspan="3" colspan="1">抄表到户率</td>
+                            <td id="thead_r1_c8" rowspan="3" colspan="1">销售量</td>
+                            <td id="thead_r1_c9" rowspan="3" colspan="1">欠费户数</td>
+                            <td id="thead_r1_c10" rowspan="3" colspan="1">欠费额</td>
+                            <td id="thead_r1_c11" rowspan="3" colspan="1">户均欠费</td>
+                            <td id="thead_r1_c12" rowspan="3" colspan="1">见表户数</td>
+                            <td id="thead_r1_c13" rowspan="3" colspan="1">自报户数</td>
+                            <td id="thead_r1_c14" rowspan="3" colspan="1">空房户数</td>
+                            <td id="thead_r1_c15" rowspan="3" colspan="1">门锁等</td>
+                            <td id="thead_r1_c16" rowspan="3" colspan="1">零气量户数</td>
+                            <td id="thead_r1_c17" rowspan="3" colspan="1">大于3万小于10万</td>
+                            <td id="thead_r1_c18" rowspan="3" colspan="1">大于10万小于30万</td>
+                            <td id="thead_r1_c19" rowspan="3" colspan="1">大于10万</td>
+                        </tr>
+                        </thead>
+                        <tbody id="tbody">
+
+                        </tbody>
+                    </table>
+                </div>
+                <br/>
+                <div>
+
+                    <!--<table cellSpacing="0" cellPadding="2" width="95%" align="center" border="0">
+                        <tr>
+                            <td id="foot_r0_c1" rowspan="1" colspan="1">负责人：</td>
+                            <td id="foot_r0_c2" rowspan="1" colspan="1" width="35%"></td>
+                            <td id="foot_r0_c3" rowspan="1" colspan="1"></td>
+                            <td id="foot_r0_c4" rowspan="1" colspan="1"></td>
+                            <td id="foot_r0_c5" rowspan="1" colspan="1"></td>
+                            <td id="foot_r0_c6" rowspan="1" colspan="1"></td>
+                            <td id="foot_r0_c7" rowspan="1" colspan="1">制表人：</td>
+                            <td id="foot_r0_c8" rowspan="1" colspan="1" width="15%"></td>
+                            <td id="foot_r0_c9" rowspan="1" colspan="1"></td>
+                            <td id="foot_r0_c10" rowspan="1" colspan="1"></td>
+                            <td id="foot_r0_c11" rowspan="1" colspan="1"></td>
+                            <td id="foot_r0_c12" rowspan="1" colspan="1"></td>
+                            <td id="foot_r0_c13" rowspan="1" colspan="1" width="20%"></td>
+                            <td id="foot_r0_c14" rowspan="1" colspan="1">填报日期：</td>
+                            <td id="foot_r0_c15" rowspan="1" colspan="1"></td>
+                        </tr>
+                    </table>-->
+                </div>
+                <br/><br/></div>
+        </div>
+    </div>
+</div>
+</div>
+<!-- 主内容结束 -->
+</div>
+<script type="text/javascript">$.include("pages/partial/xwatable-form.shtml")</script>
+
+<!-- 底边栏开始 -->
+<script>$.include("pages/partial/foot.shtml");</script>
+<!-- 底边栏结束 -->
+</body>
+<script>
+    $.include("pages/partial/scripts.shtml");
+
+</script>
+<!--跳到原稿-->
+<script src="../assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="../assets/global/plugins/jquery-watable/jquery.watable.js"></script>
+<script type="text/javascript" src="../pages/scripts/rqlbuilder.js"></script>
+<script type="text/javascript" src="../pages/scripts/xwatable.js"></script>
+<script type="text/javascript" src="../pages/scripts/refhelper.js"></script>
+
+<!--datapicker start-->
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript"
+        src="../assets/global/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/clockface/js/clockface.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-daterangepicker/moment.min.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script type="text/javascript"
+        src="../assets/global/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+<script type="text/javascript"
+        src="../assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script src="../assets/admin/pages/scripts/components-pickers.js"></script>
+
+<script type="text/javascript" src="../assets/global/plugins/select2/select2.js"></script>
+
+
+<script src="/statement/js/libs/js-xlsx/xlsx.core.min.js" type="text/javascript"></script>
+<script src="/statement/js/libs/html2canvas/html2canvas.min.js" type="text/javascript"></script>
+<script src="/statement/js/tableExport.js" type="text/javascript"></script>
+<script src="mods/ctm.js"></script>
+<script src="mods/timeslot.js"></script>
+<script src="mods/sys.js"></script>
+<script src="mods/mrd.js"></script>
+
+<!-- END PAGE LEVEL SCRIPTS -->
+<script type="text/javascript">
+    $(".export-excel").attr("data-table", ".tabPrint");
+    //    $(".export-excel").attr("data-filename","");
+    $(".export-excel").on("click", function (e) {
+        e.preventDefault();
+        var exportTable = $(this).data("table");
+        var filename = $("#title").html();//$(this).data("filename");
+        var ignoreColumn = "";//$(this).data("ignorecolumn");
+        $(exportTable).tableExport({
+            fileName: filename,
+            type: 'excel',
+            escape: 'false',
+            excelstyles: ['border-bottom', 'border-top', 'border-left', 'border-right'],
+            ignoreColumn: '[' + ignoreColumn + ']'
+        });
+    });
+    $(function () {
+        $("#find_date").val(date_format(new Date(), "yyyy-MM"));
+        $("#title").html($("#find_date").val() + "&nbsp;&nbsp;分公司月度抄表情况统计");
+        //获取供气区域
+        var areas = new Array();
+        var area_id = JSON.parse(localStorage.getItem("user_info")).area_id;
+        areas.push(area_id);
+        //查询areaId下级areaId
+        var queryCondion = RQLBuilder.and([
+            RQLBuilder.equal("status", "1"),
+            RQLBuilder.equal("parentAreaId", area_id)
+        ]).rql()
+        $.ajax({
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            type: 'get',
+            async: false,
+            url: hzq_rest + "gasbizarea?query=" + queryCondion,
+            success: function (data) {
+                for (var i = 0; i < data.length; i++) {
+                    areas.push(data[i].areaId);
+                }
+            }
+        });
+        var AreaHelper1 = RefHelper.create({
+            ref_url: 'gasbizarea?query={"areaId":{"$in":' + JSON.stringify(areas) + '}}',
+            ref_col: "areaId",
+            ref_display: "areaName",
+            "sort": "posCode"
+        });
+        var gsData = AreaHelper1.getRawData();
+        var gs = [];
+        gsData.forEach(function (o) {
+            gs.push(o);
+        });
+        var tbody = "";
+        for (var i = 0; i < gs.length; i++) {
+            tbody = tbody + '<tr align="center" data-areaId="' + gs[i].areaId + '">' +
+                    '<td id="tbody_r' + gs[i].areaId + '_c1" rowspan="1" colspan="1"><b>' + gs[i].areaName + '</b></td>' +
+                    '<td id="tbody_r' + gs[i].areaId + '_c2" rowspan="1" colspan="1"><b></b></td>' +
+                    '<td id="tbody_r' + gs[i].areaId + '_c3" rowspan="1" colspan="1"></td>' +
+                    '<td id="tbody_r' + gs[i].areaId + '_c4" rowspan="1" colspan="1"></td>' +
+                    '<td id="tbody_r' + gs[i].areaId + '_c5" rowspan="1" colspan="1"></td>' +
+                    '<td id="tbody_r' + gs[i].areaId + '_c6" rowspan="1" colspan="1"></td>' +
+                    '<td id="tbody_r' + gs[i].areaId + '_c7" rowspan="1" colspan="1"></td>' +
+                    '<td id="tbody_r' + gs[i].areaId + '_c8" rowspan="1" colspan="1"></td>' +
+                    '<td id="tbody_r' + gs[i].areaId + '_c9" rowspan="1" colspan="1"></td>' +
+                    '<td id="tbody_r' + gs[i].areaId + '_c10" rowspan="1" colspan="1"></td>' +
+                    '<td id="tbody_r' + gs[i].areaId + '_c11" rowspan="1" colspan="1"></td>' +
+                    '<td id="tbody_r' + gs[i].areaId + '_c12" rowspan="1" colspan="1"></td>' +
+                    '<td id="tbody_r' + gs[i].areaId + '_c13" rowspan="1" colspan="1"></td>' +
+                    '<td id="tbody_r' + gs[i].areaId + '_c14" rowspan="1" colspan="1"></td>' +
+                    '<td id="tbody_r' + gs[i].areaId + '_c15" rowspan="1" colspan="1"></td>' +
+                    '<td id="tbody_r' + gs[i].areaId + '_c16" rowspan="1" colspan="1"></td>' +
+                    '<td id="tbody_r' + gs[i].areaId + '_c17" rowspan="1" colspan="1"></td>' +
+                    '<td id="tbody_r' + gs[i].areaId + '_c18" rowspan="1" colspan="1"></td>' +
+                    '<td id="tbody_r' + gs[i].areaId + '_c19" rowspan="1" colspan="1"></td>' +
+                    '</tr>';
+
+        }
+        $("#tbody").html(tbody);
+
+
+    });
+
+
+</script>
+</html>

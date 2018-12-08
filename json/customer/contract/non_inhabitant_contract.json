@@ -1,0 +1,18 @@
+{"rows":
+[
+  {"UUID":"001","contract_ID":"01020120","customer_name":"赵鑫","customer_address":"道里一上海街1号","gas_type":"加气站","sign_date":"2010/01/01","start_date":"2010/01/01","end_date":"2013/01/01","contract_type":"新签","paper_ID":"023001212","added":"","photo":"","remark":"","contract_status":"待审核","operator":"张洁"},
+  {"UUID":"001","contract_ID":"01020121","customer_name":"丁洁","customer_address":"道里一上海街2号","gas_type":"工业","sign_date":"2010/01/01","start_date":"2010/01/01","end_date":"2013/01/01","contract_type":"新签","paper_ID":"023001212","added":"","photo":"","remark":"","contract_status":"待审核","operator":"张洁"},
+  {"UUID":"001","contract_ID":"01020122","customer_name":"张国富","customer_address":"道里一上海街3号","gas_type":"公益","sign_date":"2010/01/01","start_date":"2010/01/01","end_date":"2013/01/01","contract_type":"新签","paper_ID":"023001212","added":"","photo":"","remark":"","contract_status":"待审核","operator":"张洁"},
+  {"UUID":"001","contract_ID":"01020123","customer_name":"张鑫鑫","customer_address":"道里一上海街4号","gas_type":"商服","sign_date":"2010/01/01","start_date":"2010/01/01","end_date":"2013/01/01","contract_type":"新签","paper_ID":"023001212","added":"","photo":"","remark":"","contract_status":"待审核","operator":"张洁"},
+  {"UUID":"001","contract_ID":"01020124","customer_name":"张国荣","customer_address":"道里一上海街5号","gas_type":"加气站","sign_date":"2010/01/01","start_date":"2010/01/01","end_date":"2013/01/01","contract_type":"新签","paper_ID":"023001212","added":"","photo":"","remark":"","contract_status":"待审核","operator":"张洁"},
+  {"UUID":"001","contract_ID":"01020125","customer_name":"赵春霞","customer_address":"道里一上海街6号","gas_type":"工业","sign_date":"2010/01/01","start_date":"2010/01/01","end_date":"2013/01/01","contract_type":"新签","paper_ID":"023001212","added":"","photo":"","remark":"","contract_status":"待审核","operator":"张洁"},
+  {"UUID":"001","contract_ID":"01020126","customer_name":"王国文","customer_address":"道里一上海街7号","gas_type":"商服","sign_date":"2010/01/01","start_date":"2010/01/01","end_date":"2013/01/01","contract_type":"新签","paper_ID":"023001212","added":"","photo":"","remark":"","contract_status":"待审核","operator":"张洁"},
+  {"UUID":"001","contract_ID":"01020127","customer_name":"李石厦","customer_address":"道里一上海街8号","gas_type":"工业","sign_date":"2010/01/01","start_date":"2010/01/01","end_date":"2013/01/01","contract_type":"新签","paper_ID":"023001212","added":"","photo":"","remark":"","contract_status":"待审核","operator":"张洁"},
+  {"UUID":"001","contract_ID":"01020128","customer_name":"张诗韵","customer_address":"道里一上海街9号","gas_type":"商服","sign_date":"2010/01/01","start_date":"2010/01/01","end_date":"2013/01/01","contract_type":"新签","paper_ID":"023001212","added":"","photo":"","remark":"","contract_status":"待审核","operator":"张洁"},
+  {"UUID":"001","contract_ID":"01020129","customer_name":"张嘉欣","customer_address":"道里一上海街10号","gas_type":"商服","sign_date":"2010/01/01","start_date":"2010/01/01","end_date":"2013/01/01","contract_type":"新签","paper_ID":"023001212","added":"","photo":"","remark":"","contract_status":"待审核","operator":"张洁"}
+
+]
+,"total_rows":1
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

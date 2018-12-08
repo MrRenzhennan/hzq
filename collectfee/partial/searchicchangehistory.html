@@ -1,0 +1,110 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+    </button>
+    <h4 class="modal-title" id="myModalLabel">IC卡变更信息</h4>
+</div>
+<div class="modal-body">
+    <div data-always-visible="1" data-rail-visible="1">
+        <table class="watable table table-striped table-hover table-bordered table-condensed">
+            <thead>
+            <tr>
+                <th>
+                    卡厂家
+                </th>
+                <th>
+                    表编号
+                </th>
+                <th>
+                    卡芯片类型
+                </th>
+                <th>
+                    卡号
+                </th>
+                <th>
+                   变动类型
+                </th>
+                <th>
+                    补卡次数
+                </th>
+                <th>
+                    累计购气量
+                </th>
+                <th>
+                    累计购气金额
+                </th>
+                <th>
+                    时间
+                </th>
+            </tr>
+            </thead>
+            <tbody id="_icchangeInfo">
+            <!--    <tbody id="_garbageHistoryInfo">-->
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+</div>
+<script type="text/x-template" id="__dust__gasicchangeyRowInfo">
+    {#data}
+    <tr>
+        <td>
+            {factoryName}
+        </td>
+        <td>
+            {meterNo}
+        </td>
+        <td>
+            {chipType}
+        </td>
+        <td>
+            {cardCode}
+        </td>
+        <td>
+            换卡
+        </td>
+        <td>
+            {replaceCount}
+        </td>
+        <td>
+            {measure}
+        </td>
+        <td>
+            {money}
+        </td>
+        <td>
+            {createTime}
+        </td>
+    </tr>
+    {/data}
+</script>
+
+<script type="text/javascript">
+    function render(param){
+        //console.log(param);
+        dust.loadSource(dust.compile($("#__dust__gasicchangeyRowInfo").html(), "gasicchangerowInfo__"));
+        $.ajax({
+            url: "/hzqs/dbc/pbsel.do?fh=SELDBC0000000J00&resp=bd",
+            dataType: "json",
+            contentType: "application/json;charset=utf-8",
+            type: "POST",
+            data: JSON.stringify({
+                cols: "e.meterNo,b.createTime,b.cardCode,b.replaceCount,c.factoryName, e.meterNo, e.chipType, b.measure, b.money",
+                froms: "gasCtmArchive a,gasChgIccard b,gasMtrFactory c,gasCtmMeter d, gasMtrMeter e",
+                wheres:"a.ctmArchiveId =b.ctmArchiveId and b.factoryId=c.factoryId and b.meterUserId=d.ctmMeterId and e.meterId = d.meterId and a.ctmArchiveId='"+param.archiveId+"' order by b.createTime desc "  ,
+                //wheres: "b.chgAccCtmId =a.chgAccCtmId and c.ctmArchiveId=b.ctmArchiveId and c.ctmArchiveId='"+param.customerCode+"'",
+                page: false,
+                limit: 10,
+            }),
+            success: function (data) {
+                if (data) {
+                    console.log(data);
+                    dust.render("gasicchangerowInfo__", { "data": data.rows }, function (err, res) {
+                        $("#_icchangeInfo").html(res);
+                    });
+                }
+            }
+        });
+    }
+</script>

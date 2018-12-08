@@ -1,0 +1,25 @@
+<script type="text/x-template" id="__dust__ICCardAllMessageRowInfo">
+    {#data}
+    <tr>
+
+        <td>
+            {customerCode}
+        </td>
+        <td>
+            {cardCode}
+        </td>
+        <td>
+            {regionCode}
+        </td>
+        <td>
+            {meterNo}
+        </td>
+        <td>
+            正常
+        </td>
+        <td>
+            {factoryName}
+        </td>
+    </tr>
+    {/data}
+</script>

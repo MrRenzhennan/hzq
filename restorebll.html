@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="utf-8" />
+    <title>中庆燃气营业信息系统</title>
+    <script src="pages/scripts/header_login.js"></script>
+    <!-- BEGIN PAGE LEVEL STYLES -->
+    <link href="assets/admin/pages/css/login-soft.css" rel="stylesheet" type="text/css" />
+    <link href="assets/global/plugins/ladda-bootstrap/ladda-themeless.min.css" rel="stylesheet" type="text/css" />
+
+</head>
+<!-- END HEAD -->
+
+<body>
+    <div class="content">
+        <div class="row">
+            <button id="btnGen">读取重复计费记录</button>
+            <label id="errCount"></label>
+            <button id="btnSql">生成脚本</button>
+        </div>
+        <div class="row">
+            <table border="1">
+                <thead>
+                    <tr>
+                        <td>抄表记录ID</td>
+                        <td>居民/非居民</td>
+                        <td>普表/IC卡</td>
+                        <td>GAS</td>
+                        <td>MONEY</td>
+                        <td>SQL</td>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <!--[if lt IE 9]>
+
+<script src="assets/global/plugins/respond.min.js"></script>
+<script src="assets/global/plugins/excanvas.min.js"></script>
+<![endif]-->
+    <script src="assets/global/plugins/jquery-1.11.0.min.js" type="text/javascript"></script>
+    <script src="assets/global/plugins/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+    <!-- IMPORTANT! Load jquery-ui-1.10.3.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
+    <script src="assets/global/plugins/jquery-ui/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
+    <script src="assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+    <script src="assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <script src="assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+    <script src="assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+    <script src="assets/global/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
+    <script src="assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+    <!-- END CORE PLUGINS -->
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    <script src="assets/global/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
+    <script src="assets/global/plugins/backstretch/jquery.backstretch.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="assets/global/plugins/select2/select2.min.js"></script>
+    <!-- END PAGE LEVEL PLUGINS -->
+    <!-- BEGIN PAGE LEVEL SCRIPTS -->
+    <script src="assets/global/scripts/metronic.js" type="text/javascript"></script>
+    <script src="assets/admin/layout/scripts/layout.js" type="text/javascript"></script>
+    <script src="assets/admin/layout/scripts/quick-sidebar.js" type="text/javascript"></script>
+    <script src="assets/admin/pages/scripts/login-soft.js" type="text/javascript"></script>
+    <!-- END PAGE LEVEL SCRIPTS -->
+    <script src="pages/scripts/rest.js" type="text/javascript"></script>
+    <script src="assets/global/plugins/bootbox/bootbox.min.js" type="text/javascript"></script>
+
+    <!--     <script src="assets/global/plugins/bootstrap-modal/js/bootstrap-modalmanager.js" type="text/javascript"></script>
+    <script src="assets/global/plugins/bootstrap-modal/js/bootstrap-modal.js" type="text/javascript"></script>
+ -->
+
+
+    <script src="assets/global/plugins/ladda-bootstrap/spin.min.js" type="text/javascript"></script>
+    <script src="assets/global/plugins/ladda-bootstrap/ladda.min.js" type="text/javascript"></script>
+    <script src="assets/addons/jquery.jcryption-1.1.min.js" type="text/javascript"></script>
+    <script src="assets/addons/validateForm.js" type="text/javascript"></script>
+    <script type="text/javascript" src="assets/global/scripts/jquery.md5.js"></script>
+    <script src="assets/global/plugins/moment.min.js"></script>
+    <script type="text/javascript">
+        function getLocalTime(nS) {
+            return moment(new Date(parseInt(nS))).format("YYYY-MM-DDThh:mm:ss");
+        }
+        //843b26ff-4342-4640-bf4a-272e146022ae
+        $(document).ready(function () {
+            $("#btnSql").click(function () {
+                $("#tbody").find("tr").each(function (index, element) {
+                    var $tr = $(element);
+                    var meterReadingId = $tr.attr("mr");
+                    var bd = {
+                        "cols": "sum(-money) money,sum(-gas) gas,b.gasfeeAccountId,b.customerCode,b.chgAccountId,b.chargeUnitId,c.areaId,c.gasTypeId,c.customerKind,c.customerType"
+                        , "froms": "errBllMeterReading1 a inner join gasActGasfeeAtl b on a.gasfeeAtlId = b.gasfeeAtlId inner join gasCtmArchive c on b.customerCode=c.customerCode"
+                        , "wheres": "a.meterReadingId='" + meterReadingId + "'  group by b.gasfeeAccountId,b.customerCode,b.chgAccountId,b.chargeUnitId,c.areaId,c.gasTypeId,c.customerKind,c.customerType", "page": false
+                    };
+                    $.ajax({
+                        type: 'get',
+                        url: '/hzqs/dbc/pbsel.do?fh=SELDBC0000000J00&resp=bd&bd=' + JSON.stringify(bd),
+                        dataType: 'json',
+                        contentType: "application/json; charset=utf-8",
+                        async: true,
+                        success: function (data, textStatus, xhr) {
+                            if (data.rows[0].money != "0") {
+                                var sql = "insert into GAS_ACT_GASFEE_ATL (" +
+                                    "MODIFIED_TIME,CREATED_TIME,GASFEE_ATL_ID," +
+                                    "GASFEE_ACCOUNT_ID," +
+                                    "CUSTOMER_CODE," +
+                                    "TRADE_TYPE," +
+                                    "GAS," +
+                                    "MONEY," +
+                                    "TRADE_DATE," +
+                                    "CLR_TAG," +
+                                    "RESERVED_FIELD1," +
+                                    "CHG_ACCOUNT_ID," +
+                                    "AREA_ID," +
+                                    "GAS_TYPE_ID," +
+                                    "CUSTOMER_KIND," +
+                                    "CUSTOMER_TYPE," +
+                                    "TRADE_NO," +
+                                    "TRADE_TYPE_DESC" +
+                                    ")    " +
+                                    "VALUES (" +
+                                    "sysdate,sysdate,sys_guid()," +
+                                    "'" + data.rows[0].gasfeeAccountId + "'," +
+                                    "'" + data.rows[0].customerCode + "'," +
+                                    (data.rows[0].customerType == "P" ? "'BLL'," : "'ICB',") +
+                                    "'" + data.rows[0].gas + "'," +
+                                    "'" + data.rows[0].money + "'," +
+                                    "sysdate," +
+                                    "'0'," +
+                                    "'发生重复计费，系统自动冲正'," +
+                                    "'" + data.rows[0].chgAccountId + "'," +
+                                    "'" + data.rows[0].areaId + "'," +
+                                    "'" + data.rows[0].gasTypeId + "'," +
+                                    "'" + data.rows[0].customerKind + "'," +
+                                    "'" + data.rows[0].customerType + "'," +
+                                    "'510d4e16-ff35-46c9-a73f-a20e85b2ba14'," +
+                                    "'BLLCORRECT'" +
+                                    ");";
+                                $tr.find("td[idt=sql]").html(sql);
+                            }
+                            //$tr.find("td[idt=gas]").html(data.rows[0].gas);
+                            //$tr.find("td[idt=money]").html(data.rows[0].money);
+
+                        },
+                        error: function (err) {
+                            if (err.status == 403) { }
+                        }
+                    });
+                });
+
+
+            });
+            $("#btnGen").click(function () {
+                var bd = {
+                    "cols": "distinct a.meterReadingId,c.customerKind,c.customerType"
+                    , "froms": "errBllMeterReading1 a inner join gasBllDetail b on a.meterReadingId = b.meterReadingId inner join gasCtmArchive c on b.ctmArchiveId = c.ctmArchiveId"
+                    , "wheres": "", "page": false
+                };
+                $.ajax({
+                    type: 'get',
+                    url: '/hzqs/dbc/pbsel.do?fh=SELDBC0000000J00&resp=bd&bd=' + JSON.stringify(bd),
+                    dataType: 'json',
+                    contentType: "application/json; charset=utf-8",
+                    async: false,
+                    success: function (data, textStatus, xhr) {
+                        var i = 0;
+                        data.rows.forEach(function (element) {
+                            $("#tbody").append("<tr mr='" + element.meterReadingId + "'><td>" + element.meterReadingId + "</td><td>" + (element.customerKind == '1' ? '居民' : '非居民') + "</td><td>" + (element.customerType == 'I' ? 'IC卡' : '普表') + "</td><td idt='gas'></td><td idt='money'></td><td idt='sql'></td></tr>");
+                            i = i + 1;
+                        });
+                        $("#errCount").html(i);
+                    },
+                    error: function (err) {
+                        if (err.status == 403) { }
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+<!-- END BODY -->
+
+</html>

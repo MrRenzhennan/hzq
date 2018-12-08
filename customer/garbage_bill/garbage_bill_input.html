@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]>
+<html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+
+<!-- BEGIN HEAD -->
+<head>
+    <title>垃圾费发票录入</title>
+    <base href="../../">
+    <link href="assets/global/plugins/bootstrap-fileinput/fileinput.css" rel="stylesheet">
+    <script src="pages/scripts/header.js"></script>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-select/bootstrap-select.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/select2/select2.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/jquery-multi-select/css/multi-select.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-datepicker/css/datepicker3.css"/>
+    <!-- BEGIN THEME STYLES -->
+    <link href="assets/global/css/components.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
+
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/previewPicture/css/component.css"/>
+    <script type="text/javascript" src="assets/global/plugins/previewPicture/js/modernizr.custom.js"></script>
+    <!-- END THEME STYLES -->
+</head>
+<!-- END HEAD -->
+<body class="page-header-fixed page-quick-sidebar-over-content">
+<!-- 标题栏开始 -->
+<div class="page-header navbar navbar-fixed-top">
+    <script>$.include("pages/partial/menu.shtml");</script>
+</div>
+<!-- 标题栏结束 -->
+<div class="clearfix"></div>
+<div class="page-container">
+    <!-- 左侧菜单开始 -->
+    <div class="page-sidebar-wrapper">
+        <script>$.include("pages/partial/sidebar.shtml");</script>
+    </div>
+    <!-- 左侧菜单结束 -->
+
+    <!-- 主内容开始 -->
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <!--内容头开始-->
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa fa-map-marker"></i>
+                            <a href="javascript:;">垃圾费发票管理</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="javascript:;">垃圾费发票入库</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="javascript:;">垃圾费发票录入</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 内容头结束-->
+            <!-- 内容开始-->
+            <div class="container-fluid">
+                <div class="add-form">
+                    <!-- begin form-->
+                    <form role="form" onsubmit="return false" id="form">
+                        <div class="form-body">
+                            <div class="row form-group">
+                                <div class="col-sm-3 form-group">
+                                    <div class="btn-group input-group">
+                                        <div class="input-group-addon">发票面额:</div>
+                                        <input id="invoiceAmount" name="invoiceAmount" class="inputclear form-control" type="text" placeholder="发票面额" disabled>
+                                        <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 form-group">
+                                    <div class="btn-group input-group">
+                                        <div class="input-group-addon">入库人:</div>
+                                        <input id="inOperator" class="inputclear form-control" type="text" placeholder="入库人" disabled>
+                                        <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-3" id="dg_unbolttime">
+                                    <label class="control-label col-md-4">入库日期:</label>
+                                    <div class="col-md-8" id="di_unbolttime">
+                                        <input id="inDate" name="inDate" id="inDate" data-date-format="yyyy-mm-dd"
+                                               type="text" class="form-control form-control-inline date-picker"
+                                               placeholder="入库日期">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <!--end form-->
+                </div>
+            </div>
+            <div class="tabbable tabbable-custom tabbable-custom-profile col-md-12" style="padding-bottom:0px">
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#tab_1_22" data-toggle="tab">
+                            入库明细 </a>
+                    </li>
+                </ul>
+                <!--/row-->
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab11">
+                        <div class="portlet-body">
+                            <table class="watable table table-striped table-hover table-bordered table-condensed">
+                                <thead>
+                                <th></th>
+                                <th>箱号</th>
+                                <th>起始号</th>
+                                <th>终止号</th>
+                                <th>份数</th>
+                                </thead>
+                                <tbody id="tbody">
+                                <tr>
+                                    <td width="15px"></td>
+                                    <td><input type="text" name="boxNumber" class="form-control" placeholder="箱号"></td>
+                                    <td><input type="text" id="startNumber" name="startNumber" class="form-control" placeholder="起始号">
+                                    <td><input type="text" id="endNumber" name="endNumber" class="form-control" placeholder="终止号"></td>
+                                    <td><input type="text" id="invoiceCount" name="invoiceCount" class="form-control" placeholder="份数">
+                                    </td>
+                                </tr>
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                    <td colspan="6"><img id="add_btn" class="img-responsive center-block"
+                                                         src="assets/global/img/add.png"
+                                                         style="width: 32px;height: 32px"></td>
+                                </tr>
+                                </tfoot>
+                            </table>
+                            <!--/row-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tabbable tabbable-custom tabbable-custom-profile col-md-12" style="padding-bottom:0px">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab114">
+                        <div class="portlet-body">
+                            <div class="row form-group">
+                                <div class="col-sm-6 form-group">
+                                    <div class="btn-group input-group" style="width: 100%">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-sm-6 form-group" style="margin-left: 35%">
+                                    <button id="cancel" onclick="Audit()" type="button" class="btn red default"
+                                            style="margin-left: 20%">
+                                        取消
+                                    </button>
+                                    <button id="save_btn" type="button" class="btn blue">保存</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 内容结束-->
+        </div>
+    </div>
+    <!-- 主内容结束 -->
+</div>
+<script type="text/javascript">$.include("pages/partial/xwatable-form.shtml")</script>
+<!-- 底边栏开始 -->
+<script>$.include("pages/partial/foot.shtml");</script>
+<!-- 底边栏结束 -->
+</body>
+
+<script>$.include("pages/partial/scripts.shtml");</script>
+
+<script type="text/javascript" src="assets/global/plugins/bootstrap-fileinput/fileinput.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-fileinput/zh.js"></script>
+<script type="text/javascript" src="pages/scripts/refhelper.js"></script>
+<script type="text/javascript" src="pages/scripts/rqlbuilder.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-multi-select/js/jquery.multi-select.js"></script>
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-daterangepicker/moment.min.js"></script>
+<script type="text/javascript"
+        src="assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script src="pages/scripts/jquery.json.min.js"></script>
+<script type="text/javascript" src="pages/scripts/jquery.serialize-object.min.js"></script>
+<script src="assets/admin/pages/scripts/components-pickers.js"></script>
+<script src="mods/sys.js"></script>
+<script src="customer/garbage_bill/js/garbage_bill_input.js"></script>
+
+</html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]>
+<html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <title>综合业务办理</title>
+    <base href="../">
+    <script src="pages/scripts/basepath.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-select/bootstrap-select.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/select2/select2.css">
+    <script src="pages/scripts/header.js"></script>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8"/>
+</head>
+<!-- END HEAD -->
+<body class="page-header-fixed page-quick-sidebar-over-content">
+<!-- 标题栏开始 -->
+<div class="page-header navbar navbar-fixed-top">
+    <script>$.include("pages/partial/menu.shtml");</script>
+</div>
+<!-- 标题栏结束 -->
+<div class="clearfix"></div>
+<div class="page-container ">
+    <!-- 左侧菜单开始 -->
+    <div class="page-sidebar-wrapper">
+        <script>$.include("pages/partial/sidebar.shtml");</script>
+    </div>
+    <!-- 左侧菜单结束 -->
+    <!-- 主内容开始 -->
+    <div class="page-content-wrapper">
+        <div class="page-content clearfix">
+            <!--内容头开始-->
+            <script>$.include("common/navigation_bar.shtml");</script>
+            <!-- 内容头结束-->
+                <!-- 查询条件控件 -->
+            <div style="width: 60%;margin: 0 auto">
+                <div class="col-md-12" style="">
+                    <!-- 查询条件控件 -->
+                    <div class="col-md-7 form-group">
+                        <div class="btn-group input-group">
+                            <div class="input-group-addon">业务编号：</div>
+                            <input id="find_key" onkeydown="keyDown(event)" class="inputclear form-control" type="text"
+                                   placeholder="业务编号">
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <button onclick="selectService()" type="button" class="btn yellow">
+                            查询 <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="tabbable tabbable-custom tabbable-custom-profile col-md-12" style="padding-bottom:0px">
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#tab11" data-toggle="tab">
+                            营业类业务 </a>
+                    </li>
+                </ul>
+                <!--/row-->
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab11">
+                        <div class="portlet-body" id="__tasklist" style="margin-left: 10%">
+                            <div class="row col-md-offset-1">
+                                <div>
+                                    <a href="collectfee/chargenew.html" class="icon-btn col-sm-2">
+                                        001
+                                        <i class="fa {icon}"></i>
+                                        <div>购气储蓄</div>
+                                    </a>
+                                    <a href="collectfee/icchargenew.html" class="icon-btn col-sm-2">
+                                        002
+                                        <i class="fa {icon}"></i>
+                                        <div>IC卡收费</div>
+                                    </a>
+                                    <a href="collectfee/chargenew.html" class="icon-btn col-sm-2">
+                                        003
+                                        <i class="fa {icon}"></i>
+                                        <div>垃圾处理费收费</div>
+                                    </a>
+                                    <!-- <a href="serviceManage/meter_charging.html" class="icon-btn col-sm-2">
+                                        004
+                                        <i class="fa {icon}"></i>
+                                        <div>抄表计费</div>
+                                    </a> -->
+                                    <a href="serviceManage/refund_application.html" class="icon-btn col-sm-2">
+                                        004
+                                        <i class="fa {icon}"></i>
+                                        <div>退款申请</div>
+                                    </a>
+                                    <a href="serviceManage/change_yarchives.html" class="icon-btn col-sm-2">
+                                        005
+                                        <i class="fa {icon}"></i>
+                                        <div>客户档案变更</div>
+                                    </a>
+                                    <a href="serviceManage/change_name.html" class="icon-btn col-sm-2">
+                                        006
+                                        <i class="fa {icon}"></i>
+                                        <div>更名过户</div>
+                                    </a>
+                                   <!--  <a href="serviceManage/change_aggregate.html" class="icon-btn col-sm-2">
+                                        008
+                                        <i class="fa {icon}"></i>
+                                        <div>合户管理</div>
+                                    </a>
+                                    <a href="serviceManage/change_separate.html" class="icon-btn col-sm-2">
+                                        009
+                                        <i class="fa {icon}"></i>
+                                        <div>分户管理</div>
+                                    </a> -->
+                                    <a href="serviceManage/series_connection.html" class="icon-btn col-sm-2">
+                                        007
+                                        <i class="fa {icon}"></i>
+                                        <div>串户申请</div>
+                                    </a>
+                                    <a href="collectfee/iccardrewrite.html" class="icon-btn col-sm-2">
+                                        008
+                                        <i class="fa {icon}"></i>
+                                        <div>IC卡补卡</div>
+                                    </a>
+                                    <a href="collectfee/iccomplementapply.html" class="icon-btn col-sm-2">
+                                        009
+                                        <i class="fa {icon}"></i>
+                                        <div>IC卡补量</div>
+                                    </a>
+                                    <a href="serviceManage/discount_apply.html" class="icon-btn col-sm-2">
+                                        010
+                                        <i class="fa {icon}"></i>
+                                        <div>特殊用户优惠申请</div>
+                                    </a>
+                                    <!-- <a href="serviceManage/big_client.html" class="icon-btn col-sm-2">
+                                        015
+                                        <i class="fa {icon}"></i>
+                                        <div>附属户管理</div>
+                                    </a> -->
+                                    <a href="serviceManage/domestic_population_change.html" class="icon-btn col-sm-2">
+                                        011
+                                        <i class="fa {icon}"></i>
+                                        <div>家庭人口变更</div>
+                                    </a>
+                                    <a href="serviceManage/refund_registration.html" class="icon-btn col-sm-2">
+                                        012
+                                        <i class="fa {icon}"></i>
+                                        <div>退款领取登记</div>
+                                    </a>
+                                    <a href="serviceManage/long_no_use_gas.html" class="icon-btn col-sm-2">
+                                        013
+                                        <i class="fa {icon}"></i>
+                                        <div>长期不用气申请</div>
+                                    </a>
+                                     <a href="collectfee/icrefund.html" class="icon-btn col-sm-2">
+                                        014
+                                        <i class="fa {icon}"></i>
+                                        <div>IC卡退款</div>
+                                    </a> 
+                                    <a href="serviceManage/long_no_gas_recovery.html" class="icon-btn col-sm-2">
+                                        015
+                                        <i class="fa {icon}"></i>
+                                        <div>长期不用气恢复用气</div>
+                                    </a>
+                                    <a href="collectfee/icchargeadjust.html" class="icon-btn col-sm-2">
+                                        016
+                                        <i class="fa {icon}"></i>
+                                        <div>IC卡顺价收费</div>
+                                    </a>  
+                                    <!-- <a href="serviceManage/bill_printing_services.html" class="icon-btn col-sm-2">
+                                        018
+                                        <i class="fa {icon}"></i>
+                                        <div>账单打印服务</div>
+                                    </a> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tabbable tabbable-custom tabbable-custom-profile col-md-12" style="padding-bottom:0px">
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#tab12" data-toggle="tab">
+                            工程类业务 </a>
+                    </li>
+                </ul>
+                <!--/row-->
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab12">
+                        <div class="portlet-body" id="__tasklist1" style="margin-left: 10%">
+                            <div class="row">
+                                <div>
+                                    <a id="open_switch" href="serviceManage/open_switch.html" class="icon-btn col-sm-2">
+                                        101
+                                        <i class="fa {icon}"></i>
+                                        <div>零散开栓受理</div>
+                                    </a>
+                                    <!--<a href="serviceManage/user_type_change.html" class="icon-btn col-sm-2">-->
+                                        <!--102-->
+                                        <!--<i class="fa {icon}"></i>-->
+                                        <!--<div>用户类别变更受理</div>-->
+                                    <!--</a>-->
+                                    <a href="serviceManage/gas_change.html" class="icon-btn col-sm-2">
+                                        102
+                                        <i class="fa {icon}"></i>
+                                        <div>用气性质变更受理</div>
+                                    </a>
+                                    <a href="serviceManage/add_del_volume.html" class="icon-btn col-sm-2">
+                                        103
+                                        <i class="fa {icon}"></i>
+                                        <div>增减容受理</div>
+                                    </a>
+                                    <a href="serviceManage/stop_gas.html" class="icon-btn col-sm-2">
+                                        104
+                                        <i class="fa {icon}"></i>
+                                        <div>暂停用气受理</div>
+                                    </a>
+                                    <a href="serviceManage/reuse_gas.html" class="icon-btn col-sm-2">
+                                        105
+                                        <i class="fa {icon}"></i>
+                                        <div>重新用气受理</div>
+                                    </a>
+                                    <a href="serviceManage/meter_destory.html" class="icon-btn col-sm-2">
+                                        106
+                                        <i class="fa {icon}"></i>
+                                        <div>拆除</div>
+                                    </a>
+                                    <a href="serviceManage/change_meter.html" class="icon-btn col-sm-2">
+                                        107
+                                        <i class="fa {icon}"></i>
+                                        <div>用户换表受理</div>
+                                    </a>
+                                    <!-- <a href="serviceManage/no_resident_meter_destory.html" class="icon-btn col-sm-2">
+                                        108
+                                        <i class="fa {icon}"></i>
+                                        <div>非居民表具故障受理</div>
+                                    </a>
+                                    <a href="serviceManage/gas_installation.html" class="icon-btn col-sm-2">
+                                        109
+                                        <i class="fa {icon}"></i>
+                                        <div>燃气器具及设备安装受理</div>
+                                    </a> -->
+                                    <!--<a href="serviceManage/meter_zero.html" class="icon-btn col-sm-2">-->
+                                        <!--108-->
+                                        <!--<i class="fa {icon}"></i>-->
+                                        <!--<div>在线表指针清零受理</div>-->
+                                    <!--</a>-->
+                                    <!-- <a href="serviceManage/meter_detection.html" class="icon-btn col-sm-2">
+                                        111
+                                        <i class="fa {icon}"></i>
+                                        <div>表具检测受理</div>
+                                    </a> -->
+                                    <!-- <a href="serviceManage/meter_zero.html" class="icon-btn col-sm-2">
+                                        112
+                                        <i class="fa {icon}"></i>
+                                        <div>换表差错受理</div>
+                                    </a> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 内容开始-->
+        </div>
+    </div>
+</div>
+
+
+<!-- 主内容结束 -->
+</div>
+
+</body>
+<script>$.include("pages/partial/scripts.shtml");</script>
+<script src="assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+<script src="serviceManage/js/business_process.js"></script>
+</html>

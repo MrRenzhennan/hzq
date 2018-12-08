@@ -1,0 +1,28 @@
+<div class="btn-group form-group">
+    <button id="idcardread" class="btn blue">
+        <i class="fa fa-credit-card"></i> 识别身份证&nbsp;
+    </button>
+</div>
+<script>
+    var idcardinformation;
+    $("#idcardread").on("click",function(){
+        $.ajax({
+            url:'http://127.0.0.1:9000/?data={"cmdheader":{"cmdtype":"23"}}',
+            type:"get",
+            jsonp: "callfuncname",
+            dataType: "JSONP",
+            async: false,
+            success:function(data){
+                console.log(data);
+                if(data.result.resultcode !="1"){
+                    idcardinformation = data.result;
+                    var fn = window["idcard"];
+                    if (typeof(fn)==='function') {
+                        fn.call(null, idcardinformation);
+                    }
+                }
+
+            }
+        })
+    })
+</script>

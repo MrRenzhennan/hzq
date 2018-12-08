@@ -1,0 +1,23 @@
+
+<script type="text/x-template" id="__dust__icgasMeterRowInfo">
+    {#data}
+    <tr>
+
+        <td>
+            {areaName}
+        </td>
+        <td>
+            {address}
+        </td>
+        <td>
+            {gasKindName}
+        </td>
+        <td>
+            {gasTypeName}
+        </td>
+        <td>
+            {meterState}
+        </td>
+    </tr>
+    {/data}
+</script>

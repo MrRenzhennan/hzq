@@ -1,0 +1,11 @@
+{"rows":
+[
+  {"UUID":"001","userID":"100230001","isaccount":"是","userName":"张三","collectTime":"2016-11-11 12:12:12","yyyName":"王丽","shyName":"马志","shmethod":"现金","type":"普通收费","yy":"中国银行","money":"23490"}
+,{"UUID":"002","userID":"100230001","isaccount":"是","userName":"张三","collectTime":"2016-11-11 12:12:12","yyyName":"王丽","shyName":"马志","shmethod":"现金","type":"普通收费","yy":"中国银行","money":"23490"}
+,{"UUID":"003","userID":"100230001","isaccount":"是","userName":"张三","collectTime":"2016-11-11 12:12:12","yyyName":"王丽","shyName":"马志","shmethod":"POS机","type":"普通收费","yy":"中国银行","money":"23490"}
+,{"UUID":"00","userID":"100230001","isaccount":"是","userName":"张三","collectTime":"2016-11-11 12:12:12","yyyName":"张雪","shyName":"马志","shmethod":"现金","type":"普通收费","yy":"中国银行","money":"23490"}
+]
+,"total_rows":1
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

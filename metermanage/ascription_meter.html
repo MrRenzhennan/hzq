@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+
+<!-- BEGIN HEAD -->
+<head>
+
+    <title>表具无库存归属</title>
+    <base href="../../">
+    <meta charset="UTF-8">
+    <meta http-equiv="content-type" content="text/html" charset="utf-8"/>
+
+    <script src="pages/scripts/header.js"></script>
+    <link href='assets/global/plugins/jquery-watable/watable.css' rel='stylesheet'/>
+    <link href='assets/global/plugins/jquery-watable/animate.min.css' rel='stylesheet'/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-select/bootstrap-select.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/select2/select2.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/jquery-multi-select/css/multi-select.css"/>
+
+    <!-- BEGIN THEME STYLES -->
+    <link href="assets/global/css/components.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
+
+    <link href="assets/global/plugins/jquery-file-upload/blueimp-gallery/blueimp-gallery.min.css" rel="stylesheet"/>
+
+    <!--文件选择-->
+    <link href="assets/global/plugins/bootstrap-fileinput/fileinput.css" rel="stylesheet">
+    <link href="assets/global/plugins/jquery-file-upload/css/jquery.fileupload.css" rel="stylesheet"/>
+    <link href="assets/global/plugins/jquery-file-upload/css/jquery.fileupload-ui.css" rel="stylesheet"/>
+
+
+
+</head>
+<!-- END HEAD -->
+
+<body class="page-header-fixed page-quick-sidebar-over-content">
+
+<!-- 标题栏开始 -->
+<div class="page-header navbar navbar-fixed-top">
+    <script>$.include("pages/partial/menu.shtml");</script>
+</div>
+<!-- 标题栏结束 -->
+<div class="clearfix"></div>
+<div class="page-container">
+    <!-- 左侧菜单开始 -->
+    <div class="page-sidebar-wrapper">
+        <script>$.include("pages/partial/sidebar.shtml");</script>
+    </div>
+    <!-- 左侧菜单结束 -->
+
+    <!-- 主内容开始 -->
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <!--内容头开始-->
+            <script>$.include("common/navigation_bar.shtml");</script>
+            <div class="tabbable tabbable-custom">
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#tab_1_1" data-toggle="tab">
+                            无归属表具 </a>
+                    </li>
+                    <li>
+                        <a href="#tab_1_2" data-toggle="tab" class="lingqu">
+                            已领取 </a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab_1_1">
+                        <div class="scroller" style="height: auto;" data-always-visible="1" data-rail-visible="0">
+                            <div class="container col-sm-12" style="padding-bottom:0px">
+                                    <div class="col-sm-3 form-group">
+                                            <div class="btn-group input-group input-select2me">
+                                                <div class="input-group-addon">表编号:</div>
+                                                <input id="meterCode" type="text" class="inputclear form-control" placeholder="表编号">
+                                                <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 form-group">
+                                            <div class="btn-group input-group  input-select2me">
+                                                <div class="input-group-addon">表具类型:</div>
+                                                <select id="find_meterTypeId" name="meterTypeId" class="form-control input-middle select2me"
+                                                        data-placeholder="表具类型...">
+                                                    <option value="">全部</option>
+                                                </select>
+                                                <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 form-group">
+                                            <div class="btn-group input-group  input-select2me">
+                                                <div class="input-group-addon">物品种类:</div>
+                                                <select id="resKind" name="reskindId" class="form-control input-middle select2me"
+                                                        data-placeholder="物品种类...">
+                                                    <option value="">全部</option>
+                                                </select>
+                                                <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 form-group">
+                                            <div class="btn-group input-group  input-select2me">
+                                                <div class="input-group-addon">厂家名称:</div>
+                                                <select id="factoryName"  name="factoryId" class="form-control input-middle select2me"
+                                                        data-placeholder="厂家名称...">
+                                                    <option value="">全部</option>
+                                                </select>
+                                                <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 form-group">
+                                            <div class="btn-group input-group  input-select2me">
+                                                <div class="input-group-addon">表具规格型号:</div>
+                                                <select id="meterModelId" name="meterModelId" class="form-control input-middle select2me"
+                                                        data-placeholder="表具规格型号...">
+                                                    <option value="">全部</option>
+                                                </select>
+                                                <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 form-group">
+                                            <div class="btn-group input-group  input-select2me">
+                                                <div class="input-group-addon">流量范围:</div>
+                                                <select id="flowRange" name="flowRange" class="form-control input-middle select2me"
+                                                        data-placeholder="流量范围...">
+                                                    <option value="">全部</option>
+                                                </select>
+                                                <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                            </div>
+                                        </div>
+                    
+                                        <div class="col-sm-3 form-group">
+                                            <div class="btn-group input-group input-select2me">
+                                                <div class="input-group-addon">库存状态:</div>
+                                                <select id="stockState" class="form-control input-middle select2me"
+                                                        data-placeholder="库存状态...">
+                                                    <option value="">全部</option>
+                                                    <option value="0">未登记</option>
+                                                    <option value="1">在库</option>
+                                                    <option value="2">冻结</option>
+                                                    <option value="3">在途</option>
+                                                    <option value="4">上线</option>
+                                                    <option value="5">下线</option>
+                                                    <option value="6">报废</option>
+                                                </select>
+                                                <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                            </div>
+                                        </div>
+                                <div class="col-sm-3 form-group">
+                                    <div class="btn-group form-group">
+                                        <button id="find_button1" class="btn yellow">
+                                            查询&nbsp; <i class="fa fa-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container-fluid">
+                                <div id="divtable" class="table-responsive container-fluid col-md-12" style="background-color: #ffffff">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="tab_1_2">
+                        <div class="scroller" data-always-visible="1" data-rail-visible1="0">
+
+                                <div class="container col-sm-12" style="padding-bottom:0px">
+                                    <div class="col-sm-3 form-group">
+                                            <div class="btn-group input-group input-select2me">
+                                                <div class="input-group-addon">表编号:</div>
+                                                <input id="meterCode1" type="text" class="inputclear form-control" placeholder="表编号">
+                                                <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 form-group">
+                                            <div class="btn-group input-group  input-select2me">
+                                                <div class="input-group-addon">表具类型:</div>
+                                                <select id="find_meterTypeId1" name="meterTypeId" class="form-control input-middle select2me"
+                                                        data-placeholder="表具类型...">
+                                                    <option value="">全部</option>
+                                                </select>
+                                                <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 form-group">
+                                            <div class="btn-group input-group  input-select2me">
+                                                <div class="input-group-addon">物品种类:</div>
+                                                <select id="resKind1" name="reskindId" class="form-control input-middle select2me"
+                                                        data-placeholder="物品种类...">
+                                                    <option value="">全部</option>
+                                                </select>
+                                                <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 form-group">
+                                            <div class="btn-group input-group  input-select2me">
+                                                <div class="input-group-addon">厂家名称:</div>
+                                                <select id="factoryName1"  name="factoryId" class="form-control input-middle select2me"
+                                                        data-placeholder="厂家名称...">
+                                                    <option value="">全部</option>
+                                                </select>
+                                                <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 form-group">
+                                            <div class="btn-group input-group  input-select2me">
+                                                <div class="input-group-addon">表具规格型号:</div>
+                                                <select id="meterModelId1" name="meterModelId" class="form-control input-middle select2me"
+                                                        data-placeholder="表具规格型号...">
+                                                    <option value="">全部</option>
+                                                </select>
+                                                <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 form-group">
+                                            <div class="btn-group input-group  input-select2me">
+                                                <div class="input-group-addon">流量范围:</div>
+                                                <select id="flowRange1" name="flowRange" class="form-control input-middle select2me"
+                                                        data-placeholder="流量范围...">
+                                                    <option value="">全部</option>
+                                                </select>
+                                                <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                            </div>
+                                        </div>
+                    
+                                        <div class="col-sm-3 form-group">
+                                            <div class="btn-group input-group input-select2me">
+                                                <div class="input-group-addon">库存状态:</div>
+                                                <select id="stockState1" class="form-control input-middle select2me"
+                                                        data-placeholder="库存状态...">
+                                                    <option value="">全部</option>
+                                                    <option value="0">未登记</option>
+                                                    <option value="1">在库</option>
+                                                    <option value="2">冻结</option>
+                                                    <option value="3">在途</option>
+                                                    <option value="4">上线</option>
+                                                    <option value="5">下线</option>
+                                                    <option value="6">报废</option>
+                                                </select>
+                                                <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                            </div>
+                                        </div>
+                                <div class="col-sm-3 form-group">
+                                    <div class="btn-group form-group">
+                                        <button id="find_button2" class="btn yellow">
+                                            查询&nbsp; <i class="fa fa-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container-fluid">
+                                <div id="divtable1" class="table-responsive container-fluid col-md-12" style="background-color: #ffffff">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- 内容结束-->
+        </div>
+    </div>
+</div>
+<!-- 主内容结束 -->
+
+
+<div class="modal fade" id="pre_signed" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" backdrop=false>
+    <div class="modal-dialog" style="width:60%">
+        <div class="modal-content" style="width:100%">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">表具认领</h4>
+            </div>
+            <div class="modal-body">
+                <div class="col-md-12"  style="margin-bottom:10px;">
+                    <label class="control-label col-md-1">备注：</label>
+                    <div class="col-md-11">
+                        <input name="remark" id="remarks" type="text" class="form-control" placeholder="备注" required="">
+                        <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                    </div>
+                </div>
+                <script>$.include("common/gpyupload.shtml");</script>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" id="claimsubmit" class="btn btn-primary" >领取</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">$.include("pages/partial/xwatable-form.shtml")</script>
+</body>
+
+
+<script>$.include("pages/partial/scripts.shtml");</script>
+<script type="text/javascript" src="assets/global/plugins/jquery-watable/jquery.watable.js"></script>
+<script type="text/javascript" src="pages/scripts/rqlbuilder.js"></script>
+<script type="text/javascript" src="pages/scripts/xwatable.js"></script>
+<script type="text/javascript" src="pages/scripts/refhelper.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+
+<script type="text/javascript" src="assets/global/plugins/bootstrap-fileinput/fileinput.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-fileinput/zh.js"></script>
+
+<script type="text/javascript" src="assets/global/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-multi-select/js/jquery.multi-select.js"></script>
+
+<script src="mods/timeslot.js"></script>
+<script src="mods/basismanage.js"></script>
+<script src="mods/ctm.js"></script>
+<script src="mods/sys.js"></script>
+<script src="/metermanage/js/ascription_meter.js"></script>
+
+<script src="assets/admin/pages/scripts/form-fileupload.js"></script>
+
+<!-- END PAGE LEVEL SCRIPTS -->
+<script type="text/javascript">
+    $('.file-loading').fileinput({
+        language: 'zh'
+    });
+    borrowmeter.init()
+    // ctmSpecialAction.init();
+</script><!-- End of User Script-->
+
+
+</html>

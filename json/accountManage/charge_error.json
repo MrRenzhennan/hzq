@@ -1,0 +1,15 @@
+{"rows":
+[
+    {"UUID":"1","cusNumber":"客户编号一","cusName":"客户名称一","meterName":"表户名称一","copyTime":"2016-01-01","meterReading":"230","premeterReading":"206","reviseReading":"0","prevReviseReading":"0","finallyMeasure":"24","price":"1","gasFee":"24","billTime":"2016-01-01 20:00:00"},
+    {"UUID":"2","cusNumber":"客户编号二","cusName":"客户名称二","meterName":"表户名称二","copyTime":"2016-01-01","meterReading":"45","premeterReading":"28","reviseReading":"0","prevReviseReading":"0","finallyMeasure":"27","price":"1","gasFee":"27","billTime":"2016-01-01 20:00:00"},
+    {"UUID":"3","cusNumber":"客户编号三","cusName":"客户名称三","meterName":"表户名称三","copyTime":"2016-01-01","meterReading":"89","premeterReading":"55","reviseReading":"0","prevReviseReading":"0","finallyMeasure":"34","price":"1","gasFee":"34","billTime":"2016-01-01 20:00:00"},
+    {"UUID":"4","cusNumber":"客户编号四","cusName":"客户名称四","meterName":"表户名称四","copyTime":"2016-01-01","meterReading":"808","premeterReading":"808","reviseReading":"0","prevReviseReading":"0","finallyMeasure":"0","price":"1","gasFee":"0","billTime":"2016-01-01 20:00:00"},
+    {"UUID":"5","cusNumber":"客户编号五","cusName":"客户名称五","meterName":"表户名称五","copyTime":"2016-01-01","meterReading":"490","premeterReading":"412","reviseReading":"0","prevReviseReading":"0","finallyMeasure":"78","price":"1","gasFee":"78","billTime":"2016-01-01 20:00:00"},
+    {"UUID":"6","cusNumber":"客户编号六","cusName":"客户名称六","meterName":"表户名称六","copyTime":"2016-01-01","meterReading":"22","premeterReading":"20","reviseReading":"0","prevReviseReading":"0","finallyMeasure":"2","price":"1","gasFee":"2","billTime":"2016-01-01 20:00:00"},
+    {"UUID":"7","cusNumber":"客户编号七","cusName":"客户名称七","meterName":"表户名称七","copyTime":"2016-01-01","meterReading":"909","premeterReading":"819","reviseReading":"0","prevReviseReading":"0","finallyMeasure":"90","price":"1","gasFee":"90","billTime":"2016-01-01 20:00:00"},
+    {"UUID":"8","cusNumber":"客户编号八","cusName":"客户名称八","meterName":"表户名称八","copyTime":"2016-01-01","meterReading":"89","premeterReading":"47","reviseReading":"0","prevReviseReading":"0","finallyMeasure":"42","price":"1","gasFee":"42","billTime":"2016-01-01 20:00:00"}
+]
+,"total_rows":8
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

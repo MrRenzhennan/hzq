@@ -1,0 +1,121 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+
+</head>
+<title>登记单信息</title>
+<base href="../">
+<body>
+<h2 style="text-align: center; margin-top: 2%">业务受理单</h2>
+<table  width="100%" style="margin-top: 2%">
+    <tr>
+        <td style="text-align: right;width: 30%">NO:</td>
+        <td >123123123123123</td>
+    </tr>
+</table>
+<table  width="100%" style="margin-top: 3%">
+    <tr>
+        <td style="text-align: right;width: 25%" >受理时间:</td>
+        <td style="width: 40%"  id="acceptTime"></td>
+        <td style="width: 7%">业务受理人:</td>
+        <td>张晓光</td>
+    </tr>
+</table>
+<table width="100%"  border="0" cellspacing="0" cellpadding="0"
+       height="160" style="margin-top: 4%">
+    <tr>
+        <td rowspan="6" align="left" width = "15%" >
+        </td>
+        <td rowspan="6" align="left" width = "10%"> 客户资料:
+        </td>
+        <td width = "40%" height="20" >
+            客户类型:	居民(单纯餐饮)
+        </td>
+        <td width = "40%" height="20" id="customerCode1">
+            客户号：
+            124001014
+
+        </td>
+    </tr>
+
+    <tr>
+
+        <td width = "40%" height="20" >
+            客户名称：
+            李剑平
+
+        </td>
+        <td width = "40%"  height="20" >
+            电话：
+            13703606855
+
+        </td>
+
+    </tr>
+    <tr>
+        <td  width = "80%"  height="20"  colspan = 2>
+            身份证号:
+
+            232301198109111315&nbsp;
+        </td>
+    </tr>
+    <tr>
+        <td width = "80%"  height="20" colspan = 2 >
+            地址：
+            南岗区沙曼六小区1楼号1单元5层2室
+
+        </td>
+    </tr>
+    <tr>
+        <td  width = "40%"  height="20" >
+            联系人姓名:
+
+            李剑平
+            &nbsp;
+        </td>
+        <td  width = "40%"  height="20"  >
+            联系人电话:
+
+            13703606855&nbsp;
+        </td>
+    </tr>
+    <tr>
+
+        <td  width = "40%"  height="20"  colspan = 2 >
+            预约时间:	&nbsp;
+        </td>
+    </tr>
+</table>
+<table style="width: 100%;margin-top:3%">
+    <tr>
+        <td style="width:21%;text-align: right">受理业务内容:</td>
+        <td style="width: 4%"></td>
+        <td>增减容</td>
+    </tr>
+
+</table>
+<div style="margin-left: 80%; margin-top: 5%">
+    <input type="button" value="打印" onclick="print()">
+    <input type="button" value="页面设置">
+    <input type="button" value="打印预览">
+</div>
+<script type="text/javascript">
+    window.onload = function(){
+        var date=new Date();
+        var accepttime=date.getFullYear()+"-"+date.getMonth()+"-"+date.getDate();
+        $("#acceptTime").text(accepttime);
+
+    }
+    function print(){
+        var href = document.location.href;
+        var wareflowId = href.split('?')[1];
+        alert(wareflowId);
+    }
+</script>
+</body>
+
+<script src="assets/global/plugins/jquery-1.11.0.min.js" type="text/javascript"></script>
+<script src="assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+</html>
+
+

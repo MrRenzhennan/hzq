@@ -1,0 +1,18 @@
+<script type="text/x-template" id="__dust__garbageHistoryRowInfo">
+    {#data}
+        <tr>
+            <td>
+                {date}
+            </td>
+            <td>
+                {chargeunitName}
+            </td>
+            <td>
+                
+            </td>
+            <td>
+                {money}
+            </td>
+        </tr>
+    {/data}
+</script>

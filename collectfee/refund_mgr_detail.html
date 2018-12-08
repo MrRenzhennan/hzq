@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]>
+<html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+
+<!-- BEGIN HEAD -->
+<head>
+    <title>退款详情</title>
+    <base href="../../">
+    <meta charset="UTF-8">
+    <meta http-equiv="content-type" content="text/html" charset="utf-8"/>
+
+    <script src="pages/scripts/header.js"></script>
+    <link href='assets/global/plugins/jquery-watable/watable.css' rel='stylesheet'/>
+    <link href='assets/global/plugins/jquery-watable/animate.min.css' rel='stylesheet'/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-select/bootstrap-select.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/select2/select2.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/jquery-multi-select/css/multi-select.css"/>
+    <link href="assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
+    <!-- BEGIN THEME STYLES -->
+    <!-- END THEME STYLES -->
+    <style media="print">
+        @page {
+            size: auto;  /* auto is the initial value */
+            margin: 0mm; /* this affects the margin in the printer settings */
+        }
+    </style>
+    <style>
+        #tableDiv{
+            background: #fff;
+        }
+        #tableDiv tr td{
+            background: #fff;
+            border:1px solid #000 !important;
+        }
+
+        @media print {
+            .noneprint {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<!-- END HEAD -->
+<body class="page-header-fixed page-quick-sidebar-over-content">
+
+<!-- 标题栏开始 -->
+<div class="page-header navbar navbar-fixed-top">
+    <script>$.include("pages/partial/menu.shtml");</script>
+</div>
+<!-- 标题栏结束 -->
+<div class="clearfix"></div>
+<div class="page-container">
+    <!-- 左侧菜单开始 -->
+    <div class="page-sidebar-wrapper">
+        <script>$.include("pages/partial/sidebar.shtml");</script>
+    </div>
+    <!-- 左侧菜单结束 -->
+
+    <!-- 主内容开始 -->
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <!--内容头开始-->
+            <div class="row noneprint" >
+                <div class="col-md-12">
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa  fa-map-marker"></i>
+                            <a href="index.html">收费管理</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">退款管理</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+
+                            <a href="javascript:void(0)">退款详情</a>
+
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+
+            <div class="container-fluid">
+                <h4 style="text-align: center; font-weight: 600;">退 款 明 细 审 批 单</h4>
+                <table class="table table-bordered" id="tableDiv">
+
+                </table>
+
+
+                <div class="col-sm-12 form-group">
+                    <div class="col-sm-12" style="font-weight: 800;font-size: 14px; line-height: 40px;">负责人审批意见:</div>
+                    <!--<div class="col-sm-3" style="font-weight: 800;font-size: 14px; line-height: 40px;">分公司经办人:</div>-->
+                    <!--<div class="col-sm-3" style="font-weight: 800;font-size: 14px; line-height: 40px;">分公司财务:</div>-->
+                    <!--<div class="col-sm-3" style="font-weight: 800;font-size: 14px; line-height: 40px;">财务部负责人:</div>-->
+                    <div class="col-md-12" id="shenpi">
+
+                    </div>
+
+                </div>
+                <!--<div class="col-sm-12" style="margin-top: 10px;">-->
+                    <!--<div class="col-sm-4 form-group">-->
+                        <!--<div class="btn-group input-group ">-->
+                            <!--<div class="input-group-addon" style="font-weight: 600;font-size: 14px;">营业部负责人:</div>-->
+                            <!--<div class="input-group-addon " style="font-size: 14px;"></div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <div class="col-sm-12" style="margin-top: 10px;">
+                    <div class="col-sm-4 form-group">
+                        <div class="btn-group input-group ">
+                            <div class="input-group-addon" style="font-weight: 600;font-size: 14px;">制表单位:</div>
+                            <div class="input-group-addon areaId" style="font-size: 14px;"></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 form-group">
+                        <div class="btn-group input-group ">
+                            <div class="input-group-addon" style="font-weight: 600;font-size: 14px;">制表人:</div>
+                            <div class="input-group-addon userId" style="font-size: 14px;"></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 form-group">
+                        <div class="btn-group input-group ">
+                            <div class="input-group-addon" style="font-weight: 600;font-size: 14px;">审批通过时间:</div>
+                            <div class="input-group-addon dayintime" style="font-size: 14px;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12" style="margin-top: 10px;">
+                    <div>
+                        <span style="font-weight: 600;font-size: 14px;display: block; width: 50px;height: 50px;float: left;">注：</span>
+                        <p>1、供气单位可凭此单领取退款。</p>
+                        <p>2、本单一式四份，供气单位留存两份，营业部（需附退款明细），财务部各留一份。</p>
+                    </div>
+                </div>
+                <div class="col-sm-12 noneprint"  style="text-align: center;margin: 30px 0;" >
+                    <button class="btn blue" id="prints">打印</button>
+                    <button class="btn blue" id="cancel">取消</button>
+                </div>
+
+            </div>
+            <!-- 内容结束-->
+        </div>
+    </div>
+</div>
+<!-- 主内容结束 -->
+
+<script type="text/javascript">$.include("pages/partial/xwatable-form.shtml")</script>
+
+<!-- 底边栏开始 -->
+<!--<script>$.include("pages/partial/foot.shtml");</script>-->
+<!-- 底边栏结束 -->
+</body>
+<script>$.include("pages/partial/scripts.shtml");</script>
+<script type="text/javascript" src="assets/global/plugins/jquery-watable/jquery.watable.js"></script>
+<script type="text/javascript" src="pages/scripts/rqlbuilder.js"></script>
+<script type="text/javascript" src="pages/scripts/xwatable.js"></script>
+<script type="text/javascript" src="pages/scripts/refhelper.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+
+<script type="text/javascript" src="assets/global/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-multi-select/js/jquery.multi-select.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-daterangepicker/moment.min.js"></script>
+<script src="collectfee/js/refund_mgr_detail.js"></script>
+<script src="mods/basismanage.js"></script>
+<script type="text/javascript">
+
+</script>
+
+</html>

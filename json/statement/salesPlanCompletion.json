@@ -1,0 +1,11 @@
+{"rows":
+[
+  {"UUID":"001","customerID":"中庆燃气公司","userID":"345.44","houseID":"9523.3","accountID":"1993.35","accountID1":"1993.61","customerName":"2225","address":"3456","photo":"3423","mobilePhone":"4065","customerCategory":"5043","customerStatus":"6033","meterBook1":"5533","customerStatus":"60522","meterBook3":"55333","customerStatus2":"60242","meterBook5":"5545.44","customerStatus4":"79%","meterBook7":"88%","customerStatus6":"86%","meterBook8":"87%","customerStatus9":"91%","meterBook10":"90%"},
+  {"UUID":"001","customerID":"道里第一营业公司","userID":"345.44","houseID":"9523.3","accountID":"1993.35","accountID1":"1993.61","customerName":"2225","address":"3456","photo":"3423","mobilePhone":"4065","customerCategory":"5043","customerStatus":"6033","meterBook1":"5533","customerStatus":"60522","meterBook3":"55333","customerStatus2":"60242","meterBook5":"5545.44","customerStatus4":"79%","meterBook7":"88%","customerStatus6":"86%","meterBook8":"87%","customerStatus9":"91%","meterBook10":"90%"},
+  {"UUID":"001","customerID":"道里第二营业公司","userID":"345.44","houseID":"9523.3","accountID":"1993.35","accountID1":"1993.61","customerName":"2225","address":"3456","photo":"3423","mobilePhone":"4065","customerCategory":"5043","customerStatus":"6033","meterBook1":"5533","customerStatus":"60522","meterBook3":"55333","customerStatus2":"60242","meterBook5":"5545.44","customerStatus4":"79%","meterBook7":"88%","customerStatus6":"86%","meterBook8":"87%","customerStatus9":"91%","meterBook10":"90%"},
+  {"UUID":"001","customerID":"道里第三营业公司","userID":"345.44","houseID":"9523.3","accountID":"1993.35","accountID1":"1993.61","customerName":"2225","address":"3456","photo":"3423","mobilePhone":"4065","customerCategory":"5043","customerStatus":"6033","meterBook1":"5533","customerStatus":"60522","meterBook3":"55333","customerStatus2":"60242","meterBook5":"5545.44","customerStatus4":"79%","meterBook7":"88%","customerStatus6":"86%","meterBook8":"87%","customerStatus9":"91%","meterBook10":"90%"}
+]
+,"total_rows":8
+,"totalPages":2
+,"skip":0
+,"limit":2147483647}

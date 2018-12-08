@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+
+<!-- BEGIN HEAD -->
+<head>
+    <title>非居民合同管理</title>
+    <base href="../">
+    <script src="pages/scripts/header.js"></script>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8"/>
+
+    <link href='assets/global/plugins/jquery-watable/watable.css' rel='stylesheet'/>
+    <link href='assets/global/plugins/jquery-watable/animate.min.css' rel='stylesheet'/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.css"/>
+
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-select/bootstrap-select.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/select2/select2.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/jquery-multi-select/css/multi-select.css"/>
+    <link href="assets/global/plugins/bootstrap-fileinput/fileinput.css" rel="stylesheet">
+
+    <!-- BEGIN THEME STYLES -->
+    <link href="assets/global/css/components.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/admin/layout/css/layout.css" rel="stylesheet" type="text/css"/>
+    <link id="style_color" href="assets/admin/layout/css/themes/default.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/admin/layout/css/custom.css" rel="stylesheet" type="text/css"/>
+    <!-- END THEME STYLES -->
+</head>
+<!-- END HEAD -->
+
+<body class="page-header-fixed page-quick-sidebar-over-content">
+
+<!-- 标题栏开始 -->
+<div class="page-header navbar navbar-fixed-top">
+    <script>$.include("pages/partial/menu.shtml");</script>
+</div>
+<!-- 标题栏结束 -->
+<div class="clearfix"></div>
+<div class="page-container">
+    <!-- 左侧菜单开始 -->
+    <div class="page-sidebar-wrapper">
+        <script>$.include("pages/partial/sidebar.shtml");</script>
+    </div>
+    <!-- 左侧菜单结束 -->
+
+    <!-- 主内容开始 -->
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <!--内容头开始-->
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa fa-home"></i>
+                            <a href="index.html">主页</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="customer/contractManagement.html">非居民合同管理</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 内容头结束-->
+
+            <!-- 内容开始-->
+            <div class="note note-success container col-sm-12" style="padding-bottom:0px">
+                <!-- 查询条件控件 -->
+                <div class="col-sm-3 form-group">
+                    <div class="btn-group input-group">
+                        <div class="input-group-addon">分公司：&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                        <select class="form-control input-small select2me" data-placeholder="选择分公司...">
+                            <option value=""></option>
+                            <option>分公司</option>
+                            <option>分公司</option>
+                            <option>分公司</option>
+                            <option>分公司</option>
+                            <option>分公司</option>
+                        </select>
+                        <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                    </div>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <div class="btn-group input-group">
+                        <div class="input-group-addon">操作员：&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                        <select class="form-control input-small select2me" data-placeholder="选择操作员...">
+                            <option value=""></option>
+                            <option>操作员</option>
+                            <option>操作员</option>
+                            <option>操作员</option>
+                            <option>操作员</option>
+                            <option>操作员</option>
+                        </select>
+                        <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                    </div>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <div class="btn-group input-group">
+                        <div class="input-group-addon">抄表本号：</div>
+                        <select class="form-control input-small select2me" data-placeholder="选择抄表本号...">
+                            <option value=""></option>
+                            <option>抄表本号</option>
+                            <option>抄表本号</option>
+                            <option>抄表本号</option>
+                            <option>抄表本号</option>
+                            <option>抄表本号</option>
+                            <option>抄表本号</option>
+                        </select>
+                        <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                    </div>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <div class="btn-group input-group">
+                        <div class="input-group-addon">合同类别：</div>
+                        <select class="form-control input-small select2me" data-placeholder="选择合同类别...">
+                            <option value=""></option>
+                            <option>合同类别</option>
+                            <option>合同类别</option>
+                            <option>合同类别</option>
+                            <option>合同类别</option>
+                            <option>合同类别</option>
+                            <option>合同类别</option>
+                        </select>
+                        <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                    </div>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <div class="btn-group input-group">
+                        <div class="input-group-addon">用气类型：</div>
+                        <select class="form-control input-small select2me" data-placeholder="选择用气类型...">
+                            <option value=""></option>
+                            <option>用气类型</option>
+                            <option>用气类型</option>
+                            <option>用气类型</option>
+                            <option>用气类型</option>
+                            <option>用气类型</option>
+                            <option>用气类型</option>
+                        </select>
+                        <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                    </div>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <div class="btn-group input-group">
+                        <div class="input-group-addon">合同编号：</div>
+                        <input id="find_contract_ID" class="inputclear form-control" type="text" placeholder="合同编号">
+                        <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                    </div>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <div class="btn-group input-group">
+                        <div class="input-group-addon">客户编号：</div>
+                        <input id="find_key" class="inputclear form-control" type="text" placeholder="客户编号">
+                        <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                    </div>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <div class="btn-group input-group">
+                        <div class="input-group-addon">客户名：&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                        <input id="find_user" class="inputclear form-control" type="text" placeholder="客户名">
+                        <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                    </div>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <div class="btn-group input-group">
+                        <div class="input-group-addon">合同类别：</div>
+                        <input id="find_contract_type" class="inputclear form-control" type="text" placeholder="合同类别">
+                        <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                    </div>
+                </div>
+                <div class="col-sm-7 form-group">
+                    <div class="btn-group input-group">
+                        <div class="input-group-addon">签订时间段：</div>
+                        <div class="input-group input-middle" >
+                            <input type="date" class="form-control" name="from">
+                            <span class="input-group-addon">
+												    至 </span>
+                            <input type="date" class="form-control" name="to">
+                        </div>
+                        <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                    </div>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <div class="btn-group form-group">
+                        <button id="find_button" class="btn yellow">
+                            查询&nbsp; <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                    <div class="btn-group form-group">
+                        <button class="btn green" data-target="#apply_sign" data-toggle="modal">
+                            申请预签&nbsp; <i class="fa fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div id="divtable" class="table-responsive container-fluid col-md-12" >
+                </div>
+            </div>
+            <!-- 内容结束-->
+        </div>
+    </div>
+    <!-- 主内容结束 -->
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="apply_sign" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">申请预签</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>客户名称</label>
+                            <input type="text" class="form-control" placeholder="客户名称">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <label>客户地址</label>
+                        <input class="form-control" cols="40" placeholder="客户地址">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>备注</label>
+                            <textarea class="form-control" placeholder="备注"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <label>录入合同1、2、3、8页</label>
+                            <input id="file-input" name="file-input" type="file" multiple class="file-loading" file-upload="#" data-upload-url="#">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" href="">保存</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="modal fade" id="import_contract" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">录入合同</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>合同编号</label>
+                                <input type="text" class="form-control" placeholder="合同编号" disabled>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>合同类别</label>
+                                <select class="form-control input-middle select2me">
+                                    <option value=""></option>
+                                    <option>合同类别——1</option>
+                                    <option>合同类别——2</option>
+                                </select>
+                                <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>合同文本编号</label>
+                                <input type="text" class="form-control" placeholder="合同文本编号">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>签订日期</label>
+                                <input type="date" class="form-control" placeholder="签订日期">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>有效期限</label>
+                                <input type="text" class="form-control" placeholder="有效期限" disabled>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>失效日期</label>
+                                <input type="date" class="form-control" placeholder="失效日期">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>用气性质</label>
+                                <select class="form-control input-middle select2me">
+                                    <option value=""></option>
+                                    <option>用气性质——1</option>
+                                    <option>用气性质——2</option>
+                                </select>
+                                <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>是否有补充协议</label>
+                                <label class="btn btn-primary active">
+                                    <input type="radio" name="options" id="option1" autocomplete="off" checked> 否
+                                </label>
+                                <label class="btn btn-primary">
+                                    <input type="radio" name="options" id="option2" autocomplete="off"> 是
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>客户名称</label>
+                                <input type="text" class="form-control" placeholder="客户名称">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>客户地址</label>
+                                <input type="text" class="form-control" placeholder="客户地址">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>备注</label>
+                                <textarea cols="40" class="form-control" placeholder="备注"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <span>上传数据</span>
+                            <input type="file" multiple class="file-loading" >
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">$.include("pages/partial/xwatable-form.shtml")</script>
+
+<!-- 底边栏开始 -->
+<script>$.include("pages/partial/foot.shtml");</script>
+<!-- 底边栏结束 -->
+</body>
+
+
+<script>$.include("pages/partial/scripts.shtml");</script>
+
+<script type="text/javascript" src="assets/global/plugins/jquery-watable/jquery.watable.js"></script>
+<script type="text/javascript" src="pages/scripts/rqlbuilder.js"></script>
+<script type="text/javascript" src="pages/scripts/xwatable.js"></script>
+<script type="text/javascript" src="pages/scripts/refhelper.js"></script>
+
+<script type="text/javascript" src="assets/global/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-multi-select/js/jquery.multi-select.js"></script>
+
+<script type="text/javascript" src="assets/global/plugins/bootstrap-fileinput/fileinput.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-fileinput/zh.js"></script>
+
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<script src="assets/admin/pages/scripts/components-pickers.js"></script>
+<!-- END PAGE LEVEL SCRIPTS -->
+<script type="text/javascript">
+    var valueFor=function(val){
+    };
+    var openButton = function() {
+        return {
+            f: function() {
+                return "<a id='d_button' href='customer/non_inhabitant_contract_detail.html'>详情&nbsp;</a> ";
+            }
+        }
+    }();
+    $(function(){
+            var arr={
+                    //----------------table的选项-------
+                pageSize: 20,           //Initial pagesize
+                columnPicker: true,         //Show the columnPicker button
+                sorting: true,
+                transition: 'fade',  //(bounce, fade, flip, rotate, scroll, slide).
+                checkboxes: false,           //Make rows checkable. (Note. You need a column with the 'unique' property)
+                checkAllToggle:false,        //Show the check-all toggle//+RQLBuilder.like("KEYY", "a").rql()
+                //----------------基本restful地址---
+                restbase: 'json/customer/contract/non_inhabitant_contract.json',
+                //---------------行定义
+                coldefs: [
+                    {
+                        col:"UUID",
+                        friendly:"操作",
+                        nonedit: "nosend",
+                        sorting:false,
+                        format:openButton,
+                        index:1
+                    },
+                    {
+                        col:"contract_ID",
+                        friendly: "合同编号",
+                        unique:true,
+                        readonly:"readonly",
+                        sorting:false,
+                        index:2,
+                        hidden:true
+                    },
+                    {
+                        col:"contract_type",
+                        friendly:"合同类别",
+                        sorting:false,
+                        index:3,
+                        hidden:true
+                    },
+                    {
+                        col:"apply_date",
+                        friendly: "申请日期",
+                        nonedit:"nosend",
+                        index:4,
+                        hidden:true
+                    },
+                    {
+                        col:"sign_date",
+                        friendly: "签订日期",
+                        nonedit:"nosend",
+                        index:4,
+                        hidden:true
+                    },
+                    {
+                        col:"valid_period",
+                        friendly:"有效期限",
+                        sorting:false,
+                        index:5,
+                        hidden:true
+                    },
+                    {
+                        col:"start_date",
+                        friendly:"生效时间",
+                        index:6,
+                        hidden:true
+                    },
+                    {
+                        col:"end_date",
+                        friendly:"到期时间",
+                        index:7,
+                        hidden:true
+                    },
+                    {
+                        col:"renewal_date",
+                        friendly:"续签时间",
+                        hidden:true,
+                        sorting:false,
+                        index:8
+                    },
+                    {
+                        col:"contract_paper_ID",
+                        friendly:"合同文本编号",
+                        sorting:false,
+                        hidden:true,
+                        index:9
+                    },
+                    {
+                        col:"added_or_not",
+                        friendly:"补充协议",
+                        hidden:true,
+                        sorting:false,
+                        index:10
+                    },
+                    {
+                        col:"remind_type",
+                        friendly:"提醒方式",
+                        hidden:true,
+                        sorting:false,
+                        index:11
+                    },
+                    {
+                        col:"branch_office",
+                        friendly:"分公司",
+                        sorting:false,
+                        index:12,
+                        hidden:true
+                    },
+                    {
+                        col:"accounting_staff",
+                        friendly:"核算员",
+                        sorting:false,
+                        index:13,
+                        hidden:true
+                    },
+                    {
+                        col:"check_staff",
+                        friendly:"查收员",
+                        sorting:false,
+                        index:14,
+                        hidden:true
+                    },
+                    {
+                        col:"meter_book_ID",
+                        friendly:"抄表本号",
+                        sorting:false,
+                        index:15,
+                        hidden:true
+                    },
+                    {
+                        col:"customer_ID",
+                        friendly:"客户编号",
+                        sorting:false,
+                        hidden:true,
+                        index:16
+                    },
+                    {
+                        col:"customer_name",
+                        friendly:"客户名",
+                        sorting:false,
+                        index:17,
+                        hidden:true
+                    },
+                    {
+                        col:"customer_address",
+                        friendly:"客户地址",
+                        sorting:false,
+                        hidden:true,
+                        index:18
+                    },
+                    {
+                        col:"use_gas_type",
+                        friendly:"用气类型",
+                        sorting:false,
+                        index:19,
+                        hidden:true
+                    },
+                    {
+                        col:"open_bolt_date",
+                        friendly:"开栓时间",
+                        sorting:false,
+                        hidden:true,
+                        index:20
+                    },
+                    {
+                        col:"contract_photo",
+                        friendly: "相关照片",
+                        nonedit:"nosend",
+                        sorting:false,
+                        hidden:true,
+                        index:21
+                    },
+                    {
+                        col:"remark",
+                        friendly:"备注",
+                        sorting:false,
+                        hidden:true,
+                        index:22
+                    }
+                ]
+            };
+            $.ajax({
+                type:'get',
+                url:'json/customer/contract/test_switch.json',
+                // dataType:'json',
+                success:function(data){
+                    console.log(data.length);
+                    for(var i=0; i<data.length; i++){
+                        if(data[i].Switch == "close"){
+                            arr.coldefs[i].hidden = true;
+                        }else{
+                            arr.coldefs[i].hidden = false;
+                        }
+                    }
+                    XWATable.init(arr);
+                }
+            });
+        }
+    );
+    $(function () {
+        $(".file-loading").fileinput({
+            language: 'zh', //设置语言
+        });
+    });
+</script><!-- End of User Script-->
+</html>

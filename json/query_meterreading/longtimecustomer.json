@@ -1,0 +1,11 @@
+{"rows":
+[
+  {"UUID":"001","customerID":"1","userID":"道里一","houseID":"张三","accountID":"小张","customerName":"654","address":"小王","photo":"道里区工程路工程小区","mobilePhone":"小王","customerCategory":"2016 7-8","customerStatus":"5667","meterBook":"4567","contract":"正在进行中"},
+  {"UUID":"001","customerID":"1","userID":"道里一","houseID":"张三","accountID":"小张","customerName":"654","address":"小王","photo":"道里区工程路工程小区","mobilePhone":"小王","customerCategory":"2016 7-8","customerStatus":"5667","meterBook":"4567","contract":"正在进行中"},
+  {"UUID":"001","customerID":"1","userID":"道里一","houseID":"张三","accountID":"小张","customerName":"654","address":"小王","photo":"道里区工程路工程小区","mobilePhone":"小王","customerCategory":"2016 7-8","customerStatus":"5667","meterBook":"4567","contract":"正在进行中"},
+  {"UUID":"001","customerID":"1","userID":"道里一","houseID":"张三","accountID":"小张","customerName":"654","address":"小王","photo":"道里区工程路工程小区","mobilePhone":"小王","customerCategory":"2016 7-8","customerStatus":"5667","meterBook":"4567","contract":"正在进行中"}
+]
+,"total_rows":8
+,"totalPages":2
+,"skip":0
+,"limit":2147483647}

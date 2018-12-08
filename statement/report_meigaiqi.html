@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]>
+<html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+
+<!-- BEGIN HEAD -->
+
+<head>
+    <title>煤改气销售查询</title>
+    <script src="../pages/scripts/basepath.js"></script>
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-select/bootstrap-select.min.css">
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/select2/select2.css">
+    <script src="../pages/scripts/header.js"></script>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8" />
+    <link href='../assets/global/plugins/jquery-watable/watable.css' rel='stylesheet' />
+    <link href='../assets/global/plugins/jquery-watable/animate.min.css' rel='stylesheet' />
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.css"
+    />
+    <link href='../assets/global/plugins/bootstrap-datetimepicker/css/datetimepicker.css' rel='stylesheet' />
+
+    <!--datapicker css start-->
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-datepicker/css/datepicker3.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-colorpicker/css/colorpicker.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css"
+    />
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-datetimepicker/css/datetimepicker.css" />
+    <!--datapicker end-->
+
+    <link rel="stylesheet" href="/statement/css/3.3.7/bootstrap.min.css">
+    <link href='../assets/global/css/bootstrap-monthpicker.css' rel='stylesheet'/>
+    <!-- END THEME STYLES -->
+    <style>
+        @media print {
+            .noneprint {
+                display: none;
+            }
+        }
+        .tabPrint td {
+            border-left: #000000 solid 1px;
+            border-top: #000000 solid 1px;
+            height: 21px;
+        }
+
+        table.tabPrint {
+            border-right: #000000 solid 1px;
+            border-bottom: #000000 solid 1px;
+        }
+
+        .nextPage {
+            page-break-after: always;
+        }
+
+        .linetd {
+            border-bottom: solid 1px #000;
+        }
+    </style>
+</head>
+<!-- END HEAD -->
+
+<body class="page-header-fixed page-quick-sidebar-over-content">
+
+    <!-- 标题栏开始 -->
+    <div class="page-header navbar navbar-fixed-top">
+        <script>
+            $.include("pages/partial/menu.shtml");
+        </script>
+    </div>
+    <!-- 标题栏结束 -->
+    <div class="clearfix"></div>
+    <div class="page-container">
+        <!-- 左侧菜单开始 -->
+        <div class="page-sidebar-wrapper">
+            <script>
+                $.include("pages/partial/sidebar.shtml");
+            </script>
+        </div>
+        <!-- 左侧菜单结束 -->
+
+        <!-- 主内容开始 -->
+        <div class="page-content-wrapper">
+            <div class="page-content">
+                <!--内容头开始-->
+                <!--内容头开始-->
+                <div class="row noneprint">
+                    <div class="col-md-12">
+                        <ul class="page-breadcrumb breadcrumb">
+                            <li>
+                                <i class="fa fa-map-marker"></i>
+                                <a href="index.html">报表统计</a>
+                                <i class="fa fa-angle-right"></i>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">煤改气销售查询    </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- 内容头结束-->
+
+                <!-- 内容开始-->
+
+                <div class="container col-sm-12 noneprint" style="padding-bottom:0px">
+                    <div class="row">
+
+                        <div class="col-sm-3 form-group">
+                            <div class="btn-group input-group">
+                                <div class="input-group-addon" style="border:0px;">开栓日期</div>
+                                <div id="div_date" class="input-group  date-picker input-daterange" data-date="11/2012" data-date-format="yyyy-mm-dd">
+                                    <input id="find_unbolt_time" type="text" class="form-control" name="from" readonly> 
+                                    <span class="inputclear glyphicon glyphicon-remove-circle hidden"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 form-group">
+                            <div class="btn-group input-group">
+                                <div class="input-group-addon" style="border:0px;">客户号</div>
+                                <div id="div_date" class="input-group">
+                                    <input id="find_customer_code" placeholder="请输入客户号" type="text" class="form-control" name="from">
+                                    <span class="inputclear glyphicon glyphicon-remove-circle hidden"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 form-group">
+                            <div class="btn-group input-group input-select2me col-sm-12">
+                                <div class="input-group-addon" style="border:0px;">用气性质</div>
+                                <select id="find_gas_type_id" class="form-control input-middle select2me" data-placeholder="供气区域...">
+                                    <option value="">全部</option>
+                                </select>
+                                <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <button id="find_sign" type="button" class="btn yellow">
+                                查询 <i class="fa fa-search"></i>
+                            </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3 form-group">
+                            <div class="btn-group input-group input-select2me col-sm-12">
+                                <div class="input-group-addon" style="border:0px;">供气单位</div>
+                                <select id="find_area_id" class="form-control input-middle select2me" data-placeholder="供气区域...">
+                                    <option value="">全部</option>
+                                </select>
+                                <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-3 form-group">
+                            <div class="btn-group input-group">
+                                <div class="input-group-addon" style="border:0px;">客户名</div>
+                                <div id="div_date" class="input-group">
+                                    <input id="find_customer_name" placeholder="请输入客户名" type="text" class="form-control" name="from">
+                                    <span class="inputclear glyphicon glyphicon-remove-circle hidden"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 form-group">
+                            <div class="btn-group input-group pull-left">
+                                <div class="input-group-addon" style="border:0px;">用气日期</div>
+                                <div class="input-group input-large date-picker input-daterange" data-date-format="yyyy-mm-dd">
+                                    <input id="find_start_trade_date" type="text" class="form-control" readonly>
+                                    <span class="inputclear glyphicon glyphicon-remove-circle hidden"></span>
+                                    <span class="input-group-addon">至</span>
+                                    <input id="find_end_trade_date" type="text" class="form-control" readonly>
+                                    <span class="inputclear glyphicon glyphicon-remove-circle hidden"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3 form-group">
+                            <div class="btn-group input-group input-select2me col-sm-12">
+                                <div class="input-group-addon" style="border:0px;">表流量</div>
+                                <input id="find_rating_flux_min" type="text" class="inputclear form-control" name="from">
+                                <span class="inputclear glyphicon glyphicon-remove-circle hidden"></span>
+                                <span class="input-group-addon">~</span>
+                                <input id="find_rating_flux_max" type="text" class="inputclear form-control" name="to">
+                                <span class="inputclear glyphicon glyphicon-remove-circle hidden"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 内容头结束-->
+
+                <div class="container-fluid">
+                    <div class="container-fluid">
+                        <div id="divtable" class="table-responsive col-md-12">
+                        </div>
+                    </div>
+                    <br/>
+                    <br/><br/></div>
+                <!-- 内容结束-->
+            </div>
+        </div>
+        <!-- 主内容结束 -->
+    </div>
+
+    <script type="text/javascript">
+        $.include("pages/partial/xwatable-form.shtml")
+    </script>
+    <!-- 底边栏开始 -->
+    <script>
+                $.include("pages/partial/foot.shtml");
+    </script>
+    <!-- 底边栏结束 -->
+</body>
+
+
+<script>
+        $.include("pages/partial/scripts.shtml");
+
+</script>
+<!--跳到原稿-->
+<script src="../assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="../assets/global/plugins/jquery-watable/jquery.watable.js"></script>
+<script type="text/javascript" src="../pages/scripts/rqlbuilder.js"></script>
+<script type="text/javascript" src="../pages/scripts/xwatable.js"></script>
+<script type="text/javascript" src="../pages/scripts/refhelper.js"></script>
+
+<!--datapicker start-->
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/clockface/js/clockface.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-daterangepicker/moment.min.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script src="../assets/admin/pages/scripts/components-pickers.js"></script>
+
+<script type="text/javascript" src="../assets/global/plugins/select2/select2.js"></script>
+<script type="text/javascript" src="../assets/global/scripts/bootstrap-monthpicker.js"></script>
+
+
+<script src="/statement/js/libs/js-xlsx/xlsx.core.min.js" type="text/javascript"></script>
+<script src="/statement/js/libs/html2canvas/html2canvas.min.js" type="text/javascript"></script>
+<script src="/statement/js/tableExport.js" type="text/javascript"></script>
+<script src="/statement/js/datehelper.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+    $(".export-excel").attr("data-table", ".tabPrint");
+    //    $(".export-excel").attr("data-filename","");
+    $(".export-excel").on("click", function (e) {
+        e.preventDefault();
+        var exportTable = $(this).data("table");
+        var filename = $("#title").html();//$(this).data("filename");
+        var ignoreColumn = "";//$(this).data("ignorecolumn");
+        $(exportTable).tableExport({
+            fileName: filename,
+            type: 'excel',
+            escape: 'false',
+            excelstyles: ['border-bottom', 'border-top', 'border-left', 'border-right'],
+            ignoreColumn: '[' + ignoreColumn + ']'
+        });
+    });
+
+    jQuery(document).ready(function () {
+        ComponentsPickers.init();
+    });
+
+    var getPriceBalance = function () {
+        return {
+            f: function (data, row) {
+                return (row.price*row.ysl).toFixed(2);
+            }
+        }
+    }();
+    var getBasePriceBalance = function () {
+        return {
+            f: function (data, row) {
+                return (row.basePrice*row.ysl).toFixed(2);
+            }
+        }
+    }();
+    var getDiffBalance = function () {
+        return {
+            f: function (data, row) {
+                return ((row.basePrice-row.price)*row.ysl).toFixed(2);
+            }
+        }
+    }();
+    $(function () {
+
+        var areas = new Array();
+        var area_id = JSON.parse(localStorage.getItem("user_info")).area_id;
+        areas.push(area_id);
+        //查询areaId下级areaId
+        var queryCondion = RQLBuilder.and([
+            RQLBuilder.equal("status", "1"),
+            RQLBuilder.equal("parentAreaId", area_id)
+        ]).rql()
+        $.ajax({
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            type: 'get',
+            async: false,
+            url: hzq_rest + "gasbizarea?query=" + queryCondion,
+            success: function (data) {
+                for (var i = 0; i < data.length; i++) {
+                    areas.push(data[i].areaId);
+                }
+            }
+        });
+        var AreaHelper1 = RefHelper.create({
+            ref_url: 'gasbizarea?query={"areaId":{"$in":' + JSON.stringify(areas) + '}}',
+            ref_col: "areaId",
+            ref_display: "areaName",
+            "sort": "posCode"
+        });
+        gs = AreaHelper1.getRawData();
+        gs.forEach(function (val) {
+            $('#find_area_id').append('<option value="' + val.areaId + '">' + val.areaName + '</option>');
+        })
+        //加载用气性质
+        $.ajax({
+            url: "hzqs/dbc/pbsel.do?fh=SELDBC0000000J00&resp=bd",
+            type: "POST",
+            contentType: "application/json;charset=utf-8",
+            data: JSON.stringify({
+                cols: "gasTypeId,gasTypeName",
+                froms: "gasBizGasType",
+                wheres: " posCode = 0 and length(gasTypeCode)=3 order by gasTypeCode",
+                page: "false"
+            }),
+            dataType: "json",
+            success: function (data) {
+                if (data.rows) {
+                    data.rows.forEach(function (m) {
+                        $('#find_gas_type_id').append('<option value="' + m.gasTypeId + '">' + m.gasTypeName + '</option>');
+                    })
+                    gasTypeName = data.rows;
+                }
+            }
+        });
+
+        //查询按钮时间 新增用户是大于去年12月26日
+        $("#find_sign").click(function () {
+            var areaid="1";//哈中庆区域ID
+            if ($("#find_date").val() == "") {
+                bootbox.alert("请您选择要查询的月份！");
+                return;
+            }
+
+            var userInfo = JSON.parse(localStorage.getItem("user_info"));
+
+            var where="";
+            if(area_id!=1){
+                where+=(" and areaId="+area_id);
+            }
+            var find_area_id = $("#find_area_id").val(),
+                find_customer_name = $("#find_customer_name").val(),
+                find_customer_code = $("#find_customer_code").val(),
+                find_start_trade_date = $("#find_start_trade_date").val(),
+                find_end_trade_date = $("#find_end_trade_date").val(),
+                find_unbolt_time=$("#find_unbolt_time").val(),
+                find_rating_flux_min=$("#find_rating_flux_min").val(),
+                find_rating_flux_max=$("#find_rating_flux_max").val(),
+                find_gas_type_id = $("#find_gas_type_id").val();
+                
+            if (find_gas_type_id != "") {
+                where += " and gasTypeId like '" + find_gas_type_id + "%'"
+            }
+
+            if(area_id=="1"){
+                if (find_area_id != "" && find_area_id != "1") {
+                    where += " and areaId=" + find_area_id;
+                }
+            }else{
+                where += " and areaId=" + area_id;
+            }
+            if(find_start_trade_date){
+                where+= " and tradeDate>=to_date('"+find_start_trade_date+"','yyyy-MM-dd')";
+            }
+            if(find_end_trade_date){
+                find_end_trade_date=moment(find_end_trade_date).add('day',1).format('YYYY-MM-DD');
+                where+= " and tradeDate<to_date('"+find_end_trade_date+"','yyyy-MM-dd')";
+            }
+            if (find_customer_name != "") {
+                where += " and customerName like '%" + find_customer_name + "%'";
+            }
+            if (find_customer_code != "") {
+                where += " and customerCode like '%" + find_customer_code + "%'";
+            }
+            if (find_unbolt_time != "") {
+                where += " and trunc(unboltTime)=to_date('"+find_unbolt_time+"','yyyy-MM-dd HH24:mi:ss')";
+            }
+            if(find_rating_flux_min){
+                where += " and ratingFlux>='"+find_rating_flux_min+"'";
+            }
+
+            if(find_rating_flux_max){
+                where += " and ratingFlux>='"+find_rating_flux_max+"'";
+            }
+            if(find_rating_flux_min){
+                where += " and ratingFlux<='"+find_rating_flux_min+"'";
+            }
+            if(!where){
+                //alert("请选择查询条件");
+                //return;
+            }
+
+
+            $('#divtable').html('');
+            var bd =
+                { 
+                    cols: "sys_guid() guid,customerCode,customerName,areaName,areaId,price,basePrice,sum(gas) ysl,sum(sse) yse,unboltTime,gasTypeName,customerTypeName,ratingFlux,0 priceBalance,0 basePriceBalance,0 diffBalance",
+                    froms: "vmReportMeigaiqi",
+                    wheres: '1=1 '+where + " group by customerCode,customerName,areaName,unboltTime,areaId,price,basePrice,gasTypeName,customerTypeName,ratingFlux order by ysl desc",
+                    page:true,
+                };
+            xw = XWATable.init({
+                divname: "divtable",
+                //----------------table的选项-------
+                pageSize: 10, 			//Initial pagesize
+                columnPicker: true,         //Show the columnPicker button
+                sorting: true,
+                transition: 'fade',  //(bounce, fade, flip, rotate, scroll, slide).
+                checkboxes: false,           //Make rows checkable. (Note. You need a column with the 'unique' property)
+                checkAllToggle: true,        //Show the check-all toggle//+RQLBuilder.like("KEYY", "a").rql()
+                restURL: 'hzqs/dbc/pbsel.do?fh=SELDBC0000000J00&resp=bd&bd=' + encodeURIComponent(JSON.stringify(bd)),
+                key_column: 'guid',
+                coldefs: [
+                    {
+                        col: "guid",
+                        hidden: true,
+                        unique: true
+                    },
+                    {
+                        col: "customerCode",
+                        friendly: "客户号",
+                        sorting: false,
+                        index: 1
+                    },
+                    {
+                        col: "customerName",
+                        friendly: "客户名",
+                        sorting: false,
+                        index: 2
+                    },
+                    {
+                        col: "areaName",
+                        friendly: "供气单位",
+                        sorting: false,
+                        index: 3
+                    },
+                    {
+                        col: "gasTypeName",
+                        friendly: "用气性质",
+                        sorting: false,
+                        index: 4,
+                    },
+                    {
+                        col: "customerTypeName",
+                        friendly: "表类型",
+                        sorting: false,
+                        index: 5
+                    },
+                    {
+                        col: "unboltTime",
+                        friendly: "开栓日期",
+                        sorting: false,
+                        index: 6
+                    },
+                    {
+                        col: "ysl",
+                        friendly: "销售量",
+                        sorting: false,
+                        index: 7
+                    },
+                    {
+                        col: "price",
+                        friendly: "优惠价",
+                        sorting: false,
+                        index: 8
+                    },
+                    {
+                        col: "priceBalance",
+                        friendly: "优惠销售额",
+                        sorting: false,
+                        format:getPriceBalance,
+                        index: 9
+                    },
+                    {
+                        col: "basePrice",
+                        friendly: "标准价",
+                        sorting: false,
+                        index: 10
+                    },
+                    {
+                        col: "basePriceBalance",
+                        friendly: "标准价销售额",
+                        sorting: false,
+                        format:getBasePriceBalance,
+                        index: 11
+                    },{
+                        col: "diffBalance",
+                        friendly: "差额气费",
+                        sorting: false,
+                        format:getDiffBalance,
+                        index: 12
+                    },
+                    {
+                        col: "ratingFlux",
+                        friendly: "表流量",
+                        sorting: false,
+                        index: 13
+                    },
+                ],
+            });
+        });
+    });
+
+</script>
+<!-- End of User Script-->
+
+</html>

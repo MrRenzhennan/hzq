@@ -1,0 +1,16 @@
+{"rows":
+[
+  {"versionID":"08","customerType":"居民","gasSource":"天然气","gasProperties":"普通用户","children":[{"stepNum":"1","startGas":"0","endGas":"288(含)","price":"2.80"},{"stepNum":"2","startGas":"288","endGas":"360(含)","price":"3.36"},{"stepNum":"3","startGas":"360","endGas":"-","price":"4.20"}],"preNumber":"5人(含)以下","changeTime":"2016/1/1","effectTime":"2016/12/31","changePerson":"调价人一","UUID":"001"},
+  {"versionID":"07","customerType":"居民","gasSource":"天然气","gasProperties":"普通用户","children":[{"stepNum":"1","startGas":"0","endGas":"288(含)","price":"2.70"},{"stepNum":"2","startGas":"288","endGas":"360(含)","price":"3.26"},{"stepNum":"3","startGas":"360","endGas":"-","price":"4.10"}],"preNumber":"5人(含)以下","changeTime":"2014/1/1","effectTime":"2014/12/31","changePerson":"调价人一","UUID":"004"},
+  {"versionID":"06","customerType":"居民","gasSource":"天然气","gasProperties":"普通用户","children":[{"stepNum":"1","startGas":"0","endGas":"288(含)","price":"2.60"},{"stepNum":"2","startGas":"288","endGas":"360(含)","price":"3.16"},{"stepNum":"3","startGas":"360","endGas":"-","price":"4.10"}],"preNumber":"5人(含)以下","changeTime":"2012/1/1","effectTime":"2012/12/31","changePerson":"调价人一","UUID":"006"},
+  {"versionID":"05","customerType":"居民","gasSource":"天然气","gasProperties":"普通用户","children":[{"stepNum":"1","startGas":"0","endGas":"288(含)","price":"2.50"},{"stepNum":"2","startGas":"288","endGas":"360(含)","price":"3.06"},{"stepNum":"3","startGas":"360","endGas":"-","price":"4.00"}],"preNumber":"5人(含)以下","changeTime":"2011/1/1","effectTime":"2011/12/31","changePerson":"调价人一","UUID":"007"},
+  {"versionID":"04","customerType":"居民","gasSource":"天然气","gasProperties":"普通用户","children":[{"stepNum":"1","startGas":"0","endGas":"288(含)","price":"2.40"},{"stepNum":"2","startGas":"288","endGas":"360(含)","price":"3.00"},{"stepNum":"3","startGas":"360","endGas":"-","price":"4.00"}],"preNumber":"5人(含)以下","changeTime":"2010/1/1","effectTime":"2010/12/31","changePerson":"调价人一","UUID":"008"},
+  {"versionID":"03","customerType":"居民","gasSource":"天然气","gasProperties":"普通用户","children":[{"stepNum":"1","startGas":"0","endGas":"288(含)","price":"2.30"},{"stepNum":"2","startGas":"288","endGas":"360(含)","price":"3.00"},{"stepNum":"3","startGas":"360","endGas":"-","price":"4.00"}],"preNumber":"5人(含)以下","changeTime":"2009/1/1","effectTime":"2009/12/31","changePerson":"调价人一","UUID":"009"},
+  {"versionID":"02","customerType":"居民","gasSource":"天然气","gasProperties":"普通用户","children":[{"stepNum":"1","startGas":"0","endGas":"288(含)","price":"2.20"},{"stepNum":"2","startGas":"288","endGas":"360(含)","price":"3.00"},{"stepNum":"3","startGas":"360","endGas":"-","price":"3.95"}],"preNumber":"5人(含)以下","changeTime":"2008/1/1","effectTime":"2008/12/31","changePerson":"调价人一","UUID":"010"},
+  {"versionID":"01","customerType":"居民","gasSource":"天然气","gasProperties":"普通用户","children":[{"stepNum":"1","startGas":"0","endGas":"288(含)","price":"2.10"},{"stepNum":"2","startGas":"288","endGas":"360(含)","price":"3.00"},{"stepNum":"3","startGas":"360","endGas":"-","price":"3.90"}],"preNumber":"5人(含)以下","changeTime":"2007/1/1","effectTime":"2007/12/31","changePerson":"调价人一","UUID":"011"}
+
+]
+,"total_rows":11
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

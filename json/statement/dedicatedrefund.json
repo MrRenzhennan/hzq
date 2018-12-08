@@ -1,0 +1,10 @@
+{"rows":
+[
+  {"UUID":"001","customerID":"9527","userID":"张三","houseID":"道里区工程路工程小区","accountID":"小明","customerName":"道里区工程路工程小区营业点","address":"￥465","photo":"2016年7月8日","mobilePhone":"￥145","customerCategory":"40/month","customerStatus":"居民","meterBook":"小张","contract":"IC卡采暖抄表","copybooktype":"IC卡采暖","cancellation":"无"},
+  {"UUID":"001","customerID":"9527","userID":"张三","houseID":"道里区工程路工程小区","accountID":"小明","customerName":"道里区工程路工程小区营业点","address":"￥465","photo":"2016年7月8日","mobilePhone":"￥145","customerCategory":"40/month","customerStatus":"居民","meterBook":"小张","contract":"IC卡采暖抄表","copybooktype":"IC卡采暖","cancellation":"无"},
+  {"UUID":"001","customerID":"9527","userID":"张三","houseID":"道里区工程路工程小区","accountID":"小明","customerName":"道里区工程路工程小区营业点","address":"￥465","photo":"2016年7月8日","mobilePhone":"￥145","customerCategory":"40/month","customerStatus":"居民","meterBook":"小张","contract":"IC卡采暖抄表","copybooktype":"IC卡采暖","cancellation":"无"}
+]
+,"total_rows":8
+,"totalPages":2
+,"skip":0
+,"limit":2147483647}

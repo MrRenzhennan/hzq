@@ -1,0 +1,12 @@
+{"rows":
+[
+  {"UUID":"001","price":"2.8","userID":"100230001","userName":"张三","operator":"王景和","gasTime":"2016-11-11 17:12:12","gascount":"34","gas":"100","gasmoney":"34","ICcollecttype":"老IC卡客户转换","ICnumber":"11652075","metername":"默认表户"}
+,{"UUID":"002","price":"2.8","userID":"100245601","userName":"李浩","operator":"王景和","gasTime":"2016-11-11 13:12:12","gascount":"34","gas":"100","gasmoney":"34","ICcollecttype":"老IC卡客户转换","ICnumber":"11652075","metername":"默认表户"}
+,{"UUID":"003","price":"2.8","userID":"101230501","userName":"刘文博","operator":"王景和","gasTime":"2016-11-11 10:12:12","gascount":"34","gas":"100","gasmoney":"34","ICcollecttype":"老IC卡客户转换","ICnumber":"11652075","metername":"默认表户"}
+,{"UUID":"004","price":"2.8","userID":"100230001","userName":"张三","operator":"王景和","gasTime":"2016-11-11 9:12:12","gascount":"34","gas":"100","gasmoney":"34","ICcollecttype":"老IC卡客户转换","ICnumber":"11652075","metername":"默认表户"}
+,{"UUID":"005","price":"2.8","userID":"156730001","userName":"李丽英","operator":"王景和","gasTime":"2016-11-11 09:02:12","gascount":"30","gas":"100","gasmoney":"34","ICcollecttype":"老IC卡客户转换","ICnumber":"11652075","metername":"默认表户"}
+]
+,"total_rows":1
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

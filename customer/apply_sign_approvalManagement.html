@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+
+<!-- BEGIN HEAD -->
+<head>
+    <title>预签申请管理</title>
+    <!--
+        预签管理中显示正在预签的和已经预签完成的，由合同状态区分，
+        非居民合同管理中只显示新签的
+    -->
+    <base href="../">
+    <script src="pages/scripts/header.js"></script>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8"/>
+
+    <link href='assets/global/plugins/jquery-watable/watable.css' rel='stylesheet'/>
+    <link href='assets/global/plugins/jquery-watable/animate.min.css' rel='stylesheet'/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.css"/>
+
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-select/bootstrap-select.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/select2/select2.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/jquery-multi-select/css/multi-select.css"/>
+
+    <link href="assets/global/plugins/bootstrap-fileinput/fileinput.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-datepicker/css/datepicker3.css"/>
+
+    <!-- BEGIN THEME STYLES -->
+    <link href="assets/global/css/components.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/admin/layout/css/layout.css" rel="stylesheet" type="text/css"/>
+    <link id="style_color" href="assets/admin/layout/css/themes/default.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/admin/layout/css/custom.css" rel="stylesheet" type="text/css"/>
+    <!-- END THEME STYLES -->
+</head>
+<!-- END HEAD -->
+
+<body class="page-header-fixed page-quick-sidebar-over-content">
+
+<!-- 标题栏开始 -->
+<div class="page-header navbar navbar-fixed-top">
+    <script>$.include("pages/partial/menu.shtml");</script>
+</div>
+<!-- 标题栏结束 -->
+<div class="clearfix"></div>
+<div class="page-container">
+    <!-- 左侧菜单开始 -->
+    <div class="page-sidebar-wrapper">
+        <script>$.include("pages/partial/sidebar.shtml");</script>
+    </div>
+    <!-- 左侧菜单结束 -->
+
+    <!-- 主内容开始 -->
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <!--内容头开始-->
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa fa-home"></i>
+                            <a href="index.html">主页</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="customer/apply_sign_approval.html">预签申请管理</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 内容头结束-->
+
+            <!-- 内容开始-->
+            <div class="note note-success container col-sm-12" style="padding-bottom:0px">
+                <!-- 查询条件控件 -->
+                <div class="col-sm-3 form-group">
+                    <div class="btn-group input-group">
+                        <div class="input-group-addon">分公司：</div>
+                        <select class="form-control input-small select2me" data-placeholder="选择分公司...">
+                            <option value=""></option>
+                            <option>分公司</option>
+                            <option>分公司</option>
+                            <option>分公司</option>
+                            <option>分公司</option>
+                            <option>分公司</option>
+                        </select>
+                        <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                    </div>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <div class="btn-group input-group">
+                        <div class="input-group-addon">操作员：</div>
+                        <select class="form-control input-small select2me" data-placeholder="选择操作员...">
+                            <option value=""></option>
+                            <option>操作员</option>
+                            <option>操作员</option>
+                            <option>操作员</option>
+                            <option>操作员</option>
+                            <option>操作员</option>
+                        </select>
+                        <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                    </div>
+                </div>
+                <div class="col-sm-6 form-group">
+                    <div class="btn-group form-group">
+                        <button id="find_button" class="btn yellow">
+                            查询&nbsp; <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                    <div class="btn-group form-group">
+                        <button class="btn green" data-target="#apply_sign" data-toggle="modal">
+                            申请预签&nbsp; <i class="fa fa-plus"></i>
+                        </button>
+                    </div>
+                    <div class="btn-group form-group">
+                        <button class="btn green" id="alter_input" href="customer/non_inhabitant_contract_second_input.html" data-target="#" data-toggle="modal">
+                            补录&nbsp; <i class="fa fa-pencil"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-sm-12 form-group">
+                    <div class="btn-group input-group pull-left col-md-5">
+                        <div class="input-group-addon">申请起止日期：</div>
+                        <div class="input-group input-large date-picker input-daterange" data-date="10/11/2012" data-date-format="mm/dd/yyyy">
+                            <input type="text" class="form-control" name="from">
+                            <span class="inputclear glyphicon glyphicon-remove-circle hidden" ></span>
+                            <span class="input-group-addon">至</span>
+                            <input type="text" class="form-control" name="to">
+                            <span class="inputclear glyphicon glyphicon-remove-circle hidden" ></span>
+                        </div>
+                    </div>
+                    <div class="btn-group form-group">
+                        <button id="find_today" class="btn yellow">当日</button>
+                    </div>
+                    <div class="btn-group form-group">
+                        <button id="find_this_week" class="btn yellow">近一周</button>
+                    </div>
+                    <div class="btn-group form-group">
+                        <button id="find_this_month" class="btn yellow">近一月</button>
+                    </div>
+                    <div class="btn-group form-group">
+                        <button id="find_three_month" class="btn yellow">近三月</button>
+                    </div>
+                    <div class="btn-group form-group">
+                        <button id="find_this_year" class="btn yellow">近一年</button>
+                    </div>
+                    <div class="btn-group form-group">
+                        <button id="find_anyway" class="btn yellow">不限</button>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div id="divtable" class="table-responsive container-fluid col-md-12" >
+                </div>
+            </div>
+            <!-- 内容结束-->
+        </div>
+    </div>
+    <!-- 主内容结束 -->
+</div>
+
+<script type="text/javascript">$.include("pages/partial/xwatable-form.shtml")</script>
+
+<!--modal-->
+<div class="modal fade" id="apply_sign" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">申请预签</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <label>录入合同1、2、3、8页</label>
+                            <input type="file" multiple class="file-loading" data-ref-url="#" data-upload-url="#">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" href="">保存</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!--end modal-->
+
+<!-- 底边栏开始 -->
+<script>$.include("pages/partial/foot.shtml");</script>
+<!-- 底边栏结束 -->
+</body>
+
+
+<script>$.include("pages/partial/scripts.shtml");</script>
+
+<script type="text/javascript" src="assets/global/plugins/jquery-watable/jquery.watable.js"></script>
+<script type="text/javascript" src="pages/scripts/rqlbuilder.js"></script>
+<script type="text/javascript" src="pages/scripts/xwatable.js"></script>
+<script type="text/javascript" src="pages/scripts/refhelper.js"></script>
+
+<script type="text/javascript" src="assets/global/plugins/bootstrap-fileinput/fileinput.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-fileinput/zh.js"></script>
+
+<!-- bootstrap-select.min.js and select2.min.js and jquery.multi-select.js must put before bootstrap-datepicker.js -->
+<script type="text/javascript" src="assets/global/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-multi-select/js/jquery.multi-select.js"></script>
+
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<script src="assets/admin/pages/scripts/components-pickers.js"></script>
+<!-- END PAGE LEVEL SCRIPTS -->
+<script type="text/javascript">
+    var valueFor=function(val){
+    };
+    var openButton = function() {
+        return {
+            f: function(val) {
+                return "<a id='d_button' href='customer/apply_sign_detail.html'>" + val + "&nbsp;</a> ";
+            }
+        }
+    }();
+
+    $(function(){
+            XWATable.init(
+                {
+                    //----------------table的选项-------
+                    pageSize: 20, 			//Initial pagesize
+                    columnPicker: true,         //Show the columnPicker button
+                    sorting: true,
+                    transition: 'fade',  //(bounce, fade, flip, rotate, scroll, slide).
+                    checkboxes: true,           //Make rows checkable. (Note. You need a column with the 'unique' property)
+                    checkAllToggle:false,        //Show the check-all toggle//+RQLBuilder.like("KEYY", "a").rql()
+                    //----------------基本restful地址---
+                    restbase: 'json/customer/contract/apply_sign.json',
+                    //---------------行定义
+                    coldefs: [
+                        {
+                            col:"apply_sign_ID",
+                            friendly: "预签编号",
+                            readonly:"readonly",
+                            sorting:false,
+                            unique:true,
+                            format:openButton,
+                            index:1
+                        },
+                        {
+                            col:"sign_date",
+                            friendly:"签订时间",
+                            index:2
+                        },
+                        {
+                            col:"apply_date",
+                            friendly:"申请时间",
+                            index:3
+                        },
+                        {
+                            col:"branch_office",
+                            friendly:"分公司",
+                            sorting:false,
+                            index:4
+                        },
+                        {
+                            col:"contract_manager",
+                            friendly:"合同管理员",
+                            sorting:false,
+                            index:5
+                        },
+                        {
+                            col:"contract_photo",
+                            friendly:"合同照片",
+                            sorting:false,
+                            hidden:true,
+                            index:6
+                        },
+                        {
+                            col:"contract_status",
+                            friendly:"合同状态",
+                            sorting:false,
+                            index:7
+                        },
+                        {
+                            col:"approval_opinion",
+                            friendly:"审核意见",
+                            sorting:false,
+                            hidden:true,
+                            index:8
+                        }
+                    ],
+                }//--init
+            );//--end init
+        }
+    );
+
+    jQuery(document).ready(function() {
+        $(".file-loading").fileinput({
+            language: 'zh' //设置语言
+        });
+
+        $("#alter_input").click(function () {
+            window.location = "customer/non_inhabitant_contract_second_input.html";
+        });
+    });
+
+</script><!-- End of User Script-->
+</html>

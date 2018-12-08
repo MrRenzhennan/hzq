@@ -1,0 +1,14 @@
+{"rows":
+[
+  {"UUID":"001","lmoney":"0","noteID":"0001","userID":"100230001","userName":"张三","address":"道里区","phone":"0001","meterreader":"王丽","accountstaff":"王丽","result":"","errormoney":"-200","errorreason":"收费差错","execute":"已执行","yy":"中国银行","feetype":"普通收费","accountdate":"20150425"}
+,{"UUID":"002","lmoney":"-20","noteID":"0001","userID":"100245601","userName":"李浩","address":"道里区","phone":"0001","meterreader":"王丽","accountstaff":"王丽","result":"","errormoney":"-67","errorreason":"收费差错","execute":"已执行","yy":"中国银行","feetype":"普通收费","accountdate":"20150425"}
+,{"UUID":"004","lmoney":"0","noteID":"0001","userID":"100230001","userName":"张三","address":"道里区","phone":"0001","meterreader":"王丽","accountstaff":"王丽","result":"","errormoney":"-67","errorreason":"收费差错","execute":"已执行","yy":"中国银行","feetype":"普通收费","accountdate":"20150425"}
+,{"UUID":"006","lmoney":"0","noteID":"0001","userID":"100230001","userName":"张一","address":"道里区","phone":"0001","meterreader":"王丽","accountstaff":"王丽","result":"","errormoney":"-67","errorreason":"收费差错","execute":"已执行","yy":"道里一分公司","feetype":"普通收费","accountdate":"20150425"}
+,{"UUID":"007","lmoney":"0","noteID":"0001","userID":"104560001","userName":"李三","address":"道里区","phone":"0001","meterreader":"王丽","accountstaff":"王丽","result":"","errormoney":"-67","errorreason":"收费差错","execute":"已执行","yy":"中国银行","feetype":"普通收费","accountdate":"20150425"}
+,{"UUID":"008","lmoney":"-50","noteID":"0001","userID":"107780001","userName":"张三","address":"道里区","phone":"0001","meterreader":"张雪","accountstaff":"王丽","result":"","errormoney":"-67","errorreason":"收费差错","execute":"已执行","yy":"中国银行","feetype":"普通收费","accountdate":"20150425"}
+,{"UUID":"010","lmoney":"0","noteID":"0001","userID":"101253001","userName":"张三","address":"道里区","phone":"0001","meterreader":"张雪","accountstaff":"王丽","result":"","errormoney":"-67","errorreason":"收费差错","execute":"已执行","yy":"中国银行","feetype":"普通收费","accountdate":"20150425"}
+]
+,"total_rows":1
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

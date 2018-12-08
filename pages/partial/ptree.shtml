@@ -1,0 +1,62 @@
+
+<script type="text/x-template" id="__dust_ptree" >
+        <div id="tree_1" class="tree-demo">
+            <ul>
+            {#data}
+                <li data-jstree='{ "opened" : true}'>
+                    {name}
+                    <ul>
+                         {?.nodes}
+                         {#nodes}
+                        <li data-jstree='{ "opened" : true}'>
+                            <a href="#">
+                                {name}
+                            </a>
+                            <ul>
+                            {?.nodes}
+                            {#nodes}
+                                <li data-jstree='{ "opened" : true}'>
+                                    <a href="#">
+                                        {name}
+                                    </a>
+                                    <ul>
+                                    {?.nodes}
+                                    {#nodes}
+                                        <li data-jstree='{ "opened" : true}'>
+                                            <a href="#">
+                                                {name}
+                                            </a>
+                                            {?.nodes}
+                                             <ul>
+
+                                            {#nodes}
+                                                <li data-jstree='{ "opened" : true}'>
+                                                    <a href="#">
+                                                        {name}
+                                                    </a>
+                                                </li>
+                                            {/nodes}
+                                            </ul>
+                                            {/.nodes}                                            
+                                        </li>
+                                    {/nodes}
+                                    {/.nodes}
+                                    </ul>
+                                </li>
+
+                            {/nodes}
+                            {/.nodes}
+                            </ul>
+                        </li>
+                        
+                        {/nodes}                            
+                        {/.nodes}
+                    </ul>
+                </li>
+            {/data}
+            </ul>
+        </div>
+            
+</script>
+
+

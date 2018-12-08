@@ -1,0 +1,67 @@
+<div class="tabbable tabbable-custom tabbable-custom-profile col-md-12" style="padding-bottom:0px">
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#tab11" data-toggle="tab" style="font-size: 14px;color: blue;">
+                            客户基础信息 </a>
+
+                    </li>
+                </ul>
+                <!--/row-->
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab11">
+                        <div class="portlet-body">
+                            <div class="row">
+                                <div class="col-sm-4 form-group">
+                                    <div class="btn-group input-group">
+                                        <div class="input-group-addon">客户编号：</div>
+                                        <input id="customerCode" class="inputclear form-control"  readonly >
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 form-group">
+                                    <div class="btn-group input-group">
+                                        <div class="input-group-addon">客户名称：</div>
+                                        <input id="customerName" class="inputclear form-control" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 form-group">
+                                    <div class="btn-group input-group">
+                                        <div class="input-group-addon">客户类型：</div>
+                                        <input id="customerKind" class="inputclear form-control"  readonly >
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 form-group">
+                                    <div class="btn-group input-group">
+                                        <div class="input-group-addon">客户电话：</div>
+                                        <input id="userTel1" class="inputclear form-control" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 form-group">
+                                    <div class="btn-group input-group">
+                                        <div class="input-group-addon">证件号：</div>
+                                        <input id="idCard" class="inputclear form-control" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 form-group">
+                                    <div class="btn-group input-group">
+                                        <div class="input-group-addon">业务办理：</div>
+                                        <input id="btName" class="inputclear form-control" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 form-group" >
+                                    <div class="btn-group input-group" style="width: 100%">
+                                        <div class="input-group-addon">客户地址：</div>
+                                        <input id="customerAddress" class="inputclear form-control" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 form-group">
+                                    <div class="btn-group form-group" id="customerMation">
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!--/row-->
+                        </div>
+                    </div>
+                </div>
+            </div>

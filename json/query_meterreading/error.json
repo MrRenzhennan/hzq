@@ -1,0 +1,12 @@
+{"rows":
+[
+  {"UUID":"001","customerID":"1","userID":"道里一","houseID":"张三","accountID":"道外区","customerName":"654","address":"453","photo":"666","mobilePhone":"小王","customerCategory":"678","customerStatus":"小飞","meterBook":"2016 10月8日","contract":"正在进行中"},
+  {"UUID":"001","customerID":"1","userID":"道里一","houseID":"张三","accountID":"道外区","customerName":"654","address":"453","photo":"666","mobilePhone":"小王","customerCategory":"678","customerStatus":"小飞","meterBook":"2016 10月8日","contract":"正在进行中"},
+  {"UUID":"001","customerID":"1","userID":"道里一","houseID":"张三","accountID":"道外区","customerName":"654","address":"453","photo":"666","mobilePhone":"小王","customerCategory":"678","customerStatus":"小飞","meterBook":"2016 10月8日","contract":"正在进行中"},
+  {"UUID":"001","customerID":"1","userID":"道里一","houseID":"张三","accountID":"道外区","customerName":"654","address":"453","photo":"666","mobilePhone":"小王","customerCategory":"678","customerStatus":"小飞","meterBook":"2016 10月8日","contract":"正在进行中"},
+  {"UUID":"001","customerID":"1","userID":"道里一","houseID":"张三","accountID":"道外区","customerName":"654","address":"453","photo":"666","mobilePhone":"小王","customerCategory":"678","customerStatus":"小飞","meterBook":"2016 10月8日","contract":"正在进行中"}
+]
+,"total_rows":8
+,"totalPages":2
+,"skip":0
+,"limit":2147483647}

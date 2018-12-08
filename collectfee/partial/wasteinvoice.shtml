@@ -1,0 +1,76 @@
+<div class="modal-body">
+    <div class="row" id="invoice3" je="3">
+        <div class="col-lg-4">
+            <div class="input-group">
+                <label class="text-muted" value="3" style="font-size: large; padding-left:40px !important;">
+        3元发票:
+        </label>
+            </div>
+        </div>
+        <div class="col-lg-7">
+            <div class="input-group">
+                <button style="width:80px; margin-right: 20px;" class="glyphicon glyphicon-minus-sign btn-default" aria-hidden="true" btncount="-1"
+                    btnvalue="-3"></button>
+                <label id="count" type="count" style="text-align:center;display:inline-block; width:20px;">0</label>
+                <button style="width:80px; margin-left: 20px;" class="glyphicon glyphicon-plus-sign btn-default" aria-hidden="true" btncount="1"
+                    btnvalue="3"></button>
+            </div>
+        </div>
+    </div>
+    <!-- /.row -->
+    <div class="row" id="invoice18" je="18">
+        <div class="col-lg-4">
+            <div style="text-align:center;" class="input-group">
+                <label class="text-muted" value="18" style="font-size: large; padding-left:40px !important;">
+        18元发票:
+        </label>
+            </div>
+        </div>
+        <div class="col-lg-7">
+            <div class="input-group">
+                <button style="width:80px; margin-right: 20px;" class="glyphicon glyphicon-minus-sign btn-default" aria-hidden="true" btncount="-1"
+                    btnvalue="-18"></button>
+                <!--<input id="count" type="number" style="width:20px;" disabled>-->
+                <label id="count" type="count" style="text-align:center;display:inline-block; width:20px;">0</label>
+                <button style="width:80px; margin-left: 20px;" class="glyphicon glyphicon-plus-sign btn-default" aria-hidden="true" btncount="1"
+                    btnvalue="18"></button>
+            </div>
+        </div>
+    </div>
+    <!-- /.row -->
+    <div class="row" id="invoice36" je="36">
+        <div class="col-lg-4">
+            <div class="input-group">
+                <label class="text-muted" value="36" style="font-size: large; padding-left:40px !important;">36元发票:
+        </label>
+            </div>
+        </div>
+        <div class="col-lg-7">
+            <div class="input-group">
+                <button style="width:80px; margin-right: 20px;" class="glyphicon glyphicon-minus-sign btn-default" aria-hidden="true" btncount="-1"
+                    btnvalue="-36"></button>
+                <label type="count" id="count" style="width:20px;text-align:center;display:inline-block;">0</label>
+                <button style="width:80px; margin-left: 20px;" class="glyphicon glyphicon-plus-sign btn-default" aria-hidden="true" btncount="1"
+                    btnvalue="36"></button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="input-group">
+                <label class="text-muted" style="font-size: large;padding-left:40px !important;">领取发票金额：</label>
+                <label id="summoney">0</label>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="input-group">
+                <label class="text-muted" style="font-size: large;padding-left:40px !important;">领取发票张数：</label>
+                <label id="sumcount">0</label>
+            </div>
+
+        </div>
+        <!-- /.row -->
+    </div>
+</div>

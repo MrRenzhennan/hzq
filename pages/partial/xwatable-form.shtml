@@ -1,0 +1,152 @@
+
+<script type="text/x-template" id="__dust_tableform" >
+    <form class="bootbox-form form-horizontal form-bordered form-label-stripped" onsubmit="return false" role="form"
+          id="__editform">
+        <div class="form-body">
+            {#data}
+
+            {?.nonedit}
+            {@select key=nonedit}
+            {@eq value="nosend" }
+            {/eq}
+            {@default}
+            <input type="hidden" id="{col}" name="{col}" value="{default_value}" {?format_value} data-format-value="{format_value}" {/format_value} data-newvalue="{new_value}"/>
+            {/default}
+            {/select}
+            {:else}
+
+            <div class="form-group" id="dg_{col}">
+                <label class="col-md-4 control-label" id="dl_{col}">{friendly}</label>
+                <div class="col-md-8" id="di_{col}">
+                    {?.inputsource}
+                    {@select key=inputsource}
+                    {@eq value="select"}
+                    <select class="form-control chosen-select" width="100%" id="{col}" name="{col}"
+                            data-ref-url="{ref_url}" data-ref-name="{ref_name}"
+                            {?readonly}  disabled {/readonly} {?format_value} data-format-value="{format_value}" {/format_value} 
+                            data-ref-value="{ref_value}" data-value="{default_value}">
+                    </select>
+                    {/eq}
+                    {@eq value="select2"}
+                    <input type="hidden" id="{col}" name="{col}" {?format_value} data-format-value="{format_value}" {/format_value}  value="{default_value}">
+                    <select class="form-control select2" width="100%" id="{col}_select" name="{col}_select"
+                            data-ref-url="{ref_url}" data-ref-name="{ref_name}"
+                            {?readonly}   disabled {/readonly}
+                            data-ref-value="{ref_value}" data-value="{default_value}" data-split="{data_split}" multiple>
+                    </select>
+                    {/eq}
+                    {@eq value="datepicker"}
+                    <div class="input-group date date-picker"
+                         data-date-format="yyyy-mm-dd" data-date-viewmode="years"  data-value="{default_value}" >
+                        <input type="text" id="{col}" {?format_value} data-format-value="{format_value}" {/format_value}  name="{col}"  class="form-control" readonly>
+                        <span class="input-group-btn">
+                               <button class="btn default" type="button"> <i class="fa fa-calendar"></i>
+                               </button>
+                           </span>
+                    </div>
+                    {/eq}
+                    {@eq value="datetimepicker"}
+                    <div class="input-group date form_datetime" data-date-format="{date_format}" data-value="{default_value}" >
+                        <input type="text" id="{col}" {?format_value} data-format-value="{format_value}" {/format_value}  name="{col}"  class="form-control" value="{default_value}" validate="time">
+                        <span class="input-group-btn">
+                               <button class="btn default date-set" type="button"> <i class="fa fa-calendar"></i>
+                               </button>
+                           </span>
+                    </div>
+                    {/eq}
+                    {@eq value="monthpicker"}
+                    <div class="input-group date date-picker" data-date-format="{date_format}" data-date-viewmode="years" data-date-minviewmode="months">
+                        <input type="text" id="{col}" {?format_value} data-format-value="{format_value}" {/format_value}  name="{col}" class="form-control" value="{default_value}" validate="time" readonly>
+                        <span class="input-group-btn">
+                            <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
+                        </span>
+                    </div>
+                    {/eq}
+
+                    {@eq value="checkbox"}
+                    <label class="checkbox-inline">
+                        <input name={col} {?format_value} data-format-value="{format_value}" {/format_value}  type="checkbox" id="{col}" data-value="{default_value}"  {@eq key=default_value value=1}checked{/eq} {@eq key=checked}value=1{/eq}>
+                    </label>
+                    {/eq}
+                    {@eq value="textarea"}
+
+                    <textarea cols="{width}" {?format_value} data-format-value="{format_value}" {/format_value}  rows="{height}" style="resize:none;" id="{col}" name="{col}" validate="{validate}">{default_value}</textarea>
+
+                    {/eq}
+                    {@eq value="number"}
+                    <div class="input-icon right"> <i class="fa fa-info-circle tooltips" data-container="body"></i>
+                        <input type="text" {?format_value} 
+                                    data-format-value="{format_value}" 
+                                    data-value="{default_value}" 
+                                    value="{format_value}" 
+                                {:else}
+                                    value="{default_value}" 
+                                {/format_value}  
+                                    class="bootbox-input bootbox-input-text form-control input_number"
+                               id="{col}" name="{col}" value="{default_value}" validate="{validate}"
+                               {?readonly}   readonly="readonly" {/readonly}
+                        />
+
+
+                    </div>
+                    {/eq}
+                    {@eq value="positive-numeric"}
+                    <div class="input-icon right"> <i class="fa fa-info-circle tooltips" data-container="body"></i>
+                        <input type="text" {?format_value} 
+                                    data-format-value="{format_value}" 
+                                    data-value="{default_value}" 
+                                    value="{format_value}" 
+                                {:else}
+                                    value="{default_value}" 
+                                {/format_value}  
+                                    class="bootbox-input bootbox-input-text form-control positive-numeric"
+                               id="{col}" name="{col}" np={np} value="{default_value}" validate="{validate}"
+                               {?readonly}   readonly="readonly" {/readonly}
+                        />
+                    </div>
+                    {/eq}
+                    {@eq value="file"}
+                    <div class="form-control file">
+                        <input type="file" class="required" name="{col}" id="{col}">
+                    </div>
+                    {/eq}
+                    {@eq value="custom"}
+                    <div id="custom_{col}" class="editcustom" data-value="{default_value}"
+                         data-builder="{inputbuilder}" validate="{validate}"></div>
+                    {/eq}
+                    {/select}
+                    {:else}
+                    <div class="input-icon right"> <i class="fa fa-info-circle tooltips" data-container="body"></i>
+                        {?.flagInfo}
+                        {@select key=flagInfo}
+                        {@eq value="flag"}
+                        <input type="text" {?format_value} data-format-value="{format_value}" {/format_value}  class="bootbox-input bootbox-input-text form-control"
+                               id="{col}" name="{col}" value="{flag_value}" validate="{validate}" {?readonly}   readonly="readonly" {/readonly}/>
+                        {/eq}
+                        {/select}
+                        {:else}
+                        <input type="text" 
+                                {?format_value} 
+                                    data-format-value="{format_value}" 
+                                    data-value="{default_value}" 
+                                    value="{format_value}" 
+                                {:else}
+                                    value="{default_value}" 
+                                {/format_value}  
+                             class="bootbox-input bootbox-input-text form-control"
+                               id="{col}" name="{col}" value="{default_value}" validate="{validate}" {?readonly}   readonly="readonly" {/readonly}/>
+                        {/.flagInfo}
+                    </div>
+                    {/.inputsource}
+                </div>
+
+            </div>
+            {/.nonedit}
+            {/data}
+            <input type="hidden" class="_mod_id" id="_id" name="_id" value="{_id}"/>
+
+        </div>
+
+    </form>
+
+</script>

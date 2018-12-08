@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+
+<!-- BEGIN HEAD -->
+<head>
+    <title>协议气量管理</title>
+    <base href="../">
+    <script src="pages/scripts/header.js"></script>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8"/>
+
+    <link href='assets/global/plugins/jquery-watable/watable.css' rel='stylesheet'/>
+    <link href='assets/global/plugins/jquery-watable/animate.min.css' rel='stylesheet'/>
+    <link href="assets/global/plugins/bootstrap-fileinput/fileinput.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-datepicker/css/datepicker.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-select/bootstrap-select.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/select2/select2.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/jquery-multi-select/css/multi-select.css"/>
+
+    <!-- BEGIN THEME STYLES -->
+    <link href="assets/global/css/components.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
+    <!-- END THEME STYLES -->
+</head>
+<!-- END HEAD -->
+
+<body class="page-header-fixed page-quick-sidebar-over-content">
+
+<!-- 标题栏开始 -->
+<div class="page-header navbar navbar-fixed-top">
+    <script>$.include("pages/partial/menu.shtml");</script>
+</div>
+<!-- 标题栏结束 -->
+<div class="clearfix"></div>
+<div class="page-container">
+    <!-- 左侧菜单开始 -->
+    <div class="page-sidebar-wrapper">
+        <script>$.include("pages/partial/sidebar.shtml");</script>
+    </div>
+    <!-- 左侧菜单结束 -->
+
+    <!-- 主内容开始 -->
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <!--内容头开始-->
+            <script>$.include("common/navigation_bar.shtml");</script>
+            <!-- 内容头结束-->
+
+            <!-- 内容开始-->
+            <div class="container col-sm-12" style="padding-bottom:0px">
+                <div class="col-sm-12 form-group data-select">
+                    <div class="btn-group input-group pull-left col-md-5">
+                        <div class="input-group-addon">协议起止日期:</div>
+                        <div class="input-group input-large date-picker input-daterange" data-date-format="yyyy-mm-dd">
+                            <input id="find_start_date" type="text" class="form-control" name="from">
+                            <span class="inputclear glyphicon glyphicon-remove-circle hidden" ></span>
+                            <span class="input-group-addon">至</span>
+                            <input id="find_end_date" type="text" class="form-control" name="to">
+                            <span class="inputclear glyphicon glyphicon-remove-circle hidden" ></span>
+                        </div>
+                    </div>
+                    <div id="chosedate">
+                        <div class="btn-group form-group">
+                            <button id="find_today_sign" class="btn">当日</button>
+                        </div>
+                        <div class="btn-group form-group">
+                            <button id="find_this_week_sign" class="btn">近一周</button>
+                        </div>
+                        <div class="btn-group form-group">
+                            <button id="find_this_month_sign" class="btn">近一月</button>
+                        </div>
+                        <div class="btn-group form-group">
+                            <button id="find_three_month_sign" class="btn">近三月</button>
+                        </div>
+                        <div class="btn-group form-group">
+                            <button id="find_this_year_sign" class="btn">近一年</button>
+                        </div>
+                        <div class="btn-group form-group">
+                            <button id="find_anyway_sign" class="btn">不限</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <div class="btn-group input-group">
+                        <div class="input-group-addon">客户编号：</div>
+                        <input id="find_customerCode" class="inputclear form-control" type="text" placeholder="">
+                        <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                    </div>
+                </div>
+                <div class="col-sm-3 form-group" >
+                    <div class="btn-group input-group input-select2me">
+                        <div class="input-group-addon">审批状态:</div>
+                        <select id="find_status" class="select2-container form-control select2me" data-placeholder="请选择...">
+                            <option value=""></option>
+                        </select>
+                        <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                    </div>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <div class="btn-group form-group">
+                        <button id="find_button" class="btn yellow">
+                            查询&nbsp; <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                    <div class="btn-group form-group">
+                        <button id= "apply" class="btn green">
+                            协议气量申请&nbsp; <i class="fa fa-plus"></i>
+                        </button>
+                        <script>
+                            $('#apply').click(function(){
+                                window.location="accountManage/agreeGas.html";
+                            });
+                        </script>
+                    </div>
+                </div>
+                <!--<div class="col-sm-1 form-group">-->
+                    <!--<div class="btn-group form-group">-->
+                        <!--<button class="btn green" data-target="#import_contract" data-toggle="modal">-->
+                            <!--协议录入&nbsp; <i class="fa fa-plus"></i>-->
+                        <!--</button>-->
+                    <!--</div>-->
+                <!--</div>-->
+            </div>
+            <div class="container-fluid">
+                <div id="divtable" class="table-responsive container-fluid col-md-12" >
+                </div>
+            </div>
+            <!-- 内容结束-->
+        </div>
+    </div>
+    <!-- 主内容结束 -->
+</div>
+ <!--Modal-->
+<div class="modal fade" id="import_contract" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">协议录入</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>协议气量</label>
+                                <input type="text" class="form-control" placeholder="用气量">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>价格</label>
+                                <input type="text" class="form-control" placeholder="价格">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>有效期限</label>
+                                <input type="text" class="form-control" placeholder="有效期限">
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <label>协议原因</label>
+                                <select id = "GasType" class="form-control select2me " data-placeholder="Select...">
+                                    <option value="">请选择</option>
+                                    <option>表具损坏</option>
+                                    <option>指针磨损</option>
+                                    <option>疑似窃气</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+
+                                <div class="btn-group form-group" style="margin-top: 25px;">
+                                    <button class="btn blue" data-target="#import_contract" data-toggle="modal">
+                                        添加&nbsp;
+                                    </button>
+                                </div>
+
+                        </div>
+                        <!--<div class="col-md-4">-->
+                        <!--<div class="form-group">-->
+                            <!--<label>协议原因</label>-->
+                            <!--<select id = "GasType" class="form-control select2me " data-placeholder="Select...">-->
+                                <!--<option value="">请选择</option>-->
+                                <!--<option>表具损坏</option>-->
+                                <!--<option>指针磨损</option>-->
+                            <!--</select>-->
+                        <!--</div>-->
+                    <!--</div>-->
+
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <label>备注:</label>
+                                <textarea class="form-control" placeholder="输入备注信息"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <span>上传数据</span>
+                    <input class="file" type="file" >
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">$.include("pages/partial/xwatable-form.shtml")</script>
+
+<!-- 底边栏开始 -->
+<script>$.include("pages/partial/foot.shtml");</script>
+<!--英尺-->
+<!-- 底边栏结束 -->
+</body>
+
+
+<script>$.include("../pages/partial/scripts.shtml");</script>
+<!--跳到原稿-->
+<script type="text/javascript" src="assets/global/plugins/jquery-watable/jquery.watable.js"></script>
+<script type="text/javascript" src="pages/scripts/rqlbuilder.js"></script>
+<script type="text/javascript" src="pages/scripts/xwatable.js"></script>
+<script type="text/javascript" src="pages/scripts/refhelper.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+
+<script type="text/javascript" src="assets/global/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-multi-select/js/jquery.multi-select.js"></script>
+
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script src="assets/admin/pages/scripts/components-pickers.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+
+<script type="text/javascript" src="assets/global/plugins/bootstrap-fileinput/fileinput.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-fileinput/zh.js"></script>
+
+
+<script src="pages/scripts/jquery.json.min.js"></script>
+<script type="text/javascript" src="pages/scripts/jquery.serialize-object.min.js"></script>
+
+<script src="accountManage/js/accountagree.js"></script>
+
+<!--<script type="text/javascript">-->
+    <!--var valueFor=function(val){-->
+    <!--};-->
+    <!--var openButton = function() {-->
+        <!--return {-->
+            <!--f: function() {-->
+                <!--return "<a id='d_button' href='accountManage/accountreview.html' class='btn btn-warning'>审批&nbsp;</a> ";-->
+            <!--}-->
+        <!--}-->
+    <!--}();-->
+    <!--$(function(){-->
+            <!--XWATable.init(-->
+                <!--{-->
+                    <!--//&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;table的选项-&#45;&#45;&#45;&#45;&#45;&#45;-->
+                    <!--pageSize: 20, 			//Initial pagesize-->
+                    <!--columnPicker: true,         //Show the columnPicker button-->
+                    <!--sorting: true,-->
+                    <!--transition: 'fade',  //(bounce, fade, flip, rotate, scroll, slide).-->
+                    <!--checkboxes: true,           //Make rows checkable. (Note. You need a column with the 'unique' property)-->
+                    <!--checkAllToggle:true,        //Show the check-all toggle//+RQLBuilder.like("KEYY", "a").rql()-->
+                    <!--rowClicked: function(data) {-->
+                        <!--console.log('row clicked');   //data.event holds the original jQuery event.-->
+                        <!--console.log(data);            //data.row holds the underlying row you supplied.-->
+                    <!--},-->
+                    <!--//&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;基本restful地址-&#45;&#45;-->
+                    <!--restbase: 'json/accountManage/accountagree.json',-->
+                    <!--//-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;行定义-->
+                    <!--coldefs: [-->
+                        <!--{-->
+                            <!--col:"agreeID",-->
+                            <!--friendly: "协议编号",-->
+                            <!--unique:true,-->
+                            <!--readonly:"readonly",-->
+                            <!--sortOrder:"asc",-->
+                            <!--index:1-->
+                        <!--},-->
+                        <!--{-->
+                            <!--col:"customerID",-->
+                            <!--friendly:"客户编号",-->
+                            <!--index:1-->
+                        <!--},-->
+                        <!--{-->
+                            <!--col:"customerName",-->
+                            <!--friendly:"客户名",-->
+                            <!--index:2-->
+                        <!--},-->
+                        <!--{-->
+                            <!--col:"address",-->
+                            <!--friendly: "客户地址",-->
+                            <!--readonly: "readonly",-->
+                            <!--sortOrder: "asc",-->
+                            <!--index:2-->
+                        <!--},-->
+                        <!--{-->
+                            <!--col:"supplement_code",-->
+                            <!--friendly:"协议编号",-->
+                            <!--index:3-->
+                        <!--},-->
+                        <!--{-->
+                            <!--col:"signTime",-->
+                            <!--friendly: "签订时间",-->
+                            <!--/* readonly: "readonly" */-->
+                            <!--inputsource:"fileupload",-->
+                            <!--/*   inputsource: "custom",-->
+                             <!--inputbuilder: "valueFor"*/-->
+                            <!--index:4-->
+                        <!--},-->
+                        <!--{-->
+                            <!--col:"validPeriod",-->
+                            <!--friendly:"有效期限",-->
+                            <!--index:5-->
+                        <!--},-->
+                        <!--{-->
+                            <!--col:"deadTime",-->
+                            <!--friendly:"失效日期",-->
+                            <!--index:6-->
+                        <!--},-->
+                        <!--{-->
+                            <!--col:"examine",-->
+                            <!--friendly:"审核状态",-->
+                            <!--format: examineState,-->
+                            <!--index:7-->
+                        <!--}-->
+                        <!--,-->
+                        <!--{-->
+                            <!--col:"payStatement",-->
+                            <!--friendly:"缴费状态",-->
+                            <!--format:isPay,-->
+                            <!--index:8-->
+                        <!--},-->
+                        <!--{-->
+                            <!--col:"UUID",-->
+                            <!--friendly:"操作",-->
+                            <!--nonedit: "nosend",-->
+                            <!--format:openButton,-->
+                            <!--index:9-->
+                        <!--}-->
+                    <!--],-->
+                    <!--//-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;查询时过滤条件-->
+                    <!--findFilter: function(){//find function-->
+                        <!--var filter = "keyy="+$('#find_key').val();-->
+                        <!--return filter;-->
+                    <!--}//&#45;&#45;findFilter-->
+                <!--}//&#45;&#45;init-->
+            <!--);//&#45;&#45;end init-->
+
+            <!--$('#find_provincename').on('input',function(e){-->
+                <!--console.log("changing::"+e.target.value)-->
+                <!--if(!e.target.value){-->
+                    <!--XWATable.autoResetSearch();-->
+                <!--}-->
+            <!--});-->
+        <!--}-->
+    <!--);-->
+    <!--//是否缴费-->
+    <!--var isPay = function () {-->
+        <!--return {-->
+            <!--f: function (val) {-->
+                <!--if(val==="1") return "<font color='blue'>未缴费</font>";-->
+                <!--else if(val==="2") return "<font color='fuchsia'>已缴费</font>";-->
+                <!--else return "error";-->
+            <!--}-->
+        <!--}-->
+    <!--}();-->
+    <!--//审核状态-->
+    <!--var examineState = function () {-->
+        <!--return {-->
+            <!--f: function (val) {-->
+                <!--if(val==="1") return "<font color='blue'>审核通过</font>";-->
+                <!--else if(val==="2") return "<font color='fuchsia'>审核中</font>";-->
+                <!--else if(val==="3") return "<font color='green'>未审核</font>";-->
+                <!--else if(val==="4") return "<font color='red'>审核失败</font>";-->
+                <!--else return "error";-->
+            <!--}-->
+        <!--}-->
+    <!--}();-->
+
+    <!--jQuery(document).ready(function() {-->
+        <!--ComponentsPickers.init();-->
+    <!--});-->
+    <!--accountAgreeAction.init();-->
+<!--</script>&lt;!&ndash; End of User Script&ndash;&gt;-->
+<script>
+    accountAgreeAction.init();
+    ComponentsPickers.init();
+</script>
+</html>

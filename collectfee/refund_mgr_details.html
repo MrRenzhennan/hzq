@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]>
+<html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+
+<!-- BEGIN HEAD -->
+<head>
+    <title>退款详情</title>
+    <base href="../../">
+    <meta charset="UTF-8">
+    <meta http-equiv="content-type" content="text/html" charset="utf-8"/>
+
+    <script src="pages/scripts/header.js"></script>
+    <link href='assets/global/plugins/jquery-watable/watable.css' rel='stylesheet'/>
+    <link href='assets/global/plugins/jquery-watable/animate.min.css' rel='stylesheet'/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-select/bootstrap-select.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/select2/select2.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/jquery-multi-select/css/multi-select.css"/>
+    <link href="assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
+    <!-- BEGIN THEME STYLES -->
+    <!-- END THEME STYLES -->
+    <style media="print">
+        @page {
+            size: auto;  /* auto is the initial value */
+            margin: 0mm; /* this affects the margin in the printer settings */
+        }
+    </style>
+    <style>
+
+        #tableDiv{
+            background: #000000;
+        }
+        #tableDiv tr td{
+            background: #fff;
+            border:1px solid #000;
+        }
+        @media print {
+            .noneprint {
+                display: none;
+            }
+            /*table{border:1px solid #000;}*/
+        }
+    </style>
+</head>
+<!-- END HEAD -->
+<body class="page-header-fixed page-quick-sidebar-over-content">
+
+<!-- 标题栏开始 -->
+<div class="page-header navbar navbar-fixed-top">
+    <script>$.include("pages/partial/menu.shtml");</script>
+</div>
+<!-- 标题栏结束 -->
+<div class="clearfix"></div>
+<div class="page-container">
+    <!-- 左侧菜单开始 -->
+    <div class="page-sidebar-wrapper">
+        <script>$.include("pages/partial/sidebar.shtml");</script>
+    </div>
+    <!-- 左侧菜单结束 -->
+
+    <!-- 主内容开始 -->
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <!--内容头开始-->
+            <div class="row noneprint" >
+                <div class="col-md-12">
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa  fa-map-marker"></i>
+                            <a href="index.html">收费管理</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">退款管理</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+
+                            <a href="javascript:void(0)">退款详情</a>
+
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+
+            <div class="container-fluid">
+                <h4 style="text-align: center; font-weight: 600;">退 款 领 取 单</h4>
+
+                <div class="col-sm-4 form-group">
+                    <div class="btn-group input-group ">
+                        <div class="input-group-addon">制表单位：</div>
+                        <div class="input-group-addon areaId"></div>
+                    </div>
+                </div>
+                <table class="table" id="tableDiv">
+
+                </table>
+                <div class="col-sm-12">
+                    <div class="col-sm-12 form-group">
+                        <div class="" >
+                            <div style="font-size: 14px;display: inline-block;width: 70%;">办理日期:<div class="created" style="font-size: 14px; display: inline-block"></div></div>
+                            <div class="input-group-addon" style=" display:inline-block;">用户签字:</div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12" style="margin-top: 10px;">
+                    <div style="font-size: 14px;display: inline-block;width: 70%;"></div>
+                    <div style="font-size:14px;display: inline-block; ">打印时间:<div class="input-group-addon dayintime" style="font-size: 14px; display: inline-block"></div></div>
+
+
+                </div>
+
+                <div class="col-sm-12 noneprint"  style="text-align: center; margin: 30px 0;" >
+                    <button class="btn blue" id="prints">打印</button>
+                    <button class="btn blue" id="cancel">取消</button>
+                </div>
+
+            </div>
+            <!-- 内容结束-->
+        </div>
+    </div>
+</div>
+<!-- 主内容结束 -->
+
+<script type="text/javascript">$.include("pages/partial/xwatable-form.shtml")</script>
+
+<!-- 底边栏开始 -->
+<!--<script>$.include("pages/partial/foot.shtml");</script>-->
+<!-- 底边栏结束 -->
+</body>
+<script>$.include("pages/partial/scripts.shtml");</script>
+<script type="text/javascript" src="assets/global/plugins/jquery-watable/jquery.watable.js"></script>
+<script type="text/javascript" src="pages/scripts/rqlbuilder.js"></script>
+<script type="text/javascript" src="pages/scripts/xwatable.js"></script>
+<script type="text/javascript" src="pages/scripts/refhelper.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+
+<script type="text/javascript" src="assets/global/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-multi-select/js/jquery.multi-select.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-daterangepicker/moment.min.js"></script>
+<script src="mods/basismanage.js"></script>
+<script type="text/javascript">
+    var ctmarchiveId = Metronic.getURLParameter("refundId");
+    var refundId = Metronic.getURLParameter("code");
+    var areaIds =JSON.parse(localStorage.getItem("user_info")).area_id;
+    console.log(ctmarchiveId)
+    console.log(refundId);
+    var AreaHelper = RefHelper.create({
+        ref_url: "gasbizarea",
+        ref_col: "areaId",
+        ref_display: "areaName"
+    });
+
+
+    var str = "";
+    var meter = "";
+    //查询下线表最后一次表读数
+    //var paramurl = "/hzqs/dbc/pbsel.do?fh=SELDBC0000000J00&resp=bd";
+    var froms = "(select ctm_archive_id,meter_reading,revise_reading,meter_reading_id,copy_time,row_number() over " +
+        "(partition by ctm_archive_id order by copy_time desc )as rn1 from gas_mrd_meter_reading where " +
+        "ctm_archive_id='" + ctmarchiveId + "'and is_mrd='1' and is_bll='1' and copy_state = '6') d";
+    var params = {
+        "cols": "d.*",
+        "froms": froms,
+        "wheres": "d.rn1=1",
+        "page": false
+    };
+    $.ajax({
+        url:"/hzqs/dbc/pbsel.do?fh=VDBCSEL000000J00&resp=bd&proxy=VSELDBC000000J00&bd=" + encodeURIComponent(JSON.stringify(params)),
+        type:"get",
+        async:false,
+        success:function(data){
+
+            if(data && data.rows){
+                $.each(data.rows,function (index,item) {
+                    meter+="<tr><td>一次表读数：</td><td>"+item.meterReading+"</td><td>修正表读数：</td><td>"+(item.reviseReading?item.reviseReading:" ")+"</td></tr>" +
+                        "<tr><td>抄表时间：</td><td>"+item.copyTime.split("T").join(" ")+"</td><td></td><td></td></tr>";
+
+                })
+            }else{
+                meter+="<tr><td>一次表读数：</td><td> </td><td>修正表读数：</td><td> </td></tr>" +
+                    "<tr><td>抄表时间：</td><td> </td><td></td><td></td></tr>";
+            }
+        }
+    });
+    var readingData = Restful.findNQ(hzq_rest+ 'gasctmarchive/?query={"ctmArchiveId":"'+ctmarchiveId+'"}');
+    var refundIds = Restful.findNQ(hzq_rest+'gaschgrefund/?query={"refundId":"'+refundId+'"}');
+    console.log(readingData)
+    console.log(refundIds)
+    var refundType = {
+        "1":"燃气费余额",
+        "2":"垃圾费余额"
+        // "3":"垃圾费退款"
+    }
+    $.each(readingData,function (ind,item) {
+        str+="<tr><td>客户编号：</td><td>"+item.customerCode+"</td><td>客户名称：</td><td>"+item.customerName+"</td></tr><tr><td>"+refundType[refundIds[0].refundType]+"</td>" +
+            "<td>"+refundIds[0].money+"</td><td>客户地址：</td><td style='width: 25%;'>"+item.customerAddress+"</td></tr>"
+    })
+
+
+    $("#tableDiv").html(str+meter);
+    $(".created").html(refundIds[0].createdTime.split("T").join(" "));
+    $(".areaId").html(AreaHelper.getDisplay(areaIds))
+    $("#prints").on("click",function(){
+        $(".dayintime").html(moment().format('YYYY-MM-DDTHH:mm:ss').split("T").join(" "));
+        window.print();
+    })
+    $("#cancel").on("click",function(){
+        history.go("-1")
+    })
+
+</script>
+
+</html>

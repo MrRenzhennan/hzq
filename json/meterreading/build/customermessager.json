@@ -1,0 +1,15 @@
+{"rows":
+[
+  {"UUID":"001","versionID":"9527","gasCategory":"333°","bookcode":"50","gasStart":"居民","gasEnd":"64","gasEnd1":"65","gasEnd2":"66","gasEnd3":"67","gasEnd4":"68","gasEnd5":"小李","gasType":"道里区","COPYMONTH":"正常","BOOKTYPE":"正常","gasEnd6":"王二","DAYMEASURE":"本类型"
+ ,"gasEnd3":"8888","gasType2":"张三","Person":"400°","copybook":"876556","cod":"50","gasType1":"2016年12月5日","BOOSTERCODE3":"9527","BOOKTYPE2":"正常","DAYMEASURE1":"13","BOOKTYPE":"有","BOOSTERCODE":"居民","BOOSTERCODE1":"本类型"},
+ {"UUID":"001","versionID":"9527","gasCategory":"333°","bookcode":"50","gasStart":"居民","gasEnd":"64","gasEnd1":"65","gasEnd2":"66","gasEnd3":"67","gasEnd4":"68","gasEnd5":"小李","gasType":"道里区","COPYMONTH":"正常","BOOKTYPE":"正常","gasEnd6":"王二","DAYMEASURE":"本类型"
+ ,"gasEnd3":"8888","gasType2":"张三","Person":"400°","copybook":"876556","cod":"50","gasType1":"2016年12月5日","BOOSTERCODE3":"9527","BOOKTYPE2":"正常","DAYMEASURE1":"13","BOOKTYPE":"有","BOOSTERCODE":"居民","BOOSTERCODE1":"本类型"},
+ {"UUID":"001","versionID":"9527","gasCategory":"333°","bookcode":"50","gasStart":"居民","gasEnd":"64","gasEnd1":"65","gasEnd2":"66","gasEnd3":"67","gasEnd4":"68","gasEnd5":"小李","gasType":"道里区","COPYMONTH":"正常","BOOKTYPE":"正常","gasEnd6":"王二","DAYMEASURE":"本类型"
+ ,"gasEnd3":"8888","gasType2":"张三","Person":"400°","copybook":"876556","cod":"50","gasType1":"2016年12月5日","BOOSTERCODE3":"9527","BOOKTYPE2":"正常","DAYMEASURE1":"13","BOOKTYPE":"有","BOOSTERCODE":"居民","BOOSTERCODE1":"本类型"}
+
+
+]
+,"total_rows":1
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

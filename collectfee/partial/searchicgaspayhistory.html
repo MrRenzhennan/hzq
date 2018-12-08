@@ -1,0 +1,116 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+    </button>
+    <h4 class="modal-title" id="myModalLabel">IC卡收费历史信息</h4>
+</div>
+<div class="modal-body">
+    <div data-always-visible="1" data-rail-visible="1">
+        <table class="watable table table-striped table-hover table-bordered table-condensed">
+            <thead>
+            <tr>
+                <th>
+                   类型
+                </th>
+                <th>
+                   IC卡号
+                </th>
+                <th class="hidden-xs">
+                    表编号
+                </th>
+                <th>
+                   购气时间
+                </th>
+                <th>
+                    购气次数
+                </th>
+                <th>
+                    气量
+                </th>
+                <th>
+                    金额
+                </th>
+                <th>
+                    累计气量
+                </th>
+                <th>
+                    累计金额
+                </th>
+                
+            </tr>
+            </thead>
+            <tbody id="_payHistoryInfo">
+            <!--    <tbody id="_garbageHistoryInfo">-->
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+</div>
+<script type="text/x-template" id="__dust__gaspayHistoryRowInfo">
+    {#data}
+    <tr>
+        <td>
+            {@select key=status}
+                {@eq value="0"} 写卡冲正{/eq}                
+                {@eq value="1"} 写卡{/eq}
+                {@eq value="2"} 补卡{/eq}
+            {/select}
+        </td>
+        <td>
+            {cardCode}
+        </td>
+        <td class="hidden-xs">
+            {meterNo}
+        </td>
+        <td>
+            {buyGasTime}
+        </td>
+        <td>
+            {buyGasTimes}
+        </td>
+        <td>
+            {measure}
+        </td>
+        <td>
+            {money}
+        </td>
+        <td>
+            {remaindeGas}
+        </td>
+        <td>
+            {remaindeMoney}
+        </td>
+        
+    </tr>
+    {/data}
+</script>
+
+<script type="text/javascript">
+    function render(param){
+        //console.log(param);
+        dust.loadSource(dust.compile($("#__dust__gaspayHistoryRowInfo").html(), "gaspayhistoryrowInfo__"));
+        $.ajax({
+            url: "/hzqs/dbc/pbsel.do?fh=SELDBC0000000J00&resp=bd",
+            dataType: "json",
+            contentType: "application/json;charset=utf-8",
+            type: "POST",
+            data: JSON.stringify({
+                cols: "d.employeeName,a.meterNo,a.measure,a.money,to_char(a.buyGasTime,'yyyy-MM-dd hh24:mi:ss') buyGasTime,a.buyGasTimes,b.measure totalmeasure,b.money totalmoney,b.cardCode,a.status,a.remaindeMoney, a.remaindeGas",
+                froms: "gasChgIccardCharge a inner join gasCtmArchive c on c.ctmArchiveId=a.ctmArchiveId inner join gasChgIccard b on b.iccardId =a.icCardId left join gasSysUser d on d.userId = a.createdBy",
+                wheres:"a.status='1' and b.iccard_state = '1' and c.ctmArchiveId='"+param.archiveId+"'order by a.buyGasTime desc"  ,
+                //wheres: "b.chgAccCtmId =a.chgAccCtmId and c.ctmArchiveId=b.ctmArchiveId and c.ctmArchiveId='"+param.customerCode+"'",
+                page: true,
+                limit: 10,
+            }),
+            success: function (data) {
+                if (data) {
+                    dust.render("gaspayhistoryrowInfo__", { "data": data.rows }, function (err, res) {
+                        $("#_payHistoryInfo").html(res);
+                    });
+                }
+            }
+        });
+    }
+</script>
+

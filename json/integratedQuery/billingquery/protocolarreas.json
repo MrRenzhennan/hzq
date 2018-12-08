@@ -1,0 +1,10 @@
+{"rows":
+[
+  {"serialNumber":"01","gasArea":"供气区域一","accountingClerk":"核算员一","CusSerOfficer":"客户服务员一","bookNumber":"本号一","cusNumber":"客户号一","cusName":"客户名一","transactor":"办理人一","approver":"批准人一","planRepaytime":"2011-04-23","actualRepayDate":"2011-05-23","protocolArreasTotal":"2400","protocolArreasBalance":"800.00","actualRepayAmount":"10.00"}
+,{"serialNumber":"02","gasArea":"供气区域二","accountingClerk":"核算员二","CusSerOfficer":"客户服务员二","bookNumber":"本号二","cusNumber":"客户号二","cusName":"客户名二","transactor":"办理人二","approver":"批准人二","planRepaytime":"2012-07-02","actualRepayDate":"2012-07-04","protocolArreasTotal":"1863","protocolArreasBalance":"79.40","actualRepayAmount":"34.90"}
+
+]
+,"total_rows":2
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

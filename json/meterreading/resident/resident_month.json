@@ -1,0 +1,11 @@
+{"rows":
+[ {"versionID":"道里区","gasCategory":"李四","gasType":"张三","gasStart":"00634","gasEnd":"宜家","price":"1800","changeTime":"1200","effectTime":"5700","changePerson":"首达预警线","unionAccount":"","UUID":"1"}
+, {"versionID":"道里区","gasCategory":"李四","gasType":"王朝","gasStart":"00244","gasEnd":"永辉超市","price":"1530","changeTime":"1000","effectTime":"6000","changePerson":"正常","unionAccount":"","UUID":"1"}
+, {"versionID":"道里区","gasCategory":"李四","gasType":"马汉","gasStart":"00355","gasEnd":"开源酒店","price":"1322","changeTime":"1200","effectTime":"5700","changePerson":"首达预警线","unionAccount":"","UUID":"1"}
+, {"versionID":"道里区","gasCategory":"李四","gasType":"张龙","gasStart":"00456","gasEnd":"百货商场","price":"1022","changeTime":"1023","effectTime":"6800","changePerson":"首达预警线","unionAccount":"","UUID":"1"}
+, {"versionID":"道里区","gasCategory":"李四","gasType":"赵虎","gasStart":"00797","gasEnd":"天龙娱乐酒吧","price":"1900","changeTime":"1711","effectTime":"6500","changePerson":"正常","unionAccount":"","UUID":"1"}
+]
+,"total_rows":1
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]>
+<html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+
+<!-- BEGIN HEAD -->
+<head>
+    <title>退款详情</title>
+    <base href="../../">
+    <meta charset="UTF-8">
+    <meta http-equiv="content-type" content="text/html" charset="utf-8"/>
+
+    <script src="pages/scripts/header.js"></script>
+    <link href='assets/global/plugins/jquery-watable/watable.css' rel='stylesheet'/>
+    <link href='assets/global/plugins/jquery-watable/animate.min.css' rel='stylesheet'/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-select/bootstrap-select.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/select2/select2.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/jquery-multi-select/css/multi-select.css"/>
+    <link href="assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
+    <!-- BEGIN THEME STYLES -->
+    <!-- END THEME STYLES -->
+    <style media="print">
+        @page {
+            size: auto;  /* auto is the initial value */
+            margin: 0mm; /* this affects the margin in the printer settings */
+        }
+    </style>
+    <style>
+        #tableDiv {
+            background: #000000;
+        }
+
+        #tableDiv tr td {
+            background: #fff;
+            border: 1px solid #000 !important;
+        }
+
+        @media print {
+            .noneprint {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<!-- END HEAD -->
+<body class="page-header-fixed page-quick-sidebar-over-content">
+
+<!-- 标题栏开始 -->
+<div class="page-header navbar navbar-fixed-top">
+    <script>$.include("pages/partial/menu.shtml");</script>
+</div>
+<!-- 标题栏结束 -->
+<div class="clearfix"></div>
+<div class="page-container">
+    <!-- 左侧菜单开始 -->
+    <div class="page-sidebar-wrapper">
+        <script>$.include("pages/partial/sidebar.shtml");</script>
+    </div>
+    <!-- 左侧菜单结束 -->
+
+    <!-- 主内容开始 -->
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <!--内容头开始-->
+            <div class="row noneprint">
+                <div class="col-md-12">
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa  fa-map-marker"></i>
+                            <a href="index.html">收费管理</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">退款管理</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+
+                            <a href="javascript:void(0)">退款统计</a>
+
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+
+            <div class="container-fluid">
+                <p style="text-align: center;margin-top:3%;font-size: 14px; font-weight: 600;"></p>
+                <!--<h4 style="text-align: center; font-weight: 600;"></h4>-->
+                <div class="col-sm-4 form-group">
+                    <div class="btn-group input-group ">
+                        <div class="input-group-addon">查询开始时间：</div>
+                        <div class="input-group-addon startTime"></div>
+                    </div>
+                </div>
+                <div class="col-sm-4 form-group">
+                    <!--<div class="btn-group input-group ">-->
+                    <!--<div class="input-group-addon">：</div>-->
+                    <!--<div class="input-group-addon areaId"></div>-->
+                    <!--</div>-->
+                </div>
+                <div class="col-sm-4 form-group">
+                    <div class="btn-group input-group ">
+                        <div class="input-group-addon">查询结束时间：</div>
+                        <div class="input-group-addon endTime"></div>
+                    </div>
+                </div>
+                <table class="table table-bordered" id="tableDiv">
+
+                </table>
+
+
+                <!--<div class="col-sm-12" style="margin-top: 10px;">-->
+                <!--<div class="col-sm-4 form-group">-->
+                <!--<div class="btn-group input-group ">-->
+                <!--<div class="input-group-addon" style="font-weight: 800;font-size: 14px;">统计情况</div>-->
+                <!--&lt;!&ndash;<div class="input-group-addon areaId" style="font-size: 14px;"></div>&ndash;&gt;-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--<div class="col-sm-4 form-group">-->
+                <!--<div class="btn-group input-group ">-->
+                <!--<div class="input-group-addon" style="font-weight: 800;font-size: 14px;">总计笔数:</div>-->
+                <!--<div class="input-group-addon userId" style="font-size: 14px;"></div>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--<div class="col-sm-4 form-group">-->
+                <!--<div class="btn-group input-group ">-->
+                <!--<div class="input-group-addon" style="font-weight: 800;font-size: 14px;">总计金额:</div>-->
+                <!--<div class="input-group-addon dayintime" style="font-size: 14px;"></div>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--</div>-->
+
+                <div class="col-sm-12 form-group">
+                    <!--<div class="col-sm-3" style="font-weight: 800;font-size: 14px; line-height: 40px;">分公司经办人:</div>-->
+                    <!--<div class="col-sm-3" style="font-weight: 800;font-size: 14px; line-height: 40px;">分公司财务:</div>-->
+                    <!--<div class="col-sm-3" style="font-weight: 800;font-size: 14px; line-height: 40px;">财务部负责人:</div>-->
+                    <div class="col-sm-4 form-group">
+                        <div class="btn-group input-group ">
+                            <div class="input-group-addon" style="font-weight: 600;font-size: 14px;line-height: 80px;">
+                                分公司经办人:
+                            </div>
+                            <div class="input-group-addon " style="font-size: 14px;"></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 form-group">
+                        <div class="btn-group input-group ">
+                            <div class="input-group-addon" style="font-weight: 600;font-size: 14px;line-height: 80px;">
+                                分公司负责人:
+                            </div>
+                            <div class="input-group-addon " style="font-size: 14px;"></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 form-group">
+                        <div class="btn-group input-group ">
+                            <div class="input-group-addon" style="font-weight: 600;font-size: 14px;line-height: 80px;">
+                                分公司财务:
+                            </div>
+                            <div class="input-group-addon " style="font-size: 14px;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 form-group">
+                    <div class="col-sm-4 form-group">
+                        <div class="btn-group input-group ">
+                            <div class="input-group-addon" style="font-weight: 600;font-size: 14px;line-height: 80px">
+                                营业部审核:
+                            </div>
+                            <div class="input-group-addon " style="font-size: 14px;"></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 form-group">
+                        <div class="btn-group input-group ">
+                            <div class="input-group-addon" style="font-weight: 600;font-size: 14px;line-height: 80px">
+                                营业部负责人:
+                            </div>
+                            <div class="input-group-addon " style="font-size: 14px;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 form-group">
+                    <div class="col-sm-4 form-group">
+                        <div class="btn-group input-group ">
+                            <div class="input-group-addon" style="font-weight: 600;font-size: 14px;line-height: 80px;">
+                                财务部负责人:
+                            </div>
+                            <div class="input-group-addon " style="font-size: 14px;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12" style="margin-top: 10px;">
+                    <div class="col-sm-4 form-group">
+                        <div class="btn-group input-group ">
+                            <div class="input-group-addon" style="font-weight: 600;font-size: 14px;">制表单位:</div>
+                            <div class="input-group-addon areaId" style="font-size: 14px;"></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 form-group">
+                        <div class="btn-group input-group ">
+                            <div class="input-group-addon" style="font-weight: 600;font-size: 14px;">制表人:</div>
+                            <div class="input-group-addon userId" style="font-size: 14px;"></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 form-group">
+                        <div class="btn-group input-group ">
+                            <div class="input-group-addon" style="font-weight: 600;font-size: 14px;">打印时间:</div>
+                            <div class="input-group-addon dayintime" style="font-size: 14px;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 noneprint" style="text-align: center; margin: 30px 0;">
+                    <button class="btn blue" id="prints">打印</button>
+                    <button class="btn blue" id="cancel">返回</button>
+                </div>
+
+            </div>
+            <!-- 内容结束-->
+        </div>
+    </div>
+</div>
+<!-- 主内容结束 -->
+
+<script type="text/javascript">$.include("pages/partial/xwatable-form.shtml")</script>
+
+
+</body>
+<script>$.include("pages/partial/scripts.shtml");</script>
+<script type="text/javascript" src="assets/global/plugins/jquery-watable/jquery.watable.js"></script>
+<script type="text/javascript" src="pages/scripts/rqlbuilder.js"></script>
+<script type="text/javascript" src="pages/scripts/xwatable.js"></script>
+<script type="text/javascript" src="pages/scripts/refhelper.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+
+<script type="text/javascript" src="assets/global/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-multi-select/js/jquery.multi-select.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-daterangepicker/moment.min.js"></script>
+<script src="mods/basismanage.js"></script>
+<script type="text/javascript">
+    var refundId = JSON.parse(localStorage.getItem("ptint_info"));
+    var areaIds = JSON.parse(localStorage.getItem("user_info")).area_id;
+    var time = JSON.parse(localStorage.getItem("ptint_time"));
+    var getArea = JSON.parse(localStorage.getItem("user_info"))
+    console.log(time);
+    console.log(refundId.join());
+    var refundType
+    if (time[2] == 1) {
+        refundType = "燃 气 费"
+    } else if (time[2] == 2) {
+        refundType = "垃 圾 费"
+    }
+    $("p").html(refundType+" 退 款 统 计");
+    var str = "<tr><td>供气单位</td><td>退款笔数</td><td>总金额</td><td>领收人</td></tr>";
+
+    var num = 0;
+    var moneys = 0;
+
+    var operatorHelper = RefHelper.create({
+        ref_url: "gassysuser/?query={\"status\":\"1\"}",
+        ref_col: "userId",
+        ref_display: "employeeName"
+    });
+    var AreaHelper = RefHelper.create({
+        ref_url: "gasbizarea",
+        ref_col: "areaId",
+        ref_display: "areaName"
+    });
+    var userHelper = RefHelper.create({
+        ref_url: 'gassysuser/?query={"status":"1"}',
+        ref_col: "userId",
+        ref_display: "employeeName",
+    });
+    var db = {
+        "cols": "a.*,b.area_id,b.idcard,b.customer_name,b.tel,b.customer_address",
+        "froms": "gas_chg_refund a left join gas_ctm_archive b on b.customer_code = a.customer_code",
+        "wheres": "a.refund_id in (" + refundId.join() + ")",
+        "pade": false
+    }
+    $.ajax({
+        url: "/hzqs/dbc/pbsel.do?fh=VDBCSEL000000J00&resp=bd&proxy=VSELDBC000000J00&bd=" + encodeURIComponent(JSON.stringify(db)),
+        type: "get",
+        async: false,
+        success: function (data) {
+            console.log(data)
+            num = data.rows.length;
+            var reservedField1 = {"1": "用户注销", "2": "暂停用气"};
+            var i = 0;
+            $.each(data.rows, function (index, item) {
+                moneys += item.money;
+//                str+="<tr><td>"+item.customerCode+"</td><td>"+item.customerName+"</td><td>"+item.customerAddress+"</td><td>"+item.money.toFixed(2)+"</td><td>"+reservedField1[""+item.reservedField1+""]+"</td>" +
+//                        "<td>"+item.createdTime.split("T").join(" ")+"</td><td>"+operatorHelper.getDisplay(item.createdBy)+"</td><td>"+AreaHelper.getDisplay(item.areaId)+"</td></tr>";
+                i = i + 1;
+            })
+            str += "<tr><td>" + AreaHelper.getDisplay(areaIds) + "</td><td>" + i + "</td><td>" + moneys + "</td><td>" + "" + "</td></tr>"
+        }
+    });
+    $(".areaId").html(AreaHelper.getDisplay(getArea.area_id));
+    $(".userId").html(userHelper.getDisplay(getArea.userId));
+    $("#tableDiv").html(str)
+    //    $(".userId").html(num)
+    //    $(".dayintime").html(moneys.toFixed(2))
+    $("#prints").on("click", function () {
+        $(".dayintime").html(moment().format('YYYY-MM-DDTHH:mm:ss').split("T").join(" "));
+        window.print();
+    })
+    $(".startTime").html(time[0]);
+    $(".endTime").html(time[1]);
+    $("#cancel").on("click", function () {
+        history.go("-1")
+    })
+
+</script>
+
+</html>

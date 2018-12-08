@@ -1,0 +1,1290 @@
+[
+  {
+    "name": "基础管理",
+    "icon": "icon-settings",
+    "children": [
+      {
+        "name": "系统管理",
+        "children": [
+          {
+            "name":"单位管理",
+            "url":"basismanage/admin/unit.html"
+          },
+          {
+            "name": "工作人员管理",
+            "url": "basismanage/admin/user.html"
+          },
+          {
+            "name": "菜单管理",
+            "url": "basismanage/admin/menu.html"
+          },
+          {
+            "name": "角色管理",
+            "url": "basismanage/admin/role.html"
+          },
+          {
+            "name": "系统参数表管理",
+            "url": "basismanage/admin/parameter.html"
+          },
+          {
+            "name": "系统参数类型",
+            "url": "basismanage/admin/parameterType.html"
+          },
+          {
+            "name":"URL资源管理",
+            "url":"basismanage/admin/resource.html"
+          },
+          {
+            "name":"客户端升级管理",
+            "url":"basismanage/admin/client_upgrade.html"
+          },
+          {
+            "name":"访问日志",
+            "url":"basismanage/admin/log.html"
+          },
+          {
+            "name":"角色资源管理",
+            "url":"basismanage/admin/role_interface.html"
+          },
+          {
+            "name":"角色菜单管理",
+            "url":"basismanage/admin/role_menu.html"
+          },
+          {
+            "name":"用户角色管理",
+            "url":"basismanage/admin/user_role.html"
+          },
+          {
+            "name": "套打配置表",
+            "url": "basismanage/organization/config.html"
+          }
+        ]
+      },
+      {
+        "name": "营业基础信息",
+        "children": [
+          {
+            "name": "岗位管理",
+            "url": "basismanage/organization/station.html"
+          },
+          {
+            "name": "供气区域管理",
+            "url": "basismanage/organization/gasarea.html"
+          },
+          {
+            "name": "营业网点管理",
+            "url": "basismanage/admin/chargeunit.html"
+          },
+          {
+            "name": "银行管理",
+            "url": "basismanage/organization/bank.html"
+          },
+          {
+            "name": "用气类型管理",
+            "url": "basismanage/businessbase/gastype.html"
+          }
+        ]
+      },
+      {
+        "name": "表具基础信息",
+        "children": [
+        	{
+            "name": "燃气表",
+            "url": "basismanage/meterbasic/mtrmeter.html"
+          },
+          {
+            "name": "表具类型管理",
+            "url": "basismanage/meterbasic/metertype.html"
+          },
+          {
+            "name": "物品种类管理",
+            "url": "basismanage/meterbasic/meterreskind.html"
+          },
+          {
+            "name": "生产厂家管理",
+            "url": "basismanage/meterbasic/meterfactory.html"
+          },
+          {
+            "name": "规格型号管理",
+            "url": "basismanage/meterbasic/specifications.html"
+          },
+          {
+            "name": "流量范围管理",
+            "url": "basismanage/meterbasic/flowrange.html"
+          },
+          {
+            "name": "生产厂家与规格型号对应",
+            "url": "basismanage/meterbasic/manufacturer_specifications.html"
+          },
+          {
+            "name": "表具类型与物品种类对应",
+            "url": "basismanage/meterbasic/tabletypes_itemtypes.html"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "客户管理",
+    "icon": "icon-users",
+    "children": [
+      {
+        "name": "表具管理",
+        "children": [
+          {
+            "name": "表库管理",
+            "url": "customer/dm/depository.html"
+          },
+          {
+            "name": "备表管理",
+            "url": "customer/dm/reserve_meter.html"
+          },
+          {
+            "name": "一级库管理",
+            "url": "customer/dm/level1_depository.html"
+          },
+          {
+            "name": "二级库管理",
+            "url": "customer/dm/level2_depository.html"
+          },
+          {
+            "name": "库存盘点管理",
+            "url": "customer/dm/inventory_check.html"
+          },
+          {
+            "name": "表具检测管理",
+            "url": "customer/dm/meter_check_plan_Management.html"
+          },
+          {
+            "name": "表具更换管理",
+            "url": "customer/dm/meter_exchange_plan_Management.html"
+          },
+          {
+            "name": "一级库下线表管理",
+            "url": "customer/dm/level1_offLine_meterManagement.html"
+          },
+          {
+            "name": "二级库下线表管理",
+            "url": "customer/dm/level2_offLine_meterManagement.html"
+          },
+          {
+            "name": "表具档案管理",
+            "url": "customer/dm/meter.html"
+          }
+        ]
+      },
+      {
+        "name": "合同管理",
+        "children": [
+          {
+            "name": "居民合同管理",
+            "url": "customer/contract_inhabitant.html"
+          },
+          {
+            "name": "非居民合同管理",
+            "url": "customer/contract_noninhabitant.html"
+          }
+        ]
+      },
+      {
+        "name": "档案管理",
+        "children": [
+          {
+            "name": "居民档案管理",
+            "url": "customer/inhabitant_archivemanagement.html"
+          },
+          {
+            "name": "非居民档案管理",
+            "url": "customer/non_inhabitant_archivemanagement.html"
+          }
+        ]
+      },
+      {
+        "name": "开栓令管理",
+        "children": [
+          {
+            "name": "居民开栓令管理",
+            "url": "customer/inhabitant_open_boltManagement.html"
+          },
+          {
+            "name": "非居民开栓令管理",
+            "url": "customer/non_inhabitant_open_boltManagement.html"
+          }
+        ]
+      },
+      {
+        "name": "燃气设备档案管理",
+        "url": "customer/gas_equipmentManagement.html"
+      },
+      {
+        "name": "特殊用户管理",
+        "url": "customer/special_customerManagement.html"
+      },
+      {
+        "name": "联合账户管理",
+        "url": "customer/union_collectfeeManagement.html"
+      }
+    ]
+  },
+  {
+    "name": "抄表管理",
+    "icon": "icon-book-open",
+    "children": [
+      {
+        "name": "抄表本管理",
+        "url": "meterreading/build/mrdbook.html"
+      },
+      {
+        "name": "非居民抄表例日管理",
+        "url": "meterreading/build/mrdnonresident.html"
+      },
+      {
+        "name": "添加抄表本",
+        "url": "meterreading/build/addmrdbook.html"
+      },
+      {
+        "name": "抄表计划管理",
+        "url": "meterreading/plan/plan_year.html"
+      },
+      {
+         "name":"抄表计划变更",
+         "url":"meterreading/plan/planned_change.html"
+      },
+      {
+        "name": "抄表数据管理",
+        "children": [
+          {
+            "name": "抄表录入",
+            "url": "meterreading/entering/non_entering.html"
+          }
+        ]
+      },
+      {
+        "name": "数据分析",
+        "children": [
+          {
+            "name": "居民数据分析",
+            "url": "meterreading/resident/residentsanalysis.html"
+          },
+          {
+            "name": "非居民数据分析",
+            "url": "meterreading/resident/dataanalysis.html"
+          },
+          {
+            "name": "非用户数据跟踪",
+            "url": "meterreading/resident/nonresident.html"
+          }
+        ]
+      },
+      {
+        "name": "抄表差错管理", 
+        "children": [
+          {
+            "name": "抄表差错",
+            "url": "meterreading/error/meter_error_examine.html"
+          },
+          {
+            "name": "IC卡抄表差错",
+            "url": "meterreading/error/icmeter_error_examine.html"
+          }
+        ]
+      },
+      {
+        "name": "欠费与催缴管理",
+        "url": "meterreading/arrearage.html"
+      },
+      {
+        "name": "定针查询",
+        "url": "meterreading/settheneedle/settheneedle_examine.html"
+      }
+    ]
+  },
+  {
+    "name": "计费管理",
+    "icon": "icon-layers",
+    "children": [
+      {
+        "name": "价格管理",
+        "children": [
+          {
+            "name": "燃气费价格设置",
+            "url": "charging/gasCost.html"
+          },
+          {
+            "name": "垃圾费价格设置",
+            "url": "charging/garbageCost.html"
+          },
+          {
+            "name": "燃气价格表",
+            "url": "charging/gasprice.html"
+          },
+          {
+            "name": "垃圾费价格表",
+            "url": "charging/wasteprice.html"
+          },
+          {
+            "name": "燃气费计费明细",
+            "url": "charging/gasblldetail.html"
+          },
+          {
+            "name": "杂项费价格设置(二期)",
+            "url": "charging/miscellaneousCost.html"
+          }
+        ]
+      },
+      {
+        "name": "优惠管理",
+        "children": [
+          {
+            "name": "居民优惠设定",
+            "url": "charging/residentDisRateSet.html"
+          },
+          {
+            "name": "大客户登记",
+            "url": "charging/disCusRegister.html"
+          },
+          {
+            "name": "大客户优惠申请",
+            "url": "charging/bigCusDisRateApproval.html"
+          }
+        ]
+      },
+      {
+        "name": "顺价管理",
+        "children": [
+          {
+            "name": "顺价抄表",
+            "url": "charging/cantangoCopy.html"
+          },
+          {
+            "name": "非居民普表用户计费更正",
+            "url": "charging/meterCorrect.html"
+          },
+          {
+            "name": "IC卡表用户计费更正",
+            "url": "charging/ICCardCorrect.html"
+          }
+        ]
+      },
+      {
+        "name": "出账管理",
+        "url": "charging/accountInquiry.html"
+      },
+      {
+        "name": "计费差错",
+        "url": "charging/charge_error_select.html"
+      },
+      {
+        "name": "计费更正",
+        "url": "charging/charge_correct_select.html"
+      }
+    ]
+  },
+  {
+    "name": "账务管理",
+    "icon": "icon-notebook",
+    "children": [
+      {
+        "name": "月出账管理",
+        "url": "accountManage/accountmonthout.html"
+      },
+      {
+        "name": "对账管理",
+        "url": "accountManage/accountverify.html"
+      },
+      {
+        "name": "科目管理",
+        "url": "accountManage/accountsubject.html"
+      },
+      {
+        "name": "呆账坏账管理(二期)",
+        "children": [
+          {
+            "name": "呆账管理",
+            "url": "accountManage/accountdaze.html"
+          },
+          {
+            "name": "坏账报损",
+            "url": "accountManage/accountbad1.html"
+          },
+          {
+            "name": "坏账处理",
+            "url": "accountManage/accountbad2.html"
+          },
+          {
+            "name": "坏账作废",
+            "url": "accountManage/accountbad3.html"
+          }
+        ]
+      },
+      {
+        "name": "计息管理(二期)",
+        "url": "accountManage/accountprofit.html"
+      },
+      {
+        "name": "协议气量管理",
+        "url": "accountManage/accountagree.html"
+      },
+      {
+        "name": "第三方代收费管理(二期)",
+        "children": [
+          {
+            "name": "银行代收费配置管理",
+            "url": "#"
+          },
+          {
+            "name": "交易监控",
+            "url": "#"
+          },
+          {
+            "name": "代收费账务处理",
+            "url": "#"
+          },
+          {
+            "name": "交易接口服务",
+            "url": "#"
+          },
+          {
+            "name": "交易查询与分析",
+            "url": "#"
+          }
+        ]
+      },
+      {
+        "name": "违约金管理",
+        "children": [
+          {
+            "name": "燃气费违约金管理",
+            "url": "accountManage/accountpenalty1.html"
+          },
+          {
+            "name": "生活垃圾处理费违约金",
+            "url": "accountManage/accountpenalty2.html"
+          }
+        ]
+      },
+      {
+        "name": "银行账务管理",
+        "children": [
+          {
+            "name": "银行代收费查询",
+            "url": "accountManage/deposit_payment_at_bank.html"
+          },
+          {
+            "name": "专用账户管理",
+            "url": "accountManage/special_account.html"
+          },
+          {
+            "name": "银行自动对账",
+            "url": "accountManage/autobankcheck.html"
+          }
+        ]
+      },
+      {
+        "name": "POS收费日结查询",
+        "url": "accountManage/POS.html"
+      }
+    ]
+  },
+  {
+    "name": "收费管理",
+    "icon": "icon-layers",
+    "children": [
+      {
+        "name": "燃气收费管理",
+        "children": [
+          {
+            "name": "收费",
+            "url": "collectfee/charge.html"
+          },
+          {
+            "name": "POS机日结查询",
+            "url": "collectfee/posdayreport.html"
+          },
+          {
+            "name": "IC卡收费",
+            "url": "collectfee/iccharge.html"
+
+          },
+          {
+            "name": "IC卡补卡",
+            "url": "collectfee/iccardresubmit.html"
+
+          },
+          {
+            "name": "IC卡补量",
+            "url": "collectfee/iccomplement.html"
+
+          }
+
+        ]
+      },
+      {
+        "name": "退款管理",
+        "children": [
+          {
+            "name": "普表退款",
+            "url": "collectfee/refundcommon.html"
+          },
+          {
+            "name": "IC卡退款",
+            "url": "collectfee/refundIC.html"
+          },
+          {
+            "name": "垃圾处理费退款",
+            "url": "collectfee/refundgarbagefee.html"
+          }
+        ]
+      },
+      {
+        "name": "收费方式变更申请",
+        "url": "collectfee/methodchange.html"
+      },
+      {
+        "name": "收费方式变更",
+        "url": "collectfee/methodchange.html"
+      },
+      {
+        "name": "收费差错管理",
+        "children": [
+          {
+            "name": "收费差错申请",
+            "url": "collectfee/collecterror.html"
+          },
+          {
+            "name": "收费差错处理",
+            "url": "collectfee/dealerrorapply.html"
+          }
+        ]
+      },
+      {
+        "name": "结账管理",
+        "children": [
+          {
+            "name": "网点收费结账",
+            "url": "collectfee/gas_report_fee.html"
+          },
+          {
+            "name": "收费日结",
+            "url": "collectfee/gas_day_report.html"
+          },
+          {
+            "name": "收费月结",
+            "url": "collectfee/gas_month_report.html"
+          },{
+            "name": "POS机日结查询",
+            "url": "collectfee/gas_month_report.html"
+          }
+        ]
+      },
+      {
+        "name": "IC卡顺价",
+        "children": [
+          {
+            "name": "IC卡补气",
+            "url": "collectfee/IC_replenish.html"
+          }
+        ]
+      },
+      {
+        "name": "还款计划管理(二期)",
+        "url": "collectfee/refundplan.html"
+      },
+      {
+        "name": "用户账单递交方式（二期）",
+        "url": "collectfee/bill.html"
+      },
+      {
+        "name": "追补追缴管理",
+        "children": [
+          {
+            "name": "追补管理",
+            "url": "collectfee/recover.html"
+          },
+          {
+            "name": "追缴管理",
+            "url": "collectfee/recover_fee.html"
+          }
+        ]
+      },
+      {
+        "name": "票据管理",
+        "children": [
+          {
+            "name": "票据打印",
+            "url": "collectfee/reprint.html"
+          },
+          {
+            "name": "其他票据管理（二期）",
+            "url": "collectfee/xx.html"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "服务管理",
+    "icon": "icon-heart",
+    "children": [
+      {
+        "name": "综合业务办理",
+        "url": "serviceManage/business_process.html"
+      },
+      {
+        "name": "综合业务查询",
+        "url": "serviceManage/business_query.html"
+      },
+      {
+        "name": "派工管理",
+        "children": [
+          {
+            "name": "派工",
+            "url": "serviceManage/dispatching_Manage/business_dispatching.html"
+          },
+          {
+            "name": "工单结果录入",
+            "url": "serviceManage/dispatching_Manage/repair_order_result.html"
+          },
+          {
+            "name": "工单执行",
+            "url": "serviceManage/dispatching_Manage/repair_order_perform.html"
+          },
+          {
+            "name": "工单调整",
+            "url": "serviceManage/dispatching_Manage/repair_order_adjustment.html"
+          },
+          {
+            "name": "工单作废",
+            "url": "serviceManage/dispatching_Manage/repair_order_invalid.html"
+          },
+          {
+            "name": "派单跟踪查询",
+            "url": "serviceManage/dispatching_Manage/repair_order_tracking_query.html"
+          },
+          {
+            "name": "二次派工",
+            "url": "serviceManage/dispatching_Manage/second_business_dispatching.html"
+          },
+          {
+            "name": "业务收费出账",
+            "url": "serviceManage/dispatching_Manage/business_charge.html"
+          },
+          {
+            "name": "业务跟踪处理",
+            "url": "serviceManage/dispatching_Manage/business_track_processing.html"
+          }
+        ]
+      },
+      {
+        "name": "批量业务处理",
+        "children": [
+          {
+            "name": "批量派工",
+            "url": "serviceManage/batch_business_processing/batch_dispatching.html"
+          },
+          {
+            "name": "批量结果录入",
+            "url": "serviceManage/batch_business_processing/batch_write_result.html"
+          },
+          {
+            "name": "批量执行",
+            "url": "serviceManage/batch_business_processing/batch_execution.html"
+          }
+        ]
+      },
+      {
+        "name": "运行管理(二期)",
+        "children": [
+          {
+            "name": "维/抢修管理",
+            "url": "#"
+          },
+          {
+            "name": "客户相关数据查询 ",
+            "url": "#"
+          },
+          {
+            "name": "安检管理",
+            "url": "#"
+          },
+          {
+            "name": "调度室管理",
+            "url": "#"
+          },
+          {
+            "name": "供销差率管理",
+            "url": "#"
+          },
+          {
+            "name": "调压设备用量管理",
+            "url": "#"
+          }
+        ]
+      },
+      {
+        "name": "审批流程管理",
+        "children": [
+          {
+            "name": "低保户、低困、低收入审批",
+            "url": "#"
+          },
+          {
+            "name": "用气性质变更审批",
+            "url": "#"
+          },
+          {
+            "name": "IC卡补气审批",
+            "url": "#"
+          },
+          {
+            "name": "退费审批",
+            "url": "#"
+          },
+          {
+            "name": "收费差错审批",
+            "url": "#"
+          },
+          {
+            "name": "计费差错审批",
+            "url": "#"
+          },
+          {
+            "name": "计费更正审批",
+            "url": "#"
+          },
+          {
+            "name": "非居民暂停审批",
+            "url": "#"
+          },
+          {
+            "name": "拆除审批",
+            "url": "#"
+          },
+          {
+            "name": "定针审批",
+            "url": "#"
+          },
+          {
+            "name": "非居民换表审批",
+            "url": "#"
+          },
+          {
+            "name": "协议气量审批",
+            "url": "#"
+          },
+          {
+            "name": "串户审批",
+            "url": "#"
+          },
+          {
+            "name": "季节性关栓审批",
+            "url": "#"
+          },
+          {
+            "name": "呆账/坏账处理审批",
+            "url": "#"
+          },
+          {
+            "name": "遗留用户建档审批",
+            "url": "#"
+          },
+          {
+            "name": "非居民燃气费余额转换审批",
+            "url": "#"
+          },
+          {
+            "name": "表具出入库差错审批",
+            "url": "#"
+          },
+          {
+            "name": "借表/换表/退表审批",
+            "url": "#"
+          },
+          {
+            "name": "表具档案信息变更审批",
+            "url": "#"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "银行代收费管理",
+    "icon": "icon-bar-chart",
+    "url": "#",
+    "children": [
+    ]
+  },
+  {
+    "name": "智能手机APP应用",
+    "icon": "icon-grid",
+    "children": [
+      {
+        "name": "抄表",
+        "url": "#"
+      },
+      {
+        "name": "收费",
+        "url": "#"
+      },
+      {
+        "name": "信息传递更改",
+        "url": "#"
+      },
+      {
+        "name": "安检",
+        "url": "#"
+      },
+      {
+        "name": "客户满意度调查",
+        "url": "#"
+      },
+      {
+        "name": "报表推送",
+        "url": "#"
+      },
+      {
+        "name": "APP版本升级及后期功能维护",
+        "url": "#"
+      }
+    ]
+  },
+  {
+    "name": "报表统计",
+    "icon": "icon-drawer",
+    "children": [
+      {
+        "name": "营业概况查询",
+        "url": "statement/query_businesslicense.html"
+      },
+      {
+        "name": "抄表统计查询",
+        "url": "statement/query_meterreadingstatistics.html"
+      },
+      {
+        "name": "客户欠费查询",
+        "url": "statement/query_customerArrearage.html"
+      },
+      {
+        "name": "销售统计查询",
+        "url": "statement/query_salesstatistics.html"
+      },
+      {
+        "name": "综合统计查询",
+        "url": "statement/query_synthesizestatistics.html"
+      },
+      {
+        "name": "管理户数查询",
+        "url": "statement/query_managehouse.html"
+      },
+      {
+        "name": "抄表计费跟踪查询",
+        "url": "statement/query_meterbilling.html"
+      },
+      {
+        "name": "燃气费追补减免查询",
+        "url": "statement/query_gasfeemakeup.html"
+      },
+      {
+        "name": "客户历史抄账查询",
+        "url": "statement/query_customeraccount.html"
+      },
+      {
+        "name": "管理处燃气费收费汇总",
+        "url": "statement/query_managegasclollect.html"
+      },
+      {
+        "name": "职工户概况查询",
+        "url": "statement/query_staffprofile.html"
+      },
+      {
+        "name": "开栓时间查询",
+        "url": "statement/query_openswitchtime.html"
+      },
+      {
+        "name": "专用退款查询",
+        "url": "statement/query_dedicatedrefund.html"
+      },
+      {
+        "name": "退款查询及确认",
+        "url": "statement/query_refundaffirm.html"
+      },
+      {
+        "name": "年度优惠查询统计",
+        "url": "statement/query_annualdiscount.html"
+      },
+      {
+        "name": "商服抄表顺延天数查询",
+        "url": "statement/query_shangFupostponedays.html"
+      },
+      {
+        "name": "综合统计",
+        "url": "statement/query_synthesize.html"
+      },
+      {
+        "name": "居民阶梯用气统计",
+        "url": "statement/query_ladder.html"
+      },
+      {
+        "name": "非IC卡用户统计",
+        "url": "statement/query_iccard.html"
+      },
+      {
+        "name": "IC卡计费统计",
+        "url": "statement/query_isiccard.html"
+      },
+      {
+        "name": "换新IC卡表用户数统计",
+        "url": "statement/query_newiccard.html"
+      },
+      {
+        "name": "年度新增用户统计",
+        "url": "statement/query_newuser.html"
+      },
+      {
+        "name": "非居民销售排名",
+        "url": "statement/query_ranking.html"
+      },
+      {
+        "name": "燃气设备销售统计",
+        "url": "statement/query_equipment.html"
+      },
+      {
+        "name": "月日户均用气量统计",
+        "url": "statement/query_monthdaygas.html"
+      },
+      {
+        "name": "按表规格销售统计",
+        "url": "statement/query_tablesizesell.html"
+      },
+      {
+        "name": "按使用期限统计",
+        "url": "statement/query_servicelife.html"
+      },
+      {
+        "name": "按表具类型销售统计",
+        "url": "statement/query_tabletype.html"
+      },
+      {
+        "name": "在线表数量统计",
+        "url": "statement/query_onlinetablenumber.html"
+      },
+      {
+        "name": "工商服用户月用量异常或零气量户分析表",
+        "url": "statement/query_abnormalorzerovolume.html"
+      },
+      {
+        "name": "工商服日抄周抄和表具巡检记录表",
+        "url": "statement/query_weekdaycopyandtablechecking.html"
+      },
+      {
+        "name": "客户周日抄统计分析表",
+        "url": "statement/query_clientcopyonsunday.html"
+      },
+      {
+        "name": "非居民预收燃气费统计表月初余额变动表",
+        "url": "statement/query_gasStatisticalChangesInAdvance.html"
+      },
+      {
+        "name": "非居民预收统计表",
+        "url": "statement/query_AdvanceStatistics.html"
+      },
+      {
+        "name": "天然气销售计划完成情况统计表",
+        "url": "statement/query_SalesPlanCompletion.html"
+      },
+      {
+        "name": "天然气销售情况统计报表（单位汇总）",
+        "url": "statement/query_SalesStatusUnitSummary.html"
+      },
+      {
+        "name": "天然气销售情况统计报表",
+        "url": "statement/query_SalesStatusUnitSummary.html"
+      },
+      {
+        "name": "新增量、存量统计报表",
+        "url": "statement/query_NewStockOfIncremental.html"
+      },
+      {
+        "name": "天然气供销差率",
+        "url": "statement/query_SupplyAndMarketingRate.html"
+      },
+      {
+        "name": "非居民大客户用量增速3倍以上",
+        "url": "statement/query_ResidentsConsumptionGrowth.html"
+      },
+      {
+        "name": "新开栓非居民用户月实收量统计明细",
+        "url": "statement/query_NonresidentMonthPaidIn.html"
+      },
+      {
+        "name": "燃气有限责任公司月报表（计划完成）",
+        "url": "statement/query_CompanyMonthlyReport.html"
+      }
+    ]
+  },
+  {
+    "name": "综合查询",
+    "icon": "icon-magnifier",
+    "children": [
+      {
+        "name": "基础信息查询",
+        "children": [
+          {
+            "name": "工作人员查询",
+            "url": "integratedQuery/basicInformation/query_employee.html"
+          },
+          {
+            "name": "燃气价格查询",
+            "url": "integratedQuery/basicInformation/query_gas_price.html"
+          },
+          {
+            "name": "抄表本查询",
+            "url": "integratedQuery/basicInformation/query_meter_book.html"
+          },
+          {
+            "name": "联合账户查询",
+            "url": "integratedQuery/basicInformation/query_jointaccountinquiry.html"
+          },
+          {
+            "name": "客户档案查询",
+            "url": "integratedQuery/basicInformation/query_customerArchive.html"
+          },
+          {
+            "name": "单客户信息查询",
+            "url": "integratedQuery/basicInformation/query_singleCustomerInfo.html"
+          },
+          {
+            "name": "燃气表档案查询",
+            "url": "integratedQuery/basicInformation/query_meter_online.html"
+          },
+          {
+            "name": "表编号变更查询",
+            "url": "integratedQuery/basicInformation/query_meterID_change.html"
+          },
+          {
+            "name": "客户用气性质变更明细",
+            "url": "integratedQuery/basicInformation/query_gas_type_change.html"
+          },
+          {
+            "name": "家用燃气锅炉户普查表",
+            "url": "integratedQuery/basicInformation/query_boiler_in_house.html"
+          },
+          {
+            "name": "城市非居民户供用气合同登记表",
+            "url": "integratedQuery/basicInformation/query_contract_sign_non_inhabitant.html"
+          },
+          {
+            "name": "非居民故障表查询",
+            "url": "integratedQuery/basicInformation/query_error_meter_non_inhabitant.html"
+          }
+        ]
+      },
+      {
+        "name": "抄表类查询",
+        "children": [
+          {
+            "name": "抄表差错查询",
+            "url": "integratedQuery/meterreading/query_metererror.html"
+          },
+          {
+            "name": "出账后抄表数据查询",
+            "url": "integratedQuery/meterreading/query_meterchargeoff.html"
+          },
+          {
+            "name": "未出账抄表数据查询",
+            "url": "integratedQuery/meterreading/query_notchargeoff.html"
+          },
+          {
+            "name": "异常抄表数据查询",
+            "url": "integratedQuery/meterreading/query_abnormal.html"
+          },
+          {
+            "name": "抄表概况查询",
+            "url": "integratedQuery/meterreading/query_profile.html"
+          },
+          {
+            "name": "久未抄表客户信息查询",
+            "url": "integratedQuery/meterreading/query_longtimecustomer.html"
+          }
+        ]
+      },
+      {
+        "name": "收费类查询",
+        "children": [
+          {
+            "name": "交费信息查询",
+            "url": "integratedQuery/collectfee/query_collect_fee.html"
+          },
+          {
+            "name": "异地交费信息查询",
+            "url": "integratedQuery/collectfee/query_different_place.html"
+          },
+          {
+            "name": "款项交接单查询",
+            "url": "integratedQuery/collectfee/query_account_list.html"
+          },
+          {
+            "name": "营业员日结查询",
+            "url": "integratedQuery/collectfee/query_day_report.html"
+          },
+          {
+            "name": "现金收费日月结对帐明细",
+            "url": "integratedQuery/collectfee/query_day_month.html"
+          },
+          {
+            "name": "收费差错信息查询",
+            "url": "integratedQuery/collectfee/query_collect_error.html"
+          },
+          {
+            "name": "违约金信息查询（二）",
+            "url": "#"
+          },
+          {
+            "name": "票据查询（二）",
+            "url": "#"
+          },
+          {
+            "name": "无存款客户信息查询",
+            "url": "integratedQuery/collectfee/query_ne.html"
+          },
+          {
+            "name": "燃气费余额转IC卡收费查询",
+            "url": "integratedQuery/collectfee/query_change_IC.html"
+          },
+          {
+            "name": "便民服务费信息查询（二）",
+            "url": "#"
+          },
+          {
+            "name": "久未交费客户信息",
+            "url": "integratedQuery/collectfee/query_long.html"
+          },
+          {
+            "name": "市纪检数据",
+            "url": "integratedQuery/collectfee/query_market_discipline.html"
+          },
+          {
+            "name": "国安局检察院数据",
+            "url": "integratedQuery/collectfee/query_nsa.html"
+          }
+        ]
+      },
+      {
+        "name": "账务类查询 ",
+        "children": [
+          {
+            "name": "追补查询",
+            "url": "integratedQuery/billingquery/query_retroactive.html"
+          },
+          {
+            "name": "优惠情况查询",
+            "url": "integratedQuery/billingquery/query_preference.html"
+          },
+          {
+            "name": "死表追补查询",
+            "url": "integratedQuery/billingquery/query_deadtabretroactive.html"
+          },
+          {
+            "name": "减免查询",
+            "url": "integratedQuery/billingquery/query_relief.html"
+          },
+          {
+            "name": "利息查询(二期)",
+            "url": "#"
+          },
+          {
+            "name": "营业日志查询",
+            "url": "integratedQuery/billingquery/query_businesslog.html"
+          },
+          {
+            "name": "营业月志查询",
+            "url": "integratedQuery/billingquery/query_businessmothlog.html"
+          },
+          {
+            "name": "协议气量查询",
+            "url": "integratedQuery/billingquery/query_protocolvolume.html"
+          },
+          {
+            "name": "协议欠费查询",
+            "url": "integratedQuery/billingquery/query_protocolarreas.html"
+          },
+          {
+            "name": "客户余额查询",
+            "url": "integratedQuery/billingquery/query_cusbalance.html"
+          },
+          {
+            "name": "呆账查询(二期)",
+            "url": "#"
+          },
+          {
+            "name": "坏账查询(二期)",
+            "url": "#"
+          },
+          {
+            "name": "月结统计查询",
+            "url": "integratedQuery/billingquery/query_monthlystatistics.html"
+          },
+          {
+            "name": "零气量查询",
+            "url": "integratedQuery/billingquery/query_zerogas.html"
+          }
+        ]
+      },
+      {
+        "name": "计费类查询 ",
+        "children": [
+          {
+            "name": "计费差错信息查询",
+            "url": "#"
+          }
+        ]
+      },
+      {
+        "name": "业务信息查询",
+        "children": [
+          {
+            "name": "业务综合查询",
+            "url": "integratedQuery/bussinessInfo/comprehensive_business_query.html"
+          },
+          {
+            "name": "业务补充查询",
+            "url": "integratedQuery/bussinessInfo/business_complement_query.html"
+          },
+          {
+            "name": "换表信息查询",
+            "url": "integratedQuery/bussinessInfo/change_meter_query.html"
+          },
+          {
+            "name": "维修表具查询",
+            "url": "integratedQuery/bussinessInfo/repair_meter_query.html"
+          },
+          {
+            "name": "商服换表审批查询",
+            "url": "integratedQuery/bussinessInfo/SF_change_meter_audit.html"
+          },
+          {
+            "name": "弱势群体信息查询",
+            "url": "integratedQuery/bussinessInfo/vulnerable_groups_query.html"
+          },
+          {
+            "name": "在线表检测信息查询",
+            "url": "integratedQuery/bussinessInfo/online_meter_detection.html"
+          }
+        ]
+      },
+      {
+        "name": "表具查询",
+        "url": "#"
+      },
+      {
+        "name": "综合管理查询",
+        "url": "#"
+      },
+      {
+        "name": "IC卡客户查询",
+        "url": "#"
+      }
+    ]
+  }
+]

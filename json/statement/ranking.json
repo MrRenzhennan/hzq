@@ -1,0 +1,10 @@
+{"rows":
+[
+  {"UUID":"001","customerID":"0001","userID":"道里区","houseID":"9527333","accountID":"199373","customerName":"腾飞有限公司","address":"道里区工程路工程小区","photo":"小王","mobilePhone":"￥400","customerCategory":"非居民","customerStatus":"6000","meterBook":"60","contract":"￥66666","copybooktype":"￥5000","contrac":"44","cancellation":"无"},
+  {"UUID":"001","customerID":"0001","userID":"道里区","houseID":"9527333","accountID":"199373","customerName":"腾飞有限公司","address":"道里区工程路工程小区","photo":"小王","mobilePhone":"￥400","customerCategory":"非居民","customerStatus":"6000","meterBook":"60","contract":"￥66666","copybooktype":"￥5000","contrac":"44","cancellation":"无"},
+  {"UUID":"001","customerID":"0001","userID":"道里区","houseID":"9527333","accountID":"199373","customerName":"腾飞有限公司","address":"道里区工程路工程小区","photo":"小王","mobilePhone":"￥400","customerCategory":"非居民","customerStatus":"6000","meterBook":"60","contract":"￥66666","copybooktype":"￥5000","contrac":"44","cancellation":"无"}
+]
+,"total_rows":8
+,"totalPages":2
+,"skip":0
+,"limit":2147483647}

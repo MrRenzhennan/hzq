@@ -1,0 +1,12 @@
+
+	<div class="btn-group form-group">
+	    <button id="find_button" class="btn yellow">
+	        查询&nbsp; <i class="fa fa-search"></i>
+	    </button>
+	</div>
+
+    <div class="btn-group form-group">
+        <button id="add_button" class="btn green" data-target="#stack1" data-toggle="modal">
+            增加&nbsp; <i class="fa fa-plus"></i>
+        </button>
+    </div>

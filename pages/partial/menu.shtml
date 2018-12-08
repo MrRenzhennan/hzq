@@ -1,0 +1,97 @@
+    <!-- BEGIN HEADER INNER -->
+    <div class="page-header-inner">
+        <!-- BEGIN LOGO -->
+        <div class="page-logo" style="padding-left: 15px;background: #373d41;border-bottom: 1px #2e3437 solid;border-right: 1px #2e3437 solid; ">
+                <a href="index.html" >
+                    <img style="margin-top:6px;margin-bottom: 2px" height="26px" src="pages/images/logo28.png" alt="logo" class="logo-default2"/>
+                </a>
+            <div class="menu-toggler sidebar-toggler hide">
+            </div>
+        </div>
+        <!-- END LOGO -->
+        <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+        <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse">
+        </a>
+        <!-- END RESPONSIVE MENU TOGGLER -->
+        <!-- BEGIN TOP NAVIGATION MENU -->
+        <div class="top-menu">
+            <ul class="nav navbar-nav pull-right">
+                <!-- BEGIN NOTIFICATION DROPDOWN -->
+                <li class="dropdown dropdown-extended dropdown-inbox" id="header_inbox_bar">
+                   <!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                        <i class="icon-bell"></i>
+                        <span class="badge badge-default">
+					4 </span>
+                    </a>-->
+                    <ul class="dropdown-menu" id="__notice">
+
+                    </ul>
+                    <script type="text/x-template" id="__dust_notice">
+                        {#data}
+                        <li>
+                            <p>{name}</p>
+                        </li>
+                        {/data}
+                    </script>
+                    <script>
+                        $(document).ready(function () {
+                            $.ajax({
+                                type:'get',
+                                url:'json/message.json',
+                                dataType:'json',
+                                contentType:"application/json; charset=urf-8",
+                                async:false,
+                                success: function (data,textStatus, xhr) {
+                                    console.log("===============================");
+                                    console.log(xhr.status);
+                                    if(xhr.status == 200){
+                                        var template = dusterBuildArr($("#__dust_notice"));
+                                        // alert(template(data));
+                                        $("#__notice").append(template(data));
+                                    } else if(xhr.status == 403){
+                                        alert("error");
+                                    }
+                                }
+                            });
+                        })
+                    </script>
+                </li>
+                <!-- BEGIN USER LOGIN DROPDOWN -->
+                <li class="dropdown dropdown-user" >
+                    <a href="javascript:void(0)"style="background-color: #373d41" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                    <img alt="" height="18px" class="img-circle" src="pages/images/avatar.png">
+                    <span class="username" id="showloginname"></span>
+                        <script>
+                            var user = JSON.parse(localStorage.getItem("user_info")).userId;
+                            $.ajax({
+                                type: 'get',
+                                url: hzq_rest + 'gassysuser/'+user,
+                                dataType: 'json',
+                                contentType: "application/json; charset=utf-8",
+                                async: false,
+                                success: function(data) {
+                                    $("#showloginname").html(data.employeeName)
+                                },
+                                error: function(err) {
+
+                                }
+                            });
+                        </script>
+                    <i class="fa fa-angle-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="javascript:;" onclick="userInfo.updatePassword();">
+                            <i class="icon-lock"></i> 修改密码 </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;" onclick="logout();">
+                            <i class="icon-key"></i> 登出 </a>
+                        </li>
+                    </ul>
+                </li>               
+            </ul>
+        </div>
+        <!-- END TOP NAVIGATION MENU -->
+    </div>
+    <!-- END HEADER INNER -->

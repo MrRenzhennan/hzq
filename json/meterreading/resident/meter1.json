@@ -1,0 +1,11 @@
+{"rows":
+[
+  {"versionID":"9129","gasCategory":"张龙","gasType":"300","gasStart":"76","gasEnd":"354","gasEnd1":"王林","price":"82","changeTime":"默认表户","effectTime":"5","effectTime1":"民安小区45#","effectTime2":"2016/3/8","effectTime3":"001","effectTime4":"112","effectTime5":"正常","effectTime6":"超大气量","effectTime16":"异常","effectTime15":"2016/7/9","effectTime7":"已提交","changePerson":""}
+  ,{"versionID":"7769","gasCategory":"王朝","gasType":"0","gasStart":"71","gasEnd":"0","price":"70","changeTime":"默认表户","effectTime":"5","effectTime1":"民安小区45#","effectTime2":"2016/5/7","effectTime3":"002","effectTime4":"113","effectTime5":"正常","effectTime6":"零气量","effectTime7":"未提交","effectTime16":"异常","effectTime15":"2016/7/9","changePerson":""}
+,{"versionID":"7645","gasCategory":"马汉","gasType":"14","gasStart":"66","gasEnd":"14","price":"67","changeTime":"默认表户","effectTime":"5","effectTime1":"民安小区45#","effectTime2":"2016/4/7","effectTime3":"003","effectTime4":"114","effectTime5":"正常","effectTime6":"本期气量骤减","effectTime7":"已审核","effectTime16":"异常","effectTime15":"2016/7/9","changePerson":""}
+,{"versionID":"6533","gasCategory":"赵虎","gasType":"11","gasStart":"96","gasEnd":"18","price":"95","changeTime":"默认表户","effectTime":"5","effectTime1":"民安小区45#","effectTime2":"2016/6/7","effectTime3":"004","effectTime4":"115","effectTime5":"正常","effectTime6":"同期气量骤减","effectTime7":"未审核","effectTime16":"异常","effectTime15":"2016/7/9","changePerson":""}
+]
+,"total_rows":1
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

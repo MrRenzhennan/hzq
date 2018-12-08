@@ -1,0 +1,15 @@
+{"rows":
+[
+  {"account_ID":"0001","account_name":"工商银行","account_status":"正常","account_over":"10000¥","contact_name":"王阳","contact_telephone":"0393-12938383","contact_mobilephone":"13211298483","contact_office":"工商银行总公司","contact_post_code":"9483231","contact_email":"33931820@qq.com","invoice":"工商银行","create_date":"2010/01/01","operator":"张明明"},
+  {"account_ID":"0002","account_name":"苏果超市","account_status":"正常","account_over":"10000¥","contact_name":"赵强","contact_telephone":"0393-12938383","contact_mobilephone":"13211298483","contact_office":"工商银行总公司","contact_post_code":"9483231","contact_email":"33931820@qq.com","invoice":"苏果超市","create_date":"2010/01/01","operator":"张明明"},
+  {"account_ID":"0003","account_name":"哈尔滨工商学院","account_status":"正常","account_over":"10000¥","contact_name":"张国宾","contact_telephone":"0393-12938383","contact_mobilephone":"13211298483","contact_office":"工商银行总公司","contact_post_code":"9483231","contact_email":"33931820@qq.com","invoice":"哈尔滨工商学院","create_date":"2010/01/01","operator":"张明明"},
+  {"account_ID":"0004","account_name":"哈尔滨工业大学","account_status":"正常","account_over":"10000¥","contact_name":"韩莹莹","contact_telephone":"0393-12938383","contact_mobilephone":"13211298483","contact_office":"工商银行总公司","contact_post_code":"9483231","contact_email":"33931820@qq.com","invoice":"哈尔滨工业大学","create_date":"2010/01/01","operator":"张明明"},
+  {"account_ID":"0005","account_name":"黑龙江科技大学","account_status":"正常","account_over":"10000¥","contact_name":"付鑫","contact_telephone":"0393-12938383","contact_mobilephone":"13211298483","contact_office":"工商银行总公司","contact_post_code":"9483231","contact_email":"33931820@qq.com","invoice":"黑龙江科技大学","create_date":"2010/01/01","operator":"张明明"},
+  {"account_ID":"0006","account_name":"百事可乐有限责任公司","account_status":"正常","account_over":"10000¥","contact_name":"王金明","contact_telephone":"0393-12938383","contact_mobilephone":"13211298483","contact_office":"工商银行总公司","contact_post_code":"9483231","contact_email":"33931820@qq.com","invoice":"百事可乐有限责任公司","create_date":"2010/01/01","operator":"张明明"},
+  {"account_ID":"0007","account_name":"秋林里道斯","account_status":"正常","account_over":"10000¥","contact_name":"牛村鹏","contact_telephone":"0393-12938383","contact_mobilephone":"13211298483","contact_office":"工商银行总公司","contact_post_code":"9483231","contact_email":"33931820@qq.com","invoice":"秋林里道斯","create_date":"2010/01/01","operator":"张明明"},
+  {"account_ID":"0008","account_name":"东北特产专销有限公司","account_status":"正常","account_over":"10000¥","contact_name":"师伟","contact_telephone":"0393-12938383","contact_mobilephone":"13211298483","contact_office":"工商银行总公司","contact_post_code":"9483231","contact_email":"33931820@qq.com","invoice":"东北特产专销有限公司","create_date":"2010/01/01","operator":"张明明"}
+]
+,"total_rows":8
+,"totalPages":2
+,"skip":0
+,"limit":2147483647}

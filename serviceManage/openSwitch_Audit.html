@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]>
+<html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+
+<!-- BEGIN HEAD -->
+<head>
+    <title>非居民开栓令审核</title>
+    <base href="../">
+    <script src="pages/scripts/header.js"></script>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8"/>
+
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-select/bootstrap-select.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/select2/select2.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/jquery-multi-select/css/multi-select.css"/>
+    <link href="assets/global/plugins/bootstrap-fileinput/fileinput.css" rel="stylesheet">
+
+    <!-- BEGIN THEME STYLES -->
+    <link href="assets/global/css/components.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
+    <!-- END THEME STYLES -->
+</head>
+<!-- END HEAD -->
+
+<body class="page-header-fixed page-quick-sidebar-over-content">
+
+<!-- 标题栏开始 -->
+<div class="page-header navbar navbar-fixed-top">
+    <script>$.include("pages/partial/menu.shtml");</script>
+</div>
+<!-- 标题栏结束 -->
+<div class="clearfix"></div>
+<div class="page-container">
+    <!-- 左侧菜单开始 -->
+    <div class="page-sidebar-wrapper">
+        <script>$.include("pages/partial/sidebar.shtml");</script>
+    </div>
+    <!-- 左侧菜单结束 -->
+
+    <!-- 主内容开始 -->
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <!--内容头开始-->
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa fa-map-marker"></i>
+                            <a href="javascript:;">审批流程</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="javascript:;">开栓令审批</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="customer/non_inhabitant_open_boltManagement.html">非居民开栓令</a>
+                            <!--<i class="fa fa-angle-right"></i>-->
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 内容头结束-->
+
+            <!-- 内容开始-->
+            <div class="container-fluid">
+                <div class="row form-group">
+                    <div class="col-md-3">
+                        <label class="control-label col-md-4">开栓令编号:</label>
+                        <div class="col-md-8">
+                            <input id="unbolt_no" type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="control-label col-md-4">项目编号:</label>
+                        <div class="col-md-8">
+                            <input id="project_no" type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="control-label col-md-4">项目日期:</label>
+                        <div class="col-md-8">
+                            <input id="project_date" type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="control-label col-md-4">项目名称:</label>
+                        <div class="col-md-8">
+                            <input id="project_name" type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-md-3">
+                        <label class="control-label col-md-4">供气区域:</label>
+                        <div class="col-md-8">
+                            <input id="find_area" type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="control-label col-md-4">工程类别:</label>
+                        <div class="col-md-8">
+                            <input type="text" id="projectType" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="control-label col-md-2">建设单位:</label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" id="build_unit" disabled>
+                        </div>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-md-3">
+                        <label class="control-label col-md-4">联系人:</label>
+                        <div class="col-md-8">
+                            <input id="link_man" type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="control-label col-md-4">联系方式:</label>
+                        <div class="col-md-8">
+                            <input id="link_tel" type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="control-label col-md-2">工程地址:</label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" id="project_address" disabled>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tabbable tabbable-custom tabbable-custom-profile col-md-12" style="padding-bottom:0px">
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#tab_1_22" data-toggle="tab">
+                            开栓明细 </a>
+
+                    </li>
+                </ul>
+                <!--/row-->
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab11">
+                        <div class="portlet-body">
+                            <table class="watable table table-striped table-hover table-bordered table-condensed">
+                                <thead>
+                                <th>用气类型</th>
+                                <th>额定流量</th>
+                                <th>数量</th>
+                                <!--<th>抄表本号</th>-->
+                                </thead>
+                                <tbody id="unboltDetail">
+                                </tbody>
+                                <tfoot>
+                                <td></td>
+                                <td id="totalCapacity"></td>
+                                <td id="totalCount"></td>
+                                <td></td>
+                                </tfoot>
+                            </table>
+                            <!--/row-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="btn-set" style="margin-left:45%">
+                <button id="cancel" type="button" class="btn default">返回</button>
+            </div>
+            <!-- 内容结束-->
+        </div>
+    </div>
+    <!-- 主内容结束 -->
+</div>
+
+<script type="text/javascript">$.include("pages/partial/xwatable-form.shtml")</script>
+
+<!-- 底边栏开始 -->
+<script>$.include("pages/partial/foot.shtml");</script>
+<!-- 底边栏结束 -->
+</body>
+
+
+<script>$.include("pages/partial/scripts.shtml");</script>
+<script type="text/javascript" src="pages/scripts/rqlbuilder.js"></script>
+<script type="text/javascript" src="pages/scripts/refhelper.js"></script>
+
+<script type="text/javascript" src="assets/global/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-multi-select/js/jquery.multi-select.js"></script>
+
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<script src="assets/admin/pages/scripts/components-pickers.js"></script>
+<!-- END PAGE LEVEL SCRIPTS -->
+<script src="customer/js/openSwitch.js"></script>
+<script src="pages/scripts/jquery.json.min.js"></script>
+<script type="text/javascript" src="pages/scripts/jquery.serialize-object.min.js"></script>
+<script type="text/javascript">
+    noInhabitantOpenBoltDetailAction.init();
+</script><!-- End of User Script-->
+</html>

@@ -1,0 +1,14 @@
+{"rows":
+[
+  {"UUID":"001","contract1":"道二管理科","contract_ID":"","sign_date":"施工员","customer_name":"王朝","contract":"aa001","end_date":"6.....","start_date":"","operator":"180....."},
+  {"UUID":"001","contract1":"道一管理科","contract_ID":"","sign_date":"稽查中队长","customer_name":"张龙","contract":"aa001","end_date":"6.....","start_date":"","operator":"180....."},
+  {"UUID":"001","contract1":"道外管理科","contract_ID":"","sign_date":"营业员","customer_name":"赵虎","contract":"aa001","end_date":"6.....","start_date":"","operator":"180....."},
+  {"UUID":"001","contract1":"南一管理科","contract_ID":"","sign_date":"抄表员","customer_name":"马汉","contract":"aa001","end_date":"6.....","start_date":"","operator":"180....."},
+  {"UUID":"001","contract1":"南三管理科","contract_ID":"","sign_date":"核算员","customer_name":"德邦","contract":"aa001","end_date":"6.....","start_date":"","operator":"180....."},
+  {"UUID":"001","contract1":"平房管理科","contract_ID":"","sign_date":"技术科长","customer_name":"德玛","contract":"aa001","end_date":"6.....","start_date":"","operator":"180....."}
+
+]
+,"total_rows":1
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

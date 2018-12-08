@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]>
+<html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+
+<!-- BEGIN HEAD -->
+
+<head>
+    <title>燃气余额转换查询</title>
+    <script src="../pages/scripts/basepath.js"></script>
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-select/bootstrap-select.min.css">
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/select2/select2.css">
+    <script src="../pages/scripts/header.js"></script>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8" />
+    <link href='../assets/global/plugins/jquery-watable/watable.css' rel='stylesheet' />
+    <link href='../assets/global/plugins/jquery-watable/animate.min.css' rel='stylesheet' />
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.css"
+    />
+    <link href='../assets/global/plugins/bootstrap-datetimepicker/css/datetimepicker.css' rel='stylesheet' />
+
+    <!--datapicker css start-->
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-datepicker/css/datepicker3.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-colorpicker/css/colorpicker.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css"
+    />
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-datetimepicker/css/datetimepicker.css" />
+    <!--datapicker end-->
+</head>
+<!-- END HEAD -->
+
+<body class="page-header-fixed page-quick-sidebar-over-content">
+
+    <!-- 标题栏开始 -->
+    <div class="page-header navbar navbar-fixed-top">
+        <script>
+            $.include("pages/partial/menu.shtml");
+        </script>
+    </div>
+    <!-- 标题栏结束 -->
+    <div class="clearfix"></div>
+    <div class="page-container">
+        <!-- 左侧菜单开始 -->
+        <div class="page-sidebar-wrapper">
+            <script>
+                $.include("pages/partial/sidebar.shtml");
+            </script>
+        </div>
+        <!-- 左侧菜单结束 -->
+        <!-- 主内容开始 -->
+        <div class="page-content-wrapper">
+            <div class="page-content">
+                <!--内容头开始-->
+                <script>$.include("common/navigation_bar.shtml");</script>
+                <!-- 内容头结束-->
+
+
+                <!-- 内容开始-->
+
+                <div class="container col-sm-12" style="padding-bottom:0px">
+                    <div class="row">
+                        <div class="col-sm-3 form-group">
+                            <div class="btn-group input-group input-select2me">
+                                <div class="input-group-addon">营业网点：</div>
+                                <select id="find_chargeUnitId" class="form-control input-small select2me" data-placeholder="请选择营业网点">
+                                <option value=""></option>
+                            </select>
+                                <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 form-group">
+                            <div class="btn-group input-group input-select2me">
+                                <div class="input-group-addon">营业员：</div>
+                                <select id="find_employeeName" class="form-control input-small select2me" data-placeholder="请选择...">
+                                <option value=""></option>
+                            </select>
+                                <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 form-group">
+                            <div class="btn-group input-group input-select2me">
+                                <div class="input-group-addon">客户类别：</div>
+                                <select id="customer_kind" class="form-control input-small select2me" data-placeholder="客户类型：">
+                                <option value="">全部</option>
+                                <option value="1">居民</option>
+                                <option value="9">非居民</option>
+                            </select>
+                                <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 form-group">
+                            <div class="btn-group input-group input-select2me">
+                                <div class="input-group-addon">是否本区域：</div>
+                                <select id="is_local" class="form-control input-small select2me" data-placeholder="客户类型：">
+                                <option value="">全部</option>
+                                <option value="1">是</option>
+                                <option value="0">否</option>
+                            </select>
+                                <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 form-group">
+                            <div class="btn-group input-group">
+                                <div class="input-group-addon">开始日期:</div>
+                                <div class="input-group input-large date-picker input-daterange" data-date-format="yyyy-mm-dd">
+                                    <input id="find_start_date" type="text" class="form-control" name="unboltTime">
+                                    <span class="inputclear glyphicon glyphicon-remove-circle hidden"></span>
+                                    <span class="input-group-addon">至</span>
+                                    <input id="find_end_date" type="text" class="form-control" name="unboltTime">
+                                    <span class="inputclear glyphicon glyphicon-remove-circle hidden"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 form-group">
+                            <div class="btn-group input-group">
+                                <div class="input-group-addon">客户编号：</div>
+                                <input id="find_customer_code" type="text" class="form-control input-small" />
+                            </div>
+                        </div>
+
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <button id="find_sign" type="button" class="btn yellow">
+                                查询 <i class="fa fa-search"></i>
+                            </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 内容头结束-->
+                <div class="tabbable tabbable-custom tabbable-custom-profile col-md-12" style="padding-bottom:0px; padding-top:20px;">
+                    <ul class="nav nav-tabs">
+                        <li role="presentation" class="active"><a href="#unSettlement" aria-controls="unSettlement" role="tab" data-toggle="tab">收费总计</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="unSettlement">
+                            <div data-always-visible="1" data-rail-visible="1">
+                                <!--/row-->
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">总金额:</label>
+                                            <div class="col-md-6">
+                                                <input id="all_amount" type="text" class="form-control" placeholder="" value="" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">总户数:</label>
+                                            <div class="col-md-6">
+                                                <input id="all_count" type="text" class="form-control" placeholder="" value="" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- 内容结束-->
+                <div class="container-fluid">
+                    <div id="divtable" class="table-responsive container-fluid col-md-12">
+                    </div>
+                </div>
+                <!-- 内容结束-->
+            </div>
+        </div>
+        <!-- 主内容结束 -->
+    </div>
+    <script type="text/javascript">
+                $.include("pages/partial/xwatable-form.shtml")
+    </script>
+
+    <!-- 底边栏开始 -->
+    <script>
+        $.include("pages/partial/foot.shtml");
+    </script>
+    <!--英尺-->
+    <!-- 底边栏结束 -->
+    <div class="modal fade" id="hzqModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg">
+            <div id="mcontent" class="modal-content">
+            </div>
+        </div>
+    </div>
+</body>
+
+
+<script>
+        $.include("pages/partial/scripts.shtml");
+
+</script>
+<!--跳到原稿-->
+<script src="../assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="../assets/global/plugins/jquery-watable/jquery.watable.js"></script>
+<script type="text/javascript" src="../pages/scripts/rqlbuilder.js"></script>
+<script type="text/javascript" src="../pages/scripts/xwatable.js"></script>
+<script type="text/javascript" src="../pages/scripts/refhelper.js"></script>
+
+<!--datapicker start-->
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/clockface/js/clockface.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-daterangepicker/moment.min.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script src="../assets/admin/pages/scripts/components-pickers.js"></script>
+
+
+<script src="../collectfee/js/reporttable.js"></script>
+<script src="../collectfee/js/errorApply.js"></script>
+<!--datapicker end-->
+
+<script type="text/javascript">
+    function toAmount(amount) {
+        if (isNaN(parseFloat(amount))) {
+            return "0.00";
+        } else {
+            return parseFloat(amount).toFixed(2);
+        }
+    }
+    var global_remap = {
+        "chargeTypeName": "1:现金,2:POS机,3:银行转账,4:支票",
+        "feeTypeId": "1:燃气费,2:垃圾费",
+        "customerType": "P:普表,I:IC卡表"
+    };
+    var userInfo = JSON.parse(localStorage.getItem('user_info'));
+    var tradeTypeFormat = function () {
+        return {
+            f: function (data, row) {
+                if (data == "ICTRANSMONEY") {
+                    return "燃气余额转换";
+                } else {
+                    return "";
+                }
+            }
+        }
+    }();
+    var timeFormat = function () {
+        return {
+            f: function (data, row) {
+                if (data == "" || data == undefined) {
+                    return "—";
+                } else {
+                    return moment(data).format("YYYY-MM-DD HH:mm:ss");
+                }
+                return "";
+            }
+        }
+    }();
+
+    $(function () {
+        $("#divtable").delegate("a[hzq-type=remoteModal]", "click", function (obj) {
+            var $targetModal = $($(obj.target).attr("hzq-modal"));
+            var targetPath = $(obj.target).attr("hzq-remote");
+            var fnstring = $(obj.target).attr("hzq-cb");
+            var param = $(obj.target).attr("hzq-param");
+            $targetModal.modal({
+                show: true
+            })
+            $targetModal.unbind("show.bs.modal").on("show.bs.modal", function (e) {
+                $(e.currentTarget).find("#mcontent").empty();
+            });
+            $targetModal.unbind("shown.bs.modal").on("shown.bs.modal", function (e) {
+                $(e.currentTarget).find("#mcontent").load(targetPath, function () {
+                    if (fnstring) {
+                        var fn = window[fnstring];
+                        if (typeof fn === "function") fn.call(null, JSON.parse(param));
+                        window[fnstring] = undefined;
+                    }
+                });
+            });
+            $targetModal.on("hidden.bs.modal", function () {
+                $(this).removeData("bs.modal");
+            });
+        });
+    });
+
+    $(function () {
+        var isNotYYY = true;
+        if (userInfo.station_id && (userInfo.station_id == "4" || userInfo.station_id == "5")) {
+            isNotYYY = false;
+            var opts = '';
+            if (userInfo.station_id == "4") {
+                $("#find_employeeName").html('<option selected="selected" value="' + userInfo.userId + '">班长-' + userInfo.employee_name + '</option>');
+            } else {
+                $("#find_employeeName").html('<option selected="selected" value="' + userInfo.userId + '">营业员-' + userInfo.employee_name + '</option>');
+            }
+            $.ajax({
+                type: 'get',
+                url: '/hzq_rest/gasbizchargeunit/' + userInfo.charge_unit_id,
+                dataType: 'json',
+                contentType: "application/json; charset=utf-8",
+                async: false,
+                success: function (data, textStatus, xhr) {
+                    if (xhr.status == 200) {
+                        var opts = "";
+                        opts += '<option selected="selected"  value="' + data.chargeUnitId + '">' + data.chargeUnitName + '</option>';
+                        $("#find_chargeUnitId").html(opts);
+                        $("#find_employeeName").val(data.chargeUnitId).trigger('change');
+                        //$("#find_chargeUnitId").attr("disabled", true);
+                    } else if (xhr.status == 403) {
+
+                    }
+                },
+                error: function (err) {
+                    if (err.status == 403) {
+
+                    }
+                }
+            });
+        }
+
+        if (isNotYYY == true) {
+            $.ajax({
+                type: 'get',
+                url: "/hzq_rest/gasbizchargeunit/?query={\"status\":\"1\"}",
+                dataType: 'json',
+                contentType: "application/json; charset=utf-8",
+                async: false,
+                success: function (data, textStatus, xhr) {
+                    if (xhr.status == 200) {
+                        var opts = '<option value="">全部</option>';
+                        var rows = data;
+                        for (var i = 0; i < rows.length; i++) {
+                            opts += '<option value="' + rows[i].chargeUnitId + '">' + rows[i].chargeUnitName + '</option>';
+                        }
+                        $("#find_chargeUnitId").html(opts);
+                    } else if (xhr.status == 403) {
+
+                    }
+                },
+                error: function (err) {
+                    if (err.status == 403) {
+
+                    }
+                }
+            });
+        }
+        $("#find_chargeUnitId").change(function () {
+            if ($("#find_chargeUnitId").val() == "") {
+                var opts = '<option value="" >全部</option>';
+                $("#find_employeeName").html(opts);
+                $("#find_employeeName").select2("val", "");
+                $("#find_employeeName").select2("open");
+                return;
+            }
+            var f_u_s = RQLBuilder.and([
+                RQLBuilder.equal("chargeUnitId", $("#find_chargeUnitId").val())
+                , RQLBuilder.or([
+                    RQLBuilder.equal("stationId", "5")
+                    , RQLBuilder.equal("stationId", "4")
+                ])
+            ]);
+            $.ajax({
+                type: 'get',
+                url: '/hzq_rest/gassysuser?query=' + f_u_s.rql(),
+                dataType: 'json',
+                contentType: "application/json; charset=utf-8",
+                async: false,
+                success: function (data, textStatus, xhr) {
+                    if (xhr.status == 200) {
+                        var opts = '';
+                        var rows = data;
+                        if (!rows.length || rows.length == 0) {
+                            opts = '<option value="" >无</option>';
+                        } else {
+                            for (var i = 0; i < rows.length; i++) {
+                                if (rows[i].stationId == "4") {
+                                    opts += '<option value="' + rows[i].userId + '">班长-' + rows[i].employeeName + '</option>';
+                                } else {
+                                    opts += '<option value="' + rows[i].userId + '">营业员-' + rows[i].employeeName + '</option>';
+                                }
+
+                            }
+                        }
+                        $("#find_employeeName").html(opts);
+                        $("#find_employeeName").select2("open");
+                    } else if (xhr.status == 403) {
+
+                    }
+                },
+                error: function (err) {
+                    if (err.status == 403) {
+
+                    }
+                }
+            });
+        });
+
+        var find_chargeUnitId_val = "";
+        var find_employeeName_val = "";
+        var find_start_date_val = "";
+        var find_end_date_val = "";
+        //var find_fee_type_val = "";
+
+        var find_chargeUnitId_text = "";
+        var find_employeeName_text = "";
+        var find_customer_kind_val = "";
+        var find_is_local_val = "";
+        var find_customer_code_val = "";
+
+
+        //查询按钮时间
+        $("#find_sign").click(function () {
+
+            find_chargeUnitId_val = $("#find_chargeUnitId").val();
+            find_employeeName_val = $("#find_employeeName").val();
+            find_start_date_val = $("#find_start_date").val();
+            find_end_date_val = $("#find_end_date").val();
+            //find_fee_type_val = $("#find_fee_type").val();
+            find_customer_code_val = $("#find_customer_code").val();
+
+            find_customer_kind_val = $("#customer_kind").val();
+            find_is_local_val = $("#is_local").val();
+
+
+            find_chargeUnitId_text = $('#find_chargeUnitId option:selected').html();
+            find_employeeName_text = $('#find_employeeName option:selected').html();
+
+            /*wheres = "a.chargeUnitId='" + find_chargeUnitId_val
+                + "' and a.createdTime >= to_date('" + find_start_date_val + " 00:00:00','yyyy-MM-dd hh24:mi:ss')" +
+                " and a.createdTime < to_date('" + find_end_date_val + " 23:59:59','yyyy-MM-dd hh24:mi:ss') and b.money <>0 ";
+*/
+
+            //wheres =" 1=1 and a.createdTime >= to_date('" + find_start_date_val + " 00:00:00','yyyy-MM-dd hh24:mi:ss') " +
+            // " and a.createdTime < to_date('" + find_end_date_val + " 23:59:59','yyyy-MM-dd hh24:mi:ss') and b.money >0 ";
+            wheres = "1=1 and b.money <> 0";
+            if (find_employeeName_val) {
+                wheres += " and gsu.userId='" + find_employeeName_val + "' ";
+            }//营业员
+
+
+            if (find_customer_kind_val) {
+                wheres += " and arch.customerKind='" + find_customer_kind_val + "' ";
+            }
+            if (find_is_local_val) {
+                wheres += " and isLocal='" + find_is_local_val + "' ";
+            }
+
+            if (find_customer_code_val) {
+                wheres += " and arch.customerCode ='" + find_customer_code_val + "' ";
+            } 
+            if(find_chargeUnitId_val) {
+                wheres += " and a.chargeUnitId='" + find_chargeUnitId_val + "' ";
+            }
+            if (find_start_date_val != "" && find_end_date_val != null) {
+                wheres += " and a.createdTime >= to_date('" + find_start_date_val + " 00:00:00','yyyy-MM-dd hh24:mi:ss')" +
+                    " and a.createdTime < to_date('" + find_end_date_val + " 23:59:59','yyyy-MM-dd hh24:mi:ss')";
+            }
+
+            //wheres += "";
+            //wheres += " and atl.trade_type_desc ='ICTRANSMONEY'"
+            var bd = {
+                "cols": "sum(-b.money) amount,count(1)  count"
+                , "froms": "vw_chg_day_balance_all vw inner join gasActGasfeeAtl a on vw.tradeId = a.gasfeeAtlId inner join gasActGasfeeAtl b on a.tradeNo = b.tradeNo and b.tradeTypeDesc = \'ICTRANSMONEY\' inner join gas_sys_user gsu on gsu.user_id = a.created_by inner join gas_ctm_archive arch on a.customer_code = arch.customer_code inner join gas_biz_gas_type gtype on gtype.gas_type_id = arch.gas_type_id inner join gas_biz_charge_unit gunit on gunit.charge_unit_id =gsu.charge_unit_id"
+                , "wheres": wheres, "page": false
+            };
+            wheres += " order by a.createdTime desc";
+            $("#divtable").html("");
+            //if ($("#find_date_sign_id").html() == "find_today_sign") {
+            //单日结账  
+            //console.log(bd);
+            $.ajax({
+                type: 'get',
+                url: '/hzqs/dbc/pbsel.do?fh=SELDBC0000000J00&resp=bd&bd=' + JSON.stringify(bd),
+                dataType: 'json',
+                contentType: "application/json; charset=utf-8",
+                success: function (data, textStatus, xhr) {
+                    if (xhr.status == 200) {
+                        var rows = data.rows;
+                        if (!data.rows || !rows.length || rows.length == 0) {
+                            $("#all_amount").val("");
+                            $("#all_count").val("");
+                        } else {
+                            var all_amount = 0;
+                            var all_count = 0;
+                            for (var i = 0; i < rows.length; i++) {
+                                try {
+                                    all_amount = all_amount + rows[i].amount * 1;
+                                    all_count = all_count + rows[i].count;
+                                } catch (e) {
+                                    bootbox.alert("数据类型转换异常：" + JSON.stringify(rows[i]));
+                                }
+                            }
+                            $("#all_amount").val(toAmount(all_amount));
+                            $("#all_count").val(all_count);
+                        }
+
+                    } else if (xhr.status == 403) {
+
+                    }
+                },
+                error: function (err) {
+                    if (err.status == 403) {
+
+                    }
+                }
+            });
+
+
+
+            RFTable.init(
+                {
+                    //----------------table的选项-------
+                    pageSize: 20, 			//Initial pagesize
+                    columnPicker: true,         //Show the columnPicker button
+                    sorting: true,
+                    transition: 'fade',  //(bounce, fade, flip, rotate, scroll, slide).
+                    checkboxes: false,           //Make rows checkable. (Note. You need a column with the 'unique' property)
+                    checkAllToggle: false,        //Show the check-all toggle//+RQLBuilder.like("KEYY", "a").rql()
+                    rowClicked: function (data) {
+                    },
+                    //----------------基本restful地址---
+                    //restbase: '../json/collectfee/gasdayreportdetail.json',
+                    restbase: '/hzqs/dbc/pbsel.do?fh=SELDBC0000000J00&resp=bd&bd={"cols":"-b.money money,b.tradeTypeDesc,arch.customer_name,gunit.charge_unit_name,gsu.employee_name,a.created_time,gtype.gas_type_name,a.customer_code,case when gsu.area_id=arch.area_id then \'1\' else \'0\' end is_local", "froms":"vw_chg_day_balance_all vw inner join gasActGasfeeAtl a on vw.tradeId = a.gasfeeAtlId inner join gasActGasfeeAtl b on a.tradeNo = b.tradeNo and b.tradeTypeDesc = \'ICTRANSMONEY\' inner join gas_sys_user gsu on gsu.user_id = a.created_by inner join gas_ctm_archive arch on a.customer_code = arch.customer_code inner join gas_biz_gas_type gtype on gtype.gas_type_id = arch.gas_type_id inner join gas_biz_charge_unit gunit on gunit.charge_unit_id =gsu.charge_unit_id ","wheres":"' + wheres + '","page":true,"limit":10}',
+                    //---------------行定义
+                    coldefs: [
+                        {
+                            col: "customerCode",
+                            friendly: "客户编号",
+                            unique: true,
+                            readonly: "readonly",
+                            index: 1
+                        },
+                        {
+                            col: "customerName",
+                            friendly: "客户姓名",
+                            readonly: "readonly",
+                            index: 2
+                        },
+                        {
+                            col: "gasTypeName",
+                            friendly: "用气性质",
+                            readonly: "readonly",
+                            index: 4
+                        },
+                        {
+                            col: "createdTime",
+                            friendly: "收费时间",
+                            readonly: "readonly",
+                            index: 6,
+                            format: timeFormat
+                        },
+                        {
+                            col: "employeeName",
+                            friendly: "营业员",
+                            readonly: "readonly",
+                            index: 7
+                        },
+                        {
+                            col: "chargeUnitName",
+                            friendly: "营业网点",
+                            readonly: "readonly",
+                            index: 8
+                        },
+                        {
+                            col: "tradeTypeDesc",
+                            friendly: "交易类型描述",
+                            readonly: "readonly",
+                            index: 9,
+                            format: tradeTypeFormat
+                        },
+                        {
+                            col: "money",
+                            friendly: "金额",
+                            readonly: "readonly",
+                            index: 11
+                        }
+                    ],
+                    //---------------查询时过滤条件
+                    findFilter: function () {//find function
+                        var filter = "keyy=" + $('#find_key').val();
+                        return filter;
+                    }//--findFilter
+                }//--init
+            );//--end init
+        });
+
+
+
+        function date_format(date, fmt) {
+            var dataJson = {
+                "M+": date.getMonth() + 1, //月份
+                "d+": date.getDate(), //日
+                "h+": date.getHours(), //小时
+                "m+": date.getMinutes(), //分
+                "s+": date.getSeconds(), //秒
+                "q+": Math.floor((date.getMonth() + 3) / 3), //季度
+                "S": date.getMilliseconds() //毫秒
+            };
+            if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (date.getFullYear() + "").substr(4 - RegExp.$1.length));
+            for (var k in dataJson)
+                if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (dataJson[k]) : (("00" + dataJson[k]).substr(("" + dataJson[k]).length)));
+            return fmt;
+        }
+    }
+    );
+    $.fn.datetimepicker.dates['zh-CN'] = {
+        days: ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"],
+        daysShort: ["周日", "周一", "周二", "周三", "周四", "周五", "周六", "周日"],
+        daysMin: ["日", "一", "二", "三", "四", "五", "六", "日"],
+        months: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
+        monthsShort: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
+        today: "今天",
+        suffix: [],
+        meridiem: ["上午", "下午"]
+    };
+    jQuery(document).ready(function () {
+        ComponentsPickers.init();
+    });
+
+</script>
+<script type="text/javascript" src="../assets/global/plugins/select2/select2.js"></script>
+
+</html>

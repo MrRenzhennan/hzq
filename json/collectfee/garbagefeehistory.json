@@ -1,0 +1,10 @@
+{"rows":
+[
+  {"UUID":"001","money":"150","userName":"李好","date":"2016-11","chargeType":"燃气费","hall":"道里一","yyy":"张亮"}
+,{"UUID":"002","money":"3","userName":"李好","date":"2016-12","chargeType":"垃圾处理费","hall":"道里一","yyy":"张三"}
+,{"UUID":"003","money":"100","userName":"李好","date":"2016-13","chargeType":"燃气费","hall":"道里一","yyy":"张三"}
+]
+,"total_rows":1
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

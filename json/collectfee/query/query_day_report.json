@@ -1,0 +1,12 @@
+{"rows":
+[
+  {"UUID":"001","money":"100","userID":"100230001","collectTime":"2016-11-11","ICcount":"135","refundcount":"50","yyyName":"王丽","refundmoney":"23900","collectmoney":"23900","collectcount":"100","ICrefund":"34900","ICcollectmoney":"34900","type":"燃气费","ICrefundcount":"201","yy":"中国银行"}
+,{"UUID":"002","money":"200","userID":"100245601","collectTime":"2016-11-11","ICcount":"135","refundcount":"50","yyyName":"王丽","refundmoney":"23900","collectmoney":"23900","collectcount":"100","ICrefund":"34900","ICcollectmoney":"34900","type":"燃气费","ICrefundcount":"201","yy":"中国银行"}
+,{"UUID":"003","money":"200","userID":"101230501","collectTime":"2016-11-11","ICcount":"135","refundcount":"50","yyyName":"王丽","refundmoney":"23900","collectmoney":"23900","collectcount":"100","ICrefund":"67800","ICcollectmoney":"34900","type":"垃圾处理费","ICrefundcount":"201","yy":"中国银行"}
+,{"UUID":"004","money":"140","userID":"100230001","collectTime":"2016-11-11","ICcount":"135","refundcount":"50","yyyName":"王丽","refundmoney":"23900","collectmoney":"23900","collectcount":"100","ICrefund":"34900","ICcollectmoney":"34900","type":"燃气费","ICrefundcount":"201","yy":"中国银行"}
+,{"UUID":"005","money":"150","userID":"156730001","collectTime":"2016-11-11","ICcount":"135","refundcount":"52","yyyName":"张雪","refundmoney":"23900","collectmoney":"23900","collectcount":"100","ICrefund":"34900","ICcollectmoney":"34900","type":"燃气费","ICrefundcount":"201","yy":"中国银行"}
+]
+,"total_rows":1
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

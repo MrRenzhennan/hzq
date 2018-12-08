@@ -1,0 +1,637 @@
+<div id="customerList" class="tabbable tabbable-custom tabbable-custom-profile col-md-12" style="padding-bottom:0px">
+    <ul class="nav nav-tabs">
+        <li class="active">
+            <a href="#tab01" data-toggle="tab" style="font-size: 14px;color: blue;">
+                客户列表 </a>
+        </li>
+    </ul>
+    <!--/row-->
+    <div class="tab-content">
+        <div class="row">
+            <div class="col-sm-3 form-group">
+                <div class="btn-group input-group">
+                    <div class="input-group-addon">客户编号：</div>
+                    <input id="find_key" class="inputclear form-control" type="text" placeholder="客户编号" onkeydown='if(event.keyCode==13){$("#find_user_btn").click();}'>
+                    <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                </div>
+            </div>
+
+            <div class="btn-group form-group col-sm-1">
+                <button id="find_user_btn" class="btn yellow off">
+                    查询&nbsp; <i class="fa fa-search"></i>
+                </button>
+            </div>
+            <div class="btn-group form-group col-sm-1">
+                <button id="find_hight_user" type="button" class="btn yellow">
+                    高级&nbsp;<i id="ib" class="fa fa-angle-double-down"></i>
+                </button>
+        </div> 
+        </div>
+        <div id="lay" class="row" style="display:none;">
+            <div class="col-sm-3 form-group">
+                <div class="btn-group input-group">
+                    <div class="input-group-addon">客户姓名：</div>
+                    <input id="customerName1" class="inputclear form-control" type="text" placeholder="客户姓名">
+                    <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                </div>
+            </div>
+            <div class="col-sm-3 form-group">
+                <div class="btn-group input-group">
+                    <div class="input-group-addon">客户电话：</div>
+                    <input id="tel1" class="inputclear form-control" type="text" placeholder="请输入客户电话">
+                    <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                </div>
+            </div>
+            <div class="col-sm-3 form-group">
+                <div class="btn-group input-group">
+                    <div class="input-group-addon">客户地址：</div>
+                    <input id="customerAddress1" class="inputclear form-control" type="text" placeholder="请输入客户地址">
+                    <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane active" id="tab01">
+            <div class="portlet-body">
+                <div id='row' class="row">
+                    <div id="pdivtable" class="table-responsive container-fluid col-md-12" style="display: none">
+                    </div>
+                </div>
+                <!--/row-->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="divUserInfoContainer" class="tabbable tabbable-custom tabbable-custom-profile col-md-12" style="padding-bottom:0px">
+    <ul class="nav nav-tabs">
+        <li class="active">
+            <a href="#tab_1_1" data-toggle="tab">
+                客户信息 </a>
+        </li>
+        <li>
+            <a href="#tab_1_2" data-toggle="tab">
+                表具信息 </a>
+        </li>
+
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane active" id="tab_1_1">
+            <div data-always-visible="1" data-rail-visible="1">
+                <table id="userInfo" class="table ">
+                    <tbody>
+                    <tr>
+                        <td style="width: 100px">
+                            客户编号:
+                        </td>
+                        <td id="customerCode" style="width: 20%">
+
+                        </td>
+                        <td style="border-left: 1px solid #dedede !important;width: 100px">
+                            客户名:
+                        </td>
+                        <td id="customerName" style="width: 25%;">
+
+                        </td>
+                        <td style="border-left: 1px solid #dedede;width: 100px">
+                            客户类型:
+                        </td>
+                        <td id="customerKind">
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            用气性质:
+                        </td>
+                        <td id="gasType">
+
+                        </td>
+                        <td style="border-left: 1px solid #dedede;">
+                            客户地址:
+                        </td>
+                        <td id="customerAddress">
+
+                        </td>
+                        <td style="border-left: 1px solid #dedede;">
+                            证件类型:
+                        </td>
+                        <td id="idcardType">
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            证件号码:
+                        </td>
+                        <td id="idCard">
+
+                        </td>
+                        <td style="border-left: 1px solid #dedede;">
+                            燃气费余额:
+                        </td>
+                        <td id="gasBalance">
+
+                        </td>
+                        <td style="border-left: 1px solid #dedede;">
+                            联系电话:
+                        </td>
+                        <td id="linkMantel">
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            特殊客户类型:
+                        </td>
+                        <td id="lowerProtection">
+
+                        </td>
+                        <td style="border-left: 1px solid #dedede ;">
+                            垃圾费余额:
+                        </td>
+                        <td id="wasteBalance">
+
+                        </td>
+                        <td style="border-left: 1px solid #dedede;">
+                            抄表本编号:
+                        </td>
+                        <td id="bookCode">
+
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            供气区域:
+                        </td>
+                        <td id="areaName">
+
+                        </td>
+                        <td style="border-left: 1px solid #dedede ;">
+                            核算员:
+                        </td>
+                        <td id="countperName">
+
+                        </td>
+                        <td style="border-left: 1px solid #dedede ;">
+                            抄表员:
+                        </td>
+                        <td id="serviceperName">
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            最后抄表日期:
+                        </td>
+                        <td id="copyTime">
+
+                        </td>
+                        <td style="border-left: 1px solid #dedede ;">
+                            最后燃气表数:
+                        </td>
+                        <td id="meterReading">
+
+                        </td>
+                        <td style="border-left: 1px solid #dedede ;">
+                            最后修正表读数:
+                        </td>
+                        <td id="reviseReading">
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            表内累计气量:
+                        </td>
+                        <td id="accumulatedGas">
+
+                        </td>
+                        <td style="border-left: 1px solid #dedede ;">
+                            表内余量:
+                        </td>
+                        <td id="remaingAsnum">
+
+                        </td>
+                        <td style="border-left: 1px solid #dedede ;">
+                            表内余额:
+                        </td>
+                        <td id="cardBalanceEsum">
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            修正系数:
+                        </td>
+                        <td id="quotiety">
+
+                        </td>
+                        <td style="border-left: 1px solid #dedede ;">
+                            计费表标记:
+                        </td>
+                        <td id="chargingMeter">
+
+                        </td>
+                        <!--//EXCEPTION_TYPE-->
+                        <td style="border-left: 1px solid #ececec ;">
+                            客户类型:
+                        </td>
+                        <td id="customerType">
+
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+        <div class="tab-pane" id="tab_1_2">
+            <div data-always-visible="1" data-rail-visible1="1">
+                <table class="table ">
+                    <tbody>
+                    <tr>
+                        <td style="width: 100px">
+                            燃气表编号:
+                        </td>
+                        <td id="meterNo" style="width: 20%">
+
+                        </td>
+                        <td style="border-left: 1px solid #ececec !important;width: 100px">
+                            表具类型:
+                        </td>
+                        <td id="meterKind" style="width: 25%">
+
+                        </td>
+                        <td style="border-left: 1px solid #ececec;width: 110px">
+                            修正表编号:
+                        </td>
+                        <td id="reviseMeterNo">
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            表户名称:
+                        </td>
+                        <td id="meterUserName">
+
+                        </td>
+                        <td style="border-left: 1px solid #ececec ;">
+                            燃气表异常:
+                        </td>
+                        <td id="reviseExceptionType">
+
+                        </td>
+                        <td style="border-left: 1px solid #ececec ;">
+                            修正表状态:
+                        </td>
+                        <td id="reviseMeterState">
+
+                        </td>
+                    </tr>
+                    <tr>
+
+                        <td>
+                            生产厂家:
+                        </td>
+                        <td id="factoryName">
+
+                        </td>
+                        <td style="border-left: 1px solid #ececec ;">
+                            燃气表表位数:
+                        </td>
+                        <td id="meterDigit">
+
+                        </td>
+                        <td style="border-left: 1px solid #ececec ;">
+                            修正表表位数:
+                        </td>
+                        <td id="reviseMeterDigit">
+
+                        </td>
+                    </tr>
+                    <tr>
+
+                        <td>
+                            最大修正系数:
+                        </td>
+                        <td id="coefficientmax">
+
+                        </td>
+                        <td style="border-left: 1px solid #ececec ;">
+                            最小修正系数:
+                        </td>
+                        <td id="coefficientmin">
+
+                        </td>
+                        <td style="border-left: 1px solid #ececec ;">
+                            燃气表异常:
+                        </td>
+                        <td id="exceptionType">
+
+                        </td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <table class="table" >
+            <td id="enddate" style="width: 35%;height: 20px; border: 0">
+
+            </td>
+            <td id="meterUseTime" style="width: 30%; border: 0">
+
+            </td>
+            <td style=" border: 0">
+
+            </td>
+        </table>
+    </div>
+</div>
+<script type="text/javascript">
+    $.include("pages/partial/xwatable-form.shtml")
+
+</script>
+<!--<script type="text/javascript">
+    $.include("customer/partial/addcontract.shtml")
+</script>-->
+<script type="text/javascript">
+    var detail='';
+    $("#find_hight_user").click(function () {
+        $("#lay input").val("");
+        if ($("#lay").css("display") == "block") {
+            $("#lay").css("display", "none");
+            $("#ib").attr("class", "fa fa-angle-double-down");
+        } else if ($("#lay").css("display") == "none") {
+
+            $("#lay").css("display", "block");
+            $("#ib").attr("class", "fa fa-angle-double-up");
+
+        }
+    });
+
+    function doNext() {
+        $contractTargetModal.modal('hide');
+        initData($("#find_key").val());
+    }
+
+    var $contractTargetModal;
+
+    jQuery(document).ready(function () {
+        queryCustomerList.init();
+        $contractTargetModal = $("#addcontract");
+        $contractTargetModal.modal({
+            show: false,
+            backdrop: 'static',
+            keyboard: false
+        })
+        $contractTargetModal.unbind("shown.bs.modal").on("shown.bs.modal", function (e) {
+            doLoadContract($("#find_key").val());
+            linkage();
+        });
+        $contractTargetModal.on("hidden.bs.modal", function () {
+            $(this).removeData("bs.modal");
+        });
+        $("#userInfo").delegate("#add_contract", 'click', function(){
+            var $obj = $(this);
+            $contractTargetModal.modal('show');
+        });
+    });
+    var cardTypeFM = function () {
+        return {
+            f: function (val) {
+                if (val && val == 1) return "营业执照";
+                else if (val && val == 2) return "法人身份证";
+                else if (val && val == 3) return "房产证";
+                else if (val && val == 4) return "租房合同";
+                else if (val && val == 5) return "居民身份证";
+            },
+        }
+    }();
+    //	var customerCode;
+    var baseDBC = "/hzqs";
+    var paramurl = baseDBC + "/dbc/pbsel.do?fh=SELDBC0000000J00&resp=bd";
+    queryCustomerList = function () {
+        return {
+            init: function () {
+
+                this.reload();
+            },
+
+            reload: function () {
+
+                $('#pdivtable').html('');
+                xw = XWATable.init(
+                        {
+                            divname: "pdivtable",
+                            //----------------table的选项-------
+                            pageSize: 10,
+                            columnPicker: true,
+                            transition: 'fade',
+                            checkboxes: true,
+                            checkAllToggle: false,
+                            //----------------基本restful地址---
+                            restbase: 'gasctmarchive',
+                            key_column: 'ctmArchiveId',
+                            coldefs: [
+
+                                {
+                                    col: "ctmArchiveId",
+                                    friendly: "ctmArchiveId",
+                                    unique: true,
+                                    hidden: true,
+                                    nonedit: "nosend",
+                                    readonly: "readonly",
+                                    sorting: false,
+                                    index: 1
+                                },
+                                {
+                                    col: "customerCode",
+                                    friendly: "客户编号",
+                                    readonly: "readonly",
+                                    sorting: false,
+                                    index: 2
+                                },
+                                {
+                                    col: "customerName",
+                                    friendly: "客户名称",
+                                    sorting: false,
+                                    readonly: "readonly",
+                                    index: 3
+                                },
+                                {
+                                    col: "tel",
+                                    friendly: "客户电话",
+                                    sorting: false,
+                                    readonly: "readonly",
+                                    index: 4
+                                },
+                                {
+                                    col: "customerAddress",
+                                    friendly: "客户地址",
+                                    sorting: false,
+                                    index: 5
+                                },
+                                {
+                                    col: "idcardType",
+                                    friendly: "证件类型",
+                                    sorting: false,
+                                    index: 5,
+                                    format: cardTypeFM
+                                },
+                                {
+                                    col: "idcard",
+                                    friendly: "证件号码",
+                                    sorting: false,
+                                    index: 5
+                                },
+                            ]
+                            ,
+                            findFilter: function () {//find function
+                            }
+                        });
+                //--init
+            },
+        }
+    }();
+    $("#find_user_btn").click(function () {  //查询
+        var queryUrl = hzq_rest + "gasctmarchive";
+        var querys = new Array();
+        if ($('#find_key').val()) {
+            querys.push(RQLBuilder.like("customerCode", $('#find_key').val()));
+        }
+
+        if ($('#customerName1').val()) {
+            querys.push(RQLBuilder.like("customerName", $('#customerName1').val()));
+        }
+
+        if ($('#tel1').val()) {
+            querys.push(RQLBuilder.like("tel", $('#tel1').val()));
+        }
+        if ($('#customerAddress1').val()) {
+            querys.push(RQLBuilder.like("customerAddress", $('#customerAddress1').val()));
+        }
+        console.log(querys)
+        if (querys.length > 0) {
+            queryUrl += "?query=" + RQLBuilder.and(querys).rql();
+        }
+
+        xw.setRestURL(queryUrl);
+        xw.update()
+
+        var data = xw.getTable().getData();
+
+        $("#pdivtable p").html('');
+        if (data.total_rows > 0) {
+            $('#customerInfo').css("display", "none");
+            $('#pdivtable').css("display", "block");
+            $("#pdivtable").prepend("<p>请选择一条符合条件的记录   <button id='confirm_btn' class='btn blue'>确定</button></p>");
+
+        } else {
+            $("#pdivtable").css("display", "block");
+            $("#pdivtable").prepend("<p>请选择一条符合条件的记录   <button id='confirm_btn' class='btn blue'>确定</button></p>");
+        }
+
+        $("#confirm_btn").on('click', function () {
+
+            var data = xw.getTable().getData(true);
+            if (data.rows.length == 0) {
+                bootbox.alert("<br><center><h4>请选择一条数据！</h4></center><br>");
+                return false;
+            }
+            if (data.rows.length > 1) {
+                bootbox.alert("<br><center><h4>只能选择一行！</h4></center><br>");
+                return false;
+            }
+            if (data.rows.length == 1) {
+                initData(data.rows[0].customerCode);
+            }
+        });
+        //return "";
+    });
+    var initData = function (customerCode) {
+        var user_info = JSON.parse(localStorage.getItem("user_info"));
+        $("#find_key").val(customerCode)
+        $("#pdivtable").css("display", "none");
+        $("#customerInfo").css("display", "block");
+        var ctmArchiveId;
+        var customerKind;
+        if (customerCode) {
+
+            //dtl
+            var bd = {"customercode":customerCode};
+            $.ajax({//根据customercode查询相关信息
+                dataType: 'json',
+                type: "GET",
+                async: false,
+                url:"/hzqs/pla/pbdtl.do?fh=DTLPLA0000000J00&resp=bd&bd="+JSON.stringify(bd),
+                success:function(result){
+                    console.log(result);
+                    if(result.err_code=='1'){
+                        //mrdHelper.setContext("_customer_meter_reading",result.customerdetail);
+                        detail = result.customerdetail;
+                        $('#customerCode').text(detail.customercode);//客户编号
+                        $('#customerName').text(detail.customername);//客户姓名
+                        $('#customerKind').text(detail.customerkind);//客户类型
+                        $('#gasType').text(detail.gastypename);//用气性质
+                        $('#customerAddress').text(detail.customeraddress);//客户地址
+                        $('#idcardType').text(detail.idcardtype);//证件类型
+                        $('#idCard').text(detail.idcard);//证件号码
+                        $('#gasBalance').text(detail.gasbalance);//燃气费余额
+                        $('#linkMantel').text(detail.linkmantel);//联系电话
+                        $('#lowerProtection').text(detail.lowerprotection);//特殊客户类型(应该是 低保户)
+                        $('#wasteBalance').text(detail.wastebalance);//垃圾费余额
+                        $('#bookCode').text(detail.bookcode);//抄表本编号
+                        $('#areaName').text(detail.areaid);//供气区域名称
+                        $('#countperName').text(detail.countperid);//核算员姓名
+                        $('#serviceperName').text(detail.serviceperid);//客户服务员
+                        $('#copyTime').text(detail.copytime);//抄表时间
+                        $('#meterReading').text(detail.meterreading);//燃气表读数
+                        $('#reviseReading').text(detail.revisereading);//修正表读数
+                        $('#accumulatedGas').text(detail.accumulatedgas);
+                        $('#remaingAsnum').text(detail.remaingasnum);
+                        $('#cardBalanceEsum').text(detail.cardbalancesum);//表内余额
+                        $('#quotiety').text(detail.quotiety);
+                        $('#chargingMeter').text(detail.chargingmeter);
+                        $('#exceptionType').text(detail.exceptiontype);
+                        $('#meterNo').text(detail.meterno);
+                        $('#meterKind').text(detail.meterkind);
+                        $('#reviseMeterNo').text(detail.revisemeterno);
+                        $('#meterUserName').text(detail.meterusername);
+                        $('#reviseExceptionType').text(detail.reviseexceptiontype);
+                        $('#reviseMeterState').text(detail.revisemeterstate);
+                        $('#factoryName').text(detail.factoryname);
+                        $('#meterDigit').text(detail.meterdigit);
+                        $('#reviseMeterDigit').text(detail.revisemeterdigit);
+                        $('#coefficientmin').text(detail.coefficientmin);
+                        $('#coefficientmax').text(detail.coefficientmax);
+                        $('#customerType').text(detail.customertype);
+
+                        $('#operate').val(user_info.userId);
+
+                    }else{
+                        var msg = result.msg;
+                        if(msg){
+                            bootbox.alert("<br><center><h4>"+msg+"</h4></center><br>");
+                            return false;
+                        }else{
+                            bootbox.alert("<br><center><h4>未查询到相关数据.</h4></center><br>");
+                            return false;
+                        }
+
+                    }
+                }
+            });
+
+            var fn = window["onCustomerSelected"];
+            if (typeof (fn) === 'function') {
+                fn.call(null, detail);
+            }
+        } else {
+            bootbox.alert("请输入查询条件");
+        }
+    }
+</script>

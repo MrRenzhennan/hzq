@@ -1,0 +1,11 @@
+{"rows":
+[
+{"UUID":"005","collectmoney":"150","crashmoney":"3","crashcount":"1","bankmoney":"123","bankcount":"1","POSmoney":"123","POScount":"1","collectTime":"2016-11-11 ","yy":"道里一"}
+,{"UUID":"008","collectmoney":"150","crashmoney":"1","crashcount":"1","bankmoney":"132","bankcount":"1","POSmoney":"123","POScount":"1","collectTime":"2016-11-12","yy":"道里一"}
+,{"UUID":"010","collectmoney":"100","crashmoney":"2","crashcount":"1","bankmoney":"19","bankcount":"1","POSmoney":"123","POScount":"1","collectTime":"2016-11-13 ","yy":"道里一"}
+]
+,"total_rows":1
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}
+

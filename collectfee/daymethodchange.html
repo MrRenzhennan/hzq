@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]>
+<html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+
+<!-- BEGIN HEAD -->
+<head>
+    <title>收费管理</title>
+    <script src="../pages/scripts/basepath.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-select/bootstrap-select.min.css">
+
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/select2/select2.css">
+    <script src="../pages/scripts/header.js"></script>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8"/>
+    <link href='../assets/global/plugins/jquery-watable/watable.css' rel='stylesheet'/>
+    <link href='../assets/global/plugins/jquery-watable/animate.min.css' rel='stylesheet'/>
+    <link rel="stylesheet" type="text/css"
+          href="../assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.css"/>
+    <link href='../assets/global/plugins/bootstrap-datetimepicker/css/datetimepicker.css' rel='stylesheet'/>
+</head>
+<!-- END HEAD -->
+
+<body class="page-header-fixed page-quick-sidebar-over-content">
+
+<!-- 标题栏开始 -->
+<div class="page-header navbar navbar-fixed-top">
+    <script>$.include("pages/partial/menu.shtml");</script>
+</div>
+<!-- 标题栏结束 -->
+<div class="clearfix"></div>
+<div class="page-container">
+    <!-- 左侧菜单开始 -->
+    <div class="page-sidebar-wrapper">
+        <script>$.include("pages/partial/sidebar.shtml");</script>
+    </div>
+    <!-- 左侧菜单结束 -->
+
+    <!-- 主内容开始 -->
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <!--内容头开始-->
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa fa-home"></i>
+                            <a href="index.html">收费管理</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">收费方式变更</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 内容头结束-->
+
+            <!-- 内容开始-->
+            <!--查询弹框-->
+            <!-- Modal申请-->
+            <div class="modal fade" id="apply" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span
+                                    aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                            <h4 class="modal-title">收费方式变更申请</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>申请人</label>
+                                        <input type="text" class="form-control" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>岗位</label>
+                                        <input type="text" class="form-control" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>申请类型</label>
+                                        <input type="text" class="form-control" placeholder="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>变更前收费方式</label>
+                                        <input type="text" class="form-control" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>变更后收费方式</label>
+                                        <input type="text" class="form-control" placeholder="">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        <label>申请原因</label>
+                                        <select id="GasType" class="form-control select2me "
+                                                data-placeholder="Select...">
+                                            <option value="">请选择</option>
+                                            <option>操作错误</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>备注</label>
+                                        <textarea class="form-control" rows="3"></textarea>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                            <button type="button" id="errorApply" class="btn btn-primary" data-dismiss="modal">提交申请
+                            </button>
+                            <script>
+                                $(function () {
+                                    $('#errorApply').click(function () {
+                                        window.location = "charging/charge_error_select.html";
+                                    });
+                                })
+                            </script>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal查询 -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span
+                                    aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                            <div class="modal-title" style="margin: auto;text-align:center;font-size: 18px;"
+                                 id="myModalLabel">查询用户
+                            </div>
+                        </div>
+                        <div class="modal-body">
+                            <div class="col-md-12" style="padding-bottom:0px">
+                                <h5 class="form-section">查询条件设置</h5>
+                                <div class="col-md-12" style="padding-bottom:0px">
+                                    <div class="col-md-5 form-group">
+                                        <div class="btn-group input-group">
+                                            <div class="input-group-addon">客户姓名：</div>
+                                            <input id="userName" class="inputclear form-control" type="text"/>
+                                            <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5 form-group">
+                                        <div class="btn-group input-group">
+                                            <div class="input-group-addon">客户编号：</div>
+                                            <input id="userID" class="inputclear form-control" type="text"/>
+                                            <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 form-group">
+                                        <div class="btn-group form-group">
+                                            <button type="button" id="select_button" class="btn btn-primary">
+                                                查询&nbsp;
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12" style="padding-bottom:0px">
+                                    <div class="col-md-5 form-group">
+                                        <div class="btn-group input-group">
+                                            <div class="input-group-addon active">联系电话：</div>
+                                            <input id="userAddress" class="inputclear form-control" type="text"
+                                                   placeholder="">
+                                            <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5 form-group">
+                                        <div class="btn-group input-group">
+                                            <div class="input-group-addon">客户地址：</div>
+                                            <input id="telephone_tan" class="inputclear form-control" type="text"
+                                                   placeholder="">
+                                            <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12" style="padding-bottom:0px">
+                                <h5 class="form-section">查询结果</h5>
+                                <table class="watable table table-striped table-hover table-bordered table-condensed">
+                                    <thead>
+                                    <tr>
+                                        <th>
+                                            客户名称
+                                        </th>
+                                        <th>
+                                            客户编号
+                                        </th>
+                                        <th>
+                                            客户地址
+                                        </th>
+                                        <th>
+                                            客户类型
+                                        </th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>
+                                            张三
+                                        </td>
+                                        <td class="hidden-xs">
+                                            111003303
+                                        </td>
+                                        <td>
+                                            南岗区嵩山路嵩山小区
+                                        </td>
+                                        <td>
+                                            居民（单纯餐饮）
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            张三
+                                        </td>
+                                        <td class="hidden-xs">
+                                            1114565303
+                                        </td>
+                                        <td>
+                                            道里区井街56号
+                                        </td>
+                                        <td>
+                                            居民（单纯餐饮）
+                                        </td>
+                                    </tr>
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                            <button type="button" class="btn btn-primary">确定</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="width: 60%;margin: 0 auto">
+                <div class="col-md-12" style="">
+                    <!-- 查询条件控件 -->
+                    <div class="col-md-7 form-group">
+                        <div class="btn-group input-group">
+                            <div class="input-group-addon">输入查询条件：</div>
+                            <input id="find_key" class="inputclear form-control" type="text"
+                                   placeholder="客户编号">
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-3 form-group">
+                        <button type="button" class="btn yellow" data-toggle="modal" data-target="#myModal">
+                            查询 <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="tabbable tabbable-custom tabbable-custom-profile col-md-12" style="padding-bottom:0px">
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#tab_1_22" data-toggle="tab">
+                            客户基本信息 </a>
+                    </li>
+                </ul>
+                <!--/row-->
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab11">
+                        <div class="portlet-body">
+                            <div data-always-visible="1"
+                                 data-rail-visible="1">
+                                <table class="table  table-hover">
+                                    <tbody>
+                                    <tr>
+                                        <td>客户名称:</td>
+                                        <td>张三</td>
+                                        <td style="border-left: 1px solid #ececec;">客户编号:</td>
+                                        <td>110722059</td>
+                                    </tr>
+                                    <tr>
+                                        <td>客户类别:</td>
+                                        <td>居民（单纯餐饮）</td>
+                                        <td style="border-left: 1px solid #ececec;">客户状态:</td>
+                                        <td>正常</td>
+                                    </tr>
+                                    <tr>
+                                        <td>特殊用户:</td>
+                                        <td></td>
+                                        <td style="border-left: 1px solid #ececec;">联系电话:</td>
+                                        <td>13804781390</td>
+                                    </tr>
+                                    <tr>
+                                        <td>客户地址:</td>
+                                        <td>黑龙江省嵩山小区</td>
+                                        <td style="border-left: 1px solid #ececec;">供气区域:</td>
+                                        <td>道里一部</td>
+                                    </tr>
+                                    <tr> `
+                                        <td>燃气费余额:</td>
+                                        <td>0</td>
+                                        <td style="border-left: 1px solid #ececec;">燃气费欠费金额:</td>
+                                        <td>58</td>
+                                    </tr>
+                                    <tr>
+                                        <td>垃圾处理费余额:</td>
+                                        <td>0</td>
+                                        <td style="border-left: 1px solid #ececec;">垃圾处理费欠费金额:</td>
+                                        <td>36</td>
+                                    </tr>
+                                    <tr>
+                                        <td> 身份证号:</td>
+                                        <td style="border-right: 1px solid #ececec;">230102</td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="container-fluid">
+                <div id="divtable" class="table-responsive container-fluid col-md-12">
+                </div>
+            </div>
+            <!-- 内容结束-->
+        </div>
+    </div>
+    <!-- 主内容结束 -->
+</div>
+<script type="text/javascript">$.include("pages/partial/xwatable-form.shtml")</script>
+
+<!-- 底边栏开始 -->
+<script>$.include("pages/partial/foot.shtml");</script>
+<!--英尺-->
+<!-- 底边栏结束 -->
+</body>
+
+
+<script>$.include("pages/partial/scripts.shtml");</script>
+<!--跳到原稿-->
+<script src="../assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="../assets/global/plugins/jquery-watable/jquery.watable.js"></script>
+<script type="text/javascript" src="../pages/scripts/rqlbuilder.js"></script>
+<script type="text/javascript" src="../pages/scripts/xwatable.js"></script>
+<script type="text/javascript" src="../pages/scripts/refhelper.js"></script>
+<script type="text/javascript"
+        src="../assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+
+<!--datapicker start-->
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript"
+        src="../assets/global/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/clockface/js/clockface.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-daterangepicker/moment.min.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script type="text/javascript"
+        src="../assets/global/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+<script type="text/javascript"
+        src="../assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script src="../assets/admin/pages/scripts/components-pickers.js"></script>
+<!--datapicker end-->
+<script type="text/javascript">
+    var valueFor = function (val) {
+    };
+    var openButton = function () {
+        return {
+            f: function () {
+                return "<a data-target='#apply' data-toggle='modal'>申请变更&nbsp;<i class='fa fa-plus'></i></a> ";
+            }
+        }
+    }();
+    $(function () {
+            XWATable.init(
+                {
+                    //----------------table的选项-------
+                    pageSize: 20, 			//Initial pagesize
+                    columnPicker: true,         //Show the columnPicker button
+                    sorting: true,
+                    transition: 'fade',  //(bounce, fade, flip, rotate, scroll, slide).
+                    checkboxes: true,           //Make rows checkable. (Note. You need a column with the 'unique' property)
+                    checkAllToggle: true,        //Show the check-all toggle//+RQLBuilder.like("KEYY", "a").rql()
+                    rowClicked: function (data) {
+                        console.log('row clicked');   //data.event holds the original jQuery event.
+                        console.log(data);            //data.row holds the underlying row you supplied.
+                    },
+                    //----------------基本restful地址---
+                    restbase: '../json/collectfee/daymethodchange.json',
+                    //---------------行定义
+                    coldefs: [
+                        {
+                            col: "userID",
+                            friendly: "客户编号",
+                            unique: true,
+                            readonly: "readonly",
+                            sortOrder: "asc",
+                            index: 1
+                        },
+                        {
+                            col: "userName",
+                            friendly: "客户姓名",
+                            readonly: "readonly",
+                            sortOrder: "asc",
+                            index: 2
+                        },
+                        {
+                            col: "collectTime",
+                            friendly: "收费时间",
+                            readonly: "readonly",
+                            index: 3
+                            /* readonly: "readonly" */
+                            /*   inputsource: "custom",
+                             inputbuilder: "valueFor"*/
+                        },
+                        {
+                            col: "yyyName",
+                            friendly: "营业员",
+                            readonly: "readonly",
+                            index: 4
+                        },
+                        {
+                            col: "yy",
+                            friendly: "营业网点",
+                            readonly: "readonly",
+                            index: 5
+                        },
+                        {
+                            col: "shmethod",
+                            friendly: "收费方式",
+                            inputsource: "select",
+                            index: 8
+                        },
+                        {
+                            col: "type",
+                            friendly: "收费类型",
+                            readonly: "readonly",
+                            index: 6
+                        },
+                        {
+                            col: "UUID",
+                            friendly: "操作",
+                            nonedit: "nosend",
+                            format: openButton,
+                            index: 10
+                        },
+                        {
+                            col: "money",
+                            friendly: "金额",
+                            readonly: "readonly",
+                            index: 9
+                        }
+                    ],
+                    //---------------查询时过滤条件
+                    findFilter: function () {//find function
+                        var filter = "keyy=" + $('#find_key').val();
+                        return filter;
+                    }//--findFilter
+                }//--init
+            );//--end init
+
+            $('#find_provincename').on('input', function (e) {
+                console.log("changing::" + e.target.value)
+                if (!e.target.value) {
+                    XWATable.autoResetSearch();
+                }
+            });
+        }
+    );
+    jQuery(document).ready(function () {
+        ComponentsPickers.init();
+
+    });
+    $(function () {
+       SideBar.init();
+       SideBar.activeCurByPage("methodchange.html");
+    })
+</script>
+<script type="text/javascript" src="../assets/global/plugins/select2/select2.js"></script>
+
+<!-- End of User Script-->
+</html>

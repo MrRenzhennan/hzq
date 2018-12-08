@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+
+<!-- BEGIN HEAD -->
+<head>
+    <title>抄表本管理</title>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8"/>
+    <base href="../../">
+
+    <link href='assets/global/plugins/jquery-watable/watable.css' rel='stylesheet'/>
+    <link href='assets/global/plugins/jquery-watable/animate.min.css' rel='stylesheet'/>
+
+
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-select/bootstrap-select.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/select2/select2.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/jquery-multi-select/css/multi-select.css"/>
+    <link href="assets/global/plugins/bootstrap-fileinput/fileinput.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-datepicker/css/datepicker3.css"/>
+
+
+    <script src="pages/scripts/basepath.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-datepicker/css/datepicker.css"/>
+
+    <link href="assets/global/css/components.css" rel="stylesheet" type="text/css"/>
+
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/jstree/dist/themes/default/style.min.css"/>
+    <link href="assets/global/css/components.css" rel="stylesheet" type="text/css"/>
+
+    <script src="pages/scripts/header.js"></script>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8"/>
+    <link rel='stylesheet' href='assets/global/plugins/jquery-watable/watable.css'/>
+    <link rel='stylesheet' href='assets/global/plugins/jquery-watable/animate.min.css'/>
+
+
+    <!-- BEGIN THEME STYLES -->
+    <link href="assets/global/css/components.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
+    <!-- END THEME STYLES -->
+    <link href="assets/global/plugins/bootstrap-fileinput/fileinput.min.css" rel="stylesheet">
+
+    <link href="assets/admin/layout/css/layout.css" rel="stylesheet" type="text/css"/>
+    <link id="style_color" href="assets/admin/layout/css/themes/default.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/admin/layout/css/custom.css" rel="stylesheet" type="text/css"/>
+           <link href='assets/global/plugins/jquery-watable/animate.min.css' rel='stylesheet'/>
+    <script src="pages/scripts/header.js"></script>
+
+    <style>
+       #modify div.col-md-6 {
+            margin-bottom: 10px
+        }
+        .reading-data{
+            padding-left:0px;
+            list-style: none;
+            margin: 0;
+        }
+        .reading-data li{
+            display:inline-block;
+            width: 60px;
+            position: relative;
+            padding: 3px 5px 3px 18px;
+            margin: 5px 5px 3px 5px;
+            border: 1px solid #e5e5e5;
+            background-image: none;
+            background-color: #fff;
+        }
+        .reading-data a{
+            position: absolute;
+            left: 0;
+            margin-left: 5px;
+            margin-top: 1px;
+        }
+        .reading-data li div{
+            display: inline-block;
+        }
+        #modify_copymonth>div{
+            height: 100px;
+            margin-left:10px;
+            border:1px solid #ccc;
+        }
+        .select2-container {
+           z-index: 2050;
+        }
+
+        .select2-drop{
+             z-index: 2050;
+        }
+
+    </style>
+</head>
+<body  class="page-header-fixed page-quick-sidebar-over-content">
+<!-- 标题栏开始 -->
+<div class="page-header navbar navbar-fixed-top">
+    <script>$.include("pages/partial/menu.shtml");</script>
+</div>
+<!-- 标题栏结束 -->
+<div class="clearfix"></div>
+<div class="page-container">
+    <!-- 左侧菜单开始 -->
+    <div class="page-sidebar-wrapper">
+        <script>$.include("pages/partial/sidebar.shtml");</script>
+    </div>
+    <!-- 左侧菜单结束 -->
+
+    <!-- 主内容开始 -->
+    <div class="page-content-wrapper">
+        <div class="page-content">
+        	 	<script>$.include("common/navigation_bar.shtml");</script>
+
+            <!--<div class="row">
+                <div class="col-md-12">
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa  fa-map-marker"></i>
+                            <a>抄表管理</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">抄表本管理</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>-->
+            <!-- 内容头结束-->
+            <div class="container col-md-12" style="padding-bottom:0px;background-color: #ffffff;padding-left:0px">
+                    
+                    <div class=" col-sm-12" style="padding-bottom:0px">
+
+                        <div class="row">
+                        <div class="col-md-2">
+                            <div class="btn-group form-group" >
+                                <button  id="btn_select_book" class=" ca_select_book btn btn-primary">
+                                    请选择抄表本&nbsp; <i id="i_select_book" class="glyphicon ca_select_book glyphicon-th-list"></i>
+                                </button>
+                            </div>
+                            <div class="portlet blue-hoki box"  id="book_tree" style="display: none">
+                                <div class="portlet-title blue">
+                                    <div class="caption">
+                                        请选择抄表本
+                                    </div>
+                                </div>
+                                <div class="portlet-body" style="overflow:scroll;height:450px;">
+                                    <div id="treetable" >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="row">
+                        <div class="col-sm-3 form-group">
+                            <div class="btn-group input-group input-select2me col-sm-12">
+                                <div class="input-group-addon">供气区域:</div>
+                                <select id="find_areaId" class="form-control input-middle" data-placeholder="供气区域...">
+                                    <option value="">全部</option>
+                                </select>
+                                <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 form-group">
+                            <div class="btn-group input-group input-select2me col-sm-12">
+                                <div class="input-group-addon">核算员:</div>
+                                <select id="find_countperId" class="form-control input-middle" data-placeholder="核算员...">
+                                    <option value="">全部</option>
+                                </select>
+                                <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 form-group">
+                            <div class="btn-group input-group input-select2me col-sm-12">
+                                <div class="input-group-addon">客户服务员:</div>
+                                <select  id="find_serviceperId" class="form-control input-middlle" data-placeholder="客户服务员...">
+                                    <option value="">全部</option>
+                                </select>
+                                <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label col-md-4">抄表本编号:</label>
+                                <div class="col-md-8">
+                                    <input id="bookNumber" type="text" class="form-control" placeholder="抄表本编号">
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label col-md-4">抄表本地址:</label>
+                                <div class="col-md-8">
+                                    <input id="bookAddress" type="text" class="form-control" placeholder="抄表本地址">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 form-group">
+                            <div class="btn-group input-group input-select2me col-sm-12">
+                                <div class="input-group-addon">是否生成抄表计划</div><!--select2me-->
+                                <select id="find_iscreate" class="form-control input-middle " data-placeholder="是否生成抄表计划...">
+                                    <option value="">请选择</option>
+                                    <option value="1">是</option>
+                                    <option value="2">否</option>
+                                </select>
+                                <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 form-group">
+                            <div class="btn-group input-group input-select2me col-sm-12">
+                                <div class="input-group-addon">抄表周期</div><!--select2me-->
+                                <select id="find_copycycle" class="form-control input-middle " data-placeholder="抄表周期">
+                                    <option value="">请选择</option>
+
+                                </select>
+                                <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 form-group">
+                            <div class="btn-group input-group input-select2me col-sm-12">
+                                <div class="input-group-addon">选择抄表月份</div><!--select2me-->
+                                <select id="find_month" class="form-control input-middle " data-placeholder="选择抄表月份...">
+                                    <option value="">请选择</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                </select>
+                                <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                            </div>
+                        </div>
+                        </div>
+                        <!--<div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label col-md-4">未分配抄表本:</label>
+                                <div class="col-md-8">
+                                    <input id="newBook" type="text" class="form-control" placeholder="抄表本编号">
+                                </div>
+                            </div>
+                        </div>-->
+                        <div class="row">
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label class="control-label col-md4">未分配抄表本:</label>
+                                    <label class="checker">
+                                    <!--    <span class="checked">-->
+                                            <input type="checkbox" id="newBook">
+                                        <!--</span>-->
+                                    </label>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="btn-group form-group">
+                                <button id="find_button" class="btn yellow">
+                                    	查询&nbsp; <i class="fa fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+                     <div class="container-fluid"  style="padding:10px 10px 20px 10px;">
+
+                    <div id="divtable" class="table-responsive container-fluid col-md-12" style="padding-top: 10px !important;">
+                    </div>
+                </div>
+
+               
+            </div>
+        </div>
+        <!-- 内容开始-->
+        <!-- 内容结束-->
+
+    </div>
+</div>
+<!-- 主内容结束 -->
+<script type="text/javascript">$.include("pages/partial/xwatable-form.shtml")</script>
+<script type="text/javascript">$.include("pages/partial/pbooktree.shtml")</script>
+<!-- 底边栏开始 -->
+<!--<script>$.include("pages/partial/foot.shtml");</script>-->
+<!-- 底边栏结束 -->
+
+<div class="modal fade" id="modify"  role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="false">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">修改</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-6">
+
+                                <label class="control-label col-md-3">供气区域</label>
+                                <div class="col-md-9">
+                                    <select class="select2 form-control" id ="modify_area" style="background-color: #EEEEEE;" disabled="disabled" >
+                                    </select>
+                                </div>
+
+                        </div>
+                       <!-- <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label col-md-3">核算员</label>
+                                <div class="col-md-9">
+                                    <select class=" select2 form-control" id ="modify_countper" data-placeholder="Choose a Category" >
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label col-md-3">客户服务员</label>
+                                <div class="col-md-9">
+                                    <select class=" select2 form-control" id ="modify_serviceper" data-placeholder="Choose a Category"  >
+                                    </select>
+                                </div>
+                            </div>
+                        </div>-->
+                        <div class="col-md-6 form-group">
+                            <div class="btn-group input-group">
+                                <div class="input-group-addon">核算员:</div>
+                                <select id="modify_countper" class="form-control input-small select2-chosen" data-placeholder="选择核算员">
+                                    <option value=""></option>
+                                    <!--<option value="VB">VB</option>
+                                    <option value="VBT">VBT</option>-->
+                                </select>
+                                <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 form-group" >
+                            <div class="btn-group input-group">
+                                <div class="input-group-addon">客户服务员:</div>
+                                <select id="modify_serviceper" class="form-control input-small select2-chosen" data-placeholder="选择客户服务员">
+                                    <option value=""></option>
+                                   <!-- <option value="VB">VB</option>
+                                    <option value="VBT">VBT</option>-->
+                                </select>
+                                <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label col-md-3">本类型</label>
+                                <div class="col-md-9">
+                                    <select class=" select2-chosen select2 form-control"  id ="modify_booktype" data-placeholder="Choose a Category" style=" background-color: #EEEEEE;" disabled="disabled">
+                                        <option value="1">居民</option>
+                                        <option value="9">非居民</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label col-md-3">抄表周期</label>
+                                <div class="col-md-9">
+                                    <select class="select2-chosen form-control" id ="modify_copycycle" data-placeholder="Choose a Category" >
+                                     <!--   <option value="6">日抄</option>
+                                        <option value="5">周抄</option>-->
+                                        <option value="7">月抄</option>
+                                        <option value="4">季抄</option>
+                                        <option value="2">半年抄</option>
+                                        <option value="1">年抄</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label col-md-3">抄表本编号</label>
+                                <div class="col-md-9">
+                                    <input id="modify_bookCode" type="text" class="form-control" placeholder="" readonly="readonly">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label col-md-3">户数</label>
+                                <div class="col-md-9">
+                                    <input id="modify_doorcount" type="text" class="form-control" placeholder="" readonly="readonly">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label col-md-3">产权单位</label>
+                                <div class="col-md-9">
+                                    <input id="modify_propertyunit" type="text" class="form-control" placeholder="" >
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label col-md-3">原本号</label>
+                                <div class="col-md-9">
+                                    <input id="modify_oldbookno" type="text" class="form-control" placeholder="" readonly="readonly">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label col-md-3">调压箱编号</label>
+                                <div class="col-md-9">
+                                    <input id="modify_boostercode" type="text" class="form-control" placeholder="01">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label col-md-4">户日均用气量</label>
+                                <div class="col-md-8">
+                                    <input id="modify_daymeasure" type="text" class="form-control" placeholder="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label col-md-3">地址</label>
+                                <div class="col-md-9">
+                                    <textarea id="modify_address" class="form-control" maxlength="400" rows="4" placeholder="最大长度400"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label col-md-3">备注</label>
+                                <div class="col-md-9">
+                                    <textarea id="modify_remark" class="form-control" maxlength="400" rows="4" placeholder="最大长度400"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="control-label col-md-3">计划年度</label>
+                            <div id="div_year" class="input-group input-medium date yearpicker" style="width: 178px;marging-left:5px;">
+                                <input type="text" name="year" class="form-control" style="margin-left: 9px;" readonly>
+                                 <span class="input-group-btn col-md-4" style="margin-left: -51px;z-index:999" id="btn_year">
+                                    <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
+                                 </span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="control-label col-md-3">抄表日期</label>
+                            <div id="modify_planyear" class="input-group input-medium date date-picker" style="width: 187px;" data-date-format="m-d" >
+                                <input type="text" id="modify_calendar" class="form-control" style="width: 135px;margin-left:10px;" readonly>
+                                <span class="input-group-btn col-md-4" style="margin-left: -10px;">
+                                    <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12" id="modify_box">
+                            <div class="form-group" id="modify_copymonth">
+                                <label class="control-label col-md-2" style="margin-left: -24px;">抄表例日</label>
+                                <div class="col-md-9" style="">
+                                    <ul class="reading-data" id="modifyUl">
+                                    </ul>
+                                </div>
+                            </div>
+                            <a id="clear_all_btn" style="color:#beddf8;">清除全部</a>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button id="modify_add" type="button" class="btn green">保存并生成抄表计划</button>
+<!--                <button id="modify_submit" type="button" class="btn blue">申请变更</button>
+-->            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>$.include("pages/partial/scripts.shtml");</script>
+<script src="assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-watable/jquery.watable.js"></script>
+<script type="text/javascript" src="pages/scripts/rqlbuilder.js"></script>
+<script type="text/javascript" src="pages/scripts/xwatable.js"></script>
+
+
+<script type="text/javascript" src="pages/scripts/refhelper.js"></script>
+
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script src="assets/admin/pages/scripts/components-pickers.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script src="assets/admin/pages/scripts/components-form-tools.js"></script>
+<script src="assets/admin/pages/scripts/components-dropdowns.js"></script>
+<script src="assets/global/plugins/jstree/dist/jstree.min.js"></script>
+<script src="assets/admin/pages/scripts/ui-tree.js"></script>
+<script src="assets/global/plugins/jstree/dist/jstree.js"></script>
+
+<script type="text/javascript" src="pages/scripts/enumUtil.js"></script>
+<script src="pages/scripts/jquery.json.min.js"></script>
+<script type="text/javascript" src="pages/scripts/jquery.serialize-object.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/select2/select2.js"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-multi-select/js/jquery.multi-select.js"></script>
+
+<script type="text/javascript" src="assets/global/plugins/select2/select2.min.js"></script>
+<script src="assets/global/scripts/metronic.js" type="text/javascript"></script>
+<script src="assets/admin/layout/scripts/layout.js" type="text/javascript"></script>
+<script src="assets/admin/layout/scripts/quick-sidebar.js" type="text/javascript"></script>
+<script src="assets/admin/pages/scripts/components-pickers.js"></script>
+
+<script type="text/javascript" src="pages/scripts/jquery.serialize-object.min.js"></script>
+<script src="../../assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+<!--<script type="text/javascript" src="../assets/global/plugins/jquery-watable/jquery.watable2.js"></script>-->
+<!--<script type="text/javascript" src="meterreading/skip/xwatable1.js"></script>-->
+<script type="text/javascript" src="../../pages/scripts/refhelper.js"></script>
+
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-daterangepicker/moment.min.js"></script>
+<script type="text/javascript" src="../../assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script src="../../assets/admin/pages/scripts/components-pickers.js"></script>
+<script type="text/javascript" src="../../assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="pages/scripts/jquery.serialize-object.min.js"></script>
+<!-- END PAGE LEVEL SCRIPTS -->
+<script src="mods/sys.js"></script>
+<script src="mods/bas.js"></script>
+<script src="mods/mrd.js"></script>
+<script src="mods/service.js"></script>
+<script src="meterreading/js/mrdbook.js"></script>
+<script>
+    jQuery(document).ready(function() {
+        ComponentsPickers.init();
+        MrdBookAction.init();
+        $(".select2-chosen").select2();
+        $(".select2-drop").css({
+            "z-index":99999
+        })
+    })
+</script>
+
+</body>
+</html>

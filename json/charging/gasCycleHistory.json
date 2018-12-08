@@ -1,0 +1,11 @@
+{"rows":
+[
+  {"versionID":"03","customerType":"居民","gasSource":"天然气","gasProperties":"居民独立采暖","cycleStartDate":"2016-05-01","cycleEndDate":"2017-02-01","price":"3.50","changePerson":"调价人一","UUID":"001"},
+  {"versionID":"02","customerType":"居民","gasSource":"天然气","gasProperties":"居民独立采暖","cycleStartDate":"2015-01-01","cycleEndDate":"2015-04-30","price":"3.36","changePerson":"调价人一","UUID":"002"},
+  {"versionID":"01","customerType":"居民","gasSource":"天然气","gasProperties":"居民独立采暖","cycleStartDate":"2012-01-01","cycleEndDate":"2014-12-31","price":"3.36","changePerson":"调价人一","UUID":"002"}
+
+]
+,"total_rows":3
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

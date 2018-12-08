@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+
+<!-- BEGIN HEAD -->
+<head>
+    <title>非居民档案添加</title>
+    <base href="../">
+    <script src="pages/scripts/header.js"></script>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8"/>
+    <link href='assets/global/plugins/jquery-watable/watable.css' rel='stylesheet'/>
+    <link href='assets/global/plugins/jquery-watable/animate.min.css' rel='stylesheet'/>
+    <link href='assets/global/plugins/bootstrap-datetimepicker/css/datetimepicker.css' rel='stylesheet'/>
+
+
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-select/bootstrap-select.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/select2/select2.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/jquery-multi-select/css/multi-select.css"/>
+
+    <link href="assets/global/plugins/bootstrap-fileinput/fileinput.min.css" rel="stylesheet">
+    <!-- BEGIN PAGE LEVEL STYLES -->
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/clockface/css/clockface.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-datepicker/css/datepicker3.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-colorpicker/css/colorpicker.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-datetimepicker/css/datetimepicker.css"/>
+    <!-- END PAGE LEVEL STYLES -->
+    <!-- BEGIN THEME STYLES -->
+    <link href="assets/global/css/components.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
+    <style>
+        #archive>div{
+            margin-bottom: 20px;
+        }
+        label.error{
+            position:absolute;
+            left:10px;
+            /*top:0;*/
+            bottom: -18px;
+            color: red;
+        }
+    </style>
+    <!-- END THEME STYLES -->
+</head>
+<!-- END HEAD -->
+
+<body class="page-header-fixed page-quick-sidebar-over-content">
+
+<!-- 标题栏开始 -->
+<div class="page-header navbar navbar-fixed-top">
+    <script>$.include("pages/partial/menu.shtml");</script>
+</div>
+<!-- 标题栏结束 -->
+<div class="clearfix"></div>
+<div class="page-container">
+    <!-- 左侧菜单开始 -->
+    <div class="page-sidebar-wrapper">
+        <script>$.include("pages/partial/sidebar.shtml");</script>
+    </div>
+    <!-- 左侧菜单结束 -->
+
+    <!-- 主内容开始 -->
+    <div class="page-content-wrapper">
+        <div class="page-content">
+
+            <!-- BEGIN PAGE HEADER-->
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa fa-map-marker"></i>
+                            <a href="javascript:;">客户管理</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="javascript:;">档案管理</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="JavaScript:;">非居民档案管理</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="javascript:;">非居民档案新建</a>
+                        </li>
+                    </ul>
+                    <!-- END PAGE TITLE & BREADCRUMB-->
+                </div>
+            </div>
+
+            <div class="container-fluid">
+                <div class="add-form">
+                    <script>$.include("common/idcardread.shtml")</script>
+                    <form role="form" onsubmit="return false" method="post" id="form">
+                        <div class="form-body">
+                            <div class="row form-group" id="archive">
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">客户名称:</label>
+                                    <div class="col-md-8">
+                                        <input name="customerName" id="customerName" type="text" class="form-control" placeholder="客户名称" required>
+                                    </div>
+                                </div>
+                               <!-- <div class="col-md-3">
+                                    <label class="control-label col-md-4">开栓时间:</label>
+                                    <div class="col-md-8 input-daterange date-picker" data-date-format="yyyy-mm-dd">
+                                        <input name="unboltTime" id="unboltTime" type="text" class="form-control" placeholder="开栓时间"  style="text-align: left;" required>
+                                    </div>
+                                </div>
+                                -->
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">客户类型</label>
+                                    <div class="col-md-8">
+                                        <select id="customerKind" class="form-control input-middle select2me" width="100%"  name="customerKind"  data-placeholder="客户类型" >
+                                            <option value=""></option>
+                                             <option value="9" selected>非居民</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">是否IC卡:</label>
+                                    <div class="col-md-8">
+                                        <select id="customerType" class="form-control input-middle select2me" required width="100%"  name="customerType"  data-placeholder="是否IC卡" >
+                                            <option value=""></option>
+                                            <option value="I">是</option>
+                                            <option value="P">否</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">用气类型:</label>
+                                    <div class="col-md-8">
+                                        <select name="gasTypeId1" id="gastypeId" class="form-control select2me input-middle" data-placeholder="用气类型" disabled required>
+                                            <option value=""></option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">用气性质:</label>
+                                    <div class="col-md-8">
+                                        <select name="gasTypeId" id="gastypeId1" class="form-control select2me input-middle" data-placeholder="用气性质" required>
+                                            <option value=""></option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">客户状态:</label>
+                                    <div class="col-md-8">
+                                        <select name="customerStart" id="customerStart" class="form-control select2me input-middle" data-placeholder="客户状态" disabled>
+                                            <option value="6">未开栓</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <!--<div class="col-md-6">
+                                    <div class="col-md-2" style="text-align: right">
+                                        <label class="control-label" >客户地址:</label>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <input name="customerAddress" id="customerAddress" type="text" class="form-control" placeholder="客户地址" required>
+                                    </div>
+                                </div>-->
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">供气区域:</label>
+                                    <div class="col-md-8">
+                                        <select id="areaId" class="form-control input-middle select2me" width="100%"  name="areaId"  data-placeholder="供气区域" disabled>
+                                            <option value=""></option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">选择抄表本:</label>
+                                    <div class="col-md-8">
+                                        <select id="bookId" class="form-control input-middle select2me" width="100%"  name="bookId"  data-placeholder="选择抄表本" required>
+                                            <option value="">请选择</option>
+
+                                        </select>
+                                    </div>
+                                    <!--<div class="col-md-8">
+                                        <input id="bookId" name="bookId" type="text" class="form-control" placeholder="抄表本编号">
+                                    </div>-->
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">核算员:</label>
+                                    <div class="col-md-8">
+                                        <select id="countperId" class="form-control input-middle select2me" width="100%"  name="countperId"  data-placeholder="核算员" disabled>
+                                            <option value=""></option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">抄表员:</label>
+                                    <div class="col-md-8">
+
+                                        <select id="serviceperId" class="form-control input-middle select2me" width="100%"  name="serviceperId"  data-placeholder="抄表员" disabled>
+                                            <option value=""></option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">选择合同:</label>
+                                    <div class="col-md-8">
+                                        <select id="contractId" class="form-control input-middle select2me" width="100%"  name="contractId" required data-placeholder="选择合同" >
+                                            <option value="">请选择</option>
+
+                                        </select>
+                                    </div>
+                                    <!--<div class="col-md-8">
+                                        <input id="bookId" name="bookId" type="text" class="form-control" placeholder="抄表本编号">
+                                    </div>-->
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">用气来源:</label>
+                                    <div class="col-md-8">
+                                        <select name="gasResource" disabled id="gasResource" class="form-control select2me input-middle" data-placeholder="用气来源" required>
+                                            <option value=""></option>
+                                            <option value="1">普通</option>
+                                            <option value="2">煤改气</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">证件类型:</label>
+                                    <div class="col-md-8">
+                                        <select name="idcardType" id="idcardType" class="form-control select2me input-middle" data-placeholder="产权证件类型" required>
+                                            <option value=""></option>
+                                            <option value="1">营业执照</option>
+                                            <option value="2">法人身份证</option>
+                                            <option value="3">房产证</option>
+                                            <option value="4">租方合同</option>
+                                            <option value="5">居民身份证</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">证件证号:</label>
+                                    <div class="col-md-8">
+                                        <input name="idcard" id="idcard" type="text" class="form-control" placeholder="证件证号" required>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">开户银行:</label>
+                                    <div class="col-md-8">
+                                        <input name="bankName" type="text" class="form-control" placeholder="开户银行" >
+                                        <!--<select class="form-control input-middle select2me" width="100%"  name="reminderWay"
+                                                data-placeholder="开户银行">
+                                            <option value=""></option>
+
+                                        </select>-->
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">银行账户:</label>
+                                    <div class="col-md-8">
+                                        <input name="bankAccount" type="text" class="form-control" placeholder="银行账户" >
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">欠费催缴方式:</label>
+                                    <div class="col-md-8">
+                                        <!--<input name="peminderWay" type="text" class="form-control" placeholder="欠费催缴方式">-->
+                                        <select class="form-control input-middle select2me" width="100%"  name="reminderWay" required
+                                                data-placeholder="欠费催缴方式">
+                                            <option value=""></option>
+                                            <option value="1">微信</option>
+                                            <option value="2">QQ</option>
+                                            <option value="3">电话通知</option>
+                                            <option value="4">短信通知</option>
+                                            <option value="5">门贴</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">手机号:</label>
+                                    <div class="col-md-8">
+                                        <input name="mobile" type="text" class="form-control" placeholder="手机号" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">电话:</label>
+                                    <div class="col-md-8">
+                                        <input name="tel" type="text" class="form-control" placeholder="电话">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">应急电话:</label>
+                                    <div class="col-md-8">
+                                        <input name="exigenceTel" type="text" class="form-control" placeholder="应急电话">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">邮编:</label>
+                                    <div class="col-md-8">
+                                        <input name="postalCode" type="text" class="form-control" placeholder="邮编">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">邮件地址:</label>
+                                    <div class="col-md-8">
+                                        <input name="mailAddress" type="text" class="form-control" placeholder="邮件地址">
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-3" id="dg_issalesroom">
+                                    <label class="control-label col-md-4" id="dl_issalesroom">是否门市:</label>
+                                    <div class="col-md-8" id="di_issalesroom">
+                                        <select class="form-control input-middle select2me" width="100%" id="issalesRoom" name="issalesRoom"
+                                                data-placeholder="是否门市">
+                                            <option value=""></option>
+                                            <option value="Y">是</option>
+                                            <option value="N">否</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">是否租房:</label>
+                                    <div class="col-md-8">
+                                        <select class="form-control input-middle select2me" width="100%" id="rentRoom" name="rentRoom"
+                                                data-placeholder="是否租房">
+                                            <option value=""></option>
+                                            <option value="1">是</option>
+                                            <option value="0">否</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">联系人:</label>
+                                    <div class="col-md-8">
+                                        <input name="linkMan" type="text" class="form-control" placeholder="联系人" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">联系人办公电话:</label>
+                                    <div class="col-md-8">
+                                        <input name="linkManworktel" type="text" class="form-control" placeholder="联系人办公电话" >
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">联系人手机:</label>
+                                    <div class="col-md-8">
+                                        <input name="linkMantel" type="text" class="form-control" placeholder="联系人手机" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">联系人邮箱:</label>
+                                    <div class="col-md-8">
+                                        <input name="linkManemail" type="text" class="form-control" placeholder="联系人邮箱">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">微信:</label>
+                                    <div class="col-md-8">
+                                        <input name="wechat" type="text" class="form-control" placeholder="微信">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">物业公司:</label>
+                                    <div class="col-md-8">
+                                        <input name="propertyCompany" type="text" class="form-control" placeholder="物业公司">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">档案置灰:</label>
+                                    <div class="col-md-8">
+                                        <select name="validOrInvalid" class="form-control select2me input-middle" data-placeholder="档案置灰" required>
+                                            <option value=""></option>
+                                            <option value="Y">是</option>
+                                            <option value="N">否</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">疑似窃气:</label>
+                                    <div class="col-md-8">
+                                        <select name="stealGas" class="form-control select2me input-middle" data-placeholder="疑似窃气">
+                                            <option value=""></option>
+                                            <option value="Y">是</option>
+                                            <option value="N">否</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">账单联系人:</label>
+                                    <div class="col-md-8">
+                                        <input name="bllContactName" type="text" class="form-control" placeholder="账单联系人" >
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">账单联系人电话:</label>
+                                    <div class="col-md-8">
+                                        <input name="bllContactPhone" type="text" class="form-control" placeholder="账单联系人电话" >
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">账单联系人手机:</label>
+                                    <div class="col-md-8">
+                                        <input name="bllContactMobile" type="text" class="form-control" placeholder="账单联系人手机" >
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">账单邮寄地址:</label>
+                                    <div class="col-md-8">
+                                        <input name="bllContactAddress" type="text" class="form-control" placeholder="账单邮寄地址" >
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">电子邮箱:</label>
+                                    <div class="col-md-8">
+                                        <input name="email" type="text" class="form-control" placeholder="电子邮箱">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">发票类型:</label>
+                                    <div class="col-md-8">
+                                        <select name="invoiceType" class="form-control select2me input-middle" data-placeholder="发票类型" >
+                                            <option value=""></option>
+                                            <option value="1">普通发票</option>
+                                            <option value="2">增值税发票</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">发票抬头:</label>
+                                    <div class="col-md-8">
+                                        <input name="invoiceTitle" type="text" class="form-control" placeholder="发票抬头">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">纳税人识别号:</label>
+                                    <div class="col-md-8">
+                                        <input name="taxpayerId" type="text" class="form-control" placeholder="纳税人识别号">
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <hr class="form-group"  style="padding-bottom: 20px;">
+                            <div class="row form-group">
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">行业分类:</label>
+                                    <div class="col-md-8">
+                                        <select name="industrySort" class="form-control select2me input-middle" data-placeholder="行业分类" >
+                                            <option value=""></option>
+                                            <option value="01">政府机关</option>
+                                            <option value="02">金融</option>
+                                            <option value="03">信息服务</option>
+                                            <option value="04">进出口贸易</option>
+                                            <option value="05">军事国防</option>
+                                            <option value="06">出版印刷</option>
+                                            <option value="07">科研</option>
+                                            <option value="08">制造业</option>
+                                            <option value="09">医药卫生</option>
+                                            <option value="10">石油化工能源</option>
+                                            <option value="11">教育</option>
+                                            <option value="12">旅游</option>
+                                            <option value="13">广播电视</option>
+                                            <option value="14">建筑</option>
+                                            <option value="15">邮政</option>
+                                            <option value="16">电信</option>
+                                            <option value="17">工商</option>
+                                            <option value="18">税务</option>
+                                            <option value="19">交通</option>
+                                            <option value="20">会计类</option>
+                                            <option value="21">公检法</option>
+                                            <option value="22">零售服务</option>
+                                            <option value="23">餐饮</option>
+                                            <option value="24">住宿</option>
+                                            <option value="25">洗浴</option>
+                                            <option value="26">小吃</option>
+                                            <option value="27">公用事业</option>
+                                            <option value="28">批发销售</option>
+                                            <option value="29">事业单位</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">企业性质:</label>
+                                    <div class="col-md-8">
+                                        <!--<input name="peminderWay" type="text" class="form-control" placeholder="欠费催缴方式">-->
+                                        <select class="form-control input-middle select2me" width="100%"  name="businessProperty"
+                                                data-placeholder="企业性质">
+                                            <option value=""></option>
+                                            <option value="1">外商独资/合资</option>
+                                            <option value="2">政府机关</option>
+                                            <option value="3">事业单位</option>
+                                            <option value="4">国企</option>
+                                            <!--<option value="5">门贴</option>-->
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">企业经营状况:</label>
+                                    <div class="col-md-8">
+                                        <!--<input name="peminderWay" type="text" class="form-control" placeholder="欠费催缴方式">-->
+                                        <select class="form-control input-middle select2me" width="100%"  name="businessSituation"
+                                                data-placeholder="企业经营状况">
+                                            <option value=""></option>
+                                            <option value="1">优秀</option>
+                                            <option value="2">良好</option>
+                                            <option value="3">一般</option>
+                                            <option value="4">较差</option>
+                                            <option value="5">差</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">运行设备类型:</label>
+                                    <div class="col-md-8">
+                                        <select class="form-control input-middle select2me" width="100%"  name="deviceType"
+                                                data-placeholder="运行设备类型">
+                                            <option value=""></option>
+                                            <option value="1">调压柜</option>
+                                            <option value="2">调压箱</option>
+                                            <option value="3">调压站</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row form-group" style="margin-top: 20px;">
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">运行设备编号:</label>
+                                    <div class="col-md-8">
+                                        <input name="deviceNumber" type="text" class="form-control" placeholder="运行设备编号">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">工业报警器:</label>
+                                    <div class="col-md-8">
+                                        <select class="form-control input-middle select2me" width="100%"  name="alarm"
+                                                data-placeholder="工业报警器">
+                                            <option value=""></option>
+                                            <option value="Y">有</option>
+                                            <option value="N">无</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">报警器出厂时间:</label>
+                                    <div class="col-md-8 input-daterange date-picker" data-date-format="yyyy-mm-dd">
+                                        <input name="deviceProductionTime" id="deviceProductionTime" type="text" class="form-control" placeholder="报警器出厂时间" style="text-align: left;">
+                                    </div>
+
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">用气环境:</label>
+                                    <div class="col-md-8">
+                                        <select class="form-control input-middle select2me" width="100%" id="gasEnvironment" name="gasEnvironment"
+                                                data-placeholder="运行设备类型" multiple="multiple">
+                                            <option value=""></option>
+                                            <option value="1">潮湿</option>
+                                            <option value="2">高温</option>
+                                            <option value="3">密闭房间</option>
+                                            <option value="4">非密闭房间</option>
+                                            <option value="5">防雷防静电</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row form-group" style="margin-top: 20px;">
+                                <div class="col-md-12">
+                                    <label class="control-label col-md-1">备注:</label>
+                                    <div class="col-md-11">
+                                        <textarea name="remark" class="form-control  col-md-1" cols="12" placeholder="请输入备注信息.."></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+
+
+                    <hr class="form-group"  style="margin-top: 20px;">
+
+                    <form role="form" onsubmit="return false" method="post" id="form1">
+                        <div class="form-body">
+                            <!-- 客户地址开始 -->
+                            <div class="row form-group">
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4" >产权人姓名:</label>
+                                    <div class="col-md-8">
+                                        <input type="text" name="propertyOwner" class="form-control" placeholder="产权人姓名" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4" >产权证类型:</label>
+                                    <div class="col-md-8">
+                                        <!--<input type="text" name="borough" class="form-control" placeholder="产权证类型" required>-->
+                                        <select name="procertyType" class="form-control select2me input-middle" data-placeholder="产权证类型" required>
+                                            <option value=""></option>、
+                                            <option value="1">私有产权证</option>
+                                            <option value="2">不动产证</option>
+                                            <option value="3">购房发票</option>
+                                            <option value="4">商品房购房合同</option>
+                                            <option value="5">动迁安置协议</option>
+                                            <option value="6">廉租房证</option>
+                                            <option value="7">其他</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4" >产权证编号:</label>
+                                    <div class="col-md-8">
+                                        <input type="text" name="procertyNum" class="form-control" placeholder="产权证编号" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4" >产权人手机:</label>
+                                    <div class="col-md-8">
+                                        <input type="text" name="procertyMobile" class="form-control" placeholder="产权人手机">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row form-group" style="margin-top: 20px;">
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4" >产权人电话:</label>
+                                    <div class="col-md-8">
+                                        <input type="text" name="procertyPhone" class="form-control" placeholder="产权人电话">
+                                    </div>
+                                </div>
+                                <div class="col-md-3" id="dg_borough">
+                                    <label class="control-label col-md-4" id="dl_borough ">区:</label>
+                                    <div class="col-md-8"id="di_borough">
+                                        <input type="text" id="borough" name="borough" class="form-control" placeholder="区" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-3" id="dg_street">
+                                    <label class="control-label col-md-4" id="dl_street">街(路):</label>
+                                    <div class="col-md-8" id="di_street">
+                                        <input type="text" id="street" name="street" class="form-control" placeholder="街(路)" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-3" id="dg_district">
+                                    <label class="control-label col-md-4" id="dl_district">小区:</label>
+                                    <div class="col-md-8" id="di_district">
+                                        <input type="text" id="district" name="district" class="form-control" placeholder="小区" >
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row form-group" style="margin-top: 20px;">
+                                <div class="col-md-3" id="dg_doorplatenum">
+                                    <label class="control-label col-md-4" id="dl_doorplatenum">门牌号:</label>
+                                    <div class="col-md-8" id="di_doorplatenum">
+                                        <input type="text" id="doorplatenum" name="doorplateNum" class="form-control" placeholder="门牌号"required>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-3" id="dg_floornum">
+                                    <label class="control-label col-md-4" id="dl_floornum">楼号:</label>
+                                    <div class="col-md-8" id="di_floornum">
+                                        <input type="text" id="floornum" name="floorNum" class="form-control" placeholder="楼号" >
+                                    </div>
+                                </div>
+                                <div class="col-md-3" id="dg_cell">
+                                    <label class="control-label col-md-4" id="dl_cell">单元(门市):</label>
+                                    <div class="col-md-8"id="di_cell">
+                                        <input type="text" id="cell" name="cell" class="form-control" placeholder="单元(门市)">
+                                    </div>
+                                </div>
+                                <div class="col-md-3" id="dg_storey">
+                                    <label class="control-label col-md-4" id="dl_storey">层:</label>
+                                    <div class="col-md-8" id="di_storey">
+                                        <input type="text" id="storey" name="storey" class="form-control" placeholder="层" >
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row form-group" style="margin-top: 20px;">
+                                <div class="col-md-3" id="dg_roomnum">
+                                    <label class="control-label col-md-4" id="dl_roomnum">室:</label>
+                                    <div class="col-md-8" id="di_roomnum">
+                                        <input type="text" id="roomnum" name="roomNum" class="form-control" placeholder="室">
+                                    </div>
+                                </div>
+                                <div class="col-md-3" id="dg_subroomnum">
+                                    <label class="control-label col-md-4" id="dl_subroomnum ">分室:</label>
+                                    <div class="col-md-8"id="di_subroomnum">
+                                        <input type="text" id="subroomnum" name="subRoomNum" class="form-control" placeholder="分室">
+                                    </div>
+                                </div>
+                               <!-- <div class="col-md-3">
+                                    <label class="control-label col-md-4" >家庭人口数:</label>
+                                    <div class="col-md-8">
+                                        <input type="text" name="population" class="form-control" placeholder="家庭人口数">
+                                    </div>
+                                </div>-->
+                            </div>
+
+                            <!-- 客户地址结束-->
+                        </div>
+                    </form>
+
+
+
+
+                    <form role="form" onsubmit="return false" method="post" style="padding:10px 0 0 0;" id="form2">
+                        <div class="row form-group">
+                            <div class="col-md-3">
+                                <label class="control-label col-md-4">承租人证件类型:</label>
+                                <div class="col-md-8">
+                                    <select name="lesseeCerType" class="form-control select2me input-middle" data-placeholder="承租人证件类型">
+                                        <option value=""></option>
+                                        <option value="1">营业执照</option>
+                                        <option value="2">法人身份证</option>
+                                        <option value="3">房产证</option>
+                                        <option value="4">租方合同</option>
+                                        <option value="5">居民身份证</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="control-label col-md-4">承租人证件编号:</label>
+                                <div class="col-md-8">
+                                    <input name="lesseeCerNum" type="text" class="form-control" placeholder="承租人证件编号">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="control-label col-md-4">承租联系人:</label>
+                                <div class="col-md-8">
+                                    <input name="lessee" type="text" class="form-control" placeholder="承租联系人">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="control-label col-md-4">承租人电话:</label>
+                                <div class="col-md-8">
+                                    <input name="lesseeTel" type="text" class="form-control" placeholder="承租人电话">
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row form-group" style="margin-top: 20px;">
+                            <div class="col-md-3">
+                                <label class="control-label col-md-4">营业面积:</label>
+                                <div class="col-md-8">
+                                    <input name="businessArea" type="text" class="form-control" placeholder="营业面积">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="control-label col-md-4">就餐位数:</label>
+                                <div class="col-md-8">
+                                    <input name="repastNum" type="text" class="form-control" placeholder="就餐位数">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="control-label col-md-4">包房数:</label>
+                                <div class="col-md-8">
+                                    <input name="privateRoom" type="text" class="form-control" placeholder="包房数">
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+
+<!--
+                    <form role="form" onsubmit="return false" method="post" id="form3" style="padding:10px 0 0 0;">
+                        <div class="row form-group">
+                            <div class="col-md-3">
+                                <label class="control-label col-md-4">账单联系人:</label>
+                                <div class="col-md-8">
+                                    <input name="linkman" type="text" class="form-control" placeholder="账单联系人" required>
+
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="control-label col-md-4">账单联系人电话:</label>
+                                <div class="col-md-8">
+                                    <input name="linkmanTel" type="text" class="form-control" placeholder="账单联系人电话" required>
+
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="control-label col-md-4">账单联系人手机:</label>
+                                <div class="col-md-8">
+                                    <input name="linkmanPhone" type="text" class="form-control" placeholder="账单联系人手机" required>
+
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="control-label col-md-4">账单邮寄地址:</label>
+                                <div class="col-md-8">
+                                    <input name="linkmanAddress" type="text" class="form-control" placeholder="账单邮寄地址" required>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row form-group" style="margin-top: 20px;">
+                            <div class="col-md-3">
+                                <label class="control-label col-md-4">邮箱:</label>
+                                <div class="col-md-8">
+                                    <input name="linkmanMail" type="text" class="form-control" placeholder="邮箱">
+
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="control-label col-md-4">发票类型:</label>
+                                <div class="col-md-8">
+                                    <select name="invoiceType" class="form-control select2me input-middle" data-placeholder="发票类型">
+                                        <option value=""></option>
+                                        <option value="1">普通发票</option>
+                                        <option value="2">增值税发票</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="control-label col-md-4">发票抬头:</label>
+                                <div class="col-md-8">
+                                    <input name="invoiceName" type="text" class="form-control" placeholder="发票抬头">
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>-->
+
+                    <div class="form-actions fluid" style="margin-top: 20px;">
+                        <div class="btn-set">
+                            <button id="cancel_btn" type="button" class="btn default">取消</button>
+                            <button id="save_btn" type="submit" class="btn blue">保存</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END PAGE HEADER-->
+
+        </div>
+    </div>
+    <!-- 主内容结束 -->
+</div>
+
+<script type="text/javascript">$.include("pages/partial/xwatable-form.shtml")</script>
+
+<!-- 底边栏开始 -->
+<script>$.include("pages/partial/foot.shtml");</script>
+<!-- 底边栏结束 -->
+</body>
+
+
+<script>$.include("pages/partial/scripts.shtml");</script>
+<script src="assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-watable/jquery.watable.js"></script>
+<script type="text/javascript" src="pages/scripts/rqlbuilder.js"></script>
+<script type="text/javascript" src="pages/scripts/xwatable.js"></script>
+<script type="text/javascript" src="pages/scripts/refhelper.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+
+
+<script type="text/javascript" src="assets/global/plugins/bootstrap-fileinput/fileinput.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-fileinput/zh.js"></script>
+
+<script type="text/javascript" src="assets/global/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-multi-select/js/jquery.multi-select.js"></script>
+
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/clockface/js/clockface.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-daterangepicker/moment.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script src="assets/admin/pages/scripts/components-pickers.js"></script>
+<script src="pages/scripts/jquery.json.min.js"></script>
+<script type="text/javascript" src="pages/scripts/jquery.serialize-object.min.js"></script>
+
+<script src="mods/sys.js"></script>
+
+<script type="text/javascript" src="customer/js/input_non_inhabitant_archive.js"></script>
+
+
+<script>
+    ComponentsPickers.init();
+
+    SideBar.init();
+    SideBar.activeCurByPage("customer_information.html");
+//    SideBar.activeCurByPage("non_inhabitant_archivemanagement.html");
+
+</script>
+<!-- END PAGE LEVEL SCRIPTS -->
+</html>

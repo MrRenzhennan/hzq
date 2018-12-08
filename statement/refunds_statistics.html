@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]>
+<html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+
+<!-- BEGIN HEAD -->
+
+<head>
+    <title>分公司月度收费退款统计</title>
+    <base href="../../">
+    <script src="pages/scripts/basepath.js"></script>
+    <script src="pages/scripts/header.js"></script>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8" />
+
+    <link href="assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href='assets/global/plugins/jquery-watable/watable.css' rel='stylesheet' />
+    <link href='assets/global/plugins/jquery-watable/animate.min.css' rel='stylesheet' />
+    <link href='assets/global/plugins/bootstrap-datetimepicker/css/datetimepicker.css' rel='stylesheet' />
+
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-select/bootstrap-select.min.css" />
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/select2/select2.css" />
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/jquery-multi-select/css/multi-select.css" />
+    <link href="assets/global/plugins/bootstrap-fileinput/fileinput.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-datepicker/css/datepicker3.css"/>
+
+    <!-- BEGIN THEME STYLES -->
+    <link href="assets/global/css/components.css" rel="stylesheet" type="text/css" />
+    <link href="assets/global/css/plugins.css" rel="stylesheet" type="text/css" />
+    <link href="assets/admin/layout/css/layout.css" rel="stylesheet" type="text/css" />
+    <link id="style_color" href="assets/admin/layout/css/themes/default.css" rel="stylesheet" type="text/css" />
+    <link href="assets/admin/layout/css/custom.css" rel="stylesheet" type="text/css" />
+
+    <link rel="stylesheet" href="/statement/css/3.3.7/bootstrap.min.css">
+    <link href='../assets/global/css/bootstrap-monthpicker.css' rel='stylesheet'/>
+
+    <!-- END THEME STYLES -->
+    <style>
+        @media print {
+            .noneprint {
+                display: none;
+            }
+        }
+
+        .tabPrint td {
+            border-left: #000000 solid 1px;
+            border-top: #000000 solid 1px;
+            height: 21px;
+        }
+
+        table.tabPrint {
+            border-right: #000000 solid 1px;
+            border-bottom: #000000 solid 1px;
+        }
+
+        .nextPage {
+            page-break-after: always;
+        }
+
+        .linetd {
+            border-bottom: solid 1px #000;
+        }
+    </style>
+</head>
+<!-- END HEAD -->
+
+<body class="page-header-fixed page-quick-sidebar-over-content">
+
+<!-- 标题栏开始 -->
+<div class="page-header navbar navbar-fixed-top">
+    <script>
+        $.include("pages/partial/menu.shtml");
+    </script>
+</div>
+<!-- 标题栏结束 -->
+<div class="clearfix"></div>
+<div class="page-container">
+    <!-- 左侧菜单开始 -->
+    <div class="page-sidebar-wrapper">
+        <script>
+            $.include("pages/partial/sidebar.shtml");
+        </script>
+    </div>
+    <!-- 左侧菜单结束 -->
+
+    <!-- 主内容开始 -->
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <!--内容头开始-->
+            <!--内容头开始-->
+            <script>$.include("common/navigation_bar.shtml");</script>
+            <!-- 内容头结束-->
+
+            <!-- 内容开始-->
+
+            <div class="container col-sm-12 noneprint" style="padding-bottom:0px">
+                <div class="row">
+
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group">
+                            <div class="input-group-addon" style="border:0px;">选择年份：</div>
+                            <div id="div_date" class="input-group input-small date-picker input-daterange" data-date="2012" data-date-format="yyyy">
+                                <input id="find_date" type="text" class="form-control" name="from" readonly>
+                                <span class="inputclear glyphicon glyphicon-remove-circle hidden"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group input-select2me col-sm-12">
+                            <div class="input-group-addon"  style="border:0px;">退款类型:</div>
+                            <select  id="find_chgType" class="form-control input-middlle select2me" data-placeholder="退款类型...">
+                                <option value="">全部</option>
+                                <option value="1">燃气费</option>
+                                <option value="2">垃圾费</option>
+                            </select>
+                            <span class="inputclear glyphicon glyphicon-remove-circle hide" ></span>
+                        </div>
+                    </div>
+                    <!-- 表流量范围查询 -->
+                    <!--<div class="col-sm-6 form-group">
+                        <div class="btn-group input-group pull-left col-sm-4">
+                        <div class="input-group-addon" style="border:0px;">流量范围:</div>
+                            <input id="find_flow_min" type="text" class="inputclear form-control" name="from">
+                            <span class="inputclear glyphicon glyphicon-remove-circle hidden" ></span>
+                            <span class="input-group-addon">至</span>
+                            <input id="find_flow_max" type="text" class="inputclear form-control" name="to">
+                            <span class="inputclear glyphicon glyphicon-remove-circle hidden" ></span>
+                        </div>
+                    </div>-->
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <button id="find_sign" type="button" class="btn yellow">
+                                查询 <i class="fa fa-search"></i>
+                            </button> &nbsp;&nbsp;&nbsp;&nbsp;
+                            <button id="btn_print_page" onclick="window.print()" type="button" class="btn gray disabled">
+                                打印<i class="glyphicon"></i>
+                            </button> &nbsp;&nbsp;&nbsp;&nbsp;
+                            <button id="btn_down_detail" class="btn gray disabled export-excel">
+                                导出
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 内容头结束-->
+
+            <div class="container-fluid">
+                <div>
+                    <table cellSpacing="0" cellPadding="2" width="98%" align="center" border="0">
+                        <tr>
+                            <td id="title" align="center" title="">分公司月度收费退款统计</td>
+                        </tr>
+                    </table>
+                </div>
+                <br/>
+                <table class="tabPrint table-bordered table-hover table-condensed " align="center" width="98%" cellspacing="0" cellpadding="0" border="0" id="table_0">
+                    <thead style="display:table-header-group;font-weight:bold" mce_style="display:table-header-group;font-weight:bold">
+                        <tr align="center">
+                            <td id="thead_r1_c1" rowspan="2" colspan="1">单位</td>
+                            <td id="thead_r1_c8" rowspan="1" colspan="2">1月</td>
+                            <td id="thead_r1_c9" rowspan="1" colspan="2">2月</td>
+                            <td id="thead_r1_c10" rowspan="1" colspan="2">3月</td>
+                            <td id="thead_r1_c11" rowspan="1" colspan="2">4月</td>
+                            <td id="thead_r1_c12" rowspan="1" colspan="2">5月</td>
+                            <td id="thead_r1_c13" rowspan="1" colspan="2">6月</td>
+                            <td id="thead_r1_c14" rowspan="1" colspan="2">7月</td>
+                            <td id="thead_r1_c15" rowspan="1" colspan="2">8月</td>
+                            <td id="thead_r1_c16" rowspan="1" colspan="2">9月</td>
+                            <td id="thead_r1_c17" rowspan="1" colspan="2">10月</td>
+                            <td id="thead_r1_c18" rowspan="1" colspan="2">11月</td>
+                            <td id="thead_r1_c19" rowspan="1" colspan="2">12月</td>
+                            <td id="thead_r1_c20" rowspan="1" colspan="2">小计</td>
+                        </tr>
+                        <tr align="center">
+                            <td id="thead_r2_c1" rowspan="1" colspan="1">笔数</td>
+                            <td id="thead_r2_c2" rowspan="1" colspan="1">金额</td>
+                            <td id="thead_r2_c3" rowspan="1" colspan="1">笔数</td>
+                            <td id="thead_r2_c4" rowspan="1" colspan="1">金额</td>
+                            <td id="thead_r2_c5" rowspan="1" colspan="1">笔数</td>
+                            <td id="thead_r2_c6" rowspan="1" colspan="1">金额</td>
+                            <td id="thead_r2_c7" rowspan="1" colspan="1">笔数</td>
+                            <td id="thead_r2_c8" rowspan="1" colspan="1">金额</td>
+                            <td id="thead_r2_c9" rowspan="1" colspan="1">笔数</td>
+                            <td id="thead_r2_c10" rowspan="1" colspan="1">金额</td>
+                            <td id="thead_r2_c11" rowspan="1" colspan="1">笔数</td>
+                            <td id="thead_r2_c12" rowspan="1" colspan="1">金额</td>
+                            <td id="thead_r2_c13" rowspan="1" colspan="1">笔数</td>
+                            <td id="thead_r2_c14" rowspan="1" colspan="1">金额</td>
+                            <td id="thead_r2_c15" rowspan="1" colspan="1">笔数</td>
+                            <td id="thead_r2_c16" rowspan="1" colspan="1">金额</td>
+                            <td id="thead_r2_c17" rowspan="1" colspan="1">笔数</td>
+                            <td id="thead_r2_c18" rowspan="1" colspan="1">金额</td>
+                            <td id="thead_r2_c19" rowspan="1" colspan="1">笔数</td>
+                            <td id="thead_r2_c20" rowspan="1" colspan="1">金额</td>
+                            <td id="thead_r2_c21" rowspan="1" colspan="1">笔数</td>
+                            <td id="thead_r2_c22" rowspan="1" colspan="1">金额</td>
+                            <td id="thead_r2_c23" rowspan="1" colspan="1">笔数</td>
+                            <td id="thead_r2_c24" rowspan="1" colspan="1">金额</td>
+                            <td id="thead_r2_c25" rowspan="1" colspan="1">笔数</td>
+                            <td id="thead_r2_c26" rowspan="1" colspan="1">金额</td>
+                        </tr>
+                    </thead>
+                    <tbody id="detail_for_new">
+
+                    </tbody>
+                </table>
+
+                <br/><br/>
+            </div>
+            <!-- 内容结束-->
+        </div>
+    </div>
+    <!-- 主内容结束 -->
+</div>
+
+<!-- 底边栏开始 -->
+<script>
+    $.include("pages/partial/foot.shtml");
+</script>
+<!-- 底边栏结束 -->
+</body>
+
+<script>
+    $.include("pages/partial/scripts.shtml");
+</script>
+<!--跳到原稿-->
+<script src="../assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="../assets/global/plugins/jquery-watable/jquery.watable.js"></script>
+<script type="text/javascript" src="../pages/scripts/rqlbuilder.js"></script>
+<script type="text/javascript" src="../pages/scripts/xwatable.js"></script>
+<script type="text/javascript" src="../pages/scripts/refhelper.js"></script>
+
+<!--datapicker start-->
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/clockface/js/clockface.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-daterangepicker/moment.min.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script src="../assets/admin/pages/scripts/components-pickers.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/select2/select2.js"></script>
+<script src="statement/js/libs/js-xlsx/xlsx.core.min.js" type="text/javascript"></script>
+<script src="statement/js/libs/html2canvas/html2canvas.min.js" type="text/javascript"></script>
+<script src="statement/js/tableExport.js" type="text/javascript"></script>
+
+<script type="text/javascript" src="../assets/global/scripts/bootstrap-monthpicker.js"></script>
+
+<!-- END PAGE LEVEL SCRIPTS -->
+<script src="mods/timeslot.js"></script>
+<script src="mods/sys.js"></script>
+<script src="mods/bas.js"></script>
+<script src="mods/mrd.js"></script>
+<script src="mods/ctm.js"></script>
+<script src="mods/mtr.js"></script>
+<script type="text/javascript">
+    $(".export-excel").attr("data-table", ".tabPrint");
+    $(".export-excel").attr("data-filename", $("#find_date").val() + "年分公司月度收费退款统计");
+    $(".export-excel").on("click", function(e) {
+        e.preventDefault();
+        var exportTable = $(this).data("table");
+        var filename = $(this).data("filename");
+        var ignoreColumn = ""; //$(this).data("ignorecolumn");
+        $(exportTable).tableExport({
+            fileName: filename,
+            type: 'excel',
+            escape: 'false',
+            excelstyles: ['border-bottom', 'border-top', 'border-left', 'border-right'],
+            ignoreColumn: '[' + ignoreColumn + ']'
+        });
+    });
+
+    $.fn.datetimepicker.dates['zh-CN'] = {
+        days: ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"],
+        daysShort: ["周日", "周一", "周二", "周三", "周四", "周五", "周六", "周日"],
+        daysMin: ["日", "一", "二", "三", "四", "五", "六", "日"],
+        months: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
+        monthsShort: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
+        today: "今天",
+        suffix: [],
+        meridiem: ["上午", "下午"]
+    };
+
+
+    /*document.onkeydown = function () {
+     keydown();
+     };
+     function keydown() {
+     //P 空格 会车 event.keyCode==80 || event.keyCode==32 || event.keyCode==13
+     if (event.keyCode == 13) {
+     window.print();
+     }
+     }*/
+
+    function getQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if(r != null) return decodeURIComponent(r[2]);
+        return null;
+    }
+
+    function date_format(date, fmt) {
+        var dataJson = {
+            "M+": date.getMonth() + 1, //月份
+            "d+": date.getDate(), //日
+            "h+": date.getHours(), //小时
+            "m+": date.getMinutes(), //分
+            "s+": date.getSeconds(), //秒
+            "q+": Math.floor((date.getMonth() + 3) / 3), //季度
+            "S": date.getMilliseconds() //毫秒
+        };
+        if(/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (date.getFullYear() + "").substr(4 - RegExp.$1.length));
+        for(var k in dataJson)
+            if(new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (dataJson[k]) : (("00" + dataJson[k]).substr(("" + dataJson[k]).length)));
+        return fmt;
+    }
+
+    function edit(id) {
+        var v = $("#" + id).html();
+        $("#" + id).html("<input type='number' id='" + id + "_text' oldid='" + id + "' oldvalue='" + v + "' value='" + v + "' onblur='outEdit(this.id)'/>");
+        $("#" + id + "_text").focus();
+        $("#" + id).attr("onblur", "")
+    }
+
+    function outEdit(id) {
+        var ov = $("#" + id).attr("oldvalue");
+        var oid = $("#" + id).attr("oldid");
+        $("#" + oid).html($("#" + id).val());
+    }
+
+    function operationData(operationDataJson) {
+        for(var i = 0; i < operationDataJson.length; i++) {
+            var inputCols = operationDataJson[i].ic;
+            var operator = operationDataJson[i].op;
+            var out = $("#tbody_" + inputCols[0]).html() * 1;
+            for(var j = 1; j < inputCols.length; j++) {
+                var value = $("#tbody_" + inputCols[j]).html() * 1;
+                if(operator == "+") {
+                    out = out + value;
+                }
+            }
+            var outputColType = operationDataJson[i].ty;
+            var outputCol = operationDataJson[i].oc;
+            if(outputColType && outputColType == "f") {
+                $("#tbody_" + outputCol).html(toAmount(out + ""));
+            } else {
+                $("#tbody_" + outputCol).html(out);
+            }
+        }
+    }
+
+    $(function() {});
+
+
+
+    jQuery(document).ready(function() {
+        ComponentsPickers.init();
+        var datayearmonthday = GasModMrd.enumStatisticsMonth;
+        var totalyear = GasModMrd.enumOneYear;
+        var sqlcols = "";
+
+
+        $("#find_date").val(date_format(new Date(), "yyyy"));
+        $("#title").html($("#find_date").val() + "年分公司月度收费退款统计");
+        //查询按钮时间
+        // ComponentsDropdowns.init();
+
+        if(UserInfo.item().station_id == '1') {
+            console.log("cahnge")
+            var inhtml = "<option value='" + UserInfo.item().userId + "' selected>" + UserInfo.item().employee_name + "</option>";
+            $("#find_areaId").val(UserInfo.item().area_id).change();
+            $("#find_areaId").attr({
+                disabled: "disabled"
+            })
+        }
+        $('#find_areaId').html('<option value="" name="全部"">全部</option>');
+        $.each(GasModSys.areaHelper.getRawData(), function(idx, row) {
+            if('1' == UserInfo.item().area_id) {
+                $('#find_areaId').append('<option value="' + row.areaId + '" name="' + row.areaId + '">' + row.areaName + '</option>');
+            } else if(row.areaId == UserInfo.item().area_id) {
+                $('#find_areaId').append('<option value="' + row.areaId + '" name="' + row.areaId + '">' + row.areaName + '</option>');
+            }
+        });
+
+        if('1' != UserInfo.item().area_id) {
+            $("#find_areaId").val(UserInfo.item().area_id).change();;
+            $("#find_areaId").attr({
+                disabled: "disabled"
+            })
+        }
+
+        GasModMtr.meterTypeList({
+            "cb":function(data){
+                var inhtml = "<option value=''>全部</option>";
+                if(data){
+                    $.each(data,function(inx,row){
+                        inhtml +='<option value="'+row.meterTypeId+'">'+row.meterTypeCode+":"+row.meterTypeName+'</option>';
+                    })
+                }
+                $('#find_meter_type').html(inhtml);
+                $("#find_meter_type").val("").change();
+
+            }
+        });
+
+        /*for(var j=0;j<12;j++){//12个月
+         if(j==0){
+         sqlcols += " sum(case when ( y.examine_time >=to_date('"+((parseInt(search_year) -1))+"-"+datayearmonthday[(j+1)][0]+"','yyyy-mm-dd hh24:mi:ss') and y.examine_time<=to_date('"+search_year+"-"+datayearmonthday[(j+1)][1]+"','yyyy-mm-dd hh24:mi:ss')"+
+         " ) then y.money  else 0 end ) over(partition by y.area_id) as gas_sum_+"+month_arr[(j+1)]+",";
+         sqlcols += " sum(case when ( y.examine_time >=to_date('"+((parseInt(search_year) -1))+"-"+datayearmonthday[(j+1)][0]+"','yyyy-mm-dd hh24:mi:ss') and y.examine_time<=to_date('"+search_year+"-"+datayearmonthday[(j+1)][1]+"','yyyy-mm-dd hh24:mi:ss')"+
+         " ) then 1  else 0 end ) over(partition by y.area_id) as gas_count_+"+month_arr[(j+1)]+",";
+
+         }else{
+         sqlcols += " sum(case when ( y.examine_time >=to_date('"+search_year+"-"+datayearmonthday[(j+1)][0]+"','yyyy-mm-dd hh24:mi:ss') and y.examine_time<=to_date('"+search_year+"-"+datayearmonthday[(j+1)][1]+"','yyyy-mm-dd hh24:mi:ss')"+
+         " ) then y.money  else 0 end ) over(partition by y.area_id) as gas_num_+"+month_arr[(j+1)]+",";
+         sqlcols += " sum(case when ( y.examine_time >=to_date('"+search_year+"-"+datayearmonthday[(j+1)][0]+"','yyyy-mm-dd hh24:mi:ss') and y.examine_time<=to_date('"+search_year+"-"+datayearmonthday[(j+1)][1]+"','yyyy-mm-dd hh24:mi:ss')"+
+         " ) then 1 else 0 end) over(partition by y.area_id) as gas_count_+"+month_arr[(j+1)]+",";
+         }
+
+
+         var whereinfo ="";
+
+         var bd={
+         "cols":"distinct area_id,"+sqlcols+""+
+
+         "sum( case when( y.examine_time >=to_date('"+((parseInt(search_year) -1))+"-"+totalyear[0]+"','yyyy-mm-dd hh24:mi:ss')  and y.examine_time<=to_date('"+search_year+"-"+totalyear[1]+"','yyyy-mm-dd hh24:mi:ss') "+
+         "  ) then y.money else 0 end ) over(partition by y.area_id) as gas_sum_totaldata ,"+
+         "sum( case when( y.examine_time >=to_date('"+((parseInt(search_year) -1))+"-"+totalyear[0]+"','yyyy-mm-dd hh24:mi:ss')  and y.examine_time<=to_date('"+search_year+"-"+totalyear[1]+"','yyyy-mm-dd hh24:mi:ss') "+
+         "  ) then 1 else 0 end ) over(partition by y.area_id) as gas_count_totaldata "+
+
+         "froms":"gas_chg_refound y",
+         "wheres":"y.status='2' and y.refund_type='1' and y.reserved_field2='1' and y.examine_time to_date('"+((parseInt(search_year) -1))+"-"+totalyear[0]+"','yyyy-mm-dd hh24:mi:ss')  "+
+         " and y.examine_time<=to_date('"+search_year+"-"+totalyear[1]+"','yyyy-mm-dd hh24:mi:ss') "
+
+         }
+         */
+
+
+        $('#find_sign').on('click', function(e) {
+            /*if(!$('#find_areaId').val()) {
+             bootbox.alert("请选择供气区域。");
+             return;
+             }*/
+            if($("#find_date").val() == "") {
+                bootbox.alert("请您选择要查询的年份！");
+                return;
+            }
+            if($("#find_chgType").val() == ""){
+                bootbox.alert("请您选择退款类型！");
+                return;
+            }
+            $("#title").html($("#find_date").val() + "年分公司月度收费退款统计");
+
+
+            $("#btn_down_detail").removeClass("disabled");
+            $("#btn_down_detail").removeClass("gray");
+            $("#btn_down_detail").addClass("green");
+
+            $("#btn_print_page").removeClass("disabled");
+            $("#btn_print_page").removeClass("gray");
+            $("#btn_print_page").addClass("green");
+
+            var search_year = $("#find_date").val();
+
+            var month_arr = {1: "onedata", 2: "twodata", 3: "threedata", 4: "fourdata", 5: "fivedata",
+                6: "sixdata", 7: "sevendata", 8: "eightdata", 9: "ninedata", 10: "tendata",
+                11: "elevendata", 12: "twelvedata"
+            };
+            var refund_type = $("#find_chgType").val();
+            for(var j=0;j<12;j++) {//12个月
+                if (j == 0) {
+                    sqlcols += " sum(case when ( y.modified_time >=to_date('" + ((parseInt(search_year) - 1)) + "-" + datayearmonthday[(j + 1)][0] + "','yyyy-mm-dd hh24:mi:ss') and y.modified_time<=to_date('" + search_year + "-" + datayearmonthday[(j + 1)][1] + "','yyyy-mm-dd hh24:mi:ss')" +
+                        " ) then y.money  else 0 end )  as gas_sum_" + month_arr[(j + 1)] + ",";
+                    sqlcols += " sum(case when ( y.modified_time >=to_date('" + ((parseInt(search_year) - 1)) + "-" + datayearmonthday[(j + 1)][0] + "','yyyy-mm-dd hh24:mi:ss') and y.modified_time<=to_date('" + search_year + "-" + datayearmonthday[(j + 1)][1] + "','yyyy-mm-dd hh24:mi:ss')" +
+                        " ) then 1  else 0 end )  as gas_count_" + month_arr[(j + 1)] + ",";
+
+                } else {
+                    sqlcols += " sum(case when ( y.modified_time >=to_date('" + search_year + "-" + datayearmonthday[(j + 1)][0] + "','yyyy-mm-dd hh24:mi:ss') and y.modified_time<=to_date('" + search_year + "-" + datayearmonthday[(j + 1)][1] + "','yyyy-mm-dd hh24:mi:ss')" +
+                        " ) then y.money  else 0 end )  as gas_sum_" + month_arr[(j + 1)] + ",";
+                    sqlcols += " sum(case when ( y.modified_time >=to_date('" + search_year + "-" + datayearmonthday[(j + 1)][0] + "','yyyy-mm-dd hh24:mi:ss') and y.modified_time<=to_date('" + search_year + "-" + datayearmonthday[(j + 1)][1] + "','yyyy-mm-dd hh24:mi:ss')" +
+                        " ) then 1 else 0 end)  as gas_count_" + month_arr[(j + 1)] + ",";
+                }
+
+            }
+            var whereinfo = "";
+            var bd = {
+                "cols": "distinct a.area_id,a.area_name,a.pos_code," + sqlcols + " " +
+                "sum( case when( y.modified_time >=to_date('" + ((parseInt(search_year) - 1)) + "-" + totalyear[0] + "','yyyy-mm-dd hh24:mi:ss')  and y.modified_time<=to_date('" + search_year + "-" + totalyear[1] + "','yyyy-mm-dd hh24:mi:ss') " +
+                "  ) then y.money else 0 end )  as gas_sum_totaldata ," +
+                "sum( case when( y.modified_time >=to_date('" + ((parseInt(search_year) - 1)) + "-" + totalyear[0] + "','yyyy-mm-dd hh24:mi:ss')  and y.modified_time<=to_date('" + search_year + "-" + totalyear[1] + "','yyyy-mm-dd hh24:mi:ss') " +
+                "  ) then 1 else 0 end )  as gas_count_totaldata ",
+                "froms": " gas_biz_area a  left join (select * from gas_chg_refund where status='2' and refund_type='"+refund_type+"' and reserved_field2='1' and modified_time>= to_date('" + ((parseInt(search_year) - 1)) + "-" + totalyear[0] + "','yyyy-mm-dd hh24:mi:ss')  " +
+                " and modified_time<=to_date('" + search_year + "-" + totalyear[1] + "','yyyy-mm-dd hh24:mi:ss') ) y on a.area_id=y.area_id",
+                "wheres": " a.status='1' group by a.area_name,a.pos_code,a.area_id order by a.pos_code"
+            }
+
+            $.ajax({
+                url: "hzqs/dbc/pbsel.do?fh=SELDBC0000000J00&resp=bd",
+                type: "POST",
+                contentType: "application/json;charset=utf-8",
+                data: JSON.stringify(bd),
+                dataType: "json",
+                success: function (results) {
+                    console.log("result", results);
+                    if(results && results.rows.length){
+                        var html = "";
+                        var sum1 = 0;
+                        var sum2 = 0;
+                        var sum3 = 0;
+                        var sum4 = 0;
+                        var sum5 = 0;
+                        var sum6 = 0;
+                        var sum7 = 0;
+                        var sum8 = 0;
+                        var sum9 = 0;
+                        var sum10 = 0;
+                        var sum11 = 0;
+                        var sum12 = 0;
+                        var sum13 = 0;
+                        var sum14 = 0;
+                        var sum15 = 0;
+                        var sum16 = 0;
+                        var sum17 = 0;
+                        var sum18 = 0;
+                        var sum19 = 0;
+                        var sum20 = 0;
+                        var sum21 = 0;
+                        var sum22 = 0;
+                        var sum23 = 0;
+                        var sum24 = 0;
+                        var sum25 = 0;
+                        var sum26 = 0;
+
+                        $.each(results.rows,function(index,item){
+                            if(item.areaId != "1" && item.areaId !="23"){
+                                sum1+= item.gasCountOnedata;
+                                sum2+= item.gasSumOnedata;
+                                sum3+= item.gasCountTwodata;
+                                sum4+= item.gasSumTwodata;
+                                sum5+= item.gasCountThreedata;
+                                sum6+= item.gasSumThreedata;
+                                sum7+= item.gasCountFourdata;
+                                sum8+= item.gasSumFourdata;
+                                sum9+= item.gasCountFivedata;
+                                sum10+= item.gasSumFivedata;
+                                sum11+= item.gasCountSixdata;
+                                sum12+= item.gasSumSixdata;
+                                sum13+= item.gasCountSevendata;
+                                sum14+= item.gasSumSevendata;
+                                sum15+= item.gasCountEightdata;
+                                sum16+= item.gasSumEightdata;
+                                sum17+= item.gasCountNinedata;
+                                sum18+= item.gasSumNinedata;
+                                sum19+= item.gasCountTendata;
+                                sum20+= item.gasSumTendata;
+                                sum21+= item.gasCountElevendata;
+                                sum22+= item.gasSumElevendata;
+                                sum23+= item.gasCountTwelvedata;
+                                sum24+= item.gasSumTwelvedata;
+                                sum25+= item.gasCountTotaldata;
+                                sum26+= item.gasSumTotaldata;
+                                html+='<tr align="center">'+
+                                '<td id="tbody_r'+item.areaId+'_c0" rowspan="1" colspan="1">'+item.areaName+'</td>'+
+                                '<td id="tbody_r'+item.areaId+'_c1" rowspan="1" colspan="1">'+item.gasCountOnedata+'</td>'+
+                                '<td id="tbody_r'+item.areaId+'_c2" rowspan="1" colspan="1">'+item.gasSumOnedata.toFixed(2)+'</td>'+
+                                '<td id="tbody_r'+item.areaId+'_c3" rowspan="1" colspan="1">'+item.gasCountTwodata+'</td>'+
+                                '<td id="tbody_r'+item.areaId+'_c4" rowspan="1" colspan="1">'+item.gasSumTwodata.toFixed(2)+'</td>'+
+                                '<td id="tbody_r'+item.areaId+'_c5" rowspan="1" colspan="1">'+item.gasCountThreedata+'</td>'+
+                                '<td id="tbody_r'+item.areaId+'_c6" rowspan="1" colspan="1">'+item.gasSumThreedata.toFixed(2)+'</td>'+
+                                '<td id="tbody_r'+item.areaId+'_c7" rowspan="1" colspan="1">'+item.gasCountFourdata+'</td>'+
+                                '<td id="tbody_r'+item.areaId+'_c8" rowspan="1" colspan="1">'+item.gasSumFourdata.toFixed(2)+'</td>'+
+                                '<td id="tbody_r'+item.areaId+'_c9" rowspan="1" colspan="1">'+item.gasCountFivedata+'</td>'+
+                                '<td id="tbody_r'+item.areaId+'_c10" rowspan="1" colspan="1">'+item.gasSumFivedata.toFixed(2)+'</td>'+
+                                '<td id="tbody_r'+item.areaId+'_c11" rowspan="1" colspan="1">'+item.gasCountSixdata+'</td>'+
+                                '<td id="tbody_r'+item.areaId+'_c12" rowspan="1" colspan="1">'+item.gasSumSixdata.toFixed(2)+'</td>'+
+                                '<td id="tbody_r'+item.areaId+'_c13" rowspan="1" colspan="1">'+item.gasCountSevendata+'</td>'+
+                                '<td id="tbody_r'+item.areaId+'_c14" rowspan="1" colspan="1">'+item.gasSumSevendata.toFixed(2)+'</td>'+
+                                '<td id="tbody_r'+item.areaId+'_c15" rowspan="1" colspan="1">'+item.gasCountEightdata+'</td>'+
+                                '<td id="tbody_r'+item.areaId+'_c16" rowspan="1" colspan="1">'+item.gasSumEightdata.toFixed(2)+'</td>'+
+                                '<td id="tbody_r'+item.areaId+'_c17" rowspan="1" colspan="1">'+item.gasCountNinedata+'</td>'+
+                                '<td id="tbody_r'+item.areaId+'_c18" rowspan="1" colspan="1">'+item.gasSumNinedata.toFixed(2)+'</td>'+
+                                '<td id="tbody_r'+item.areaId+'_c19" rowspan="1" colspan="1">'+item.gasCountTendata+'</td>'+
+                                '<td id="tbody_r'+item.areaId+'_c20" rowspan="1" colspan="1">'+item.gasSumTendata.toFixed(2)+'</td>'+
+                                '<td id="tbody_r'+item.areaId+'_c21" rowspan="1" colspan="1">'+item.gasCountElevendata+'</td>'+
+                                '<td id="tbody_r'+item.areaId+'_c22" rowspan="1" colspan="1">'+item.gasSumElevendata.toFixed(2)+'</td>'+
+                                '<td id="tbody_r'+item.areaId+'_c23" rowspan="1" colspan="1">'+item.gasCountTwelvedata+'</td>'+
+                                '<td id="tbody_r'+item.areaId+'_c24" rowspan="1" colspan="1">'+item.gasSumTwelvedata.toFixed(2)+'</td>'+
+                                '<td id="tbody_r'+item.areaId+'_c25" rowspan="1" colspan="1">'+item.gasCountTotaldata+'</td>'+
+                                '<td id="tbody_r'+item.areaId+'_c26" rowspan="1" colspan="1">'+item.gasSumTotaldata.toFixed(2)+'</td>'+
+                                '</tr>'
+                            }
+
+                        })
+                        html+='<tr align="center">'+
+                            '<td id="tbody_hj_c0" rowspan="1" colspan="1">合计</td>'+
+                            '<td id="tbody_hj_c1" rowspan="1" colspan="1">'+sum1+'</td>'+
+                            '<td id="tbody_hj_c2" rowspan="1" colspan="1">'+sum2.toFixed(2)+'</td>'+
+                            '<td id="tbody_hj_c3" rowspan="1" colspan="1">'+sum3+'</td>'+
+                            '<td id="tbody_hj_c4" rowspan="1" colspan="1">'+sum4.toFixed(2)+'</td>'+
+                            '<td id="tbody_hj_c5" rowspan="1" colspan="1">'+sum5+'</td>'+
+                            '<td id="tbody_hj_c6" rowspan="1" colspan="1">'+sum6.toFixed(2)+'</td>'+
+                            '<td id="tbody_hj_c7" rowspan="1" colspan="1">'+sum7+'</td>'+
+                            '<td id="tbody_hj_c8" rowspan="1" colspan="1">'+sum8.toFixed(2)+'</td>'+
+                            '<td id="tbody_hj_c9" rowspan="1" colspan="1">'+sum9+'</td>'+
+                            '<td id="tbody_hj_c10" rowspan="1" colspan="1">'+sum10.toFixed(2)+'</td>'+
+                            '<td id="tbody_hj_c11" rowspan="1" colspan="1">'+sum11+'</td>'+
+                            '<td id="tbody_hj_c12" rowspan="1" colspan="1">'+sum12.toFixed(2)+'</td>'+
+                            '<td id="tbody_hj_c13" rowspan="1" colspan="1">'+sum13+'</td>'+
+                            '<td id="tbody_hj_c14" rowspan="1" colspan="1">'+sum14.toFixed(2)+'</td>'+
+                            '<td id="tbody_hj_c15" rowspan="1" colspan="1">'+sum15+'</td>'+
+                            '<td id="tbody_hj_c16" rowspan="1" colspan="1">'+sum16.toFixed(2)+'</td>'+
+                            '<td id="tbody_hj_c17" rowspan="1" colspan="1">'+sum17+'</td>'+
+                            '<td id="tbody_hj_c18" rowspan="1" colspan="1">'+sum18.toFixed(2)+'</td>'+
+                            '<td id="tbody_hj_c19" rowspan="1" colspan="1">'+sum19+'</td>'+
+                            '<td id="tbody_hj_c20" rowspan="1" colspan="1">'+sum20.toFixed(2)+'</td>'+
+                            '<td id="tbody_hj_c21" rowspan="1" colspan="1">'+sum21+'</td>'+
+                            '<td id="tbody_hj_c22" rowspan="1" colspan="1">'+sum22.toFixed(2)+'</td>'+
+                            '<td id="tbody_hj_c23" rowspan="1" colspan="1">'+sum23+'</td>'+
+                            '<td id="tbody_hj_c24" rowspan="1" colspan="1">'+sum24.toFixed(2)+'</td>'+
+                            '<td id="tbody_hj_c25" rowspan="1" colspan="1">'+sum25+'</td>'+
+                            '<td id="tbody_hj_c26" rowspan="1" colspan="1">'+sum26.toFixed(2)+'</td>'+
+                            '</tr>'
+                        $("#detail_for_new").html(html)
+                    }
+                }
+            })
+
+
+        });
+
+    });
+</script>
+
+</html>

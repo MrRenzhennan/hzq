@@ -1,0 +1,12 @@
+{"rows":
+[
+  {"versionID":"3555","gasCategory":"5144","gasType":"道里区","gasEnd":"2333","gasEnd1":"华联超市","gasEnd2":"每天","price":"李四","effectTime":"月抄","effectTime2":"张三","effectTime5":"2015","effectTime6":"2014/12/26","effectTime15":"2月","effectTime10":"2014/12/26"}
+  ,{"versionID":"3545","gasCategory":"6633","gasType":"道里区","gasEnd":"2341","gasEnd1":"麻神棋牌","gasEnd2":"每天","price":"李四","effectTime":"月抄","effectTime2":"张三","effectTime5":"2015","effectTime6":"2014/12/26","effectTime15":"3月","effectTime10":"2014/12/26"}
+,{"versionID":"4233","gasCategory":"4535","gasType":"道里区","gasEnd":"2351","gasEnd1":"龙谷公园","gasEnd2":"每天","price":"李四","effectTime":"月抄","effectTime2":"王明","effectTime5":"2015","effectTime6":"2014/12/26","effectTime15":"4月","effectTime10":"2014/12/26"}
+,{"versionID":"3353","gasCategory":"4535","gasType":"道里区","gasEnd":"2321","gasEnd1":"永辉超市","gasEnd2":"每天","price":"李四","effectTime":"月抄","effectTime2":"王明","effectTime5":"2015","effectTime6":"2014/12/26","effectTime15":"6月","effectTime10":"2014/12/26"}
+,{"versionID":"3346","gasCategory":"5353","gasType":"道里区","gasEnd":"2391","gasEnd1":"胜利澡堂","gasEnd2":"每天","price":"李四","effectTime":"月抄","effectTime2":"王明","effectTime5":"2015","effectTime6":"2014/12/26","effectTime15":"5月","effectTime10":"2014/12/26"}
+]
+,"total_rows":1
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

@@ -1,0 +1,25 @@
+    
+println "exec init"
+allprojects {
+        def orepo = "http://17376l7p30.iask.in:35233/nexus/content/groups/fc/"
+        buildscript {
+                repositories{
+                        mavenLocal() //
+                        //mavenCentral()
+                       maven{ url orepo }
+                }
+        }
+        
+
+        repositories{
+               // mavenCentral()
+
+                mavenLocal() //
+                maven{ 
+                    url orepo
+                 }
+              //  jcenter()
+
+        }
+        
+}

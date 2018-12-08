@@ -1,0 +1,10 @@
+{"rows":
+[
+  {"cusName":"大客户名称一","phone":"87767569","cusAddress":"哈尔滨市南岗区清滨胡同2号","disType":"固定价格","children":[{"stepNum":"1","startGas":"0","endGas":"999999999999","price":"3.50"}],"agreeStartTime":"2016-01-01","agreeEndTime":"2017-05-30","unit":"哈燃气","oparator":"操作人一","UUID":"01"}
+,{"cusName":"大客户名称二","phone":"87654321","cusAddress":"哈尔滨市道理区中央大街12号","disType":"阶梯气价","children":[{"stepNum":"1","startGas":"0","endGas":"5000000","price":"3.80"},{"stepNum":"2","startGas":"5000000","endGas":"8000000","price":"3.60"},{"stepNum":"3","startGas":"8000000","endGas":"9999999999","price":"3.20"}],"agreeStartTime":"2016-06-01","agreeEndTime":"2017-12-30","unit":"哈中庆","oparator":"操作人二","UUID":"02"}
+
+]
+,"total_rows":2
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

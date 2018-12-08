@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]>
+<html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+
+<!-- BEGIN HEAD -->
+<head>
+    <title>非居民合同详情</title>
+    <base href="../">
+    <script src="pages/scripts/header.js"></script>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-select/bootstrap-select.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/select2/select2.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/jquery-multi-select/css/multi-select.css"/>
+    <link href="assets/global/plugins/bootstrap-fileinput/fileinput.css" rel="stylesheet">
+    <script src="pages/scripts/header.js"></script>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-select/bootstrap-select.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/select2/select2.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/jquery-multi-select/css/multi-select.css"/>
+    <link href="assets/global/css/components.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/previewPicture/css/component.css" />
+    <script type="text/javascript" src="assets/global/plugins/previewPicture/js/modernizr.custom.js"></script>
+</head>
+<!-- END HEAD -->
+
+<body class="page-header-fixed page-quick-sidebar-over-content">
+
+<!-- 标题栏开始 -->
+<div class="page-header navbar navbar-fixed-top">
+    <script>$.include("pages/partial/menu.shtml");</script>
+</div>
+<!-- 标题栏结束 -->
+<div class="clearfix"></div>
+<div class="page-container">
+    <!-- 左侧菜单开始 -->
+    <div class="page-sidebar-wrapper">
+        <script>$.include("pages/partial/sidebar.shtml");</script>
+    </div>
+    <!-- 左侧菜单结束 -->
+
+    <!-- 主内容开始 -->
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <!--内容头开始-->
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa fa-map-marker"></i>
+                            <a href="javascript:;">首页</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="javascript:;">非居民合同审批</a>
+
+                        </li>
+                       <!-- <li>
+                            <a href="customer/contract_noninhabitant.html">非居民合同管理</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="javascript:;">非居民合同详情</a>
+                        </li>-->
+                    </ul>
+                </div>
+            </div>
+            <!-- 内容头结束-->
+
+            <!-- 内容开始-->
+            <div class="container-fluid">
+                <div class="add-form ">
+                    <!-- begin form-->
+                    <form action="javascript:;" role="form" id="form">
+                        <div class="form-body" id="contract">
+                            <div class="row form-group">
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">合同编号:</label>
+                                    <div class="col-md-8">
+                                        <input name="contractNo" type="text" class="form-control" placeholder="合同编号">
+                                        <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">用气人:</label>
+                                    <div class="col-md-8">
+                                        <input name="useGasPerson" type="text" class="form-control" placeholder="用气人">
+                                        <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">用气地址:</label>
+                                    <div class="col-md-8">
+                                        <input name="useGasAddress" type="text" class="form-control" placeholder="用气地址">
+                                        <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">表型:</label>
+                                    <div class="col-md-8">
+                                        <select id="find_customerType" name="customerType" class="form-control input-middle select2me"
+                                                data-placeholder="表型...">
+                                            <option value=""></option>
+                                            <option value="I">IC卡表</option>
+                                            <option value="P">普表</option>
+                                        </select>
+                                        <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">用气类型:</label>
+                                    <div class="col-md-8">
+                                        <select id="gasType" name="gasType" class="form-control input-middle select2me"
+                                                data-placeholder="用气类型..." multiple="multiple">
+                                            <option value=""></option>
+                                        </select>
+                                        <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                    </div>
+                                </div>
+                                <!-- <div class="col-md-3">
+                                     <label class="control-label col-md-4">用气性质:</label>
+                                     <div class="col-md-8">
+                                         <select id="gasType1" name="gasType" class="form-control input-middle select2me"
+                                                 data-placeholder="用气性质...">
+                                             <option value=""></option>
+                                         </select>
+                                         <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                     </div>
+                                 </div>-->
+                                <div class="col-md-3" id="dg_signuptime">
+                                    <label class="control-label col-md-4" data-date-format="yyyy-mm-dd"
+                                           id="dl_unbolttime">签约时间:</label>
+                                    <div class="col-md-8 date-picker input-daterange" data-date-format="yyyy-mm-dd"
+                                         id="di_signuptime">
+                                        <input name="signupTime" id="signuptime" type="text"
+                                               class="form-control form-control-inline date-picker" placeholder="签订时间">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4" data-date-format="yyyy-mm-dd">起始时间:</label>
+                                    <div class="col-md-8 date-picker input-daterange" data-date-format="yyyy-mm-dd">
+                                        <input name="beginDate" id="startDate" type="text"
+                                               class="form-control form-control-inline date-picker" placeholder="起始时间">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4" data-date-format="yyyy-mm-dd">截止时间:</label>
+                                    <div class="col-md-8 date-picker input-daterange" data-date-format="yyyy-mm-dd">
+                                        <input name="endDate" id="endDate" type="text"
+                                               class="form-control form-control-inline date-picker" placeholder="截止时间">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">合同年限:</label>
+                                    <div class="col-md-8">
+                                        <input name="contractYearLimit" type="text" class="form-control" placeholder="合同年限" maxlength="3">
+                                        <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">有无补充协议:</label>
+                                    <div class="col-md-8">
+                                        <select name="agreement" class="form-control input-middle select2me"
+                                                data-placeholder="有无补充协议...">
+                                            <option value=""></option>
+                                            <option value="0">有</option>
+                                            <option value="1">没有</option>
+                                        </select>
+                                        <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">合同类别:</label>
+                                    <div class="col-md-8">
+                                        <!--<input name="contractState" type="text" class="form-control" placeholder="合同状态" readonly>-->
+                                        <select name="contractType" class="form-control input-middle select2me"
+                                                data-placeholder="合同状态...">
+                                            <option value="">请选择</option>
+                                            <option value="1">普通合同</option>
+                                            <option value="2">增容合同</option>
+                                            <option value="3">减容合同</option>
+                                            <option value="4">煤改气合同</option>
+                                            <option value="5">养老机构合同</option>
+                                        </select>
+                                        <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">代办人:</label>
+                                    <div class="col-md-8">
+                                        <input name="proxyer" type="text" class="form-control" placeholder="代办人">
+                                        <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
+
+
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">代办人手机:</label>
+                                    <div class="col-md-8">
+                                        <input name="proxyerTel" type="text" class="form-control" placeholder="代办人手机">
+                                        <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">代办人身份证:</label>
+                                    <div class="col-md-8">
+                                        <input name="proxyerId" type="text" class="form-control" placeholder="代办人身份证">
+                                        <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label class="control-label col-md-4">线下续签:</label>
+                                    <div class="col-md-8">
+                                        <select id="contractRenew" name="contractRenew" class="form-control input-middle select2me"
+                                                data-placeholder="线下续签...">
+                                            <option value=""></option>
+                                            <option value="N">否</option>
+                                            <option value="Y">是</option>
+                                        </select>
+                                        <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                    </div>
+                                </div>
+                                <!--<input id="gasKind" name="gasKind" hidden="hidden" type="text" value="9">-->
+                                <!--<input id="areaId" name="areaId" hidden="hidden" type="text" value="1">-->
+
+
+                                <div class="col-md-12" style="margin-top: 10px; margin-left: -7px;">
+                                    <label class="control-label col-md-1">备注:</label>
+                                    <div class="col-md-11">
+                                        <input name="remark" type="text" class="form-control" placeholder="备注">
+                                        <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                    </form>
+                    <!--end form-->
+                </div>
+            </div>
+            <div class="tabbable tabbable-custom tabbable-custom-profile col-md-12 contract" style="padding-bottom:0px">
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#tab11" data-toggle="tab" >
+                            表具信息 </a>
+                    </li>
+                </ul>
+                <!--/row-->
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab11">
+                        <div class="scroller" style="height:auto;" data-always-visible="1" data-rail-visible1="1">
+                            <div id="divtable" class="table-responsive container-fluid col-md-12" style="background-color: #ffffff">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-sm-6 form-group">
+                            <div class="btn-group input-group" style="width: 100%">
+                                <div class="input-group-addon">审批意见:</div>
+                                <input id="stepid" type="hidden">
+                                <span id="opinion_msg"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row form-group">
+                <div class="col-md-12">
+                    <label class="control-label">相关照片</label>
+                    <div id="grid-gallery" class="grid-gallery">
+                        <section class="grid-wrap">
+                            <ul id="grid" class="grid">
+                                <li class="grid-sizer"></li>
+                            </ul>
+                        </section>
+                        <section class="slideshow" style="padding-top: 10px">
+                            <ul id = "slideId">
+                            </ul>
+                            <nav>
+                                <span class="icon nav-prev"></span>
+                                <span class="icon nav-next"></span>
+                                <span class="icon nav-close" style="padding-top: 50px;"></span>
+                            </nav>
+                        </section>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col-sm-6 form-group" style="margin-left: 35%">
+                    <div class="btn-group form-group">
+                        <a class='pull-right btn btn-sm btn-circle green' data-toggle='modal' href='#tongyi'>
+                            继续
+                        </a>
+                    </div>
+                    <div class="btn-group form-group">
+                        <a class='pull-right btn btn-sm btn-circle red' data-toggle='modal' href='#jujue'>
+                            拒绝
+                        </a>
+                    </div>
+                    <div class="btn-group form-group">
+                        <a class='pull-right btn btn-sm btn-circle blue' id='back_btn'>
+                            返回
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- 内容结束-->
+        </div>
+    </div>
+
+    <!-- 主内容结束 -->
+
+
+</div>
+
+
+<div id="tongyi" class="modal fade" tabindex="-1" data-width="400">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">审批建议</h4>
+            </div>
+            <div class="modal-body">
+
+
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <label class="checkbox-inline">
+                                <div class="radio">
+                                    <input type="radio" name="spjy" checked=""  value="审批通过">
+                                </div>
+                                审批同意
+                            </label>
+                            <label class="checkbox-inline">
+                                <div class="radio" >
+
+                                    <input type="radio" name="spjy" value="保留意见">
+                                </div> 保留意见
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <p>
+                            <input id="agreereason" type="text" maxlength="64" size="64" class="col-md-12 form-control">
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" class="btn">关闭</button>
+                <button type="button" id='agree_btn' data-dismiss="modal" value="同意" class="btn blue">提交</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div id="jujue" class="modal fade" tabindex="-1" data-width="400">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">拒绝理由</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p>
+                            <input id="unagreereason" type="text" value="不同意" maxlength="64" size="64" class="col-md-12 form-control">
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" class="btn">关闭</button>
+                <button type="button" id='unagree_btn' data-dismiss="modal" class="btn blue">提交</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+<script type="text/javascript">$.include("pages/partial/xwatable-form.shtml")</script>
+
+<!-- 底边栏开始 -->
+<script>$.include("pages/partial/foot.shtml");</script>
+<!-- 底边栏结束 -->
+</body>
+
+
+<script>$.include("pages/partial/scripts.shtml");</script>
+
+<script src="pages/scripts/rest.js" type="text/javascript"></script>
+<script src="assets/addons/jquery-dateFormat.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-watable/jquery.watable.js"></script>
+<script type="text/javascript" src="pages/scripts/rqlbuilder.js"></script>
+<script type="text/javascript" src="pages/scripts/xwatable.js"></script>
+<script type="text/javascript" src="pages/scripts/refhelper.js"></script>
+
+<script type="text/javascript" src="pages/scripts/userinfo.js"></script>
+<script type="text/javascript" src="pages/scripts/rqlbuilder.js"></script>
+<script type="text/javascript" src="pages/scripts/xwatable.js"></script>
+<script type="text/javascript" src="pages/scripts/refhelper.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-multi-select/js/jquery.multi-select.js"></script>
+
+<script type="text/javascript" src="pages/scripts/jquery.serialize-object.min.js"></script>
+<script src="assets/admin/pages/scripts/components-pickers.js"></script>
+<script type="text/javascript" src="pages/scripts/refhelper.js"></script>
+<script type="text/javascript" src="assets/global/plugins/previewPicture/js/imagesloaded.pkgd.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/previewPicture/js/masonry.pkgd.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/previewPicture/js/classie.js"></script>
+<script type="text/javascript" src="assets/global/plugins/previewPicture/js/cbpGridGallery.js"></script>
+<script type="text/javascript" src="customer/js/contract_trialbatch.1.js"></script>
+<script>
+    new CBPGridGallery(document.getElementById('grid-gallery'));
+</script>
+
+</html>

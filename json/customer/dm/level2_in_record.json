@@ -1,0 +1,23 @@
+{
+  "rows": [
+    {"ID":"39395","recordNo":"IN20170113?1","type":"1","inDepTime":"2017-01-14","outDepTime":"2017-01-15","operator":"陈静","supplyUnit":"哈煤气表厂","targetUnit":"一级库","supplyTime":"2017-01-14","inDepDetail":""},
+    {"ID":"39395","recordNo":"IN20170113?2","type":"2","inDepTime":"2017-01-14","outDepTime":"2017-01-15","operator":"陈静","supplyUnit":"一级库","targetUnit":"工程队","supplyTime":"2017-01-14","inDepDetail":""},
+    {"ID":"39395","recordNo":"IN20170113?2","type":"2","inDepTime":"2017-01-14","outDepTime":"2017-01-15","operator":"陈静","supplyUnit":"一级库","targetUnit":"工程队","supplyTime":"2017-01-14","inDepDetail":""},
+    {"ID":"39395","recordNo":"IN20170113?1","type":"1","inDepTime":"2017-01-14","outDepTime":"2017-01-15","operator":"陈静","supplyUnit":"哈煤气表厂","targetUnit":"一级库","supplyTime":"2017-01-14","inDepDetail":""},
+    {"ID":"39395","recordNo":"IN20170113?1","type":"1","inDepTime":"2017-01-14","outDepTime":"2017-01-15","operator":"陈静","supplyUnit":"哈煤气表厂","targetUnit":"一级库","supplyTime":"2017-01-14","inDepDetail":""},
+    {"ID":"39395","recordNo":"IN20170113?2","type":"2","inDepTime":"2017-01-14","outDepTime":"2017-01-15","operator":"陈静","supplyUnit":"一级库","targetUnit":"工程队","supplyTime":"2017-01-14" ,"inDepDetail":""},
+    {"ID":"39395","recordNo":"IN20170113?1","type":"1","inDepTime":"2017-01-14","outDepTime":"2017-01-15","operator":"陈静","supplyUnit":"哈煤气表厂","targetUnit":"一级库","supplyTime":"2017-01-14" ,"inDepDetail":""},
+    {"ID":"39395","recordNo":"IN20170113?2","type":"2","inDepTime":"2017-01-14","outDepTime":"2017-01-15","operator":"陈静","supplyUnit":"一级库","targetUnit":"工程队","supplyTime":"2017-01-14" ,"inDepDetail":""},
+    {"ID":"39395","recordNo":"IN20170113?1","type":"1","inDepTime":"2017-01-14","outDepTime":"2017-01-15","operator":"陈静","supplyUnit":"哈煤气表厂","targetUnit":"一级库","supplyTime":"2017-01-14" ,"inDepDetail":""},
+    {"ID":"39395","recordNo":"IN20170113?1","type":"1","inDepTime":"2017-01-14","outDepTime":"2017-01-15","operator":"陈静","supplyUnit":"哈煤气表厂","targetUnit":"一级库","supplyTime":"2017-01-14" ,"inDepDetail":""},
+    {"ID":"39395","recordNo":"IN20170113?1","type":"1","inDepTime":"2017-01-14","outDepTime":"2017-01-15","operator":"陈静","supplyUnit":"哈煤气表厂","targetUnit":"一级库","supplyTime":"2017-01-14" ,"inDepDetail":""},
+    {"ID":"39395","recordNo":"IN20170113?2","type":"2","inDepTime":"2017-01-14","outDepTime":"2017-01-15","operator":"陈静","supplyUnit":"一级库","targetUnit":"工程队","supplyTime":"2017-01-14" ,"inDepDetail":""},
+    {"ID":"39395","recordNo":"IN20170113?1","type":"1","inDepTime":"2017-01-14","outDepTime":"2017-01-15","operator":"陈静","supplyUnit":"哈煤气表厂","targetUnit":"一级库","supplyTime":"2017-01-14" ,"inDepDetail":""},
+    {"ID":"39395","recordNo":"IN20170113?2","type":"2","inDepTime":"2017-01-14","outDepTime":"2017-01-15","operator":"陈静","supplyUnit":"一级库","targetUnit":"工程队","supplyTime":"2017-01-14" ,"inDepDetail":""}
+  ],
+  "total_rows": 16,
+  "totalPages": 1,
+  "skip": 0,
+  "limit": 2147483647
+}
+

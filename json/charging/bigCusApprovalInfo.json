@@ -1,0 +1,14 @@
+{"rows":
+[
+  {"cusNumber":"客户编号一","cusType":"非居民","gasProperty":"商服","cusName":"客户名称一","cusPhone":"13345676543","cusAddress":"哈尔滨是南岗区保健路132号","gasArea":"供气区域一","copyPre":"抄表员一","accountClerk":"核算员一"}
+,{"cusNumber":"客户编号二","cusType":"非居民","gasProperty":"公益","cusName":"客户名称二","cusPhone":"15567655678","cusAddress":"哈尔滨市道里区果戈里大街132号","gasArea":"供气区域二","copyPre":"抄表员二","accountClerk":"核算员二"}
+
+
+
+
+
+]
+,"total_rows":2
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

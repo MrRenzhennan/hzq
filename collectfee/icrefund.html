@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>收费管理</title>
+    <style>
+        #search {
+            width: 100%;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .text-muted {
+
+            font-weight: blod;
+        }
+    </style>
+    <base href="../">
+    <meta charset="UTF-8">
+    <script src="pages/scripts/basepath.js"></script>
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-select/bootstrap-select.min.css">
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/select2/select2.css">
+    <script src="pages/scripts/header.js"></script>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8"/>
+    <link href="assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
+    <link href='assets/global/plugins/jquery-watable/watable.css' rel='stylesheet'/>
+    <link href="assets/global/plugins/bootstrap-fileinput/fileinput.min.css" rel="stylesheet">
+
+    <style>
+        #divtable {
+            display: none;
+        }
+
+        .table td {
+            vertical-align: middle !important;
+        }
+    </style>
+</head>
+
+<body class="page-header-fixed page-quick-sidebar-over-content">
+<script>
+    $.include("collectfee/partial/customerinfo.shtml");
+    $.include("collectfee/partial/icgasrowinfo.shtml");
+    $.include("collectfee/partial/wasterowinfo.shtml");
+    $.include("collectfee/partial/ctmaccountinfo.shtml");
+    $.include("collectfee/partial/iccardinfo.shtml");
+</script>
+<div class="page-header navbar navbar-fixed-top">
+    <script>
+        $.include("pages/partial/menu.shtml");
+    </script>
+</div>
+
+<div class="clearfix"></div>
+<div class="page-container">
+    <!-- 左侧菜单开始 -->
+    <div class="page-sidebar-wrapper">
+        <script>
+            $.include("pages/partial/sidebar.shtml");
+        </script>
+    </div>
+    <!-- 左侧菜单结束 -->
+    <div id="gfdata"></div>
+    <!-- 主内容开始 -->
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <!--内容头开始-->
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa  fa-map-marker"></i>
+                            <a href="javascript:void(0)">收费管理</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">退款管理</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">IC卡退款</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <script>
+                $.include("serviceManage/partial/select_user.shtml");
+            </script>
+            <!--用户信息-->
+            <script>
+                $.include("serviceManage/partial/user_info.shtml");
+            </script>
+            <div class="tabbable tabbable-custom tabbable-custom-profile col-md-12" style="padding-bottom:0px">
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#tab22" data-toggle="tab" style="font-size: 14px;color: blue;">
+                            退款操作 </a>
+
+                    </li>
+                </ul>
+                <!--/row-->
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab22">
+                        <div class="portlet-body">
+                            <!-- begin form-->
+                            <script>$.include("common/idcardread.shtml")</script>
+                            <div class="form-body">
+                                <div class="row form-group">
+                                    <div class="col-md-3 form-group">
+                                        <div class="btn-group input-group">
+                                            <div class="input-group-addon">可用气量:</div>
+                                            <input id="useGas" name="linkMan" class="inputclear form-control" disabled type="text">
+                                        </div>
+                                    </div>
+                                   <!-- <div class="col-md-3 form-group">
+                                        <div class="btn-group input-group">
+                                            <div class="input-group-addon">单价:</div>
+                                            <input id="price" name="linktel" class="inputclear form-control"
+                                                   type="text">
+                                        </div>
+                                    </div>-->
+
+                                    <div class="col-md-3 form-group">
+                                        <div class="btn-group input-group" >
+                                            <div class="input-group-addon">金额:</div>
+                                            <input id="money" class="inputclear form-control" type="text" disabled>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+
+                                <div class="col-md-3 form-group">
+                                    <div class="btn-group input-group">
+                                        <div class="input-group-addon">申请退款人:</div>
+                                        <input id="applyer" class="inputclear form-control" type="text">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3 form-group">
+                                    <div class="btn-group input-group">
+                                        <div class="input-group-addon">身份证号:</div>
+                                        <input id="idcard" name="linkMan" class="inputclear form-control" type="text">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3 form-group">
+                                    <div class="btn-group form-group">
+                                        <button type="button" id="BtnSub" class="btn btn-success btn-sm" >
+                                            退款 <span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--end form-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="tab_iccard" class="tab-pane" role="tabpanel">
+</div>
+<div id="tab_ctm" class="tab-pane" role="tabpanel">
+</div>
+<div id="tab_customer" class="tab-pane" role="tabpanel">
+</div>
+<div id="write_iccard" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog"
+     aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title"></h4>
+            </div>
+            <div class="modal-body">
+                <p id="mcontent"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="cancelWriteCard" class="btn btn-default">不写卡</button>
+                <button type="button" id="reWriteCard" class="btn btn-primary">重新写卡</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--收费历史modal-->
+<div class="modal fade bs-example-modal-lg" id="payHistoryModal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div id="mcontent" class="modal-content">
+
+        </div>
+    </div>
+</div>
+<div class="modal fade bs-example-modal-lg" id="mtdHistoryModal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div id="mcontent" class="modal-content">
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade bs-example-modal-lg" id="hzqModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div id="mcontent" class="modal-content">
+        </div>
+    </div>
+</div>
+<!-- 底边栏开始 -->
+<script>
+    $.include("pages/partial/foot.shtml");
+</script>
+<script type="text/javascript">
+    $.include("pages/partial/xwatable-form.shtml")
+</script>
+</body>
+
+<script>
+    $.include("pages/partial/scripts.shtml");
+
+</script>
+
+<script src="assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-watable/jquery.watable.js"></script>
+<script type="text/javascript" src="pages/scripts/rqlbuilder.js"></script>
+<script type="text/javascript" src="pages/scripts/xwatable.js"></script>
+<script type="text/javascript" src="pages/scripts/refhelper.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script src="assets/admin/pages/scripts/components-pickers.js"></script>
+<script type="text/javascript"
+        src="assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+<script src="pages/scripts/jquery.json.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-fileinput/fileinput.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-fileinput/zh.js"></script>
+<script type="text/javascript" src="pages/scripts/jquery.serialize-object.min.js"></script>
+<script type="text/javascript" src="collectfee/js/charge.js"></script>
+<script type="text/javascript" src="collectfee/js/localservice.js"></script>
+
+<!-- 底边栏结束 -->
+<script type="text/javascript">
+
+
+
+    function idcard(data){
+        $("#idcard").val(data.code)
+        $("#applyer").val(data.name)
+    }
+    $(function () {
+        $(".tab-content").delegate("a[hzq-type=remoteModal]", "click", function (obj) {
+            var $targetModalhzq = $($(obj.target).attr("hzq-modal"));
+            var targetPath = $(obj.target).attr("hzq-remote");
+            var fnstring = $(obj.target).attr("hzq-cb");
+            var param = $(obj.target).attr("hzq-param");
+            $targetModalhzq.modal({
+                show: true
+            })
+            $targetModalhzq.unbind("show.bs.modal").on("show.bs.modal", function (e) {
+                $(e.currentTarget).find("#mcontent").empty();
+            });
+            $targetModalhzq.unbind("shown.bs.modal").on("shown.bs.modal", function (e) {
+                // 加载数据模板
+                $(e.currentTarget).find("#mcontent").load(targetPath, function () {
+                    if (fnstring) {
+                        var fn = window[fnstring];
+                        if (typeof fn === "function") fn.call(null, JSON.parse(param));
+                        window[fnstring] = undefined;
+
+                        //if (typeof fn === "function") fn.call(null, param );
+                    }
+                });
+            });
+            $targetModalhzq.on("hidden.bs.modal", function () {
+                $(this).removeData("bs.modal");
+            });
+        });
+    });
+    var $targetModal;
+    $(document).ready(function () {
+        $targetModal = $("#write_iccard");
+        $targetModal.modal({
+            show: false,
+            backdrop: 'static',
+            keyboard: false
+        })
+        $targetModal.unbind("shown.bs.modal").on("shown.bs.modal", function (e) {
+            var content = "";
+            $(e.currentTarget).find("#mcontent").append(content);
+        });
+        $targetModal.on("hidden.bs.modal", function () {
+            $(this).removeData("bs.modal");
+        });
+        /*$("#find_key").val("116042061");*/
+
+        $("#find_user_btn").closest(".row").append("<div class=\"btn-group form-group col-sm-1\"><button id=\"read_card\" type=\"button\" class=\"btn blue\">读卡&nbsp;<i id=\"ib\" class=\"icon-credit-card\"></i></button></div>");
+        $("#find_user_btn").closest(".row").append("<select id=\"read_factory_card\" class=\"form-control input-small select2me\"><option value=\"\">自动选择</option><option value=\"01\">浙江金卡</option><option value=\"02\">浙江松川</option><option value=\"03\">浙江蓝宝石</option><option value=\"04\">浙江正泰</option><option value=\"05\">上海真兰</option><option value=\"06\">浙江天信</option></select>");
+
+
+        //退款
+        $("#BtnSub").on('click',function () {
+            var currentArchive = chargeHelper.getContext("_current_archive");
+
+            bootbox.confirm("是否确认退款", function (result) {
+                console.log(chargeHelper.getContext("_current_iccard"));
+                if(result){
+                    chargeHelper.saveICCardInfo(currentArchive.ctmArchiveId,currentArchive.customerCode,chargeHelper.getContext("_current_iccard").result,function () {
+
+                    });
+                }
+            });
+        });
+
+
+
+
+
+
+
+
+
+        // 读卡
+        $("#read_card").click(function () {
+            $("#read_card").attr("disabled", "disabled");
+            // 清除页面历史记录
+            chargeHelper.readFactoryCard($("#read_factory_card").val(), function (cardData, isSuccess) {
+                $("#read_card").removeAttr("disabled");
+                if (isSuccess) {
+                    // 调用方法加载客户档案信息
+                    chargeHelper.setContext("_current_iccard", cardData);
+                    chargeHelper.getArchiveInfoByIcCard(cardData.result.kh,cardData.result.dqdm, function (isExists) {
+                        if (isExists) {
+                            $("#useGas").val(cardData.result.ql);
+                            $("#money").val(cardData.result.je);
+                            initData(chargeHelper.getContext("_current_archive").customerCode);
+                        } else {
+                            bootbox.alert("无法找到对应的客户档案", function () {
+                                window.location.reload();
+                            });
+                        }
+                    });
+                    if (cardData.result.ql != "0") {
+                        cardData.result.ql = cardData.result.ql / 100;
+                        bootbox.alert("卡内气量不为0");
+                    }
+                    //点击一次后disabled
+                } else {
+                    bootbox.alert("<b>读卡失败,请检查如下情况：</b></br> 1.是否已将IC卡放入读卡器 </br> 2.开新卡时不需要读卡 </br>3.IC卡是否和读卡器匹配 </br> 4.请查看读卡器连接是否正常 </br> 5.请查看IC配置文件中IC卡设置信息是否有误。",function () {
+                        window.location.reload();
+                    });
+
+                }
+
+            });
+        });
+    });
+    function onCustomerSelected(customerCode) {
+
+       // chargeHelper.clearContext();
+        // 清除所有tab
+        removeTab('tab_iccard');
+        removeTab('tab_ctm');
+        removeTab('tab_customer');
+        $("#_gasInfo").html("");
+        $("#_wasteInfo").html("");
+
+        // 1. 根据客户编号，读取客户信息
+        chargeHelper.getArchiveInfo(customerCode, function () {
+            if (chargeHelper.getContext("_current_archive")) {
+                var currentArchive = chargeHelper.getContext("_current_archive");
+                // 6. 加载IC卡信息
+                chargeHelper.getIcCardInfo(currentArchive.ctmArchiveId, function (data) {
+                    addTab("tab_iccard", "IC卡信息");
+                    var cardData = chargeHelper.getContext("_current_iccard");
+                    if (cardData && cardData.result) {
+                        data = $.extend(cardData.result, data);
+                    } else {
+
+                    }
+                    // console.log(data)
+                    // 合并卡数据和库数据
+                    dust.loadSource(dust.compile($("#__dust__iccardInfo").html(), "iccardInfo__"));
+                    dust.render("iccardInfo__", {"data": data}, function (err, res) {
+                        $("#tab_iccard").html(res);
+                    });
+                    $("#divChgContainer").show();
+                });
+                // 2. 如果是联合账户，加载联合账户tab
+                chargeHelper.getCTMAccountInfo(currentArchive.ctmArchiveId, function (data) {
+                    chargeHelper.setContext("_current_ctmaccount", data);
+                    addTab("tab_ctm", "联合账户信息");
+                    dust.loadSource(dust.compile($("#__dust__ctmAccountInfo").html(), "ctmAccountInfo__"));
+                    dust.render("ctmAccountInfo__", {"data": data}, function (err, res) {
+                        $("#tab_ctm").html(res);
+                    });
+                });
+
+                // 3. 加载业主信息
+                chargeHelper.getCustomerInfo(currentArchive.customerId, function () {
+                    addTab("tab_customer", "业主信息");
+                    dust.loadSource(dust.compile($("#__dust__customerInfo").html(), "customerInfo__"));
+                    dust.render("customerInfo__", {"data": currentArchive}, function (err, res) {
+                        $("#tab_customer").html(res);
+                    });
+                });
+
+                // 4. 加载燃气费缴费记录
+                chargeHelper.getGasFee(currentArchive.ctmArchiveId, function (data) {
+                    dust.loadSource(dust.compile($("#__dust__gasRowInfo").html(), "gasrowInfo__"));
+                    dust.render("gasrowInfo__", {"data": data}, function (err, res) {
+                        $("#_gasInfo").html(res);
+                    });
+                    $("#divChgContainer").show();
+                });
+
+            }
+        });
+    }
+    function addTab(id, name) {
+        var title = $('<li>', {
+            'role': 'presentation',
+            'id': "li_" + id
+        }).append($('<a>', {
+            'href': '#' + id,
+            'aria-controls': id,
+            'role': 'tab',
+            'data-toggle': 'tab'
+        }).html(name));
+        var $content = $("#" + id);
+        if ($("#divUserInfoContainer").find("ul").find("#li_" + id).length) {
+            $("#divUserInfoContainer").find(".tab-content").remove("#" + id);
+            $content.insertBefore($("#divUserInfoContainer").find(".tab-content").children(".tab-pane:first-child"));
+        } else {
+            $("#divUserInfoContainer").find("ul").append(title);
+            $content.insertBefore($("#divUserInfoContainer").find(".tab-content").children(".tab-pane:first-child"));
+        }
+    }
+    function removeTab(id) {
+        //console.log("123");
+        if ($("#divUserInfoContainer").find("ul").find("#li_" + id).length) {
+            $("#divUserInfoContainer").find(".tab-content").find("#" + id).empty();
+            $("#divUserInfoContainer").find("ul").find("#li_" + id).remove();
+        }
+    }
+
+</script>
+<script type="text/javascript" src="../assets/global/plugins/select2/select2.js"></script>
+
+
+</html>

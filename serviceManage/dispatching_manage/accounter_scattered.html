@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]>
+<html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+
+<!-- BEGIN HEAD -->
+<head>
+    <title>客户散户开栓服务单</title>
+    <base href="../../">
+
+    <meta http-equiv="content-type" content="text/html" charset="utf-8"/>
+
+    <link href="assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href='assets/global/plugins/jquery-watable/watable.css' rel='stylesheet'/>
+    <link href='assets/global/plugins/jquery-watable/animate.min.css' rel='stylesheet'/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-datepicker/css/datepicker.css"/>
+    <link href='assets/global/plugins/bootstrap-datetimepicker/css/datetimepicker.css' rel='stylesheet'/>
+
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-select/bootstrap-select.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/select2/select2.css"/>
+    <script src="pages/scripts/header.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/jquery-multi-select/css/multi-select.css"/>
+    <link href="assets/global/plugins/bootstrap-fileinput/fileinput.min.css" rel="stylesheet">
+    <style>
+        label.error{
+            color:red;
+        }
+    </style>
+
+</head>
+<!-- END HEAD -->
+<body class="page-header-fixed page-quick-sidebar-over-content">
+<!-- 标题栏开始 -->
+<div class="page-header navbar navbar-fixed-top">
+    <script>$.include("pages/partial/menu.shtml");</script>
+</div>
+<!-- 标题栏结束 -->
+<div class="clearfix"></div>
+<div class="page-container">
+    <!-- 左侧菜单开始 -->
+    <div class="page-sidebar-wrapper">
+        <script>$.include("pages/partial/sidebar.shtml");</script>
+    </div>
+    <!-- 左侧菜单结束 -->
+
+    <!-- 主内容开始 -->
+    <div class="page-content-wrapper">
+        <div class="page-content clearfix">
+            <!--内容头开始-->
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa fa-map-marker"></i>
+                            <a href="index.html">主页</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">客户散户开栓服务单</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 内容头结束-->
+
+            <!-- 内容开始-->
+            <!-- 业务信息 -->
+            <div class="tabbable tabbable-custom tabbable-custom-profile col-md-12" style="padding-bottom:0px">
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#tab11" data-toggle="tab">基本信息 </a>
+                    </li>
+                </ul>
+                <!--/row-->
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab11">
+                        <div class="portlet-body">
+                            <div class="row form-group" style="padding-left: 50px;">
+                                <div class="col-md-3 form-group">
+                                    <div class="btn-group input-group">
+                                        <div class="input-group-addon">客户号：</div>
+                                        <input id="customerCode" class="inputclear form-control" type="text" readonly="readonly">
+                                    </div>
+                                </div>
+                                <div class="col-md-3 form-group">
+                                    <div class="btn-group input-group">
+                                        <div class="input-group-addon">客户姓名：</div>
+                                        <input id="customerName" class="inputclear form-control" type="text" readonly="readonly">
+                                    </div>
+                                </div>
+                                <div class="col-md-3 form-group">
+                                    <div class="btn-group input-group">
+                                        <div class="input-group-addon">客户电话：</div>
+                                        <input id="tel" class="inputclear form-control" type="text" readonly="readonly">
+                                    </div>
+                                </div>
+                                <div class="col-md-3 form-group">
+                                    <div class="btn-group input-group">
+                                        <div class="input-group-addon">身份证号码:</div>
+                                        <input id="idcard" class="inputclear form-control" type="text" readonly="readonly">
+                                    </div>
+                                </div>
+                                <div class="col-md-3 form-group">
+                                    <div class="btn-group input-group">
+                                        <div class="input-group-addon">申报时间:</div>
+                                        <input id="createdTime" class="inputclear form-control" type="text" readonly="readonly">
+                                    </div>
+                                </div>
+                                <div class="col-md-3 form-group">
+                                    <div class="btn-group input-group">
+                                        <div class="input-group-addon">预约时间:</div>
+                                        <input id="bookingTime" class="inputclear form-control" type="text" readonly="readonly">
+                                    </div>
+                                </div>
+                                <div class="col-md-3 form-group">
+                                    <div class="btn-group input-group">
+                                        <div class="input-group-addon">派工时间:</div>
+                                        <input id="sendDate" class="inputclear form-control" type="text" readonly="readonly">
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 form-group">
+                                    <div class="btn-group input-group">
+                                        <div class="input-group-addon">到户时间:</div>
+                                        <input id="arriveTime" name="arriveTime" DATA-DATE-FORMAT="yyyy-mm-dd" class="form-control form-control-inline  form_accuracy_datetime" type="text" >
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 form-group">
+                                    <div class="btn-group input-group input-select2me"  style="width: 100% !important;">
+                                        <div class="input-group-addon">派工人：</div>
+                                        <select id="sendPerson" name = "sendPerson" class="select2-container form-control select2me" data-placeholder="请选择...">
+                                            <option value=""></option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 form-group">
+                                    <div class="btn-group input-group">
+                                        <div class="input-group-addon">开栓完成时间:</div>
+                                        <input id="finishTime"  class="form-control form-control-inline  form_accuracy_datetime" type="text" >
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 form-group">
+                                    <div class="btn-group input-group" style="width: 100% !important;">
+                                        <div class="input-group-addon">用户地址：</div>
+                                        <input id="customerAddress" class="inputclear form-control" type="text" readonly="readonly">
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/row-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tabbable tabbable-custom tabbable-custom-profile col-md-12" style="padding-bottom:0px">
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#tab11" data-toggle="tab">
+                            未开栓原因</a>
+
+                    </li>
+                </ul>
+                <!--/row-->
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab12">
+                        <div class="portlet-body"  style="padding-left: 50px;">
+                            <div class="row form-group">
+                                <div class="col-md-3 form-group">
+                                    <div class="btn-group input-group input-select2me" >
+                                        <div class="input-group-addon">未开原因：</div>
+                                        <select id="noUnboltReason" name="noUnboltReason" class="select2-container form-control select2me" id="seltwo" onchange="seltwo($(this))">
+                                            <option value="">请选择</option>
+                                            <option value="1">有窃气现象</option>
+                                            <option value="2">私改管线</option>
+                                            <option value="3">无人</option>
+                                            <option value="4">私开</option>
+                                            <option value="5">存在安全隐患</option>
+                                            <option value="6">其他</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 form-group">
+                                    <div class="btn-group input-group" id="dt">
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 form-group">
+                                    <div class="btn-group input-group input-select2me"  style="width: 100% !important;">
+                                        <div class="input-group-addon">窃气或安全隐患部位：</div>
+                                        <input id="hiddenDangerPosition" name="hiddenDangerPosition" class="inputclear form-control" type="text" value="">
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/row-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tabbable tabbable-custom tabbable-custom-profile col-md-12" style="padding-bottom:0px">
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#tab22" data-toggle="tab">
+                            新燃气表基础信息 </a>
+
+                    </li>
+                </ul>
+                <!--/row-->
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab21">
+                        <div class="portlet-body">
+                            <form action="javascript:;" role="form" id="meterForm"  style="padding-left: 50px;">
+                                <div class="row form-group">
+                                    <div class="col-md-3 form-group">
+                                        <div class="btn-group input-group">
+                                            <div class="input-group-addon">表具条码号：</div>
+                                            <input name="barCode" class="inputclear form-control" type="text" maxlength="20" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3 form-group">
+                                        <div class="btn-group input-group input-select2me"  style="width: 100% !important;">
+                                            <div class="input-group-addon">显示方式：</div>
+                                            <select id="displayType" name = "displayType" class="select2-container form-control select2me" data-placeholder="请选择..." disabled>
+                                                <option value=""></option>
+                                                <option value="1">机械</option>
+                                                <option value="2">电子</option>
+                                                <option value="3">电子+机械</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 form-group">
+                                        <div class="btn-group input-group">
+                                            <div class="input-group-addon">表位数：</div>
+                                            <input name="meterDigit" class="inputclear form-control" required type="text" maxlength="22" readonly/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 form-group">
+                                        <div class="btn-group input-group">
+                                            <div class="input-group-addon">表编号：</div>
+                                            <input id="meterNo" name="meterNo" class="inputclear form-control" required type="text" maxlength="18" >
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row form-group">
+                                    <div class="col-sm-3 form-group">
+                                        <div class="btn-group input-group input-select2me"  style="width: 100% !important;">
+                                            <div class="input-group-addon">进气方向：</div>
+                                            <select id="direction" name = "direction" class="select2-container form-control select2me" data-placeholder="请选择..." disabled>
+                                                <option value=""></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3 form-group">
+                                        <div class="btn-group input-group input-select2me"  style="width: 100% !important;">
+                                            <div class="input-group-addon">表具类型：</div>
+                                            <select id="meterKind" name = "meterKind" class="select2-container form-control select2me" data-placeholder="请选择..." disabled>
+                                                <option value=""></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3 form-group">
+                                        <div class="btn-group input-group input-select2me" style="width: 100% !important;">
+                                            <div class="input-group-addon">规格型号：</div>
+                                            <select id="meterModelId" name = "meterModelId" class="select2-container form-control select2me" data-placeholder="请选择..." disabled>
+                                                <option value=""></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3 form-group">
+                                        <div class="btn-group input-group input-select2me" style="width: 100% !important;">
+                                            <div class="input-group-addon">生产厂家：</div>
+                                            <select id="factoryId" name = "factoryId" class="select2-container form-control select2me" data-placeholder="请选择..." disabled>
+                                                <option value=""></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col-sm-3 form-group">
+                                        <div class="btn-group input-group" style="width: 100% !important;">
+                                            <div class="input-group-addon">新表表读数：</div>
+                                            <input name="reading" required class="inputclear form-control" type="text" id="reading">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3 form-group">
+                                        <div class="btn-group input-group" style="width: 100% !important;">
+                                            <div class="input-group-addon">表具生产日期：</div>
+                                            <input name="productionDate" id="productionDate" DATA-DATE-FORMAT="yyyy-mm-dd" class="form-control form-control-inline  date-picker" size="16" type="text" disabled>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tabbable tabbable-custom tabbable-custom-profile col-md-12" style="padding-bottom:0px">
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#tab22" data-toggle="tab">
+                            用户设施基础信息 </a>
+
+                    </li>
+                </ul>
+                <!--/row-->
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab22">
+                        <div class="portlet-body" style="padding-left: 50px;">
+
+                            <div class="row form-group" >
+                                <div class="col-sm-3 form-group">
+                                    <div class="btn-group input-group input-select2me"  style="width: 100% !important;">
+                                        <div class="input-group-addon">燃气报警器：</div>
+                                        <select name = "alarm" class="select2-container form-control select2me" data-placeholder="请选择...">
+                                            <option value=""></option>
+                                            <option value="1">有</option>
+                                            <option value="0">无</option>
+                                            <!--<option value="">工作正常</option>
+                                            <option value="">故障</option>
+                                            <option value="">单报式</option>
+                                            <option value="">切断式</option>-->
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 form-group">
+                                    <div class="btn-group input-group input-select2me"  style="width: 100% !important;">
+                                        <div class="input-group-addon">燃气报警器：</div>
+                                        <select name = "alarmType" class="select2-container form-control select2me" data-placeholder="请选择...">
+                                            <option value=""></option>
+                                            <option value="1">单报式</option>
+                                            <option value="2">切断式</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 form-group">
+                                    <div class="btn-group input-group" style="width: 100% !important;">
+                                        <div class="input-group-addon">检查维修内容:</div>
+                                        <input class="inputclear form-control" type="text" value="" >
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-md-4 form-group">
+                                    <div class="btn-group input-group">
+                                        <div class="input-group-addon">燃气热水器品牌:</div>
+                                        <input id="brand1" class="inputclear form-control" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 form-group">
+                                    <div class="btn-group input-group">
+                                        <div class="input-group-addon">型号:</div>
+                                        <input id="model1" class="inputclear form-control" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 form-group">
+                                    <div class="btn-group input-group">
+                                        <div class="input-group-addon">数量:</div>
+                                        <input id="count1" class="inputclear form-control" type="text" >
+                                    </div>
+                                </div>
+                                <div class="col-md-4 form-group">
+                                    <div class="btn-group input-group">
+                                        <div class="input-group-addon">燃气锅炉品牌:</div>
+                                        <input id="brand2" class="inputclear form-control" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 form-group">
+                                    <div class="btn-group input-group">
+                                        <div class="input-group-addon">型号:</div>
+                                        <input id="model2" class="inputclear form-control" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 form-group">
+                                    <div class="btn-group input-group">
+                                        <div class="input-group-addon">数量:</div>
+                                        <input id="count2" class="inputclear form-control" type="text" >
+                                    </div>
+                                </div>
+                                <div class="col-md-4 form-group">
+                                    <div class="btn-group input-group">
+                                        <div class="input-group-addon">燃气烤箱品牌:</div>
+                                        <input id="brand3" class="inputclear form-control" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 form-group">
+                                    <div class="btn-group input-group">
+                                        <div class="input-group-addon">型号:</div>
+                                        <input id="model3" class="inputclear form-control" type="text" >
+                                    </div>
+                                </div>
+                                <div class="col-md-4 form-group">
+                                    <div class="btn-group input-group">
+                                        <div class="input-group-addon">数量:</div>
+                                        <input id="count3" class="inputclear form-control" type="text" >
+                                    </div>
+                                </div>
+                                <div class="col-md-4 form-group">
+                                    <div class="btn-group input-group">
+                                        <div class="input-group-addon">燃气灶具品牌:</div>
+                                        <input id="brand4" class="inputclear form-control" type="text" >
+                                    </div>
+                                </div>
+                                <div class="col-md-4 form-group">
+                                    <div class="btn-group input-group">
+                                        <div class="input-group-addon">型号:</div>
+                                        <input id="model4" class="inputclear form-control" type="text" >
+                                    </div>
+                                </div>
+                                <div class="col-md-4 form-group">
+                                    <div class="btn-group input-group">
+                                        <div class="input-group-addon">数量:</div>
+                                        <input id="count4" class="inputclear form-control" type="text" >
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/row-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tabbable tabbable-custom tabbable-custom-profile col-md-12" style="padding-bottom:0px">
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#tab33" data-toggle="tab">
+                            结果反馈 </a>
+
+                    </li>
+                </ul>
+                <!--/row-->
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab33">
+                        <div class="portlet-body">
+                            <form action="javascript:;" role="form" id="resultForm" name="resultForm" style="padding-left: 50px;">
+                                <div>
+                                    <div class="row form-group">
+
+                                        <div class="btn-group input-group"  id="textbox" style="margin-bottom: 20px;height: 90px;">
+                                            <div class="input-group-addon">开栓结果：</div>
+                                            <input type="hidden" id="unboltResult" name="unboltResult"/>
+                                            <div style="height: 30px;">
+                                                <input type="checkbox" id="shuas" class="fors" value="2">刷栓合格&nbsp;&nbsp;&nbsp;
+                                                <input type="checkbox" id="jingy" class="fors" value="3"> 经仪器检查室内环境正常   &nbsp;&nbsp;&nbsp;
+                                                <input type="checkbox" id="fangs" class="fors" value="4"> 已放散   &nbsp;&nbsp;&nbsp;
+                                                <input type="checkbox" id="luj" class="fors" value="5"> 炉具点火正常   &nbsp;&nbsp;&nbsp;
+                                                <input type="checkbox" id="anq" class="fors" value="7"> 安全用气常识已交客户保存   &nbsp;&nbsp;&nbsp;
+                                                <input type="checkbox" id="zhangt" class="fors" value="8"> 张贴到访不遇通知单   &nbsp;&nbsp;&nbsp;
+                                            </div>
+                                            <div style="height: 30px;">
+                                                <div style="float:left;"><input id="dy" type="checkbox" class="fors" value="1"> 打压 </div>
+                                                <div id="suppressMmho" name="suppressMmho" style="float:left;width: 30px;height: 15px; border: 1px solid #C0CFDD;margin-left: 5px;margin-right: 5px;"></div>
+                                                <div style="float:left;">mmH2O</div>
+                                                <div id="suppressQualified" name="suppressQualified" style="float:left;width: 30px;height: 15px; border: 1px solid #C0CFDD;margin-left: 5px;margin-right: 5px"></div>
+                                                分钟合格   &nbsp;&nbsp;&nbsp;
+                                            </div>
+                                            <div style="height: 30px;" >
+                                                <div style="float:left;"><input id="zqy" type="checkbox" class="fors" value="6"> 灶前压力 </div>
+                                                <div id="stovePressureMmho" name="stovePressureMmho" style="float:left;width: 30px;height: 15px; border: 1px solid #C0CFDD;margin-left: 5px;margin-right: 5px;"></div>
+                                                <div style="float:left;">mmH2O</div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col-sm-3 form-group">
+                                            <div class="btn-group input-group input-select2me"  style="width: 100% !important;">
+                                                <div class="input-group-addon">用户满意情况：</div>
+                                                <select id="customerSatisfactionFlag" name="customerSatisfactionFlag" class="select2-container form-control select2me" data-placeholder="请选择...">
+                                                    <option value=""></option>
+                                                    <option value="1">满意</option>
+                                                    <option value="2">不满意</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 form-group">
+                                            <div class="btn-group input-group input-select2me"  style="width: 100% !important;">
+                                                <div class="input-group-addon">回访用户意见：</div>
+                                                <select id="revisitCustomerCommentsFlag" name = "revisitCustomerCommentsFlag" class="select2-container form-control select2me" data-placeholder="请选择...">
+                                                    <option value=""></option>
+                                                    <option value="1">满意</option>
+                                                    <option value="2">不满意</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 form-group">
+                                            <div class="btn-group input-group input-select2me"  style="width: 100% !important;">
+                                                <div class="input-group-addon">维修员：</div>
+                                                <select id="repairer" name = "repairer" class="select2-container form-control select2me" data-placeholder="请选择...">
+                                                    <option value=""></option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 form-group">
+                                            <div class="btn-group input-group">
+                                                <div class="input-group-addon">审核：</div>
+                                                <input id="examiner" name="examiner" class="inputclear form-control" type="text" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col-md-3 form-group">
+                                            <div class="btn-group input-group">
+                                                <div class="input-group-addon">回访人：</div>
+                                                <input id="visitor" name="visitor" class="inputclear form-control" type="text" />
+
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-4 form-group">
+                                            <div class="btn-group input-group" style="width: 100% !important;">
+                                                <div class="input-group-addon">回访时间：</div>
+                                                <input id="revisitTime" name="revisitTime" class="form-control form-control-inline  form_accuracy_datetime" size="16" type="text" >
+
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4 form-group">
+                                            <div class="btn-group input-group" style="width: 100% !important;">
+                                                <div class="input-group-addon">工单返营业室时间：</div>
+                                                <input id="workBillBackTime" name="workBillBackTime" class="form-control form-control-inline  form_accuracy_datetime" size="16" type="text" >
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col-sm-6 form-group">
+                                            <div class="btn-group input-group">
+                                                <div class="input-group-addon">用户对维修内容、结果、服务质量确认后签字：</div>
+                                                <input id="customerSignName" name="customerSignName" class="inputclear form-control" type="text" />
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 form-group">
+                                            <div class="btn-group input-group" style="width: 100% !important;">
+                                                <div class="input-group-addon">备注：</div>
+                                                <input id="remark" name="remark" class="inputclear form-control" type="text" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+
+                            <!--/row-->
+                            <script>$.include("common/picture.shtml")</script>
+                        </div>
+                    </div>
+                </div>
+                <div class="tabbable tabbable-custom tabbable-custom-profile col-md-12" style="padding-bottom:0px">
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#tab22" data-toggle="tab">
+                           核对信息 </a>
+
+                    </li>
+                </ul>
+                <!--/row-->
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab21">
+                        <div class="portlet-body">
+                            <div class="row form-group">
+                                <div class="col-sm-3 form-group">
+                                    <div class="btn-group input-group input-select2me"  style="width: 100% !important;">
+                                        <div class="input-group-addon">用气性质：</div>
+                                        <select id="gasTypeId" name = "gasTypeId" class="select2-container form-control select2me" data-placeholder="请选择..." >
+                                            <option value=""></option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <div id="jujue" class="modal fade" tabindex="-1" data-width="400">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                <h4 class="modal-title">驳回原因</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <p>
+                                            <textarea id="backReason"  value="" maxlength="2000" size="2000" class="col-md-12 form-control"></textarea>
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" data-dismiss="modal" class="btn">关闭</button>
+                                <button type="button" id='bak_btn' data-dismiss="modal" class="btn blue">提交</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="btn-group form-group">
+                    <input type="button" id="save_btn" class="btn green off" value="执行">
+                </div>
+                <div class="btn-group form-group">
+                    <a class='pull-right btn btn-sm btn-circle red' data-toggle='modal' href='#jujue'>
+                        驳回
+                    </a>
+                    <!--<input type="button" id="bak_btn" class="btn blue off" data-toggle='modal' href='#jujue' value="驳回">-->
+                </div>
+                <div class="btn-group form-group">
+                    <input type="button" id="cencel_btn" class="btn blue off" value="取消">
+                </div>
+
+
+
+                <!-- 内容结束-->
+            </div>
+        </div>
+        <!-- 主内容结束 -->
+    </div>
+</div>
+<script type="text/javascript">$.include("pages/partial/xwatable-form.shtml")</script>
+
+<!-- 底边栏开始 -->
+<script>$.include("pages/partial/foot.shtml");</script>
+<!-- 底边栏结束 -->
+</body>
+
+
+<script>$.include("pages/partial/scripts.shtml");</script>
+<script src="assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-watable/jquery.watable.js"></script>
+<script type="text/javascript" src="pages/scripts/rqlbuilder.js"></script>
+<script type="text/javascript" src="pages/scripts/xwatable.js"></script>
+<script type="text/javascript" src="pages/scripts/refhelper.js"></script>
+
+<script src="pages/scripts/jquery.json.min.js"></script>
+<script type="text/javascript" src="pages/scripts/jquery.serialize-object.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+<script src="pages/scripts/jquery.json.min.js"></script>
+<script type="text/javascript" src="pages/scripts/enumUtil.js"></script>
+<script type="text/javascript" src="pages/scripts/jquery.serialize-object.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script src="assets/admin/pages/scripts/components-pickers.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-multi-select/js/jquery.multi-select.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-daterangepicker/moment.min.js"></script>
+
+<script src="serviceManage/dispatching_manage/js/accounter_scattered.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        ScatteredServe.init();
+        ComponentsPickers.init();
+    });
+</script><!-- End of User Script-->
+</html>
+

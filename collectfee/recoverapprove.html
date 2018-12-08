@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>收费管理</title>
+    <style>
+        #search {
+            width: 100%;
+            margin: 0 auto;
+            text-align: center;
+        }
+    </style>
+    <base href="../">
+    <meta charset="UTF-8">
+    <script src="pages/scripts/basepath.js"></script>
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-select/bootstrap-select.min.css">
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/select2/select2.css">
+    <script src="pages/scripts/header.js"></script>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8" />
+    <link href="assets/global/css/plugins.css" rel="stylesheet" type="text/css" />
+    <link href='assets/global/plugins/jquery-watable/watable.css' rel='stylesheet' />
+    <link href="assets/global/plugins/bootstrap-fileinput/fileinput.min.css" rel="stylesheet">
+    <style>
+        #divtable {
+            display: none;
+        }
+
+        .table td {
+            vertical-align: middle !important;
+        }
+    </style>
+</head>
+
+<body class="page-header-fixed page-quick-sidebar-over-content">
+    <script>
+        $.include("collectfee/partial/customerinfo.shtml");
+
+        $.include("collectfee/partial/recover.shtml");
+        $.include("collectfee/partial/ctmaccountinfo.shtml");
+    </script>
+    <div class="page-header navbar navbar-fixed-top">
+        <script>
+            $.include("pages/partial/menu.shtml");
+        </script>
+    </div>
+
+    <div class="clearfix"></div>
+    <div class="page-container">
+        <!-- 左侧菜单开始 -->
+        <div class="page-sidebar-wrapper">
+            <script>
+                $.include("pages/partial/sidebar.shtml");
+            </script>
+        </div>
+        <!-- 左侧菜单结束 -->
+        <div id="gfdata"></div>
+        <!-- 主内容开始 -->
+        <div class="page-content-wrapper">
+            <div class="page-content">
+                <!--内容头开始-->
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul class="page-breadcrumb breadcrumb">
+                            <li>
+                                <i class="fa  fa-map-marker"></i>
+                                <a href="index.html">收费管理</a>
+                                <i class="fa fa-angle-right"></i>
+                            </li>
+                            <li>
+                                <a href="index.html">追补追缴管理</a>
+                                <i class="fa fa-angle-right"></i>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">追补管理</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tabbable tabbable-custom tabbable-custom-profile col-md-12" style="padding-bottom:0px">
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#tab22" data-toggle="tab" style="font-size: 14px;color: blue;">
+                            追补操作</a>
+
+                        </li>
+                    </ul>
+                    <!--/row-->
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tab22">
+                            <div class="portlet-body">
+                                <!-- begin form-->
+                                <div class="form-body">
+                                    <div class="row form-group">
+                                        <div class="col-sm-3 form-group">
+                                            <div class="btn-group input-group">
+                                                <div class="input-group-addon">追补气费:</div>
+                                                <input id="recovermoney" disabled="disabled" name="linkMan" placeholder="￥金额" class="inputclear form-control" type="number">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 form-group">
+                                            <div class="btn-group input-group">
+                                                <div class="input-group-addon">追补气量:</div>
+                                                <input id="recovergas" disabled="disabled" name="linktel" class="inputclear form-control" placeholder="气量 m³" type="number">
+
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-3 form-group">
+                                            <div class="btn-group input-group" style="width: 100%">
+                                                <div class="input-group-addon">追补原因类型:</div>
+                                                <select id="recovertype" disabled="disabled" class="form-control input-middle select2me" data-placeholder="追补原因类型">
+                                                <option value="">请选择</option>
+                                                <option value="1">死表</option>
+                                                <option value="2">下线表用量未收费</option>
+                                                <option value="4">顺价追补气费</option>
+                                                <option value="3">其他</option>
+                                            </select>
+                                                <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row form-group">
+
+                                        <div class="col-sm-6 form-group">
+                                            <div class="btn-group input-group" style="width: 100%">
+                                                <div class="input-group-addon">追补原因说明:</div>
+                                                <textarea id="recover_reason_detail" disabled="disabled" class="inputclear form-control"></textarea>
+                                                <span class="inputclear glyphicon glyphicon-remove-circle hide"></span>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--end form-->
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div id="divChgContainer" class="tabbable tabbable-custom tabbable-custom-profile col-md-12" style="padding-bottom:0px;">
+                <ul class="nav nav-tabs">
+                    <li role="presentation" id="gas" class="active">
+                        <a id="tabGas" href="#gasFee" aria-controls="gasFee" role="tab" data-toggle="tab">追补气量</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="recoverInfo">
+                        <div data-always-visible="1" data-rail-visible="1">
+                            <table class="watable table table-striped table-hover table-bordered table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            追补气量
+                                        </th>
+                                        <th>
+                                            追补气费
+                                        </th>
+                                        <th>
+                                            追补原因
+                                        </th>
+                                        <th>
+                                            追补类型原因
+                                        </th>
+                                        <th>
+                                            追补时间
+                                        </th>
+                                        <th>
+                                            操作员
+                                        </th>
+                                        <th>
+                                            营业网点
+                                        </th>
+                                    </tr>
+                                </thead>
+
+                                <tbody id="_recoverInfo">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+                $.include("examine/commons/commit_examine_common.shtml");
+    </script>
+
+    <div id="tab_ctm" class="tab-pane" role="tabpanel">
+    </div>
+    <div id="tab_customer" class="tab-pane" role="tabpanel">
+    </div>
+
+    <!--收费历史modal-->
+    <div class="modal fade" id="payHistoryModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog">
+            <div id="mcontentc" class="modal-content">
+
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="mtdHistoryModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog">
+            <div id="mcontent" class="modal-content">
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="hzqModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog">
+            <div id="mcontent" class="modal-content">
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 底边栏开始 -->
+    <script>
+        $.include("pages/partial/foot.shtml");
+    </script>
+    <script type="text/javascript">
+        $.include("pages/partial/xwatable-form.shtml")
+    </script>
+</body>
+
+<script>
+        $.include("pages/partial/scripts.shtml");
+
+</script>
+
+<script src="assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-watable/jquery.watable.js"></script>
+<script type="text/javascript" src="pages/scripts/rqlbuilder.js"></script>
+<script type="text/javascript" src="pages/scripts/xwatable.js"></script>
+<script type="text/javascript" src="pages/scripts/refhelper.js"></script>
+
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script src="assets/admin/pages/scripts/components-pickers.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+<script src="pages/scripts/jquery.json.min.js"></script>
+<script type="text/javascript" src="pages/scripts/jquery.serialize-object.min.js"></script>
+<script type="text/javascript" src="collectfee/js/charge.js"></script>
+<script type="text/javascript" src="collectfee/js/localservice.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-fileinput/fileinput.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-fileinput/zh.js"></script>
+<!-- 底边栏结束 -->
+<script type="text/javascript">
+    $(function () {
+        $(".tab-content").delegate("a[hzq-type=remoteModal]", "click", function (obj) {
+            var $targetModal = $($(obj.target).attr("hzq-modal"));
+            var targetPath = $(obj.target).attr("hzq-remote");
+            var fnstring = $(obj.target).attr("hzq-cb");
+            var param = $(obj.target).attr("hzq-param");
+            $targetModal.modal({
+                show: true
+            })
+            $targetModal.unbind("show.bs.modal").on("show.bs.modal", function (e) {
+                $(e.currentTarget).find("#mcontent").empty();
+            });
+            $targetModal.unbind("shown.bs.modal").on("shown.bs.modal", function (e) {
+                // 加载数据模板
+                //console.log($(e.currentTarget));
+                $(e.currentTarget).find("#mcontent").load(targetPath, function () {
+                    if (fnstring) {
+                        var fn = window[fnstring];
+                        //console.log(param);
+                        if (typeof fn === "function") fn.call(null, JSON.parse(param));
+                        window[fnstring] = undefined;
+
+                        //if (typeof fn === "function") fn.call(null, param );
+                    }
+                });
+            });
+            $targetModal.on("hidden.bs.modal", function () {
+                $(this).removeData("bs.modal");
+            });
+        });
+    });
+    $(document).ready(function () {
+        var xw1;
+        var recoverId = JSON.parse(step.propstr2048).recoverId;
+        var customerCode = JSON.parse(step.propstr2048).customerCode;
+        // var fileId = JSON.parse(step.propstr2048).file_id;
+        // if (fileId) {
+        //     pic(fileId);
+        // }
+
+        $.ajax({
+            url: "hzqs/hzqrest/gaschgrecover/" + recoverId,
+            //url: "hzqs/dbc/pbsel.do?fh=SELDBC0000000J00&resp=bd",
+            type: "GET",
+            async: false,
+            contentType: "application/json;charset=utf-8",
+            success: function (data) {
+                if (data) {
+                    var data = data.rows[0];
+                    $("#recovermoney").val(data.recoverMoney);
+                    $("#recovergas").val(data.recoverGas);
+                    $("#recovertype").val(data.recoverType);
+                    $("#recover_reason_detail").val(data.recoverReasonDetail);
+                    //$("#lost_reason").val(data.)
+                } else {
+
+                }
+            },
+            error: function () {
+
+            }
+        });
+    });
+
+    // //继续时调用
+    // function doNext(step) {
+    //     //console.log(step);
+    //     var errorApplyId = JSON.parse(step.propstr2048).complementId;
+    //     //console.log("--------");
+    //     //console.log(step);
+    //     var statusJson = {
+    //         "applyState": step.result == "1" ? "3" : "1",
+    //         "approveTime": new Date().getTime(),
+    //         "approveGas": $("#approvegas").val(),
+    //     }
+    //     Restful.update("hzqs/hzqrest/gaschgrecover/", errorApplyId, statusJson);
+    //     window.location.href = 'index.html';
+    // }
+    function doBusi(step) {
+        // console.log("++++++++");
+        //console.log(step);
+        var applyState = "1";
+        if (step.results == "1") {
+            applyState = "3";
+        } else if (step.results == "0") {
+            applyState = "2";
+        }
+        var recoverId = JSON.parse(step.propstr2048).recoverId;
+        $.ajax({
+            url: "hzqs/hzqrest/gaschgrecover/" + recoverId,
+            type: "PUT",
+            dataType: "json",
+            async: false,
+            data: JSON.stringify({
+                "status": applyState,
+                "modifiedTime": moment().format("YYYY-MM-DD hh:mm:ss")
+            }),
+            success: function (data) {
+                var finishTimeJson;
+                finishTimeJson = {
+                    "finishTime": new Date()
+                }
+
+                //var finishtime = new Date().getMonth + new Date().getDay;
+                var a = Restful.update("/hzqs/dbc/pbtxs.do?fh=SELDBC0000000J00&resp=bd", recoverId, finishTimeJson);
+            }
+        });
+    }
+
+</script>
+<script type="text/javascript" src="../assets/global/plugins/select2/select2.js"></script>
+
+</html>

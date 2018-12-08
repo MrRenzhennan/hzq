@@ -1,0 +1,10 @@
+{"rows":
+[
+  {"serialNumber":"01","cusNumber":"客户号一","cusName":"客户名一","tableDoorName":"表户名一","avermonthlyconsumption":"0","haveGasCourse":"用户正常用气"}
+,{"serialNumber":"02","cusNumber":"客户号二","cusName":"客户名二","tableDoorName":"表户名二","avermonthlyconsumption":"100","haveGasCourse":"表具维修完成"}
+
+]
+,"total_rows":2
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

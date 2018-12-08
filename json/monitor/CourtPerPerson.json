@@ -1,0 +1,18 @@
+[
+  {"courtId":"C001",
+    "counts":[{"name":"李明","count":80},{"name":"赵亚杰","count":230},{"name":"方锐","count":10},{"name":"李渊","count":98},{"name":"彭毅","count":103},{"name":"杨帆","count":79}]
+  },
+  {"courtId":"C002",
+    "counts":[{"name":"李明","count":90},{"name":"赵亚杰","count":168},{"name":"方锐","count":199},{"name":"李渊","count":220},{"name":"彭毅","count":92},{"name":"杨帆","count":31}]
+  },
+  {"courtId":"C003",
+    "counts":[{"name":"李明","count":208},{"name":"赵亚杰","count":982},{"name":"方锐","count":190},{"name":"李渊","count":540},{"name":"彭毅","count":290},{"name":"杨帆","count":390}]
+  },
+  {"courtId":"C004",
+    "counts":[{"name":"李明","count":203},{"name":"赵亚杰","count":190},{"name":"方锐","count":90},{"name":"李渊","count":352},{"name":"彭毅","count":200},{"name":"杨帆","count":265}]
+  },
+  {"courtId":"C005",
+    "counts":[{"name":"李明","count":90},{"name":"赵亚杰","count":26},{"name":"方锐","count":109},{"name":"李渊","count":204},{"name":"彭毅","count":102},{"name":"杨帆","count":189}]
+  }
+]
+

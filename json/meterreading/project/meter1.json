@@ -1,0 +1,9 @@
+{"rows":
+[
+  {"versionID":"9133","versionID1":"2015","UUID":"9133","gasCategory":"00439","gasType":"2342","gasStart":"716","gasEnd":"2341","gasEnd1":"","price":"3.5.6.9.A.B","changeTime":"28号","effectTime":"半年计划","effectTime1":"张三","effectTime2":"赵四","effectTime3":"漏抄","effectTime4":"半年计划","effectTime5":"未提交","effectTime6":"2014年度","effectTime7":"2015/2/28","effectTime8":"2015/10/28","effectTime9":"已审批","effectTime10":"已审批"}
+  ,{"versionID":"9129","versionID1":"2015","gasCategory":"00269","gasType":"2342","gasStart":"716","gasEnd":"2342","gasEnd1":"","price":"全年","changeTime":"1号","effectTime":"年抄计划","effectTime1":"李四","effectTime2":"王朝","effectTime3":"漏抄","effectTime4":"年抄计划","effectTime5":"已提交","effectTime6":"2014年度","effectTime7":"2014/12/26","effectTime8":"2015/12/26","effectTime9":"已审批","effectTime10":"未审批"}
+,{"versionID":"9131","versionID1":"2015","gasCategory":"00345","gasType":"2342","gasStart":"716","gasEnd":"2343","gasEnd1":"","price":"3.9","changeTime":"28号","effectTime":"月抄计划","effectTime1":"王五","effectTime2":"马汉","effectTime3":"漏抄","effectTime4":"月抄表计划","effectTime5":"未提交","effectTime6":"2014年度","effectTime7":"2015/2/28","effectTime8":"2016/9/28","effectTime9":"未审批","effectTime10":"未审批"}]
+,"total_rows":1
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

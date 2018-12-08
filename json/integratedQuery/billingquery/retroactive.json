@@ -1,0 +1,10 @@
+{"rows":
+[
+  {"serialNumber":"01","gasArea":"供气区域一","cusSerOfficer":"客户服务员一","bookNum":"本号一","cusNumber":"客户号一","CusName":"客户名一","retroactiveDate":"2017-01-01","SuppVolume":"20","retroactiveCost":"200","retroactivePeo":"追补人一","retroactiveReason":"补基本费差"}
+,{"serialNumber":"02","gasArea":"供气区域二","cusSerOfficer":"客户服务员二","bookNum":"本号二","cusNumber":"客户号二","CusName":"客户名二","retroactiveDate":"2017-01-02","SuppVolume":"50","retroactiveCost":"500","retroactivePeo":"追补人二","retroactiveReason":"死表"}
+
+]
+,"total_rows":1
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

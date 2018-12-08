@@ -1,0 +1,15 @@
+{"rows":
+[
+  {"UUID":"001","ID":"1","meter_reading_ID":"26383","repair_order_name":"装表派工单","user_ID":"113295115","user_Name":"张三1(无身份证号)","user_address":"道里区安达街26号4单元3层1室","meter_name":"默认表户","repair_order_status":"已派工"}
+, {"UUID":"002","ID":"2","meter_reading_ID":"26383","repair_order_name":"装表派工单","user_ID":"113295115","user_Name":"张三2(无身份证号)","user_address":"道里区安达街26号4单元3层2室","meter_name":"默认表户","repair_order_status":"已录入"}
+, {"UUID":"003","ID":"3","meter_reading_ID":"26383","repair_order_name":"装表派工单","user_ID":"113295115","user_Name":"张三3(无身份证号)","user_address":"道里区安达街26号4单元3层3室","meter_name":"默认表户","repair_order_status":"已录入"}
+, {"UUID":"004","ID":"4","meter_reading_ID":"26383","repair_order_name":"装表派工单","user_ID":"113295115","user_Name":"张三4(无身份证号)","user_address":"道里区安达街26号4单元4层1室","meter_name":"默认表户","repair_order_status":"已录入"}
+, {"UUID":"005","ID":"5","meter_reading_ID":"26383","repair_order_name":"装表派工单","user_ID":"113295115","user_Name":"张三5(无身份证号)","user_address":"道里区安达街26号4单元4层2室","meter_name":"默认表户","repair_order_status":"已派工"}
+, {"UUID":"006","ID":"6","meter_reading_ID":"26383","repair_order_name":"装表派工单","user_ID":"113295115","user_Name":"张三6(不提供身份证号)","user_address":"道里区安达街26号4单元4层3室","meter_name":"默认表户","repair_order_status":"已录入"}
+, {"UUID":"007","ID":"7","meter_reading_ID":"26383","repair_order_name":"换表派工单","user_ID":"113295115","user_Name":"张三7(无身份证号)","user_address":"道里区安达街26号4单元5层1室","meter_name":"默认表户","repair_order_status":"已录入"}
+, {"UUID":"008","ID":"8","meter_reading_ID":"26383","repair_order_name":"换表派工单","user_ID":"113295115","user_Name":"张三8(无身份证号)","user_address":"道里区安达街26号4单元5层2室","meter_name":"默认表户","repair_order_status":"已录入"}
+]
+,"total_rows":1
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

@@ -1,0 +1,11 @@
+{"rows":
+[
+  {"versionID":"9129","gasCategory":"史南南","gasType":"342","gasStart":"236","gasEnd":"5","gasEnd1":"华联超市","gasEnd2":"","price":"376","changeTime":"28号","effectTime":"4","effectTime1":"民安小区45#","effectTime2":"0511","effectTime3":"已下装（未提交）","effectTime4":"采集器上传"}
+  ,{"versionID":"9129","gasCategory":"马大帅","gasType":"342","gasStart":"226","gasEnd":"5","gasEnd1":"华联超市","gasEnd2":"","price":"412","changeTime":"28号","effectTime":"4","effectTime1":"民安小区46#","effectTime2":"0511","effectTime3":"已下装（未提交）","effectTime4":"采集器上传"}
+,{"versionID":"9129","gasCategory":"秦熊","gasType":"442","gasStart":"377","gasEnd":"5","gasEnd1":"华联超市","gasEnd2":"","price":"344","changeTime":"28号","effectTime":"5","effectTime1":"民安小区47#","effectTime2":"0511","effectTime3":"已下装（未提交）","effectTime4":"采集器上传"}
+,{"versionID":"9129","gasCategory":"罗美华","gasType":"444","gasStart":"188","gasEnd":"5","gasEnd1":"华联超市","gasEnd2":"","price":"541","changeTime":"28号","effectTime":"5","effectTime1":"民安小区35#","effectTime2":"0511","effectTime3":"已下装（未提交）","effectTime4":"采集器上传"}
+]
+,"total_rows":1
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]>
+<html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+
+<!-- BEGIN HEAD -->
+<head>
+    <title>用户数量业务完成统计</title>
+    <base href="../">
+    <script src="../pages/scripts/basepath.js"></script>
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-select/bootstrap-select.min.css">
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/select2/select2.css">
+    <script src="../pages/scripts/header.js"></script>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8"/>
+    <link href='../assets/global/plugins/jquery-watable/watable.css' rel='stylesheet'/>
+    <link href='../assets/global/plugins/jquery-watable/animate.min.css' rel='stylesheet'/>
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.css"/>
+    <link href='../assets/global/plugins/bootstrap-datetimepicker/css/datetimepicker.css' rel='stylesheet'/>
+
+    <!--datapicker css start-->
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-datepicker/css/datepicker3.css"/>
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-colorpicker/css/colorpicker.css"/>
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css"/>
+    <link rel="stylesheet" type="text/css" href="../assets/global/plugins/bootstrap-datetimepicker/css/datetimepicker.css"/>
+    <link href='../assets/global/css/bootstrap-monthpicker.css' rel='stylesheet'/>
+    <!--datapicker end-->
+
+    <link rel="stylesheet" href="../statement/css/3.3.7/bootstrap.min.css">
+    <!--datapicker end-->
+    <style>
+        @media print {
+            .noneprint {
+                display: none;
+            }
+        }
+        .input-group-addon{
+            border:none;
+        }
+
+        .tabPrint td {
+            /*border-left: #000000 solid 1px;*/
+            /*border-top: #000000 solid 1px;*/
+            height: 21px;
+        }
+
+        table.tabPrint {
+            /*border-right: #000000 solid 1px;*/
+            /*border-bottom: #000000 solid 1px;*/
+        }
+        .modal-dialog{
+            margin-top: 50px;
+        }
+        .nextPage {
+            page-break-after: always;
+        }
+
+        .linetd {
+            border-bottom: solid 1px #000;
+        }
+    </style>
+</head>
+<!-- END HEAD -->
+
+<body class="page-header-fixed page-quick-sidebar-over-content">
+
+<!-- 标题栏开始 -->
+<div class="page-header navbar navbar-fixed-top">
+    <script>$.include("pages/partial/menu.shtml");</script>
+</div>
+<!-- 标题栏结束 -->
+<div class="clearfix"></div>
+<div class="page-container">
+    <!-- 左侧菜单开始 -->
+    <div class="page-sidebar-wrapper">
+        <script>$.include("pages/partial/sidebar.shtml");</script>
+    </div>
+    <!-- 左侧菜单结束 -->
+
+    <!-- 主内容开始 -->
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <!--内容头开始-->
+            <!--内容头开始-->
+            <script>$.include("common/navigation_bar.shtml");</script>
+            <!-- 内容头结束-->
+
+            <!-- 内容开始-->
+
+            <div class="container col-sm-12 noneprint" style="padding-bottom:0px">
+                <div class="row">
+
+                    <div class="col-sm-3 form-group">
+                        <div class="btn-group input-group">
+                            <div class="input-group-addon" style="border:0px;">月份：</div>
+                            <div id="div_date" class="input-group input-daterange" data-date="11/2012" data-date-format="yyyy年mm月">
+                                <input id="find_date" type="text" class="form-control" name="from">
+                                <span class="inputclear glyphicon glyphicon-remove-circle hidden" ></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 form-group">
+                    </div>
+                    <div class="col-sm-3 form-group">
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <button id="find_sign" type="button" class="btn yellow">
+                                查询 <i class="fa fa-search"></i>
+                            </button>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <button id="btn_print_page" onclick="window.print()" type="button" class="btn gray disabled" >
+                                打印<i class="glyphicon"></i>
+                            </button>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <button id="btn_down_detail" type="button" class="btn gray disabled export-excel">
+                                导出<i class="glyphicon"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 内容头结束-->
+
+            <div class="container-fluid">
+                <div>
+                    <table cellSpacing="0" cellPadding="2" width="95%" align="center" border="0">
+                        <tr>
+                            <td id="title" align="center" title="">哈中庆营业分公司用户数量业务完成统计表</td>
+                        </tr>
+                    </table>
+                </div>
+                <br/>
+                <div>
+                    <table cellSpacing="0" cellPadding="2" width="95%" align="center" border="0">
+                        <tr>
+                            <td id="head_r0_c1" rowspan="1" colspan="1" width="85%" align="left">制表单位：<span id="areaId">哈尔滨中庆燃气有限责任公司营业部</span></td>
+                            <td id="head_r0_c2" rowspan="1" colspan="1"></td>
+                            <td id="head_r0_c3" rowspan="1" colspan="1"></td>
+                            <td id="head_r0_c4" rowspan="1" colspan="1"></td>
+                            <td id="head_r0_c5" rowspan="1" colspan="1"></td>
+                            <td id="head_r0_c6" rowspan="1" colspan="1"></td>
+                            <td id="head_r0_c7" rowspan="1" colspan="1"></td>
+                            <td id="head_r0_c8" rowspan="1" colspan="1"></td>
+                            <td id="head_r0_c9" rowspan="1" colspan="1"></td>
+                            <td id="head_r0_c10" rowspan="1" colspan="1"></td>
+                            <td id="head_r0_c11" rowspan="1" colspan="1"></td>
+                            <td id="head_r0_c12" rowspan="1" colspan="1"></td>
+                            <td id="head_r0_c13" rowspan="1" colspan="1"></td>
+                            <td id="head_r0_c14" rowspan="1" colspan="1"></td>
+                            <td id="head_r0_c15" rowspan="1" colspan="1"></td>
+                            <td id="head_r0_c16" rowspan="1" colspan="1"></td>
+                            <td id="head_r0_c17" rowspan="1" colspan="1"></td>
+                            <td id="head_r0_c18" rowspan="1" colspan="1"></td>
+                            <td id="head_r0_c19" rowspan="1" colspan="1"></td>
+                            <td id="head_r0_c20" rowspan="1" colspan="1"></td>
+                            <td id="head_r0_c21" rowspan="1" colspan="1"></td>
+                            <td id="head_r0_c22" rowspan="1" colspan="1"></td>
+                            <td id="head_r0_c23" rowspan="1" colspan="1"></td>
+                            <td id="head_r0_c24" rowspan="1" colspan="1"></td>
+                            <td id="head_r0_c25" rowspan="1" colspan="1" width="20%" align="right"></td>
+                        </tr>
+                    </table>
+                </div>
+                <table class="tabPrint table-bordered table-hover table-condensed " align="center" width="95%" cellSpacing="0" cellPadding="0" border="0"
+                       ID="Table2">
+                    <thead style="display:table-header-group;font-weight:bold" mce_style="display:table-header-group;font-weight:bold">
+                    <tr align="center">
+                        <td id="thead_r1_c1" rowspan="1" colspan="1">单位</td>
+                        <td id="thead_r1_c2" rowspan="1" colspan="1">客户类别</td>
+                        <td id="thead_r1_c3" rowspan="1" colspan="1">用气类型</td>
+                        <td id="thead_r1_c4" rowspan="1" colspan="1">期初管理户数</td>
+                        <td id="thead_r1_c5" rowspan="1" colspan="1">期初正常用气户数</td>
+                        <td id="thead_r1_c6" rowspan="1" colspan="1">期初未开栓户数</td>
+                        <td id="thead_r1_c7" rowspan="1" colspan="1">期初暂停户数</td>
+                        <td id="thead_r1_c8" rowspan="1" colspan="1">期初拆除户数</td>
+                        <td id="thead_r1_c9" rowspan="1" colspan="1">期初长期不用气户数</td>
+                        <td id="thead_r1_c26" rowspan="1" colspan="1">期初IC卡户数</td>
+                        <td id="thead_r1_c10" rowspan="1" colspan="1">新开栓户数</td>
+                        <td id="thead_r1_c11" rowspan="1" colspan="1">累计新开栓户数</td>
+                        <td id="thead_r1_c12" rowspan="1" colspan="1">民转商户数</td>
+                        <td id="thead_r1_c13" rowspan="1" colspan="1">商转民户数</td>
+                        <td id="thead_r1_c14" rowspan="1" colspan="1">新增低保</td>
+                        <td id="thead_r1_c15" rowspan="1" colspan="1">取消低保</td>
+                        <td id="thead_r1_c16" rowspan="1" colspan="1">新增低困、低收入</td>
+                        <td id="thead_r1_c17" rowspan="1" colspan="1">取消低困、低收入</td>
+                        <td id="thead_r1_c18" rowspan="1" colspan="1">重新用气户数</td>
+                        <td id="thead_r1_c19" rowspan="1" colspan="1">暂停用气户数</td>
+                        <td id="thead_r1_c20" rowspan="1" colspan="1">本月拆除户数</td>
+                        <td id="thead_r1_c21" rowspan="1" colspan="1">本月长期不用气户数</td>
+                        <td id="thead_r1_c22" rowspan="1" colspan="1">本月取消长期不用气户数</td>
+                        <td id="thead_r1_c23" rowspan="1" colspan="1">家庭人口为1</td>
+                        <td id="thead_r1_c24" rowspan="1" colspan="1">家庭人口大于5</td>
+                        <td id="thead_r1_c25" rowspan="1" colspan="1">燃气费计费更正户数</td>
+                        <td id="thead_r1_c27" rowspan="1" colspan="1">垃圾费计费更正户数</td>
+                    </tr>
+                    </thead>
+                    <tbody id="tbody">
+
+                    </tbody>
+                </table>
+                <br/>
+                <div>
+                    <table cellSpacing="0" cellPadding="2" width="95%" align="center" border="0">
+                        <tr>
+                            <td id="foot_r0_c7" rowspan="1" colspan="3">制表人：<span></span></td>
+                            <td id="foot_r0_c8" rowspan="1" colspan="1" width="15%"></td>
+                            <td id="foot_r0_c9" rowspan="1" colspan="1"></td>
+                            <td id="foot_r0_c10" rowspan="1" colspan="1"></td>
+                            <td id="foot_r0_c11" rowspan="1" colspan="1" width="35%"></td>
+                            <td id="foot_r0_c12" rowspan="1" colspan="1"></td>
+                            <td id="foot_r0_c13" rowspan="1" colspan="1" width="20%"></td>
+                            <td id="foot_r0_c14" rowspan="1" colspan="3">填报日期：<span></span></td>
+                            <td id="foot_r0_c15" rowspan="1" colspan="1"></td>
+                        </tr>
+                    </table>
+                </div>
+                <br/><br/></div>
+            <!-- 内容结束-->
+        </div>
+    </div>
+    <!-- 主内容结束 -->
+</div>
+
+<!-- 底边栏开始 -->
+<script>$.include("pages/partial/foot.shtml");</script>
+<!-- 底边栏结束 -->
+</body>
+
+
+<script>$.include("pages/partial/scripts.shtml");</script>
+<!--跳到原稿-->
+<script src="../assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="../assets/global/plugins/jquery-watable/jquery.watable.js"></script>
+<script type="text/javascript" src="../pages/scripts/rqlbuilder.js"></script>
+<script type="text/javascript" src="../pages/scripts/xwatable.js"></script>
+<script type="text/javascript" src="../pages/scripts/refhelper.js"></script>
+
+<!--datapicker start-->
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript"
+        src="../assets/global/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/clockface/js/clockface.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-daterangepicker/moment.min.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+<script type="text/javascript" src="../assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script src="../assets/admin/pages/scripts/components-pickers.js"></script>
+
+<script type="text/javascript" src="../assets/global/plugins/select2/select2.js"></script>
+<script type="text/javascript" src="../assets/global/scripts/bootstrap-monthpicker.js"></script>
+
+
+<script src="../statement/js/libs/js-xlsx/xlsx.core.min.js" type="text/javascript"></script>
+<script src="../statement/js/libs/html2canvas/html2canvas.min.js" type="text/javascript"></script>
+<script src="../statement/js/tableExport.js" type="text/javascript"></script>
+<script src="mods/sys.js"></script>
+<script src="statement/js/statistics_user_num_busi.js"></script>
+
+</html>

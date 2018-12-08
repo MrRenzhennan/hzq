@@ -1,0 +1,13 @@
+{"rows":
+[
+  {"versionID":"默认表户","gasCategory":"336","gasType":"234","gasStart":"张三","gasEnd":"300","price":"李四","changeTime":"2016/5/8","effectTime":"居民","changePerson":"未审批","unionAccount":"","UUID":"1"}
+, {"versionID":"默认表户","gasCategory":"387","gasType":"242","gasStart":"张三","gasEnd":"312","price":"李四","changeTime":"2016/5/8","effectTime":"居民","changePerson":"未审批","unionAccount":"","UUID":"1"}
+,{"versionID":"默认表户","gasCategory":"298","gasType":"646","gasStart":"张三","gasEnd":"387","price":"李四","changeTime":"2016/5/8","effectTime":"居民","changePerson":"未审批","unionAccount":"","UUID":"1"}
+,{"versionID":"默认表户","gasCategory":"239","gasType":"345","gasStart":"张三","gasEnd":"412","price":"李四","changeTime":"2016/5/8","effectTime":"居民","changePerson":"未审批","unionAccount":"","UUID":"1"}
+,{"versionID":"默认表户","gasCategory":"278","gasType":"354","gasStart":"张三","gasEnd":"400","price":"李四","changeTime":"2016/5/8","effectTime":"居民","changePerson":"未审批","unionAccount":"","UUID":"1"}
+
+]
+,"total_rows":1
+,"totalPages":1
+,"skip":0
+,"limit":2147483647}

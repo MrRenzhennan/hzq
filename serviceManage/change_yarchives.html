@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]>
+<html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh">
+<!--<![endif]-->
+
+<!-- BEGIN HEAD -->
+<head>
+    <title>客户档案变更</title>
+    <base href="../">
+    <script src="pages/scripts/header.js"></script>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8"/>
+
+    <link href='assets/global/plugins/jquery-watable/watable.css' rel='stylesheet'/>
+    <link href='assets/global/plugins/jquery-watable/animate.min.css' rel='stylesheet'/>
+
+    <link href="assets/global/plugins/bootstrap-fileinput/fileinput.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-select/bootstrap-select.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/select2/select2.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/jquery-multi-select/css/multi-select.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/global/plugins/bootstrap-datepicker/css/datepicker.css"/>
+    <link href='assets/global/plugins/bootstrap-datetimepicker/css/datetimepicker.css' rel='stylesheet'/>
+    <!-- BEGIN THEME STYLES -->
+    <link href="assets/global/css/components.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
+    <!-- END THEME STYLES -->
+    <style>
+        .radio {
+            margin-top:0 !important;
+        }
+    </style>
+</head>
+<!-- END HEAD -->
+<body class="page-header-fixed page-quick-sidebar-over-content">
+<!-- 标题栏开始 -->
+<div class="page-header navbar navbar-fixed-top">
+    <script>$.include("pages/partial/menu.shtml");</script>
+</div>
+<!-- 标题栏结束 -->
+<div class="clearfix"></div>
+<div class="page-container">
+    <!-- 左侧菜单开始 -->
+    <div class="page-sidebar-wrapper">
+        <script>$.include("pages/partial/sidebar.shtml");</script>
+    </div>
+    <!-- 左侧菜单结束 -->
+    <!-- 主内容开始 -->
+    <div class="page-content-wrapper">
+        <div class="page-content clearfix">
+            <!--内容头开始-->
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="page-breadcrumb breadcrumb">
+                        <li>
+                            <i class="fa  fa-map-marker"></i>
+                            <a href="javascript:void(0)">服务管理</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="serviceManage/business_process.html">综合业务办理</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">客户档案变更</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 内容头结束-->
+            <!--查询条件-->
+            <script>$.include("serviceManage/partial/select_user.shtml");</script>
+            <!--用户信息-->
+            <script>$.include("serviceManage/partial/user_info.shtml");</script>
+            <!--业务信息-->
+            <div class="tabbable tabbable-custom tabbable-custom-profile col-md-12" style="padding-bottom:0px">
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#tab_1_22" data-toggle="tab">
+                            登记信息 </a>
+
+                    </li>
+                </ul>
+                <!--/row-->
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab11">
+                        <div class="portlet-body">
+                            <div class="add-form">
+                                <!-- begin form-->
+                                <script>$.include("common/idcardread.shtml")</script>
+                                <form action="javascript:;" role="form" id="submitForm">
+                                    <div class="form-body">
+                                        <div class="row form-group">
+                                            <div class="col-sm-3 form-group">
+                                                <div class="btn-group input-group">
+                                                    <div class="input-group-addon">新客户名:</div>
+                                                    <input id="customerNames" name="customerName" class="inputclear form-control"
+                                                           type="text">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-3 form-group">
+                                                <div class="btn-group input-group input-select2me">
+                                                    <div class="input-group-addon">证件类型：</div>
+                                                    <select id= "idcard_type" name= "idcardType"  class="form-control input-middle select2me" data-placeholder="选择身份证类型...">
+                                                        <option value=""></option>
+                                                        <option value="1">营业执照</option>
+                                                        <option value="2">法人身份证</option>
+                                                        <option value="3">房产证</option>
+                                                        <option value="4">租房合同</option>
+                                                        <option value="5">居民身份证</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3 form-group">
+                                                <div class="btn-group input-group">
+                                                    <div class="input-group-addon">证件号码:</div>
+                                                    <input id="idcard" name="idcard" class="inputclear form-control" type="text">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3 form-group">
+                                                <div class="btn-group input-group">
+                                                    <div class="input-group-addon">新电话号码:</div>
+                                                    <input id="tel" name="tel" class="inputclear form-control" type="text">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row form-group">
+                                            <div class="col-sm-3 form-group">
+                                                <div class="btn-group input-group">
+                                                    <div class="input-group-addon">是否门市：</div>
+                                                    <div>
+                                                        <label class="checkbox-inline">
+                                                            <input type="radio" name="issalesRoom" value="0" checked
+                                                                   id="inlineCheckbox1"> 是
+                                                        </label>
+                                                        <label class="checkbox-inline">
+                                                            <input type="radio" name="issalesRoom" value="1"
+                                                                   id="inlineCheckbox2"> 否
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row form-group">
+                                            <div class="col-sm-12 form-group">
+                                                <div class="btn-group input-group">
+                                                    <div class="input-group-addon">新客户地址:</div>
+                                                    <input name="borough" class="inputclear form-control" type="text">
+                                                    <div class="input-group-addon">区</div>
+                                                    <input name="street" class="inputclear form-control" type="text">
+                                                    <div class="input-group-addon">路(街)</div>
+                                                    <input name="doorplateNum" class="inputclear form-control"
+                                                           type="text">
+                                                    <div class="input-group-addon">门牌号</div>
+                                                    <input name="district" class="inputclear form-control" type="text">
+                                                    <div class="input-group-addon">小区</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row form-group">
+                                            <div class="col-sm-8 form-group">
+                                                <div class="btn-group input-group">
+                                                    <input name="floorNum" class="inputclear form-control" type="text">
+                                                    <div class="input-group-addon">楼号</div>
+                                                    <input name="cell" class="inputclear form-control" type="text">
+                                                    <div class="input-group-addon">单元</div>
+                                                    <input name="storey" class="inputclear form-control" type="text">
+                                                    <div class="input-group-addon">层</div>
+                                                    <input name="roomNum" class="inputclear form-control" type="text">
+                                                    <div class="input-group-addon">室</div>
+                                                    <input name="subRoomNum" class="inputclear form-control"
+                                                           type="text">
+                                                    <div class="input-group-addon">分室</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </form>
+                                <script>$.include("common/gpyupload.shtml")</script>
+                                <!--end form-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script>$.include("serviceManage/partial/commit_print.shtml");</script>
+            <!-- 内容结束-->
+        </div>
+    </div>
+    <!-- 主内容结束 -->
+</div>
+</body>
+<script>$.include("pages/partial/scripts.shtml");</script>
+<script type="text/javascript" src="assets/global/plugins/jquery-watable/jquery.watable.js"></script>
+<script type="text/javascript" src="pages/scripts/rqlbuilder.js"></script>
+<script type="text/javascript" src="pages/scripts/xwatable.js"></script>
+<script type="text/javascript" src="pages/scripts/refhelper.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+
+<script type="text/javascript" src="assets/global/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/jquery-multi-select/js/jquery.multi-select.js"></script>
+
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script src="assets/admin/pages/scripts/components-pickers.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+
+
+<script type="text/javascript" src="assets/global/plugins/bootstrap-fileinput/fileinput.min.js"></script>
+<script type="text/javascript" src="assets/global/plugins/bootstrap-fileinput/zh.js"></script>
+<script src="pages/scripts/jquery.json.min.js"></script>
+<script type="text/javascript" src="pages/scripts/jquery.serialize-object.min.js"></script>
+<script type="text/javascript" src="serviceManage/js/change_yarchives.js"></script>
+<script type="text/javascript" src="serviceManage/js/domestic_population_change.js"></script>
+<script type="text/javascript" src="pages/scripts/validateCard.js"></script>
+<script type="text/javascript" src="mods/service.js"></script>
+<script type="text/javascript" >
+    ChangeYarchives.init();
+    SideBar.init();
+    SideBar.activeCurByPage("business_process.html");
+</script>
+</html>
